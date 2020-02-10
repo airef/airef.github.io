@@ -8713,6 +8713,7 @@ cUpTrain.relatedCommands = [];
 
 //up-train-site-ready
 cUpTrainSiteReady.shortDescription = "Check if a unit's training site is ready and available.";
+cUpTrainSiteReady.description = "Check if a unit's training site is ready and available.</p><p><strong>Important Note:</strong> Unit lines, negative unit IDs, or invalid unit Ids may result in a crash.</p><p>An alternative to this command is finding a building you want to check, setting it as the target object with " + cUpSetTargetObject.getLink() + " or " + cUpSetTargetById.getLink() + " and using " + cUpGetObjectData.getLink() + " like this:</p><div class=\"example\"><pre><code>(up-get-object-data object-data-progress-type gl-data)</pre></code></div><p> If 0 is stored in gl-data, then the building is not training or researching, and it is ready to train units.";
 cUpTrainSiteReady.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -10996,7 +10997,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-train-site",
 	id: 56,
-	description: "The " + pBuildingId + " that can train the object."
+	description: "The " + pBuildingId.getLink() + " that can train the object."
 }, {
 	name: "object-data-train-time",
 	id: 57,
