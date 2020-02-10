@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2 id="item-name"></h2>
+		<p id="item-details"></p>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "commands";
+		window.onhashchange = function() {
+			location.reload();
+		}
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script>
+		var item = window.location.href;
+		var index = item.indexOf("#");
+		item = item.slice(index + 1,item.length + 1);
+		document.getElementById("item-name").innerHTML = item;
+		
+		var info = "";
+		var i = 0;
+		while ( i < commandsArray.length) {
+			if ( commandsArray[i].commandName == item) {
+				info += "<p><h3>Description</h3></p>";
+				if (commandsArray[i].description == "") {
+					info += "<p> " + commandsArray[i].shortDescription + "</p>";
+				}
+				else {
+					info += "<p> " + commandsArray[i].description + "</p>";
+				}
+				info += "<h3>Syntax</h3><p>(<strong>" + commandsArray[i].commandName + "</strong>";
+					for (var j = 0; j < commandsArray[i].commandParameters.length; j++) {
+						info += " <span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
+						info += "<span class=\"dir-type\">" + commandsArray[i].commandParameters[j].type + "</span>";
+						info += commandsArray[i].commandParameters[j].nameLink;
+					}
+					info += ")</p><p>For more info on command syntax";
+					if (commandsArray[i].commandParameters.length > 0) {
+						for (var m = 0; m < commandsArray[i].commandParameters.length; m++) {
+							if (commandsArray[i].commandParameters[m].name != "compareOp" && commandsArray[i].commandParameters[m].name != "mathOp" && commandsArray[i].commandParameters[m].name != "typeOp") {
+								console.log(commandsArray[i].commandParameters[m].name);
+								info += " and what '";
+								info += commandsArray[i].commandParameters[m].dir + commandsArray[i].commandParameters[m].type;
+								info += "' and other parameter prefixes mean";
+								break;
+							}
+						}
+					}
+					info += ", read <a href=\"" + urlPrefix + "/resources/articles/intro-to-commands.html\">here</a>.</p>";
+				info += "<p><h3>Info</h3></p>";
+				info += "<p><table><tr><td>Command Type</td>";
+				switch (commandsArray[i].commandType) {
+				case "Fact": 
+					info += "<td>Fact. The command is a condition that must be true for the actions in the rule to be executed.</td>";
+					break;
+				case "Action":
+					info += "<td>Action. The command will execute if all the facts in the rule are true.</td>";
+					break;
+				case "Both":
+					info += "<td>Both. This command can be used as a fact or an action. When used as a fact, it will attempt to execute as an action even though it's in the fact section of the rule. If the action cannot be executed, then it will return false, and all following commands in the rule will not execute.</td>";
+					break;
+				}
+				info += "</tr><tr><td>Version Introduced</td><td>" + commandsArray[i].commandVersion; + "</td></tr>";
+				if (commandsArray[i].relatedCommands.length > 0) {
+					info += "<tr><td>Related Commands</td><td>";
+					for (var k = 0; k < commandsArray[i].relatedCommands.length; k++) {
+						info += commandsArray[i].relatedCommands[k].getLink();
+						info += ", &nbsp;";
+					}
+					var pos = info.lastIndexOf(",");
+					info = info.slice(0, pos);
+					info += "</td></tr>";
+				}
+				info += "</table>";
+				if(commandsArray[i].example != undefined) {
+					if(commandsArray[i].example.length > 0) {
+						info += "<p><h3>Example</h3></p><p>";
+						for (var l = 0; l < commandsArray[i].example.length; l++) {
+							info += commandsArray[i].example[l].title + "</p><div class=\"example\"><pre><code>";
+							info += commandsArray[i].example[l].data + "</code></pre></div>";
+						}
+					}
+				}
+				break;
+			}
+			i++;
+		}
+		info += "</tr></table>";
+		document.getElementById("item-details").innerHTML = info;
+	</script>
+
+</body>
+</html>

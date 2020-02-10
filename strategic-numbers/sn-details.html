@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2 id="item-name"></h2>
+		<p id="item-details"></p>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "sn";
+		window.onhashchange = function() {
+			location.reload();
+		}
+	</script>
+	<script src="../js/sn.js"></script>
+	<script src="../js/nav.js"></script>
+	<script>
+		var item = window.location.href;
+		var index = item.indexOf("#");
+		item = item.slice(index + 1,item.length + 1);
+		document.getElementById("item-name").innerHTML = item;
+		
+		var info = "<table><tr>";
+		var i = 0;
+		while ( i < snArray.length) {
+			if ( snArray[i].snName = item) {
+				info += "<td>" + snArray[i].snName + "</td>";
+				break;
+			}
+			i++;
+		}
+		info += "</tr></table>";
+		document.getElementById("item-details").innerHTML = info;
+	</script>
+
+</body>
+</html>

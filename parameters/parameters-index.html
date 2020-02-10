@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Parameters</h2>
+		<p><input type="text" id="parametersInput" onkeyup="parametersFilter()" placeholder="Search for parameters..."></p>
+		<div id="parameterTable"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "parameters";
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script>
+		var text = "<table id=\"index-table\">";
+		text += "<tr><th>Parameter Name</th><th>Description</th><th>Version</th></tr>";
+		for(var i = 0; i < parametersArray.length; i++) {
+			text += "<tr>";
+			text += "<td>" + parametersArray[i].getLink() + "</td>";
+			text += "<td>" + parametersArray[i].shortDescription + "</td>";
+			text += "<td>" + parametersArray[i].paramVersion + "</td>";
+			text += "</tr>";
+		}
+		text += "</table>"
+		document.getElementById("parameterTable").innerHTML = text;
+	</script>
+	<script>
+		function parametersFilter() {
+			// Declare variables
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("parametersInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("index-table");
+			tr = table.getElementsByTagName("tr");
+		
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

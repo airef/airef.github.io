@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Intro To Commands</h2>
+			<p>To see a list of all available commands, click <a href="../../commands/commands-index.html">here</a>.</p>
+			<p>Commands make up 99% of AI scripting, so it's important to know how they work.</p>
+			<p>Commands are always contained within a rule, and they must be enclosed in parentheses. There are two types of commands: facts and actions. Facts are conditions that must be true for a rule to execute, for example <a href="../../commands/commands-details.html#can-afford-building">can-afford-building</a>. Actions tell the AI player to do something if all of the Facts in the rule are true, for example <a href="../../commands/commands-details.html#buy-commodity">buy-commodity</a>. Facts are placed at the beginning of the rule, and Actions are placed at the end of the rule, separated by a '=>' in the middle.</p>
+			<p>Note: some Userpatch commands can be used as either a Fact or an Action. If used as a Fact, the AI will check if the command can be executed. If not, the rule will not execute its Actions. If the command can be executed, it will execute as an Action even though it's in the Facts section. If the command is used as an Action, it performs like any other action.</p>
+			<h3>Parameters</h3>
+			<p>Commands can have from 0 to 4 parameters. Click <a href="../../parameters/parameters-index.html">here</a> for a full list of all available parameters. Parameters allow you to customize how the command is executed. If a command has parameters, you must set each parameter to a valid setting or you will get an error. Here's an example of a command with parameters as you might see it in an AI script:</p>
+			<div class="example">
+				<pre><code>(players-building-type-count any-enemy castle > 0)</code></pre>
+			</div>
+			<p>The command is <a href="../../commands/commands-details.html#players-building-type-count">players-building-type-count</a>, and it has four parameters which have been set to any-enemy, castle, > , and 0. This command is a Fact that will return true if any enemy player has more than zero castles.</p>
+			<h3>Command Syntax</h3>
+			<p>How else could you customize this command? First, you need to know what parameters the command uses. This reference site includes information on all available commands (see the link at the top of the article). Within the articles on each command, you will see the command's syntax (it's required structure) which looks like this:</p>
+			<div class="example"><p>(<strong>players-building-type-count</strong> inPlayer<a href="../../parameters/parameters-details.html#AnyPlayer">AnyPlayer</a> inConst<a href="../../parameters/parameters-details.html#BuildingId">BuildingId</a> <a href="../../parameters/parameters-details.html#compareOp">compareOp</a> inOp<a href="../../parameters/parameters-details.html#Value">Value</a>)</p></div>
+			<p>We already recognize the first part of the command, which is the command's name: players-building-type-count. Then, the command's parameters follow. In this case, the command has four parameters. The bolded link for each parameter is the parameter's name, so the players-building-type-count command uses the AnyPlayer, BuildingId, compareOp, and Value parameters. To get more information on a parameter and how it can be used, click the link. Each parameter (except for operators, such as compareOp) also has two prefixes that tell you how the parameter is used in this particular command. The first prefix tells you the parameter's direction, and the second prefix tells you the parameter's type. Below are the possible directions and parameter types you will see:</p>
+			<p><strong>Direction</strong> - Defines how the parameter's information is used:</p>
+			<ul><li><strong>in</strong> - An input. The parameter provides information for the command to use.</li>
+			<li><strong>out</strong> - An output. Most of the time an output parameter is a goal that stores information that the command found.</li>
+			<li><strong>io</strong> - Both an input and an output. The command uses the information in this parameter, and it stores information in this parameter when the command is finished. Most of the time this is a goal.</li></ul>
+			<p>In our example, each of the parameters were input parameters, except compareOp. Our example provided 'any-enemy' as an input for the AnyPlayer parameter, 'castle' as an input for the BuildingId, and '0' as an input for the Value.</p>
+			<p><strong>Type</strong> - The type of information the parameter can be:</p>
+			<ul><li><strong>Const</strong> - the parameter must be a constant.</li>
+			<li><strong>Goal</strong> - the parameter must be a goal.</li>
+			<li><strong>Sn</strong> - the parameter must be a strategic number.</li>
+			<li><strong>Op</strong> - the parameter must match the preceeding operator type (see the operators section below). If the operator is a constant operator, then the parameter must be a constant. Likewise, if the operator is a goal operator, it must be a goal, and if the operator is a strategic number operator it must be a strategic number.</li>
+			<li><strong>Player</strong> - the parameter must be a type of player.</li>
+			<li><strong>Text</strong> - the parameter must be text within quotation marks.</li></ul>
+			<p>In our example, AnyPlayer must be a type of player, BuildingId must be a constant, and Value must match the compareOp operator. Since '>' is a compareOp that is used to compare constants, Value must be a constant.</p>
+			<p>So, if you wanted to customize this command, you could pick any valid player for AnyPlayer, pick any BuildingId, pick a comparison operator for compareOp, and choose whatever integer value you want for Value as long as the Value is within the allowable range.</p>
+			<h3>Operators</h3>
+			<p>Confused about operators? Don't be. Operators are special parameters that manipulate other parameters in ways you'll quickly recognize. There are only three types of operators. Click on the link for each one for full details.</p>
+			<ul><li><a href="../../parameters/parameters-details.html#compareOp">compareOp</a> - a comparison operator. Compares two values against each other. For example, '>' will compare two constant (numerical) values to see if the first parameter is greater than the following parameter. You can add a c: in front to specify that you're comparing constants, like 'c:>', but it's not necessary. '>' means the same thing as 'c:>'. If you want to compare values stored in two goals, you can turn the operator into a goal operator by adding a g: in front like this: 'g:>'. If you want to compare values stored in strategic numbers add a s: in front like this: 's:>'.</li>
+			<li><a href="../../parameters/parameters-details.html#mathOp">mathOp</a> - a math operator. Performs math operations and stores the result in the goal in the following parameter. For example, 'c:+' will add a constant (numerical) value. Unlike compareOp, the 'c:' prefix is necessary. To do math operations with the value stored in a goal, add 'g:' before the math symbol, like 'g:+'. To do math operations with the value stored in a strategic number, add "s:' before the math symbol, like 's:+'.</li>
+			<li><a href="../../parameters/parameters-details.html#typeOp">typeOp</a> - a type operator. This operator is either 'c:', 'g:', or 's:'. This operator determines whether the next parameter in the command should be treated as a constant, goal, or strategic number.</li></ul>
+			<p>Here is an example that uses a goal operator: 'g:>'. This code will only send the message if an enemy has more than 2 castles (the value stored in gl-castle-amount).</p>
+			<div class="example"><pre><code>(defconst gl-castle-amount 100)
+(defrule)
+	(true)
+=>
+	(set-goal gl-castle-amount 2)
+)
+(defrule
+	(players-building-type-count any-enemy g:> gl-castle-amount)
+=>
+	(chat-to-allies "An enemy has many castles. Watch out!")
+)</code></pre></div>
+			<p>Now you should be able to write commands in your AI with much more confidence, and you'll understand how to interpret all of the commands in this AI reference. Have fun digging into each of the many commands and parameters you have ready at your fingertips. Happy scripting!</p>
+		</div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+body {
+	background-color: #ccc;
+	margin: 0;
+}
+
+.container {
+	background-color: #fff;
+	margin: 10px auto;
+	max-width: 60%;
+	padding: 12px;
+	border: 1px solid #000;
+	box-shadow: 0 0 10px #666;
+}
+
+.header	{
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	align-items: center;
+}
+
+img.logo {
+	padding-right: 20px;
+	width: 150px;
+	height: 150px;
+}
+
+.header h1 {
+	display: inline;
+	margin: auto 0;
+	vertical-align: middle;
+}
+
+ul.navbar {
+	list-style-type: none;
+	margin: 20px 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #a28a65;
+	box-shadow: 1px 1px 5px black;
+}
+
+ul.navbar li {
+	float: left;
+}
+
+ul.navbar li a {
+	display: inline-block;
+	padding: 14px 16px;
+	text-align: center;
+	color: white;
+	font: 12pt 'Raleway', "Segoe UI", Arial, sans-serif;
+}
+
+ul.navbar li a:hover {
+	background-color: #cab18a;
+	text-decoration: none;
+	color: white;
+}
+
+#active {
+	background-color: #932;
+}
+
+.content {
+	clear: left;
+}
+
+table {
+	vertical-align: top;
+	padding: 0 5px;
+	border-collapse: collapse;
+	cursor: default;
+}
+
+table#index-table {
+	width: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+th {
+	text-align: left;
+	padding: 3px 10px;
+	border-bottom: 1px solid #bbb;
+	font: bold 9pt "Segoe UI", Arial, sans-serif;
+}
+
+td {
+	text-align: left;
+	padding: 3px 10px;
+	border: 1px solid #ddd;
+	border-bottom: 1px solid #bbb;
+	font: 9pt "Segoe UI", Arial, sans-serif;
+}
+
+h1 {
+	font: 28pt "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
+h2 {
+	font: 24pt "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
+h3 {
+	font: 16pt "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
+p {
+	font: 9pt "Segoe UI", Arial, sans-serif;
+}
+
+a {
+	font-weight: bold;
+	color: #009;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.resources-list a {
+	font: 11pt "Segoe UI", Arial, sans-serif;
+	font-weight: bold;
+}
+
+.example {
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #eee;
+	border: 1px solid #ddd;
+}
+
+pre {
+	margin: 0px;
+}
+
+code {
+	font: 9pt "Segoe UI", Arial, sans-serif;
+}
+
+.dir-type {
+	color: #888;
+}
+
+.article p, .article li {
+	font: 10pt "Segoe UI", Arial, sans-serif;
+}
+
+#commandsInput, #parametersInput {
+	width: 100%; /* Full-width */
+	font-size: 16px; /* Increase font-size */
+	padding: 12px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
