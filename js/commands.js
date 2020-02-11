@@ -8,13 +8,13 @@ class Command {
 		this.commandName = a;
 		this.commandType = b;
 		this.commandVersion = c;
+		this.shortDescription = "";
+		this.description = "";
+		this.commandParameters = [];
+		this.commandExample = "";
+		this.commandLinks = [];
+		this.relatedCommands = [];
 	}
-	shortDescription = "";
-	description = "";
-	commandParameters = [];
-	commandExample = "";
-	commandLinks = [];
-	relatedCommands = [];
 
 	getLink () {
 		var link = '<a href="' + urlPrefix + '/commands/commands-details.html#' + this.commandName + '">' + this.commandName + '</a>';
@@ -27,16 +27,16 @@ class Parameter {
 		this.upParamName = a;
 		this.paramVersion = b;
 		this.esParamName = c;
+		this.description = "";
+		this.shortDescription = "";
+		this.range = "";
+		this.valueList = [];
+		this.wildcardParam = [];
+		this.relatedParams = [];
+		this.prefixTypes = [];
+		this.operatorTypes = [];
+		this.ruleVariables = [];
 	}
-	description = "";
-	shortDescription = "";
-	range = "";
-	valueList = [];
-	wildcardParam = [];
-	relatedParams = [];
-	prefixTypes = [];
-	operatorTypes = [];
-	ruleVariables = [];
 
 	getCommands () {
 		var usedCommands = "";
