@@ -1,4 +1,5 @@
 var navContent = "";
+var footerContent = "";
 navContent += '<div class="header">';
 	navContent += '<a href=" ' + urlPrefix + '/index.html"><img class="logo" src="' + urlPrefix + '/images/logo-trans-sm.png" /></a>';
 	navContent += '<h1>AI Scripting Encyclopedia</h1></div>';
@@ -28,3 +29,35 @@ switch (currPage) {
 		document.getElementById("resources-link").setAttribute("id", "active");
 		break;
 }
+document.addEventListener("DOMContentLoaded", function(){
+	var body = document.body;
+	var html = document.documentElement;
+	var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+	if(window.innerHeight < height) {
+		footerContent += '<div class="foot">';
+			footerContent += '<ul class="footer">';
+				footerContent += '<li><a id="footer-index-link" href="' + urlPrefix + '/index.html">Home</a></li>';
+				footerContent += '<li><a id="footer-commands-link" href="' + urlPrefix + '/commands/commands-index.html">Commands</a></li>';
+				footerContent += '<li><a id="footer-param-link" href="' + urlPrefix + '/parameters/parameters-index.html">Parameters</a></li>';
+				footerContent += '<li><a id="footer-sn-link" href="' + urlPrefix + '/strategic-numbers/sn-index.html">Strategic Numbers</a></li>';
+				footerContent += '<li><a id="footer-resources-link" href="' + urlPrefix + '/resources/res-index.html">Resources</a></li></ul></div>';
+		document.getElementById("footer-placeholder").innerHTML = footerContent;
+		switch (currPage) {
+			case "home":
+				document.getElementById("footer-index-link").setAttribute("id", "active");
+				break;
+			case "commands":
+				document.getElementById("footer-commands-link").setAttribute("id", "active");
+				break;
+			case "parameters":
+				document.getElementById("footer-param-link").setAttribute("id", "active");
+				break;
+			case "sn":
+				document.getElementById("footer-sn-link").setAttribute("id", "active");
+				break;
+			case "resources":
+				document.getElementById("footer-resources-link").setAttribute("id", "active");
+				break;
+		}
+	}
+} );

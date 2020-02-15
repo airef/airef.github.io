@@ -3081,7 +3081,7 @@ cTrain.commandParameters = [ {
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
-cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
 cTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -4866,6 +4866,7 @@ cUpFilterInclude.commandParameters = [ {
 	name: "OrderId",
 	type: "Const",
 	dir: "in",
+	
 	range: "-1, 700 to 799",
 	note: "The order id to select."
 }, {
@@ -7534,7 +7535,7 @@ cUpResearchStatus.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
 }, {
-	nameLink: pResearchState,
+	nameLink: pResearchState.getLink(),
 	name: "ResearchState",
 	type: "Op",
 	dir: "in",
@@ -7911,11 +7912,11 @@ cUpSendScout.commandParameters = [ {
 	range: "a const from the GroupType enumeration",
 	note: "The type of explore group that will be tasked."
 }, {
-	nameLink: pPositionType.getLink(),
-	name: "PositionType",
+	nameLink: pScoutMethod.getLink(),
+	name: "ScoutMethod",
 	type: "Const",
 	dir: "in",
-	range: "a member of the PositionType enumeration",
+	range: "a member of the ScoutMethod enumeration",
 	note: "The scouting method."
 } ];
 cUpSendScout.example = [ {

@@ -37,14 +37,20 @@ ul.navbar {
 	padding: 0;
 	overflow: hidden;
 	background-color: #a28a65;
-	box-shadow: 1px 1px 5px black;
 }
 
-ul.navbar li {
+ul.footer {
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	background-color: #a28a65;
+}
+
+ul.navbar li, ul.footer li {
 	float: left;
 }
 
-ul.navbar li a {
+ul.navbar li a, ul.footer li a {
 	display: inline-block;
 	padding: 14px 16px;
 	text-align: center;
@@ -52,7 +58,7 @@ ul.navbar li a {
 	font: 12pt 'Raleway', "Segoe UI", Arial, sans-serif;
 }
 
-ul.navbar li a:hover {
+ul.navbar li a:hover, ul.footer li a:hover {
 	background-color: #cab18a;
 	text-decoration: none;
 	color: white;
