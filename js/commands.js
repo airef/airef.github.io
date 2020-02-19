@@ -6647,7 +6647,7 @@ cUpLerpTiles.relatedCommands = [];
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
-cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Plain to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder. Please consider game performance when writing data.";
+cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Plain to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder. Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.";
 cUpLogData.commandParameters = [ {
 	nameLink: pPlain.getLink(),
 	name: "Plain",
@@ -6680,6 +6680,9 @@ cUpLogData.commandParameters = [ {
 cUpLogData.example = [ {
 	title: "Log the player number.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-log-data 0 &quot;Player number: %d&quot; c: my-player-number)\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Log a message without data.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-log-data 0 &quot;A message has been logged without data.&quot; c: 0)\r\n\t(disable-self)\r\n)"
 } ];
 cUpLogData.relatedCommands = [];
 

@@ -159,7 +159,7 @@ code {
 	font: 10pt "Segoe UI", Arial, sans-serif;
 }
 
-#commandsInput, #parametersInput {
+#commandsInput, #parametersInput, #valueListInput {
 	width: 100%; /* Full-width */
 	font-size: 16px; /* Increase font-size */
 	padding: 12px 0; /* Add some padding */

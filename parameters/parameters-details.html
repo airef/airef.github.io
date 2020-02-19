@@ -106,7 +106,8 @@
 				if (parametersArray[i].valueList.length > 0)
 				{
 					info += "<p><h3>Defined Values</h3></p>";
-					info += '<table><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
+					info += "<p><input type=\"text\" id=\"valueListInput\" onkeyup=\"valueListFilter()\" placeholder=\"Search for values...\"></p>";
+					info += '<table id="value-list-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
 					for (var l = 0; l < parametersArray[i].valueList.length; l++) {
 						info += "<tr><td>" + parametersArray[i].valueList[l].id + "</td>";
 						info += "<td>" + parametersArray[i].valueList[l].name + "</td>";
@@ -142,6 +143,32 @@
 		}
 		info += "</tr></table>";
 		document.getElementById("item-details").innerHTML = info;
+	</script>
+	<script>
+		function valueListFilter() {
+			// Declare variables
+			var input, filter, table, tr, tdCol1, tdCol2, i, txtValue;
+			input = document.getElementById("valueListInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("value-list-table");
+			tr = table.getElementsByTagName("tr");
+		
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				tdCol1 = tr[i].getElementsByTagName("td")[0];
+				tdCol2 = tr[i].getElementsByTagName("td")[1];
+				if (tdCol1) {
+					txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
+					txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
+					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
 	</script>
 
 </body>
