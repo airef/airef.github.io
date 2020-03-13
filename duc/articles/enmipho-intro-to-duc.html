@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Enmipho's Introduction to DUC</h2>
+			<p>DUC, or Direct Unit Control, is a module of the Aoe2 AI scripting language introduced by UserPatch. It brings a number of extremely powerful capabilities to AIs, in particular the ability to manipulate individual units and groups of units like a human player would by clicking. This guide aims to introduce scripters to the capabilities of DUC. It assumes that the reader is already familiar with the basics of the language, and with making rules using non-UserPatch facts and actions. If this is not the case for you, you might want to check out <a href="https://aok.heavengames.com/university/other/world-of-ai-scripting-chapter-1/">this guide</a> first.</p>
+			<p>This guide makes use of UserPatch facts and actions. If you aren't familiar with UserPatch facts/actions, you can identify them because they all start with <i>up-</i> and are documented <a href="https://userpatch.aiscripters.net/reference.html">here</a>. To use them, you must have the constants in <a href="https://userpatch.aiscripters.net/upc.per.txt">this file</a> defined somewhere in you AI before the first UserPatch fact or action is used.</p>
+
+			<h3>IDs and Lists</h3>
+			<p>The first thing to understand about DUC is that every unit on the map has a unique ID. To select a unit using DUC, you need to tell the game the ID of the unit you want. So, how do we find that ID? UserPatch makes two lists available to us. We can tell the game to look for certain units, and when it finds them it will put their IDs in the lists. The lists are called the <i>local list</i> and the <i>remote list</i>. The local list holds IDs belonging to our own units. It can hold up to 240 IDs. The remote list can hold the IDs of any player's units - our own, our allies and enemies', and even Gaia's. The remote list can hold at most 40 IDs at one time.</p>
+			<p>We use the local list when we want to find out information about our units or give them an order. We use the remote list when want to look up information about any unit, or to make it the target of an order we're giving to our own units. So for example, if we're playing a game where we want to get all of our trebs to attack an enemy's wonder, we would need to get the IDs of our trebs in the local list (since those are the units we want to give the order to) and the enemy's wonder's ID in our remote list (since it's the target of our order.) If we're the player defending the wonder and want to repair it, we would get our villagers' IDs in the local list and our wonder's ID in the remote list. In this case even though the wonder is our own unit, we use the remote list since it's the target of the order we are giving.</p>
+
+			<h3>First Example: Local search and target-point</h3>
+			<p>Our task for this first example is simple: we want to select our scout and move it to the middle of the map. The first thing we want to do is find our scout's ID. Since the scout is our own unit and we are searching for it to give it an order, we want to put its ID in the local list rather than the remote list.</p>
+			<p>The first thing we need to do is understand exactly what kind of unit we're looking for. Depending on whether we're a civ from the Americas or a civ from elsewhere in the world, the scout unit we start with in a standard game could be either a scout cavalry or an eagle scout. I would recommend defining a constant telling you what kind of scout unit your civ has.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>#load-if-defined AZTEC-CIV</td><td></td></tr>
+				<tr><td>2</td><td>     (defconst scout-type -267)</td><td>;Eagle warrior line</td></tr>
+				<tr><td>3</td><td>#else</td><td></td></tr>
+				<tr><td>4</td><td>     #load-if-defined INCAN-CIV</td><td></td></tr>
+				<tr><td>5</td><td>          (defconst scout-type -267)</td><td></td></tr>
+				<tr><td>6</td><td>     #else</td><td></td></tr>
+				<tr><td>7</td><td>          #load-if-defined MAYAN-CIV</td><td></td></tr>
+				<tr><td>8</td><td>               (defconst scout-type -267)</td><td></td></tr>
+				<tr><td>9</td><td>          #else</td><td></td></tr>
+				<tr><td>10</td><td>               (defconst scout-type -286)</td><td>;Scout cavalry line</td>
+				<tr><td>11</td><td>          #end-if</td><td></td></tr>
+				<tr><td>12</td><td>     #end-if</td><td></td></tr>
+				<tr><td>13</td><td>#end-if</td><td></td></tr>
+			</table></code></pre>
+			<p>If you aren't familiar with the above constants, they're line constants, representing the unit's entire line. So if you have 3 militia that you upgrade to men-at-arms, searching for militia won't find your units anymore, since they're not militia anymore. Searching for the militiaman-line, -296, though, will still find your units both before and after upgrading to man-at-arms, and even after champion has been researched. You can see the line constants for each unit <a href="../../resources/tables/objects.html">here</a>.</p>
+			<p>So, now that we know what unit to look for, we can tell the game to look for our scout unit and put its ID in the local list.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>(defconst gl-state-1 100)</td><td></td></tr>
+				<tr><td>2</td><td>(defconst gl-state-2 101)</td><td></td></tr>
+				<tr><td>3</td><td>(defconst gl-state-3 102)</td><td></td></tr>
+				<tr><td>4</td><td>(defconst gl-state-4 103)</td><td></td></tr>
+				<tr><td>5</td><td>(defconst gl-point-x 104)</td><td></td></tr>
+				<tr><td>6</td><td>(defconst gl-point-y 105)</td><td></td></tr>
+				<tr><td>7</td><td>(defrule</td><td></td></tr>
+				<tr><td>8</td><td>     (true)</td><td></td></tr>
+				<tr><td>9</td><td>     =></td><td></td></tr>
+				<tr><td>10</td><td>     (up-full-reset-search)</td><td>;This removes any previous IDs from the lists and clears any filters on the search. We'll talk about filters later, for now we'll just clear them before each search.</td>
+				<tr><td>11</td><td>     (up-find-local c: scout-type c: 1)</td><td>;Here we're telling the game to find at most 1 unit of our civ's scout line and put its ID in the local list.</td></tr>
+				<tr><td>12</td><td>     (up-get-search-state gl-state-1)</td><td>;This tells the game to put information about whether any IDs were found by previous searches and are currently in our lists in the 4 goals starting at gl-state-1.</td></tr>
+				<tr><td>13</td><td>     (disable-self)</td><td></td></tr>
+				<tr><td>14</td><td>)</td><td></td></tr>
+			</table></code></pre>
+			<p>We can verify that we did indeed find our scout using the data provided by up-get-search-state. The first goal it writes tells us the total number of IDs in the local list. The second goal gives us the number of IDs found by the most recent local search. Since we removed all IDs from the list with <a href="https://airef.github.io/commands/commands-details.html#up-full-reset-search">up-full-reset-search</a>, we can expect these goals to be the same after running our search. The third and fourth goals are the same as the first and second, but contain information about the remote list instead of the local one. So the third goal is the total number of IDs currently in the remote list and the fourth is the number of IDs found by the most recent remote search.</p>
+			<p>So if our search found our scout, the first and second goals in the search state should both be set to 1 after <a href="https://airef.github.io/commands/commands-details.html#up-get-search-state">up-get-search-state</a>. Assuming we found our scout, we can tell it to move to the center of the map using <a href="https://airef.github.io/commands/commands-details.html#up-target-point">up-target-point</a>.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>(defrule</td><td></td></tr>
+				<tr><td>2</td><td>     (up-compare-goal gl-state-1 c:== 1)</td><td></td></tr>
+				<tr><td>3</td><td>     =></td><td></td></tr>
+				<tr><td>4</td><td>     (up-get-point position-center gl-point-x)</td><td>;Get the (x,y) coordinates of the center of the map. This will write the x-coordinate to gl-point-x and the y-coordinate to the next goal after gl-point-x (for us, gl-point-y). Remember that when you store points in goals, you have to use a goal higher than 40.</td></tr>
+				<tr><td>5</td><td>     (up-target-point gl-point-x action-move -1 -1)</td><td>;This tells all units whose IDs are in our local search results (which should only be our scout) to move to the point stored in gl-point-x and gl-point-y</td></tr>
+				<tr><td>6</td><td>     (disable-self)</td><td></td></tr>
+				<tr><td>7</td><td>)</td><td></td></tr>
+			</table></code></pre>
+			<p>So putting it all together, we have:</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>#load-if-defined AZTEC-CIV</td></tr>
+				<tr><td>2</td><td>     (defconst scout-type -267)</td></tr>
+				<tr><td>3</td><td>#else</td></tr>
+				<tr><td>4</td><td>     #load-if-defined INCAN-CIV</td></tr>
+				<tr><td>5</td><td>          (defconst scout-type -267)</td></tr>
+				<tr><td>6</td><td>     #else</td></tr>
+				<tr><td>7</td><td>          #load-if-defined MAYAN-CIV</td></tr>
+				<tr><td>8</td><td>               (defconst scout-type -267)</td></tr>
+				<tr><td>9</td><td>          #else</td></tr>
+				<tr><td>10</td><td>               (defconst scout-type -286)</td>
+				<tr><td>11</td><td>          #end-if</td></tr>
+				<tr><td>12</td><td>     #end-if</td></tr>
+				<tr><td>13</td><td>#end-if</td></tr>
+				<tr><td>14</td><td></td></tr>
+				<tr><td>15</td><td>(defconst gl-state-1 100)</td></tr>
+				<tr><td>16</td><td>(defconst gl-state-2 101)</td></tr>
+				<tr><td>17</td><td>(defconst gl-state-3 102)</td></tr>
+				<tr><td>18</td><td>(defconst gl-state-4 103)</td></tr>
+				<tr><td>19</td><td>(defconst gl-point-x 104)</td></tr>
+				<tr><td>20</td><td>(defconst gl-point-y 105)</td></tr>
+				<tr><td>21</td><td>(defrule</td></tr>
+				<tr><td>22</td><td>     (true)</td></tr>
+				<tr><td>23</td><td>     =></td></tr>
+				<tr><td>24</td><td>     (up-full-reset-search)</td>
+				<tr><td>25</td><td>     (up-find-local c: scout-type c: 1)</td></tr>
+				<tr><td>26</td><td>     (up-get-search-state gl-state-1)</td></tr>
+				<tr><td>27</td><td>     (disable-self)</td></tr>
+				<tr><td>28</td><td>)</td></tr>
+				<tr><td>29</td><td></td></tr>
+				<tr><td>30</td><td>(defrule</td></tr>
+				<tr><td>31</td><td>     (up-compare-goal gl-state-1 c:== 1)</td></tr>
+				<tr><td>32</td><td>     =></td></tr>
+				<tr><td>33</td><td>     (up-get-point position-center gl-point-x)</td></tr>
+				<tr><td>34</td><td>     (up-target-point gl-point-x action-move -1 -1)</td></tr>
+				<tr><td>35</td><td>     (disable-self)</td></tr>
+				<tr><td>36</td><td>)</td></tr>
+			</table></code></pre>
+			<p>This should move our scout to the middle of the map.</p>
+			<p>Targeting units is much the same as targeting points. The only difference is, after making sure the units we want to give the order to are in our local list, we then have to populate the remote list with the units we want to target and call <a href="https://airef.github.io/commands/commands-details.html#up-target-objects">up-target-objects</a>.</p>
+
+			<h3>Performance considerations</h3>
+			<p>Along with pathing calls like <a href="https://airef.github.io/commands/commands-details.html#up-path-distance">up-path-distance</a> and <a href="https://airef.github.io/commands/commands-details.html#up-get-path-distance">up-get-path-distance</a>, searches (the commands starting with <i>up-find-</i>) are some of the most computationally expensive facts and actions you have access to. With this in mind, you should be aware of the performance implications of repeatedly searching for units. For searches that you plan to execute regularly, it is recommended that you use a timer to ensure that they don't execute more frequent than once every 2 seconds. Searching over and over again every time your rules are executed can lag the game. Commands like <a href="https://airef.github.io/commands/commands-details.html#up-target-point">up-target-point</a> also cause cause the game to do a pathing call (even if we don't see it directly in our code) which can also impact performance if done over and over again.</p>
+			<p>Our above code is fine however, since the <code>(disable-self)</code> prevents our code from being executed more than once.</p>
+
+			<h3>Second Example: Remote search and targeting objects</h3>
+			<p>Our second task is a bit more realistic than the first one: we want to check if our opponent in a 1v1 has loom or not.</p>
+			<p>First, let's define how we want to do this. As a human playing the game, we can check an enemy villager for loom once it enters our line of sight by clicking on it and checking either its armour or its hitpoints. An unloomed vill has 25 hitpoints and 0/0 armour, while a vill with loom has 40 hitpoints and 0+1/0+2 armour, so if we click one of our enemy's vills and see it has 40 hp or the added armor we know our enemy has loom. For this exercise, we'll use the villager's hitpoints to determine whether or not they have loom. The approach for an AI is very similar to how a human would check. We want to find an enemy villager, check its stats, and determine whether or not our enemy has loom based on the stats we know villagers to have.</p>
+			<p>The first step is to find a villager belonging to our opponent. Since we are looking for another player's unit, we need to use the remote list. There's one big difference with using the remote list instead of the local list. The game game can only search for one player's units at a time. We tell the game which player's units we want it to search by setting the value of <a href="https://airef.github.io/strategic-numbers/sn-details.html#sn-focus-player-number">sn-focus-player-number</a>. Since for the sake of this example we can assume we're playing a 1v1, we can use <a href="https://airef.github.io/commands/commands-details.html#up-find-player">up-find-player</a> to find any enemy, and that will be our only opponent.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>;Goals</td><td></td></tr>
+				<tr><td>2</td><td>(defconst gl-state-1 100)</td><td></td></tr>
+				<tr><td>3</td><td>(defconst gl-state-2 101)</td><td></td></tr>
+				<tr><td>4</td><td>(defconst gl-state-3 102)</td><td></td></tr>
+				<tr><td>5</td><td>(defconst gl-state-4 103)</td><td></td></tr>
+				<tr><td>6</td><td>(defconst gl-enemy 106)</td><td></td></tr>
+				<tr><td>7</td><td>(defconst gl-enemy-has-loom 107)</td><td>;0 until we scout our enemy having loom, then 1</td></tr>
+				<tr><td>8</td><td>(defconst gl-temp 108)</td><td>;A temporary goal we can use to store the maximum hp of our opponent's villager</td></tr>
+				<tr><td>9</td><td></td><td></td></tr>
+				<tr><td>10</td><td>;Timers</td><td></td></tr>
+				<tr><td>11</td><td>(defconst t-3-sec 1)</td><td></td></tr>
+				<tr><td>12</td><td></td><td></td></tr>
+				<tr><td>13</td><td>;Misc</td><td></td></tr>
+				<tr><td>14</td><td>(defconst vil-loom-hp 40)</td><td></td></tr>
+				<tr><td>15</td><td></td><td></td></tr>
+				<tr><td>16</td><td>(defrule</td><td></td></tr>
+				<tr><td>17</td><td>     (true)</td><td></td></tr>
+				<tr><td>18</td><td>     =></td><td></td></tr>
+				<tr><td>19</td><td>     (up-find-player enemy find-closest gl-enemy)</td><td></td></tr>
+				<tr><td>20</td><td>     (set-goal gl-enemy-has-loom 0)</td><td></td></tr>
+				<tr><td>21</td><td>     (enable-timer t-3-sec 3)</td><td></td></tr>
+				<tr><td>22</td><td>     (disable-self)</td><td></td></tr>
+				<tr><td>23</td><td>)</td><td></td></tr>
+				<tr><td>24</td><td></td><td></td></tr>
+				<tr><td>25</td><td>;DUC goes here ----------------------------------</td><td></td></tr>
+				<tr><td>26</td><td></td><td></td></tr>
+				<tr><td>27</td><td>;------------------------------------------------</td><td></td></tr>
+				<tr><td>28</td><td></td><td></td></tr>
+				<tr><td>29</td><td>(defrule</td><td></td></tr>
+				<tr><td>30</td><td>     (timer-triggered t-3-sec)</td><td></td></tr>
+				<tr><td>31</td><td>     =></td><td></td></tr>
+				<tr><td>32</td><td>     (disable-timer t-3-sec)</td><td></td></tr>
+				<tr><td>33</td><td>     (enable-timer t-3-sec 3)</td><td></td></tr>
+				<tr><td>34</td><td>)</td><td></td></tr>
+				<tr><td>35</td><td></td><td></td></tr>
+				<tr><td>36</td><td>(defrule</td><td></td></tr>
+				<tr><td>37</td><td>     (up-compare-goal gl-enemy-has-loom c:== 1)</td><td></td></tr>
+				<tr><td>38</td><td>     =></td><td></td></tr>
+				<tr><td>39</td><td>     (chat-to-all "Our opponent has loom!")</td><td></td></tr>
+				<tr><td>40</td><td>     (disable-self)</td><td></td></tr>
+				<tr><td>41</td><td>)</td><td></td></tr>
+			</table></code></pre>
+			<p>Since we want this check to happen repeatedly until we see our enemy has loom, we are going to use a timer to keep this code from executing too often.</p>
+			<p>The remote search call is very similar to the local search call, except as we discussed we have to set the sn-focus-player-number strategic number beforehand.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>;DUC goes here ----------------------------------</td><td></td></tr>
+				<tr><td>2</td><td></td><td></td></tr>
+				<tr><td>3</td><td>(defrule</td><td></td></tr>
+				<tr><td>4</td><td>     (timer-triggered t-3-sec)</td><td>;Execute this rule no more frequently than once every 3 seconds</td></tr>
+				<tr><td>5</td><td>     (up-compare-goal gl-enemy-has-loom c:== 0)</td><td></td></tr>
+				<tr><td>6</td><td>     =></td><td></td></tr>
+				<tr><td>7</td><td>     (up-modify-sn sn-focus-player-number g:= gl-enemy)</td><td>;Tell the game the player number of the player whose units we want to search through</td></tr>
+				<tr><td>8</td><td>     (up-full-reset-search)</td><td>;904 = Villager group</td></tr>
+				<tr><td>9</td><td>     (up-find-remote c: 904 c: 1)</td><td></td></tr>
+				<tr><td>10</td><td>     (up-get-search-state gl-state-1)</td><td></td></tr>
+				<tr><td>11</td><td>)</td><td></td></tr>
+				<tr><td>12</td><td></td><td></td></tr>
+				<tr><td>13</td><td>(defrule</td><td></td></tr>
+				<tr><td>14</td><td>     (timer-triggered t-3-sec)</td><td></td></tr>
+				<tr><td>15</td><td>     (up-compare-goal gl-enemy-has-loom c:== 0)</td><td></td></tr>
+				<tr><td>16</td><td>     (up-compare-goal gl-state-3 c:== 1)</td><td></td></tr>
+				<tr><td>17</td><td>     =></td><td></td></tr>
+				<tr><td>18</td><td>     (up-set-target-object search-remote c: 0)</td><td>;Tell the game that we want to look up information about the 0th unit in the remote list (both the local and remote lists are 0-indexed)</td></tr>
+				<tr><td>19</td><td>     (up-get-object-data object-data-maxhp gl-temp)</td><td>;Store the maxhp attribute of the unit in gl-temp. Maxhp is the number of hitpoints the unit will have if it's fully healed.</td></tr>
+				<tr><td>20</td><td>)</td><td></td></tr>
+				<tr><td>21</td><td></td><td></td></tr>
+				<tr><td>22</td><td>(defrule</td><td></td></tr>
+				<tr><td>23</td><td>     (timer-triggered t-3-sec)</td><td></td></tr>
+				<tr><td>24</td><td>     (up-compare-goal gl-enemy-has-loom c:== 0)</td><td></td></tr>
+				<tr><td>25</td><td>     (up-compare-goal gl-state-3 c:== 1)</td><td></td></tr>
+				<tr><td>26</td><td>     (up-compare-goal gl-temp c:>= vil-loom-hp)</td><td></td></tr>
+				<tr><td>27</td><td>     =></td><td></td></tr>
+				<tr><td>28</td><td>     (set-goal gl-enemy-has-loom 1)</td><td></td></tr>
+				<tr><td>29</td><td>)</td><td></td></tr>
+			</table></code></pre>
+
+			<h3>A note on player numbers</h3>
+			<p>Many people new to scripting get confused by the difference between player number and player color. Players in the game lobby can choose a colour between 1 and 8. Often in multiplayer games, players will refer to other players by the number of their color. For example, in a teamgame, when someone scouts the red player's TC, they might flare it and say "p2", since in the lobby, red is color 2. However, the player number used by AIs is completely different from the player's color. For AIs, the players are numbered 1-8 by their position in the lobby (highest player is player 1, second-highest is player 2 and so on), regardless of what colors they pick. These are the numbers provided by the up-find-player and up-find-next-player commands, and the numbers you will use to set sn-focus-player-number.</p>
+
+			<h3>Third Example: Filtering on distance</h3>
+			<p>A common frustration among scripters goes like this: your AI sends a vill to build a lumber camp. The vill finishes building the lumber camp and immediately walks away to take berries on the other side of your base. Sound familiar? Our goal for this task is to make sure this doesn't happen after we build our first lumber camp.</p>
+			<p>This is our final and most difficult task. To accomplish it we'll need to</p>
+			<ol>
+				<li>Detect when our first lumber camp is built</li>
+				<li>See if there's a villager within a 1-tile radius of the camp who isn't a lumberjack</li>
+				<li>If so, find a nearby tree and tell the vill to chop it.</li>
+			</ol>
+			<p>Detecting when our first lumber camp was built is trivial - we can just check when <code>(building-type-count lumber-camp > 0)</code>. Finding the lumber camp is also probably pretty easy for you by now.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>;Goals</td></tr>
+				<tr><td>2</td><td>(defconst gl-state-1 100)</td></tr>
+				<tr><td>3</td><td>(defconst gl-state-2 101)</td></tr>
+				<tr><td>4</td><td>(defconst gl-state-3 102)</td></tr>
+				<tr><td>5</td><td>(defconst gl-state-4 103)</td></tr>
+				<tr><td>6</td><td>(defconst gl-point-x 104)</td></tr>
+				<tr><td>7</td><td>(defconst gl-point-y 105)</td></tr>
+				<tr><td>8</td><td></td></tr>
+				<tr><td>9</td><td>(defrule</td></tr>
+				<tr><td>10</td><td>     (true)</td></tr>
+				<tr><td>11</td><td>     =></td></tr>
+				<tr><td>12</td><td>     (set-goal gl-state-1 0)</td></tr>
+				<tr><td>13</td><td>     (set-goal gl-state-2 0)</td></tr>
+				<tr><td>14</td><td>     (set-goal gl-state-3 0)</td></tr>
+				<tr><td>15</td><td>)</td></tr>
+				<tr><td>16</td><td></td></tr>
+				<tr><td>17</td><td>(defrule</td></tr>
+				<tr><td>18</td><td>     (building-type-count lumber-camp > 0)</td></tr>
+				<tr><td>19</td><td>     =></td></tr>
+				<tr><td>20</td><td>     (up-full-reset-search)</td></tr>
+				<tr><td>21</td><td>     (up-find-local c: lumber-camp c: 1)</td></tr>
+				<tr><td>22</td><td>     (up-get-search-state gl-state-1)</td></tr>
+				<tr><td>23</td><td>     (disable-self)</td></tr>
+				<tr><td>24</td><td>)</td></tr>
+				<tr><td>25</td><td></td></tr>
+				<tr><td>26</td><td>(defrule</td></tr>
+				<tr><td>27</td><td>     (up-compare-goal gl-state-1 c:> 0)</td></tr>
+				<tr><td>28</td><td>     =></td></tr>
+				<tr><td>29</td><td>     ;Now what?</td></tr>
+				<tr><td>30</td><td>)</td></tr>
+			</table></code></pre>
+
+			<p>Great! we've found our lumber camp. The next thing we want to do is determine its exact location, so we know where to look for villagers. We can finish our rule as below.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>(defrule</td><td></td></tr>
+				<tr><td>2</td><td>     (up-compare-goal gl-state-1 c:> 0)</td><td></td></tr>
+				<tr><td>3</td><td>     =></td><td></td></tr>
+				<tr><td>4</td><td>     (up-set-target-object search-local c: 0)</td><td></td></tr>
+				<tr><td>5</td><td>     (up-get-point position-object gl-point-x)</td><td>;Read the x and y coordinates of the target object into gl-point-x and gl-point-y</td></tr>
+				<tr><td>6</td><td>;   We could achieve the same thing by reading the coordinates directly as object data.</td><td></td></tr>
+				<tr><td>7</td><td>;   (up-get-object-data object-data-point-x gl-point-x)</td><td></td></tr>
+				<tr><td>8</td><td>;   (up-get-object-data object-data-point-y gl-point y)</td><td></td></tr>
+				<tr><td>9</td><td>     (up-reset-search 1 1 0 0)</td><td>;Now that we have the point we need saved in a goal we don't need the ID of our lumber camp anymore, so we remove it from the local list.</td></tr>
+				<tr><td>10</td><td>     (up-set-target-point gl-point-x)</td><td>;Set the lumber camp's location as the target point. This will let us look for villagers only in the area of the lumber camp.</td></tr>
+				<tr><td>11</td><td>     (up-filter-distance c: 0 c: 2)</td><td>;This tells the game that when we search for units we only want it to look within two tiles of the target point.</td></tr>
+				<tr><td>12</td><td>     (up-find-local c: 904 c: 1)</td><td>;904 = Villager group</td></tr>
+				<tr><td>13</td><td></td><td></td></tr>
+				<tr><td>14</td><td>;Ok, so we've searched for a villager within a 1-tile radius of our lumber camp.</td><td></td></tr>
+				<tr><td>15</td><td>;However, what if that villager is already a lumberjack?</td><td></td></tr>
+				<tr><td>16</td><td>;In that case, retasking it would be pointless and possibly just cause more idle time.</td><td></td></tr>
+				<tr><td>17</td><td>;We can make sure we haven't selected a lumberjack by removing all lumberjacks from the local list.</td><td></td></tr>
+				<tr><td>18</td><td></td><td></td></tr>
+				<tr><td>19</td><td>     (up-remove-objects search-local object-data-type c: 218)</td><td>;218 = Female lumberjack</td></tr>
+				<tr><td>20</td><td>     (up-remove-objects search-local object-data-type c: 123)</td><td>;123 = Male lumberjack</td></tr>
+				<tr><td>21</td><td>     (up-get-search-state gl-state-1)</td><td></td></tr>
+			</table></code></pre>
+
+			<p>Something to keep in mind about filtering is that after we apply a filter to our search, that filter will affect all of our searches until we remove it. So if we were to do another search right now, it would only find units within two tiles of our first lumber camp. We can remove filters from our searches by using <a href="https://airef.github.io/commands/commands-details.html#up-reset-filters">up-reset-filters</a> or <a href="https://airef.github.io/commands/commands-details.html#up-full-reset-search">up-full-reset-search</a>.</p>
+			<p>So, now we've searched for a non-lumberjack villager within one tile of our lumber camp. If the contents of our local list are empty, there is no such vill and our work is done. But if there is such a vill, we'll want to find a tree for him to chop.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>(defrule</td><td></td></tr>
+				<tr><td>2</td><td>     (up-compare-goal gl-state-2 c:> 0)</td><td>;The target point is still the lumber camp, so this will restrict the search to a 3-tile radius around it.</td></tr>
+				<tr><td>3</td><td>     =></td><td></td></tr>
+				<tr><td>4</td><td>     (up-filter-distance c: 1 c: 3)</td><td></td></tr>
+				<tr><td>5</td><td>     (up-find-resource c: wood c: 1)</td><td>;up-find-resource is a special type of search that only looks for resources. Like up-find-remote, it stores any IDs it finds in the remote list.</td></tr>
+				<tr><td>6</td><td>     (up-get-search-state gl-state-1)</td><td></td></tr>
+				<tr><td>7</td><td>)</td><td></td></tr>
+				<tr><td>8</td><td></td><td></td></tr>
+				<tr><td>9</td><td>(defrule</td><td></td></tr>
+				<tr><td>10</td><td>     (up-compare-goal gl-state-1 c:> 0)</td><td></td></tr>
+				<tr><td>11</td><td>     (up-compare-goal gl-state-3 c:> 0)</td><td></td></tr>
+				<tr><td>12</td><td>     =></td><td></td></tr>
+				<tr><td>13</td><td>     (up-target-objects 0 action-default -1 -1)</td><td>;The action our last few rules have been building up to, this tasks the villager to the tree.</td></tr>
+				<tr><td>14</td><td>)</td><td></td></tr>
+			</table></code></pre>
+
+			<p>And there we go! Even with <a href="https://airef.github.io/strategic-numbers/sn-details.html#sn-food-gatherer-percentage">sn-food-gatherer-percentage</a> set to 100, our vill should start chopping wood. Note that this isn't a perfect solution - there's a chance another villager other than the one who built the lumber camp could be passing by the lumber camp at the exact time it was completed, in which case that vill might be the one who gets targeted to wood.</p>
+
+			<h3>A note on status</h3>
+			<p>The code in the previous example has an interesting property: it will only ever find and target living trees, and will ignore trees that have been chopped down. This is because chopped down trees have a different status than living ones. A status is a property every unit has. It will be one of the numbers in the UserPatch constants below.</p>
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>;--------------------------------------</td></tr>
+				<tr><td>2</td><td>; Define ObjectStatus Constants</td></tr>
+				<tr><td>3</td><td>;--------------------------------------</td></tr>
+				<tr><td>4</td><td>(defconst status-pending 0)</td></tr>
+				<tr><td>5</td><td>(defconst status-ready 2)</td></tr>
+				<tr><td>6</td><td>(defconst status-resource 3)</td></tr>
+				<tr><td>7</td><td>(defconst status-down 4)</td></tr>
+				<tr><td>8</td><td>(defconst status-gather 5)</td></tr>
+			</table></code></pre>
+
+			<p>Many search actions ignore status completely, but <a href="https://airef.github.io/commands/commands-details.html#up-find-status-local">up-find-status-local</a>, <a href="https://airef.github.io/commands/commands-details.html#up-find-status-remote">up-find-status-remote</a>, and <a href="https://airef.github.io/commands/commands-details.html#up-find-resource">up-find-resource</a>, which we used to find our tree, do take it into account. By default, searches will look for objects that have <code>status-ready</code>. This can be modified with <a href="https://airef.github.io/commands/commands-details.html#up-filter-status">up-filter-status</a>. For more on which types of units have which statuses, see <a href="https://airef.github.io/parameters/parameters-details.html#ObjectStatus">ObjectStatus</a>.</p>
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "duc";
+	</script>
+	<script src="../../js/nav.js"></script>
+
+</body>
+</html>

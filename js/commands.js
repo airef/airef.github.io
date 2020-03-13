@@ -9761,7 +9761,7 @@ pClassId.valueList = [ {
 }, {
 	name: "monastery-class",
 	id: 918,
-	description: "Monastery class. Includes monks and missionaries. Doesn't include monks carrying relics."
+	description: "Monastery class. Includes monks and missionaries. Doesn't include monasteries. Doesn't include monks carrying relics."
 }, {
 	name: "trade-cart-class*",
 	id: 919,
@@ -10913,11 +10913,11 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-attacker-id",
 	id: 34,
-	description: "The map-based " + pId.getLink() + " of the object attacking the target-object. If multiple objects are attacking, it's likely the most recent object to attack, but this is untested. Not set for certain situations, like hunting."
+	description: "The map-based " + pId.getLink() + " of the object attacking the target-object. If multiple objects are attacking, it's likely the most recent object to attack, but this is untested. Not set for certain situations, like hunting. Doesn't work with villagers."
 }, {
 	name: "object-data-under-attack",
 	id: 35,
-	description: "Returns 1 if the object is being attacker, otherwise 0. Not set for certain situations, like hunting."
+	description: "Returns 1 if the object is being attacker, otherwise 0. Not set for certain situations, like hunting. Doesn't work for villagers."
 }, {
 	name: "object-data-attack-timer",
 	id: 36,
@@ -10961,7 +10961,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-full-distance",
 	id: 46,
-	description: "<strong>Unknown</strong>. Seems to be a bit smaller than object-data-precise-distance."
+	description: "The object's precise distance from the target-point, squared. For example, if the precise distance is 41.34 tiles, object-data-full-distance will be 1709."
 }, {
 	name: "object-data-map-zone-id",
 	id: 47,
@@ -11130,7 +11130,7 @@ pObjectList.valueList = [ {
 } ];
 
 //ObjectStatus
-pObjectStatus.description = "Specifies the status of objects that should be filtered. Default is status-ready";
+pObjectStatus.description = "Specifies the status of objects that should be filtered. Default is status-ready.";
 pObjectStatus.shortDescription = "Specifies the status of objects that should be filtered.";
 pObjectStatus.range = "0, 2 to 5.";
 pObjectStatus.relatedParams = [pObjectList];

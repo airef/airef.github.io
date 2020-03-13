@@ -100,6 +100,41 @@ td {
 	border: 1px solid #ddd;
 	border-bottom: 1px solid #bbb;
 	font: 9pt "Segoe UI", Arial, sans-serif;
+	vertical-align: top;
+}
+
+.commented-example {
+	border: 1px solid #ccc;
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+.commented-example tr {
+	background-color: #ddd;
+}
+
+.commented-example td {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #d3d3d3;
+	border-bottom: 1px solid #d3d3d3;
+	word-wrap: break-all;
+	padding: 1px 10px;
+}
+
+.commented-example td:nth-child(1) {
+	background-color: #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	width: 20px;
+}
+
+.commented-example td:nth-child(3) {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 h1 {
@@ -114,6 +149,11 @@ h2 {
 
 h3 {
 	font: 16pt "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
+h4 {
+	font: 14pt "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
 }
 
@@ -155,8 +195,15 @@ code {
 	color: #888;
 }
 
+.article {
+	margin: 0 10px;
+}
+
 .article p, .article li {
 	font: 10pt "Segoe UI", Arial, sans-serif;
+	text-align: justify;
+	text-justify: inter-word;
+	line-height: 1.5;
 }
 
 #commandsInput, #parametersInput, #valueListInput {
