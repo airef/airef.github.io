@@ -10,7 +10,41 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
-		<p><input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..."></p>
+		<p>
+			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off">
+			<!--<select id="command-category" onchange="commandsFilter()" autocomplete="off">
+				<option value="All" selected>All</option>
+				<option value="DUC">DUC</option>
+				<option value="Attack & Defense">Attack & Defense</option>
+				<option value="Build & Train">Build & Train</option>
+				<option value="Can Do">Can Do</option>
+				<option value="Chat">Chat</option>
+				<option value="Costs">Costs</option>
+				<option value="Counting">Counting</option>
+				<option value="Data">Data</option>
+				<option value="Economy">Economy</option>
+				<option value="Jumps">Jumps</option>
+				<option value="Map Info">Map Info</option>
+				<option value="Own Info">Own Info</option>
+				<option value="Player Info">Player Info</option>
+				<option value="Points">Points</option>
+				<option value="Town">Town</option>
+				<option value="Walls">Walls</option>
+				<option value="Water">Water</option>
+				<option value="Other">Other</option>
+			</select>-->
+			<select id="command-type" onchange="commandsFilter()" autocomplete="off" title="Command Type">
+				<option value="All" selected>All</option>
+				<option value="Fact">Fact</option>
+				<option value="Action">Action</option>
+				<option value="Both">Both</option>
+			</select>
+			<select id="command-version" onchange="commandsFilter()" autocomplete="off" title="Game Version">
+				<option value="All" selected>All</option>
+				<option value="1.0c">1.0c</option>
+				<option value="1.1">1.1</option>
+			</select>
+		</p>
 		<p id="commandsTable"></p>
 		<div id="footer-placeholder"></div>
 	</div>
@@ -35,30 +69,6 @@
 		}
 		text += "</table>"
 		document.getElementById("commandsTable").innerHTML = text;
-	</script>
-	<script>
-		function commandsFilter() {
-			// Declare variables
-			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("commandsInput");
-			filter = input.value.toUpperCase();
-			table = document.getElementById("index-table");
-			tr = table.getElementsByTagName("tr");
-		
-			// Loop through all table rows, and hide those who don't match the search query
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[0];
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					}
-					else {
-						tr[i].style.display = "none";
-					}
-				}
-			}
-		}
 	</script>
 </body>
 </html>

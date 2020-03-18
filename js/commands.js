@@ -14,6 +14,7 @@ class Command {
 		this.commandExample = "";
 		this.commandLinks = [];
 		this.relatedCommands = [];
+		this.commandCategory = [];
 	}
 
 	getLink () {
@@ -613,6 +614,7 @@ var dcProgressType = new DefinedConstant("ProgressType");
 
 //acknowledge-event
 cAcknowledgeEvent.shortDescription = "Acknowledges a received event by resetting the associated flag.";
+cAcknowledgeEvent.commandCategory = ["Data"];
 cAcknowledgeEvent.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
@@ -632,6 +634,7 @@ cAcknowledgeEvent.commandParameters = [ {
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
 cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
+cAcknowledgeTaunt.commandCategory = ["Chat"];
 cAcknowledgeTaunt.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -650,10 +653,12 @@ cAcknowledgeTaunt.commandParameters = [ {
 //attack-now
 cAttackNow.shortDescription = "Forces attack with currently available attack units.";
 cAttackNow.description ="Forces attack with currently available attack units. Units are designated as attack units by using " + snPercentAttackSoldiers.getLink() + " or " + snPercentAttackBoats.getLink() + ".";
+cAttackNow.commandCategory = ["Attack & Defense"];
 
 //attack-soldier-count
 cAttackSoldierCount.shortDescription = "Checks the computer player's attack soldier count.";
 cAttackSoldierCount.description = "Compares the computer player's attack soldier count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack soldiers are those assigned to attack groups (using the attack-group SNs) or assigned from the " + cAttackNow.getLink() + " command. Setting " + snNumberAttackGroups.getLink() + " to 0 and using " + cUpResetAttackNow.getLink() + " means soldiers are no longer attack soldiers.";
+cAttackSoldierCount.commandCategory = ["Attack & Defense", "Counting"];
 cAttackSoldierCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -673,6 +678,7 @@ cAttackSoldierCount.commandParameters = [ {
 //attack-warboat-count
 cAttackWarboatCount.shortDescription = "Checks the computer player's attack warboat count.";
 cAttackWarboatCount.description = "Compares the computer player's attack warboat count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack warboats are those assigned to boat attack groups (using the boat-attack-group SNs) or assigned from the " + cAttackNow.getLink() + " command. If you stop calling " + cAttackNow.getLink() + " then they are immediately no longer attack warboats - even without using " + cUpResetAttackNow.getLink() + ".";
+cAttackWarboatCount.commandCategory = ["Attack & Defense", "Counting", "Water"];
 cAttackWarboatCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -692,6 +698,7 @@ cAttackWarboatCount.commandParameters = [ {
 //build
 cBuild.shortDescription = "Builds the given building.";
 cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuild.commandCategory = ["Build & Train"];
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -704,6 +711,7 @@ cBuild.commandParameters = [ {
 //build-forward
 cBuildForward.shortDescription = "Builds the given building close to an enemy.";
 cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuildForward.commandCategory = ["Build & Train"];
 cBuildForward.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -12890,371 +12898,74 @@ pWallId.wildcardParam = [ {
 	description: "Stone Wall line."
 } ];
 
-/*
-Wildcard:
-player number
-building (watch tower line)
-unit (lines)
-wall (stone wall line)
-*/
+function commandsFilter() {
+	// Declare variables
+	var input, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
+	input = document.getElementById("commandsInput");
+	category = document.getElementById("commandCategory");
+	type = document.getElementById("command-type");
+	version = document.getElementById("command-version");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("index-table");
+	tr = table.getElementsByTagName("tr");
 
+	// Loop through all table rows, and hide those who don't match the search query
+	for (i = 0; i < tr.length; i++) {
+		tdName = tr[i].getElementsByTagName("td")[0];
+		tdType = tr[i].getElementsByTagName("td")[2];
+		tdVersion = tr[i].getElementsByTagName("td")[3];
 
-/*
-ES Facts:
-true
-false
-attack-soldier-count  <rel-op>  <value>
-attack-warboat-count  <rel-op>  <value>
-building-available  <building>
-building-count  <rel-op>  <value>
-building-count-total  <rel-op>  <value>
-building-type-count  <building> <rel-op>  <value>
-building-type-count-total  <building> <rel-op>  <value>
-can-afford-building <building>
-can-afford-complete-wall <perimeter> <wall-type>
-can-afford-research <research-item>
-can-afford-unit <unit>
-can-build <building>
-can-build-gate  <perimeter>
-can-build-gate-with-escrow  <perimeter>
-can-build-wall  <perimeter> <wall-type>
-can-build-wall-with-escrow <perimeter> <wall-type>
-can-build-with-escrow <building>
-can-buy-commodity <commodity>
-can-research	<research-item>
-can-research-with-escrow <research-item>
-can-sell-commodity <commodity>
-can-spy
-can-spy-with-escrow
-can-train <unit>
-can-train-with-escrow <unit>
-cc-players-building-count  <player-number>  <rel-op>  <value>
-cc-players-building-type-count  <player-number>  <building> <rel-op>  <value>
-cc-players-unit-count  <player-number>  <rel-op>  <value>
-cc-players-unit-type-count  <player-number>  <unit>  <rel-op>  <value>
-cheats-enabled
-civ-selected  <civ>
-civilian-population  <rel-op>  <value>
-commodity-buying-price  <commodity>  <rel-op>  <value>
-commodity-selling-price  <commodity>  <rel-op>  <value>
-current-age  <rel-op> <age>
-current-age-time  <rel-op> <value>
-current-score  <rel-op> <value>
-death-match-game
-defend-soldier-count  <rel-op> <value>
-defend-warboat-count  <rel-op> <value>
-difficulty  <rel-op> <difficulty>
-doctrine <value>
-dropsite-min-distance  <resource-type> <rel-op>  <value>
-enemy-buildings-in-town
-enemy-captured-relics
-escrow-amount  <resource-type>  <rel-op>  <value>
-event-detected  <event-type> <event-id>
-food-amount <rel-op>  <value>
-game-time  <rel-op>  <value>
-goal <goal-id> <value>
-gold-amount  <rel-op>  <value>
-housing-headroom  <rel-op>  <value>
-idle-farm-count  <rel-op>  <value>
-map-size <map-size>
-map-type <map-type>
-military-population  <rel-op>  <value>
-player-computer <player-number>
-player-human <player-number>
-player-in-game  <player-number>
-player-number  <player-number>
-player-resigned <player-number>
-player-valid  <player-number>
-players-building-count  <player-number>  <rel-op>  <value>
-players-building-type-count  <player-number>  <building> <rel-op>  <value>
-players-civ  <player-number> <civ>
-players-civilian-population  <player-number> <rel-op>  <value>
-players-current-age  <player-number> <rel-op> <age>
-players-current-age-time  <player-number> <rel-op> <value>
-players-military-population  <player-number> <rel-op>  <value>
-players-population  <player-number> <rel-op>  <value>
-players-score  <player-number> <rel-op> <score>
-players-stance  <player-number> <diplomatic-stance>
-players-tribute  <player-number> <resource-type> <rel-op> <value>
-players-tribute-memory  <player-number> <resource-type> <rel-op> <value>
-players-unit-count  <player-number>  <rel-op>  <value>
-players-unit-type-count  <player-number>  <unit>  <rel-op>  <value>
-population  <rel-op>  <value>
-population-cap  <rel-op>  <value>
-population-headroom  <rel-op>  <value>
-random-number  <rel-op>  <value>
-regicide-game
-research-available  <research-item>
-research-completed  <research-item>
-resource-found  <resource-type>
-shared-goal <shared-goal-id> <value>
-sheep-and-forage-too-far	38
-soldier-count  <rel-op>  <value>	38
-stance-toward <player-number> <diplomatic-stance>	38
-starting-age <rel-op> <age>	38
-starting-resources <rel-op> <starting-resources>	39
-stone-amount  <rel-op>  <value>	39
-strategic-number  <strategic-number>  <rel-op>  <value>	39
-taunt-detected <player-number> <taunt-id>	39
-timer-triggered <timer-id>	39
-town-under-attack	39
-unit-available <unit>	39
-unit-count  <rel-op>  <value>	39
-unit-count-total  <rel-op>  <value>	39
-unit-type-count  <unit> <rel-op>  <value>	40
-unit-type-count-total  <unit> <rel-op>  <value>	40
-victory-condition  <victory-condition>	40
-wall-completed-percentage  <perimeter> <rel-op>  <value>	40
-wall-invisible-percentage  <perimeter> <rel-op>  <value>	40
-warboat-count  <rel-op>  <value>	40
-wood-amount  <rel-op>  <value>	40
+		if (tdName) {
+			txtValue = tdName.textContent || tdName.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1 && tdType) {
+				txtValue = tdType.textContent || tdType.innerText;
+				if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
+					txtValue = tdVersion.textContent || tdVersion.innerText;
+					if(version.value == "All" || txtValue == version.value) {
+						tr[i].style.display = "";
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+				else {
+					tr[i].style.display = "none";
+				}
+			}
+			else {
+				tr[i].style.display = "none";
+			}
+		}
+	}
+}
 
-ES Actions:
-do-nothing	44
-acknowledge-event  <event-type> <event-id>	44
-acknowledge-taunt  <player-number> <taunt-id>	44
-attack-now	44
-build  <building>	45
-build-forward  <building>	45
-build-gate  <perimeter>	45
-build-wall  <perimeter> <wall-type>	45
-buy-commodity  <commodity>	45
-cc-add-resource <resource-type> <amount>	45
-chat-local <string>	45
-chat-local-using-id <string-id>	45
-chat-local-using-range <string-id-start> <string-id-range>	45
-chat-local-to-self <string>	45
-chat-to-all <string>	45
-chat-to-all-using-id <string-id>	46
-chat-to-all-using-range <string-id-start> <string-id-range>	46
-chat-to-allies <string>	46
-chat-to-allies-using-id <string-id>	46
-chat-to-allies-using-range <string-id-start> <string-id-range>	46
-chat-to-enemies <string>	46
-chat-to-enemies-using-id <string-id>	46
-chat-to-enemies-using-range <string-id-start> <string-id-range>	46
-chat-to-player <player-number> <string>	47
-chat-to-player-using-id <player-number> <string-id>	47
-chat-to-player-using-range <player-number> <string-id-start> <string-id-range>	47
-chat-trace  <value>	47
-clear-tribute-memory  <player-number> <resource-type>	47
-delete-building  <building>	47
-delete-unit  <unit>	47
-disable-self	47
-disable-timer  <timer-id>	48
-enable-timer  <timer-id>	48
-enable-wall-placement  <perimeter>	48
-generate-random-number <value>	49
-log <string>	49
-log-trace  <value>	49
-release-escrow  <resource-type>	49
-research  <research-item>	49
-research  <age>	49
-resign	49
-sell-commodity  <commodity>	50
-set-difficulty-parameter <difficulty-parameter> <value>	50
-set-doctrine <value>	50
-set-escrow-percentage  <resource-type>  <value>	50
-set-goal <goal-id> <value>	50
-set-shared-goal <shared-goal-id> <value>	50
-set-signal <signal-id>	50
-set-stance <player-number> <diplomatic-stance>	50
-set-strategic-number <strategic-number>  <value>	50
-spy	50
-taunt  <value>	50
-taunt-using-range  <taunt-start>  <taunt-range>	51
-train <unit>	51
-tribute-to-player <player-number>  <resource-type>  <value>	51
+function parametersFilter() {
+	// Declare variables
+	var input, filter, table, tr, tdName, tdVersion, i, txtValue;
+	input = document.getElementById("parametersInput");
+	version = document.getElementById("parameter-version");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("index-table");
+	tr = table.getElementsByTagName("tr");
 
-UP Facts:
-up-allied-goal inPlayerComputerAlly inGoalId compareOp inOpValue
-up-allied-resource-amount inPlayerAlly inConstResourceAmount compareOp inOpValue
-up-allied-resource-percent inPlayerAlly inConstResourceAmount compareOp inOpValue
-up-allied-sn inPlayerComputerAlly inSnId compareOp inOpValue
-up-attacker-class compareOp inOpClassId
-up-building-type-in-town typeOp inOpBuildingId compareOp inOpValue
-up-can-build inGoalEscrowState typeOp inOpBuildingId
-up-can-research inGoalEscrowState typeOp inOpTechId
-up-can-search inConstSearchSource
-up-can-train inGoalEscrowState typeOp inOpUnitId
-up-compare-const inConstId compareOp inOpValue
-up-compare-flag inGoalId compareOp inOpFlag
-up-compare-goal inGoalId compareOp inOpValue
-up-compare-sn inSnId compareOp inOpValue
-up-compare-text typeOp inOpText compareOp inOpValue
-up-defender-count compareOp inOpValue
-up-enemy-buildings-in-town compareOp inOpValue
-up-enemy-units-in-town compareOp inOpValue
-up-enemy-villagers-in-town compareOp inOpValue
-up-gaia-type-count typeOp inConstResource compareOp inOpValue
-up-gaia-type-count-total typeOp inConstResource compareOp inOpValue
-up-group-size typeOp inOpGroupId compareOp inOpValue
-up-idle-unit-count inConstIdleType compareOp inOpValue
-up-object-data inConstObjectData compareOp inOpValue
-up-object-target-data inConstObjectData compareOp inOpValue
-up-object-type-count typeOp inOpObjectId compareOp inOpValue
-up-object-type-count-total typeOp inOpObjectId compareOp inOpValue
-up-path-distance inGoalPoint inConstStrict compareOp inOpValue
-up-pending-objects typeOp inOpObjectId compareOp inOpValue
-up-pending-placement typeOp inOpBuildingId
-up-player-distance inPlayerAny compareOp inOpValue
-up-players-in-game inConstPlayerStance compareOp inOpValue
-up-point-contains inGoalPoint typeOp inOpObjectId
-up-point-distance inGoalPoint1 inGoalPoint2 compareOp inOpValue
-up-point-elevation inGoalPoint compareOp inOpValue
-up-point-explored inGoalPoint typeOp inOpExploredState
-up-point-terrain inGoalPoint compareOp inOpTerrain
-up-point-zone inGoalPoint compareOp inOpValue
-up-projectile-detected inConstProjectileType compareOp inOpElapsedTime
-up-projectile-target inConstProjectileType compareOp inOpClassId
-up-remaining-boar-amount compareOp inOpValue
-up-research-status typeOp inOpTechId compareOp inOpResearchState
-up-resource-amount inConstResourceAmount compareOp inOpValue
-up-resource-percent inConstResourceAmount compareOp inOpValue
-up-timer-status inConstTimerId compareOp inOpTimerState
-up-train-site-ready typeOp inOpUnitId
-up-unit-type-in-town typeOp inOpUnitId compareOp inOpValue
-up-villager-type-in-town typeOp inOpUnitId compareOp inOpValue
-
-UP Actions:
-up-add-cost-data inGoalId typeOp inOpValue
-up-add-object-by-id inConstSearchSource typeOp inOpId
-up-add-object-cost typeOp inOpObjectId typeOp inOpValue
-up-add-point inGoalPoint1 inGoalPoint2 typeOp inOpCount
-up-add-research-cost typeOp inOpTechId typeOp inOpValue
-up-assign-builders typeOp inOpBuildingId typeOp inOpValue
-up-bound-point outGoalPoint1 inGoalPoint2
-up-bound-precise-point ioGoalPoint inConstPrecise typeOp inOpBorder
-up-build inConstPlacementType inGoalEscrowState typeOp inOpBuildingId
-up-build-line inGoalPoint1 inGoalPoint2 typeOp inOpBuildingId
-up-buy-commodity typeOp inOpResourceAmount typeOp inOpValue
-up-can-build-line inGoalEscrowState inGoalPoint1 typeOp inOpBuildingId
-up-cc-add-resource typeOp inOpResourceAmount typeOp inOpValue
-up-cc-send-cheat inTextCode
-up-change-name inTextNewName
-up-chat-data-to-all inTextFormattedString typeOp inOpValue
-up-chat-data-to-player inPlayerAny inTextFormat typeOp inOpValue
-up-chat-data-to-self inTextFormat typeOp inOpValue
-up-clean-search inConstSearchSource inConstObjectData inConstSearchOrder
-up-copy-point outGoalPoint1 inGoalPoint2
-up-create-group inGoalIndex inGoalCount typeOp inOpGroupId
-up-cross-tiles ioGoalPoint1 inGoalPoint2 typeOp inOpTiles
-up-delete-distant-farms typeOp inOpValue
-up-delete-idle-units inConstIdleType
-up-delete-objects typeOp inOpUnitId typeOp inOpHitpoints
-up-disband-group-type inConstGroupType
-up-drop-resources inConstResource typeOp inOpValue
-up-filter-distance typeOp inOpMinDistance typeOp inOpMaxDistance
-up-filter-exclude inConstCmdId inConstActionId inConstOrderId inConstClassId
-up-filter-garrison typeOp inOpMinGarrison typeOp inOpMaxGarrison
-up-filter-includes inConstCmdId inConstActionId inConstOrderId inConstOnMainland
-up-filter-range inConstMinGarrison inConstMaxGarrison inConstMinDistance inConstMaxDistance
-up-filter-status typeOp inOpObjectStatus typeOp inOpObjectList
-up-find-flare outGoalPoint
-up-find-local typeOp inOpUnitId typeOp inOpCount
-up-find-next-player inConstPlayerStance inConstFindPlayerMethod ioGoalPlayerId
-up-find-player inConstPlayerStance inConstFindPlayerMethod outGoalPlayerId
-up-find-player-flare inPlayerAny outGoalPoint
-up-find-remote typeOp inOpUnitId typeOp inOpCount
-up-find-resource typeOp inOpResource typeOp inOpCount
-up-find-status-local typeOp inOpUnitId typeOp inOpCount
-up-find-status-remote typeOp inOpUnitId typeOp inOpCount
-up-full-reset-search
-up-garrison inConstObjectId typeOp inOpUnitId
-up-gather-inside typeOp inOpBuildingId typeOp inOpState
-up-get-attacker-class outGoalSourceClass
-up-get-cost-delta outGoalId
-up-get-event typeOp inOpEventId outGoalValue
-up-get-fact inConstFactId inConstParam outGoalData
-up-get-fact-max inPlayerAny inConstFactId inConstParam outGoalData
-up-get-fact-min inPlayerAny inConstFactId inConstParam outGoalData
-up-get-fact-sum inPlayerAny inConstFactId inConstParam outGoalData
-up-get-focus-fact inConstFactId inConstParam outGoalData
-up-get-group-size typeOp inOpGroupId outGoalSize
-up-get-guard-state outGoalState
-up-get-indirect-goal typeOp inOpGoalId outGoalValue
-up-get-object-data inConstObjectData outGoalData
-up-get-object-target-data inConstObjectData outGoalData
-up-get-object-type-data typeOp inOpTypeId inConstObjectData outGoalData
-up-get-path-distance inGoalPoint inConstStrict outGoalData
-up-get-player-color inPlayerAny outGoalColorId
-up-get-player-fact inPlayerAny inConstFactId inConstParam outGoalData
-up-get-point inConstPositionType outGoalPoint
-up-get-point-contains inGoalPoint outGoalId typeOp inOpObjectId
-up-get-point-distance inGoalPoint1 inGoalPoint2 outGoalDistance
-up-get-point-elevation inGoalPoint outGoalData
-up-get-point-terrain inGoalPoint outGoalTerrain
-up-get-point-zone inGoalPoint outGoalData
-up-get-precise-time inGoalStart outGoalTime
-up-get-projectile-player inConstProjectileType outGoalPlayerId
-up-get-rule-id outGoalRuleId
-up-get-search-state outGoalState
-up-get-shared-goal typeOp inOpSharedGoalId outGoalValue
-up-get-signal typeOp inOpSignalId outGoalValue
-up-get-target-fact inConstFactId inConstParam outGoalData
-up-get-threat-data outGoalElapsedTime outGoalPlayerId outGoalSourceClass outGoalTargetClass
-up-get-timer typeOp inOpTimerId outGoalValue
-up-get-upgrade-id inPlayerAny inConstCount inGoalTypeId outGoalUpgradeId
-up-get-victory-data outGoalPlayerId outGoalType outGoalTime
-up-get-victory-limit outGoalLimit
-up-guard-unit inConstObjectId typeOp inOpUnitId
-up-jump-direct typeOp inOpRuleId
-up-jump-dynamic typeOp inOpRuleDelta
-up-jump-rule inConstRuleDelta
-up-lerp-percent ioGoalPoint1 inGoalPoint2 typeOp inOpPercent
-up-lerp-tiles ioGoalPoint1 inGoalPoint2 inOpTiles
-up-log-data inConstPlain inTextFormat typeOp inOpValue
-up-modify-escrow inConstResource mathOp inOpValue
-up-modify-flag ioGoalId mathOp inOpFlag
-up-modify-goal ioGoalId mathOp inOpValue
-up-modify-group-flag inConstOn typeOp inOpGroupId
-up-modify-sn ioSnId mathOp inOpValue
-up-release-escrow inConstSearchSource inConstObjectData typeOp inOpValue
-up-remove-objects inConstSearchSource inConstObjectData typeOp inOpValue
-up-request-hunters typeOp inOpValue
-up-research inGoalEscrowState typeOp inOpTechId
-up-reset-attack-now
-up-reset-building inConstPreserveResearch typeOp inOpBuildingId
-up-reset-cost-data outGoalId
-up-reset-filters
-up-reset-group typeOp inOpGroupId
-up-reset-placement typeOp inOpBuildingId
-up-reset-scouts
-up-reset-search inConstLocalIndex inConstLocalList inConstRemoteIndex inConstRemoteList
-up-reset-target-priorities inConstProrityType inConstMode
-up-reset-unit typeOp inOpUnitId
-up-retask-gatherers inConstResource typeOp inOpValue
-up-retreat-now inConstObjectId typeOp inOpUnitId
-up-retreat-to inConstObjectId typeOp inOpUnitId
-up-sell-commodity typeOp inOpResourceAmount typeOp inOpValue
-up-send-flare inGoalPoint
-up-send-scout inConstGroupType inConstPositionType
-up-set-attack-stance inConstUnitId typeOp inOpAttackStance
-up-set-defense-priority typeOp inOpBuildingId typeOp inOpValue
-up-set-event inOpEventId typeOp inOpValue
-up-set-group inConstSearchSource typeOp inOpGroupId
-up-set-indirect-goal typeOp inOpGoalId typeOp inOpValue
-up-set-offense-priority typeOp inOpObjectId typeOp inOpValue
-up-set-placement-data inPlayerAlly inConstObjectId typeOp inOpValue
-up-set-precise-target-point inGoalPoint
-up-set-shared-goal typeOp inOpSharedGoalId typeOp inOpValue
-up-set-signal typeOp inOpSignalId typeOp inOpValue
-up-set-target-by-id typeOp inOpId
-up-set-target-object inConstSearchSource typeOp inOpIndex
-up-set-target-point inGoalPoint
-up-set-timer inOpTimerId typeOp inOpValue
-up-setup-cost-data inConstResetCost ioGoalId
-up-store-map-name inConstExtension
-up-store-object-name
-up-store-player-chat inPlayerAny
-up-store-player-name inPlayerAny
-up-store-tech-name typeOp inOpTechId
-up-store-text typeOp inOpLanguageId
-up-store-type-name typeOp inOpTypeId
-up-target-objects inConstTarget inConstAction inConstFormation inConstAttackStance
-up-target-point inGoalPoint inConstAction inConstFormation inConstAttackStance
-up-train inGoalEscrowState typeOp inOpUnitId
-up-tribute-to-player inPlayerAny inConstResourceAmount typeOp inOpValue
-up-ungarrison typeOp inOpObjectId
-up-update-targets
-*/
+	// Loop through all table rows, and hide those who don't match the search query
+	for (i = 0; i < tr.length; i++) {
+		tdName = tr[i].getElementsByTagName("td")[0];
+		tdVersion = tr[i].getElementsByTagName("td")[2];
+		if (tdName) {
+			txtValue = tdName.textContent || tdName.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				txtValue = tdVersion.textContent || tdVersion.innerText;
+				if(version.value == "All" || txtValue == version.value) {
+					tr[i].style.display = "";
+				}
+				else {
+					tr[i].style.display = "none";
+				}
+			}
+			else {
+				tr[i].style.display = "none";
+			}
+		}
+	}
+}
