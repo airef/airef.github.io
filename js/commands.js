@@ -3785,7 +3785,7 @@ cUpBuild.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -3928,7 +3928,7 @@ cUpCanBuild.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -3959,7 +3959,7 @@ cUpCanBuildLine.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -3996,7 +3996,7 @@ cUpCanResearch.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -4043,7 +4043,7 @@ cUpCanTrain.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -7500,7 +7500,7 @@ cUpResearch.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -8655,7 +8655,7 @@ cUpTargetPoint.example = [ {
 	title: "Send selected units from up-find-local to the map center.",
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-target-point gl-point-x action-default -1 -1)\r\n)"
 }, {
-	title: "Train a spearman with action-train: (up-target-point inGoalEscrowState action-train typeOp inOpTypeId). The value for inGoalEscrowState must be either 0 for without-escrow or an extended goal from 41-510.",
+	title: "Train a spearman with action-train: (up-target-point inGoalEscrowState action-train typeOp inOpTypeId). Note: A goal ID is expected for inGoalEscrowState. However, if you never want this command to use escrow, you can put 0 instead.",
 	data: "(defrule\r\n\t(up-find-local c: barracks c: 1)\r\n=&gt;\r\n\t(up-target-point 0 action-train c: spearman)\r\n)"
 } ];
 cUpTargetPoint.relatedCommands = [];
@@ -8701,7 +8701,7 @@ cUpTrain.commandParameters = [ {
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
-	note: "Determines whether escrowed resources are considered."
+	note: "Determines whether escrowed resources are considered.<br/>Note: A goal ID that stores the escrow state is expected. However, if you never want this command to use escrow, you can put 0 instead."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
