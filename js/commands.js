@@ -665,7 +665,7 @@ cAttackSoldierCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -685,7 +685,7 @@ cAttackWarboatCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -771,7 +771,7 @@ cBuildingCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -789,7 +789,7 @@ cBuildingCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -815,7 +815,7 @@ cBuildingTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -841,7 +841,7 @@ cBuildingTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1118,7 +1118,7 @@ cCcPlayersBuildingCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1151,7 +1151,7 @@ cCcPlayersBuildingTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1177,7 +1177,7 @@ cCcPlayersUnitCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1210,7 +1210,7 @@ cCcPlayersUnitTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1490,7 +1490,7 @@ cCivilianPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1545,7 +1545,7 @@ cCommodityBuyingPrice.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1570,7 +1570,7 @@ cCommoditySellingPrice.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1588,7 +1588,7 @@ cCurrentAge.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pAge.getLink(),
 	name: "Age",
@@ -1607,7 +1607,7 @@ cCurrentAgeTime.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1625,7 +1625,7 @@ cCurrentScore.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1647,7 +1647,7 @@ cDefendSoldierCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1666,7 +1666,7 @@ cDefendWarboatCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1706,7 +1706,7 @@ cDifficulty.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pDifficulty.getLink(),
 	name: "Difficulty",
@@ -1765,7 +1765,7 @@ cDropsiteMinDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1831,7 +1831,7 @@ cEscrowAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1871,7 +1871,7 @@ cFoodAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1890,7 +1890,7 @@ cGameTime.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c: or s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required.<strong>Note:</strong> game-time is bugged with goal comparison operators, so you cannot use them. For example, you cannot use g:==, just == or s:==."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c: or s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required.<strong>Note:</strong> game-time is bugged with goal comparison operators, so you cannot use them. For example, you cannot use g:==, just == or s:==."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1908,7 +1908,7 @@ cGameType.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pGameType.getLink(),
 	name: "GameType",
@@ -1933,7 +1933,7 @@ cGateCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -1981,7 +1981,7 @@ cGoldAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2006,7 +2006,7 @@ cHousingHeadroom.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2025,7 +2025,7 @@ cIdleFarmCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2089,7 +2089,7 @@ cMilitaryPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2188,7 +2188,7 @@ cPlayersBuildingCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2221,7 +2221,7 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2266,7 +2266,7 @@ cPlayersCivilianPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2292,7 +2292,7 @@ cPlayersCurrentAge.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pAge.getLink(),
 	name: "Age",
@@ -2318,7 +2318,7 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2344,7 +2344,7 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2370,7 +2370,7 @@ cPlayersPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2396,7 +2396,7 @@ cPlayersScore.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2448,7 +2448,7 @@ cPlayersTribute.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2481,7 +2481,7 @@ cPlayersTributeMemory.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2507,7 +2507,7 @@ cPlayersUnitCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2540,7 +2540,7 @@ cPlayersUnitTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2558,7 +2558,7 @@ cPopulation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2576,7 +2576,7 @@ cPopulationCap.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2595,7 +2595,7 @@ cPopulationHeadroom.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2614,7 +2614,7 @@ cRandomNumber.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2895,7 +2895,7 @@ cSoldierCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2936,7 +2936,7 @@ cStartingAge.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pAge.getLink(),
 	name: "Age",
@@ -2954,7 +2954,7 @@ cStartingResources.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pStartingResources.getLink(),
 	name: "StartingResources",
@@ -2972,7 +2972,7 @@ cStoneAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -2997,7 +2997,7 @@ cStrategicNumber.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3137,7 +3137,7 @@ cUnitCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3155,7 +3155,7 @@ cUnitCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3181,7 +3181,7 @@ cUnitTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3207,7 +3207,7 @@ cUnitTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3244,7 +3244,7 @@ cWallCompletedPercentage.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3270,7 +3270,7 @@ cWallInvisiblePercentage.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3288,7 +3288,7 @@ cWarboatCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3306,7 +3306,7 @@ cWoodAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3337,7 +3337,7 @@ cUpAddCostData.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3368,7 +3368,7 @@ cUpAddObjectById.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pId.getLink(),
 	name: "Id",
@@ -3391,7 +3391,7 @@ cUpAddObjectCost.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -3405,7 +3405,7 @@ cUpAddObjectCost.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3446,7 +3446,7 @@ cUpAddPoint.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -3469,7 +3469,7 @@ cUpAddResearchCost.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -3483,7 +3483,7 @@ cUpAddResearchCost.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3520,7 +3520,7 @@ cUpAlliedGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3557,7 +3557,7 @@ cUpAlliedResourceAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3594,7 +3594,7 @@ cUpAlliedResourcePercent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3631,7 +3631,7 @@ cUpAlliedSn.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3654,7 +3654,7 @@ cUpAssignBuilders.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -3668,7 +3668,7 @@ cUpAssignBuilders.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3694,7 +3694,7 @@ cUpAttackerClass.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pClassId.getLink(),
 	name: "ClassId",
@@ -3732,7 +3732,7 @@ cUpBoundPrecisePoint.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBorder.getLink(),
 	name: "Border",
@@ -3792,7 +3792,7 @@ cUpBuild.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -3815,7 +3815,7 @@ cUpBuildingTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -3829,7 +3829,7 @@ cUpBuildingTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3867,7 +3867,7 @@ cUpBuildLine.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -3891,7 +3891,7 @@ cUpBuyCommodity.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResourceAmount.getLink(),
 	name: "ResourceAmount",
@@ -3905,7 +3905,7 @@ cUpBuyCommodity.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -3935,7 +3935,7 @@ cUpCanBuild.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -3973,7 +3973,7 @@ cUpCanBuildLine.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -4003,7 +4003,7 @@ cUpCanResearch.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -4050,7 +4050,7 @@ cUpCanTrain.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -4074,7 +4074,7 @@ cUpCcAddResource.commandParameters = [{
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResourceAmount.getLink(),
 	name: "ResourceAmount",
@@ -4088,7 +4088,7 @@ cUpCcAddResource.commandParameters = [{
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4151,7 +4151,7 @@ cUpChatDataToAll.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4187,7 +4187,7 @@ cUpChatDataToPlayer.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4217,7 +4217,7 @@ cUpChatDataToSelf.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4278,7 +4278,7 @@ cUpCompareConst.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4309,7 +4309,7 @@ cUpCompareFlag.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pFlag.getLink(),
 	name: "Flag",
@@ -4339,7 +4339,7 @@ cUpCompareGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4369,7 +4369,7 @@ cUpCompareSn.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4393,7 +4393,7 @@ cUpCompareText.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pText.getLink(),
 	name: "Text",
@@ -4407,7 +4407,7 @@ cUpCompareText.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4468,7 +4468,7 @@ cUpCreateGroup.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -4506,7 +4506,7 @@ cUpCrossTiles.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTiles.getLink(),
 	name: "Tiles",
@@ -4529,7 +4529,7 @@ cUpDeleteDistantFarms.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4568,7 +4568,7 @@ cUpDeleteObjects.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -4582,7 +4582,7 @@ cUpDeleteObjects.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pHitpoints.getLink(),
 	name: "Hitpoints",
@@ -4605,7 +4605,7 @@ cUpDefenderCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4651,7 +4651,7 @@ cUpDropResources.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4677,7 +4677,7 @@ cUpEnemyBuildingsInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4700,7 +4700,7 @@ cUpEnemyUnitsInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4723,7 +4723,7 @@ cUpEnemyVillagersInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -4747,7 +4747,7 @@ cUpFilterDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pMinDistance.getLink(),
 	name: "MinDistance",
@@ -4761,7 +4761,7 @@ cUpFilterDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pMaxDistance.getLink(),
 	name: "MaxDistance",
@@ -4823,7 +4823,7 @@ cUpFilterGarrison.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pMinGarrison.getLink(),
 	name: "MinGarrison",
@@ -4837,7 +4837,7 @@ cUpFilterGarrison.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pMaxGarrison.getLink(),
 	name: "MaxGarrison",
@@ -4938,7 +4938,7 @@ cUpFilterStatus.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectStatus.getLink(),
 	name: "ObjectStatus",
@@ -4952,7 +4952,7 @@ cUpFilterStatus.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectList.getLink(),
 	name: "ObjectList",
@@ -4993,7 +4993,7 @@ cUpFindLocal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -5007,7 +5007,7 @@ cUpFindLocal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -5115,7 +5115,7 @@ cUpFindRemote.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -5129,7 +5129,7 @@ cUpFindRemote.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -5153,7 +5153,7 @@ cUpFindResource.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -5167,7 +5167,7 @@ cUpFindResource.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -5191,7 +5191,7 @@ cUpFindStatusLocal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -5205,7 +5205,7 @@ cUpFindStatusLocal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -5229,7 +5229,7 @@ cUpFindStatusRemote.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -5243,7 +5243,7 @@ cUpFindStatusRemote.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pCount.getLink(),
 	name: "Count",
@@ -5277,7 +5277,7 @@ cUpGaiaTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -5291,7 +5291,7 @@ cUpGaiaTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -5318,7 +5318,7 @@ cUpGaiaTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -5332,7 +5332,7 @@ cUpGaiaTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -5366,7 +5366,7 @@ cUpGarrison.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -5392,7 +5392,7 @@ cUpGatherInside.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5406,7 +5406,7 @@ cUpGatherInside.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pState.getLink(),
 	name: "State",
@@ -5464,7 +5464,7 @@ cUpGetEvent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pEventId.getLink(),
 	name: "EventId",
@@ -5670,7 +5670,7 @@ cUpGetGroupSize.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -5720,7 +5720,7 @@ cUpGetIndirectGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -5799,7 +5799,7 @@ cUpGetObjectTypeData.commandParameters = [{
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTypeId.getLink(),
 	name: "TypeId",
@@ -5997,7 +5997,7 @@ cUpGetPointContains.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -6179,7 +6179,7 @@ cUpGetSharedGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -6209,7 +6209,7 @@ cUpGetSignal.commandParameters = [{
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pSignalId.getLink(),
 	name: "SignalId",
@@ -6307,7 +6307,7 @@ cUpGetTimer.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -6420,7 +6420,7 @@ cUpGroupSize.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -6434,7 +6434,7 @@ cUpGroupSize.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6464,7 +6464,7 @@ cUpGuardUnit.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6494,7 +6494,7 @@ cUpIdleUnitCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6518,7 +6518,7 @@ cUpJumpDirect.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pRuleId.getLink(),
 	name: "RuleId",
@@ -6542,7 +6542,7 @@ cUpJumpDynamic.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pRuleDelta.getLink(),
 	name: "RuleDelta",
@@ -6600,7 +6600,7 @@ cUpLerpPercent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pPercent.getLink(),
 	name: "Percent",
@@ -6638,7 +6638,7 @@ cUpLerpTiles.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTiles.getLink(),
 	name: "Tiles",
@@ -6676,7 +6676,7 @@ cUpLogData.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6709,7 +6709,7 @@ cUpModifyEscrow.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for a math operation.\r\nValue: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
+	note: "Sets the expected type of the following parameter for a math operation.<br/>Value: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6740,7 +6740,7 @@ cUpModifyFlag.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for a math operation.\r\nValue: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
+	note: "Sets the expected type of the following parameter for a math operation.<br/>Value: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
 }, {
 	nameLink: pFlag.getLink(),
 	name: "Flag",
@@ -6771,7 +6771,7 @@ cUpModifyGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for a math operation.\r\nValue: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
+	note: "Sets the expected type of the following parameter for a math operation.<br/>Value: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6802,7 +6802,7 @@ cUpModifyGroupFlag.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -6832,7 +6832,7 @@ cUpModifySn.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for a math operation.\r\nValue: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
+	note: "Sets the expected type of the following parameter for a math operation.<br/>Value: c:, g:, s: followed by: =, +, -, *, /, mod, min, max, neg, z/, %*, %/"
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6862,7 +6862,7 @@ cUpObjectData.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6892,7 +6892,7 @@ cUpObjectTargetData.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6915,7 +6915,7 @@ cUpObjectTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -6929,7 +6929,7 @@ cUpObjectTypeCount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -6952,7 +6952,7 @@ cUpObjectTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -6966,7 +6966,7 @@ cUpObjectTypeCountTotal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7004,7 +7004,7 @@ cUpPathDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7027,7 +7027,7 @@ cUpPendingObjects.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -7041,7 +7041,7 @@ cUpPendingObjects.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7064,7 +7064,7 @@ cUpPendingPlacement.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7094,7 +7094,7 @@ cUpPlayerDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7130,7 +7130,7 @@ cUpPlayersInGame.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7161,7 +7161,7 @@ cUpPointContains.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -7199,7 +7199,7 @@ cUpPointDistance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7229,7 +7229,7 @@ cUpPointElevation.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7260,7 +7260,7 @@ cUpPointExplored.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pExploredState.getLink(),
 	name: "ExploredState",
@@ -7291,7 +7291,7 @@ cUpPointTerrain.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pTerrain.getLink(),
 	name: "Terrain",
@@ -7322,7 +7322,7 @@ cUpPointZone.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7352,7 +7352,7 @@ cUpProjectileDetected.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pElapsedTime.getLink(),
 	name: "ElapsedTime",
@@ -7391,7 +7391,7 @@ cUpProjectileTarget.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pClassId.getLink(),
 	name: "ClassId",
@@ -7415,7 +7415,7 @@ cUpRemainingBoarAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7453,7 +7453,7 @@ cUpRemoveObjects.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7477,7 +7477,7 @@ cUpRequestHunters.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7507,7 +7507,7 @@ cUpResearch.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -7530,7 +7530,7 @@ cUpResearchStatus.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -7544,7 +7544,7 @@ cUpResearchStatus.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pResearchState.getLink(),
 	name: "ResearchState",
@@ -7584,7 +7584,7 @@ cUpResetBuilding.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7633,7 +7633,7 @@ cUpResetGroup.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -7657,7 +7657,7 @@ cUpResetPlacement.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7754,7 +7754,7 @@ cUpResetUnit.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -7783,7 +7783,7 @@ cUpResourceAmount.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7813,7 +7813,7 @@ cUpResourcePercent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7843,7 +7843,7 @@ cUpRetaskGatherers.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7882,7 +7882,7 @@ cUpRetreatTo.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -7951,7 +7951,7 @@ cUpSetAttackStance.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pAttackStance.getLink(),
 	name: "AttackStance",
@@ -7975,7 +7975,7 @@ cUpSellCommodity.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pResourceAmount.getLink(),
 	name: "ResourceAmount",
@@ -7989,7 +7989,7 @@ cUpSellCommodity.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8013,7 +8013,7 @@ cUpSetDefensePriority.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -8027,7 +8027,7 @@ cUpSetDefensePriority.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8050,7 +8050,7 @@ cUpSetEvent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pEventId.getLink(),
 	name: "EventId",
@@ -8064,7 +8064,7 @@ cUpSetEvent.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8094,7 +8094,7 @@ cUpSetGroup.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGroupId.getLink(),
 	name: "GroupId",
@@ -8117,7 +8117,7 @@ cUpSetIndirectGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -8131,7 +8131,7 @@ cUpSetIndirectGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8154,7 +8154,7 @@ cUpSetOffensePriority.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -8168,7 +8168,7 @@ cUpSetOffensePriority.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8206,7 +8206,7 @@ cUpSetPlacementData.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8249,7 +8249,7 @@ cUpSetSharedGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -8263,7 +8263,7 @@ cUpSetSharedGoal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8286,7 +8286,7 @@ cUpSetSignal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pSignalId.getLink(),
 	name: "SignalId",
@@ -8300,7 +8300,7 @@ cUpSetSignal.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8324,7 +8324,7 @@ cUpSetTargetById.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pId.getLink(),
 	name: "Id",
@@ -8355,7 +8355,7 @@ cUpSetTargetObject.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pIndex.getLink(),
 	name: "Index",
@@ -8396,7 +8396,7 @@ cUpSetTimer.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -8410,7 +8410,7 @@ cUpSetTimer.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8518,7 +8518,7 @@ cUpStoreTechName.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -8542,7 +8542,7 @@ cUpStoreText.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -8566,7 +8566,7 @@ cUpStoreTypeName.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pTypeId.getLink(),
 	name: "TypeId",
@@ -8675,7 +8675,7 @@ cUpTimerStatus.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pTimerState.getLink(),
 	name: "TimerState",
@@ -8708,7 +8708,7 @@ cUpTrain.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8732,7 +8732,7 @@ cUpTrainSiteReady.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8769,7 +8769,7 @@ cUpTributeToPlayer.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8801,7 +8801,7 @@ cUpUngarrison.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -8827,7 +8827,7 @@ cUpUnitTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8841,7 +8841,7 @@ cUpUnitTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8864,7 +8864,7 @@ cUpVillagerTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.\r\nValue: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8878,7 +8878,7 @@ cUpVillagerTypeInTown.commandParameters = [ {
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.\r\nValue: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=\r\nNote: the c: prefix is optional; other prefixes are required."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -10340,11 +10340,11 @@ pFindPlayerMethod.valueList = [ {
 }, {
 	name: "find-random",
 	id: 1,
-	description: "Find a random player."
+	description: "Find a random player. When used with " + cUpFindNextPlayer.getLink() + " the player found will not be the previously found player, but otherwise any matching player can be found. find-random will not cycle through all matching players before allowing the players to be randomly found again."
 }, {
 	name: "find-closest",
 	id: 2,
-	description: "Find the player with the closest building. An invalid player number will be returned if players of the given stance have not been found."
+	description: "Find the player with the closest building. An invalid player number will be returned if players of the given stance have not been found. When used with " + cUpFindNextPlayer.getLink() + " the player found will be the next closest player number, looping back to the closest player number after the furthest matching player is found."
 }, {
 	name: "find-ordered",
 	id: 3,

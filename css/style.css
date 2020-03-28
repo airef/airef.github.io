@@ -222,3 +222,7 @@ code {
 	border: 1px solid #ddd;
 	margin-bottom: 12px;
 }
+
+.param .dir-type {
+	cursor: default;
+}

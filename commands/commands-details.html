@@ -2,6 +2,9 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <html>
@@ -23,6 +26,8 @@
 	</script>
 	<script src="../js/commands.js"></script>
 	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
 	<script>
 		var item = window.location.href;
 		var index = item.indexOf("#");
@@ -42,15 +47,14 @@
 				}
 				info += "<h3>Syntax</h3><p>(<strong>" + commandsArray[i].commandName + "</strong>";
 					for (var j = 0; j < commandsArray[i].commandParameters.length; j++) {
-						info += " <span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
+						info += " <span class=\"param\" title=\"" + commandsArray[i].commandParameters[j].note + "\"><span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
 						info += "<span class=\"dir-type\">" + commandsArray[i].commandParameters[j].type + "</span>";
-						info += commandsArray[i].commandParameters[j].nameLink;
+						info += commandsArray[i].commandParameters[j].nameLink + "</span>";
 					}
 					info += ")</p><p>For more info on command syntax";
 					if (commandsArray[i].commandParameters.length > 0) {
 						for (var m = 0; m < commandsArray[i].commandParameters.length; m++) {
 							if (commandsArray[i].commandParameters[m].name != "compareOp" && commandsArray[i].commandParameters[m].name != "mathOp" && commandsArray[i].commandParameters[m].name != "typeOp") {
-								console.log(commandsArray[i].commandParameters[m].name);
 								info += " and what '";
 								info += commandsArray[i].commandParameters[m].dir + commandsArray[i].commandParameters[m].type;
 								info += "' and other parameter prefixes mean";
@@ -99,6 +103,17 @@
 		}
 		info += "</tr></table>";
 		document.getElementById("item-details").innerHTML = info;
+	</script>
+	<script>
+		$(function() {
+			$(".param").tooltip({
+				content: function() {
+        			return $(this).attr('title');
+   				},
+				show: {duration:200},
+				hide: {duration:200}
+			});
+		});
 	</script>
 
 </body>

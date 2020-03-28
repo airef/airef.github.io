@@ -3,6 +3,9 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
@@ -55,13 +58,16 @@
 	</script>
 	<script src="../js/commands.js"></script>
 	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
 	
 	<script>
 		var text = "<table id=\"index-table\">";
 		text += "<tr><th>Command Name</th><th>Description</th><th>Type</th><th>Version</th></tr>";
 		for(var i = 0; i < commandsArray.length; i++) {
 			text += "<tr>";
-			text += "<td>" + commandsArray[i].getLink() + "</td>";
+			text += "<td class=\"command-name\" title=\"" + commandsArray[i].commandName;
+			text += "\">" + commandsArray[i].getLink() + "</td>";
 			text += "<td>" + commandsArray[i].shortDescription + "</td>";
 			text += "<td>" + commandsArray[i].commandType + "</td>";
 			text += "<td>" + commandsArray[i].commandVersion + "</td>";
@@ -69,6 +75,32 @@
 		}
 		text += "</table>"
 		document.getElementById("commandsTable").innerHTML = text;
+	</script>
+	<script>
+		$(function() {
+			$(".command-name").tooltip({
+				content: function() {
+					var k = 0;
+					var tooltip = "";
+					while(k <= commandsArray.length) {
+						if (commandsArray[k].commandName == $(this).attr('title')) {
+							tooltip += "(" + commandsArray[k].getLink() + "</strong>";
+							for (var m = 0; m < commandsArray[k].commandParameters.length; m++) {
+								tooltip += " <span class=\"param\" title=\"" + commandsArray[k].commandParameters[m].note + "\"><span class=\"dir-type\">" + commandsArray[k].commandParameters[m].dir + "</span>";
+								tooltip += "<span class=\"dir-type\">" + commandsArray[k].commandParameters[m].type + "</span>";
+								tooltip += commandsArray[k].commandParameters[m].nameLink + "</span>";
+							}
+							tooltip += ")";
+							break;
+						}
+						k++;
+					}
+        			return tooltip;
+   				},
+				show: {delay:500, duration:200},
+				hide: {delay:1000, duration:200}
+			});
+		});
 	</script>
 </body>
 </html>
