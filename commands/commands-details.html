@@ -47,7 +47,7 @@
 				}
 				info += "<h3>Syntax</h3><p>(<strong>" + commandsArray[i].commandName + "</strong>";
 					for (var j = 0; j < commandsArray[i].commandParameters.length; j++) {
-						info += " <span class=\"param\" title=\"" + commandsArray[i].commandParameters[j].note + "\"><span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
+						info += " <span class=\"param\" title=\"" + commandsArray[i].commandParameters[j].note + "<br/>Value: " + commandsArray[i].commandParameters[j].range + "\"><span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
 						info += "<span class=\"dir-type\">" + commandsArray[i].commandParameters[j].type + "</span>";
 						info += commandsArray[i].commandParameters[j].nameLink + "</span>";
 					}

@@ -86,7 +86,7 @@
 						if (commandsArray[k].commandName == $(this).attr('title')) {
 							tooltip += "(" + commandsArray[k].getLink() + "</strong>";
 							for (var m = 0; m < commandsArray[k].commandParameters.length; m++) {
-								tooltip += " <span class=\"param\" title=\"" + commandsArray[k].commandParameters[m].note + "\"><span class=\"dir-type\">" + commandsArray[k].commandParameters[m].dir + "</span>";
+								tooltip += " <span class=\"param\" title=\"" + commandsArray[k].commandParameters[m].note + "<br/>Value: " + commandsArray[i].commandParameters[j].range + "\"><span class=\"dir-type\">" + commandsArray[k].commandParameters[m].dir + "</span>";
 								tooltip += "<span class=\"dir-type\">" + commandsArray[k].commandParameters[m].type + "</span>";
 								tooltip += commandsArray[k].commandParameters[m].nameLink + "</span>";
 							}
