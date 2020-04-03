@@ -2700,7 +2700,7 @@ cSellCommodity.commandParameters = [ {
 } ];
 
 //set-author-email
-cSetAuthorEmail.shortDescription = "Only purpose appears to be documentation. The game does not use it for anything.";
+cSetAuthorEmail.shortDescription = "Undocumented. Only purpose appears to be documentation. The game does not use it for anything.";
 cSetAuthorEmail.commandParameters = [ {
 	nameLink: pText.getLink(),
 	name: "Text",
@@ -2711,7 +2711,7 @@ cSetAuthorEmail.commandParameters = [ {
 } ];
 
 //set-author-name
-cSetAuthorName.shortDescription = "Only purpose appears to be documentation. The game does not use it for anything.";
+cSetAuthorName.shortDescription = "Undocumented. Only purpose appears to be documentation. The game does not use it for anything.";
 cSetAuthorName.commandParameters = [ {
 	nameLink: pText.getLink(),
 	name: "Text",
@@ -2722,7 +2722,7 @@ cSetAuthorName.commandParameters = [ {
 } ];
 
 //set-author-version
-cSetAuthorVersion.shortDescription = "Only purpose appears to be documentation. The game does not use it for anything.";
+cSetAuthorVersion.shortDescription = "Undocumented. Only purpose appears to be documentation. The game does not use it for anything.";
 cSetAuthorVersion.commandParameters = [ {
 	nameLink: pText.getLink(),
 	name: "Text",
@@ -5976,7 +5976,7 @@ cUpGetPoint.relatedCommands = [];
 
 //up-get-point-contains
 cUpGetPointContains.shortDescription = "Get the id if an object exists at a point goal pair position.";
-cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.";
+cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
 cUpGetPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -6008,7 +6008,7 @@ cUpGetPointContains.commandParameters = [ {
 } ];
 cUpGetPointContains.example = [ {
 	title: "Get the id of a tree if it exists at the map center.",
-	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-tree-id 102)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-get-point-contains gl-center-x gl-tree-id c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
+	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-tree-id 102)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x c: explored-yes)\r\n\t(up-get-point-contains gl-center-x gl-tree-id c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGetPointContains.relatedCommands = [];
 
