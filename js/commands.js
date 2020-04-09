@@ -1844,7 +1844,7 @@ cEscrowAmount.commandParameters = [ {
 //event-detected
 cEventDetected.shortDescription = "Checks if the given event has been detected.";
 cEventDetected.description = "Checks if the given event has been detected. The fact stays true until the event is explicitly disabled by the " + cAcknowledgeEvent.getLink() + " action.";
-cEventDetected.commandParameters.commandParameters = [ {
+cEventDetected.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
 	type: "Const",
@@ -6617,7 +6617,7 @@ cUpLerpPercent.relatedCommands = [];
 
 //up-lerp-tiles
 cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point goal pairs.";
-cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs. A negative value for Tiles will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs. A negative value for Tiles will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
 cUpLerpTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point1",
@@ -8006,7 +8006,27 @@ cUpSellCommodity.relatedCommands = [];
 
 //up-set-defense-priority
 cUpSetDefensePriority.shortDescription = "Set the defensive (TSA) targeting priority for a building.";
-cUpSetDefensePriority.description = "Set the defensive (TSA) targeting priority for a building. This has no effect against units.";
+cUpSetDefensePriority.description = "Set the defensive (TSA) targeting priority for a building. This has no effect against units.</p>";
+cUpSetDefensePriority.description += "<p>Default priorities by building:</p>";
+cUpSetDefensePriority.description += "<table class=\"commented-example\"><tr><th>Priority</th><th>Building(s)</th></tr>";
+cUpSetDefensePriority.description += "<tr><td>-1</td><td>default</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>5</td><td>outpost</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>10</td><td>farm, fish-trap</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>20</td><td>blacksmith, university</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>30</td><td>lumber-camp</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>40</td><td>mill</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>50</td><td>mining-camp</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>100</td><td>market</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>250</td><td>house</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>500</td><td>barracks, archery-range, stable, monastery, siege-workshop, dock</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>500</td><td>gate (not in v1.0c, but set since the gate fix)</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>1000</td><td>town-center (unit ID 109, standing), town-center-foundation (unit ID 621, foundation)</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>2000</td><td>watch-tower</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>3000</td><td>guard-tower</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>4000</td><td>keep</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>5000</td><td>bombard-tower</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>10000</td><td>castle</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>20000</td><td>wonder</td></tr></table>";
 cUpSetDefensePriority.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -8148,6 +8168,22 @@ cUpSetIndirectGoal.relatedCommands = [];
 
 //up-set-offense-priority
 cUpSetOffensePriority.shortDescription = "Set the offensive targeting priority for an object.";
+cUpSetOffensePriority.description = "Set the offensive targeting priority for an object. This is used when attacking with " + snNumberAttackGroups.getLink() + " or " + cAttackNow.getLink() + ".</p><p>Note: offensive priorities have a very small range. You can turn the priorities up to 11, but no more.";
+cUpSetOffensePriority.description += "<p>Default offensive priorities by class/type id: (classes that are not actually used in the game are marked with an asterisk).</p><p>";
+cUpSetOffensePriority.description += "<table class=\"commented-example\"><tr><th>Priority</th><th>Class/Unit ID</th><th>Class/Unit Name</th></tr>";
+cUpSetOffensePriority.description += "<tr><td>-1</td><td>default</td><td></td></tr>";
+cUpSetOffensePriority.description += "<tr><td>0</td><td>903, 927, 939, 949, 951, 952, 954</td><td>building-class, wall-class, gate-class, farm-class, packed-trebuchet-class, tower-class, unpacked-trebuchet-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>1</td><td>906, 912, 924*, 935, 945*, 947, 950*, 956*, 957*</td><td>infantry-class, cavalry-class, petard-class, scout-cavalry-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>2</td><td>928*, 946*</td><td></td></tr>";
+cUpSetOffensePriority.description += "<tr><td>3</td><td>900, 923, 926*, 936, 944</td><td>archery-class, cavalry-cannon-class, cavalry-archer-class, archery-cannon-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>4</td><td>6, 7</td><td>skirmisher, elite-skirmisher</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>5</td><td>35, 422, 548</td><td>battering-ram, capped-ram, siege-ram</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>6</td><td>913, 955</td><td>siege-weapon-class, scorpion-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>7</td><td>904, 919, 958, 959</td><td>villager-class, trade-cart-class, livestock-class, king-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>8</td><td>917*, 918, 943</td><td>monastery-class, monk-with-relic-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>9</td><td>922, 953*</td><td>warship-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>10</td><td>920</td><td>transport-ship-class</td></tr>";
+cUpSetOffensePriority.description += "<tr><td>11</td><td>902, 921</td><td>trade-cog-class, fishing-ship-class</td></tr></table>";
 cUpSetOffensePriority.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -9711,9 +9747,9 @@ pClassId.valueList = [ {
 	id: 901,
 	description: "Artifact class. Mostly includes convertible objects like Monuments."
 }, {
-	name: "trade-boat-class*",
+	name: "trade-cog-class*",
 	id: 902,
-	description: "Trade Boat class."
+	description: "Trade Cog class."
 }, {
 	name: "building-class",
 	id: 903,
@@ -10925,7 +10961,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-under-attack",
 	id: 35,
-	description: "Returns 1 if the object is being attacker, otherwise 0. Not set for certain situations, like hunting. Doesn't work for villagers."
+	description: "Returns 1 if the object is being attacked, otherwise 0. Not set for certain situations, like hunting. Doesn't work for villagers."
 }, {
 	name: "object-data-attack-timer",
 	id: 36,

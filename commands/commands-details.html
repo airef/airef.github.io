@@ -38,13 +38,6 @@
 		var i = 0;
 		while ( i < commandsArray.length) {
 			if ( commandsArray[i].commandName == item) {
-				info += "<p><h3>Description</h3></p>";
-				if (commandsArray[i].description == "") {
-					info += "<p> " + commandsArray[i].shortDescription + "</p>";
-				}
-				else {
-					info += "<p> " + commandsArray[i].description + "</p>";
-				}
 				info += "<h3>Syntax</h3><p>(<strong>" + commandsArray[i].commandName + "</strong>";
 					for (var j = 0; j < commandsArray[i].commandParameters.length; j++) {
 						info += " <span class=\"param\" title=\"" + commandsArray[i].commandParameters[j].note + "<br/>Value: " + commandsArray[i].commandParameters[j].range + "\"><span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
@@ -63,6 +56,13 @@
 						}
 					}
 					info += ", read <a href=\"" + urlPrefix + "/resources/articles/intro-to-commands.html\">here</a>.</p>";
+				info += "<p><h3>Description</h3></p>";
+				if (commandsArray[i].description == "") {
+					info += "<p> " + commandsArray[i].shortDescription + "</p>";
+				}
+				else {
+					info += "<p> " + commandsArray[i].description + "</p>";
+				}
 				info += "<p><h3>Info</h3></p>";
 				info += "<p><table><tr><td>Command Type</td>";
 				switch (commandsArray[i].commandType) {

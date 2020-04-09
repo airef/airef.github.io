@@ -109,6 +109,10 @@ td {
 	margin-bottom: 10px;
 }
 
+.commented-example th {
+	background-color: #aaa;
+}
+
 .commented-example tr {
 	background-color: #ddd;
 }
@@ -127,6 +131,7 @@ td {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	width: 20px;
+	text-align: right;
 }
 
 .commented-example td:nth-child(3) {
