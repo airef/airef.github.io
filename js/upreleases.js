@@ -420,11 +420,367 @@ var releaseNotes = [ {
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
+		number: "20170805-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170805-100000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170805-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes a terrain issue that can occur in scenarios that include bridges, due to the adjusted terrain system. The bridge placement terrains 14 (desert) and 28 (water bridge) now have an exception to update terrain reachability data. Rec compatibility will probably be fine for games that do not include bridges. Thanks to John_the_Late for the report! The multiplayer sync id has been updated, so all players in a game must have this build (5465) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170805-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170805-000000)! This update adds a new warning for coop player changes. If a player's civ or team id is changed by coop colors, they will be notified by a message in orange text (\"!!! Change Player.\") and their Ready state will be unchecked to block launch until they verify and Ready again. This should hopefully avoid any confusion and intentional/unintentional changes like this in the future. The multiplayer sync id has been updated, so all players in a game must have this build (5463) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170804-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170804-000000)! This update adjusts the multiplayer game setup lobby chat shade of white to be a bit less bright. In addition, performance improvements have been adjusted for multiplayer and a new optimization has been implemented for the general game core to reduce cpu cycles. The more units on the map, the more this optimization can improve performance. The multiplayer sync id has been updated, so all players in a game must have this build (5459) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170802-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170802-000000)! This update allows the full chat window (Alt+T) to appear after resign or defeat and can be used to see chat and adjust the horn buttons in order to allow or block messages from players, but it can't be used to send messages. In addition, the color of chat messages in the multiplayer game setup lobby will now alternate shades of white/grey in order to make it easier to see if someone has sent a multi-line message to impersonate another player. Thanks to randomdude for feedback! The multiplayer sync id has been updated, so all players in a game must have this build (5454) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170801-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170801-000000)! This update adjusts the default water animation highlights to be more subtle and less bright to avoid distracting from objects like shore fish. In addition, you can now press Ctrl+B in the scenario editor to toggle terrain blending to draw water without beach, etc. The terrain blending mode will reset to default each time the editor loads (from startup or when returning from testing) to ensure that the blend mode change doesn't affect actual gameplay. The blend mode will also affect rms maps generated in the scenario editor, which could have interesting effects on the appearance of some maps. Thanks to Julius999 on AoKH for editor feedback! The multiplayer sync id has been updated, so all players in a game must have this build (5445) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170731-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170731-000000)! This update includes performance improvements for multiplayer games. The multiplayer sync id has been updated, so all players in a game must have this build (5440) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170728-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170728-000000)! This update adds a new flag to ATTR_HERO_STATUS: -128 (0x80): disable attack ground button interface. This flag can be used for mods and expansions to disable a unit's attack ground button, which restores the standard patrol buttons, etc. The wild animal attack alert will now be suppressed for class 10 units that meet the luring requirements: it carries resources and has <= 100HP. This will ensure that elephant attacks, etc. do not alert like wolves. Finally, multiplayer game speeds have been adjusted once again to bring them closer to expected v1.0c speeds. Thanks to Wergorne for the attack ground report and buddy for the wild animal report! Thanks to II2N and Jupe for testing multiplayer speeds!</p><p>The multiplayer sync id has been updated, so all players in a game must have this build (5429) to play in multiplayer.</p>",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170726-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170726-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170724-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes the issue with the previous group floating, collapse, and pike patrol fix, in order to ensure that rapid-clicking will not cause unexpected formation stagger. Thanks to Clemensor for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170724-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170724-000000)! This update makes a few minor adjustments for the water. In addition, the multiplayer game speeds for slow, normal, and fast have been more closely aligned with v1.0c. Thanks to CheeseOnToast for feedback and testing! Due to the speed adjustment, the multiplayer sync id has been updated, so all players in a game must have this build (5422) to play in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170720-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170720-000000)! This update adjusts the underwater terrain for medium water and deep water to provide more parallax. Still experimenting with this, so it's all still subject to change.</p><p>Rec/save/sync id remains unchanged for this update.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170718-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170718-100000)! This update adjusts the underwater terrain to be a bit more subtle. For animated water terrains, the 4th byte of the configuration set is now enabled: Set byte 0x1F between 0x01 and 0x0F to enable terrain underwater or 0x00 to disable. 0x03 is used for shallow and medium water by default. This feature can be disabled from the installer with the new \"Disable terrain underwater\" checkbox. Still experimenting with this, so it's all still subject to change.</p><p>Rec/save/sync id remains unchanged for this update.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170718-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170718-000000)! This update fixes a bug with scenarios, where AIs would send livestock that they own on startup to the town center, which differs from v1.0c behavior, where they would idle on startup. This caused issues in scenarios where the AI was expected to be immobile, so for all scenarios and campaigns, this livestock behavior has been disabled, so that it matches v1.0c behavior. Non-scenario/campaign games are unaffected by this change.</p><p>In addition, a wavy sand-like pattern is now drawn underwater (for shallow water and medium water only, by default) to make the parallax water effect more obvious, to improve the appearance of the default shallow water terrain, and to provide a point of reference that doesn't move when looking at the water. For animated water terrains, the 4th byte of the configuration set is now enabled: Set byte 0x1F to 0x01 to enable terrain underwater or 0x00 to disable. This feature can be disabled from the installer with the new \"Disable terrain underwater\" checkbox. Still experimenting with this, so it's all still subject to change.</p><p>Thanks to Mr. Wednesday on AoKH for the livestock report! Rec/save/sync id remains unchanged for this update.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170715-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170715-000000)! This update fixes a crash bug with the \"Lower quality environment\" restricted feature. Thanks to LightTree for the report! Rec/save/sync id remains unchanged for this update.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170710-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170710-000000)! This update updates the guide/readme, by moving earlier update details from the \"Notes\" section to a new \"Previous\" section. Thanks to Aleph for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170707-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170707-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170704-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes a rare, but critical bug in the pathing system that can cause auto-retasking to fail under certain conditions, when events occur within a walled and/or sealed map region. In addition, a new \"Default to background mode\" restricted feature was added, so the game starts with Back: On instead of Back: Off for F8 mode. Thanks to Nilpferd and II2N for the pathing report and Tapsa for background feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170704-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170704-000000)! This update enables mods and expansions to override the height of the extended help hover textbox by setting language id 10815 to the new height. The default is 115, so 150-155 might provide enough space for 2 more lines. This can help with certain languages that have longer descriptions, etc. If the game resolution is less than 768 height, the default of 115 will be used instead. For performance reasons, it's strongly recommended to leave it at the default size unless absolutely necessary in order to reduce redraw. Thanks to Jineapple for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170702-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170702-000000)! This update changes the handling of left-click object action commands to operate despite mouse movement. I didn't see any problems in testing, so hopefully, there are no unintended side effects from this change lol. Thanks to TWest for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170701-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170701-000000)! This update changes the way ZR (zip-rms) maps are validated for multiplayer, etc. They will now compare the internal rms (and scx if present) instead of the entire file. This will allow for ZR rms files to contain different terrain slp graphics overrides (grid/non-grid, etc.) while still matching. In addition, mods and expansions can now override weather sound effects by setting language ids 10812 (rain) and 10813 (snow) to drs sound effect resource id numbers. Sound effects should be relatively low volume to avoid disruption. Each sound effect should be between 5 to 10 seconds and loop naturally. Thanks to Jineapple for the rms feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170628-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170628-100000)! This update adjusts the fix to limit issues if someone attempts to install UP with SetupAoC.exe inside the \"age2_x1\" folder instead of the root \"Age of Empires II\" folder.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170628-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170628-000000)! This update enables you to draw terrain up to Elevation 11 instead of 7 directly in the scenario editor. Please try to avoid using high elevations near the map edges to ensure proper map visibility, as scrolling is limited at the edges. This change does not affect rms elevation. In addition, some adjustments were made to remove debug code in the multiplayer system, prevent dpa corruption of compat version launch, and limit issues if someone attempts to install UP with SetupAoC.exe inside the \"age2_x1\" folder instead of the root \"Age of Empires II\" folder. Thanks to Tetsuo3 for elevation feedback, offwo for the dpa report, and StepS for the installer report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170616-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170616-000000)! This update adjusts the scroll smoothness fix a bit to avoid unnecessary cpu/resource usage for touch screens. I think it should be good now. No, really :lol: Hi LightTree!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170615-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170615-200000)! This update will hopefully improve scrolling smoothness for all single player modes, including the rec/spec viewer. On my system, it feels very nice now, so hopefully it's better for most other people, as well.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170615-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170615-100000)! This update adds 3 new AI direct unit control actions in order to ensure completeness: action-drop-relic (15), action-pack (16), action-unpack (17). The action-none id has moved from 15 to 18, as well, so please update your defconsts from UserPatchConst.per if needed. Please take care to only use action-pack and action-unpack with appropriate unit types or there may be unexpected results. Thanks to CheeseOnToast and II2N for feedback!",
+		itemsAffected: [pTargetAction, cUpTargetPoint],
+		scriptingType: "ai"
+	}, {
+		number: "20170615-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170615-000000)! This update provides some additional terrain blending control using the rms command: terrain_state inConstModeId inConstParam1 inConstParam2 inConstValue. You can enable shallow terrain construction by adding flag 1 to Value with ModeId 0. When enabled, resources like trees, gold, stone, and forage can exist on shallow terrain, as well. Internally, this changes the accessibility of terrain id 4 (shallows) from 0.0 to 1.0 for terrain restrictions 4, 8, 10, and 11. New with this version: Add flag 2 to Value for thinner shallow/beach blending, which changes the blend priority for shallows (4) to 111 over beach (2) at 110. Add flag 4 to Value for alternate ice blending, which changes the blend type for ice (26) to 4.",
+		itemsAffected: [],
+		scriptingType: "rms"
+	}, {
+		number: "20170614-200000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170614-200000)! This update fixes another rare case for scroll distortion, so hopefully we're at 100% now lol. In addition, the dynamically generated terrain names in the scenario editor can now be defined directly in the language file. If a language id is missing, the name will be dynamically generated as before. Thanks to Tetsuo3 and Jineapple for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170614-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170614-100000)! This update adds some additional resilience for scrolling to avoid terrain shadow distortion. Hopefully, this mouse and scroll fix is proper for at least 99% of cases ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170614-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170614-000000)! This update fixes touch screen scrolling, by hopefully making it smoother and less likely to cause shadow distortion from things like trees. Changes were also made to ensure that coordinates are adjusted to predictable values when scrolling to ensure that things like the scenario Change View effect can't distort terrain shadows. As before, still refining the mouse and scroll stuff and testing for weirdness. Thanks to Mash on aokh for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170613-010000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170613-010000)! This update attempts to improve the mouse cursor accuracy, so that when you click, the focus will almost certainly be on the exact mouse point. When the view has scrolled against the edge of the map, it can still become slightly inaccurate, but not a full tile shift downward, at least.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170613-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170613-000000)! This update removes the auto-pause that can randomly occur during scrolling outside multiplayer games, such as single player or rec/spec. When this would happen, you wouldn't see a \"game paused\" message, but the game clock would stop and the framerate would drop until your continuous scroll movement ends and everything goes back to normal.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170612-200000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170612-200000)! This update adjusts the shallow terrain animation, in order to give the highlights a bit more of a flowing look.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170612-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170612-100000)! This update fixes a crash issue with AI scripts when attempting to train units with an invalid train location. In addition, the excessive bounce/jitter when scrolling has been fixed, so hopefully it should feel more smooth when moving across the map. Finally, the issue where the focus of a mouse click is improperly offset and appears shifted below the actual pointer position has been fixed. Thanks to offwo for the AI report and nhoobish on aokh for the mouse cursor report! There may need to be some refinement for the mouse fix, but we'll see ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170612-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170612-000000)! This update enables terrain id 4 (shallows) to animate, as well. To avoid ruining the plants, this animation is more subtle and only highlights the water. If a terrain uses an animated terrain id as its base terrain, then it will also animate. In addition, app launch has been accelerated significantly under certain conditions.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170611-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170611-000000)! This update adjusts the Relics victory condition, so that all players will have sight of relics and monk-with-relic units. In addition, when a relic is picked up, everyone will hear the relic sound effect, see the mini-map highlight, and get the \"relic picked up\" event message. Thanks to Jineapple for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170609-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170609-000000)! This update adjusts the terrain system, so that blending between water terrain types is consistent without unexpected beach. In addition, new forest terrain types will be handled properly, with proper detection for AI lumber-camp placement, and checks to block palisading of non-straggler trees. Terrain restriction data is used to determine water terrains and the terrain object creation class id is used for forest detection. Thanks to Jineapple for testing and feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170608-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170608-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170605-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update enables shallow terrain construction and accessibility using the new terrain_state rms command. When enabled, resources like trees, gold, stone, and forage can exist on shallow terrain, as well as buildings. Internally, this changes the accessibility of terrain id 4 (shallows) from 0.0 to 1.0 for terrain restrictions 4, 8, 10, and 11. To enable all of this, rec/save files now store the original terrain id with each map tile in order to ensure consistent pathing and farm terrain resets. Due to this additional data, rec management apps and things like recanalyst will need to be updated to handle this additional data for the v1.5 rec VER 9.E. When reading each map tile, instead of 2 bytes (terrain id, elevation id), it will be 4 bytes (0xFF, current terrain id, elevation id, original terrain id). I've included an example for the buildable shallows in the Reference/Scripting/Examples folder: DarkShallows.rms. AIs should be able to handle these maps without any changes.",
+		itemsAffected: [],
+		scriptingType: "rms"
+	}, {
+		number: "20170605-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170605-000000)! This update fixes several issues with the new tech effects 7 (ENABLE_TECH), 8 (MODIFY_TECH), and 9 (SET_PLAYER_DATA). They should no longer crash and apply appropriately when used in multi-targeting effects for allies, enemies, etc. The ENABLE_TECH effect has been adjusted to apply to all techs when a negative tech id is provided that isn't -1 and -1 has been made invalid always. The tech research timer is also reset by ENABLE_TECH with ATTR_FORCE (2), so it will not instantly self-disable when re-enabled if the tech required research time. Thanks to randomdude for the reports!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170531-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170531-000000)! This update fixes a core bug that can crash the game if it's saved (or recorded) after an AI has owned objects with certain extended object ids. Thanks to Vardamir for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170529-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170529-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170526-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes a critical bug in the tribute system carried from v1.0c, where the tax may be improperly applied under certain conditions. In practice, the impact is relatively low for small tribute amounts, but it grows to be quite significant for higher amounts. This fix should hopefully ensure that the tribute amount received is always consistent. Thanks to pedro and jay on aoczone for the report and research!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170526-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170526-000000)! This update fixes several issues and prepares the core for the next update. The scenario editor should no longer crash when generating a map if an object is currently selected under certain conditions. The Defend the Wonder game mode will no longer generate an unexpected extra wall line, due to the new rms capability for multiple wall lines, on maps like Arena that already have a wall line. The game should no longer crash if an object is ungarrisoned under certain conditions without a unit AI. If a terrain like Old Water is repurposed by a mod to function as a land terrain with appropriate terrain restrictions set, it should no longer break the entire pathing system, which would allow units to move anywhere. Please take care to avoid adding or removing the core water, beach, and shallow terrains, though: 1, 2, 4, 22, 23, 37. Thanks to danielpr and Jineapple for the reports!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170518-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170518-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170516-100000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes an issue where extremely high levels of cpu usage can occur when attempting to move a grouped unit that can never move. In addition, there are various performance optimizations to reduce maybe 10000-100000 ops per game turn. It's probably not high enough to be noticeable except in certain conditions, but every little bit helps lol.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170516-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170516-100000)! This update adjusts the resource storage mode flag 16 to work for objects that aren't category 80. Hopefully it works with normal units now and not just buildings. Thanks to danielpr for testing! In addition, a new up-set-precise-target-point command has been added, along with 3 new object data sources: object-data-to-precise (gets precise distance to a precise target-point from up-set-precise-target-point), object-data-base-type (usually the same as object-data-type, except in certain scenario situations), and object-data-upgrade-type (the currently active upgrade type id). The up-set-precise-target-point is basically up-set-target-point with no bounds check, so please ensure the point is valid with up-bound-precise-point as needed. Thanks to Cake for feedback!",
+		itemsAffected: [cUpSetPreciseTargetPoint, pObjectData],
+		scriptingType: "ai"
+	}, {
+		number: "20170516-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170516-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170515-100000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes the issue where new relics added to the map can break the relic countdown. Now, if additional relics are added to the map by triggers, the original total remains as the minimum required for a relic victory countdown. This is the only reliable way that doesn't involve performing an expensive search around the map for newly created monk-with-relic units from players and other complications lol. For the rec break, as before, it should only be a problem if you actually played a scenario where this bug could occur. Thanks to Vardamir for the report! In addition, resource storage mode flag 16 has been added, which only removes the resource value when the unit is lost. If you negate the value, it will add the resource when the unit is lost. Thanks to John for feedback! I hope we can freeze the feature list soon ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170515-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170515-100000)! This update ensures that the sighted object abstraction table does not overflow on very unit heavy mods/expansions. Thanks to danielpr and John_the_Late for testing!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20170515-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170515-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170514-000000 build. Recs for v1.4 and earlier are fine on latest.</p>This update fixes the issue where changing ownership of a monastery breaks the game's relic counters. About the rec break, as before, it should only be a problem if you actually played a scenario where this bug could occur. Thanks to Kor, Rico_jolla, and Julius999 for the report!</p><p>In addition, this update makes object ids 1000 to 1959 available for AIs to see, count, etc. This means that object ids 0-899 and 1000-1959 can be more useful as object ids, while 900-999 must remain reserved for unit classes only. There is a slight cost to reading from the extended object id list (3 ops maybe per instance), so it's still best to put important objects in the 0-899 range. Note, however, that the AI sighted unit abstraction table is limited to 240 useful slots. In the latest wololo, 188 slots are used. The sighted unit abstraction table is provided to the following types of units: category 70 or 80, size > 0, has a train/build location, and isn't hidden (except for category 70). Thanks to WAIFor for reminding!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20170514-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170514-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve since the previous v1.5 rec break, please backup the 20170513-200000 build. Recs for v1.4 and earlier are fine on latest. This update fixes the issue where changing ownership of a unit while it's garrisoned can break line of sight. About the rec break, it should only be a problem if you actually played a scenario where this bug could occur. Other than that, it's probably fine lol. Thanks to danielpr for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170513-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170513-200000)! This update fixes a crash from the previous release when opening the main chat window. Thanks to Cake for the report!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170513-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170513-000000)! This update fixes a bug that would corrupt single player game setup after attempting to open an invalid rec file. In addition, it fixes about 30 memory leaks in the core (looks like very old code from the aoe1 era, but was still used often lol). Thanks to Promi for the report! Still researching a couple more fixes ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170511-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170511-000000)! This update adjusts sn-boar-lure-destination, so you can add 12 to the normal value (0 to 11) to shift the point down to the grid corner. This means the full range of values for the sn are 0 to 23. Invalid values will now behave like 0. Please see the beta reference for more detail. Thanks to Promi for feedback!",
+		itemsAffected: [snBoarLureDestination],
+		scriptingType: "ai"
+	}, {
+		number: "20170510-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170510-000000)! This update adds several new AI commands and capabilities. The (up-full-reset-search) command combines (up-reset-search 1 1 1 1) and (up-reset-filters) into a single command to save rule lines. For bounding points more safely, the (up-bound-precise-point ioGoalPoint1 inConstPrecise typeOp inOpBorder) command has been added, so you can bound both normal and precise points inside the map, along with a border width. Finally, sn-boar-lure-destination is now available for AIs to control where at the town center a lurer retreats to, using values from 0 to 11. Please see the beta reference for more detail. Thanks to Cake for the ideas! Thanks to CheeseOnToast and fenris for additional feedback!",
+		itemsAffected: [cUpFullResetSearch, cUpBoundPrecisePoint, snBoarLureDestination],
+		scriptingType: "ai"
+	}, {
+		number: "20170509-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170509-100000)! This update fixes the issue with the -e rec file extension installer option when using game expansion exe generation. Thanks, daniel!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170509-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170509-000000)! This update adjusts the internal behavior for class 9 (deer, etc.) and class 10 (boar, wolves, etc.) in order to generalize them and un-hard-code the specific unit ids. Now, class 9 units like deer will be huntable by AIs and humans as long as they have resource storage > 0. For matching units, scouts will not be able to directly attack/lame them just like deer. For class 10, if a unit has resource storage > 0 and no more than 100 HP, it will be considered for luring by AIs (dropsite-min-distance boar-hunting, live-boar, etc.) and follow the boar behavior pattern instead of the wolf behavior pattern. This allows units like the boar, javelina, and elephant (all 75HP) to be lured, while units like the Iron Boar are blocked, just as before, due to excessive HP. Thanks to Bala Arizalu for feedback!",
+		itemsAffected: [cDropsiteMinDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20170508-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170508-000000)! This update adjusts the internal behavior of siege towers again by changing the drop point for straight vertical/horizontal walls. In addition, the code that adapts units for \"villager mode\" swaps has been adjusted for siege class 13 to ensure that garrison effects are retained for speed, etc. Thanks to TriRem and danielpr for testing!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170507-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170507-000000)! This update adjusts the internal behavior of siege towers by fixing an issue with random conversion and disabling their automatic attack response, so they always try to stand still unless tasked, making it easier for units to garrison inside. Thanks to TriRem for testing!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170506-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170506-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve from previous v1.5 betas, please backup the previous 20170504-100000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes another core simulation bug carried from v1.0c, which can cause military units to idle next to targets after ungarrisoning, despite being aggressive, etc. In addition, if the ability is enabled in A.G.E., livestock (class 58) will be able to garrison into adjacent targets. They aren't \"complex\" units, so they can't directly walk to and garrison into distant targets or summon transports toward them in a single command. If you attempt to garrison into a distant target, the sheep will just walk toward the target instead. To support livestock garrison, the previously reserved flag 16 for building category attribute ATTR_GARRISON_TYPE has been activated, so if a building has this flag set, sheep can garrison with alt+right-click when directly adjacent, etc.</p><p>Finally, if a class 13 siege unit has \"Interface Kind\" (cmdid) 12, it will be able to function as a siege tower using Unload ability #12, with the ability's class set to 27 for walls. In this way, you'll be able to simply right-click a non-corner wall and it will move to the wall and ungarrison units on the other side \"most\" of the time lol. This unit is more for lols than serious strategy, so don't expect much",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
 		number: "-000000",
 		version: 1.5,
 		notes: "",
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+
 		
-		//finished page 443
+		//finished page 415
+	}];
