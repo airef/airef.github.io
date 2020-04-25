@@ -72,8 +72,8 @@ class Parameter {
 }
 
 class StrategicNumber {
-	constructor(a) {
-		this.snName = a;
+	constructor() {
+		this.snName = "";
 		this.id = -1;
 		this.category = "";
 		this.min = -1;
@@ -601,18 +601,303 @@ var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardState, pHitpoints, pId, pIdleType, pIndex, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
 
 //Strategic Numbers
-var snEnableOffensivePriority = new StrategicNumber("sn-enable-offensive-priority")
-var snFocusPlayerNumber = new StrategicNumber("sn-focus-player-number");
-var snMaximumTownSize = new StrategicNumber("sn-maximum-town-size");
-var snNumberAttackGroups = new StrategicNumber("sn-number-attack-groups");
-var snNumberExploreGroups = new StrategicNumber("sn-number-explore-groups");
-var snPercentAttackBoats = new StrategicNumber("sn-percent-attack-boats");
-var snPercentAttackSoldiers = new StrategicNumber("sn-percent-attack-soldiers");
-var snPlacementFailDelta = new StrategicNumber("sn-placement-fail-delta");
-var snPlacementToCenter = new StrategicNumber("sn-placement-to-center");
-var snPlacementZoneSize = new StrategicNumber("sn-placement-zone-size");
-var snTargetPlayerNumber = new StrategicNumber("sn-target-player-number");
-var snTargetPointAdjustment = new StrategicNumber("sn-target-point-adjustment");
+var snAddStartingResourceFood = new StrategicNumber();
+var snAddStartingResourceGold = new StrategicNumber();
+var snAddStartingResourceStone = new StrategicNumber();
+var snAddStartingResourceWood = new StrategicNumber();
+var snAllowAdjacentDropsites = new StrategicNumber();
+var snAllowCivilianDefense = new StrategicNumber();
+var snAllowCivilianOffense = new StrategicNumber();
+var snAllowDiplomacyChangeOnAllyAttack = new StrategicNumber();
+var snAllowDiplomacyChangeOnTribute = new StrategicNumber();
+var snAttackCoordination = new StrategicNumber();
+var snAttackDiplomacyImpact = new StrategicNumber();
+var snAttackGroupGatherSpacing = new StrategicNumber();
+var snAttackGroupMakeup = new StrategicNumber();
+var snAttackGroupSizeRandomness = new StrategicNumber();
+var snAttackIntelligence = new StrategicNumber();
+var snAttackResponseSeparationTime = new StrategicNumber();
+var snAttackSeparationTime = new StrategicNumber();
+var snAttackSeparationTimeRandomness = new StrategicNumber();
+var snAttackWinningPlayer = new StrategicNumber();
+var snAttackWinningPlayerFactor = new StrategicNumber();
+var snAutoBuildDocks = new StrategicNumber();
+var snAutoBuildDropsites = new StrategicNumber();
+var snAutoBuildFarms = new StrategicNumber();
+var snAutoBuildFishingBoats = new StrategicNumber();
+var snAutoBuildHouses = new StrategicNumber();
+var snAutoBuildTowers = new StrategicNumber();
+var snAutoBuildTransports = new StrategicNumber();
+var snAutoBuildWarships = new StrategicNumber();
+var snBlotExplorationMap = new StrategicNumber();
+var snBlotSize = new StrategicNumber();
+var snBoarLureDestination = new StrategicNumber();
+var snBuildFrequency = new StrategicNumber();
+var snBuildPlanDivisions = new StrategicNumber();
+var snBuildingTargetingMode = new StrategicNumber();
+var snCampMaxDistance = new StrategicNumber();
+var snCapCivilianBuilders = new StrategicNumber();
+var snCapCivilianExplorers = new StrategicNumber();
+var snCapCivilianGatherers = new StrategicNumber();
+var snChokePointDefendPriority = new StrategicNumber();
+var snConsecutiveIdleUnitLimit = new StrategicNumber();
+var snCoopDemandTributeInterval = new StrategicNumber();
+var snCoopDemandTributeMaximum = new StrategicNumber();
+var snCoopShareAttacking = new StrategicNumber();
+var snCoopShareAttackingInterval = new StrategicNumber();
+var snCoopShareInformation = new StrategicNumber();
+var snDefendGroupMakeup = new StrategicNumber();
+var snDefendImportantGroupLeaders = new StrategicNumber();
+var snDefendOverlapDistance = new StrategicNumber();
+var snDefenseDistance = new StrategicNumber();
+var snDeferDropsiteUpdate = new StrategicNumber();
+var snDesiredNumberDocks = new StrategicNumber();
+var snDesiredNumberFishEscorts = new StrategicNumber();
+var snDesiredNumberFishingBoats = new StrategicNumber();
+var snDesiredNumberTradeEscorts = new StrategicNumber();
+var snDesiredNumberTransportEscorts = new StrategicNumber();
+var snDesiredNumberTransports = new StrategicNumber();
+var snDesiredNumberWarships = new StrategicNumber();
+var snDisableAttackGroups = new StrategicNumber();
+var snDisableBuilderAssistance = new StrategicNumber();
+var snDisableDefendGroups = new StrategicNumber();
+var snDisableSightedResponseCap = new StrategicNumber();
+var snDisableTowerPriority = new StrategicNumber();
+var snDisableTradeEvasion = new StrategicNumber();
+var snDisableVillagerGarrison = new StrategicNumber();
+var snDoNotScaleForDifficultyLevel = new StrategicNumber();
+var snDoNotTransportFromSameZone = new StrategicNumber();
+var snDockAvoidanceFactor = new StrategicNumber();
+var snDockDefendPriority = new StrategicNumber();
+var snDockPlacementMode = new StrategicNumber();
+var snDockProximityFactor = new StrategicNumber();
+var snDockTrainingFilter = new StrategicNumber();
+var snDropsiteSeparationDistance = new StrategicNumber();
+var snEasierReactionPercentage = new StrategicNumber();
+var snEasiestReactionPercentage = new StrategicNumber();
+var snEnableOffensivePriority = new StrategicNumber();
+var snEnableBoarHunting = new StrategicNumber();
+var snEnableNewBuildingSystem = new StrategicNumber();
+var snEnableOffensivePriority = new StrategicNumber();
+var snEnablePatrolAttack = new StrategicNumber();
+var snEnableTrainingQueue = new StrategicNumber();
+var snEnemySightedResponseDistance = new StrategicNumber();
+var snExploreGroupMakeup = new StrategicNumber();
+var snFilterUnderAttack = new StrategicNumber();
+var snFocusPlayerNumber = new StrategicNumber();
+var snFoodDropsiteDistance = new StrategicNumber();
+var snFoodGathererPercentage = new StrategicNumber();
+var snFoodModifierPercentage = new StrategicNumber();
+var snForageDefendPriority = new StrategicNumber();
+var snFreeSiegeTargeting = new StrategicNumber();
+var snGarrisonRams = new StrategicNumber();
+var snGatherDefenseUnits = new StrategicNumber();
+var snGatherIdleSoldiersAtCenter = new StrategicNumber();
+var snGoldDefendPriority = new StrategicNumber();
+var snGoldDropsiteDistance = new StrategicNumber();
+var snGoldGathererPercentage = new StrategicNumber();
+var snGoldModifierPercentage = new StrategicNumber();
+var snGroupCommanderSelectionMethod = new StrategicNumber();
+var snGroupFillMethod = new StrategicNumber();
+var snGroupFormDistance = new StrategicNumber();
+var snGroupLeaderDefenseDistance = new StrategicNumber();
+var snHitsBeforeAllianceChange = new StrategicNumber();
+var snHomeExplorationTime = new StrategicNumber();
+var snHouseOverage = new StrategicNumber();
+var snIgnoreAttackGroupUnderAttack = new StrategicNumber();
+var snIgnoreTowerElevation = new StrategicNumber();
+var snInitialAttackDelay = new StrategicNumber();
+var snInitialAttackDelayType = new StrategicNumber();
+var snInitialExplorationRequired = new StrategicNumber();
+var snIntelligentGathering = new StrategicNumber();
+var snLivestockDefendPriority = new StrategicNumber();
+var snLivestockToTownCenter = new StrategicNumber();
+var snLocalTargetingMode = new StrategicNumber();
+var snLockAndAttackResponse = new StrategicNumber();
+var snLumberCampMaxDistance = new StrategicNumber();
+var snMaxBuildPlanGathererPercentage = new StrategicNumber();
+var snMaxFarms = new StrategicNumber();
+var snMaxGranaries = new StrategicNumber();
+var snMaxRetaskGatherAmount = new StrategicNumber();
+var snMaxSkipsPerAttempt = new StrategicNumber();
+var snMaxStoragePits = new StrategicNumber();
+var snMaxTowers = new StrategicNumber();
+var snMaximumAttackGroupSize = new StrategicNumber();
+var snMaximumBoatAttackGroupSize = new StrategicNumber();
+var snMaximumBoatDefendGroupSize = new StrategicNumber();
+var snMaximumBoatExploreGroupSize = new StrategicNumber();
+var snMaximumDefendGroupSize = new StrategicNumber();
+var snMaximumExploreGroupSize = new StrategicNumber();
+var snMaximumFishBoatDropDistance = new StrategicNumber();
+var snMaximumFood = new StrategicNumber();
+var snMaximumFoodDropDistance = new StrategicNumber();
+var snMaximumGaiaAttackResponse = new StrategicNumber();
+var snMaximumGarrisonFill = new StrategicNumber();
+var snMaximumGold = new StrategicNumber();
+var snMaximumGoldDropDistance = new StrategicNumber();
+var snMaximumHousesBeforeDropsites = new StrategicNumber();
+var snMaximumHuntDropDistance = new StrategicNumber();
+var snMaximumStone = new StrategicNumber();
+var snMaximumStoneDropDistance = new StrategicNumber();
+var snMaximumTownSize = new StrategicNumber();
+var snMaximumWood = new StrategicNumber();
+var snMaximumWoodDropDistance = new StrategicNumber();
+var snMillMaxDistance = new StrategicNumber();
+var snMinimumAmountForTrading = new StrategicNumber();
+var snMinimumAttackGroupSize = new StrategicNumber();
+var snMinimumBoarHuntGroupSize = new StrategicNumber();
+var snMinimumBoarLureGroupSize = new StrategicNumber();
+var snMinimumBoatAttackGroupSize = new StrategicNumber();
+var snMinimumBoatDefendGroupSize = new StrategicNumber();
+var snMinimumBoatExploreGroupSize = new StrategicNumber();
+var snMinimumCivilianExplorers = new StrategicNumber();
+var snMinimumDefendGroupSize = new StrategicNumber();
+var snMinimumDropsiteBuffer = new StrategicNumber();
+var snMinimumExploreGroupSize = new StrategicNumber();
+var snMinimumFood = new StrategicNumber();
+var snMinimumGold = new StrategicNumber();
+var snMinimumNumberHunters = new StrategicNumber();
+var snMinimumPeaceLikeLevel = new StrategicNumber();
+var snMinimumStone = new StrategicNumber();
+var snMinimumTownSize = new StrategicNumber();
+var snMinimumWaterBodySizeForDock = new StrategicNumber();
+var snMinimumWood = new StrategicNumber();
+var snMiningCampMaxDistance = new StrategicNumber();
+var snMostNeededResourceLookAhead = new StrategicNumber();
+var snNumberAttackGroups = new StrategicNumber();
+var snNumberBoatAttackGroups = new StrategicNumber();
+var snNumberBoatDefendGroups = new StrategicNumber();
+var snNumberBoatExploreGroups = new StrategicNumber();
+var snNumberBuildAttemptsBeforeSkip = new StrategicNumber();
+var snNumberCivilianMilitia = new StrategicNumber();
+var snNumberDefendGroups = new StrategicNumber();
+var snNumberEnemyObjectsRequired = new StrategicNumber();
+var snNumberExploreGroups = new StrategicNumber();
+var snNumberForwardBuilders = new StrategicNumber();
+var snNumberGarrisonUnits = new StrategicNumber();
+var snNumberMaxSkipCycles = new StrategicNumber();
+var snNumberTaskedUnits = new StrategicNumber();
+var snNumberWallGates = new StrategicNumber();
+var snObjectRepairLevel = new StrategicNumber();
+var snPercentAttackBoats = new StrategicNumber();
+var snPercentAttackSoldiers = new StrategicNumber();
+var snPercentBuildingCancellation = new StrategicNumber();
+var snPercentCivilianBuilders = new StrategicNumber();
+var snPercentCivilianExplorers = new StrategicNumber();
+var snPercentCivilianGatherers = new StrategicNumber();
+var snPercentDeathRetreat = new StrategicNumber();
+var snPercentEnemySightedResponse = new StrategicNumber();
+var snPercentExplorationRequired = new StrategicNumber();
+var snPercentHalfExploration = new StrategicNumber();
+var snPercentHealthRetreat = new StrategicNumber();
+var snPercentUnitHealthRetreat = new StrategicNumber();
+var snPercentVictoryClamp = new StrategicNumber();
+var snPercentageExploreExterminators = new StrategicNumber();
+var snPlacementFailDelta = new StrategicNumber();
+var snPlacementToCenter = new StrategicNumber();
+var snPlacementZoneSize = new StrategicNumber();
+var snPreferredMillPlacement = new StrategicNumber();
+var snPreferredTradeDistance = new StrategicNumber();
+var snRandomPlacementFactor = new StrategicNumber();
+var snRelicDefendPriority = new StrategicNumber();
+var snRelicReturnDistance = new StrategicNumber();
+var snRequiredFirstBuilding = new StrategicNumber();
+var snRequiredForestTiles = new StrategicNumber();
+var snRetaskGatherAmount = new StrategicNumber();
+var snRetreatAfterTargetDestroyed = new StrategicNumber();
+var snRuinsDefendPriority = new StrategicNumber();
+var snSafeTownSize = new StrategicNumber();
+var snSaveScenarioInformation = new StrategicNumber();
+var snScaleMaximumAttackGroupSize = new StrategicNumber();
+var snScaleMinimumAttackGroupSize = new StrategicNumber();
+var snScalePercentDeathRetreat = new StrategicNumber();
+var snScalePercentHealthRetreat = new StrategicNumber();
+var snScalePercentUnitHealthRetreat = new StrategicNumber();
+var snScalingFrequency = new StrategicNumber();
+var snSentryDistance = new StrategicNumber();
+var snSentryDistanceVariation = new StrategicNumber();
+var snSizeWallGates = new StrategicNumber();
+var snSpecialAttackInfluence1 = new StrategicNumber();
+var snSpecialAttackInfluence2 = new StrategicNumber();
+var snSpecialAttackInfluence3 = new StrategicNumber();
+var snSpecialAttackType1 = new StrategicNumber();
+var snSpecialAttackType2 = new StrategicNumber();
+var snSpecialAttackType3 = new StrategicNumber();
+var snSpecificBuildItemTime = new StrategicNumber();
+var snSpecificBuildItemToBuild = new StrategicNumber();
+var snStoneDefendPriority = new StrategicNumber();
+var snStoneDropsiteDistance = new StrategicNumber();
+var snStoneGathererPercentage = new StrategicNumber();
+var snStoneModifierPercentage = new StrategicNumber();
+var snTacticalUpdateFrequency = new StrategicNumber();
+var snTargetEvaluationAllyProximity = new StrategicNumber();
+var snTargetEvaluationAttackAttempts = new StrategicNumber();
+var snTargetEvaluationBoat = new StrategicNumber();
+var snTargetEvaluationContinent = new StrategicNumber();
+var snTargetEvaluationDamageCapability = new StrategicNumber();
+var snTargetEvaluationDistance = new StrategicNumber();
+var snTargetEvaluationHitpoints = new StrategicNumber();
+var snTargetEvaluationInProgress = new StrategicNumber();
+var snTargetEvaluationKills = new StrategicNumber();
+var snTargetEvaluationRandomness = new StrategicNumber();
+var snTargetEvaluationRange = new StrategicNumber();
+var snTargetEvaluationRof = new StrategicNumber();
+var snTargetEvaluationSiegeWeapon = new StrategicNumber();
+var snTargetEvaluationTimeKillRatio = new StrategicNumber();
+var snTargetPlayerNumber = new StrategicNumber();
+var snTargetPointAdjustment = new StrategicNumber();
+var snTaskUngroupedSoldiers = new StrategicNumber();
+var snTotalNumberExplorers = new StrategicNumber();
+var snTownCenterPlacement = new StrategicNumber();
+var snTownDefendPriority = new StrategicNumber();
+var snTrackPlayerHistory = new StrategicNumber();
+var snTributeAmount = new StrategicNumber();
+var snTributeChatFrequency = new StrategicNumber();
+var snTributeChatRandomness = new StrategicNumber();
+var snTributeFailureOutcome = new StrategicNumber();
+var snTributePersistence = new StrategicNumber();
+var snTributePlayer = new StrategicNumber();
+var snTributeRevokeOnAttack = new StrategicNumber();
+var snTributeSuccessOutcome = new StrategicNumber();
+var snTributeTimeout = new StrategicNumber();
+var snUnexploredConstruction = new StrategicNumber();
+var snUnskippableItemType = new StrategicNumber();
+var snUpgradeToBronzeAgeAsap = new StrategicNumber();
+var snUpgradeToIronAgeAsap = new StrategicNumber();
+var snUpgradeToToolAgeAsap = new StrategicNumber();
+var snUseByTypeMaxGathering = new StrategicNumber();
+var snWallTargetingMode = new StrategicNumber();
+var snWarshipTargetingMode = new StrategicNumber();
+var snWoodDropsiteDistance = new StrategicNumber();
+var snWoodGathererPercentage = new StrategicNumber();
+var snWoodModifierPercentage = new StrategicNumber();
+var snZeroPriorityDistance = new StrategicNumber();
+var snUnknownData006 = new StrategicNumber();
+var snUnknownData007 = new StrategicNumber();
+var snUnknownData008 = new StrategicNumber();
+var snUnknownData009 = new StrategicNumber();
+var snUnknownData010 = new StrategicNumber();
+var snUnknownData011 = new StrategicNumber();
+var snUnknownData012 = new StrategicNumber();
+var snUnknownData013 = new StrategicNumber();
+var snUnknownData014 = new StrategicNumber();
+var snUnknownData015 = new StrategicNumber();
+var snUnknownData017 = new StrategicNumber();
+var snUnknownData021 = new StrategicNumber();
+var snUnknownData027 = new StrategicNumber();
+var snUnknownData033 = new StrategicNumber();
+var snUnknownData113 = new StrategicNumber();
+var snUnknownData116 = new StrategicNumber();
+var snUnknownData137 = new StrategicNumber();
+var snUnknownData153 = new StrategicNumber();
+var snUnknownData154 = new StrategicNumber();
+var snUnknownData162 = new StrategicNumber();
+var snUnknownData189 = new StrategicNumber();
+var snUnknownData199 = new StrategicNumber();
+var snUnknownData200 = new StrategicNumber();
+var snUnknownData211 = new StrategicNumber();
+
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableOffensivePriority, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTrackPlayerHistory, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snWallTargetingMode, snWarshipTargetingMode, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownData006, snUnknownData007, snUnknownData008, snUnknownData009, snUnknownData010, snUnknownData011, snUnknownData012, snUnknownData013, snUnknownData014, snUnknownData015, snUnknownData017, snUnknownData021, snUnknownData027, snUnknownData033, snUnknownData113, snUnknownData116, snUnknownData137, snUnknownData153, snUnknownData154, snUnknownData162, snUnknownData189, snUnknownData199, snUnknownData200, snUnknownData211];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -10157,226 +10442,334 @@ pExtension.range = "0 or 1.";
 pExtension.relatedParams = [pMapType, pFormattedString, pString, pText];
 
 //FactId
-pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.";
+pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.</p><p>Several FactIds can only be used with " + cUpGetFact.getLink() + " or with my-player-number as the player number in commands like " + cUpGetPlayerFact.getLink() + ". See the values list below for information.</p><p>Also, all commands that use FactId also include " + pParam.getLink() + ". See the values list below for the expected type of parameter.";
 pFactId.shortDescription = "Selects the fact type to be checked and stored in a goal.";
 pFactId.range = "0 to 53.";
 pFactId.relatedParams = [pFindPlayerMethod, pGuardState, pLimit, pObjectData, pParam, pResourceAmount, pType];
 pFactId.valueList = [ {
 	name: "game-time",
 	id: 0,
-	description: "The elapsed game time in seconds."
+	description: "The elapsed game time in seconds.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "population-cap",
 	id: 1,
-	description: "The population cap setting."
+	description: "The population cap setting.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "population-headroom",
 	id: 2,
-	description: "The population headroom. Population headroom is the difference between the game's population cap and current housing capacity."
+	description: "The population headroom. Population headroom is the difference between the game's population cap and current housing capacity.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "housing-headroom",
 	id: 3,
-	description: "The housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity."
+	description: "The housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "idle-farm-count",
 	id: 4,
-	description: "The number of farms with no farmers. "
+	description: "The number of farms with no farmers.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "food-amount",
 	id: 5,
-	description: "The current food amount."
+	description: "The current food amount.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "wood-amount",
 	id: 6,
-	description: "The current wood amount."
+	description: "The current wood amount.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "stone-amount",
 	id: 7,
-	description: "The current stone amount."
+	description: "The current stone amount.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "gold-amount",
 	id: 8,
-	description: "The current gold amount."
+	description: "The current gold amount.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "escrow-amount",
 	id: 9,
-	description: "The current amount of escrowed resources for the given resource type."
+	description: "The current amount of escrowed resources for the given resource type.",
+	parameter: pResource.getLink(),
+	players: "self"
 }, {
 	name: "commodity-buying-price",
 	id: 10,
-	description: "The current buying price for the given commodity type."
+	description: "The current buying price for the given commodity type.",
+	parameter: pCommodity.getLink(),
+	players: "self"
 }, {
 	name: "commodity-selling-price",
 	id: 11,
-	description: "The current selling price for the given commodity type."
+	description: "The current selling price for the given commodity type.",
+	parameter: pCommodity.getLink(),
+	players: "self"
 }, {
 	name: "dropsite-min-distance",
 	id: 12,
-	description: "The minimum dropsite walking distance for the given resource type."
+	description: "The minimum dropsite walking distance for the given resource type.",
+	parameter: pResource.getLink(),
+	players: "self"
 }, {
 	name: "soldier-count",
 	id: 13,
-	description: "The number of the player's land-based military units."
+	description: "The number of the player's land-based military units.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "attack-soldier-count",
 	id: 14,
-	description: "The number of the player's currently attacking land-based military units. This only counts attacking soldiers during attack-groups and attack-now attacks."
+	description: "The number of the player's currently attacking land-based military units. This only counts attacking soldiers during attack-groups and attack-now attacks.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "defend-soldier-count",
 	id: 15,
-	description: "The number of the player's currently defending land-based military units. This only counts soldiers that aren't part of attack-groups and attack-now attacks. It includes idle military units not actively defending the player's town."
+	description: "The number of the player's currently defending land-based military units. This only counts soldiers that aren't part of attack-groups and attack-now attacks. It includes idle military units not actively defending the player's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "warboat-count",
 	id: 16,
-	description: "The number of the player's warships, including transport ships."
+	description: "The number of the player's warships, including transport ships.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "attack-warboat-count",
 	id: 17,
-	description: "The number of the player's currently attacking warships. This only counts attacking warships during attack-groups and attack-now attacks."
+	description: "The number of the player's currently attacking warships. This only counts attacking warships during attack-groups and attack-now attacks.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "defend-warboat-count",
 	id: 18,
-	description: "The number of the player's currently defending warships. This only counts warships that aren't part of attack-groups and attack-now attacks. It includes idle warships not actively defending the player's town."
+	description: "The number of the player's currently defending warships. This only counts warships that aren't part of attack-groups and attack-now attacks. It includes idle warships not actively defending the player's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "current-age",
 	id: 19,
-	description: "The player's current age. Can be used with any player number."
+	description: "The player's current age.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "current-score",
 	id: 20,
-	description: "The player's current score. Can be used with any player number."
+	description: "The player's current score.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "civilization",
 	id: 21,
-	description: "The player's civilization. Can be used with any player number."
+	description: "The player's civilization.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "player-number",
 	id: 22,
-	description: "The player's player number. Can be used with any player number."
+	description: "The player's player number.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "player-in-game",
 	id: 23,
-	description: "Checks whether the player is valid and still playing. Can be used with any player number."
+	description: "Checks whether the player is valid and still playing.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "unit-count",
 	id: 24,
-	description: "The number of units the player has. Can be used with any player number."
+	description: "The number of units the player has.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "unit-type-count",
 	id: 25,
-	description: "The number of a given type of unit a player has, excluding units currently training. Can be used with any player number."
+	description: "The number of a given type of unit a player has, excluding units currently training.",
+	parameter: pUnitId.getLink(),
+	players: "any"
 }, {
 	name: "unit-type-count-total",
 	id: 26,
-	description: "The number of a given type of unit a player has, including units currently training. Used only with my-player-number."
+	description: "The number of a given type of unit a player has, including units currently training.",
+	parameter: pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "building-count",
 	id: 27,
-	description: "The number of buildings a player has. Can be used with any player number."
+	description: "The number of buildings a player has.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "building-type-count",
 	id: 28,
-	description: "The number of a given type of buildings a player has. Can be used with any player number."
+	description: "The number of a given type of buildings a player has.",
+	parameter: pBuildingId.getLink(),
+	players: "any"
 }, {
 	name: "building-type-count-total",
 	id: 29,
-	description: "The number of a given type of building a player has, including buildings currently under construction."
+	description: "The number of a given type of building a player has, including buildings currently under construction.",
+	parameter: pBuildingId.getLink(),
+	players: "self"
 }, {
 	name: "population",
 	id: 30,
-	description: "The player's current population. Can be used with any player number."
+	description: "The player's current population.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "military-population",
 	id: 31,
-	description: "The player's military population, including monks and Transport Ships. Can be used with any player number."
+	description: "The player's military population, including monks and Transport Ships.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "civilian-population",
 	id: 32,
-	description: "The player's civilian population, including Fishing Ships and trade units. Can be used with any player number."
+	description: "The player's civilian population, including Fishing Ships and trade units.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "random-number",
 	id: 33,
-	description: "The current random number value generated the last time the " + cGenerateRandomNumber.getLink() + " command was used."
+	description: "The current random number value generated the last time the " + cGenerateRandomNumber.getLink() + " command was used.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "resource-amount",
 	id: 34,
-	description: "The current stockpile amount of the given " + pResourceAmount.getLink() + "."
+	description: "The current stockpile amount of the given resource.",
+	parameter: pResourceAmount.getLink(),
+	players: "any"
 }, {
 	name: "player-distance",
 	id: 35,
-	description: "The from the AI's town center to the nearest building of the given player number. Can be used with any player number."
+	description: "The from the AI's town center to the nearest building of the given player number.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "allied-goal",
 	id: 36,
-	description: "The current value of an allied AI player's goal variable. Can be used with any player number."
+	description: "The current value of an allied AI player's goal variable.",
+	parameter: pGoalId.getLink(),
+	players: "any-ally"
 }, {
 	name: "allied-sn",
 	id: 37,
-	description: "The current value of an allied AI player's strategic number. Can be used with any player number."
+	description: "The current value of an allied AI player's strategic number.",
+	parameter: pSnId.getLink(),
+	players: "any-ally"
 }, {
 	name: "resource-percent",
 	id: 38,
-	description: "The current amount of the given " + pResourceAmount.getLink() + " * 100."
+	description: "The current amount of the given resource * 100.",
+	parameter: pResourceAmount.getLink(),
+	players: "any"
 }, {
 	name: "enemy-buildings-in-town",
 	id: 39,
-	description: "The number of enemy buildings inside the AI's town."
+	description: "The number of enemy buildings inside the AI's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "enemy-units-in-town",
 	id: 40,
-	description: "The number of enemy units inside the AI's town."
+	description: "The number of enemy units inside the AI's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "enemy-villagers-in-town",
 	id: 41,
-	description: "The number of enemy villagers inside the AI's town."
+	description: "The number of enemy villagers inside the AI's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "players-in-game",
 	id: 42,
-	description: "The number of players in the game that match the given " + pPlayerStance.getLink() + " . To get the total number of players, use &quot;any&quot as the PlayersStance."
+	description: "The number of players in the game that match the given stance. The AI player is considered allied with itself, so the number of allied players in the game includes itself. To get the total number of players, use &quot;any&quot as the PlayersStance.",
+	parameter: pPlayerStance.getLink(),
+	players: "self"
 }, {
 	name: "defender-count",
 	id: 43,
-	description: "The number of soldiers actively defending its town. This only includes soldiers targeting buildings inside the AI's town."
+	description: "The number of soldiers actively defending its town. This only includes soldiers targeting buildings inside the AI's town.",
+	parameter: "0",
+	players: "self"
 }, {
 	name: "building-type-in-town",
 	id: 44,
-	description: "The number of enemy buildings of the given type inside the AI's town."
+	description: "The number of enemy buildings of the given type inside the AI's town.",
+	parameter: pBuildingId.getLink(),
+	players: "self"
 }, {
 	name: "unit-type-in-town",
 	id: 45,
-	description: "The number of enemy units of the given type inside the AI's town."
+	description: "The number of enemy units of the given type inside the AI's town.",
+	parameter: pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "villager-type-in-town",
 	id: 46,
-	description: "The number of enemy villagers of the given type inside the AI's town."
+	description: "The number of enemy villagers of the given type inside the AI's town.",
+	parameter: pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "gaia-type-count",
 	id: 47,
-	description: "The number of currently sighted Gaia resources of the given type."
+	description: "The number of currently sighted Gaia resources of the given type.",
+	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "gaia-type-count-total",
 	id: 48,
-	description: "The total number of sighted Gaia resources of the given type."
+	description: "The total number of sighted Gaia resources of the given type.",
+	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "cc-gaia-type-count",
 	id: 49,
-	description: "The total number of the given Gaia resource that currently exists on the map, regardless of whether the AI has explored it. This is the only FactId that does not a corresponding Fact. If you need to do a comparison with the total number of a given Gaia resource on the map, use " + cCcPlayersUnitTypeCount.getLink() + " with Gaia as the player number instead."
+	description: "The total number of the given Gaia resource that currently exists on the map, regardless of whether the AI has explored it. This is the only FactId that does not a corresponding Fact. If you need to do a comparison with the total number of a given Gaia resource on the map, use " + cCcPlayersUnitTypeCount.getLink() + " with Gaia as the player number instead.",
+	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
+	players: "self"
 }, {
 	name: "current-age-time",
 	id: 50,
-	description: "The time the player has spent in the current age. Can be used with any player number."
+	description: "The time the player has spent in the current age.",
+	parameter: "0",
+	players: "any"
 }, {
 	name: "timer-status",
 	id: 51,
-	description: "The status of a timer, either timer-disabled, timer-running, or timer-triggered."
+	description: "The status of a timer, either timer-disabled, timer-running, or timer-triggered.",
+	parameter: pTimerId.getLink(),
+	players: "self"
 }, {
 	name: "players-tribute",
 	id: 52,
-	description: "The amount of the given resource for the given player throughout the game."
+	description: "The amount of the given resource for the given player throughout the game.",
+	parameter: pResource.getLink(),
+	players: "any"
 }, {
 	name: "players-tribute-memory",
 	id: 53,
-	description: "The amount of the given resource for the given player since the tribute memory has been cleared with " + cClearTributeMemory.getLink() + "."
+	description: "The amount of the given resource for the given player since the tribute memory has been cleared with " + cClearTributeMemory.getLink() + ".",
+	parameter: pResource.getLink(),
+	players: "any"
 } ];
 
 //FindPlayerMethod
@@ -10840,7 +11233,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-type",
 	id: 1,
-	description: "The object's type, just like " + cUnitTypeCount.getLink() + ". <strong>Note:</strong> this always returns the object-data-base-type for a unit/building line in non-scenario games. For example, if the object is a man-at-arms, this will return 74 (militiaman). If you want to get the current upgraded unit type, use object-data-upgrade-type instead. In summary, this ObjectData functions just like object-data-base-type, except in scenarios where upgraded versions of units are placed on the map from the start of the game."
+	description: "The object's type, just like " + cUnitTypeCount.getLink() + ". <strong>Note:</strong> this always returns the object-data-base-type for a unit/building line in non-scenario games. For example, if the object is a man-at-arms, this will return 74 (militiaman). If you want to get the current upgraded unit type, use object-data-upgrade-type instead. In summary, this ObjectData functions just like object-data-base-type, except in scenarios where upgraded versions of units can be placed on the map from the start of the game."
 }, {
 	name: "object-data-class",
 	id: 2,
@@ -11032,7 +11425,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-idling",
 	id: 49,
-	description: "Returns 1 if the object is idle, otherwise 0."
+	description: "Returns 1 if the object is idle, otherwise 0. Does not work with villagers."
 }, {
 	name: "object-data-move-x",
 	id: 50,
@@ -11056,7 +11449,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-next-attack",
 	id: 55,
-	description: "The time until the object can attack again, in milliseconds. The countdown starts after the animation has finished."
+	description: "The time until the object can attack again, in milliseconds. The time is a countdown that starts at the object's object-data-reload-time and counts down to 0. The countdown begins at the start of the unit's attack animation, not necessarily when a projectile is launched."
 }, {
 	name: "object-data-train-site",
 	id: 56,
@@ -11120,7 +11513,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-gather-type",
 	id: 71,
-	description: "The " + pResource.getLink() + "that the villager is gathering, or -1 if the object isn't gathering a resource. Trade units return 3 when they are carrying gold back to the Market or Dock. Monasteries don't return 3 when relics are garrisoned inside."
+	description: "The " + pResource.getLink() + " that the villager is gathering, or -1 if the object isn't gathering a resource. Trade units return 3 when they are carrying gold back to the Market or Dock. Monasteries don't return 3 when relics are garrisoned inside."
 }, {
 	name: "object-data-language-id",
 	id: 72,
@@ -12966,4713 +13359,4711 @@ pWallId.wildcardParam = [ {
 
 
 
-	/*
-
-	snPercentCivilianExplorers.id = 0;
-	snPercentCivilianExplorers.name = "sn-percent-civilian-explorers";
-	snPercentCivilianExplorers.category = "Economy";
-	snPercentCivilianExplorers.default = 34;
-	snPercentCivilianExplorers.min = -32767;
-	snPercentCivilianExplorers.max = 32768;
-	snPercentCivilianExplorers.rmin = 0;
-	snPercentCivilianExplorers.rmax = 100;
-	snPercentCivilianExplorers.network = 0;
-	snPercentCivilianExplorers.defined = 1;
-	snPercentCivilianExplorers.available = 0;
-	snPercentCivilianExplorers.version = "1.0c";
-	snPercentCivilianExplorers.linked = [ 3, 35, 18 ];
-	snPercentCivilianExplorers.related = [ 1, 2 ];
-	snPercentCivilianExplorers.shortDescription = "Controls the normal, formula-based percentage of civilian explorers allocated.";
-
-	snPercentCivilianBuilders.id = 1;
-	snPercentCivilianBuilders.name = "sn-percent-civilian-builders";
-	snPercentCivilianBuilders.category = "Economy";
-	snPercentCivilianBuilders.default = 0;
-	snPercentCivilianBuilders.min = -32767;
-	snPercentCivilianBuilders.max = 32768;
-	snPercentCivilianBuilders.rmin = 0;
-	snPercentCivilianBuilders.rmax = 100;
-	snPercentCivilianBuilders.network = 0;
-	snPercentCivilianBuilders.defined = 1;
-	snPercentCivilianBuilders.available = 0;
-	snPercentCivilianBuilders.version = "1.0c";
-	snPercentCivilianBuilders.linked = [ 4, 253 ];
-	snPercentCivilianBuilders.related = [ 0, 2 ];
-	snPercentCivilianBuilders.shortDescription = "Controls the normal, formula-based percentage of builders allocated.";
-
-	snPercentCivilianGatherers.id = 2;
-	snPercentCivilianGatherers.name = "sn-percent-civilian-gatherers";
-	snPercentCivilianGatherers.category = "Economy";
-	snPercentCivilianGatherers.default = 66;
-	snPercentCivilianGatherers.min = -32767;
-	snPercentCivilianGatherers.max = 32768;
-	snPercentCivilianGatherers.rmin = 0;
-	snPercentCivilianGatherers.rmax = 100;
-	snPercentCivilianGatherers.network = 0;
-	snPercentCivilianGatherers.defined = 1;
-	snPercentCivilianGatherers.available = 0;
-	snPercentCivilianGatherers.version = "1.0c";
-	snPercentCivilianGatherers.linked = [ 5 ];
-	snPercentCivilianGatherers.related = [ 0, 1 ];
-	snPercentCivilianGatherers.shortDescription = "Controls the normal, formula-based percentage of gatherers allocated.";
-
-	snCapCivilianExplorers.id = 3;
-	snCapCivilianExplorers.name = "sn-cap-civilian-explorers";
-	snCapCivilianExplorers.category = "Economy";
-	snCapCivilianExplorers.default = 2;
-	snCapCivilianExplorers.min = -32767;
-	snCapCivilianExplorers.max = 32768;
-	snCapCivilianExplorers.rmin = -1;
-	snCapCivilianExplorers.rmax = 32768;
-	snCapCivilianExplorers.network = 0;
-	snCapCivilianExplorers.defined = 1;
-	snCapCivilianExplorers.available = 0;
-	snCapCivilianExplorers.version = "1.0c";
-	snCapCivilianExplorers.linked = [ 0, 35, 18 ];
-	snCapCivilianExplorers.related = [ 4, 5 ];
-	snCapCivilianExplorers.shortDescription = "Caps the number of civilian explorers allocated. Factored in after the percentage is calculated. Ignored when set to -1.";
-
-	snCapCivilianBuilders.id = 4;
-	snCapCivilianBuilders.name = "sn-cap-civilian-builders";
-	snCapCivilianBuilders.category = "Economy";
-	snCapCivilianBuilders.default = 2;
-	snCapCivilianBuilders.min = -32767;
-	snCapCivilianBuilders.max = 32768;
-	snCapCivilianBuilders.rmin = -1;
-	snCapCivilianBuilders.rmax = 32768;
-	snCapCivilianBuilders.network = 0;
-	snCapCivilianBuilders.defined = 1;
-	snCapCivilianBuilders.available = "available, however it must be at least 6-7 at all times, 10 if you will build walls, and 40-50 for wonder construction (100+ is recommended)";
-	snCapCivilianBuilders.version = "1.0c";
-	snCapCivilianBuilders.linked = [ 1, 253 ];
-	snCapCivilianBuilders.related = [ 3, 5 ];
-	snCapCivilianBuilders.shortDescription = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.";
-
-	snCapCivilianGatherers.id = 5;
-	snCapCivilianGatherers.name = "sn-cap-civilian-gatherers";
-	snCapCivilianGatherers.category = "Economy";
-	snCapCivilianGatherers.default = -1;
-	snCapCivilianGatherers.min = -32767;
-	snCapCivilianGatherers.max = 32768;
-	snCapCivilianGatherers.rmin = -1;
-	snCapCivilianGatherers.rmax = 32768;
-	snCapCivilianGatherers.network = 0;
-	snCapCivilianGatherers.defined = 1;
-	snCapCivilianGatherers.available = 0;
-	snCapCivilianGatherers.version = "1.0c";
-	snCapCivilianGatherers.linked = [ 2 ];
-	snCapCivilianGatherers.related = [ 3, 4 ];
-	snCapCivilianGatherers.shortDescription = "Caps the number of gatherers allocated. Factored in after the percentage is calculated. Ignored when set to -1.";
-
-	snUnknownData006.id = 6;
-	snUnknownData006.name = "unknown-data-006";
-	snUnknownData006.category = "None";
-	snUnknownData006.default = -1;
-	snUnknownData006.min = -32767;
-	snUnknownData006.max = 32768;
-	snUnknownData006.rmin = -32767;
-	snUnknownData006.rmax = 32768;
-	snUnknownData006.network = 0;
-	snUnknownData006.defined = 0;
-	snUnknownData006.available = 0;
-	snUnknownData006.version = "1.0c";
-	snUnknownData006.linked = [];
-	snUnknownData006.related = [];
-	snUnknownData006.shortDescription = "Unused.";
-
-	snUnknownData007.id = 7;
-	snUnknownData007.name = "unknown-data-007";
-	snUnknownData007.category = "None";
-	snUnknownData007.default = -1;
-	snUnknownData007.min = -32767;
-	snUnknownData007.max = 32768;
-	snUnknownData007.rmin = -32767;
-	snUnknownData007.rmax = 32768;
-	snUnknownData007.network = 0;
-	snUnknownData007.defined = 0;
-	snUnknownData007.available = 0;
-	snUnknownData007.version = "1.0c";
-	snUnknownData007.linked = [];
-	snUnknownData007.related = [];
-	snUnknownData007.shortDescription = "Unused.";
-
-	snUnknownData008.id = 8;
-	snUnknownData008.name = "unknown-data-008";
-	snUnknownData008.category = "None";
-	snUnknownData008.default = -1;
-	snUnknownData008.min = -32767;
-	snUnknownData008.max = 32768;
-	snUnknownData008.rmin = -32767;
-	snUnknownData008.rmax = 32768;
-	snUnknownData008.network = 0;
-	snUnknownData008.defined = 0;
-	snUnknownData008.available = 0;
-	snUnknownData008.version = "1.0c";
-	snUnknownData008.linked = [];
-	snUnknownData008.related = [];
-	snUnknownData008.shortDescription = "Unused.";
-
-	snUnknownData009.id = 9;
-	snUnknownData009.name = "unknown-data-009";
-	snUnknownData009.category = "None";
-	snUnknownData009.default = -1;
-	snUnknownData009.min = -32767;
-	snUnknownData009.max = 32768;
-	snUnknownData009.rmin = -32767;
-	snUnknownData009.rmax = 32768;
-	snUnknownData009.network = 0;
-	snUnknownData009.defined = 0;
-	snUnknownData009.available = 0;
-	snUnknownData009.version = "1.0c";
-	snUnknownData009.linked = [];
-	snUnknownData009.related = [];
-	snUnknownData009.shortDescription = "An unused strategic number";
-
-	snUnknownData010.id = 10;
-	snUnknownData010.name = "unknown-data-010";
-	snUnknownData010.category = "None";
-	snUnknownData010.default = -1;
-	snUnknownData010.min = -32767;
-	snUnknownData010.max = 32768;
-	snUnknownData010.rmin = -32767;
-	snUnknownData010.rmax = 32768;
-	snUnknownData010.network = 0;
-	snUnknownData010.defined = 0;
-	snUnknownData010.available = 0;
-	snUnknownData010.version = "1.0c";
-	snUnknownData010.linked = [];
-	snUnknownData010.related = [];
-	snUnknownData010.shortDescription = "Unused.";
-
-	snUnknownData011.id = 11;
-	snUnknownData011.name = "unknown-data-011";
-	snUnknownData011.default = -1;
-	snUnknownData011.category = "None";
-	snUnknownData011.min = -32767;
-	snUnknownData011.max = 32768;
-	snUnknownData011.rmin = -32767;
-	snUnknownData011.rmax = 32768;
-	snUnknownData011.network = 0;
-	snUnknownData011.defined = 0;
-	snUnknownData011.available = 0;
-	snUnknownData011.version = "1.0c";
-	snUnknownData011.linked = [];
-	snUnknownData011.related = [];
-	snUnknownData011.shortDescription = "Unused.";
-
-	snUnknownData012.id = 12;
-	snUnknownData012.name = "unknown-data-012";
-	snUnknownData012.default = -1;
-	snUnknownData012.category = "None";
-	snUnknownData012.min = -32767;
-	snUnknownData012.max = 32768;
-	snUnknownData012.rmin = -32767;
-	snUnknownData012.rmax = 32768;
-	snUnknownData012.network = 0;
-	snUnknownData012.defined = 0;
-	snUnknownData012.available = 0;
-	snUnknownData012.version = "1.0c";
-	snUnknownData012.linked = [];
-	snUnknownData012.related = [];
-	snUnknownData012.shortDescription = "Unused.";
-
-	snUnknownData013.id = 13;
-	snUnknownData013.name = "unknown-data-013";
-	snUnknownData013.default = -1;
-	snUnknownData013.category = "None";
-	snUnknownData013.min = -32767;
-	snUnknownData013.max = 32768;
-	snUnknownData013.rmin = -32767;
-	snUnknownData013.rmax = 32768;
-	snUnknownData013.network = 0;
-	snUnknownData013.defined = 0;
-	snUnknownData013.available = 0;
-	snUnknownData013.version = "1.0c";
-	snUnknownData013.linked = [];
-	snUnknownData013.related = [];
-	snUnknownData013.shortDescription = "Unused.";
-
-	snUnknownData014.id = 14;
-	snUnknownData014.name = "unknown-data-014";
-	snUnknownData014.default = -1;
-	snUnknownData014.category = "None";
-	snUnknownData014.min = -32767;
-	snUnknownData014.max = 32768;
-	snUnknownData014.rmin = -32767;
-	snUnknownData014.rmax = 32768;
-	snUnknownData014.network = 0;
-	snUnknownData014.defined = 0;
-	snUnknownData014.available = 0;
-	snUnknownData014.version = "1.0c";
-	snUnknownData014.linked = [];
-	snUnknownData014.related = [];
-	snUnknownData014.shortDescription = "Unused.";
-
-	snUnknownData015.id = 15;
-	snUnknownData015.name = "unknown-data-015";
-	snUnknownData015.default = -1;
-	snUnknownData015.category = "None";
-	snUnknownData015.min = -32767;
-	snUnknownData015.max = 32768;
-	snUnknownData015.rmin = -32767;
-	snUnknownData015.rmax = 32768;
-	snUnknownData015.network = 0;
-	snUnknownData015.defined = 0;
-	snUnknownData015.available = 0;
-	snUnknownData015.version = "1.0c";
-	snUnknownData015.linked = [];
-	snUnknownData015.related = [];
-	snUnknownData015.shortDescription = "Unused.";
-
-	snMinimumAttackGroupSize.id = 16;
-	snMinimumAttackGroupSize.name = "sn-minimum-attack-group-size";
-	snMinimumAttackGroupSize.default = 4;
-	snMinimumAttackGroupSize.category = "Attack";
-	snMinimumAttackGroupSize.min = -32767;
-	snMinimumAttackGroupSize.max = 32768;
-	snMinimumAttackGroupSize.rmin = 0;
-	snMinimumAttackGroupSize.rmax = 32768;
-	snMinimumAttackGroupSize.network = 0;
-	snMinimumAttackGroupSize.defined = 1;
-	snMinimumAttackGroupSize.available = 0;
-	snMinimumAttackGroupSize.version = "1.0c";
-	snMinimumAttackGroupSize.linked = [ 26, 36 ];
-	snMinimumAttackGroupSize.related = [ 58, 60, 59, 94, 93, 41, 98 ];
-	snMinimumAttackGroupSize.shortDescription = "Sets the minimum size of land-based attack groups. A group must meet its minimum size as one of the tasking prerequisites. The game can change this itself during the game.";
-
-	snUnknownData017.id = 17;
-	snUnknownData017.name = "unknown-data-017";
-	snUnknownData017.default = -1;
-	snUnknownData017.category = "None";
-	snUnknownData017.min = -32767;
-	snUnknownData017.max = 32768;
-	snUnknownData017.rmin = -32767;
-	snUnknownData017.rmax = 32768;
-	snUnknownData017.network = 0;
-	snUnknownData017.defined = 0;
-	snUnknownData017.available = 0;
-	snUnknownData017.version = "1.0c";
-	snUnknownData017.linked = [];
-	snUnknownData017.related = [];
-	snUnknownData017.shortDescription = "Unused.";
-
-	snTotalNumberExplorers.id = 18;
-	snTotalNumberExplorers.name = "sn-total-number-explorers";
-	snTotalNumberExplorers.default = 4;
-	snTotalNumberExplorers.category = "Explore";
-	snTotalNumberExplorers.min = -32767;
-	snTotalNumberExplorers.max = 32768;
-	snTotalNumberExplorers.rmin = -1;
-	snTotalNumberExplorers.rmax = 32768;
-	snTotalNumberExplorers.network = 0;
-	snTotalNumberExplorers.defined = 1;
-	snTotalNumberExplorers.available = 0;
-	snTotalNumberExplorers.version = "1.0c";
-	snTotalNumberExplorers.linked = [ 42, 61 ];
-	snTotalNumberExplorers.related = [ 3, 0, 35 ];
-	snTotalNumberExplorers.shortDescription = "Caps the total number of land explorers allocated. Factored in after the percentage of civilian explorers is calculated and the soldier groups are set up. Ignored when set to -1.";
-
-	snPercentEnemySightedResponse.id = 19;
-	snPercentEnemySightedResponse.name = "sn-percent-enemy-sighted-response";
-	snPercentEnemySightedResponse.default = 50;
-	snPercentEnemySightedResponse.category = "Defense";
-	snPercentEnemySightedResponse.min = -32767;
-	snPercentEnemySightedResponse.max = 32768;
-	snPercentEnemySightedResponse.rmin = 0;
-	snPercentEnemySightedResponse.rmax = 100;
-	snPercentEnemySightedResponse.network = 0;
-	snPercentEnemySightedResponse.defined = 1;
-	snPercentEnemySightedResponse.available = 0;
-	snPercentEnemySightedResponse.version = "1.0c";
-	snPercentEnemySightedResponse.linked = [ 20, 284 ];
-	snPercentEnemySightedResponse.related = [ 34 ];
-	snPercentEnemySightedResponse.shortDescription = "Sets the percentage of idle troops that will respond to another unit being attacked.";
-
-	snEnemySightedResponseDistance.id = 20;
-	snEnemySightedResponseDistance.name = "sn-enemy-sighted-response-distance";
-	snEnemySightedResponseDistance.default = 25;
-	snEnemySightedResponseDistance.category = "Attack";
-	snEnemySightedResponseDistance.min = -32767;
-	snEnemySightedResponseDistance.max = 50;
-	snEnemySightedResponseDistance.rmin = 0;
-	snEnemySightedResponseDistance.rmax = 50;
-	snEnemySightedResponseDistance.network = 0;
-	snEnemySightedResponseDistance.defined = 1;
-	snEnemySightedResponseDistance.available = 0;
-	snEnemySightedResponseDistance.version = "1.0c";
-	snEnemySightedResponseDistance.linked = [ 19, 284 ];
-	snEnemySightedResponseDistance.related = [ 34 ];
-	snEnemySightedResponseDistance.shortDescription = "Sets the distance inside of which units will be candidates for response to an enemy attack.";
-
-	snUnknownData021.id = 21;
-	snUnknownData021.name = "unknown-data-021";
-	snUnknownData021.default = -1;
-	snUnknownData021.category = "None";
-	snUnknownData021.min = -32767;
-	snUnknownData021.max = 32768;
-	snUnknownData021.rmin = -32767;
-	snUnknownData021.rmax = 32768;
-	snUnknownData021.network = 0;
-	snUnknownData021.defined = 0;
-	snUnknownData021.available = 0;
-	snUnknownData021.version = "1.0c";
-	snUnknownData021.linked = [];
-	snUnknownData021.related = [];
-	snUnknownData021.shortDescription = "Unused.";
-
-	snSentryDistance.id = 22;
-	snSentryDistance.name = "sn-sentry-distance";
-	snSentryDistance.default = 12;
-	snSentryDistance.category = "Defense";
-	snSentryDistance.min = -32767;
-	snSentryDistance.max = 32768;
-	snSentryDistance.rmin = 0;
-	snSentryDistance.rmax = 255;
-	snSentryDistance.network = 0;
-	snSentryDistance.defined = 1;
-	snSentryDistance.available = 0;
-	snSentryDistance.version = "1.0c";
-	snSentryDistance.linked = [ 72 ];
-	snSentryDistance.related = [ 57, 92 ];
-	snSentryDistance.shortDescription = "Sets the distance at which the town is defended.";
-
-	snRelicReturnDistance.id = 23;
-	snRelicReturnDistance.name = "sn-relic-return-distance";
-	snRelicReturnDistance.default = 10;
-	snRelicReturnDistance.category = "Economy";
-	snRelicReturnDistance.min = -32767;
-	snRelicReturnDistance.max = 32768;
-	snRelicReturnDistance.rmin = 0;
-	snRelicReturnDistance.rmax = 255;
-	snRelicReturnDistance.network = 0;
-	snRelicReturnDistance.defined = 1;
-	snRelicReturnDistance.available = 0;
-	snRelicReturnDistance.version = "1.0c";
-	snRelicReturnDistance.linked = [];
-	snRelicReturnDistance.related = [];
-	snRelicReturnDistance.shortDescription = "Sets the distance that relics must be within to be considered returned to the Town Center.";
-
-	snPercentVictoryClamp.id = 24;
-	snPercentVictoryClamp.name = "sn-percent-victory-clamp";
-	snPercentVictoryClamp.default = 75;
-	snPercentVictoryClamp.category = "Other";
-	snPercentVictoryClamp.min = -32767;
-	snPercentVictoryClamp.max = 32768;
-	snPercentVictoryClamp.rmin = 0;
-	snPercentVictoryClamp.rmax = 100;
-	snPercentVictoryClamp.network = 0;
-	snPercentVictoryClamp.defined = 0;
-	snPercentVictoryClamp.available = "seems available, except for when teams-locked is disabled";
-	snPercentVictoryClamp.version = "1.0c";
-	snPercentVictoryClamp.linked = [];
-	snPercentVictoryClamp.related = [];
-	snPercentVictoryClamp.shortDescription = "Undocumented.";
-
-	snMinimumDefendGroupSize.id = 25;
-	snMinimumDefendGroupSize.name = "sn-minimum-defend-group-size";
-	snMinimumDefendGroupSize.default = 1;
-	snMinimumDefendGroupSize.category = "Defense";
-	snMinimumDefendGroupSize.min = -32767;
-	snMinimumDefendGroupSize.max = 32768;
-	snMinimumDefendGroupSize.rmin = 0;
-	snMinimumDefendGroupSize.rmax = 32768;
-	snMinimumDefendGroupSize.network = 0;
-	snMinimumDefendGroupSize.defined = 1;
-	snMinimumDefendGroupSize.available = 0;
-	snMinimumDefendGroupSize.version = "1.0c";
-	snMinimumDefendGroupSize.linked = [ 28, 38 ];
-	snMinimumDefendGroupSize.related = [ 67, 69, 68 ];
-	snMinimumDefendGroupSize.shortDescription = "Sets the minimum size of land-based defend groups. A group must meet its minimum size as one of the tasking prerequisites.";
-
-	snMaximumAttackGroupSize.id = 26;
-	snMaximumAttackGroupSize.name = "sn-maximum-attack-group-size";
-	snMaximumAttackGroupSize.default = 10;
-	snMaximumAttackGroupSize.category = "Attack";
-	snMaximumAttackGroupSize.min = -32767;
-	snMaximumAttackGroupSize.max = 32768;
-	snMaximumAttackGroupSize.rmin = 0;
-	snMaximumAttackGroupSize.rmax = 32768;
-	snMaximumAttackGroupSize.network = 0;
-	snMaximumAttackGroupSize.defined = 1;
-	snMaximumAttackGroupSize.available = 0;
-	snMaximumAttackGroupSize.version = "1.0c";
-	snMaximumAttackGroupSize.linked = [ 16, 36 ];
-	snMaximumAttackGroupSize.related = [ 58, 60, 59, 94, 93, 41, 98 ];
-	snMaximumAttackGroupSize.shortDescription = "Sets the maximum size of land-based attack groups.";
-
-	snUnknownData027.id = 27;
-	snUnknownData027.name = "unknown-data-027";
-	snUnknownData027.default = -1;
-	snUnknownData027.category = "None";
-	snUnknownData027.min = -32767;
-	snUnknownData027.max = 32768;
-	snUnknownData027.rmin = -32767;
-	snUnknownData027.rmax = 32768;
-	snUnknownData027.network = 0;
-	snUnknownData027.defined = 0;
-	snUnknownData027.available = 0;
-	snUnknownData027.version = "1.0c";
-	snUnknownData027.linked = [];
-	snUnknownData027.related = [];
-	snUnknownData027.shortDescription = "Unused.";
-
-	snMaximumDefendGroupSize.id = 28;
-	snMaximumDefendGroupSize.name = "sn-maximum-defend-group-size";
-	snMaximumDefendGroupSize.default = 4;
-	snMaximumDefendGroupSize.category = "Defense";
-	snMaximumDefendGroupSize.min = -32767;
-	snMaximumDefendGroupSize.max = 32768;
-	snMaximumDefendGroupSize.rmin = 0;
-	snMaximumDefendGroupSize.rmax = 32768;
-	snMaximumDefendGroupSize.network = 0;
-	snMaximumDefendGroupSize.defined = 1;
-	snMaximumDefendGroupSize.available = 0;
-	snMaximumDefendGroupSize.version = "1.0c";
-	snMaximumDefendGroupSize.linked = [ 25, 38 ];
-	snMaximumDefendGroupSize.related = [ 67, 69, 68 ];
-	snMaximumDefendGroupSize.shortDescription = "Sets the maximum size of land-based defend groups.";
-
-	snMinimumPeaceLikeLevel.id = 29;
-	snMinimumPeaceLikeLevel.name = "sn-minimum-peace-like-level";
-	snMinimumPeaceLikeLevel.default = 85;
-	snMinimumPeaceLikeLevel.category = "Defense";
-	snMinimumPeaceLikeLevel.min = -32767;
-	snMinimumPeaceLikeLevel.max = 32768;
-	snMinimumPeaceLikeLevel.rmin = 0;
-	snMinimumPeaceLikeLevel.rmax = 100;
-	snMinimumPeaceLikeLevel.network = 0;
-	snMinimumPeaceLikeLevel.defined = 1;
-	snMinimumPeaceLikeLevel.available = 0;
-	snMinimumPeaceLikeLevel.version = "1.0c";
-	snMinimumPeaceLikeLevel.linked = [];
-	snMinimumPeaceLikeLevel.related = [];
-	snMinimumPeaceLikeLevel.shortDescription = "Sets the level at which computer players must like another player before allying with that player.";
-
-	snPercentHealthRetreat.id = 30;
-	snPercentHealthRetreat.name = "sn-percent-health-retreat";
-	snPercentHealthRetreat.default = -1;
-	snPercentHealthRetreat.category = "AoE 1";
-	snPercentHealthRetreat.min = -32767;
-	snPercentHealthRetreat.max = 32768;
-	snPercentHealthRetreat.rmin = 0;
-	snPercentHealthRetreat.rmax = 100;
-	snPercentHealthRetreat.network = 0;
-	snPercentHealthRetreat.defined = 0;
-	snPercentHealthRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-health-retreat (95)";
-	snPercentHealthRetreat.version = "1.0c";
-	snPercentHealthRetreat.linked = [ 95 ];
-	snPercentHealthRetreat.related = [];
-	snPercentHealthRetreat.shortDescription = "AoE 1 only. Sets the percentage of hit points that a group can lose (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
-
-	snPercentDeathRetreat.id = 31;
-	snPercentDeathRetreat.name = "sn-percent-death-retreat";
-	snPercentDeathRetreat.default = -1;
-	snPercentDeathRetreat.category = "AoE 1";
-	snPercentDeathRetreat.min = -32767;
-	snPercentDeathRetreat.max = 32768;
-	snPercentDeathRetreat.rmin = 0;
-	snPercentDeathRetreat.rmax = 100;
-	snPercentDeathRetreat.network = 0;
-	snPercentDeathRetreat.defined = 0;
-	snPercentDeathRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-death-retreat (96)";
-	snPercentDeathRetreat.version = "1.0c";
-	snPercentDeathRetreat.linked = [ 96 ];
-	snPercentDeathRetreat.related = [];
-	snPercentDeathRetreat.shortDescription = "AoE 1 only. Sets the percentage of units that a group can let die (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
-
-	snPercentExplorationRequired.id = 32;
-	snPercentExplorationRequired.name = "sn-percent-exploration-required";
-	snPercentExplorationRequired.default = 100;
-	snPercentExplorationRequired.category = "Explore";
-	snPercentExplorationRequired.min = -32767;
-	snPercentExplorationRequired.max = 32768;
-	snPercentExplorationRequired.rmin = 0;
-	snPercentExplorationRequired.rmax = 100;
-	snPercentExplorationRequired.network = 0;
-	snPercentExplorationRequired.defined = 1;
-	snPercentExplorationRequired.available = 0;
-	snPercentExplorationRequired.version = "1.0c";
-	snPercentExplorationRequired.linked = [ 167, 179, 256 ];
-	snPercentExplorationRequired.related = [ 135, 136 ];
-	snPercentExplorationRequired.shortDescription = "Sets the minimum amount of exploration that a computer player must have accomplished before being allowed to retask civilian explorers.";
-
-	snUnknownData033.id = 33;
-	snUnknownData033.name = "unknown-data-033";
-	snUnknownData033.default = -1;
-	snUnknownData033.category = "None";
-	snUnknownData033.min = -32767;
-	snUnknownData033.max = 32768;
-	snUnknownData033.rmin = -32767;
-	snUnknownData033.rmax = 32768;
-	snUnknownData033.network = 0;
-	snUnknownData033.defined = 0;
-	snUnknownData033.available = 0;
-	snUnknownData033.version = "1.0c";
-	snUnknownData033.linked = [];
-	snUnknownData033.related = [];
-	snUnknownData033.shortDescription = "Unused.";
-
-	snZeroPriorityDistance.id = 34;
-	snZeroPriorityDistance.name = "sn-zero-priority-distance";
-	snZeroPriorityDistance.default = 50;
-	snZeroPriorityDistance.category = "Other";
-	snZeroPriorityDistance.min = -32767;
-	snZeroPriorityDistance.max = 32768;
-	snZeroPriorityDistance.rmin = 0;
-	snZeroPriorityDistance.rmax = 255;
-	snZeroPriorityDistance.network = 0;
-	snZeroPriorityDistance.defined = 1;
-	snZeroPriorityDistance.available = 0;
-	snZeroPriorityDistance.version = "1.0c";
-	snZeroPriorityDistance.linked = [];
-	snZeroPriorityDistance.related = [ 19, 20 ];
-	snZeroPriorityDistance.shortDescription = "Sets the distance at which a computer player's order for a unit is set to a priority of 0.";
-
-	snMinimumCivilianExplorers.id = 35;
-	snMinimumCivilianExplorers.name = "sn-minimum-civilian-explorers";
-	snMinimumCivilianExplorers.default = 0;
-	snMinimumCivilianExplorers.category = "Explore";
-	snMinimumCivilianExplorers.min = -32767;
-	snMinimumCivilianExplorers.max = 32768;
-	snMinimumCivilianExplorers.rmin = 0;
-	snMinimumCivilianExplorers.rmax = 32768;
-	snMinimumCivilianExplorers.network = 0;
-	snMinimumCivilianExplorers.defined = 1;
-	snMinimumCivilianExplorers.available = 0;
-	snMinimumCivilianExplorers.version = "1.0c";
-	snMinimumCivilianExplorers.linked = [ 3, 0 ];
-	snMinimumCivilianExplorers.related = [ 18 ];
-	snMinimumCivilianExplorers.shortDescription = "Sets a minimum number of civilian explorers.";
-
-	snNumberAttackGroups.id = 36;
-	snNumberAttackGroups.name = "sn-number-attack-groups";
-	snNumberAttackGroups.default = 0;
-	snNumberAttackGroups.category = "Attack";
-	snNumberAttackGroups.min = -32767;
-	snNumberAttackGroups.max = 32768;
-	snNumberAttackGroups.rmin = 0;
-	snNumberAttackGroups.rmax = 32768;
-	snNumberAttackGroups.network = 0;
-	snNumberAttackGroups.defined = 1;
-	snNumberAttackGroups.available = 0;
-	snNumberAttackGroups.version = "1.0c";
-	snNumberAttackGroups.linked = [ 26, 16 ];
-	snNumberAttackGroups.related = [ 58, 60, 59, 41, 98, 227, 247, 271 ];
-	snNumberAttackGroups.shortDescription = "Sets the desired number of land-based attack groups. Sn-percent-attack-soldiers generally works better.";
-
-	snAttackGroupMakeup.id = 37;
-	snAttackGroupMakeup.name = "sn-attack-group-makeup";
-	snAttackGroupMakeup.default = 0;
-	snAttackGroupMakeup.category = "Attack";
-	snAttackGroupMakeup.min = -32767;
-	snAttackGroupMakeup.max = 32768;
-	snAttackGroupMakeup.rmin = -32767;
-	snAttackGroupMakeup.rmax = 32768;
-	snAttackGroupMakeup.network = 0;
-	snAttackGroupMakeup.defined = 0;
-	snAttackGroupMakeup.available = "seems available";
-	snAttackGroupMakeup.version = "1.0c";
-	snAttackGroupMakeup.linked = [];
-	snAttackGroupMakeup.related = [ 39, 45 ];
-	snAttackGroupMakeup.shortDescription = "Undocumented.";
-
-	snNumberDefendGroups.id = 38;
-	snNumberDefendGroups.name = "sn-number-defend-groups";
-	snNumberDefendGroups.default = 0;
-	snNumberDefendGroups.category = "Defense";
-	snNumberDefendGroups.min = -32767;
-	snNumberDefendGroups.max = 32768;
-	snNumberDefendGroups.rmin = 0;
-	snNumberDefendGroups.rmax = 32768;
-	snNumberDefendGroups.network = 0;
-	snNumberDefendGroups.defined = 1;
-	snNumberDefendGroups.available = 0;
-	snNumberDefendGroups.version = "1.0c";
-	snNumberDefendGroups.linked = [ 28, 25 ];
-	snNumberDefendGroups.related = [ 67, 69, 68 ];
-	snNumberDefendGroups.shortDescription = "Sets the desired number of land-based defend groups.";
-
-	snDefendGroupMakeup.id = 39;
-	snDefendGroupMakeup.name = "sn-defend-group-makeup";
-	snDefendGroupMakeup.default = 0;
-	snDefendGroupMakeup.category = "Defense";
-	snDefendGroupMakeup.min = -32767;
-	snDefendGroupMakeup.max = 32768;
-	snDefendGroupMakeup.rmin = -32767;
-	snDefendGroupMakeup.rmax = 32768;
-	snDefendGroupMakeup.network = 0;
-	snDefendGroupMakeup.defined = 0;
-	snDefendGroupMakeup.available = 1;
-	snDefendGroupMakeup.version = "1.0c";
-	snDefendGroupMakeup.linked = [];
-	snDefendGroupMakeup.related = [ 37, 45 ];
-	snDefendGroupMakeup.shortDescription = "Undocumented.";
-
-	snGroupFillMethod.id = 40;
-	snGroupFillMethod.name = "sn-group-fill-method";
-	snGroupFillMethod.default = -1;
-	snGroupFillMethod.category = "AoE 1";
-	snGroupFillMethod.min = -32767;
-	snGroupFillMethod.max = 32768;
-	snGroupFillMethod.rmin = 0;
-	snGroupFillMethod.rmax = 1;
-	snGroupFillMethod.network = 0;
-	snGroupFillMethod.defined = 0;
-	snGroupFillMethod.available = "seems available";
-	snGroupFillMethod.version = "1.0c";
-	snGroupFillMethod.linked = [];
-	snGroupFillMethod.related = [];
-	snGroupFillMethod.shortDescription = "AoE 1 only. Sets the method by which a computer player fills a group of units. There are two concepts here: single group fill and level group fill. In single group fill, all available units are put into the first non-minimally full group. Once that group is full, the next group is entirely filled before the third group is considered. In level group fill, all groups are filled at the same time (one unit is placed in the first group, the next in the second, etc.). The single group fill fills up to the minimum in each group, then goes to the level group fill. Both methods respect the maximum group sizes. 0 keys the single group fill, and 1 keys the level group fill. Must be 0 or 1.";
-
-	snAttackGroupGatherSpacing.id = 41;
-	snAttackGroupGatherSpacing.name = "sn-attack-group-gather-spacing";
-	snAttackGroupGatherSpacing.default = 4;
-	snAttackGroupGatherSpacing.category = "Attack";
-	snAttackGroupGatherSpacing.min = -32767;
-	snAttackGroupGatherSpacing.max = 32768;
-	snAttackGroupGatherSpacing.rmin = 1;
-	snAttackGroupGatherSpacing.rmax = 255;
-	snAttackGroupGatherSpacing.network = 0;
-	snAttackGroupGatherSpacing.defined = 1;
-	snAttackGroupGatherSpacing.available = 0;
-	snAttackGroupGatherSpacing.version = "1.0c";
-	snAttackGroupGatherSpacing.linked = [];
-	snAttackGroupGatherSpacing.related = [ 98, 36, 26, 16, 58, 60, 59 ];
-	snAttackGroupGatherSpacing.shortDescription = "Controls the relative proximity (to the group gather point) that grouped units must be in before the group is considered gathered.";
-
-	snNumberExploreGroups.id = 42;
-	snNumberExploreGroups.name = "sn-number-explore-groups";
-	snNumberExploreGroups.default = 0;
-	snNumberExploreGroups.category = "Explore";
-	snNumberExploreGroups.min = -32767;
-	snNumberExploreGroups.max = 32768;
-	snNumberExploreGroups.rmin = 0;
-	snNumberExploreGroups.rmax = 32768;
-	snNumberExploreGroups.network = 0;
-	snNumberExploreGroups.defined = 1;
-	snNumberExploreGroups.available = 0;
-	snNumberExploreGroups.version = "1.0c";
-	snNumberExploreGroups.linked = [ 44, 43 ];
-	snNumberExploreGroups.related = [ 61, 63, 62, 18 ];
-	snNumberExploreGroups.shortDescription = "Sets the desired number of land-based soldier exploration groups.";
-
-	snMinimumExploreGroupSize.id = 43;
-	snMinimumExploreGroupSize.name = "sn-minimum-explore-group-size";
-	snMinimumExploreGroupSize.default = 1;
-	snMinimumExploreGroupSize.category = "Explore";
-	snMinimumExploreGroupSize.min = -32767;
-	snMinimumExploreGroupSize.max = 1;
-	snMinimumExploreGroupSize.rmin = 0;
-	snMinimumExploreGroupSize.rmax = 1;
-	snMinimumExploreGroupSize.network = 0;
-	snMinimumExploreGroupSize.defined = 1;
-	snMinimumExploreGroupSize.available = 0;
-	snMinimumExploreGroupSize.version = "1.0c";
-	snMinimumExploreGroupSize.linked = [ 44, 42 ];
-	snMinimumExploreGroupSize.related = [ 61, 63, 62, 18 ];
-	snMinimumExploreGroupSize.shortDescription = "Sets the minimum size of land-based soldier exploration groups. A group must meet its minimum size as one of the tasking prerequisites.";
-
-	snMaximumExploreGroupSize.id = 44;
-	snMaximumExploreGroupSize.name = "sn-maximum-explore-group-size";
-	snMaximumExploreGroupSize.default = 1;
-	snMaximumExploreGroupSize.category = "Explore";
-	snMaximumExploreGroupSize.min = -32767;
-	snMaximumExploreGroupSize.max = 1;
-	snMaximumExploreGroupSize.rmin = 0;
-	snMaximumExploreGroupSize.rmax = 1;
-	snMaximumExploreGroupSize.network = 0;
-	snMaximumExploreGroupSize.defined = 1;
-	snMaximumExploreGroupSize.available = 0;
-	snMaximumExploreGroupSize.version = "1.0c";
-	snMaximumExploreGroupSize.linked = [ 43, 42 ];
-	snMaximumExploreGroupSize.related = [ 61, 63, 62, 18 ];
-	snMaximumExploreGroupSize.shortDescription = "Sets the maximum size of land-based soldier exploration groups.";
-
-	snExploreGroupMakeup.id = 45;
-	snExploreGroupMakeup.name = "sn-explore-group-makeup";
-	snExploreGroupMakeup.default = 0;
-	snExploreGroupMakeup.category = "Explore";
-	snExploreGroupMakeup.min = -32767;
-	snExploreGroupMakeup.max = 32768;
-	snExploreGroupMakeup.rmin = -32767;
-	snExploreGroupMakeup.rmax = 32768;
-	snExploreGroupMakeup.network = 0;
-	snExploreGroupMakeup.defined = 0;
-	snExploreGroupMakeup.available = 1;
-	snExploreGroupMakeup.version = "1.0c";
-	snExploreGroupMakeup.linked = [];
-	snExploreGroupMakeup.related = [ 37, 39 ];
-	snExploreGroupMakeup.shortDescription = "Undocumented.";
-
-	snAttackSeparationTime.id = 46;
-	snAttackSeparationTime.name = "sn-attack-separation-time";
-	snAttackSeparationTime.default = -1;
-	snAttackSeparationTime.category = "AoE 1";
-	snAttackSeparationTime.min = -32767;
-	snAttackSeparationTime.max = 32768;
-	snAttackSeparationTime.rmin = 0;
-	snAttackSeparationTime.rmax = 32768;
-	snAttackSeparationTime.network = 0;
-	snAttackSeparationTime.defined = 0;
-	snAttackSeparationTime.available = "seems available, but leave it for later";
-	snAttackSeparationTime.version = "1.0c";
-	snAttackSeparationTime.linked = [ 102 ];
-	snAttackSeparationTime.related = [ 48, 71 ];
-	snAttackSeparationTime.shortDescription = "AoE 1 only. Sets the amount of time that must pass between computer player attacks. Must be &gt;= 0.";
-
-	snAttackCoordination.id = 47;
-	snAttackCoordination.name = "sn-attack-coordination";
-	snAttackCoordination.default = -1;
-	snAttackCoordination.category = "AoE 1";
-	snAttackCoordination.min = -32767;
-	snAttackCoordination.max = 32768;
-	snAttackCoordination.rmin = 0;
-	snAttackCoordination.rmax = 2;
-	snAttackCoordination.network = 0;
-	snAttackCoordination.defined = 0;
-	snAttackCoordination.available = "seems available, but leave it for later";
-	snAttackCoordination.version = "1.0c";
-	snAttackCoordination.linked = [];
-	snAttackCoordination.related = [ 103 ];
-	snAttackCoordination.shortDescription = "AoE 1 only. Selects the type of coordination between computer player attacks. 0 means no coordination. 1 means that one group may attack at a time. 2 means that multiple groups may attack at the same time. Must be &gt;= 0 and &lt;= 2.";
-
-	snAttackResponseSeparationTime.id = 48;
-	snAttackResponseSeparationTime.name = "sn-attack-response-separation-time";
-	snAttackResponseSeparationTime.default = -1;
-	snAttackResponseSeparationTime.category = "AoE 1";
-	snAttackResponseSeparationTime.min = -32767;
-	snAttackResponseSeparationTime.max = 32768;
-	snAttackResponseSeparationTime.rmin = 0;
-	snAttackResponseSeparationTime.rmax = 32768;
-	snAttackResponseSeparationTime.network = 0;
-	snAttackResponseSeparationTime.defined = 0;
-	snAttackResponseSeparationTime.available = "seems available, but leave it for later";
-	snAttackResponseSeparationTime.version = "1.0c";
-	snAttackResponseSeparationTime.linked = [];
-	snAttackResponseSeparationTime.related = [ 46, 71 ];
-	snAttackResponseSeparationTime.shortDescription = "AoE 1 only. Sets the amount of time that must pass before units respond to a subsequent enemy attack distress call. Must be &gt;= 0.";
-
-	snRetreatAfterTargetDestroyed.id = 49;
-	snRetreatAfterTargetDestroyed.name = "sn-retreat-after-target-destroyed";
-	snRetreatAfterTargetDestroyed.default = -1;
-	snRetreatAfterTargetDestroyed.category = "AoE 1";
-	snRetreatAfterTargetDestroyed.min = -32767;
-	snRetreatAfterTargetDestroyed.max = 32768;
-	snRetreatAfterTargetDestroyed.rmin = 0;
-	snRetreatAfterTargetDestroyed.rmax = 3;
-	snRetreatAfterTargetDestroyed.network = 0;
-	snRetreatAfterTargetDestroyed.defined = 0;
-	snRetreatAfterTargetDestroyed.available = "seems available, but leave it for later";
-	snRetreatAfterTargetDestroyed.version = "1.0c";
-	snRetreatAfterTargetDestroyed.linked = [];
-	snRetreatAfterTargetDestroyed.related = [];
-	snRetreatAfterTargetDestroyed.shortDescription = "AoE 1 only. Selects what happens when a target is destroyed during an attack. 0 means that the attack group will never retreat and will recenter upon their current position. 1 means that the group will retreat if no other target is reachable. 2 means that the group will always retreat when the target is destroyed. 3 means that the group will go into extermination mode; they will explore unexplored territory and attack any enemies units they uncover. Must be &gt;= 0 and &lt;= 3.";
-
-	snGoldDefendPriority.id = 50;
-	snGoldDefendPriority.name = "sn-gold-defend-priority";
-	snGoldDefendPriority.default = 0;
-	snGoldDefendPriority.category = "Defense";
-	snGoldDefendPriority.min = -32767;
-	snGoldDefendPriority.max = 32768;
-	snGoldDefendPriority.rmin = 0;
-	snGoldDefendPriority.rmax = 1;
-	snGoldDefendPriority.network = 0;
-	snGoldDefendPriority.defined = 1;
-	snGoldDefendPriority.available = 0;
-	snGoldDefendPriority.version = "1.0c";
-	snGoldDefendPriority.linked = [];
-	snGoldDefendPriority.related = [ 56, 70, 52, 51, 55, 54, 53, 287 ];
-	snGoldDefendPriority.shortDescription = "Sets the priority of defending gold. A priority of 0 means that gold will not be defended. A priority of 1 means that gold has the highest defend priority.";
-
-	snStoneDefendPriority.id = 51;
-	snStoneDefendPriority.name = "sn-stone-defend-priority";
-	snStoneDefendPriority.default = 0;
-	snStoneDefendPriority.category = "Defense";
-	snStoneDefendPriority.min = -32767;
-	snStoneDefendPriority.max = 32768;
-	snStoneDefendPriority.rmin = 0;
-	snStoneDefendPriority.rmax = 1;
-	snStoneDefendPriority.network = 0;
-	snStoneDefendPriority.defined = 1;
-	snStoneDefendPriority.available = 0;
-	snStoneDefendPriority.version = "1.0c";
-	snStoneDefendPriority.linked = [];
-	snStoneDefendPriority.related = [ 56, 70, 52, 50, 55, 54, 53, 287 ];
-	snStoneDefendPriority.shortDescription = "Sets the priority of defending stone.";
-
-	snForageDefendPriority.id = 52;
-	snForageDefendPriority.name = "sn-forage-defend-priority";
-	snForageDefendPriority.default = 0;
-	snForageDefendPriority.category = "Defense";
-	snForageDefendPriority.min = -32767;
-	snForageDefendPriority.max = 32768;
-	snForageDefendPriority.rmin = 0;
-	snForageDefendPriority.rmax = 1;
-	snForageDefendPriority.network = 0;
-	snForageDefendPriority.defined = 1;
-	snForageDefendPriority.available = 0;
-	snForageDefendPriority.version = "1.0c";
-	snForageDefendPriority.linked = [];
-	snForageDefendPriority.related = [ 56, 70, 51, 50, 55, 54, 53, 287 ];
-	snForageDefendPriority.shortDescription = "Sets the priority of defending forage sites.";
-
-	snChokePointDefendPriority.id = 53;
-	snChokePointDefendPriority.name = "sn-choke-point-defend-priority";
-	snChokePointDefendPriority.default = 0;
-	snChokePointDefendPriority.category = "Defense";
-	snChokePointDefendPriority.min = -32767;
-	snChokePointDefendPriority.max = 32768;
-	snChokePointDefendPriority.rmin = 0;
-	snChokePointDefendPriority.rmax = 1;
-	snChokePointDefendPriority.network = 0;
-	snChokePointDefendPriority.defined = 0;
-	snChokePointDefendPriority.available = 1;
-	snChokePointDefendPriority.version = "1.0c";
-	snChokePointDefendPriority.linked = [];
-	snChokePointDefendPriority.related = [ 56, 70, 52, 51, 50, 55, 54, 287 ];
-	snChokePointDefendPriority.shortDescription = "Sets the priority of defending choke points. Undocumented.";
-
-	snRuinsDefendPriority.id = 54;
-	snRuinsDefendPriority.name = "sn-ruins-defend-priority";
-	snRuinsDefendPriority.default = 0;
-	snRuinsDefendPriority.category = "AoE 1";
-	snRuinsDefendPriority.min = -32767;
-	snRuinsDefendPriority.max = 32768;
-	snRuinsDefendPriority.rmin = 0;
-	snRuinsDefendPriority.rmax = 7;
-	snRuinsDefendPriority.network = 0;
-	snRuinsDefendPriority.defined = 0;
-	snRuinsDefendPriority.available = 0;
-	snRuinsDefendPriority.version = "1.0c";
-	snRuinsDefendPriority.linked = [];
-	snRuinsDefendPriority.related = [ 56, 70, 52, 51, 50, 55, 53, 287 ];
-	snRuinsDefendPriority.shortDescription = "AoE 1 only. Sets the priority of defending ruins.";
-
-	snRelicDefendPriority.id = 55;
-	snRelicDefendPriority.name = "sn-relic-defend-priority";
-	snRelicDefendPriority.default = 0;
-	snRelicDefendPriority.category = "Defense";
-	snRelicDefendPriority.min = -32767;
-	snRelicDefendPriority.max = 32768;
-	snRelicDefendPriority.rmin = 0;
-	snRelicDefendPriority.rmax = 7;
-	snRelicDefendPriority.network = 0;
-	snRelicDefendPriority.defined = 1;
-	snRelicDefendPriority.available = 1;
-	snRelicDefendPriority.version = "1.0c";
-	snRelicDefendPriority.linked = [];
-	snRelicDefendPriority.related = [ 56, 70, 52, 51, 50, 54, 53, 287 ];
-	snRelicDefendPriority.shortDescription = "Sets the priority of defending relic carts.";
-
-	snTownDefendPriority.id = 56;
-	snTownDefendPriority.name = "sn-town-defend-priority";
-	snTownDefendPriority.default = 7;
-	snTownDefendPriority.category = "Defense";
-	snTownDefendPriority.min = -32767;
-	snTownDefendPriority.max = 32768;
-	snTownDefendPriority.rmin = 0;
-	snTownDefendPriority.rmax = 7;
-	snTownDefendPriority.network = 0;
-	snTownDefendPriority.defined = 1;
-	snTownDefendPriority.available = 0;
-	snTownDefendPriority.version = "1.0c";
-	snTownDefendPriority.linked = [];
-	snTownDefendPriority.related = [ 70, 52, 51, 50, 55, 54, 53, 287 ];
-	snTownDefendPriority.shortDescription = "Sets the priority of defending the computer player's town.";
-
-	snDefenseDistance.id = 57;
-	snDefenseDistance.name = "sn-defense-distance";
-	snDefenseDistance.default = 3;
-	snDefenseDistance.category = "Defense";
-	snDefenseDistance.min = -32767;
-	snDefenseDistance.max = 32768;
-	snDefenseDistance.rmin = 0;
-	snDefenseDistance.rmax = 255;
-	snDefenseDistance.network = 0;
-	snDefenseDistance.defined = 1;
-	snDefenseDistance.available = 0;
-	snDefenseDistance.version = "1.0c";
-	snDefenseDistance.linked = [];
-	snDefenseDistance.related = [ 92, 22, 72 ];
-	snDefenseDistance.shortDescription = "Sets the distance at which items (town excluded) are defended.";
-
-	snNumberBoatAttackGroups.id = 58;
-	snNumberBoatAttackGroups.name = "sn-number-boat-attack-groups";
-	snNumberBoatAttackGroups.default = 0;
-	snNumberBoatAttackGroups.category = "Water";
-	snNumberBoatAttackGroups.min = -32767;
-	snNumberBoatAttackGroups.max = 32768;
-	snNumberBoatAttackGroups.rmin = 0;
-	snNumberBoatAttackGroups.rmax = 32768;
-	snNumberBoatAttackGroups.network = 0;
-	snNumberBoatAttackGroups.defined = 1;
-	snNumberBoatAttackGroups.available = "available, except for water maps";
-	snNumberBoatAttackGroups.version = "1.0c";
-	snNumberBoatAttackGroups.linked = [ 60, 59 ];
-	snNumberBoatAttackGroups.related = [ 36, 26, 16, 41, 98, 228, 247 ];
-	snNumberBoatAttackGroups.shortDescription = "Sets the desired number of boat attack groups. Setting sn-percent-attack-boat usually works better.";
-
-	snMinimumBoatAttackGroupSize.id = 59;
-	snMinimumBoatAttackGroupSize.name = "sn-minimum-boat-attack-group-size";
-	snMinimumBoatAttackGroupSize.default = 1;
-	snMinimumBoatAttackGroupSize.category = "Water";
-	snMinimumBoatAttackGroupSize.min = -32767;
-	snMinimumBoatAttackGroupSize.max = 32768;
-	snMinimumBoatAttackGroupSize.rmin = 0;
-	snMinimumBoatAttackGroupSize.rmax = 32768;
-	snMinimumBoatAttackGroupSize.network = 0;
-	snMinimumBoatAttackGroupSize.defined = 1;
-	snMinimumBoatAttackGroupSize.available = "available, except for water maps";
-	snMinimumBoatAttackGroupSize.version = "1.0c";
-	snMinimumBoatAttackGroupSize.linked = [ 60, 58 ];
-	snMinimumBoatAttackGroupSize.related = [ 36, 26, 16, 94, 93, 41, 98 ];
-	snMinimumBoatAttackGroupSize.shortDescription = "Sets the minimum size of boat attack groups. A group must meet its minimum size as one of the tasking prerequisites.";
-
-	snMaximumBoatAttackGroupSize.id = 60;
-	snMaximumBoatAttackGroupSize.name = "sn-maximum-boat-attack-group-size";
-	snMaximumBoatAttackGroupSize.default = 5;
-	snMaximumBoatAttackGroupSize.category = "Water";
-	snMaximumBoatAttackGroupSize.min = -32767;
-	snMaximumBoatAttackGroupSize.max = 32768;
-	snMaximumBoatAttackGroupSize.rmin = 0;
-	snMaximumBoatAttackGroupSize.rmax = 32768;
-	snMaximumBoatAttackGroupSize.network = 0;
-	snMaximumBoatAttackGroupSize.defined = 1;
-	snMaximumBoatAttackGroupSize.available = "available, except for water maps";
-	snMaximumBoatAttackGroupSize.version = "1.0c";
-	snMaximumBoatAttackGroupSize.linked = [ 59, 58 ];
-	snMaximumBoatAttackGroupSize.related = [ 36, 26, 16, 94, 93, 41, 98 ];
-	snMaximumBoatAttackGroupSize.shortDescription = "Sets the maximum size of boat attack groups.";
-
-	snNumberBoatExploreGroups.id = 61;
-	snNumberBoatExploreGroups.name = "sn-number-boat-explore-groups";
-	snNumberBoatExploreGroups.default = 0;
-	snNumberBoatExploreGroups.category = "Water";
-	snNumberBoatExploreGroups.min = -32767;
-	snNumberBoatExploreGroups.max = 32768;
-	snNumberBoatExploreGroups.rmin = 0;
-	snNumberBoatExploreGroups.rmax = 32768;
-	snNumberBoatExploreGroups.network = 0;
-	snNumberBoatExploreGroups.defined = 1;
-	snNumberBoatExploreGroups.available = "available, except for water maps";
-	snNumberBoatExploreGroups.version = "1.0c";
-	snNumberBoatExploreGroups.linked = [ 63, 62 ];
-	snNumberBoatExploreGroups.related = [ 42, 44, 43, 18 ];
-	snNumberBoatExploreGroups.shortDescription = "Sets the desired number of military boat exploration groups. This is not affected by sn-total-number-explorers.";
-
-	snMinimumBoatExploreGroupSize.id = 62;
-	snMinimumBoatExploreGroupSize.name = "sn-minimum-boat-explore-group-size";
-	snMinimumBoatExploreGroupSize.default = 1;
-	snMinimumBoatExploreGroupSize.category = "Water";
-	snMinimumBoatExploreGroupSize.min = -32767;
-	snMinimumBoatExploreGroupSize.max = 32768;
-	snMinimumBoatExploreGroupSize.rmin = 0;
-	snMinimumBoatExploreGroupSize.rmax = 32768;
-	snMinimumBoatExploreGroupSize.network = 0;
-	snMinimumBoatExploreGroupSize.defined = 1;
-	snMinimumBoatExploreGroupSize.available = "available, except for water maps";
-	snMinimumBoatExploreGroupSize.version = "1.0c";
-	snMinimumBoatExploreGroupSize.linked = [ 63, 61 ];
-	snMinimumBoatExploreGroupSize.related = [ 42, 44, 43, 18 ];
-	snMinimumBoatExploreGroupSize.shortDescription = "Sets the minimum size of boat exploration groups.";
-
-	snMaximumBoatExploreGroupSize.id = 63;
-	snMaximumBoatExploreGroupSize.name = "sn-maximum-boat-explore-group-size";
-	snMaximumBoatExploreGroupSize.default = 2;
-	snMaximumBoatExploreGroupSize.category = "Water";
-	snMaximumBoatExploreGroupSize.min = -32767;
-	snMaximumBoatExploreGroupSize.max = 32768;
-	snMaximumBoatExploreGroupSize.rmin = 0;
-	snMaximumBoatExploreGroupSize.rmax = 32768;
-	snMaximumBoatExploreGroupSize.network = 0;
-	snMaximumBoatExploreGroupSize.defined = 1;
-	snMaximumBoatExploreGroupSize.available = "available, except for water maps";
-	snMaximumBoatExploreGroupSize.version = "1.0c";
-	snMaximumBoatExploreGroupSize.linked = [ 62, 61 ];
-	snMaximumBoatExploreGroupSize.related = [ 42, 44, 43, 18 ];
-	snMaximumBoatExploreGroupSize.shortDescription = "Sets the maximum size of boat exploration groups.";
-
-	snDesiredNumberTradeEscorts.id = 64;
-	snDesiredNumberTradeEscorts.name = "sn-desired-number-trade-escorts";
-	snDesiredNumberTradeEscorts.default = -1;
-	snDesiredNumberTradeEscorts.category = "AoE 1";
-	snDesiredNumberTradeEscorts.min = -32767;
-	snDesiredNumberTradeEscorts.max = 32768;
-	snDesiredNumberTradeEscorts.rmin = 0;
-	snDesiredNumberTradeEscorts.rmax = 32768;
-	snDesiredNumberTradeEscorts.network = 0;
-	snDesiredNumberTradeEscorts.defined = 0;
-	snDesiredNumberTradeEscorts.available = 1;
-	snDesiredNumberTradeEscorts.version = "1.0c";
-	snDesiredNumberTradeEscorts.linked = [];
-	snDesiredNumberTradeEscorts.related = [];
-	snDesiredNumberTradeEscorts.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for tradeboats. Must be &gt;= 0.";
-
-	snDesiredNumberFishExports.id = 65;
-	snDesiredNumberFishExports.name = "sn-desired-number-fish-escorts";
-	snDesiredNumberFishExports.default = -1;
-	snDesiredNumberFishExports.category = "AoE 1";
-	snDesiredNumberFishExports.min = -32767;
-	snDesiredNumberFishExports.max = 32768;
-	snDesiredNumberFishExports.rmin = 0;
-	snDesiredNumberFishExports.rmax = 32768;
-	snDesiredNumberFishExports.network = 0;
-	snDesiredNumberFishExports.defined = 0;
-	snDesiredNumberFishExports.available = 1;
-	snDesiredNumberFishExports.version = "1.0c";
-	snDesiredNumberFishExports.linked = [];
-	snDesiredNumberFishExports.related = [];
-	snDesiredNumberFishExports.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for fishing boats. Must be &gt;= 0.";
-
-	snDesiredNumberTransportEscorts.id = 66;
-	snDesiredNumberTransportEscorts.name = "sn-desired-number-transport-escorts";
-	snDesiredNumberTransportEscorts.default = 0;
-	snDesiredNumberTransportEscorts.category = "AoE 1";
-	snDesiredNumberTransportEscorts.min = -32767;
-	snDesiredNumberTransportEscorts.max = 32768;
-	snDesiredNumberTransportEscorts.rmin = 0;
-	snDesiredNumberTransportEscorts.rmax = 32768;
-	snDesiredNumberTransportEscorts.network = 0;
-	snDesiredNumberTransportEscorts.defined = 0;
-	snDesiredNumberTransportEscorts.available = 1;
-	snDesiredNumberTransportEscorts.version = "1.0c";
-	snDesiredNumberTransportEscorts.linked = [];
-	snDesiredNumberTransportEscorts.related = [];
-	snDesiredNumberTransportEscorts.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for transports. Must be &gt;= 0.";
-
-	snNumberBoatDefendGroups.id = 67;
-	snNumberBoatDefendGroups.name = "sn-number-boat-defend-groups";
-	snNumberBoatDefendGroups.default = 0;
-	snNumberBoatDefendGroups.category = "Water";
-	snNumberBoatDefendGroups.min = -32767;
-	snNumberBoatDefendGroups.max = 32768;
-	snNumberBoatDefendGroups.rmin = 0;
-	snNumberBoatDefendGroups.rmax = 32768;
-	snNumberBoatDefendGroups.network = 0;
-	snNumberBoatDefendGroups.defined = 1;
-	snNumberBoatDefendGroups.available = "available, except for water maps";
-	snNumberBoatDefendGroups.version = "1.0c";
-	snNumberBoatDefendGroups.linked = [ 69, 68 ];
-	snNumberBoatDefendGroups.related = [ 38, 28, 25 ];
-	snNumberBoatDefendGroups.shortDescription = "Sets the desired number of boat defend groups.";
-
-	snMinimumBoatDefendGroupSize.id = 68;
-	snMinimumBoatDefendGroupSize.name = "sn-minimum-boat-defend-group-size";
-	snMinimumBoatDefendGroupSize.default = 0;
-	snMinimumBoatDefendGroupSize.category = "Water";
-	snMinimumBoatDefendGroupSize.min = -32767;
-	snMinimumBoatDefendGroupSize.max = 32768;
-	snMinimumBoatDefendGroupSize.rmin = 0;
-	snMinimumBoatDefendGroupSize.rmax = 32768;
-	snMinimumBoatDefendGroupSize.network = 0;
-	snMinimumBoatDefendGroupSize.defined = 1;
-	snMinimumBoatDefendGroupSize.available = "available, except for water maps";
-	snMinimumBoatDefendGroupSize.version = "1.0c";
-	snMinimumBoatDefendGroupSize.linked = [ 69, 67 ];
-	snMinimumBoatDefendGroupSize.related = [ 38, 28, 25 ];
-	snMinimumBoatDefendGroupSize.shortDescription = "Sets the minimum size of boat defend groups.";
-
-	snMaximumBoatDefendGroupSize.id = 69;
-	snMaximumBoatDefendGroupSize.name = "sn-maximum-boat-defend-group-size";
-	snMaximumBoatDefendGroupSize.default = 0;
-	snMaximumBoatDefendGroupSize.category = "Water";
-	snMaximumBoatDefendGroupSize.min = -32767;
-	snMaximumBoatDefendGroupSize.max = 32768;
-	snMaximumBoatDefendGroupSize.rmin = 0;
-	snMaximumBoatDefendGroupSize.rmax = 32768;
-	snMaximumBoatDefendGroupSize.network = 0;
-	snMaximumBoatDefendGroupSize.defined = 1;
-	snMaximumBoatDefendGroupSize.available = "available, except for water maps";
-	snMaximumBoatDefendGroupSize.version = "1.0c";
-	snMaximumBoatDefendGroupSize.linked = [ 68, 67 ];
-	snMaximumBoatDefendGroupSize.related = [ 38, 28, 25 ];
-	snMaximumBoatDefendGroupSize.shortDescription = "Sets the maximum size of boat defend groups.";
-
-	snDockDefendPriority.id = 70;
-	snDockDefendPriority.name = "sn-dock-defend-priority";
-	snDockDefendPriority.default = 0;
-	snDockDefendPriority.category = "Defense";
-	snDockDefendPriority.min = -32767;
-	snDockDefendPriority.max = 32768;
-	snDockDefendPriority.rmin = 0;
-	snDockDefendPriority.rmax = 1;
-	snDockDefendPriority.network = 0;
-	snDockDefendPriority.defined = 1;
-	snDockDefendPriority.available = "available, except for water maps";
-	snDockDefendPriority.version = "1.0c";
-	snDockDefendPriority.linked = [];
-	snDockDefendPriority.related = [ 56, 52, 51, 50, 55, 54, 53, 287 ];
-	snDockDefendPriority.shortDescription = "Sets the priority of defending the dock.";
-
-	snLockAndAttackResponse.id = 71;
-	snLockAndAttackResponse.name = "sn-lock-attack-and-attack-response";
-	snLockAndAttackResponse.default = -1;
-	snLockAndAttackResponse.category = "AoE 1";
-	snLockAndAttackResponse.min = -32767;
-	snLockAndAttackResponse.max = 32768;
-	snLockAndAttackResponse.rmin = 0;
-	snLockAndAttackResponse.rmax = 1;
-	snLockAndAttackResponse.network = 0;
-	snLockAndAttackResponse.defined = 0;
-	snLockAndAttackResponse.available = "seems available";
-	snLockAndAttackResponse.version = "1.0c";
-	snLockAndAttackResponse.linked = [];
-	snLockAndAttackResponse.related = [ 46, 48 ];
-	snLockAndAttackResponse.shortDescription = "AoE 1 only. This treats the sn-attack-separation-time and sn-attack-response-separation-time as the same numbers. Must be either 0 or 1.";
-
-	snSentryDistanceVariation.id = 72;
-	snSentryDistanceVariation.name = "sn-sentry-distance-variation";
-	snSentryDistanceVariation.default = 2;
-	snSentryDistanceVariation.category = "Defense";
-	snSentryDistanceVariation.min = -32767;
-	snSentryDistanceVariation.max = 32768;
-	snSentryDistanceVariation.rmin = 0;
-	snSentryDistanceVariation.rmax = 32768;
-	snSentryDistanceVariation.network = 0;
-	snSentryDistanceVariation.defined = 1;
-	snSentryDistanceVariation.available = 0;
-	snSentryDistanceVariation.version = "1.0c";
-	snSentryDistanceVariation.linked = [ 22 ];
-	snSentryDistanceVariation.related = [ 57, 92 ];
-	snSentryDistanceVariation.shortDescription = "Sets the amount of allowable variation in the defense distances.";
-
-	snMinimumTownSize.id = 73;
-	snMinimumTownSize.name = "sn-minimum-town-size";
-	snMinimumTownSize.default = 12;
-	snMinimumTownSize.category = "Economy";
-	snMinimumTownSize.min = -32767;
-	snMinimumTownSize.max = 32768;
-	snMinimumTownSize.rmin = 0;
-	snMinimumTownSize.rmax = 255;
-	snMinimumTownSize.network = 0;
-	snMinimumTownSize.defined = 1;
-	snMinimumTownSize.available = 0;
-	snMinimumTownSize.version = "1.0c";
-	snMinimumTownSize.linked = [ 74, 250 ];
-	snMinimumTownSize.related = [ 86, 87 ];
-	snMinimumTownSize.shortDescription = "Sets the minimum size of a computer player town.";
-
-	snMaximumTownSize.id = 74;
-	snMaximumTownSize.name = "sn-maximum-town-size";
-	snMaximumTownSize.default = 20;
-	snMaximumTownSize.category = "Economy";
-	snMaximumTownSize.min = -32767;
-	snMaximumTownSize.max = 32768;
-	snMaximumTownSize.rmin = 0;
-	snMaximumTownSize.rmax = 255;
-	snMaximumTownSize.network = 0;
-	snMaximumTownSize.defined = 1;
-	snMaximumTownSize.available = 0;
-	snMaximumTownSize.version = "1.0c";
-	snMaximumTownSize.linked = [ 73, 250 ];
-	snMaximumTownSize.related = [ 86, 87 ];
-	snMaximumTownSize.shortDescription = "Sets the maximum size of a computer player town.";
-
-	snGroupCommanderSelectionMethod.id = 75;
-	snGroupCommanderSelectionMethod.name = "sn-group-commander-selection-method";
-	snGroupCommanderSelectionMethod.default = 3;
-	snGroupCommanderSelectionMethod.category = "Attack";
-	snGroupCommanderSelectionMethod.min = -32767;
-	snGroupCommanderSelectionMethod.max = 32768;
-	snGroupCommanderSelectionMethod.rmin = 0;
-	snGroupCommanderSelectionMethod.rmax = 3;
-	snGroupCommanderSelectionMethod.network = 0;
-	snGroupCommanderSelectionMethod.defined = 1;
-	snGroupCommanderSelectionMethod.available = 0;
-	snGroupCommanderSelectionMethod.version = "1.0c";
-	snGroupCommanderSelectionMethod.linked = [];
-	snGroupCommanderSelectionMethod.related = [];
-	snGroupCommanderSelectionMethod.shortDescription = "Sets the method by which group commanders are selected. 0 selects the unit with the most hit points. 1 selects the unit with the fewest hit points. 2 selects the unit with the most range. The commander is set once during a group's creation and is only reset when the commander dies.";
-
-	snConsecutiveIdleUnitLimit.id = 76;
-	snConsecutiveIdleUnitLimit.name = "sn-consecutive-idle-unit-limit";
-	snConsecutiveIdleUnitLimit.default = 15;
-	snConsecutiveIdleUnitLimit.category = "Attack";
-	snConsecutiveIdleUnitLimit.min = -32767;
-	snConsecutiveIdleUnitLimit.max = 32768;
-	snConsecutiveIdleUnitLimit.rmin = 0;
-	snConsecutiveIdleUnitLimit.rmax = 32768;
-	snConsecutiveIdleUnitLimit.network = 0;
-	snConsecutiveIdleUnitLimit.defined = 1;
-	snConsecutiveIdleUnitLimit.available = "available, but only before militarization";
-	snConsecutiveIdleUnitLimit.version = "1.0c";
-	snConsecutiveIdleUnitLimit.linked = [];
-	snConsecutiveIdleUnitLimit.related = [];
-	snConsecutiveIdleUnitLimit.shortDescription = "Sets the number of consecutive seconds that pass before a group is set to idle if all of its units are idle. This is only used during attack and retreat phases.";
-
-	snTargetEvaluationDistance.id = 77;
-	snTargetEvaluationDistance.name = "sn-target-evaluation-distance";
-	snTargetEvaluationDistance.default = 50;
-	snTargetEvaluationDistance.category = "Attack";
-	snTargetEvaluationDistance.min = -32767;
-	snTargetEvaluationDistance.max = 32768;
-	snTargetEvaluationDistance.rmin = -32767;
-	snTargetEvaluationDistance.rmax = 32768;
-	snTargetEvaluationDistance.network = 0;
-	snTargetEvaluationDistance.defined = 1;
-	snTargetEvaluationDistance.available = 0;
-	snTargetEvaluationDistance.version = "1.0c";
-	snTargetEvaluationDistance.linked = [ 81, 89, 144, 122, 79, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationDistance.related = [];
-	snTargetEvaluationDistance.shortDescription = "Sets the multiplier used for the distance rating in computer player target evaluation.";
-
-	snTargetEvaluationHitpoints.id = 78;
-	snTargetEvaluationHitpoints.name = "sn-target-evaluation-hitpoints";
-	snTargetEvaluationHitpoints.default = 0;
-	snTargetEvaluationHitpoints.category = "Attack";
-	snTargetEvaluationHitpoints.min = -32767;
-	snTargetEvaluationHitpoints.max = 32768;
-	snTargetEvaluationHitpoints.rmin = -32767;
-	snTargetEvaluationHitpoints.rmax = 32768;
-	snTargetEvaluationHitpoints.network = 0;
-	snTargetEvaluationHitpoints.defined = 1;
-	snTargetEvaluationHitpoints.available = 0;
-	snTargetEvaluationHitpoints.version = "1.0c";
-	snTargetEvaluationHitpoints.linked = [ 81, 89, 144, 122, 79, 77, 185, 80, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationHitpoints.related = [];
-	snTargetEvaluationHitpoints.shortDescription = "Sets the multiplier used for the hit point rating in computer player target evaluation.";
-
-	snTargetEvaluationDamageCapability.id = 79;
-	snTargetEvaluationDamageCapability.name = "sn-target-evaluation-damage-capability";
-	snTargetEvaluationDamageCapability.default = 0;
-	snTargetEvaluationDamageCapability.category = "Attack";
-	snTargetEvaluationDamageCapability.min = -32767;
-	snTargetEvaluationDamageCapability.max = 32768;
-	snTargetEvaluationDamageCapability.rmin = -32767;
-	snTargetEvaluationDamageCapability.rmax = 32768;
-	snTargetEvaluationDamageCapability.network = 0;
-	snTargetEvaluationDamageCapability.defined = 1;
-	snTargetEvaluationDamageCapability.available = 0;
-	snTargetEvaluationDamageCapability.version = "1.0c";
-	snTargetEvaluationDamageCapability.linked = [ 81, 89, 144, 122, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationDamageCapability.related = [];
-	snTargetEvaluationDamageCapability.shortDescription = "Sets the multiplier used for the damage capability rating in computer player target evaluation.";
-
-	snTargetEvaluationKills.id = 80;
-	snTargetEvaluationKills.name = "sn-target-evaluation-kills";
-	snTargetEvaluationKills.default = 0;
-	snTargetEvaluationKills.category = "Attack";
-	snTargetEvaluationKills.min = -32767;
-	snTargetEvaluationKills.max = 32768;
-	snTargetEvaluationKills.rmin = -32767;
-	snTargetEvaluationKills.rmax = 32768;
-	snTargetEvaluationKills.network = 0;
-	snTargetEvaluationKills.defined = 1;
-	snTargetEvaluationKills.available = 0;
-	snTargetEvaluationKills.version = "1.0c";
-	snTargetEvaluationKills.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationKills.related = [];
-	snTargetEvaluationKills.shortDescription = "Sets the multiplier used for the kill rating in computer player target evaluation.";
-
-	snTargetEvaluationAllyProximity.id = 81;
-	snTargetEvaluationAllyProximity.name = "sn-target-evaluation-ally-proximity";
-	snTargetEvaluationAllyProximity.default = 0;
-	snTargetEvaluationAllyProximity.category = "Attack";
-	snTargetEvaluationAllyProximity.min = -32767;
-	snTargetEvaluationAllyProximity.max = 32768;
-	snTargetEvaluationAllyProximity.rmin = -32767;
-	snTargetEvaluationAllyProximity.rmax = 32768;
-	snTargetEvaluationAllyProximity.network = 0;
-	snTargetEvaluationAllyProximity.defined = 1;
-	snTargetEvaluationAllyProximity.available = 0;
-	snTargetEvaluationAllyProximity.version = "1.0c";
-	snTargetEvaluationAllyProximity.linked = [ 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationAllyProximity.related = [];
-	snTargetEvaluationAllyProximity.shortDescription = "Sets the multiplier used for the ally proximity (number of allies in range) rating in computer player target evaluation.";
-
-	snTargetEvaluationRof.id = 82;
-	snTargetEvaluationRof.name = "sn-target-evaluation-rof";
-	snTargetEvaluationRof.default = 0;
-	snTargetEvaluationRof.category = "Attack";
-	snTargetEvaluationRof.min = -32767;
-	snTargetEvaluationRof.max = 32768;
-	snTargetEvaluationRof.rmin = -32767;
-	snTargetEvaluationRof.rmax = 32768;
-	snTargetEvaluationRof.network = 0;
-	snTargetEvaluationRof.defined = 1;
-	snTargetEvaluationRof.available = 0;
-	snTargetEvaluationRof.version = "1.0c";
-	snTargetEvaluationRof.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 123, 184 ];
-	snTargetEvaluationRof.related = [];
-	snTargetEvaluationRof.shortDescription = "Sets the multiplier used for the rate of fire rating in computer player target evaluation.";
-
-	snTargetEvaluationRandomness.id = 83;
-	snTargetEvaluationRandomness.name = "sn-target-evaluation-randomness";
-	snTargetEvaluationRandomness.default = 0;
-	snTargetEvaluationRandomness.category = "Attack";
-	snTargetEvaluationRandomness.min = -32767;
-	snTargetEvaluationRandomness.max = 32768;
-	snTargetEvaluationRandomness.rmin = -32767;
-	snTargetEvaluationRandomness.rmax = 32768;
-	snTargetEvaluationRandomness.network = 0;
-	snTargetEvaluationRandomness.defined = 1;
-	snTargetEvaluationRandomness.available = 0;
-	snTargetEvaluationRandomness.version = "1.0c";
-	snTargetEvaluationRandomness.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 90, 82, 123, 184 ];
-	snTargetEvaluationRandomness.related = [];
-	snTargetEvaluationRandomness.shortDescription = "Sets the multiplier used for the randomness factor in computer player target evaluation.";
-
-	snNumberWallGates.id = 84;
-	snNumberWallGates.name = "sn-number-wall-gates";
-	snNumberWallGates.default = -1;
-	snNumberWallGates.category = "AoE 1";
-	snNumberWallGates.min = -32767;
-	snNumberWallGates.max = 32768;
-	snNumberWallGates.rmin = 0;
-	snNumberWallGates.rmax = 32768;
-	snNumberWallGates.network = 0;
-	snNumberWallGates.defined = 0;
-	snNumberWallGates.available = "seems available, if you will not build walls";
-	snNumberWallGates.version = "1.0c";
-	snNumberWallGates.linked = [];
-	snNumberWallGates.related = [];
-	snNumberWallGates.shortDescription = "AoE 1 only. Sets the number of gates that must be left in the wall around a computer player's town. Must be &gt;= 0.";
-
-	snSizeWallGates.id = 85;
-	snSizeWallGates.name = "sn-size-wall-gates";
-	snSizeWallGates.default = -1;
-	snSizeWallGates.category = "AoE 1";
-	snSizeWallGates.min = -32767;
-	snSizeWallGates.max = 32768;
-	snSizeWallGates.rmin = 0;
-	snSizeWallGates.rmax = 32768;
-	snSizeWallGates.network = 0;
-	snSizeWallGates.defined = 0;
-	snSizeWallGates.available = 1;
-	snSizeWallGates.version = "1.0c";
-	snSizeWallGates.linked = [];
-	snSizeWallGates.related = [];
-	snSizeWallGates.shortDescription = "AoE 1 only. Sets the size (in tiles) of the gates in the wall around a computer player's town. Must be &gt;= 0.";
-
-	snCampMaxDistance.id = 86;
-	snCampMaxDistance.name = "sn-camp-max-distance";
-	snCampMaxDistance.default = 25;
-	snCampMaxDistance.category = "Economy";
-	snCampMaxDistance.min = -32767;
-	snCampMaxDistance.max = 32768;
-	snCampMaxDistance.rmin = 7;
-	snCampMaxDistance.rmax = 255;
-	snCampMaxDistance.network = 0;
-	snCampMaxDistance.defined = 1;
-	snCampMaxDistance.available = 0;
-	snCampMaxDistance.version = "1.0c";
-	snCampMaxDistance.linked = [ 260, 261, 248, 202 ];
-	snCampMaxDistance.related = [ 87, 74, 73, 266 ];
-	snCampMaxDistance.shortDescription = "Sets the maximum distance that lumber camps and mining camps may be placed from a Town Center.";
-
-	snMillMaxDistance.id = 87;
-	snMillMaxDistance.name = "sn-mill-max-distance";
-	snMillMaxDistance.default = 100;
-	snMillMaxDistance.category = "Economy";
-	snMillMaxDistance.min = -32767;
-	snMillMaxDistance.max = 32768;
-	snMillMaxDistance.rmin = 4;
-	snMillMaxDistance.rmax = 255;
-	snMillMaxDistance.network = 0;
-	snMillMaxDistance.defined = 1;
-	snMillMaxDistance.available = 0;
-	snMillMaxDistance.version = "1.0c";
-	snMillMaxDistance.linked = [ 248, 202 ];
-	snMillMaxDistance.related = [ 86, 260, 261, 74, 73, 266 ];
-	snMillMaxDistance.shortDescription = "Sets the maximum distance that mills may be placed from a Town Center.";
-
-	snTacticalUpdateFrequency.id = 88;
-	snTacticalUpdateFrequency.name = "sn-tactical-update-frequency";
-	snTacticalUpdateFrequency.default = -1;
-	snTacticalUpdateFrequency.category = "AoE 1";
-	snTacticalUpdateFrequency.min = -32767;
-	snTacticalUpdateFrequency.max = 32768;
-	snTacticalUpdateFrequency.rmin = 0;
-	snTacticalUpdateFrequency.rmax = 32768;
-	snTacticalUpdateFrequency.network = 0;
-	snTacticalUpdateFrequency.defined = 0;
-	snTacticalUpdateFrequency.available = 0;
-	snTacticalUpdateFrequency.version = "1.0c";
-	snTacticalUpdateFrequency.linked = [];
-	snTacticalUpdateFrequency.related = [];
-	snTacticalUpdateFrequency.shortDescription = "AoE 1 only. Sets the number of seconds that pass between each tactical AI update. Must be &gt;= 0.";
-
-	snTargetEvaluationAttackAttempts.id = 89;
-	snTargetEvaluationAttackAttempts.name = "sn-target-evaluation-attack-attempts";
-	snTargetEvaluationAttackAttempts.default = -25;
-	snTargetEvaluationAttackAttempts.category = "Attack";
-	snTargetEvaluationAttackAttempts.min = -32767;
-	snTargetEvaluationAttackAttempts.max = 32768;
-	snTargetEvaluationAttackAttempts.rmin = -32767;
-	snTargetEvaluationAttackAttempts.rmax = 32768;
-	snTargetEvaluationAttackAttempts.network = 0;
-	snTargetEvaluationAttackAttempts.defined = 1;
-	snTargetEvaluationAttackAttempts.available = 0;
-	snTargetEvaluationAttackAttempts.version = "1.0c";
-	snTargetEvaluationAttackAttempts.linked = [ 81, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	snTargetEvaluationAttackAttempts.related = [];
-	snTargetEvaluationAttackAttempts.shortDescription = "Sets the multiplier used for the attack attempts rating in computer player target evaluation.";
-
-	snTargetEvaluationRange.id = 90;
-	snTargetEvaluationRange.name = "sn-target-evaluation-range";
-	snTargetEvaluationRange.default = 0;
-	snTargetEvaluationRange.category = "Attack";
-	snTargetEvaluationRange.min = -32767;
-	snTargetEvaluationRange.max = 32768;
-	snTargetEvaluationRange.rmin = -32767;
-	snTargetEvaluationRange.rmax = 32768;
-	snTargetEvaluationRange.network = 0;
-	snTargetEvaluationRange.defined = 1;
-	snTargetEvaluationRange.available = 0;
-	snTargetEvaluationRange.version = "1.0c";
-	snTargetEvaluationRange.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 82, 123, 184 ];
-	snTargetEvaluationRange.related = [];
-	snTargetEvaluationRange.shortDescription = "Sets the multiplier used for the range rating in computer player target evaluation.";
-
-	snPercentUnitHealthRetreat.id = 91;
-	snPercentUnitHealthRetreat.name = "sn-percent-unit-health-retreat";
-	snPercentUnitHealthRetreat.default = -1;
-	snPercentUnitHealthRetreat.category = "Attack";
-	snPercentUnitHealthRetreat.min = -32767;
-	snPercentUnitHealthRetreat.max = 32768;
-	snPercentUnitHealthRetreat.rmin = 0;
-	snPercentUnitHealthRetreat.rmax = 100;
-	snPercentUnitHealthRetreat.network = 0;
-	snPercentUnitHealthRetreat.defined = 0;
-	snPercentUnitHealthRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-unit-health-retreat (97)";
-	snPercentUnitHealthRetreat.version = "1.0c";
-	snPercentUnitHealthRetreat.linked = [ 97 ];
-	snPercentUnitHealthRetreat.related = [];
-	snPercentUnitHealthRetreat.shortDescription = "Sets the percentage of hit points that a unit can lose (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
-
-	snDefendOverlapDistance.id = 92;
-	snDefendOverlapDistance.name = "sn-defend-overlap-distance";
-	snDefendOverlapDistance.default = 5;
-	snDefendOverlapDistance.category = "Defense";
-	snDefendOverlapDistance.min = -32767;
-	snDefendOverlapDistance.max = 32768;
-	snDefendOverlapDistance.rmin = 0;
-	snDefendOverlapDistance.rmax = 255;
-	snDefendOverlapDistance.network = 0;
-	snDefendOverlapDistance.defined = 1;
-	snDefendOverlapDistance.available = 0;
-	snDefendOverlapDistance.version = "1.0c";
-	snDefendOverlapDistance.linked = [];
-	snDefendOverlapDistance.related = [ 57, 22, 72 ];
-	snDefendOverlapDistance.shortDescription = "Sets the amount of influence that a defend group has. Defend groups will be assigned so that their circles of influence do not overlap.";
-
-	snScaleMinimumAttackGroupSize.id = 93;
-	snScaleMinimumAttackGroupSize.name = "sn-scale-minimum-attack-group-size";
-	snScaleMinimumAttackGroupSize.default = 1;
-	snScaleMinimumAttackGroupSize.category = "Attack";
-	snScaleMinimumAttackGroupSize.min = -32767;
-	snScaleMinimumAttackGroupSize.max = 32768;
-	snScaleMinimumAttackGroupSize.rmin = 0;
-	snScaleMinimumAttackGroupSize.rmax = 32768;
-	snScaleMinimumAttackGroupSize.network = 0;
-	snScaleMinimumAttackGroupSize.defined = 1;
-	snScaleMinimumAttackGroupSize.available = 0;
-	snScaleMinimumAttackGroupSize.version = "1.0c";
-	snScaleMinimumAttackGroupSize.linked = [ 94, 16, 59 ];
-	snScaleMinimumAttackGroupSize.related = [ 36, 26, 58, 60 ];
-	snScaleMinimumAttackGroupSize.shortDescription = "The scaling factor for the minimum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
-
-	snScaleMaximumAttackGroupSize.id = 94;
-	snScaleMaximumAttackGroupSize.name = "sn-scale-maximum-attack-group-size";
-	snScaleMaximumAttackGroupSize.default = 0;
-	snScaleMaximumAttackGroupSize.category = "Attack";
-	snScaleMaximumAttackGroupSize.min = -32767;
-	snScaleMaximumAttackGroupSize.max = 32768;
-	snScaleMaximumAttackGroupSize.rmin = 0;
-	snScaleMaximumAttackGroupSize.rmax = 32768;
-	snScaleMaximumAttackGroupSize.network = 0;
-	snScaleMaximumAttackGroupSize.defined = 1;
-	snScaleMaximumAttackGroupSize.available = 0;
-	snScaleMaximumAttackGroupSize.version = "1.0c";
-	snScaleMaximumAttackGroupSize.linked = [ 93, 26, 60 ];
-	snScaleMaximumAttackGroupSize.related = [ 36, 16, 58, 59 ];
-	snScaleMaximumAttackGroupSize.shortDescription = "The scaling factor for the maximum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
-
-	snScalePercentHealthRetreat.id = 95;
-	snScalePercentHealthRetreat.name = "sn-scale-percent-health-retreat";
-	snScalePercentHealthRetreat.default = -1;
-	snScalePercentHealthRetreat.category = "AoE 1";
-	snScalePercentHealthRetreat.min = -32767;
-	snScalePercentHealthRetreat.max = 32768;
-	snScalePercentHealthRetreat.rmin = 0;
-	snScalePercentHealthRetreat.rmax = 32768;
-	snScalePercentHealthRetreat.network = 0;
-	snScalePercentHealthRetreat.defined = 0;
-	snScalePercentHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-health-retreat (30)";
-	snScalePercentHealthRetreat.version = "1.0c";
-	snScalePercentHealthRetreat.linked = [ 30 ];
-	snScalePercentHealthRetreat.related = [];
-	snScalePercentHealthRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-health-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
-
-	snScalePercentDeathRetreat.id = 96;
-	snScalePercentDeathRetreat.name = "sn-scale-percent-death-retreat";
-	snScalePercentDeathRetreat.default = -1;
-	snScalePercentDeathRetreat.category = "AoE 1";
-	snScalePercentDeathRetreat.min = -32767;
-	snScalePercentDeathRetreat.max = 32768;
-	snScalePercentDeathRetreat.rmin = 0;
-	snScalePercentDeathRetreat.rmax = 32768;
-	snScalePercentDeathRetreat.network = 0;
-	snScalePercentDeathRetreat.defined = 0;
-	snScalePercentDeathRetreat.available = "available, but avoid using it in conjunction with sn-percent-death-retreat (31)";
-	snScalePercentDeathRetreat.version = "1.0c";
-	snScalePercentDeathRetreat.linked = [ 31 ];
-	snScalePercentDeathRetreat.related = [];
-	snScalePercentDeathRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-death-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
-
-	snScalePercentUnitHealthRetreat.id = 97;
-	snScalePercentUnitHealthRetreat.name = "sn-scale-percent-unit-health-retreat";
-	snScalePercentUnitHealthRetreat.default = -1;
-	snScalePercentUnitHealthRetreat.category = "AoE 1";
-	snScalePercentUnitHealthRetreat.min = -32767;
-	snScalePercentUnitHealthRetreat.max = 32768;
-	snScalePercentUnitHealthRetreat.rmin = 0;
-	snScalePercentUnitHealthRetreat.rmax = 32768;
-	snScalePercentUnitHealthRetreat.network = 0;
-	snScalePercentUnitHealthRetreat.defined = 0;
-	snScalePercentUnitHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-unit-health-retreat (91)";
-	snScalePercentUnitHealthRetreat.version = "1.0c";
-	snScalePercentUnitHealthRetreat.linked = [ 91 ];
-	snScalePercentUnitHealthRetreat.related = [];
-	snScalePercentUnitHealthRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-unit-health-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
-
-	snAttackGroupSizeRandomness.id = 98;
-	snAttackGroupSizeRandomness.name = "sn-attack-group-size-randomness";
-	snAttackGroupSizeRandomness.default = 1;
-	snAttackGroupSizeRandomness.category = "Attack";
-	snAttackGroupSizeRandomness.min = -32767;
-	snAttackGroupSizeRandomness.max = 32768;
-	snAttackGroupSizeRandomness.rmin = 0;
-	snAttackGroupSizeRandomness.rmax = 32768;
-	snAttackGroupSizeRandomness.network = 0;
-	snAttackGroupSizeRandomness.defined = 1;
-	snAttackGroupSizeRandomness.available = 0;
-	snAttackGroupSizeRandomness.version = "1.0c";
-	snAttackGroupSizeRandomness.linked = [];
-	snAttackGroupSizeRandomness.related = [ 41, 36, 26, 16, 58, 60, 59 ];
-	snAttackGroupSizeRandomness.shortDescription = "The randomness factor in the attack group size. This sets a cap on the amount of randomness in the minimum attack group size. The randomness factor is set once (when the group is created) and will be between 0 and this number.";
-
-	snScalingFrequency.id = 99;
-	snScalingFrequency.name = "sn-scaling-frequency";
-	snScalingFrequency.default = 10;
-	snScalingFrequency.category = "Attack";
-	snScalingFrequency.min = -32767;
-	snScalingFrequency.max = 32768;
-	snScalingFrequency.rmin = 0;
-	snScalingFrequency.rmax = 32768;
-	snScalingFrequency.network = 0;
-	snScalingFrequency.defined = 1;
-	snScalingFrequency.available = 0;
-	snScalingFrequency.version = "1.0c";
-	snScalingFrequency.linked = [];
-	snScalingFrequency.related = [];
-	snScalingFrequency.shortDescription = "Sets the number of minutes that pass between each scaling inside the tactical AI.";
-
-	snMaximumGaiaAttackResponse.id = 100;
-	snMaximumGaiaAttackResponse.name = "sn-maximum-gaia-attack-response";
-	snMaximumGaiaAttackResponse.default = 3;
-	snMaximumGaiaAttackResponse.category = "Defense";
-	snMaximumGaiaAttackResponse.min = -32767;
-	snMaximumGaiaAttackResponse.max = 32768;
-	snMaximumGaiaAttackResponse.rmin = 0;
-	snMaximumGaiaAttackResponse.rmax = 32768;
-	snMaximumGaiaAttackResponse.network = 0;
-	snMaximumGaiaAttackResponse.defined = 1;
-	snMaximumGaiaAttackResponse.available = 0;
-	snMaximumGaiaAttackResponse.version = "1.0c";
-	snMaximumGaiaAttackResponse.linked = [];
-	snMaximumGaiaAttackResponse.related = [ 225 ];
-	snMaximumGaiaAttackResponse.shortDescription = "The maximum number of villagers that respond to another civilian getting attacked by a Gaia animal.";
-
-	snBuildFrequency.id = 101;
-	snBuildFrequency.name = "sn-build-frequency";
-	snBuildFrequency.default = 1;
-	snBuildFrequency.category = "Other";
-	snBuildFrequency.min = -32767;
-	snBuildFrequency.max = 32768;
-	snBuildFrequency.rmin = 0;
-	snBuildFrequency.rmax = 32768;
-	snBuildFrequency.network = 0;
-	snBuildFrequency.defined = 1;
-	snBuildFrequency.available = 0;
-	snBuildFrequency.version = "1.0c";
-	snBuildFrequency.linked = [];
-	snBuildFrequency.related = [];
-	snBuildFrequency.shortDescription = "Sets the number of tactical AI updates that pass between each training or research attempt.";
-
-	snAttackSeparationTimeRandomness.id = 102;
-	snAttackSeparationTimeRandomness.name = "sn-attack-separation-time-randomness";
-	snAttackSeparationTimeRandomness.default = 15;
-	snAttackSeparationTimeRandomness.category = "Attack";
-	snAttackSeparationTimeRandomness.min = -32767;
-	snAttackSeparationTimeRandomness.max = 32768;
-	snAttackSeparationTimeRandomness.rmin = 0;
-	snAttackSeparationTimeRandomness.rmax = 32768;
-	snAttackSeparationTimeRandomness.network = 0;
-	snAttackSeparationTimeRandomness.defined = 1;
-	snAttackSeparationTimeRandomness.available = "seems available, but it would be best to avoid it";
-	snAttackSeparationTimeRandomness.version = "1.0c";
-	snAttackSeparationTimeRandomness.linked = [ 46 ];
-	snAttackSeparationTimeRandomness.related = [ 48 ];
-	snAttackSeparationTimeRandomness.shortDescription = "The amount of randomness incorporated into the attack separation time. Must be &gt;= 0 and &lt; sn-attack-separation-time.";
-
-	snAttackIntelligence.id = 103;
-	snAttackIntelligence.name = "sn-attack-intelligence";
-	snAttackIntelligence.default = 0;
-	snAttackIntelligence.category = "Attack";
-	snAttackIntelligence.min = -32767;
-	snAttackIntelligence.max = 32768;
-	snAttackIntelligence.rmin = 0;
-	snAttackIntelligence.rmax = 1;
-	snAttackIntelligence.network = 0;
-	snAttackIntelligence.defined = 1;
-	snAttackIntelligence.available = 0;
-	snAttackIntelligence.version = "1.0c";
-	snAttackIntelligence.linked = [];
-	snAttackIntelligence.related = [ 47 ];
-	snAttackIntelligence.shortDescription = "Specifies whether the intelligent attack system is used. The intelligent attack system tries to avoid enemy units when attacking and tries to attack from different sides. When used with the sn-attack-coordination set to 2, this can create multifront attacks. Must be 0 (to turn off) and 1 (to turn on).";
-
-	.id = 104;
-	.name = "sn-initial-attack-delay";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 134 ];
-	.related = [];
-	.shortDescription = "The forced, initial delay before any computer player attacks (in seconds).";
-
-	.id = 105;
-	.name = "sn-save-scenario-information";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 201 ];
-	.shortDescription = "Controls whether the learning information is saved at the end of the scenario for a given computer player. Must be 0 (to turn off) or 1 (to turn on).";
-
-	.id = 106;
-	.name = "sn-special-attack-type1";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 109 ];
-	.related = [ 107, 108 ];
-	.shortDescription = "Set to 1 to target monasteries and monks carrying relics.";
-
-	.id = 107;
-	.name = "sn-special-attack-type2";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 110 ];
-	.related = [ 106, 108 ];
-	.shortDescription = "Set to any unit, building, or group id to direct attacks.";
-
-	.id = 108;
-	.name = "sn-special-attack-type3";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 111 ];
-	.related = [ 106, 107 ];
-	.shortDescription = "Set to 1 to target wonders.";
-
-	.id = 109;
-	.name = "sn-special-attack-influence1";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 106 ];
-	.related = [ 110, 111 ];
-	.shortDescription = "Sets the multiplier used for the special attack type 1 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 1, &lt; 0 to influence the computer player away from attacking the special type 1.";
-
-	.id = 110;
-	.name = "sn-special-attack-influence2";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 107 ];
-	.related = [ 109, 111 ];
-	.shortDescription = "Sets the multiplier used for the special attack type 2 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 2, &lt; 0 to influence the computer player away from attacking the special type 2.";
-
-	.id = 111;
-	.name = "sn-special-attack-influence3";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available, except under standard victory conditions";
-	.version = "1.0c";
-	.linked = [ 108 ];
-	.related = [ 109, 110 ];
-	.shortDescription = "Sets the multiplier used for the special attack type 3 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 3, &lt; 0 to influence the computer player away from attacking the special type 3.";
-
-	.id = 112;
-	.name = "sn-minimum-water-body-size-for-dock";
-	.default = 300;
-	.category = 300;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 10;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = "available, as long as the value will always be &gt;= 300";
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 169 ];
-	.shortDescription = "The minimum number of tiles (in surface area) that a body of water must be for a Dock to be placed on it.";
-
-	.id = 113;
-	.name = "unknown-data-113";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 114;
-	.name = "sn-number-build-attempts-before-skip";
-	.default = 25;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 115 ];
-	.shortDescription = "The maximum number of build attempts a build plan can go through before being put into skip mode.";
-
-	.id = 115;
-	.name = "sn-max-skips-per-attempt";
-	.default = 10;
-	.category = 10;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 114 ];
-	.shortDescription = "The maximum number of unbuilt items that can be skipped during any build plan processing before giving up (for being too far ahead of the current position in the plan).";
-
-	.id = 116;
-	.name = "unknown-data-116";
-	.default = 10;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 117;
-	.name = "sn-food-gatherer-percentage";
-	.default = 0;
-	.category = 0;
-	.min = 0;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 156 ];
-	.related = [ 118, 119, 120 ];
-	.shortDescription = "Set to configure food gatherers: foodGatherers = ( this + sn-food-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 118;
-	.name = "sn-gold-gatherer-percentage";
-	.default = 0;
-	.category = 0;
-	.min = 0;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 159 ];
-	.related = [ 117, 119, 120 ];
-	.shortDescription = "Set to configure gold gatherers: goldGatherers = ( this + sn-gold-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 119;
-	.name = "sn-stone-gatherer-percentage";
-	.default = 0;
-	.category = 0;
-	.min = 0;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 158 ];
-	.related = [ 117, 118, 120 ];
-	.shortDescription = "Set to configure stone gatherers: stoneGatherers = ( this + sn-stone-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 120;
-	.name = "sn-wood-gatherer-percentage";
-	.default = 0;
-	.category = 0;
-	.min = 0;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 157 ];
-	.related = [ 117, 118, 119 ];
-	.shortDescription = "Set to configure wood gatherers: woodGatherers = ( this + sn-wood-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 121;
-	.name = "sn-defend-important-group-leaders";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not important attack group leaders are defended by the other group units. A value of 1 has the members defend the leader. A value of 0 does not.";
-
-	.id = 122;
-	.name = "sn-target-evaluation-continent";
-	.default = 100;
-	.category = 100;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 81, 89, 144, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	.related = [];
-	.shortDescription = "Sets the additive value used for the targets on the same continent as the attack group commander. Must be &gt; 0 to influence the computer player toward attacking the units on the same continent or 0 for no special influence.";
-
-	.id = 123;
-	.name = "sn-target-evaluation-siege-weapon";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 184 ];
-	.related = [];
-	.shortDescription = "Sets the additive value used for influencing siege weapons to attack stationary targets (and influencing non-siege weapons not to attack those stationary targets). Must be &gt; 0 to influence the computer player to use siege weapons to attack stationary targets or 0 for no special influence.";
-
-	.id = 124;
-	.name = "sn-tribute-amount";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Sets the required amount of gold that must be tributed to the computer player. If this is 0, no computer player tributing is monitored for the special system (thus, the normal tribute system is in effect). When this value is &gt; 0, the computer player will expect some gold in tribute.";
-
-	.id = 125;
-	.name = "sn-tribute-chat-frequency";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Sets the frequency (in seconds) of the computer player's chat messages asking for tribute. Must be &gt;= 0.";
-
-	.id = 126;
-	.name = "sn-tribute-chat-randomness";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Sets the randomness (in seconds) of the computer player's chat messages asking for tribute. Must be &gt;= 0 and &lt; sn-tribute-chat-frequency.";
-
-	.id = 127;
-	.name = "sn-tribute-timeout";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Sets the amount of time (in seconds) within which the tribute must take place. Must be &gt;= 0.";
-
-	.id = 128;
-	.name = "sn-tribute-player";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 8;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Sets the player ID# of the player the computer player will target for the tribute request. Must be a valid player number for the game.";
-
-	.id = 129;
-	.name = "sn-tribute-success-outcome";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls what happens when the tribute request is fulfilled within the allotted time. If set to 0, nothing happens. If set to 1, the computer player will ally when the tribute amount is paid.";
-
-	.id = 130;
-	.name = "sn-tribute-failure-outcome";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls what happens when the tribute request is not fulfilled within the allotted time. If set to 0, nothing happens. If set to 1, the computer player will go to war when the tribute amount is not paid.";
-
-	.id = 131;
-	.name = "sn-group-leader-defense-distance";
-	.default = 3;
-	.category = 3;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Sets the defense distance for defenders of an important attack group leader.";
-
-	.id = 132;
-	.name = "sn-tribute-persistence";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the interactive tribute system operates once or forever. A value of 1 makes it last the entire game (i.e. the computer player will continue to demand sn-tribute-amount of gold for the entire game, at intervals roughly equivalent to sn-tribute-chat-frequency from the outcome evaluation). A value of 0 makes the interactive tribute occur one time.";
-
-	.id = 133;
-	.name = "sn-tribute-revoke-on-attack";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player rescinds the favorable tribute outcome when the sn-tribute-player attacks the computer player. A value of 1 has the computer player rescind, a value of 0 does not.";
-
-	.id = 134;
-	.name = "sn-initial-attack-delay-type";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 3;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 104 ];
-	.related = [];
-	.shortDescription = "The type of initial attack delay. A value of 1 denotes a delay ended by the build list. A value of 2 uses the sn-initial-attack-delay timeout. A value of 3 allows the computer player to attack after he has been attacked by a non-Gaia player. A value of 0 allows any of the three occurrences to enable attacks.";
-
-	.id = 135;
-	.name = "sn-blot-exploration-map";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = "available, but only later, as it greatly influences exploration";
-	.version = "1.0c";
-	.linked = [ 136 ];
-	.related = [ 167, 32, 179 ];
-	.shortDescription = "This controls whether or not the computer player re-explores previously explored regions. A value of 1 has the computer player re-explore, a value of 0 does not.";
-
-	.id = 136;
-	.name = "sn-blot-size";
-	.default = 15;
-	.category = 15;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = "available, but only later, as it greatly influences exploration";
-	.version = "1.0c";
-	.linked = [ 135 ];
-	.related = [ 167, 32, 179 ];
-	.shortDescription = "This controls the size of the area that a computer player marks for re-exploration.";
-
-	.id = 137;
-	.name = "unknown-data-137";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 138;
-	.name = "sn-add-starting-resource-food";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 139, 140, 141 ];
-	.shortDescription = "Cheat - adds extra food to starting resources.";
-
-	.id = 139;
-	.name = "sn-add-starting-resource-gold";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 138, 140, 141 ];
-	.shortDescription = "Cheat - adds extra gold to starting resources.";
-
-	.id = 140;
-	.name = "sn-add-starting-resource-stone";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 138, 139, 141 ];
-	.shortDescription = "Cheat - adds extra stone to starting resources.";
-
-	.id = 141;
-	.name = "sn-add-starting-resource-wood";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 138, 139, 140 ];
-	.shortDescription = "Cheat - adds extra wood to starting resources.";
-
-	.id = 142;
-	.name = "sn-intelligent-gathering";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 148, 149, 203 ];
-	.shortDescription = "Controls whether or not the intelligent gathering system is enabled.";
-
-	.id = 143;
-	.name = "sn-task-ungrouped-soldiers";
-	.default = 1;
-	.category = 0;
-	.min = 1;
-	.max = 1;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 232 ];
-	.shortDescription = "Controls whether or not ungrouped computer player soldiers get tasked to spread out and guard the computer player's general town area.";
-
-	.id = 144;
-	.name = "sn-target-evaluation-boat";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 81, 89, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
-	.related = [];
-	.shortDescription = "Sets the additive value used for influencing land units to attack or not attack boats. Must be &gt; 0 to influence land units to attack boats, 0 for no special influence, and less than 0 for aversion.";
-
-	.id = 145;
-	.name = "sn-number-enemy-objects-required";
-	.default = 10;
-	.category = 10;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "The count of the number of enemy objects the computer player must see before dropping the number of civilian explorers down to the minimum level.";
-
-	.id = 146;
-	.name = "sn-number-max-skip-cycles";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "";
-
-	.id = 147;
-	.name = "sn-most-needed-resource-look-ahead";
-	.default = 10;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The number of build list objects the computer player will use to look ahead to tabulate the resources required. Only used for the dynamic gathering percentages. Must be &gt;= 0.";
-
-	.id = 148;
-	.name = "sn-retask-gather-amount";
-	.default = 20;
-	.category = 20;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 149 ];
-	.related = [ 142, 203 ];
-	.shortDescription = "The minimum amount that a gatherer must gather before the computer player allows him to be retasked to another resource type. Some code may override this.";
-
-	.id = 149;
-	.name = "sn-max-retask-gather-amount";
-	.default = 40;
-	.category = 40;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 148 ];
-	.related = [ 142, 203 ];
-	.shortDescription = "The maximum amount that a gatherer can be told to gather before being allowed to be retasked. Some code may override this.";
-
-	.id = 150;
-	.name = "sn-max-storage-pits";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The maximum number of storage pits a computer player can build in one game. Must be &gt;= 0.";
-
-	.id = 151;
-	.name = "sn-max-granaries";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The maximum number of granaries a computer player can build in one game. Must be &gt;= 0.";
-
-	.id = 152;
-	.name = "sn-house-overage";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The number of Houses that a computer player will autobuild over the amount needed to support 50 units. Must be &gt;= 0.";
-
-	.id = 153;
-	.name = "unknown-data-153";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 154;
-	.name = "unknown-data-154";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 155;
-	.name = "sn-build-plan-divisions";
-	.default = 10;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The number of divisions a computer player will place in its build list (used to calculate gathering percentages). Must be &gt;= 1.";
-
-	.id = 156;
-	.name = "sn-food-modifier-percentage";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -100;
-	.rmax = 100;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 117 ];
-	.related = [ 157, 158, 159 ];
-	.shortDescription = "Set to configure food gatherers: foodGatherers = ( sn-food-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 157;
-	.name = "sn-wood-modifier-percentage";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -100;
-	.rmax = 100;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 120 ];
-	.related = [ 156, 158, 159 ];
-	.shortDescription = "Set to configure wood gatherers: woodGatherers = ( sn-wood-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 158;
-	.name = "sn-stone-modifier-percentage";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -100;
-	.rmax = 100;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 119 ];
-	.related = [ 156, 157, 159 ];
-	.shortDescription = "Set to configure stone gatherers: stoneGatherers = ( sn-stone-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 159;
-	.name = "sn-gold-modifier-percentage";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -100;
-	.rmax = 100;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 118 ];
-	.related = [ 156, 157, 158 ];
-	.shortDescription = "Set to configure gold gatherers: goldGatherers = ( sn-gold-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
-
-	.id = 160;
-	.name = "sn-max-build-plan-gatherer-percentage";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "The maximum percentage of gatherers that a computer player will task based on the pregame requirements of the build plan.";
-
-	.id = 161;
-	.name = "sn-required-first-building";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 4;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls what building a computer player must place first. 0: No restriction. 1: Either a Storage Pit or a granary. 2: A Storage Pit. 3: A Granary. 4: Both a Storage Pit and a Granary. Exceptions consist of a Town Center and sn-maximum-houses-before-dropsites.";
-
-	.id = 162;
-	.name = "unknown-data-162";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 163;
-	.name = "sn-food-dropsite-distance";
-	.default = 3;
-	.category = 7;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 3;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 234, 235 ];
-	.related = [ 164, 165, 166 ];
-	.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its food.";
-
-	.id = 164;
-	.name = "sn-wood-dropsite-distance";
-	.default = 3;
-	.category = 10;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 3;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 233 ];
-	.related = [ 163, 165, 166 ];
-	.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its wood.";
-
-	.id = 165;
-	.name = "sn-stone-dropsite-distance";
-	.default = 3;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 3;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 238 ];
-	.related = [ 163, 164, 166 ];
-	.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its stone.";
-
-	.id = 166;
-	.name = "sn-gold-dropsite-distance";
-	.default = 3;
-	.category = 7;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 3;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 237 ];
-	.related = [ 163, 164, 165 ];
-	.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its gold.";
-
-	.id = 167;
-	.name = "sn-initial-exploration-required";
-	.default = 2;
-	.category = 2;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 32, 179, 256 ];
-	.related = [ 135, 136 ];
-	.shortDescription = "The percentage of the map that must be explored by a computer player before any building is allowed.";
-
-	.id = 168;
-	.name = "sn-random-placement-factor";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "A number that gets added into the placement of the computer player to randomize building placement (off of the calculated ideal).";
-
-	.id = 169;
-	.name = "sn-required-forest-tiles";
-	.default = 10;
-	.category = 10;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 112 ];
-	.shortDescription = "The minimum number of forest tiles that a computer player must uncover before placing its first lumber camp.";
-
-	.id = 170;
-	.name = "sn-minimum-food";
-	.default = 200;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 171, 172, 173 ];
-	.shortDescription = "AoE 1 only. The minimum amount of food a computer player likes to keep on hand. Must be &gt;= 0.";
-
-	.id = 171;
-	.name = "sn-minimum-wood";
-	.default = 250;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 170, 172, 173 ];
-	.shortDescription = "AoE 1 only. The minimum amount of wood a computer player likes to keep on hand. Must be &gt;= 0.";
-
-	.id = 172;
-	.name = "sn-minimum-stone";
-	.default = 150;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 170, 171, 173 ];
-	.shortDescription = "AoE 1 only. The minimum amount of stone a computer player likes to keep on hand. Must be &gt;= 0.";
-
-	.id = 173;
-	.name = "sn-minimum-gold";
-	.default = 200;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 170, 171, 172 ];
-	.shortDescription = "AoE 1 only. The minimum amount of gold a computer player likes to keep on hand. Must be &gt;= 0.";
-
-	.id = 174;
-	.name = "sn-maximum-houses-before-dropsites";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. The maximum number of Houses that can be built before a dropsite is built. Must be &gt;= 0.";
-
-	.id = 175;
-	.name = "sn-specific-build-item-to-build";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available";
-	.version = "1.0c";
-	.linked = [ 176 ];
-	.related = [];
-	.shortDescription = "AoE 1 only. A specific build item that should be inserted into the computer player's list. Must be a valid building ID.";
-
-	.id = 176;
-	.name = "sn-specific-build-item-time";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available";
-	.version = "1.0c";
-	.linked = [ 175 ];
-	.related = [];
-	.shortDescription = "AoE 1 only. The time (in minutes) that the sn-specific-build-item-to-build should be inserted into. Must be &gt;= 0.";
-
-	.id = 177;
-	.name = "sn-unskippable-item-type";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Allows the computer player to not skip a particular item type during building. Must be a valid building ID.";
-
-	.id = 178;
-	.name = "sn-attack-diplomacy-impact";
-	.default = 10;
-	.category = 10;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = "available, except for when teams-locked is disabled";
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 215 ];
-	.shortDescription = "The impact (positive or negative) that a computer player injects into his diplomacy system when attacked.";
-
-	.id = 179;
-	.name = "sn-percent-half-exploration";
-	.default = 30;
-	.category = 30;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 167, 32, 256 ];
-	.related = [ 135, 136 ];
-	.shortDescription = "The percentage of map exploration that allows the computer player to task down to half the number of explorers.";
-
-	.id = 180;
-	.name = "sn-auto-build-houses";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether the computer player can decide to build its houses by itself. Must be 0 or 1.";
-
-	.id = 181;
-	.name = "sn-upgrade-to-tool-age-asap";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 182, 183 ];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Tool Age as soon as it becomes available for research. Must be 0 or 1.";
-
-	.id = 182;
-	.name = "sn-upgrade-to-bronze-age-asap";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 181, 183 ];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Bronze Age as soon as it becomes available for research. Must be 0 or 1.";
-
-	.id = 183;
-	.name = "sn-upgrade-to-iron-age-asap";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 181, 182 ];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Iron Age as soon as it becomes available for research. Must be 0 or 1.";
-
-	.id = 184;
-	.name = "sn-target-evaluation-time-kill-ratio";
-	.default = 20;
-	.category = 20;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123 ];
-	.related = [];
-	.shortDescription = "The amount of influence the time to kill a target has in deciding what to attack.";
-
-	.id = 185;
-	.name = "sn-target-evaluation-in-progress";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 81, 89, 144, 122, 79, 77, 78, 80, 83, 90, 82, 123, 184 ];
-	.related = [];
-	.shortDescription = "The amount of influence of continuing to attack a target already under attack.";
-
-	.id = 186;
-	.name = "sn-coop-demand-tribute-interval";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [ 187 ];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls how often the computer player may demand tribute from his computer player allies (in seconds). Must be &gt;= 0.";
-
-	.id = 187;
-	.name = "sn-coop-demand-tribute-maximum";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [ 186 ];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls the maximum amount a computer player may demand from his computer player allies at any one time. Must be &gt;= 1.";
-
-	.id = 188;
-	.name = "sn-attack-winning-player";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = "available, but only for 1v1 and Wonder Race games";
-	.version = "1.0c";
-	.linked = [ 195 ];
-	.related = [ 249 ];
-	.shortDescription = "Controls whether or not the computer player will attack the winning player (if there is more than one to choose from).";
-
-	.id = 189;
-	.name = "unknown-data-189";
-	.default = 50;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 190;
-	.name = "sn-maximum-food";
-	.default = 3000;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 191, 192, 193 ];
-	.shortDescription = "AoE 1 only. Controls the maximum amount of food the computer player likes to have on hand. Must be &gt;= 0.";
-
-	.id = 191;
-	.name = "sn-maximum-wood";
-	.default = 2000;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 190, 192, 193 ];
-	.shortDescription = "AoE 1 only. Controls the maximum amount of wood the computer player likes to have on hand. Must be &gt;= 0.";
-
-	.id = 192;
-	.name = "sn-maximum-stone";
-	.default = 1500;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 190, 191, 193 ];
-	.shortDescription = "AoE 1 only. Controls the maximum amount of stone the computer player likes to have on hand. Must be &gt;= 0.";
-
-	.id = 193;
-	.name = "sn-maximum-gold";
-	.default = 3000;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 190, 191, 192 ];
-	.shortDescription = "AoE 1 only. Controls the maximum amount of gold the computer player likes to have on hand. Must be &gt;= 0.";
-
-	.id = 194;
-	.name = "sn-coop-share-information";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 196, 197 ];
-	.shortDescription = "Controls whether or not allied computer players share information about what they uncover (this is not like Cartography; instead, it's analogous to two humans chatting).";
-
-	.id = 195;
-	.name = "sn-attack-winning-player-factor";
-	.default = 25;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = "available, but only for 1v1 and Wonder Race games";
-	.version = "1.0c";
-	.linked = [ 188 ];
-	.related = [ 249 ];
-	.shortDescription = "The influence the sn-attack-winning-player will have on deciding who to attack if it's set to 1.";
-
-	.id = 196;
-	.name = "sn-coop-share-attacking";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = "seems available, but only for 1v1 and Wonder Race games";
-	.version = "1.0c";
-	.linked = [ 197 ];
-	.related = [ 194 ];
-	.shortDescription = "Controls whether allied computer players can attack to defend each other.";
-
-	.id = 197;
-	.name = "sn-coop-share-attacking-interval";
-	.default = 120;
-	.category = 120;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = "seems available, but only for 1v1 and Wonder Race games";
-	.version = "1.0c";
-	.linked = [ 196 ];
-	.related = [ 194 ];
-	.shortDescription = "Controls how often this computer player can ask another for help (in seconds).";
-
-	.id = 198;
-	.name = "sn-percentage-explore-exterminators";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Determines how many of the computer player's soldier explore groups are set as extermination groups. Must be &gt;= 0 and &lt;= 100.";
-
-	.id = 199;
-	.name = "unknown-data-199";
-	.default = 25;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 200;
-	.name = "unknown-data-200";
-	.default = 50;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 201;
-	.name = "sn-track-player-history";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 105 ];
-	.shortDescription = "Decides whether or not a human player's tendencies are tracked or not.";
-
-	.id = 202;
-	.name = "sn-minimum-dropsite-buffer";
-	.default = 25;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 86, 87, 260, 261 ];
-	.related = [ 248 ];
-	.shortDescription = "Controls how far away a computer player will keep dropsites in relation to enemy town centers.";
-
-	.id = 203;
-	.name = "sn-use-by-type-max-gathering";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 142, 148, 149 ];
-	.shortDescription = "Controls whether or not logical, type-specific gatherer requirements are placed on the quantity of resources gatherers must collect before being allowed to be retasked.";
-
-	.id = 204;
-	.name = "sn-minimum-boar-hunt-group-size";
-	.default = 5;
-	.category = 5;
-	.min = -32767;
-	.max = 8;
-	.rmin = 0;
-	.rmax = 8;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 252, 244 ];
-	.related = [ 235, 245 ];
-	.shortDescription = "The number of villagers a computer player must collect before allowing boars to be hunted for food.";
-
-	.id = 205;
-	.name = "sn-auto-build-dropsites";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build storage pits and granaries. Must be 0 or 1.";
-
-	.id = 206;
-	.name = "sn-auto-build-farms";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player can use extra wood to build Farms once all of the build list buildings are constructed. Must be 0 or 1.";
-
-	.id = 207;
-	.name = "sn-auto-build-towers";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player can use extra stone to build towers. Must be 0 or 1.";
-
-	.id = 208;
-	.name = "sn-auto-build-docks";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build Docks. Must be 0 or 1.";
-
-	.id = 209;
-	.name = "sn-auto-build-fishing-boats";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build fishing boats. Must be 0 or 1.";
-
-	.id = 210;
-	.name = "sn-auto-build-transports";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build transports. Must be 0 or 1.";
-
-	.id = 211;
-	.name = "unknown-data-211";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -32767;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Unused.";
-
-	.id = 212;
-	.name = "sn-desired-number-docks";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. How many Docks the computer player wants in a given game. Must be &gt;= 0.";
-
-	.id = 213;
-	.name = "sn-desired-number-fishing-boats";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. How many fishing boats the computer player wants in a given game. Must be &gt;= 0.";
-
-	.id = 214;
-	.name = "sn-desired-number-transports";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. How many transports the computer player wants in a given game. Must be &gt;= 0.";
-
-	.id = 215;
-	.name = "sn-allow-diplomacy-change-on-ally-attack";
-	.default = 1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available, except for when teams-locked is disabled";
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 217, 178 ];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player can change his alliance when attacked by an ally. Must be 0 or 1.";
-
-	.id = 216;
-	.name = "sn-minimum-amount-for-trading";
-	.default = 50;
-	.category = 50;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Controls how much of a resource a computer player must have before using it for trading.";
-
-	.id = 217;
-	.name = "sn-allow-diplomacy-change-on-tribute";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available, except for when teams-locked is disabled";
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 215 ];
-	.shortDescription = "AoE 1 only. Controls whether or not the computer player will allow his diplomacy to change when he receives tribute from a player. Must be 0 or 1.";
-
-	.id = 218;
-	.name = "sn-easiest-reaction-percentage";
-	.default = 100;
-	.category = 100;
-	.min = 100;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 219 ];
-	.related = [ 229 ];
-	.shortDescription = "Sets the effective reaction percentage (of normal LOS) a computer player unit will use in single-player Easiest level scenario or campaign games.";
-
-	.id = 219;
-	.name = "sn-easier-reaction-percentage";
-	.default = 100;
-	.category = 100;
-	.min = 100;
-	.max = 100;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 218 ];
-	.related = [ 229 ];
-	.shortDescription = "Sets the effective reaction percentage (of normal LOS) a computer player unit will use in single-player easier scenario or campaign games.";
-
-	.id = 220;
-	.name = "sn-max-farms";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Caps the number of Farms a computer player will build. Must be &gt;= 0.";
-
-	.id = 221;
-	.name = "sn-hits-before-alliance-change";
-	.default = 3;
-	.category = 3;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = "available, except for when teams-locked is disabled";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Sets the number of times a computer player will allow his units to be hit by an ally before allowing his diplomacy to be changed.";
-
-	.id = 222;
-	.name = "sn-max-towers";
-	.default = 10;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = "seems available";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Caps the number of towers a computer player will build. Must be &gt;= 0. Starts at 0, changed to 10 after some time has elapsed.";
-
-	.id = 223;
-	.name = "sn-auto-build-warships";
-	.default = -1;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. Determines if the computer player is allowed to decide how and when to build warships. Must be 0 or 1.";
-
-	.id = 224;
-	.name = "sn-desired-number-warships";
-	.default = 0;
-	.category = "AoE 1";
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 0;
-	.available = 1;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "AoE 1 only. How many warships the computer player wants in a given game. Must be &gt;= 0.";
-
-	.id = 225;
-	.name = "sn-allow-civilian-defense";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 3;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ ];
-	.related = [ 100, 258 ];
-	.shortDescription = "Set to 0 to disable civilian defense, 1 to defend against weak, non-ranged units, 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.";
-
-	.id = 226;
-	.name = "sn-number-forward-builders";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "The number of villagers a computer player uses to build outside of an enemy town. Forward builders refer specifically to those villagers that must board a Transport to cross over water that cannot otherwise be pathed, either because players are on islands, or because other forms of access have been walled-off. It is not necessary to specify forward builders, unless the villagers need to board a Transport.";
-
-	.id = 227;
-	.name = "sn-percent-attack-soldiers";
-	.default = 75;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 228, 36, 247 ];
-	.shortDescription = "Sets the percentage of defense soldiers that will be sent into battle (modified for difficulty level) the next time attack-now is issued. All newly created soldiers are defense soldiers by default, and will remain defense soldiers until attack-now is issued. For example, if 10 soldiers were defending a town, and sn-percent-attack-soldiers was set to 50, then 5 soldiers will form an attack group and attack. This SN only needs to be set once, but it can be changed as needed. sn-percent-attack-soldiers works best when not using sn-number-defend-groups.";
-
-	.id = 228;
-	.name = "sn-percent-attack-boats";
-	.default = 75;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 227, 58, 247 ];
-	.shortDescription = "Sets the percentage of defense boats that will be sent into battle (modified for difficulty level) the next time attack-now is issued. All newly created boats are defense boats by default, and will remain defense boats until attack-now is issued. Both attack soldiers and attack boats will attack when attack-now is issued. This SN only needs to be set once, but it can be changed as needed.";
-
-	.id = 229;
-	.name = "sn-do-not-scale-for-difficulty-level";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 218, 219 ];
-	.shortDescription = "Disables the automatic difficulty-scaling. See Level of Difficulty - Random Map Game. Default = 0.";
-
-	.id = 230;
-	.name = "sn-group-form-distance";
-	.default = 20;
-	.category = 20;
-	.min = -32767;
-	.max = 30;
-	.rmin = 0;
-	.rmax = 30;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Sets the distance over which attack soldiers will group. Set this value high if buildings that train military units are far apart.";
-
-	.id = 231;
-	.name = "sn-ignore-attack-group-under-attack";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to specify that defensive units should ignore attack groups under attack.";
-
-	.id = 232;
-	.name = "sn-gather-defense-units";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 239, 143 ];
-	.shortDescription = "Set to 1 to send units to defend buildings under construction.";
-
-	.id = 233;
-	.name = "sn-maximum-wood-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 164 ];
-	.related = [ 234, 235, 236, 237, 238 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
-
-	.id = 234;
-	.name = "sn-maximum-food-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 163, 235, 236 ];
-	.related = [ 233, 237, 238 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
-
-	.id = 235;
-	.name = "sn-maximum-hunt-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 234, 236 ];
-	.related = [ 204, 252, 244, 245, 233, 237, 238 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
-
-	.id = 236;
-	.name = "sn-maximum-fish-boat-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = "available, except for water maps, however if the value will always be large enough, it should be fine";
-	.version = "1.0c";
-	.linked = [ 234, 235 ];
-	.related = [ 233, 237, 238 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water.";
-
-	.id = 237;
-	.name = "sn-maximum-gold-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 166 ];
-	.related = [ 233, 234, 235, 236, 238 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
-
-	.id = 238;
-	.name = "sn-maximum-stone-drop-distance";
-	.default = -1;
-	.category = -1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [ 165 ];
-	.related = [ 233, 234, 235, 236, 237 ];
-	.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). By setting the parameters to the appropriate value it is possible to avoid having villagers walk all over the map to gather resources.";
-
-	.id = 239;
-	.name = "sn-gather-idle-soldiers-at-center";
-	.default = -1;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.0c";
-	.linked = [];
-	.related = [ 232 ];
-	.shortDescription = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.";
-
-	.id = 240;
-	.name = "sn-garrison-rams";
-	.default = 1;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = "available, if you will not create rams";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 0 to turn off. When on, the CP AI tries (but doesn't always succeed) to put infantry units into rams before the attack group departs.";
-
-	.id = 241;
-	.name = "sn-do-not-transport-from-same-zone";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = "available, except for water maps requiring transport ships";
-	.version = "1.0c";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to influence transport ship behavior.";
-
-	.id = 242;
-	.name = "sn-enable-new-building-system";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 243 ];
-	.shortDescription = "Set to 1 only once to request the new building system, featuring simultaneous construction and cancellation control.";
-
-	.id = 243;
-	.name = "sn-percent-building-cancellation";
-	.default = 100;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 100;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 242 ];
-	.shortDescription = "Set to the maximum allowable completion percentage for building cancellation.";
-
-	.id = 244;
-	.name = "sn-enable-boar-hunting";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 204, 252 ];
-	.related = [ 235, 245 ];
-	.shortDescription = "Set to 1 to target deer and boar; if it's set to 2, deer will be ignored.";
-
-	.id = 245;
-	.name = "sn-minimum-number-hunters";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 204, 252, 235, 244 ];
-	.shortDescription = "Set to force hunting. For best results when hunting boar, set this in conjunction with sn-minimum-boar-hunt-group-size.";
-
-	.id = 246;
-	.name = "sn-object-repair-level";
-	.default = 16387;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32767;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons. For scenarios and campaigns, the default is 1 for compatibility.";
-
-	.id = 247;
-	.name = "sn-enable-patrol-attack";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 227, 228, 36, 58 ];
-	.shortDescription = "Set to 1 to enable the patrol-style local targeting system. When attacking a distant target, this causes units to retarget against nearby sighted units immediately instead of waiting until they are in proximity to the original target.";
-
-	.id = 248;
-	.name = "sn-dropsite-separation-distance";
-	.default = 10;
-	.category = 3;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 86, 87, 260, 261 ];
-	.related = [ 202, 272 ];
-	.shortDescription = "Set to suggest the minimum distance between dropsites. Higher values can be useful for an escape camp when gatherers are under attack.";
-
-	.id = 249;
-	.name = "sn-target-player-number";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 8;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 188, 195, 250, 251 ];
-	.shortDescription = "Set to the number of the player that should be targeted for attack. If this sn is set to -1, initiating an attack will instead provide assistance to allies. When set to 0, sn-attack-winning-player will determine the target. Setting this to a player that cannot be attacked (an ally or the AI itself) will result in undefined behavior. You can also use this value with the &quot;target-player&quot; identifier in facts and actions.";
-
-	.id = 250;
-	.name = "sn-safe-town-size";
-	.default = 255;
-	.category = 40;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 1;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 74, 73 ];
-	.related = [ 249, 255 ];
-	.shortDescription = "If an enemy building is inside both sn-maximum-town-size and the region specified by this sn, it will be targeted by defensive units. If the building is inside sn-maximum-town-size, but outside this region, it will be targeted only if it belongs to the player specified by sn-target-player-number.";
-
-	.id = 251;
-	.name = "sn-focus-player-number";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 8;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 249 ];
-	.shortDescription = "Set to any player number in order to use the &quot;focus-player&quot; identifier in facts and actions.";
-
-	.id = 252;
-	.name = "sn-minimum-boar-lure-group-size";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 8;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 204, 244 ];
-	.related = [ 235, 245 ];
-	.shortDescription = "Set to the number of villagers that will be sent in the initial boar luring group.";
-
-	.id = 253;
-	.name = "sn-preferred-mill-placement";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 0 for forage, 1 for deer, or 2 for shore fish.";
-
-	.id = 254;
-	.name = "sn-enable-offensive-priority";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 267 ];
-	.shortDescription = "Set to 1 to enable attack-now and attack groups to target using the priorities set by up-set-offense-priority.";
-
-	.id = 255;
-	.name = "sn-building-targeting-mode";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 74, 73 ];
-	.related = [ 249, 250, 262 ];
-	.shortDescription = "Set to 0 to target all buildings, 1 to ignore walls and gates, or 2 to ignore walls, gates, and dropsites. Please avoid this strategic number, as you may experience targeting failures under certain circumstances.";
-
-	.id = 256;
-	.name = "sn-home-exploration-time";
-	.default = 300;
-	.category = 300;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 32768;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ ];
-	.related = [ 167, 32, 179 ];
-	.shortDescription = "Set to the maximum amount of time, in seconds, that should be dedicated to exploring the home town center region.";
-
-	.id = 257;
-	.name = "sn-number-civilian-militia";
-	.default = 10;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 200;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 258 ];
-	.related = [ ];
-	.shortDescription = "Set to the maximum number of villagers who may be used to attack the enemy.";
-
-	.id = 258;
-	.name = "sn-allow-civilian-offense";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 257 ];
-	.related = [ 225 ];
-	.shortDescription = "Set to 1 to allow villagers to participate as soldiers in town-size attacks. If set to 2, villagers will target enemy villagers and buildings even if defensive military units are available. If set to 0, villagers will only be sent to attack enemy forward towers, without murder holes.";
-
-	.id = 259;
-	.name = "sn-preferred-trade-distance";
-	.default = 100;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 255;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to the preferred distance between local and remote trade buildings.";
-
-	.id = 260;
-	.name = "sn-lumber-camp-max-distance";
-	.default = 0;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 86, 261, 248, 202 ];
-	.related = [ 87, 74, 73 ];
-	.shortDescription = "Sets the maximum-town-size for lumber-camp placement, when non-zero. If set to 0, sn-camp-max-distance will be used instead.";
-
-	.id = 261;
-	.name = "sn-mining-camp-max-distance";
-	.default = 0;
-	.category = 25;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 86, 260, 248, 202 ];
-	.related = [ 87, 74, 73 ];
-	.shortDescription = "Sets the maximum-town-size for mining-camp placement, when non-zero. If set to 0, sn-camp-max-distance will be used instead.";
-
-	.id = 262;
-	.name = "sn-wall-targeting-mode";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 255 ];
-	.shortDescription = "Set to 1 to allow military units to automatically target nearby walls and gates. If set to 0, they will likely be ignored.";
-
-	.id = 263;
-	.name = "sn-livestock-to-town-center";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to require livestock, such as sheep, to gather at the town center. If set to 0, they will gather at mills, as well.";
-
-	.id = 264;
-	.name = "sn-enable-training-queue";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to allow an additional unit to be queued at each building. If set to 0, buildings will train one unit at a time.";
-
-	.id = 265;
-	.name = "sn-ignore-tower-elevation";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to ignore elevation when placing towers. If set to 0, the AI will try to seek elevation advantage.";
-
-	.id = 266;
-	.name = "sn-town-center-placement";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 899;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 86, 87 ];
-	.shortDescription = "Set to the building type to emulate for town center placement. If set to 0, the town center will be placed as usual.";
-
-	.id = 267;
-	.name = "sn-disable-tower-priority";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 254 ];
-	.shortDescription = "Set to 1 to prevent the local targeting system from giving special priority to towers and other fortifications, including town centers and castles. If set to 0, these buildings will receive the usual special priority.";
-
-	.id = 268;
-	.name = "sn-placement-zone-size";
-	.default = 20;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 255;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 269, 270 ];
-	.related = [ 73, 74 ];
-	.shortDescription = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point.";
-
-	.id = 269;
-	.name = "sn-placement-fail-delta";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -10;
-	.rmax = 10;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 268, 270 ];
-	.related = [ 73, 74 ];
-	.shortDescription = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed.";
-
-	.id = 270;
-	.name = "sn-placement-to-center";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 268, 269 ];
-	.related = [ 73, 74, 249, 188 ];
-	.shortDescription = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with up-set-placement-data. If set to 0, the active target enemy's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
-
-	.id = 271;
-	.name = "sn-disable-attack-groups";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 277 ];
-	.related = [ 36, 26, 16 ];
-	.shortDescription = "Set to 1 to disable automatic attack group targeting. Once groups are created, they can be used for defensive attack purposes using TSA. If set to 0, attack groups will perform offensive targeting as usual.";
-
-	.id = 272;
-	.name = "sn-allow-adjacent-dropsites";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 248 ];
-	.shortDescription = "Set to 1 to eliminate the standard requirement for a 1 tile buffer around mills, lumber camps, and mining camps. If set to 0, the 1 tile buffer is enforced as usual.";
-
-	.id = 273;
-	.name = "sn-defer-dropsite-update";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to defer the dropsite-min-distance update until construction is complete. If set to 0, the dropsite update occurs when the building is placed on the map.";
-
-	.id = 274;
-	.name = "sn-maximum-garrison-fill";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 20;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 275 ];
-	.related = [];
-	.shortDescription = "Set to the number of units to fill into each garrison target per command. If set to 0, this limit is removed.";
-
-	.id = 275;
-	.name = "sn-number-garrison-units";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 40;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 274 ];
-	.related = [];
-	.shortDescription = "Set to the number of units that will garrison per command. If set to 0, it will default to the maximum of 40.";
-
-	.id = 276;
-	.name = "sn-filter-under-attack";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units will also be retreated, which may be computationally expensive. If set to 0, the filter is disabled.";
-
-	.id = 277;
-	.name = "sn-disable-defend-groups";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 15;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 271 ];
-	.related = [];
-	.shortDescription = "Append flags to disable various defense systems: 1 to disable the defensive (TSA) targeting system, 2 to disable assistance inside sn-safe-town-size, 4 to disable assistance between sn-safe-town-size and sn-maximum-town-size, 8 to disable assistance outside sn-maximum-town-size. When assistance is disabled, please be aware that your units will only respond to attackers within their individual line of sight. If set to 0, units will respond to threats in town as usual.";
-
-	.id = 278;
-	.name = "sn-dock-placement-mode";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -1;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 279, 280, 281 ];
-	.shortDescription = "Set to 1 to prefer placement toward the front, -1 to prefer placement toward the back, or 0 for standard placement.";
-
-	.id = 279;
-	.name = "sn-dock-proximity-factor";
-	.default = 10000;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -10000;
-	.rmax = 10000;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 280 ];
-	.related = [ 278 ];
-	.shortDescription = "Set to the proximity factor for docks to be placed relative to one another. Positive values prefer more distance, while negative values prefer less distance.";
-
-	.id = 280;
-	.name = "sn-dock-avoidance-factor";
-	.default = 1000;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = -10000;
-	.rmax = 10000;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 279 ];
-	.related = [ 278 ];
-	.shortDescription = "Set to the avoidance factor for docks in the same zone (body of water). Positive values avoid placement in the same zone, while negative values prefer it.";
-
-	.id = 281;
-	.name = "sn-dock-training-filter";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [ 278 ];
-	.shortDescription = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.";
-
-	.id = 282;
-	.name = "sn-free-siege-targeting";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 3;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Add bit flags together to generate a value: 1 = trebuchet; 2 = cannon-galleon. Set a flag for a unit to enable free offensive targeting with attack-now or attack groups. This may result in the targeting of units other than buildings. If set to 0, non-buildings will be ignored unless units must respond due to sn-enemy-sighted-response-distance.";
-
-	.id = 283;
-	.name = "sn-warship-targeting-mode";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to cause warships to target based on the unit with the shortest range in the group against fortifications. Set to 2 to eliminate the range check. If set to 0, warship groups will target based on the unit with the longest range.";
-
-	.id = 284;
-	.name = "sn-disable-sighted-response-cap";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [ 19, 20 ];
-	.related = [];
-	.shortDescription = "Set to 1 to eliminate the cap of 50 on sn-enemy-sighted-response-distance. If set to 0, the cap will remain in effect for changes to sn-enemy-sighted-response-distance.";
-
-	.id = 285;
-	.name = "sn-disable-builder-assistance";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to prevent builders from assisting on nearby foundations after their work is complete. If set to 0, they will assist as usual.";
-
-	.id = 286;
-	.name = "sn-local-targeting-mode";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 2;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to prioritize attack bonuses and overall damage per hit. If set to 2, units will prioritize targets with high base pierce armor, such as rams; otherwise, they will target as usual. The offensive priority value of a target (-1 to 11) is added to the weight for modes 1 and 2, as well. If set to 0, units will target as usual.";
-
-	.id = 287;
-	.name = "sn-livestock-defend-priority";
-	.default = 0;
-	.category = 1;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.1";
-	.linked = [];
-	.related = [50, 56, 70, 52, 51, 55, 54, 53];
-	.shortDescription = "Set to 1 to allow sheep into the targetable sighted objects list.";
-
-	.id = 288;
-	.name = "sn-number-tasked-units";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 40;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to the number of units to require per group tasked by up-target-objects or up-target-point. The last group sent by a command may not reach the minimum required number. It's possible that no units will be sent to some of the last remote targets. If set to 0, units will be spread in order to ensure balanced group sizes to all remote targets.";
-
-	.id = 291;
-	.name = "sn-disable-villager-garrison";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 3;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 3 to prevent villagers from auto-garrisoning for any reason. If set to 2, gaia is ignored and villagers will only garrison for enemy attacks if they can enter a town center. If set to 1, gaia is ignored and villagers will garrison for any enemy attacks. If set to 0, villagers will garrison as usual.";
-
-	.id = 292;
-	.name = "sn-target-point-adjustment";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 6;
-	.network = 0;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to adjust the tile positioning of up-target-point toward 1:left, 2:top, 3:right, 4:bottom, 5:middle, 6:precise. If set to 0, actions will be directed to the absolute left-most point of a tile. If set to precise, you must directly pass a valid precise point goal pair (point x100 for precision) to up-target-point.";
-
-	.id = 293;
-	.name = "sn-unexplored-construction";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to allow the AI to construct buildings on unexplored tiles. If set to 0, the AI will have to directly explore tiles in order to build there as usual. Please do not enable this without #load-if-not-defined REVEAL-NORMAL.";
-
-	.id = 294;
-	.name = "sn-disable-trade-evasion";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 1;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to 1 to prevent trade carts from abandoning their gold and trade route in order to evade attackers. If set to 0, trade carts will attempt to evade attackers as usual.";
-
-	.id = 295;
-	.name = "sn-boar-lure-destination";
-	.default = 0;
-	.category = 0;
-	.min = -32767;
-	.max = 32768;
-	.rmin = 0;
-	.rmax = 23;
-	.network = 1;
-	.defined = 1;
-	.available = 0;
-	.version = "1.5";
-	.linked = [];
-	.related = [];
-	.shortDescription = "Set to a <a href='http://i.imgur.com/GHXNTXU.png' target='_blank'>value from this image</a> to adjust the boar lure destination at the town center. Add 12 to the normal value (0 to 11) to shift the point down to the grid corner. If set to 0, lurers will attempt to reach the center tile of the town center.";
-
-	*/
+
+
+snPercentCivilianExplorers.id = 0;
+snPercentCivilianExplorers.snName = "sn-percent-civilian-explorers";
+snPercentCivilianExplorers.category = "Economy";
+snPercentCivilianExplorers.default = 34;
+snPercentCivilianExplorers.min = -32767;
+snPercentCivilianExplorers.max = 32768;
+snPercentCivilianExplorers.rmin = 0;
+snPercentCivilianExplorers.rmax = 100;
+snPercentCivilianExplorers.network = 0;
+snPercentCivilianExplorers.defined = 1;
+snPercentCivilianExplorers.available = 0;
+snPercentCivilianExplorers.version = "1.0c";
+snPercentCivilianExplorers.linked = [ 3, 35, 18 ];
+snPercentCivilianExplorers.related = [ 1, 2 ];
+snPercentCivilianExplorers.shortDescription = "Controls the normal, formula-based percentage of civilian explorers allocated.";
+
+snPercentCivilianBuilders.id = 1;
+snPercentCivilianBuilders.snName = "sn-percent-civilian-builders";
+snPercentCivilianBuilders.category = "Economy";
+snPercentCivilianBuilders.default = 0;
+snPercentCivilianBuilders.min = -32767;
+snPercentCivilianBuilders.max = 32768;
+snPercentCivilianBuilders.rmin = 0;
+snPercentCivilianBuilders.rmax = 100;
+snPercentCivilianBuilders.network = 0;
+snPercentCivilianBuilders.defined = 1;
+snPercentCivilianBuilders.available = 0;
+snPercentCivilianBuilders.version = "1.0c";
+snPercentCivilianBuilders.linked = [ 4, 253 ];
+snPercentCivilianBuilders.related = [ 0, 2 ];
+snPercentCivilianBuilders.shortDescription = "Controls the normal, formula-based percentage of builders allocated.";
+
+snPercentCivilianGatherers.id = 2;
+snPercentCivilianGatherers.snName = "sn-percent-civilian-gatherers";
+snPercentCivilianGatherers.category = "Economy";
+snPercentCivilianGatherers.default = 66;
+snPercentCivilianGatherers.min = -32767;
+snPercentCivilianGatherers.max = 32768;
+snPercentCivilianGatherers.rmin = 0;
+snPercentCivilianGatherers.rmax = 100;
+snPercentCivilianGatherers.network = 0;
+snPercentCivilianGatherers.defined = 1;
+snPercentCivilianGatherers.available = 0;
+snPercentCivilianGatherers.version = "1.0c";
+snPercentCivilianGatherers.linked = [ 5 ];
+snPercentCivilianGatherers.related = [ 0, 1 ];
+snPercentCivilianGatherers.shortDescription = "Controls the normal, formula-based percentage of gatherers allocated.";
+
+snCapCivilianExplorers.id = 3;
+snCapCivilianExplorers.snName = "sn-cap-civilian-explorers";
+snCapCivilianExplorers.category = "Economy";
+snCapCivilianExplorers.default = 2;
+snCapCivilianExplorers.min = -32767;
+snCapCivilianExplorers.max = 32768;
+snCapCivilianExplorers.rmin = -1;
+snCapCivilianExplorers.rmax = 32768;
+snCapCivilianExplorers.network = 0;
+snCapCivilianExplorers.defined = 1;
+snCapCivilianExplorers.available = 0;
+snCapCivilianExplorers.version = "1.0c";
+snCapCivilianExplorers.linked = [ 0, 35, 18 ];
+snCapCivilianExplorers.related = [ 4, 5 ];
+snCapCivilianExplorers.shortDescription = "Caps the number of civilian explorers allocated. Factored in after the percentage is calculated. Ignored when set to -1.";
+
+snCapCivilianBuilders.id = 4;
+snCapCivilianBuilders.snName = "sn-cap-civilian-builders";
+snCapCivilianBuilders.category = "Economy";
+snCapCivilianBuilders.default = 2;
+snCapCivilianBuilders.min = -32767;
+snCapCivilianBuilders.max = 32768;
+snCapCivilianBuilders.rmin = -1;
+snCapCivilianBuilders.rmax = 32768;
+snCapCivilianBuilders.network = 0;
+snCapCivilianBuilders.defined = 1;
+snCapCivilianBuilders.available = "available, however it must be at least 6-7 at all times, 10 if you will build walls, and 40-50 for wonder construction (100+ is recommended)";
+snCapCivilianBuilders.version = "1.0c";
+snCapCivilianBuilders.linked = [ 1, 253 ];
+snCapCivilianBuilders.related = [ 3, 5 ];
+snCapCivilianBuilders.shortDescription = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.";
+
+snCapCivilianGatherers.id = 5;
+snCapCivilianGatherers.snName = "sn-cap-civilian-gatherers";
+snCapCivilianGatherers.category = "Economy";
+snCapCivilianGatherers.default = -1;
+snCapCivilianGatherers.min = -32767;
+snCapCivilianGatherers.max = 32768;
+snCapCivilianGatherers.rmin = -1;
+snCapCivilianGatherers.rmax = 32768;
+snCapCivilianGatherers.network = 0;
+snCapCivilianGatherers.defined = 1;
+snCapCivilianGatherers.available = 0;
+snCapCivilianGatherers.version = "1.0c";
+snCapCivilianGatherers.linked = [ 2 ];
+snCapCivilianGatherers.related = [ 3, 4 ];
+snCapCivilianGatherers.shortDescription = "Caps the number of gatherers allocated. Factored in after the percentage is calculated. Ignored when set to -1.";
+
+snUnknownData006.id = 6;
+snUnknownData006.snName = "unknown-data-006";
+snUnknownData006.category = "None";
+snUnknownData006.default = -1;
+snUnknownData006.min = -32767;
+snUnknownData006.max = 32768;
+snUnknownData006.rmin = -32767;
+snUnknownData006.rmax = 32768;
+snUnknownData006.network = 0;
+snUnknownData006.defined = 0;
+snUnknownData006.available = 0;
+snUnknownData006.version = "1.0c";
+snUnknownData006.linked = [];
+snUnknownData006.related = [];
+snUnknownData006.shortDescription = "Unused.";
+
+snUnknownData007.id = 7;
+snUnknownData007.snName = "unknown-data-007";
+snUnknownData007.category = "None";
+snUnknownData007.default = -1;
+snUnknownData007.min = -32767;
+snUnknownData007.max = 32768;
+snUnknownData007.rmin = -32767;
+snUnknownData007.rmax = 32768;
+snUnknownData007.network = 0;
+snUnknownData007.defined = 0;
+snUnknownData007.available = 0;
+snUnknownData007.version = "1.0c";
+snUnknownData007.linked = [];
+snUnknownData007.related = [];
+snUnknownData007.shortDescription = "Unused.";
+
+snUnknownData008.id = 8;
+snUnknownData008.snName = "unknown-data-008";
+snUnknownData008.category = "None";
+snUnknownData008.default = -1;
+snUnknownData008.min = -32767;
+snUnknownData008.max = 32768;
+snUnknownData008.rmin = -32767;
+snUnknownData008.rmax = 32768;
+snUnknownData008.network = 0;
+snUnknownData008.defined = 0;
+snUnknownData008.available = 0;
+snUnknownData008.version = "1.0c";
+snUnknownData008.linked = [];
+snUnknownData008.related = [];
+snUnknownData008.shortDescription = "Unused.";
+
+snUnknownData009.id = 9;
+snUnknownData009.snName = "unknown-data-009";
+snUnknownData009.category = "None";
+snUnknownData009.default = -1;
+snUnknownData009.min = -32767;
+snUnknownData009.max = 32768;
+snUnknownData009.rmin = -32767;
+snUnknownData009.rmax = 32768;
+snUnknownData009.network = 0;
+snUnknownData009.defined = 0;
+snUnknownData009.available = 0;
+snUnknownData009.version = "1.0c";
+snUnknownData009.linked = [];
+snUnknownData009.related = [];
+snUnknownData009.shortDescription = "An unused strategic number";
+
+snUnknownData010.id = 10;
+snUnknownData010.snName = "unknown-data-010";
+snUnknownData010.category = "None";
+snUnknownData010.default = -1;
+snUnknownData010.min = -32767;
+snUnknownData010.max = 32768;
+snUnknownData010.rmin = -32767;
+snUnknownData010.rmax = 32768;
+snUnknownData010.network = 0;
+snUnknownData010.defined = 0;
+snUnknownData010.available = 0;
+snUnknownData010.version = "1.0c";
+snUnknownData010.linked = [];
+snUnknownData010.related = [];
+snUnknownData010.shortDescription = "Unused.";
+
+snUnknownData011.id = 11;
+snUnknownData011.snName = "unknown-data-011";
+snUnknownData011.default = -1;
+snUnknownData011.category = "None";
+snUnknownData011.min = -32767;
+snUnknownData011.max = 32768;
+snUnknownData011.rmin = -32767;
+snUnknownData011.rmax = 32768;
+snUnknownData011.network = 0;
+snUnknownData011.defined = 0;
+snUnknownData011.available = 0;
+snUnknownData011.version = "1.0c";
+snUnknownData011.linked = [];
+snUnknownData011.related = [];
+snUnknownData011.shortDescription = "Unused.";
+
+snUnknownData012.id = 12;
+snUnknownData012.snName = "unknown-data-012";
+snUnknownData012.default = -1;
+snUnknownData012.category = "None";
+snUnknownData012.min = -32767;
+snUnknownData012.max = 32768;
+snUnknownData012.rmin = -32767;
+snUnknownData012.rmax = 32768;
+snUnknownData012.network = 0;
+snUnknownData012.defined = 0;
+snUnknownData012.available = 0;
+snUnknownData012.version = "1.0c";
+snUnknownData012.linked = [];
+snUnknownData012.related = [];
+snUnknownData012.shortDescription = "Unused.";
+
+snUnknownData013.id = 13;
+snUnknownData013.snName = "unknown-data-013";
+snUnknownData013.default = -1;
+snUnknownData013.category = "None";
+snUnknownData013.min = -32767;
+snUnknownData013.max = 32768;
+snUnknownData013.rmin = -32767;
+snUnknownData013.rmax = 32768;
+snUnknownData013.network = 0;
+snUnknownData013.defined = 0;
+snUnknownData013.available = 0;
+snUnknownData013.version = "1.0c";
+snUnknownData013.linked = [];
+snUnknownData013.related = [];
+snUnknownData013.shortDescription = "Unused.";
+
+snUnknownData014.id = 14;
+snUnknownData014.snName = "unknown-data-014";
+snUnknownData014.default = -1;
+snUnknownData014.category = "None";
+snUnknownData014.min = -32767;
+snUnknownData014.max = 32768;
+snUnknownData014.rmin = -32767;
+snUnknownData014.rmax = 32768;
+snUnknownData014.network = 0;
+snUnknownData014.defined = 0;
+snUnknownData014.available = 0;
+snUnknownData014.version = "1.0c";
+snUnknownData014.linked = [];
+snUnknownData014.related = [];
+snUnknownData014.shortDescription = "Unused.";
+
+snUnknownData015.id = 15;
+snUnknownData015.snName = "unknown-data-015";
+snUnknownData015.default = -1;
+snUnknownData015.category = "None";
+snUnknownData015.min = -32767;
+snUnknownData015.max = 32768;
+snUnknownData015.rmin = -32767;
+snUnknownData015.rmax = 32768;
+snUnknownData015.network = 0;
+snUnknownData015.defined = 0;
+snUnknownData015.available = 0;
+snUnknownData015.version = "1.0c";
+snUnknownData015.linked = [];
+snUnknownData015.related = [];
+snUnknownData015.shortDescription = "Unused.";
+
+snMinimumAttackGroupSize.id = 16;
+snMinimumAttackGroupSize.snName = "sn-minimum-attack-group-size";
+snMinimumAttackGroupSize.default = 4;
+snMinimumAttackGroupSize.category = "Attack";
+snMinimumAttackGroupSize.min = -32767;
+snMinimumAttackGroupSize.max = 32768;
+snMinimumAttackGroupSize.rmin = 0;
+snMinimumAttackGroupSize.rmax = 32768;
+snMinimumAttackGroupSize.network = 0;
+snMinimumAttackGroupSize.defined = 1;
+snMinimumAttackGroupSize.available = 0;
+snMinimumAttackGroupSize.version = "1.0c";
+snMinimumAttackGroupSize.linked = [ 26, 36 ];
+snMinimumAttackGroupSize.related = [ 58, 60, 59, 94, 93, 41, 98 ];
+snMinimumAttackGroupSize.shortDescription = "Sets the minimum size of land-based attack groups. A group must meet its minimum size as one of the tasking prerequisites. The game can change this itself during the game.";
+
+snUnknownData017.id = 17;
+snUnknownData017.snName = "unknown-data-017";
+snUnknownData017.default = -1;
+snUnknownData017.category = "None";
+snUnknownData017.min = -32767;
+snUnknownData017.max = 32768;
+snUnknownData017.rmin = -32767;
+snUnknownData017.rmax = 32768;
+snUnknownData017.network = 0;
+snUnknownData017.defined = 0;
+snUnknownData017.available = 0;
+snUnknownData017.version = "1.0c";
+snUnknownData017.linked = [];
+snUnknownData017.related = [];
+snUnknownData017.shortDescription = "Unused.";
+
+snTotalNumberExplorers.id = 18;
+snTotalNumberExplorers.snName = "sn-total-number-explorers";
+snTotalNumberExplorers.default = 4;
+snTotalNumberExplorers.category = "Explore";
+snTotalNumberExplorers.min = -32767;
+snTotalNumberExplorers.max = 32768;
+snTotalNumberExplorers.rmin = -1;
+snTotalNumberExplorers.rmax = 32768;
+snTotalNumberExplorers.network = 0;
+snTotalNumberExplorers.defined = 1;
+snTotalNumberExplorers.available = 0;
+snTotalNumberExplorers.version = "1.0c";
+snTotalNumberExplorers.linked = [ 42, 61 ];
+snTotalNumberExplorers.related = [ 3, 0, 35 ];
+snTotalNumberExplorers.shortDescription = "Caps the total number of land explorers allocated. Factored in after the percentage of civilian explorers is calculated and the soldier groups are set up. Ignored when set to -1.";
+
+snPercentEnemySightedResponse.id = 19;
+snPercentEnemySightedResponse.snName = "sn-percent-enemy-sighted-response";
+snPercentEnemySightedResponse.default = 50;
+snPercentEnemySightedResponse.category = "Defense";
+snPercentEnemySightedResponse.min = -32767;
+snPercentEnemySightedResponse.max = 32768;
+snPercentEnemySightedResponse.rmin = 0;
+snPercentEnemySightedResponse.rmax = 100;
+snPercentEnemySightedResponse.network = 0;
+snPercentEnemySightedResponse.defined = 1;
+snPercentEnemySightedResponse.available = 0;
+snPercentEnemySightedResponse.version = "1.0c";
+snPercentEnemySightedResponse.linked = [ 20, 284 ];
+snPercentEnemySightedResponse.related = [ 34 ];
+snPercentEnemySightedResponse.shortDescription = "Sets the percentage of idle troops that will respond to another unit being attacked.";
+
+snEnemySightedResponseDistance.id = 20;
+snEnemySightedResponseDistance.snName = "sn-enemy-sighted-response-distance";
+snEnemySightedResponseDistance.default = 25;
+snEnemySightedResponseDistance.category = "Attack";
+snEnemySightedResponseDistance.min = -32767;
+snEnemySightedResponseDistance.max = 50;
+snEnemySightedResponseDistance.rmin = 0;
+snEnemySightedResponseDistance.rmax = 50;
+snEnemySightedResponseDistance.network = 0;
+snEnemySightedResponseDistance.defined = 1;
+snEnemySightedResponseDistance.available = 0;
+snEnemySightedResponseDistance.version = "1.0c";
+snEnemySightedResponseDistance.linked = [ 19, 284 ];
+snEnemySightedResponseDistance.related = [ 34 ];
+snEnemySightedResponseDistance.shortDescription = "Sets the distance inside of which units will be candidates for response to an enemy attack.";
+
+snUnknownData021.id = 21;
+snUnknownData021.snName = "unknown-data-021";
+snUnknownData021.default = -1;
+snUnknownData021.category = "None";
+snUnknownData021.min = -32767;
+snUnknownData021.max = 32768;
+snUnknownData021.rmin = -32767;
+snUnknownData021.rmax = 32768;
+snUnknownData021.network = 0;
+snUnknownData021.defined = 0;
+snUnknownData021.available = 0;
+snUnknownData021.version = "1.0c";
+snUnknownData021.linked = [];
+snUnknownData021.related = [];
+snUnknownData021.shortDescription = "Unused.";
+
+snSentryDistance.id = 22;
+snSentryDistance.snName = "sn-sentry-distance";
+snSentryDistance.default = 12;
+snSentryDistance.category = "Defense";
+snSentryDistance.min = -32767;
+snSentryDistance.max = 32768;
+snSentryDistance.rmin = 0;
+snSentryDistance.rmax = 255;
+snSentryDistance.network = 0;
+snSentryDistance.defined = 1;
+snSentryDistance.available = 0;
+snSentryDistance.version = "1.0c";
+snSentryDistance.linked = [ 72 ];
+snSentryDistance.related = [ 57, 92 ];
+snSentryDistance.shortDescription = "Sets the distance at which the town is defended.";
+
+snRelicReturnDistance.id = 23;
+snRelicReturnDistance.snName = "sn-relic-return-distance";
+snRelicReturnDistance.default = 10;
+snRelicReturnDistance.category = "Economy";
+snRelicReturnDistance.min = -32767;
+snRelicReturnDistance.max = 32768;
+snRelicReturnDistance.rmin = 0;
+snRelicReturnDistance.rmax = 255;
+snRelicReturnDistance.network = 0;
+snRelicReturnDistance.defined = 1;
+snRelicReturnDistance.available = 0;
+snRelicReturnDistance.version = "1.0c";
+snRelicReturnDistance.linked = [];
+snRelicReturnDistance.related = [];
+snRelicReturnDistance.shortDescription = "Sets the distance that relics must be within to be considered returned to the Town Center.";
+
+snPercentVictoryClamp.id = 24;
+snPercentVictoryClamp.snName = "sn-percent-victory-clamp";
+snPercentVictoryClamp.default = 75;
+snPercentVictoryClamp.category = "Other";
+snPercentVictoryClamp.min = -32767;
+snPercentVictoryClamp.max = 32768;
+snPercentVictoryClamp.rmin = 0;
+snPercentVictoryClamp.rmax = 100;
+snPercentVictoryClamp.network = 0;
+snPercentVictoryClamp.defined = 0;
+snPercentVictoryClamp.available = "seems available, except for when teams-locked is disabled";
+snPercentVictoryClamp.version = "1.0c";
+snPercentVictoryClamp.linked = [];
+snPercentVictoryClamp.related = [];
+snPercentVictoryClamp.shortDescription = "Undocumented.";
+
+snMinimumDefendGroupSize.id = 25;
+snMinimumDefendGroupSize.snName = "sn-minimum-defend-group-size";
+snMinimumDefendGroupSize.default = 1;
+snMinimumDefendGroupSize.category = "Defense";
+snMinimumDefendGroupSize.min = -32767;
+snMinimumDefendGroupSize.max = 32768;
+snMinimumDefendGroupSize.rmin = 0;
+snMinimumDefendGroupSize.rmax = 32768;
+snMinimumDefendGroupSize.network = 0;
+snMinimumDefendGroupSize.defined = 1;
+snMinimumDefendGroupSize.available = 0;
+snMinimumDefendGroupSize.version = "1.0c";
+snMinimumDefendGroupSize.linked = [ 28, 38 ];
+snMinimumDefendGroupSize.related = [ 67, 69, 68 ];
+snMinimumDefendGroupSize.shortDescription = "Sets the minimum size of land-based defend groups. A group must meet its minimum size as one of the tasking prerequisites.";
+
+snMaximumAttackGroupSize.id = 26;
+snMaximumAttackGroupSize.snName = "sn-maximum-attack-group-size";
+snMaximumAttackGroupSize.default = 10;
+snMaximumAttackGroupSize.category = "Attack";
+snMaximumAttackGroupSize.min = -32767;
+snMaximumAttackGroupSize.max = 32768;
+snMaximumAttackGroupSize.rmin = 0;
+snMaximumAttackGroupSize.rmax = 32768;
+snMaximumAttackGroupSize.network = 0;
+snMaximumAttackGroupSize.defined = 1;
+snMaximumAttackGroupSize.available = 0;
+snMaximumAttackGroupSize.version = "1.0c";
+snMaximumAttackGroupSize.linked = [ 16, 36 ];
+snMaximumAttackGroupSize.related = [ 58, 60, 59, 94, 93, 41, 98 ];
+snMaximumAttackGroupSize.shortDescription = "Sets the maximum size of land-based attack groups.";
+
+snUnknownData027.id = 27;
+snUnknownData027.snName = "unknown-data-027";
+snUnknownData027.default = -1;
+snUnknownData027.category = "None";
+snUnknownData027.min = -32767;
+snUnknownData027.max = 32768;
+snUnknownData027.rmin = -32767;
+snUnknownData027.rmax = 32768;
+snUnknownData027.network = 0;
+snUnknownData027.defined = 0;
+snUnknownData027.available = 0;
+snUnknownData027.version = "1.0c";
+snUnknownData027.linked = [];
+snUnknownData027.related = [];
+snUnknownData027.shortDescription = "Unused.";
+
+snMaximumDefendGroupSize.id = 28;
+snMaximumDefendGroupSize.snName = "sn-maximum-defend-group-size";
+snMaximumDefendGroupSize.default = 4;
+snMaximumDefendGroupSize.category = "Defense";
+snMaximumDefendGroupSize.min = -32767;
+snMaximumDefendGroupSize.max = 32768;
+snMaximumDefendGroupSize.rmin = 0;
+snMaximumDefendGroupSize.rmax = 32768;
+snMaximumDefendGroupSize.network = 0;
+snMaximumDefendGroupSize.defined = 1;
+snMaximumDefendGroupSize.available = 0;
+snMaximumDefendGroupSize.version = "1.0c";
+snMaximumDefendGroupSize.linked = [ 25, 38 ];
+snMaximumDefendGroupSize.related = [ 67, 69, 68 ];
+snMaximumDefendGroupSize.shortDescription = "Sets the maximum size of land-based defend groups.";
+
+snMinimumPeaceLikeLevel.id = 29;
+snMinimumPeaceLikeLevel.snName = "sn-minimum-peace-like-level";
+snMinimumPeaceLikeLevel.default = 85;
+snMinimumPeaceLikeLevel.category = "Defense";
+snMinimumPeaceLikeLevel.min = -32767;
+snMinimumPeaceLikeLevel.max = 32768;
+snMinimumPeaceLikeLevel.rmin = 0;
+snMinimumPeaceLikeLevel.rmax = 100;
+snMinimumPeaceLikeLevel.network = 0;
+snMinimumPeaceLikeLevel.defined = 1;
+snMinimumPeaceLikeLevel.available = 0;
+snMinimumPeaceLikeLevel.version = "1.0c";
+snMinimumPeaceLikeLevel.linked = [];
+snMinimumPeaceLikeLevel.related = [];
+snMinimumPeaceLikeLevel.shortDescription = "Sets the level at which computer players must like another player before allying with that player.";
+
+snPercentHealthRetreat.id = 30;
+snPercentHealthRetreat.snName = "sn-percent-health-retreat";
+snPercentHealthRetreat.default = -1;
+snPercentHealthRetreat.category = "AoE 1";
+snPercentHealthRetreat.min = -32767;
+snPercentHealthRetreat.max = 32768;
+snPercentHealthRetreat.rmin = 0;
+snPercentHealthRetreat.rmax = 100;
+snPercentHealthRetreat.network = 0;
+snPercentHealthRetreat.defined = 0;
+snPercentHealthRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-health-retreat (95)";
+snPercentHealthRetreat.version = "1.0c";
+snPercentHealthRetreat.linked = [ 95 ];
+snPercentHealthRetreat.related = [];
+snPercentHealthRetreat.shortDescription = "AoE 1 only. Sets the percentage of hit points that a group can lose (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
+
+snPercentDeathRetreat.id = 31;
+snPercentDeathRetreat.snName = "sn-percent-death-retreat";
+snPercentDeathRetreat.default = -1;
+snPercentDeathRetreat.category = "AoE 1";
+snPercentDeathRetreat.min = -32767;
+snPercentDeathRetreat.max = 32768;
+snPercentDeathRetreat.rmin = 0;
+snPercentDeathRetreat.rmax = 100;
+snPercentDeathRetreat.network = 0;
+snPercentDeathRetreat.defined = 0;
+snPercentDeathRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-death-retreat (96)";
+snPercentDeathRetreat.version = "1.0c";
+snPercentDeathRetreat.linked = [ 96 ];
+snPercentDeathRetreat.related = [];
+snPercentDeathRetreat.shortDescription = "AoE 1 only. Sets the percentage of units that a group can let die (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
+
+snPercentExplorationRequired.id = 32;
+snPercentExplorationRequired.snName = "sn-percent-exploration-required";
+snPercentExplorationRequired.default = 100;
+snPercentExplorationRequired.category = "Explore";
+snPercentExplorationRequired.min = -32767;
+snPercentExplorationRequired.max = 32768;
+snPercentExplorationRequired.rmin = 0;
+snPercentExplorationRequired.rmax = 100;
+snPercentExplorationRequired.network = 0;
+snPercentExplorationRequired.defined = 1;
+snPercentExplorationRequired.available = 0;
+snPercentExplorationRequired.version = "1.0c";
+snPercentExplorationRequired.linked = [ 167, 179, 256 ];
+snPercentExplorationRequired.related = [ 135, 136 ];
+snPercentExplorationRequired.shortDescription = "Sets the minimum amount of exploration that a computer player must have accomplished before being allowed to retask civilian explorers.";
+
+snUnknownData033.id = 33;
+snUnknownData033.snName = "unknown-data-033";
+snUnknownData033.default = -1;
+snUnknownData033.category = "None";
+snUnknownData033.min = -32767;
+snUnknownData033.max = 32768;
+snUnknownData033.rmin = -32767;
+snUnknownData033.rmax = 32768;
+snUnknownData033.network = 0;
+snUnknownData033.defined = 0;
+snUnknownData033.available = 0;
+snUnknownData033.version = "1.0c";
+snUnknownData033.linked = [];
+snUnknownData033.related = [];
+snUnknownData033.shortDescription = "Unused.";
+
+snZeroPriorityDistance.id = 34;
+snZeroPriorityDistance.snName = "sn-zero-priority-distance";
+snZeroPriorityDistance.default = 50;
+snZeroPriorityDistance.category = "Other";
+snZeroPriorityDistance.min = -32767;
+snZeroPriorityDistance.max = 32768;
+snZeroPriorityDistance.rmin = 0;
+snZeroPriorityDistance.rmax = 255;
+snZeroPriorityDistance.network = 0;
+snZeroPriorityDistance.defined = 1;
+snZeroPriorityDistance.available = 0;
+snZeroPriorityDistance.version = "1.0c";
+snZeroPriorityDistance.linked = [];
+snZeroPriorityDistance.related = [ 19, 20 ];
+snZeroPriorityDistance.shortDescription = "Sets the distance at which a computer player's order for a unit is set to a priority of 0.";
+
+snMinimumCivilianExplorers.id = 35;
+snMinimumCivilianExplorers.snName = "sn-minimum-civilian-explorers";
+snMinimumCivilianExplorers.default = 0;
+snMinimumCivilianExplorers.category = "Explore";
+snMinimumCivilianExplorers.min = -32767;
+snMinimumCivilianExplorers.max = 32768;
+snMinimumCivilianExplorers.rmin = 0;
+snMinimumCivilianExplorers.rmax = 32768;
+snMinimumCivilianExplorers.network = 0;
+snMinimumCivilianExplorers.defined = 1;
+snMinimumCivilianExplorers.available = 0;
+snMinimumCivilianExplorers.version = "1.0c";
+snMinimumCivilianExplorers.linked = [ 3, 0 ];
+snMinimumCivilianExplorers.related = [ 18 ];
+snMinimumCivilianExplorers.shortDescription = "Sets a minimum number of civilian explorers.";
+
+snNumberAttackGroups.id = 36;
+snNumberAttackGroups.snName = "sn-number-attack-groups";
+snNumberAttackGroups.default = 0;
+snNumberAttackGroups.category = "Attack";
+snNumberAttackGroups.min = -32767;
+snNumberAttackGroups.max = 32768;
+snNumberAttackGroups.rmin = 0;
+snNumberAttackGroups.rmax = 32768;
+snNumberAttackGroups.network = 0;
+snNumberAttackGroups.defined = 1;
+snNumberAttackGroups.available = 0;
+snNumberAttackGroups.version = "1.0c";
+snNumberAttackGroups.linked = [ 26, 16 ];
+snNumberAttackGroups.related = [ 58, 60, 59, 41, 98, 227, 247, 271 ];
+snNumberAttackGroups.shortDescription = "Sets the desired number of land-based attack groups. Sn-percent-attack-soldiers generally works better.";
+
+snAttackGroupMakeup.id = 37;
+snAttackGroupMakeup.snName = "sn-attack-group-makeup";
+snAttackGroupMakeup.default = 0;
+snAttackGroupMakeup.category = "Attack";
+snAttackGroupMakeup.min = -32767;
+snAttackGroupMakeup.max = 32768;
+snAttackGroupMakeup.rmin = -32767;
+snAttackGroupMakeup.rmax = 32768;
+snAttackGroupMakeup.network = 0;
+snAttackGroupMakeup.defined = 0;
+snAttackGroupMakeup.available = "seems available";
+snAttackGroupMakeup.version = "1.0c";
+snAttackGroupMakeup.linked = [];
+snAttackGroupMakeup.related = [ 39, 45 ];
+snAttackGroupMakeup.shortDescription = "Undocumented.";
+
+snNumberDefendGroups.id = 38;
+snNumberDefendGroups.snName = "sn-number-defend-groups";
+snNumberDefendGroups.default = 0;
+snNumberDefendGroups.category = "Defense";
+snNumberDefendGroups.min = -32767;
+snNumberDefendGroups.max = 32768;
+snNumberDefendGroups.rmin = 0;
+snNumberDefendGroups.rmax = 32768;
+snNumberDefendGroups.network = 0;
+snNumberDefendGroups.defined = 1;
+snNumberDefendGroups.available = 0;
+snNumberDefendGroups.version = "1.0c";
+snNumberDefendGroups.linked = [ 28, 25 ];
+snNumberDefendGroups.related = [ 67, 69, 68 ];
+snNumberDefendGroups.shortDescription = "Sets the desired number of land-based defend groups.";
+
+snDefendGroupMakeup.id = 39;
+snDefendGroupMakeup.snName = "sn-defend-group-makeup";
+snDefendGroupMakeup.default = 0;
+snDefendGroupMakeup.category = "Defense";
+snDefendGroupMakeup.min = -32767;
+snDefendGroupMakeup.max = 32768;
+snDefendGroupMakeup.rmin = -32767;
+snDefendGroupMakeup.rmax = 32768;
+snDefendGroupMakeup.network = 0;
+snDefendGroupMakeup.defined = 0;
+snDefendGroupMakeup.available = 1;
+snDefendGroupMakeup.version = "1.0c";
+snDefendGroupMakeup.linked = [];
+snDefendGroupMakeup.related = [ 37, 45 ];
+snDefendGroupMakeup.shortDescription = "Undocumented.";
+
+snGroupFillMethod.id = 40;
+snGroupFillMethod.snName = "sn-group-fill-method";
+snGroupFillMethod.default = -1;
+snGroupFillMethod.category = "AoE 1";
+snGroupFillMethod.min = -32767;
+snGroupFillMethod.max = 32768;
+snGroupFillMethod.rmin = 0;
+snGroupFillMethod.rmax = 1;
+snGroupFillMethod.network = 0;
+snGroupFillMethod.defined = 0;
+snGroupFillMethod.available = "seems available";
+snGroupFillMethod.version = "1.0c";
+snGroupFillMethod.linked = [];
+snGroupFillMethod.related = [];
+snGroupFillMethod.shortDescription = "AoE 1 only. Sets the method by which a computer player fills a group of units. There are two concepts here: single group fill and level group fill. In single group fill, all available units are put into the first non-minimally full group. Once that group is full, the next group is entirely filled before the third group is considered. In level group fill, all groups are filled at the same time (one unit is placed in the first group, the next in the second, etc.). The single group fill fills up to the minimum in each group, then goes to the level group fill. Both methods respect the maximum group sizes. 0 keys the single group fill, and 1 keys the level group fill. Must be 0 or 1.";
+
+snAttackGroupGatherSpacing.id = 41;
+snAttackGroupGatherSpacing.snName = "sn-attack-group-gather-spacing";
+snAttackGroupGatherSpacing.default = 4;
+snAttackGroupGatherSpacing.category = "Attack";
+snAttackGroupGatherSpacing.min = -32767;
+snAttackGroupGatherSpacing.max = 32768;
+snAttackGroupGatherSpacing.rmin = 1;
+snAttackGroupGatherSpacing.rmax = 255;
+snAttackGroupGatherSpacing.network = 0;
+snAttackGroupGatherSpacing.defined = 1;
+snAttackGroupGatherSpacing.available = 0;
+snAttackGroupGatherSpacing.version = "1.0c";
+snAttackGroupGatherSpacing.linked = [];
+snAttackGroupGatherSpacing.related = [ 98, 36, 26, 16, 58, 60, 59 ];
+snAttackGroupGatherSpacing.shortDescription = "Controls the relative proximity (to the group gather point) that grouped units must be in before the group is considered gathered.";
+
+snNumberExploreGroups.id = 42;
+snNumberExploreGroups.snName = "sn-number-explore-groups";
+snNumberExploreGroups.default = 0;
+snNumberExploreGroups.category = "Explore";
+snNumberExploreGroups.min = -32767;
+snNumberExploreGroups.max = 32768;
+snNumberExploreGroups.rmin = 0;
+snNumberExploreGroups.rmax = 32768;
+snNumberExploreGroups.network = 0;
+snNumberExploreGroups.defined = 1;
+snNumberExploreGroups.available = 0;
+snNumberExploreGroups.version = "1.0c";
+snNumberExploreGroups.linked = [ 44, 43 ];
+snNumberExploreGroups.related = [ 61, 63, 62, 18 ];
+snNumberExploreGroups.shortDescription = "Sets the desired number of land-based soldier exploration groups.";
+
+snMinimumExploreGroupSize.id = 43;
+snMinimumExploreGroupSize.snName = "sn-minimum-explore-group-size";
+snMinimumExploreGroupSize.default = 1;
+snMinimumExploreGroupSize.category = "Explore";
+snMinimumExploreGroupSize.min = -32767;
+snMinimumExploreGroupSize.max = 1;
+snMinimumExploreGroupSize.rmin = 0;
+snMinimumExploreGroupSize.rmax = 1;
+snMinimumExploreGroupSize.network = 0;
+snMinimumExploreGroupSize.defined = 1;
+snMinimumExploreGroupSize.available = 0;
+snMinimumExploreGroupSize.version = "1.0c";
+snMinimumExploreGroupSize.linked = [ 44, 42 ];
+snMinimumExploreGroupSize.related = [ 61, 63, 62, 18 ];
+snMinimumExploreGroupSize.shortDescription = "Sets the minimum size of land-based soldier exploration groups. A group must meet its minimum size as one of the tasking prerequisites.";
+
+snMaximumExploreGroupSize.id = 44;
+snMaximumExploreGroupSize.snName = "sn-maximum-explore-group-size";
+snMaximumExploreGroupSize.default = 1;
+snMaximumExploreGroupSize.category = "Explore";
+snMaximumExploreGroupSize.min = -32767;
+snMaximumExploreGroupSize.max = 1;
+snMaximumExploreGroupSize.rmin = 0;
+snMaximumExploreGroupSize.rmax = 1;
+snMaximumExploreGroupSize.network = 0;
+snMaximumExploreGroupSize.defined = 1;
+snMaximumExploreGroupSize.available = 0;
+snMaximumExploreGroupSize.version = "1.0c";
+snMaximumExploreGroupSize.linked = [ 43, 42 ];
+snMaximumExploreGroupSize.related = [ 61, 63, 62, 18 ];
+snMaximumExploreGroupSize.shortDescription = "Sets the maximum size of land-based soldier exploration groups.";
+
+snExploreGroupMakeup.id = 45;
+snExploreGroupMakeup.snName = "sn-explore-group-makeup";
+snExploreGroupMakeup.default = 0;
+snExploreGroupMakeup.category = "Explore";
+snExploreGroupMakeup.min = -32767;
+snExploreGroupMakeup.max = 32768;
+snExploreGroupMakeup.rmin = -32767;
+snExploreGroupMakeup.rmax = 32768;
+snExploreGroupMakeup.network = 0;
+snExploreGroupMakeup.defined = 0;
+snExploreGroupMakeup.available = 1;
+snExploreGroupMakeup.version = "1.0c";
+snExploreGroupMakeup.linked = [];
+snExploreGroupMakeup.related = [ 37, 39 ];
+snExploreGroupMakeup.shortDescription = "Undocumented.";
+
+snAttackSeparationTime.id = 46;
+snAttackSeparationTime.snName = "sn-attack-separation-time";
+snAttackSeparationTime.default = -1;
+snAttackSeparationTime.category = "AoE 1";
+snAttackSeparationTime.min = -32767;
+snAttackSeparationTime.max = 32768;
+snAttackSeparationTime.rmin = 0;
+snAttackSeparationTime.rmax = 32768;
+snAttackSeparationTime.network = 0;
+snAttackSeparationTime.defined = 0;
+snAttackSeparationTime.available = "seems available, but leave it for later";
+snAttackSeparationTime.version = "1.0c";
+snAttackSeparationTime.linked = [ 102 ];
+snAttackSeparationTime.related = [ 48, 71 ];
+snAttackSeparationTime.shortDescription = "AoE 1 only. Sets the amount of time that must pass between computer player attacks. Must be &gt;= 0.";
+
+snAttackCoordination.id = 47;
+snAttackCoordination.snName = "sn-attack-coordination";
+snAttackCoordination.default = -1;
+snAttackCoordination.category = "AoE 1";
+snAttackCoordination.min = -32767;
+snAttackCoordination.max = 32768;
+snAttackCoordination.rmin = 0;
+snAttackCoordination.rmax = 2;
+snAttackCoordination.network = 0;
+snAttackCoordination.defined = 0;
+snAttackCoordination.available = "seems available, but leave it for later";
+snAttackCoordination.version = "1.0c";
+snAttackCoordination.linked = [];
+snAttackCoordination.related = [ 103 ];
+snAttackCoordination.shortDescription = "AoE 1 only. Selects the type of coordination between computer player attacks. 0 means no coordination. 1 means that one group may attack at a time. 2 means that multiple groups may attack at the same time. Must be &gt;= 0 and &lt;= 2.";
+
+snAttackResponseSeparationTime.id = 48;
+snAttackResponseSeparationTime.snName = "sn-attack-response-separation-time";
+snAttackResponseSeparationTime.default = -1;
+snAttackResponseSeparationTime.category = "AoE 1";
+snAttackResponseSeparationTime.min = -32767;
+snAttackResponseSeparationTime.max = 32768;
+snAttackResponseSeparationTime.rmin = 0;
+snAttackResponseSeparationTime.rmax = 32768;
+snAttackResponseSeparationTime.network = 0;
+snAttackResponseSeparationTime.defined = 0;
+snAttackResponseSeparationTime.available = "seems available, but leave it for later";
+snAttackResponseSeparationTime.version = "1.0c";
+snAttackResponseSeparationTime.linked = [];
+snAttackResponseSeparationTime.related = [ 46, 71 ];
+snAttackResponseSeparationTime.shortDescription = "AoE 1 only. Sets the amount of time that must pass before units respond to a subsequent enemy attack distress call. Must be &gt;= 0.";
+
+snRetreatAfterTargetDestroyed.id = 49;
+snRetreatAfterTargetDestroyed.snName = "sn-retreat-after-target-destroyed";
+snRetreatAfterTargetDestroyed.default = -1;
+snRetreatAfterTargetDestroyed.category = "AoE 1";
+snRetreatAfterTargetDestroyed.min = -32767;
+snRetreatAfterTargetDestroyed.max = 32768;
+snRetreatAfterTargetDestroyed.rmin = 0;
+snRetreatAfterTargetDestroyed.rmax = 3;
+snRetreatAfterTargetDestroyed.network = 0;
+snRetreatAfterTargetDestroyed.defined = 0;
+snRetreatAfterTargetDestroyed.available = "seems available, but leave it for later";
+snRetreatAfterTargetDestroyed.version = "1.0c";
+snRetreatAfterTargetDestroyed.linked = [];
+snRetreatAfterTargetDestroyed.related = [];
+snRetreatAfterTargetDestroyed.shortDescription = "AoE 1 only. Selects what happens when a target is destroyed during an attack. 0 means that the attack group will never retreat and will recenter upon their current position. 1 means that the group will retreat if no other target is reachable. 2 means that the group will always retreat when the target is destroyed. 3 means that the group will go into extermination mode; they will explore unexplored territory and attack any enemies units they uncover. Must be &gt;= 0 and &lt;= 3.";
+
+snGoldDefendPriority.id = 50;
+snGoldDefendPriority.snName = "sn-gold-defend-priority";
+snGoldDefendPriority.default = 0;
+snGoldDefendPriority.category = "Defense";
+snGoldDefendPriority.min = -32767;
+snGoldDefendPriority.max = 32768;
+snGoldDefendPriority.rmin = 0;
+snGoldDefendPriority.rmax = 1;
+snGoldDefendPriority.network = 0;
+snGoldDefendPriority.defined = 1;
+snGoldDefendPriority.available = 0;
+snGoldDefendPriority.version = "1.0c";
+snGoldDefendPriority.linked = [];
+snGoldDefendPriority.related = [ 56, 70, 52, 51, 55, 54, 53, 287 ];
+snGoldDefendPriority.shortDescription = "Sets the priority of defending gold. A priority of 0 means that gold will not be defended. A priority of 1 means that gold has the highest defend priority.";
+
+snStoneDefendPriority.id = 51;
+snStoneDefendPriority.snName = "sn-stone-defend-priority";
+snStoneDefendPriority.default = 0;
+snStoneDefendPriority.category = "Defense";
+snStoneDefendPriority.min = -32767;
+snStoneDefendPriority.max = 32768;
+snStoneDefendPriority.rmin = 0;
+snStoneDefendPriority.rmax = 1;
+snStoneDefendPriority.network = 0;
+snStoneDefendPriority.defined = 1;
+snStoneDefendPriority.available = 0;
+snStoneDefendPriority.version = "1.0c";
+snStoneDefendPriority.linked = [];
+snStoneDefendPriority.related = [ 56, 70, 52, 50, 55, 54, 53, 287 ];
+snStoneDefendPriority.shortDescription = "Sets the priority of defending stone.";
+
+snForageDefendPriority.id = 52;
+snForageDefendPriority.snName = "sn-forage-defend-priority";
+snForageDefendPriority.default = 0;
+snForageDefendPriority.category = "Defense";
+snForageDefendPriority.min = -32767;
+snForageDefendPriority.max = 32768;
+snForageDefendPriority.rmin = 0;
+snForageDefendPriority.rmax = 1;
+snForageDefendPriority.network = 0;
+snForageDefendPriority.defined = 1;
+snForageDefendPriority.available = 0;
+snForageDefendPriority.version = "1.0c";
+snForageDefendPriority.linked = [];
+snForageDefendPriority.related = [ 56, 70, 51, 50, 55, 54, 53, 287 ];
+snForageDefendPriority.shortDescription = "Sets the priority of defending forage sites.";
+
+snChokePointDefendPriority.id = 53;
+snChokePointDefendPriority.snName = "sn-choke-point-defend-priority";
+snChokePointDefendPriority.default = 0;
+snChokePointDefendPriority.category = "Defense";
+snChokePointDefendPriority.min = -32767;
+snChokePointDefendPriority.max = 32768;
+snChokePointDefendPriority.rmin = 0;
+snChokePointDefendPriority.rmax = 1;
+snChokePointDefendPriority.network = 0;
+snChokePointDefendPriority.defined = 0;
+snChokePointDefendPriority.available = 1;
+snChokePointDefendPriority.version = "1.0c";
+snChokePointDefendPriority.linked = [];
+snChokePointDefendPriority.related = [ 56, 70, 52, 51, 50, 55, 54, 287 ];
+snChokePointDefendPriority.shortDescription = "Sets the priority of defending choke points. Undocumented.";
+
+snRuinsDefendPriority.id = 54;
+snRuinsDefendPriority.snName = "sn-ruins-defend-priority";
+snRuinsDefendPriority.default = 0;
+snRuinsDefendPriority.category = "AoE 1";
+snRuinsDefendPriority.min = -32767;
+snRuinsDefendPriority.max = 32768;
+snRuinsDefendPriority.rmin = 0;
+snRuinsDefendPriority.rmax = 7;
+snRuinsDefendPriority.network = 0;
+snRuinsDefendPriority.defined = 0;
+snRuinsDefendPriority.available = 0;
+snRuinsDefendPriority.version = "1.0c";
+snRuinsDefendPriority.linked = [];
+snRuinsDefendPriority.related = [ 56, 70, 52, 51, 50, 55, 53, 287 ];
+snRuinsDefendPriority.shortDescription = "AoE 1 only. Sets the priority of defending ruins.";
+
+snRelicDefendPriority.id = 55;
+snRelicDefendPriority.snName = "sn-relic-defend-priority";
+snRelicDefendPriority.default = 0;
+snRelicDefendPriority.category = "Defense";
+snRelicDefendPriority.min = -32767;
+snRelicDefendPriority.max = 32768;
+snRelicDefendPriority.rmin = 0;
+snRelicDefendPriority.rmax = 7;
+snRelicDefendPriority.network = 0;
+snRelicDefendPriority.defined = 1;
+snRelicDefendPriority.available = 1;
+snRelicDefendPriority.version = "1.0c";
+snRelicDefendPriority.linked = [];
+snRelicDefendPriority.related = [ 56, 70, 52, 51, 50, 54, 53, 287 ];
+snRelicDefendPriority.shortDescription = "Sets the priority of defending relic carts.";
+
+snTownDefendPriority.id = 56;
+snTownDefendPriority.snName = "sn-town-defend-priority";
+snTownDefendPriority.default = 7;
+snTownDefendPriority.category = "Defense";
+snTownDefendPriority.min = -32767;
+snTownDefendPriority.max = 32768;
+snTownDefendPriority.rmin = 0;
+snTownDefendPriority.rmax = 7;
+snTownDefendPriority.network = 0;
+snTownDefendPriority.defined = 1;
+snTownDefendPriority.available = 0;
+snTownDefendPriority.version = "1.0c";
+snTownDefendPriority.linked = [];
+snTownDefendPriority.related = [ 70, 52, 51, 50, 55, 54, 53, 287 ];
+snTownDefendPriority.shortDescription = "Sets the priority of defending the computer player's town.";
+
+snDefenseDistance.id = 57;
+snDefenseDistance.snName = "sn-defense-distance";
+snDefenseDistance.default = 3;
+snDefenseDistance.category = "Defense";
+snDefenseDistance.min = -32767;
+snDefenseDistance.max = 32768;
+snDefenseDistance.rmin = 0;
+snDefenseDistance.rmax = 255;
+snDefenseDistance.network = 0;
+snDefenseDistance.defined = 1;
+snDefenseDistance.available = 0;
+snDefenseDistance.version = "1.0c";
+snDefenseDistance.linked = [];
+snDefenseDistance.related = [ 92, 22, 72 ];
+snDefenseDistance.shortDescription = "Sets the distance at which items (town excluded) are defended.";
+
+snNumberBoatAttackGroups.id = 58;
+snNumberBoatAttackGroups.snName = "sn-number-boat-attack-groups";
+snNumberBoatAttackGroups.default = 0;
+snNumberBoatAttackGroups.category = "Water";
+snNumberBoatAttackGroups.min = -32767;
+snNumberBoatAttackGroups.max = 32768;
+snNumberBoatAttackGroups.rmin = 0;
+snNumberBoatAttackGroups.rmax = 32768;
+snNumberBoatAttackGroups.network = 0;
+snNumberBoatAttackGroups.defined = 1;
+snNumberBoatAttackGroups.available = "available, except for water maps";
+snNumberBoatAttackGroups.version = "1.0c";
+snNumberBoatAttackGroups.linked = [ 60, 59 ];
+snNumberBoatAttackGroups.related = [ 36, 26, 16, 41, 98, 228, 247 ];
+snNumberBoatAttackGroups.shortDescription = "Sets the desired number of boat attack groups. Setting sn-percent-attack-boat usually works better.";
+
+snMinimumBoatAttackGroupSize.id = 59;
+snMinimumBoatAttackGroupSize.snName = "sn-minimum-boat-attack-group-size";
+snMinimumBoatAttackGroupSize.default = 1;
+snMinimumBoatAttackGroupSize.category = "Water";
+snMinimumBoatAttackGroupSize.min = -32767;
+snMinimumBoatAttackGroupSize.max = 32768;
+snMinimumBoatAttackGroupSize.rmin = 0;
+snMinimumBoatAttackGroupSize.rmax = 32768;
+snMinimumBoatAttackGroupSize.network = 0;
+snMinimumBoatAttackGroupSize.defined = 1;
+snMinimumBoatAttackGroupSize.available = "available, except for water maps";
+snMinimumBoatAttackGroupSize.version = "1.0c";
+snMinimumBoatAttackGroupSize.linked = [ 60, 58 ];
+snMinimumBoatAttackGroupSize.related = [ 36, 26, 16, 94, 93, 41, 98 ];
+snMinimumBoatAttackGroupSize.shortDescription = "Sets the minimum size of boat attack groups. A group must meet its minimum size as one of the tasking prerequisites.";
+
+snMaximumBoatAttackGroupSize.id = 60;
+snMaximumBoatAttackGroupSize.snName = "sn-maximum-boat-attack-group-size";
+snMaximumBoatAttackGroupSize.default = 5;
+snMaximumBoatAttackGroupSize.category = "Water";
+snMaximumBoatAttackGroupSize.min = -32767;
+snMaximumBoatAttackGroupSize.max = 32768;
+snMaximumBoatAttackGroupSize.rmin = 0;
+snMaximumBoatAttackGroupSize.rmax = 32768;
+snMaximumBoatAttackGroupSize.network = 0;
+snMaximumBoatAttackGroupSize.defined = 1;
+snMaximumBoatAttackGroupSize.available = "available, except for water maps";
+snMaximumBoatAttackGroupSize.version = "1.0c";
+snMaximumBoatAttackGroupSize.linked = [ 59, 58 ];
+snMaximumBoatAttackGroupSize.related = [ 36, 26, 16, 94, 93, 41, 98 ];
+snMaximumBoatAttackGroupSize.shortDescription = "Sets the maximum size of boat attack groups.";
+
+snNumberBoatExploreGroups.id = 61;
+snNumberBoatExploreGroups.snName = "sn-number-boat-explore-groups";
+snNumberBoatExploreGroups.default = 0;
+snNumberBoatExploreGroups.category = "Water";
+snNumberBoatExploreGroups.min = -32767;
+snNumberBoatExploreGroups.max = 32768;
+snNumberBoatExploreGroups.rmin = 0;
+snNumberBoatExploreGroups.rmax = 32768;
+snNumberBoatExploreGroups.network = 0;
+snNumberBoatExploreGroups.defined = 1;
+snNumberBoatExploreGroups.available = "available, except for water maps";
+snNumberBoatExploreGroups.version = "1.0c";
+snNumberBoatExploreGroups.linked = [ 63, 62 ];
+snNumberBoatExploreGroups.related = [ 42, 44, 43, 18 ];
+snNumberBoatExploreGroups.shortDescription = "Sets the desired number of military boat exploration groups. This is not affected by sn-total-number-explorers.";
+
+snMinimumBoatExploreGroupSize.id = 62;
+snMinimumBoatExploreGroupSize.snName = "sn-minimum-boat-explore-group-size";
+snMinimumBoatExploreGroupSize.default = 1;
+snMinimumBoatExploreGroupSize.category = "Water";
+snMinimumBoatExploreGroupSize.min = -32767;
+snMinimumBoatExploreGroupSize.max = 32768;
+snMinimumBoatExploreGroupSize.rmin = 0;
+snMinimumBoatExploreGroupSize.rmax = 32768;
+snMinimumBoatExploreGroupSize.network = 0;
+snMinimumBoatExploreGroupSize.defined = 1;
+snMinimumBoatExploreGroupSize.available = "available, except for water maps";
+snMinimumBoatExploreGroupSize.version = "1.0c";
+snMinimumBoatExploreGroupSize.linked = [ 63, 61 ];
+snMinimumBoatExploreGroupSize.related = [ 42, 44, 43, 18 ];
+snMinimumBoatExploreGroupSize.shortDescription = "Sets the minimum size of boat exploration groups.";
+
+snMaximumBoatExploreGroupSize.id = 63;
+snMaximumBoatExploreGroupSize.snName = "sn-maximum-boat-explore-group-size";
+snMaximumBoatExploreGroupSize.default = 2;
+snMaximumBoatExploreGroupSize.category = "Water";
+snMaximumBoatExploreGroupSize.min = -32767;
+snMaximumBoatExploreGroupSize.max = 32768;
+snMaximumBoatExploreGroupSize.rmin = 0;
+snMaximumBoatExploreGroupSize.rmax = 32768;
+snMaximumBoatExploreGroupSize.network = 0;
+snMaximumBoatExploreGroupSize.defined = 1;
+snMaximumBoatExploreGroupSize.available = "available, except for water maps";
+snMaximumBoatExploreGroupSize.version = "1.0c";
+snMaximumBoatExploreGroupSize.linked = [ 62, 61 ];
+snMaximumBoatExploreGroupSize.related = [ 42, 44, 43, 18 ];
+snMaximumBoatExploreGroupSize.shortDescription = "Sets the maximum size of boat exploration groups.";
+
+snDesiredNumberTradeEscorts.id = 64;
+snDesiredNumberTradeEscorts.snName = "sn-desired-number-trade-escorts";
+snDesiredNumberTradeEscorts.default = -1;
+snDesiredNumberTradeEscorts.category = "AoE 1";
+snDesiredNumberTradeEscorts.min = -32767;
+snDesiredNumberTradeEscorts.max = 32768;
+snDesiredNumberTradeEscorts.rmin = 0;
+snDesiredNumberTradeEscorts.rmax = 32768;
+snDesiredNumberTradeEscorts.network = 0;
+snDesiredNumberTradeEscorts.defined = 0;
+snDesiredNumberTradeEscorts.available = 1;
+snDesiredNumberTradeEscorts.version = "1.0c";
+snDesiredNumberTradeEscorts.linked = [];
+snDesiredNumberTradeEscorts.related = [];
+snDesiredNumberTradeEscorts.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for tradeboats. Must be &gt;= 0.";
+
+snDesiredNumberFishEscorts.id = 65;
+snDesiredNumberFishEscorts.snName = "sn-desired-number-fish-escorts";
+snDesiredNumberFishEscorts.default = -1;
+snDesiredNumberFishEscorts.category = "AoE 1";
+snDesiredNumberFishEscorts.min = -32767;
+snDesiredNumberFishEscorts.max = 32768;
+snDesiredNumberFishEscorts.rmin = 0;
+snDesiredNumberFishEscorts.rmax = 32768;
+snDesiredNumberFishEscorts.network = 0;
+snDesiredNumberFishEscorts.defined = 0;
+snDesiredNumberFishEscorts.available = 1;
+snDesiredNumberFishEscorts.version = "1.0c";
+snDesiredNumberFishEscorts.linked = [];
+snDesiredNumberFishEscorts.related = [];
+snDesiredNumberFishEscorts.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for fishing boats. Must be &gt;= 0.";
+
+snDesiredNumberTransportEscorts.id = 66;
+snDesiredNumberTransportEscorts.snName = "sn-desired-number-transport-escorts";
+snDesiredNumberTransportEscorts.default = 0;
+snDesiredNumberTransportEscorts.category = "AoE 1";
+snDesiredNumberTransportEscorts.min = -32767;
+snDesiredNumberTransportEscorts.max = 32768;
+snDesiredNumberTransportEscorts.rmin = 0;
+snDesiredNumberTransportEscorts.rmax = 32768;
+snDesiredNumberTransportEscorts.network = 0;
+snDesiredNumberTransportEscorts.defined = 0;
+snDesiredNumberTransportEscorts.available = 1;
+snDesiredNumberTransportEscorts.version = "1.0c";
+snDesiredNumberTransportEscorts.linked = [];
+snDesiredNumberTransportEscorts.related = [];
+snDesiredNumberTransportEscorts.shortDescription = "AoE 1 only. Sets the desired number of warboat escorts for transports. Must be &gt;= 0.";
+
+snNumberBoatDefendGroups.id = 67;
+snNumberBoatDefendGroups.snName = "sn-number-boat-defend-groups";
+snNumberBoatDefendGroups.default = 0;
+snNumberBoatDefendGroups.category = "Water";
+snNumberBoatDefendGroups.min = -32767;
+snNumberBoatDefendGroups.max = 32768;
+snNumberBoatDefendGroups.rmin = 0;
+snNumberBoatDefendGroups.rmax = 32768;
+snNumberBoatDefendGroups.network = 0;
+snNumberBoatDefendGroups.defined = 1;
+snNumberBoatDefendGroups.available = "available, except for water maps";
+snNumberBoatDefendGroups.version = "1.0c";
+snNumberBoatDefendGroups.linked = [ 69, 68 ];
+snNumberBoatDefendGroups.related = [ 38, 28, 25 ];
+snNumberBoatDefendGroups.shortDescription = "Sets the desired number of boat defend groups.";
+
+snMinimumBoatDefendGroupSize.id = 68;
+snMinimumBoatDefendGroupSize.snName = "sn-minimum-boat-defend-group-size";
+snMinimumBoatDefendGroupSize.default = 0;
+snMinimumBoatDefendGroupSize.category = "Water";
+snMinimumBoatDefendGroupSize.min = -32767;
+snMinimumBoatDefendGroupSize.max = 32768;
+snMinimumBoatDefendGroupSize.rmin = 0;
+snMinimumBoatDefendGroupSize.rmax = 32768;
+snMinimumBoatDefendGroupSize.network = 0;
+snMinimumBoatDefendGroupSize.defined = 1;
+snMinimumBoatDefendGroupSize.available = "available, except for water maps";
+snMinimumBoatDefendGroupSize.version = "1.0c";
+snMinimumBoatDefendGroupSize.linked = [ 69, 67 ];
+snMinimumBoatDefendGroupSize.related = [ 38, 28, 25 ];
+snMinimumBoatDefendGroupSize.shortDescription = "Sets the minimum size of boat defend groups.";
+
+snMaximumBoatDefendGroupSize.id = 69;
+snMaximumBoatDefendGroupSize.snName = "sn-maximum-boat-defend-group-size";
+snMaximumBoatDefendGroupSize.default = 0;
+snMaximumBoatDefendGroupSize.category = "Water";
+snMaximumBoatDefendGroupSize.min = -32767;
+snMaximumBoatDefendGroupSize.max = 32768;
+snMaximumBoatDefendGroupSize.rmin = 0;
+snMaximumBoatDefendGroupSize.rmax = 32768;
+snMaximumBoatDefendGroupSize.network = 0;
+snMaximumBoatDefendGroupSize.defined = 1;
+snMaximumBoatDefendGroupSize.available = "available, except for water maps";
+snMaximumBoatDefendGroupSize.version = "1.0c";
+snMaximumBoatDefendGroupSize.linked = [ 68, 67 ];
+snMaximumBoatDefendGroupSize.related = [ 38, 28, 25 ];
+snMaximumBoatDefendGroupSize.shortDescription = "Sets the maximum size of boat defend groups.";
+
+snDockDefendPriority.id = 70;
+snDockDefendPriority.snName = "sn-dock-defend-priority";
+snDockDefendPriority.default = 0;
+snDockDefendPriority.category = "Defense";
+snDockDefendPriority.min = -32767;
+snDockDefendPriority.max = 32768;
+snDockDefendPriority.rmin = 0;
+snDockDefendPriority.rmax = 1;
+snDockDefendPriority.network = 0;
+snDockDefendPriority.defined = 1;
+snDockDefendPriority.available = "available, except for water maps";
+snDockDefendPriority.version = "1.0c";
+snDockDefendPriority.linked = [];
+snDockDefendPriority.related = [ 56, 52, 51, 50, 55, 54, 53, 287 ];
+snDockDefendPriority.shortDescription = "Sets the priority of defending the dock.";
+
+snLockAndAttackResponse.id = 71;
+snLockAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
+snLockAndAttackResponse.default = -1;
+snLockAndAttackResponse.category = "AoE 1";
+snLockAndAttackResponse.min = -32767;
+snLockAndAttackResponse.max = 32768;
+snLockAndAttackResponse.rmin = 0;
+snLockAndAttackResponse.rmax = 1;
+snLockAndAttackResponse.network = 0;
+snLockAndAttackResponse.defined = 0;
+snLockAndAttackResponse.available = "seems available";
+snLockAndAttackResponse.version = "1.0c";
+snLockAndAttackResponse.linked = [];
+snLockAndAttackResponse.related = [ 46, 48 ];
+snLockAndAttackResponse.shortDescription = "AoE 1 only. This treats the sn-attack-separation-time and sn-attack-response-separation-time as the same numbers. Must be either 0 or 1.";
+
+snSentryDistanceVariation.id = 72;
+snSentryDistanceVariation.snName = "sn-sentry-distance-variation";
+snSentryDistanceVariation.default = 2;
+snSentryDistanceVariation.category = "Defense";
+snSentryDistanceVariation.min = -32767;
+snSentryDistanceVariation.max = 32768;
+snSentryDistanceVariation.rmin = 0;
+snSentryDistanceVariation.rmax = 32768;
+snSentryDistanceVariation.network = 0;
+snSentryDistanceVariation.defined = 1;
+snSentryDistanceVariation.available = 0;
+snSentryDistanceVariation.version = "1.0c";
+snSentryDistanceVariation.linked = [ 22 ];
+snSentryDistanceVariation.related = [ 57, 92 ];
+snSentryDistanceVariation.shortDescription = "Sets the amount of allowable variation in the defense distances.";
+
+snMinimumTownSize.id = 73;
+snMinimumTownSize.snName = "sn-minimum-town-size";
+snMinimumTownSize.default = 12;
+snMinimumTownSize.category = "Economy";
+snMinimumTownSize.min = -32767;
+snMinimumTownSize.max = 32768;
+snMinimumTownSize.rmin = 0;
+snMinimumTownSize.rmax = 255;
+snMinimumTownSize.network = 0;
+snMinimumTownSize.defined = 1;
+snMinimumTownSize.available = 0;
+snMinimumTownSize.version = "1.0c";
+snMinimumTownSize.linked = [ 74, 250 ];
+snMinimumTownSize.related = [ 86, 87 ];
+snMinimumTownSize.shortDescription = "Sets the minimum size of a computer player town.";
+
+snMaximumTownSize.id = 74;
+snMaximumTownSize.snName = "sn-maximum-town-size";
+snMaximumTownSize.default = 20;
+snMaximumTownSize.category = "Economy";
+snMaximumTownSize.min = -32767;
+snMaximumTownSize.max = 32768;
+snMaximumTownSize.rmin = 0;
+snMaximumTownSize.rmax = 255;
+snMaximumTownSize.network = 0;
+snMaximumTownSize.defined = 1;
+snMaximumTownSize.available = 0;
+snMaximumTownSize.version = "1.0c";
+snMaximumTownSize.linked = [ 73, 250 ];
+snMaximumTownSize.related = [ 86, 87 ];
+snMaximumTownSize.shortDescription = "Sets the maximum size of a computer player town.";
+
+snGroupCommanderSelectionMethod.id = 75;
+snGroupCommanderSelectionMethod.snName = "sn-group-commander-selection-method";
+snGroupCommanderSelectionMethod.default = 3;
+snGroupCommanderSelectionMethod.category = "Attack";
+snGroupCommanderSelectionMethod.min = -32767;
+snGroupCommanderSelectionMethod.max = 32768;
+snGroupCommanderSelectionMethod.rmin = 0;
+snGroupCommanderSelectionMethod.rmax = 3;
+snGroupCommanderSelectionMethod.network = 0;
+snGroupCommanderSelectionMethod.defined = 1;
+snGroupCommanderSelectionMethod.available = 0;
+snGroupCommanderSelectionMethod.version = "1.0c";
+snGroupCommanderSelectionMethod.linked = [];
+snGroupCommanderSelectionMethod.related = [];
+snGroupCommanderSelectionMethod.shortDescription = "Sets the method by which group commanders are selected. 0 selects the unit with the most hit points. 1 selects the unit with the fewest hit points. 2 selects the unit with the most range. The commander is set once during a group's creation and is only reset when the commander dies.";
+
+snConsecutiveIdleUnitLimit.id = 76;
+snConsecutiveIdleUnitLimit.snName = "sn-consecutive-idle-unit-limit";
+snConsecutiveIdleUnitLimit.default = 15;
+snConsecutiveIdleUnitLimit.category = "Attack";
+snConsecutiveIdleUnitLimit.min = -32767;
+snConsecutiveIdleUnitLimit.max = 32768;
+snConsecutiveIdleUnitLimit.rmin = 0;
+snConsecutiveIdleUnitLimit.rmax = 32768;
+snConsecutiveIdleUnitLimit.network = 0;
+snConsecutiveIdleUnitLimit.defined = 1;
+snConsecutiveIdleUnitLimit.available = "available, but only before militarization";
+snConsecutiveIdleUnitLimit.version = "1.0c";
+snConsecutiveIdleUnitLimit.linked = [];
+snConsecutiveIdleUnitLimit.related = [];
+snConsecutiveIdleUnitLimit.shortDescription = "Sets the number of consecutive seconds that pass before a group is set to idle if all of its units are idle. This is only used during attack and retreat phases.";
+
+snTargetEvaluationDistance.id = 77;
+snTargetEvaluationDistance.snName = "sn-target-evaluation-distance";
+snTargetEvaluationDistance.default = 50;
+snTargetEvaluationDistance.category = "Attack";
+snTargetEvaluationDistance.min = -32767;
+snTargetEvaluationDistance.max = 32768;
+snTargetEvaluationDistance.rmin = -32767;
+snTargetEvaluationDistance.rmax = 32768;
+snTargetEvaluationDistance.network = 0;
+snTargetEvaluationDistance.defined = 1;
+snTargetEvaluationDistance.available = 0;
+snTargetEvaluationDistance.version = "1.0c";
+snTargetEvaluationDistance.linked = [ 81, 89, 144, 122, 79, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationDistance.related = [];
+snTargetEvaluationDistance.shortDescription = "Sets the multiplier used for the distance rating in computer player target evaluation.";
+
+snTargetEvaluationHitpoints.id = 78;
+snTargetEvaluationHitpoints.snName = "sn-target-evaluation-hitpoints";
+snTargetEvaluationHitpoints.default = 0;
+snTargetEvaluationHitpoints.category = "Attack";
+snTargetEvaluationHitpoints.min = -32767;
+snTargetEvaluationHitpoints.max = 32768;
+snTargetEvaluationHitpoints.rmin = -32767;
+snTargetEvaluationHitpoints.rmax = 32768;
+snTargetEvaluationHitpoints.network = 0;
+snTargetEvaluationHitpoints.defined = 1;
+snTargetEvaluationHitpoints.available = 0;
+snTargetEvaluationHitpoints.version = "1.0c";
+snTargetEvaluationHitpoints.linked = [ 81, 89, 144, 122, 79, 77, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationHitpoints.related = [];
+snTargetEvaluationHitpoints.shortDescription = "Sets the multiplier used for the hit point rating in computer player target evaluation.";
+
+snTargetEvaluationDamageCapability.id = 79;
+snTargetEvaluationDamageCapability.snName = "sn-target-evaluation-damage-capability";
+snTargetEvaluationDamageCapability.default = 0;
+snTargetEvaluationDamageCapability.category = "Attack";
+snTargetEvaluationDamageCapability.min = -32767;
+snTargetEvaluationDamageCapability.max = 32768;
+snTargetEvaluationDamageCapability.rmin = -32767;
+snTargetEvaluationDamageCapability.rmax = 32768;
+snTargetEvaluationDamageCapability.network = 0;
+snTargetEvaluationDamageCapability.defined = 1;
+snTargetEvaluationDamageCapability.available = 0;
+snTargetEvaluationDamageCapability.version = "1.0c";
+snTargetEvaluationDamageCapability.linked = [ 81, 89, 144, 122, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationDamageCapability.related = [];
+snTargetEvaluationDamageCapability.shortDescription = "Sets the multiplier used for the damage capability rating in computer player target evaluation.";
+
+snTargetEvaluationKills.id = 80;
+snTargetEvaluationKills.snName = "sn-target-evaluation-kills";
+snTargetEvaluationKills.default = 0;
+snTargetEvaluationKills.category = "Attack";
+snTargetEvaluationKills.min = -32767;
+snTargetEvaluationKills.max = 32768;
+snTargetEvaluationKills.rmin = -32767;
+snTargetEvaluationKills.rmax = 32768;
+snTargetEvaluationKills.network = 0;
+snTargetEvaluationKills.defined = 1;
+snTargetEvaluationKills.available = 0;
+snTargetEvaluationKills.version = "1.0c";
+snTargetEvaluationKills.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 83, 90, 82, 123, 184 ];
+snTargetEvaluationKills.related = [];
+snTargetEvaluationKills.shortDescription = "Sets the multiplier used for the kill rating in computer player target evaluation.";
+
+snTargetEvaluationAllyProximity.id = 81;
+snTargetEvaluationAllyProximity.snName = "sn-target-evaluation-ally-proximity";
+snTargetEvaluationAllyProximity.default = 0;
+snTargetEvaluationAllyProximity.category = "Attack";
+snTargetEvaluationAllyProximity.min = -32767;
+snTargetEvaluationAllyProximity.max = 32768;
+snTargetEvaluationAllyProximity.rmin = -32767;
+snTargetEvaluationAllyProximity.rmax = 32768;
+snTargetEvaluationAllyProximity.network = 0;
+snTargetEvaluationAllyProximity.defined = 1;
+snTargetEvaluationAllyProximity.available = 0;
+snTargetEvaluationAllyProximity.version = "1.0c";
+snTargetEvaluationAllyProximity.linked = [ 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationAllyProximity.related = [];
+snTargetEvaluationAllyProximity.shortDescription = "Sets the multiplier used for the ally proximity (number of allies in range) rating in computer player target evaluation.";
+
+snTargetEvaluationRof.id = 82;
+snTargetEvaluationRof.snName = "sn-target-evaluation-rof";
+snTargetEvaluationRof.default = 0;
+snTargetEvaluationRof.category = "Attack";
+snTargetEvaluationRof.min = -32767;
+snTargetEvaluationRof.max = 32768;
+snTargetEvaluationRof.rmin = -32767;
+snTargetEvaluationRof.rmax = 32768;
+snTargetEvaluationRof.network = 0;
+snTargetEvaluationRof.defined = 1;
+snTargetEvaluationRof.available = 0;
+snTargetEvaluationRof.version = "1.0c";
+snTargetEvaluationRof.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 123, 184 ];
+snTargetEvaluationRof.related = [];
+snTargetEvaluationRof.shortDescription = "Sets the multiplier used for the rate of fire rating in computer player target evaluation.";
+
+snTargetEvaluationRandomness.id = 83;
+snTargetEvaluationRandomness.snName = "sn-target-evaluation-randomness";
+snTargetEvaluationRandomness.default = 0;
+snTargetEvaluationRandomness.category = "Attack";
+snTargetEvaluationRandomness.min = -32767;
+snTargetEvaluationRandomness.max = 32768;
+snTargetEvaluationRandomness.rmin = -32767;
+snTargetEvaluationRandomness.rmax = 32768;
+snTargetEvaluationRandomness.network = 0;
+snTargetEvaluationRandomness.defined = 1;
+snTargetEvaluationRandomness.available = 0;
+snTargetEvaluationRandomness.version = "1.0c";
+snTargetEvaluationRandomness.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 90, 82, 123, 184 ];
+snTargetEvaluationRandomness.related = [];
+snTargetEvaluationRandomness.shortDescription = "Sets the multiplier used for the randomness factor in computer player target evaluation.";
+
+snNumberWallGates.id = 84;
+snNumberWallGates.snName = "sn-number-wall-gates";
+snNumberWallGates.default = -1;
+snNumberWallGates.category = "AoE 1";
+snNumberWallGates.min = -32767;
+snNumberWallGates.max = 32768;
+snNumberWallGates.rmin = 0;
+snNumberWallGates.rmax = 32768;
+snNumberWallGates.network = 0;
+snNumberWallGates.defined = 0;
+snNumberWallGates.available = "seems available, if you will not build walls";
+snNumberWallGates.version = "1.0c";
+snNumberWallGates.linked = [];
+snNumberWallGates.related = [];
+snNumberWallGates.shortDescription = "AoE 1 only. Sets the number of gates that must be left in the wall around a computer player's town. Must be &gt;= 0.";
+
+snSizeWallGates.id = 85;
+snSizeWallGates.snName = "sn-size-wall-gates";
+snSizeWallGates.default = -1;
+snSizeWallGates.category = "AoE 1";
+snSizeWallGates.min = -32767;
+snSizeWallGates.max = 32768;
+snSizeWallGates.rmin = 0;
+snSizeWallGates.rmax = 32768;
+snSizeWallGates.network = 0;
+snSizeWallGates.defined = 0;
+snSizeWallGates.available = 1;
+snSizeWallGates.version = "1.0c";
+snSizeWallGates.linked = [];
+snSizeWallGates.related = [];
+snSizeWallGates.shortDescription = "AoE 1 only. Sets the size (in tiles) of the gates in the wall around a computer player's town. Must be &gt;= 0.";
+
+snCampMaxDistance.id = 86;
+snCampMaxDistance.snName = "sn-camp-max-distance";
+snCampMaxDistance.default = 25;
+snCampMaxDistance.category = "Economy";
+snCampMaxDistance.min = -32767;
+snCampMaxDistance.max = 32768;
+snCampMaxDistance.rmin = 7;
+snCampMaxDistance.rmax = 255;
+snCampMaxDistance.network = 0;
+snCampMaxDistance.defined = 1;
+snCampMaxDistance.available = 0;
+snCampMaxDistance.version = "1.0c";
+snCampMaxDistance.linked = [ 260, 261, 248, 202 ];
+snCampMaxDistance.related = [ 87, 74, 73, 266 ];
+snCampMaxDistance.shortDescription = "Sets the maximum distance that lumber camps and mining camps may be placed from a Town Center.";
+
+snMillMaxDistance.id = 87;
+snMillMaxDistance.snName = "sn-mill-max-distance";
+snMillMaxDistance.default = 100;
+snMillMaxDistance.category = "Economy";
+snMillMaxDistance.min = -32767;
+snMillMaxDistance.max = 32768;
+snMillMaxDistance.rmin = 4;
+snMillMaxDistance.rmax = 255;
+snMillMaxDistance.network = 0;
+snMillMaxDistance.defined = 1;
+snMillMaxDistance.available = 0;
+snMillMaxDistance.version = "1.0c";
+snMillMaxDistance.linked = [ 248, 202 ];
+snMillMaxDistance.related = [ 86, 260, 261, 74, 73, 266 ];
+snMillMaxDistance.shortDescription = "Sets the maximum distance that mills may be placed from a Town Center.";
+
+snTacticalUpdateFrequency.id = 88;
+snTacticalUpdateFrequency.snName = "sn-tactical-update-frequency";
+snTacticalUpdateFrequency.default = -1;
+snTacticalUpdateFrequency.category = "AoE 1";
+snTacticalUpdateFrequency.min = -32767;
+snTacticalUpdateFrequency.max = 32768;
+snTacticalUpdateFrequency.rmin = 0;
+snTacticalUpdateFrequency.rmax = 32768;
+snTacticalUpdateFrequency.network = 0;
+snTacticalUpdateFrequency.defined = 0;
+snTacticalUpdateFrequency.available = 0;
+snTacticalUpdateFrequency.version = "1.0c";
+snTacticalUpdateFrequency.linked = [];
+snTacticalUpdateFrequency.related = [];
+snTacticalUpdateFrequency.shortDescription = "AoE 1 only. Sets the number of seconds that pass between each tactical AI update. Must be &gt;= 0.";
+
+snTargetEvaluationAttackAttempts.id = 89;
+snTargetEvaluationAttackAttempts.snName = "sn-target-evaluation-attack-attempts";
+snTargetEvaluationAttackAttempts.default = -25;
+snTargetEvaluationAttackAttempts.category = "Attack";
+snTargetEvaluationAttackAttempts.min = -32767;
+snTargetEvaluationAttackAttempts.max = 32768;
+snTargetEvaluationAttackAttempts.rmin = -32767;
+snTargetEvaluationAttackAttempts.rmax = 32768;
+snTargetEvaluationAttackAttempts.network = 0;
+snTargetEvaluationAttackAttempts.defined = 1;
+snTargetEvaluationAttackAttempts.available = 0;
+snTargetEvaluationAttackAttempts.version = "1.0c";
+snTargetEvaluationAttackAttempts.linked = [ 81, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationAttackAttempts.related = [];
+snTargetEvaluationAttackAttempts.shortDescription = "Sets the multiplier used for the attack attempts rating in computer player target evaluation.";
+
+snTargetEvaluationRange.id = 90;
+snTargetEvaluationRange.snName = "sn-target-evaluation-range";
+snTargetEvaluationRange.default = 0;
+snTargetEvaluationRange.category = "Attack";
+snTargetEvaluationRange.min = -32767;
+snTargetEvaluationRange.max = 32768;
+snTargetEvaluationRange.rmin = -32767;
+snTargetEvaluationRange.rmax = 32768;
+snTargetEvaluationRange.network = 0;
+snTargetEvaluationRange.defined = 1;
+snTargetEvaluationRange.available = 0;
+snTargetEvaluationRange.version = "1.0c";
+snTargetEvaluationRange.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 82, 123, 184 ];
+snTargetEvaluationRange.related = [];
+snTargetEvaluationRange.shortDescription = "Sets the multiplier used for the range rating in computer player target evaluation.";
+
+snPercentUnitHealthRetreat.id = 91;
+snPercentUnitHealthRetreat.snName = "sn-percent-unit-health-retreat";
+snPercentUnitHealthRetreat.default = -1;
+snPercentUnitHealthRetreat.category = "Attack";
+snPercentUnitHealthRetreat.min = -32767;
+snPercentUnitHealthRetreat.max = 32768;
+snPercentUnitHealthRetreat.rmin = 0;
+snPercentUnitHealthRetreat.rmax = 100;
+snPercentUnitHealthRetreat.network = 0;
+snPercentUnitHealthRetreat.defined = 0;
+snPercentUnitHealthRetreat.available = "available, but avoid using it in conjunction with sn-scale-percent-unit-health-retreat (97)";
+snPercentUnitHealthRetreat.version = "1.0c";
+snPercentUnitHealthRetreat.linked = [ 97 ];
+snPercentUnitHealthRetreat.related = [];
+snPercentUnitHealthRetreat.shortDescription = "Sets the percentage of hit points that a unit can lose (relative to what it started the attack with) before retreating. Must be &gt;= 1 and &lt;= 100.";
+
+snDefendOverlapDistance.id = 92;
+snDefendOverlapDistance.snName = "sn-defend-overlap-distance";
+snDefendOverlapDistance.default = 5;
+snDefendOverlapDistance.category = "Defense";
+snDefendOverlapDistance.min = -32767;
+snDefendOverlapDistance.max = 32768;
+snDefendOverlapDistance.rmin = 0;
+snDefendOverlapDistance.rmax = 255;
+snDefendOverlapDistance.network = 0;
+snDefendOverlapDistance.defined = 1;
+snDefendOverlapDistance.available = 0;
+snDefendOverlapDistance.version = "1.0c";
+snDefendOverlapDistance.linked = [];
+snDefendOverlapDistance.related = [ 57, 22, 72 ];
+snDefendOverlapDistance.shortDescription = "Sets the amount of influence that a defend group has. Defend groups will be assigned so that their circles of influence do not overlap.";
+
+snScaleMinimumAttackGroupSize.id = 93;
+snScaleMinimumAttackGroupSize.snName = "sn-scale-minimum-attack-group-size";
+snScaleMinimumAttackGroupSize.default = 1;
+snScaleMinimumAttackGroupSize.category = "Attack";
+snScaleMinimumAttackGroupSize.min = -32767;
+snScaleMinimumAttackGroupSize.max = 32768;
+snScaleMinimumAttackGroupSize.rmin = 0;
+snScaleMinimumAttackGroupSize.rmax = 32768;
+snScaleMinimumAttackGroupSize.network = 0;
+snScaleMinimumAttackGroupSize.defined = 1;
+snScaleMinimumAttackGroupSize.available = 0;
+snScaleMinimumAttackGroupSize.version = "1.0c";
+snScaleMinimumAttackGroupSize.linked = [ 94, 16, 59 ];
+snScaleMinimumAttackGroupSize.related = [ 36, 26, 58, 60 ];
+snScaleMinimumAttackGroupSize.shortDescription = "The scaling factor for the minimum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
+
+snScaleMaximumAttackGroupSize.id = 94;
+snScaleMaximumAttackGroupSize.snName = "sn-scale-maximum-attack-group-size";
+snScaleMaximumAttackGroupSize.default = 0;
+snScaleMaximumAttackGroupSize.category = "Attack";
+snScaleMaximumAttackGroupSize.min = -32767;
+snScaleMaximumAttackGroupSize.max = 32768;
+snScaleMaximumAttackGroupSize.rmin = 0;
+snScaleMaximumAttackGroupSize.rmax = 32768;
+snScaleMaximumAttackGroupSize.network = 0;
+snScaleMaximumAttackGroupSize.defined = 1;
+snScaleMaximumAttackGroupSize.available = 0;
+snScaleMaximumAttackGroupSize.version = "1.0c";
+snScaleMaximumAttackGroupSize.linked = [ 93, 26, 60 ];
+snScaleMaximumAttackGroupSize.related = [ 36, 16, 58, 59 ];
+snScaleMaximumAttackGroupSize.shortDescription = "The scaling factor for the maximum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
+
+snScalePercentHealthRetreat.id = 95;
+snScalePercentHealthRetreat.snName = "sn-scale-percent-health-retreat";
+snScalePercentHealthRetreat.default = -1;
+snScalePercentHealthRetreat.category = "AoE 1";
+snScalePercentHealthRetreat.min = -32767;
+snScalePercentHealthRetreat.max = 32768;
+snScalePercentHealthRetreat.rmin = 0;
+snScalePercentHealthRetreat.rmax = 32768;
+snScalePercentHealthRetreat.network = 0;
+snScalePercentHealthRetreat.defined = 0;
+snScalePercentHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-health-retreat (30)";
+snScalePercentHealthRetreat.version = "1.0c";
+snScalePercentHealthRetreat.linked = [ 30 ];
+snScalePercentHealthRetreat.related = [];
+snScalePercentHealthRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-health-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
+
+snScalePercentDeathRetreat.id = 96;
+snScalePercentDeathRetreat.snName = "sn-scale-percent-death-retreat";
+snScalePercentDeathRetreat.default = -1;
+snScalePercentDeathRetreat.category = "AoE 1";
+snScalePercentDeathRetreat.min = -32767;
+snScalePercentDeathRetreat.max = 32768;
+snScalePercentDeathRetreat.rmin = 0;
+snScalePercentDeathRetreat.rmax = 32768;
+snScalePercentDeathRetreat.network = 0;
+snScalePercentDeathRetreat.defined = 0;
+snScalePercentDeathRetreat.available = "available, but avoid using it in conjunction with sn-percent-death-retreat (31)";
+snScalePercentDeathRetreat.version = "1.0c";
+snScalePercentDeathRetreat.linked = [ 31 ];
+snScalePercentDeathRetreat.related = [];
+snScalePercentDeathRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-death-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
+
+snScalePercentUnitHealthRetreat.id = 97;
+snScalePercentUnitHealthRetreat.snName = "sn-scale-percent-unit-health-retreat";
+snScalePercentUnitHealthRetreat.default = -1;
+snScalePercentUnitHealthRetreat.category = "AoE 1";
+snScalePercentUnitHealthRetreat.min = -32767;
+snScalePercentUnitHealthRetreat.max = 32768;
+snScalePercentUnitHealthRetreat.rmin = 0;
+snScalePercentUnitHealthRetreat.rmax = 32768;
+snScalePercentUnitHealthRetreat.network = 0;
+snScalePercentUnitHealthRetreat.defined = 0;
+snScalePercentUnitHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-unit-health-retreat (91)";
+snScalePercentUnitHealthRetreat.version = "1.0c";
+snScalePercentUnitHealthRetreat.linked = [ 91 ];
+snScalePercentUnitHealthRetreat.related = [];
+snScalePercentUnitHealthRetreat.shortDescription = "AoE 1 only. The scaling factor for the percent health retreat. Added to sn-percent-unit-health-retreat when the tactical AI does its scaling. Must be &gt;= -100 and &lt;= 100.";
+
+snAttackGroupSizeRandomness.id = 98;
+snAttackGroupSizeRandomness.snName = "sn-attack-group-size-randomness";
+snAttackGroupSizeRandomness.default = 1;
+snAttackGroupSizeRandomness.category = "Attack";
+snAttackGroupSizeRandomness.min = -32767;
+snAttackGroupSizeRandomness.max = 32768;
+snAttackGroupSizeRandomness.rmin = 0;
+snAttackGroupSizeRandomness.rmax = 32768;
+snAttackGroupSizeRandomness.network = 0;
+snAttackGroupSizeRandomness.defined = 1;
+snAttackGroupSizeRandomness.available = 0;
+snAttackGroupSizeRandomness.version = "1.0c";
+snAttackGroupSizeRandomness.linked = [];
+snAttackGroupSizeRandomness.related = [ 41, 36, 26, 16, 58, 60, 59 ];
+snAttackGroupSizeRandomness.shortDescription = "The randomness factor in the attack group size. This sets a cap on the amount of randomness in the minimum attack group size. The randomness factor is set once (when the group is created) and will be between 0 and this number.";
+
+snScalingFrequency.id = 99;
+snScalingFrequency.snName = "sn-scaling-frequency";
+snScalingFrequency.default = 10;
+snScalingFrequency.category = "Attack";
+snScalingFrequency.min = -32767;
+snScalingFrequency.max = 32768;
+snScalingFrequency.rmin = 0;
+snScalingFrequency.rmax = 32768;
+snScalingFrequency.network = 0;
+snScalingFrequency.defined = 1;
+snScalingFrequency.available = 0;
+snScalingFrequency.version = "1.0c";
+snScalingFrequency.linked = [];
+snScalingFrequency.related = [];
+snScalingFrequency.shortDescription = "Sets the number of minutes that pass between each scaling inside the tactical AI.";
+
+snMaximumGaiaAttackResponse.id = 100;
+snMaximumGaiaAttackResponse.snName = "sn-maximum-gaia-attack-response";
+snMaximumGaiaAttackResponse.default = 3;
+snMaximumGaiaAttackResponse.category = "Defense";
+snMaximumGaiaAttackResponse.min = -32767;
+snMaximumGaiaAttackResponse.max = 32768;
+snMaximumGaiaAttackResponse.rmin = 0;
+snMaximumGaiaAttackResponse.rmax = 32768;
+snMaximumGaiaAttackResponse.network = 0;
+snMaximumGaiaAttackResponse.defined = 1;
+snMaximumGaiaAttackResponse.available = 0;
+snMaximumGaiaAttackResponse.version = "1.0c";
+snMaximumGaiaAttackResponse.linked = [];
+snMaximumGaiaAttackResponse.related = [ 225 ];
+snMaximumGaiaAttackResponse.shortDescription = "The maximum number of villagers that respond to another civilian getting attacked by a Gaia animal.";
+
+snBuildFrequency.id = 101;
+snBuildFrequency.snName = "sn-build-frequency";
+snBuildFrequency.default = 1;
+snBuildFrequency.category = "Other";
+snBuildFrequency.min = -32767;
+snBuildFrequency.max = 32768;
+snBuildFrequency.rmin = 0;
+snBuildFrequency.rmax = 32768;
+snBuildFrequency.network = 0;
+snBuildFrequency.defined = 1;
+snBuildFrequency.available = 0;
+snBuildFrequency.version = "1.0c";
+snBuildFrequency.linked = [];
+snBuildFrequency.related = [];
+snBuildFrequency.shortDescription = "Sets the number of tactical AI updates that pass between each training or research attempt.";
+
+snAttackSeparationTimeRandomness.id = 102;
+snAttackSeparationTimeRandomness.snName = "sn-attack-separation-time-randomness";
+snAttackSeparationTimeRandomness.default = 15;
+snAttackSeparationTimeRandomness.category = "Attack";
+snAttackSeparationTimeRandomness.min = -32767;
+snAttackSeparationTimeRandomness.max = 32768;
+snAttackSeparationTimeRandomness.rmin = 0;
+snAttackSeparationTimeRandomness.rmax = 32768;
+snAttackSeparationTimeRandomness.network = 0;
+snAttackSeparationTimeRandomness.defined = 1;
+snAttackSeparationTimeRandomness.available = "seems available, but it would be best to avoid it";
+snAttackSeparationTimeRandomness.version = "1.0c";
+snAttackSeparationTimeRandomness.linked = [ 46 ];
+snAttackSeparationTimeRandomness.related = [ 48 ];
+snAttackSeparationTimeRandomness.shortDescription = "The amount of randomness incorporated into the attack separation time. Must be &gt;= 0 and &lt; sn-attack-separation-time.";
+
+snAttackIntelligence.id = 103;
+snAttackIntelligence.snName = "sn-attack-intelligence";
+snAttackIntelligence.default = 0;
+snAttackIntelligence.category = "Attack";
+snAttackIntelligence.min = -32767;
+snAttackIntelligence.max = 32768;
+snAttackIntelligence.rmin = 0;
+snAttackIntelligence.rmax = 1;
+snAttackIntelligence.network = 0;
+snAttackIntelligence.defined = 1;
+snAttackIntelligence.available = 0;
+snAttackIntelligence.version = "1.0c";
+snAttackIntelligence.linked = [];
+snAttackIntelligence.related = [ 47 ];
+snAttackIntelligence.shortDescription = "Specifies whether the intelligent attack system is used. The intelligent attack system tries to avoid enemy units when attacking and tries to attack from different sides. When used with the sn-attack-coordination set to 2, this can create multifront attacks. Must be 0 (to turn off) and 1 (to turn on).";
+
+snInitialAttackDelay.id = 104;
+snInitialAttackDelay.snName = "sn-initial-attack-delay";
+snInitialAttackDelay.default = 0;
+snInitialAttackDelay.category = "Attack";
+snInitialAttackDelay.min = -32767;
+snInitialAttackDelay.max = 32768;
+snInitialAttackDelay.rmin = 0;
+snInitialAttackDelay.rmax = 32768;
+snInitialAttackDelay.network = 0;
+snInitialAttackDelay.defined = 1;
+snInitialAttackDelay.available = 0;
+snInitialAttackDelay.version = "1.0c";
+snInitialAttackDelay.linked = [ 134 ];
+snInitialAttackDelay.related = [];
+snInitialAttackDelay.shortDescription = "The forced, initial delay before any computer player attacks (in seconds).";
+
+snSaveScenarioInformation.id = 105;
+snSaveScenarioInformation.snName = "sn-save-scenario-information";
+snSaveScenarioInformation.default = 0;
+snSaveScenarioInformation.category = "Other";
+snSaveScenarioInformation.min = -32767;
+snSaveScenarioInformation.max = 32768;
+snSaveScenarioInformation.rmin = 0;
+snSaveScenarioInformation.rmax = 1;
+snSaveScenarioInformation.network = 0;
+snSaveScenarioInformation.defined = 1;
+snSaveScenarioInformation.available = 0;
+snSaveScenarioInformation.version = "1.0c";
+snSaveScenarioInformation.linked = [];
+snSaveScenarioInformation.related = [ 201 ];
+snSaveScenarioInformation.shortDescription = "Controls whether the learning information is saved at the end of the scenario for a given computer player. Must be 0 (to turn off) or 1 (to turn on).";
+
+snSpecialAttackType1.id = 106;
+snSpecialAttackType1.snName = "sn-special-attack-type1";
+snSpecialAttackType1.default = -1;
+snSpecialAttackType1.category = "Attack";
+snSpecialAttackType1.min = -32767;
+snSpecialAttackType1.max = 32768;
+snSpecialAttackType1.rmin = -1;
+snSpecialAttackType1.rmax = 1;
+snSpecialAttackType1.network = 0;
+snSpecialAttackType1.defined = 1;
+snSpecialAttackType1.available = 0;
+snSpecialAttackType1.version = "1.0c";
+snSpecialAttackType1.linked = [ 109 ];
+snSpecialAttackType1.related = [ 107, 108 ];
+snSpecialAttackType1.shortDescription = "Set to 1 to target monasteries and monks carrying relics.";
+
+snSpecialAttackType2.id = 107;
+snSpecialAttackType2.snName = "sn-special-attack-type2";
+snSpecialAttackType2.default = -1;
+snSpecialAttackType2.category = "Attack";
+snSpecialAttackType2.min = -32767;
+snSpecialAttackType2.max = 32768;
+snSpecialAttackType2.rmin = -1;
+snSpecialAttackType2.rmax = 32768;
+snSpecialAttackType2.network = 0;
+snSpecialAttackType2.defined = 1;
+snSpecialAttackType2.available = 0;
+snSpecialAttackType2.version = "1.0c";
+snSpecialAttackType2.linked = [ 110 ];
+snSpecialAttackType2.related = [ 106, 108 ];
+snSpecialAttackType2.shortDescription = "Set to any unit, building, or group id to direct attacks.";
+
+snSpecialAttackType3.id = 108;
+snSpecialAttackType3.snName = "sn-special-attack-type3";
+snSpecialAttackType3.default = -1;
+snSpecialAttackType3.category = "Attack";
+snSpecialAttackType3.min = -32767;
+snSpecialAttackType3.max = 32768;
+snSpecialAttackType3.rmin = -1;
+snSpecialAttackType3.rmax = 1;
+snSpecialAttackType3.network = 0;
+snSpecialAttackType3.defined = 1;
+snSpecialAttackType3.available = 0;
+snSpecialAttackType3.version = "1.0c";
+snSpecialAttackType3.linked = [ 111 ];
+snSpecialAttackType3.related = [ 106, 107 ];
+snSpecialAttackType3.shortDescription = "Set to 1 to target wonders.";
+
+snSpecialAttackInfluence1.id = 109;
+snSpecialAttackInfluence1.snName = "sn-special-attack-influence1";
+snSpecialAttackInfluence1.default = 0;
+snSpecialAttackInfluence1.category = "Attack";
+snSpecialAttackInfluence1.min = -32767;
+snSpecialAttackInfluence1.max = 32768;
+snSpecialAttackInfluence1.rmin = -32767;
+snSpecialAttackInfluence1.rmax = 32768;
+snSpecialAttackInfluence1.network = 0;
+snSpecialAttackInfluence1.defined = 1;
+snSpecialAttackInfluence1.available = 0;
+snSpecialAttackInfluence1.version = "1.0c";
+snSpecialAttackInfluence1.linked = [ 106 ];
+snSpecialAttackInfluence1.related = [ 110, 111 ];
+snSpecialAttackInfluence1.shortDescription = "Sets the multiplier used for the special attack type 1 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 1, &lt; 0 to influence the computer player away from attacking the special type 1.";
+
+snSpecialAttackInfluence2.id = 110;
+snSpecialAttackInfluence2.snName = "sn-special-attack-influence2";
+snSpecialAttackInfluence2.default = 0;
+snSpecialAttackInfluence2.category = "Attack";
+snSpecialAttackInfluence2.min = -32767;
+snSpecialAttackInfluence2.max = 32768;
+snSpecialAttackInfluence2.rmin = -32767;
+snSpecialAttackInfluence2.rmax = 32768;
+snSpecialAttackInfluence2.network = 0;
+snSpecialAttackInfluence2.defined = 0;
+snSpecialAttackInfluence2.available = 0;
+snSpecialAttackInfluence2.version = "1.0c";
+snSpecialAttackInfluence2.linked = [ 107 ];
+snSpecialAttackInfluence2.related = [ 109, 111 ];
+snSpecialAttackInfluence2.shortDescription = "Sets the multiplier used for the special attack type 2 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 2, &lt; 0 to influence the computer player away from attacking the special type 2.";
+
+snSpecialAttackInfluence3.id = 111;
+snSpecialAttackInfluence3.snName = "sn-special-attack-influence3";
+snSpecialAttackInfluence3.default = 0;
+snSpecialAttackInfluence3.category = "Attack";
+snSpecialAttackInfluence3.min = -32767;
+snSpecialAttackInfluence3.max = 32768;
+snSpecialAttackInfluence3.rmin = -32767;
+snSpecialAttackInfluence3.rmax = 32768;
+snSpecialAttackInfluence3.network = 0;
+snSpecialAttackInfluence3.defined = 0;
+snSpecialAttackInfluence3.available = "seems available, except under standard victory conditions";
+snSpecialAttackInfluence3.version = "1.0c";
+snSpecialAttackInfluence3.linked = [ 108 ];
+snSpecialAttackInfluence3.related = [ 109, 110 ];
+snSpecialAttackInfluence3.shortDescription = "Sets the multiplier used for the special attack type 3 rating in computer player target evaluation. Must be &gt; 0 to influence the computer player toward attacking the special type 3, &lt; 0 to influence the computer player away from attacking the special type 3.";
+
+snMinimumWaterBodySizeForDock.id = 112;
+snMinimumWaterBodySizeForDock.snName = "sn-minimum-water-body-size-for-dock";
+snMinimumWaterBodySizeForDock.default = 300;
+snMinimumWaterBodySizeForDock.category = "Water";
+snMinimumWaterBodySizeForDock.min = -32767;
+snMinimumWaterBodySizeForDock.max = 32768;
+snMinimumWaterBodySizeForDock.rmin = 10;
+snMinimumWaterBodySizeForDock.rmax = 32768;
+snMinimumWaterBodySizeForDock.network = 0;
+snMinimumWaterBodySizeForDock.defined = 1;
+snMinimumWaterBodySizeForDock.available = "available, as long as the value will always be &gt;= 300";
+snMinimumWaterBodySizeForDock.version = "1.0c";
+snMinimumWaterBodySizeForDock.linked = [];
+snMinimumWaterBodySizeForDock.related = [ 169 ];
+snMinimumWaterBodySizeForDock.shortDescription = "The minimum number of tiles (in surface area) that a body of water must be for a Dock to be placed on it.";
+
+snUnknownData113.id = 113;
+snUnknownData113.snName = "unknown-data-113";
+snUnknownData113.default = -1;
+snUnknownData113.category = "None";
+snUnknownData113.min = -32767;
+snUnknownData113.max = 32768;
+snUnknownData113.rmin = -32767;
+snUnknownData113.rmax = 32768;
+snUnknownData113.network = 0;
+snUnknownData113.defined = 0;
+snUnknownData113.available = 0;
+snUnknownData113.version = "1.0c";
+snUnknownData113.linked = [];
+snUnknownData113.related = [];
+snUnknownData113.shortDescription = "Unused.";
+
+snNumberBuildAttemptsBeforeSkip.id = 114;
+snNumberBuildAttemptsBeforeSkip.snName = "sn-number-build-attempts-before-skip";
+snNumberBuildAttemptsBeforeSkip.default = 25;
+snNumberBuildAttemptsBeforeSkip.category = "Economy";
+snNumberBuildAttemptsBeforeSkip.min = -32767;
+snNumberBuildAttemptsBeforeSkip.max = 32768;
+snNumberBuildAttemptsBeforeSkip.rmin = 1;
+snNumberBuildAttemptsBeforeSkip.rmax = 32768;
+snNumberBuildAttemptsBeforeSkip.network = 0;
+snNumberBuildAttemptsBeforeSkip.defined = 1;
+snNumberBuildAttemptsBeforeSkip.available = 0;
+snNumberBuildAttemptsBeforeSkip.version = "1.0c";
+snNumberBuildAttemptsBeforeSkip.linked = [];
+snNumberBuildAttemptsBeforeSkip.related = [ 115 ];
+snNumberBuildAttemptsBeforeSkip.shortDescription = "The maximum number of build attempts a build plan can go through before being put into skip mode.";
+
+snMaxSkipsPerAttempt.id = 115;
+snMaxSkipsPerAttempt.snName = "sn-max-skips-per-attempt";
+snMaxSkipsPerAttempt.default = 10;
+snMaxSkipsPerAttempt.category = "Economy";
+snMaxSkipsPerAttempt.min = -32767;
+snMaxSkipsPerAttempt.max = 32768;
+snMaxSkipsPerAttempt.rmin = 1;
+snMaxSkipsPerAttempt.rmax = 32768;
+snMaxSkipsPerAttempt.network = 0;
+snMaxSkipsPerAttempt.defined = 1;
+snMaxSkipsPerAttempt.available = 0;
+snMaxSkipsPerAttempt.version = "1.0c";
+snMaxSkipsPerAttempt.linked = [];
+snMaxSkipsPerAttempt.related = [ 114 ];
+snMaxSkipsPerAttempt.shortDescription = "The maximum number of unbuilt items that can be skipped during any build plan processing before giving up (for being too far ahead of the current position in the plan).";
+
+snUnknownData116.id = 116;
+snUnknownData116.snName = "unknown-data-116";
+snUnknownData116.default = 10;
+snUnknownData116.category = "None";
+snUnknownData116.min = -32767;
+snUnknownData116.max = 32768;
+snUnknownData116.rmin = -32767;
+snUnknownData116.rmax = 32768;
+snUnknownData116.network = 0;
+snUnknownData116.defined = 0;
+snUnknownData116.available = 0;
+snUnknownData116.version = "1.0c";
+snUnknownData116.linked = [];
+snUnknownData116.related = [];
+snUnknownData116.shortDescription = "Unused.";
+
+snFoodGathererPercentage.id = 117;
+snFoodGathererPercentage.snName = "sn-food-gatherer-percentage";
+snFoodGathererPercentage.default = 0;
+snFoodGathererPercentage.category = "Economy";
+snFoodGathererPercentage.min = 0;
+snFoodGathererPercentage.max = 100;
+snFoodGathererPercentage.rmin = 0;
+snFoodGathererPercentage.rmax = 100;
+snFoodGathererPercentage.network = 0;
+snFoodGathererPercentage.defined = 1;
+snFoodGathererPercentage.available = 0;
+snFoodGathererPercentage.version = "1.0c";
+snFoodGathererPercentage.linked = [ 156 ];
+snFoodGathererPercentage.related = [ 118, 119, 120 ];
+snFoodGathererPercentage.shortDescription = "Set to configure food gatherers: foodGatherers = ( this + sn-food-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
+
+snGoldGathererPercentage.id = 118;
+snGoldGathererPercentage.snName = "sn-gold-gatherer-percentage";
+snGoldGathererPercentage.default = 0;
+snGoldGathererPercentage.category = "Economy";
+snGoldGathererPercentage.min = 0;
+snGoldGathererPercentage.max = 100;
+snGoldGathererPercentage.rmin = 0;
+snGoldGathererPercentage.rmax = 100;
+snGoldGathererPercentage.network = 0;
+snGoldGathererPercentage.defined = 1;
+snGoldGathererPercentage.available = 0;
+snGoldGathererPercentage.version = "1.0c";
+snGoldGathererPercentage.linked = [ 159 ];
+snGoldGathererPercentage.related = [ 117, 119, 120 ];
+snGoldGathererPercentage.shortDescription = "Set to configure gold gatherers: goldGatherers = ( this + sn-gold-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
+
+snStoneGathererPercentage.id = 119;
+snStoneGathererPercentage.snName = "sn-stone-gatherer-percentage";
+snStoneGathererPercentage.default = 0;
+snStoneGathererPercentage.category = "Economy";
+snStoneGathererPercentage.min = 0;
+snStoneGathererPercentage.max = 100;
+snStoneGathererPercentage.rmin = 0;
+snStoneGathererPercentage.rmax = 100;
+snStoneGathererPercentage.network = 0;
+snStoneGathererPercentage.defined = 1;
+snStoneGathererPercentage.available = 0;
+snStoneGathererPercentage.version = "1.0c";
+snStoneGathererPercentage.linked = [ 158 ];
+snStoneGathererPercentage.related = [ 117, 118, 120 ];
+snStoneGathererPercentage.shortDescription = "Set to configure stone gatherers: stoneGatherers = ( this + sn-stone-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
+
+snWoodGathererPercentage.id = 120;
+snWoodGathererPercentage.snName = "sn-wood-gatherer-percentage";
+snWoodGathererPercentage.default = 0;
+snWoodGathererPercentage.category = "Economy";
+snWoodGathererPercentage.min = 0;
+snWoodGathererPercentage.max = 100;
+snWoodGathererPercentage.rmin = 0;
+snWoodGathererPercentage.rmax = 100;
+snWoodGathererPercentage.network = 0;
+snWoodGathererPercentage.defined = 1;
+snWoodGathererPercentage.available = 0;
+snWoodGathererPercentage.version = "1.0c";
+snWoodGathererPercentage.linked = [ 157 ];
+snWoodGathererPercentage.related = [ 117, 118, 119 ];
+snWoodGathererPercentage.shortDescription = "Set to configure wood gatherers: woodGatherers = ( this + sn-wood-modifier-percentage ) * gathererTotal * 0.01 + 0.5.";
+
+snDefendImportantGroupLeaders.id = 121;
+snDefendImportantGroupLeaders.snName = "sn-defend-important-group-leaders";
+snDefendImportantGroupLeaders.default = -1;
+snDefendImportantGroupLeaders.category = "AoE 1";
+snDefendImportantGroupLeaders.min = -32767;
+snDefendImportantGroupLeaders.max = 32768;
+snDefendImportantGroupLeaders.rmin = 0;
+snDefendImportantGroupLeaders.rmax = 1;
+snDefendImportantGroupLeaders.network = 0;
+snDefendImportantGroupLeaders.defined = 0;
+snDefendImportantGroupLeaders.available = 1;
+snDefendImportantGroupLeaders.version = "1.0c";
+snDefendImportantGroupLeaders.linked = [];
+snDefendImportantGroupLeaders.related = [];
+snDefendImportantGroupLeaders.shortDescription = "AoE 1 only. Controls whether or not important attack group leaders are defended by the other group units. A value of 1 has the members defend the leader. A value of 0 does not.";
+
+snTargetEvaluationContinent.id = 122;
+snTargetEvaluationContinent.snName = "sn-target-evaluation-continent";
+snTargetEvaluationContinent.default = 100;
+snTargetEvaluationContinent.category = "Attack";
+snTargetEvaluationContinent.min = -32767;
+snTargetEvaluationContinent.max = 32768;
+snTargetEvaluationContinent.rmin = -32767;
+snTargetEvaluationContinent.rmax = 32768;
+snTargetEvaluationContinent.network = 0;
+snTargetEvaluationContinent.defined = 1;
+snTargetEvaluationContinent.available = 0;
+snTargetEvaluationContinent.version = "1.0c";
+snTargetEvaluationContinent.linked = [ 81, 89, 144, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationContinent.related = [];
+snTargetEvaluationContinent.shortDescription = "Sets the additive value used for the targets on the same continent as the attack group commander. Must be &gt; 0 to influence the computer player toward attacking the units on the same continent or 0 for no special influence.";
+
+snTargetEvaluationSiegeWeapon.id = 123;
+snTargetEvaluationSiegeWeapon.snName = "sn-target-evaluation-siege-weapon";
+snTargetEvaluationSiegeWeapon.default = 0;
+snTargetEvaluationSiegeWeapon.category = "Attack";
+snTargetEvaluationSiegeWeapon.min = -32767;
+snTargetEvaluationSiegeWeapon.max = 32768;
+snTargetEvaluationSiegeWeapon.rmin = -32767;
+snTargetEvaluationSiegeWeapon.rmax = 32768;
+snTargetEvaluationSiegeWeapon.network = 0;
+snTargetEvaluationSiegeWeapon.defined = 1;
+snTargetEvaluationSiegeWeapon.available = 0;
+snTargetEvaluationSiegeWeapon.version = "1.0c";
+snTargetEvaluationSiegeWeapon.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 184 ];
+snTargetEvaluationSiegeWeapon.related = [];
+snTargetEvaluationSiegeWeapon.shortDescription = "Sets the additive value used for influencing siege weapons to attack stationary targets (and influencing non-siege weapons not to attack those stationary targets). Must be &gt; 0 to influence the computer player to use siege weapons to attack stationary targets or 0 for no special influence.";
+
+snTributeAmount.id = 124;
+snTributeAmount.snName = "sn-tribute-amount";
+snTributeAmount.default = 0;
+snTributeAmount.category = "AoE 1";
+snTributeAmount.min = -32767;
+snTributeAmount.max = 32768;
+snTributeAmount.rmin = 0;
+snTributeAmount.rmax = 32768;
+snTributeAmount.network = 0;
+snTributeAmount.defined = 0;
+snTributeAmount.available = 1;
+snTributeAmount.version = "1.0c";
+snTributeAmount.linked = [];
+snTributeAmount.related = [];
+snTributeAmount.shortDescription = "AoE 1 only. Sets the required amount of gold that must be tributed to the computer player. If this is 0, no computer player tributing is monitored for the special system (thus, the normal tribute system is in effect). When this value is &gt; 0, the computer player will expect some gold in tribute.";
+
+snTributeChatFrequency.id = 125;
+snTributeChatFrequency.snName = "sn-tribute-chat-frequency";
+snTributeChatFrequency.default = 0;
+snTributeChatFrequency.category = "AoE 1";
+snTributeChatFrequency.min = -32767;
+snTributeChatFrequency.max = 32768;
+snTributeChatFrequency.rmin = 0;
+snTributeChatFrequency.rmax = 32768;
+snTributeChatFrequency.network = 0;
+snTributeChatFrequency.defined = 0;
+snTributeChatFrequency.available = 1;
+snTributeChatFrequency.version = "1.0c";
+snTributeChatFrequency.linked = [];
+snTributeChatFrequency.related = [];
+snTributeChatFrequency.shortDescription = "AoE 1 only. Sets the frequency (in seconds) of the computer player's chat messages asking for tribute. Must be &gt;= 0.";
+
+snTributeChatRandomness.id = 126;
+snTributeChatRandomness.snName = "sn-tribute-chat-randomness";
+snTributeChatRandomness.default = 0;
+snTributeChatRandomness.category = "AoE 1";
+snTributeChatRandomness.min = -32767;
+snTributeChatRandomness.max = 32768;
+snTributeChatRandomness.rmin = 0;
+snTributeChatRandomness.rmax = 32768;
+snTributeChatRandomness.network = 0;
+snTributeChatRandomness.defined = 0;
+snTributeChatRandomness.available = 1;
+snTributeChatRandomness.version = "1.0c";
+snTributeChatRandomness.linked = [];
+snTributeChatRandomness.related = [];
+snTributeChatRandomness.shortDescription = "AoE 1 only. Sets the randomness (in seconds) of the computer player's chat messages asking for tribute. Must be &gt;= 0 and &lt; sn-tribute-chat-frequency.";
+
+snTributeTimeout.id = 127;
+snTributeTimeout.snName = "sn-tribute-timeout";
+snTributeTimeout.default = 0;
+snTributeTimeout.category = "AoE 1";
+snTributeTimeout.min = -32767;
+snTributeTimeout.max = 32768;
+snTributeTimeout.rmin = 0;
+snTributeTimeout.rmax = 32768;
+snTributeTimeout.network = 0;
+snTributeTimeout.defined = 0;
+snTributeTimeout.available = 1;
+snTributeTimeout.version = "1.0c";
+snTributeTimeout.linked = [];
+snTributeTimeout.related = [];
+snTributeTimeout.shortDescription = "AoE 1 only. Sets the amount of time (in seconds) within which the tribute must take place. Must be &gt;= 0.";
+
+snTributePlayer.id = 128;
+snTributePlayer.snName = "sn-tribute-player";
+snTributePlayer.default = -1;
+snTributePlayer.category = "AoE 1";
+snTributePlayer.min = -32767;
+snTributePlayer.max = 32768;
+snTributePlayer.rmin = 0;
+snTributePlayer.rmax = 8;
+snTributePlayer.network = 0;
+snTributePlayer.defined = 0;
+snTributePlayer.available = 1;
+snTributePlayer.version = "1.0c";
+snTributePlayer.linked = [];
+snTributePlayer.related = [];
+snTributePlayer.shortDescription = "AoE 1 only. Sets the player ID# of the player the computer player will target for the tribute request. Must be a valid player number for the game.";
+
+snTributeSuccessOutcome.id = 129;
+snTributeSuccessOutcome.snName = "sn-tribute-success-outcome";
+snTributeSuccessOutcome.default = 0;
+snTributeSuccessOutcome.category = "AoE 1";
+snTributeSuccessOutcome.min = -32767;
+snTributeSuccessOutcome.max = 32768;
+snTributeSuccessOutcome.rmin = 0;
+snTributeSuccessOutcome.rmax = 1;
+snTributeSuccessOutcome.network = 0;
+snTributeSuccessOutcome.defined = 0;
+snTributeSuccessOutcome.available = 1;
+snTributeSuccessOutcome.version = "1.0c";
+snTributeSuccessOutcome.linked = [];
+snTributeSuccessOutcome.related = [];
+snTributeSuccessOutcome.shortDescription = "AoE 1 only. Controls what happens when the tribute request is fulfilled within the allotted time. If set to 0, nothing happens. If set to 1, the computer player will ally when the tribute amount is paid.";
+
+snTributeFailureOutcome.id = 130;
+snTributeFailureOutcome.snName = "sn-tribute-failure-outcome";
+snTributeFailureOutcome.default = 0;
+snTributeFailureOutcome.category = "AoE 1";
+snTributeFailureOutcome.min = -32767;
+snTributeFailureOutcome.max = 32768;
+snTributeFailureOutcome.rmin = 0;
+snTributeFailureOutcome.rmax = 1;
+snTributeFailureOutcome.network = 0;
+snTributeFailureOutcome.defined = 0;
+snTributeFailureOutcome.available = 1;
+snTributeFailureOutcome.version = "1.0c";
+snTributeFailureOutcome.linked = [];
+snTributeFailureOutcome.related = [];
+snTributeFailureOutcome.shortDescription = "AoE 1 only. Controls what happens when the tribute request is not fulfilled within the allotted time. If set to 0, nothing happens. If set to 1, the computer player will go to war when the tribute amount is not paid.";
+
+snGroupLeaderDefenseDistance.id = 131;
+snGroupLeaderDefenseDistance.snName = "sn-group-leader-defense-distance";
+snGroupLeaderDefenseDistance.default = 3;
+snGroupLeaderDefenseDistance.category = "Defense";
+snGroupLeaderDefenseDistance.min = -32767;
+snGroupLeaderDefenseDistance.max = 32768;
+snGroupLeaderDefenseDistance.rmin = 1;
+snGroupLeaderDefenseDistance.rmax = 255;
+snGroupLeaderDefenseDistance.network = 0;
+snGroupLeaderDefenseDistance.defined = 1;
+snGroupLeaderDefenseDistance.available = 0;
+snGroupLeaderDefenseDistance.version = "1.0c";
+snGroupLeaderDefenseDistance.linked = [];
+snGroupLeaderDefenseDistance.related = [];
+snGroupLeaderDefenseDistance.shortDescription = "Sets the defense distance for defenders of an important attack group leader.";
+
+snTributePersistence.id = 132;
+snTributePersistence.snName = "sn-tribute-persistence";
+snTributePersistence.default = 0;
+snTributePersistence.category = "AoE 1";
+snTributePersistence.min = -32767;
+snTributePersistence.max = 32768;
+snTributePersistence.rmin = 0;
+snTributePersistence.rmax = 1;
+snTributePersistence.network = 0;
+snTributePersistence.defined = 0;
+snTributePersistence.available = 1;
+snTributePersistence.version = "1.0c";
+snTributePersistence.linked = [];
+snTributePersistence.related = [];
+snTributePersistence.shortDescription = "AoE 1 only. Controls whether or not the interactive tribute system operates once or forever. A value of 1 makes it last the entire game (i.e. the computer player will continue to demand sn-tribute-amount of gold for the entire game, at intervals roughly equivalent to sn-tribute-chat-frequency from the outcome evaluation). A value of 0 makes the interactive tribute occur one time.";
+
+snTributeRevokeOnAttack.id = 133;
+snTributeRevokeOnAttack.snName = "sn-tribute-revoke-on-attack";
+snTributeRevokeOnAttack.default = 0;
+snTributeRevokeOnAttack.category = "AoE 1";
+snTributeRevokeOnAttack.min = -32767;
+snTributeRevokeOnAttack.max = 32768;
+snTributeRevokeOnAttack.rmin = 0;
+snTributeRevokeOnAttack.rmax = 1;
+snTributeRevokeOnAttack.network = 0;
+snTributeRevokeOnAttack.defined = 0;
+snTributeRevokeOnAttack.available = 1;
+snTributeRevokeOnAttack.version = "1.0c";
+snTributeRevokeOnAttack.linked = [];
+snTributeRevokeOnAttack.related = [];
+snTributeRevokeOnAttack.shortDescription = "AoE 1 only. Controls whether or not the computer player rescinds the favorable tribute outcome when the sn-tribute-player attacks the computer player. A value of 1 has the computer player rescind, a value of 0 does not.";
+
+snInitialAttackDelayType.id = 134;
+snInitialAttackDelayType.snName = "sn-initial-attack-delay-type";
+snInitialAttackDelayType.default = 0;
+snInitialAttackDelayType.category = "Attack";
+snInitialAttackDelayType.min = -32767;
+snInitialAttackDelayType.max = 32768;
+snInitialAttackDelayType.rmin = 0;
+snInitialAttackDelayType.rmax = 3;
+snInitialAttackDelayType.network = 0;
+snInitialAttackDelayType.defined = 1;
+snInitialAttackDelayType.available = 0;
+snInitialAttackDelayType.version = "1.0c";
+snInitialAttackDelayType.linked = [ 104 ];
+snInitialAttackDelayType.related = [];
+snInitialAttackDelayType.shortDescription = "The type of initial attack delay. A value of 1 denotes a delay ended by the build list. A value of 2 uses the sn-initial-attack-delay timeout. A value of 3 allows the computer player to attack after he has been attacked by a non-Gaia player. A value of 0 allows any of the three occurrences to enable attacks.";
+
+snBlotExplorationMap.id = 135;
+snBlotExplorationMap.snName = "sn-blot-exploration-map";
+snBlotExplorationMap.default = 1;
+snBlotExplorationMap.category = "Explore";
+snBlotExplorationMap.min = -32767;
+snBlotExplorationMap.max = 32768;
+snBlotExplorationMap.rmin = 0;
+snBlotExplorationMap.rmax = 1;
+snBlotExplorationMap.network = 0;
+snBlotExplorationMap.defined = 1;
+snBlotExplorationMap.available = "available, but only later, as it greatly influences exploration";
+snBlotExplorationMap.version = "1.0c";
+snBlotExplorationMap.linked = [ 136 ];
+snBlotExplorationMap.related = [ 167, 32, 179 ];
+snBlotExplorationMap.shortDescription = "This controls whether or not the computer player re-explores previously explored regions. A value of 1 has the computer player re-explore, a value of 0 does not.";
+
+snBlotSize.id = 136;
+snBlotSize.snName = "sn-blot-size";
+snBlotSize.default = 15;
+snBlotSize.category = "Explore";
+snBlotSize.min = -32767;
+snBlotSize.max = 32768;
+snBlotSize.rmin = 1;
+snBlotSize.rmax = 255;
+snBlotSize.network = 0;
+snBlotSize.defined = 1;
+snBlotSize.available = "available, but only later, as it greatly influences exploration";
+snBlotSize.version = "1.0c";
+snBlotSize.linked = [ 135 ];
+snBlotSize.related = [ 167, 32, 179 ];
+snBlotSize.shortDescription = "This controls the size of the area that a computer player marks for re-exploration.";
+
+snUnknownData137.id = 137;
+snUnknownData137.snName = "unknown-data-137";
+snUnknownData137.default = -1;
+snUnknownData137.category = "None";
+snUnknownData137.min = -32767;
+snUnknownData137.max = 32768;
+snUnknownData137.rmin = -32767;
+snUnknownData137.rmax = 32768;
+snUnknownData137.network = 0;
+snUnknownData137.defined = 0;
+snUnknownData137.available = 0;
+snUnknownData137.version = "1.0c";
+snUnknownData137.linked = [];
+snUnknownData137.related = [];
+snUnknownData137.shortDescription = "Unused.";
+
+snAddStartingResourceFood.id = 138;
+snAddStartingResourceFood.snName = "sn-add-starting-resource-food";
+snAddStartingResourceFood.default = 0;
+snAddStartingResourceFood.category = "Economy";
+snAddStartingResourceFood.min = -32767;
+snAddStartingResourceFood.max = 32768;
+snAddStartingResourceFood.rmin = -32767;
+snAddStartingResourceFood.rmax = 32768;
+snAddStartingResourceFood.network = 0;
+snAddStartingResourceFood.defined = 0;
+snAddStartingResourceFood.available = 0;
+snAddStartingResourceFood.version = "1.0c";
+snAddStartingResourceFood.linked = [];
+snAddStartingResourceFood.related = [ 139, 140, 141 ];
+snAddStartingResourceFood.shortDescription = "Cheat - adds extra food to starting resources.";
+
+snAddStartingResourceGold.id = 139;
+snAddStartingResourceGold.snName = "sn-add-starting-resource-gold";
+snAddStartingResourceGold.default = 0;
+snAddStartingResourceGold.category = "Economy";
+snAddStartingResourceGold.min = -32767;
+snAddStartingResourceGold.max = 32768;
+snAddStartingResourceGold.rmin = -32767;
+snAddStartingResourceGold.rmax = 32768;
+snAddStartingResourceGold.network = 0;
+snAddStartingResourceGold.defined = 0;
+snAddStartingResourceGold.available = 0;
+snAddStartingResourceGold.version = "1.0c";
+snAddStartingResourceGold.linked = [];
+snAddStartingResourceGold.related = [ 138, 140, 141 ];
+snAddStartingResourceGold.shortDescription = "Cheat - adds extra gold to starting resources.";
+
+snAddStartingResourceStone.id = 140;
+snAddStartingResourceStone.snName = "sn-add-starting-resource-stone";
+snAddStartingResourceStone.default = 0;
+snAddStartingResourceStone.category = "Economy";
+snAddStartingResourceStone.min = -32767;
+snAddStartingResourceStone.max = 32768;
+snAddStartingResourceStone.rmin = -32767;
+snAddStartingResourceStone.rmax = 32768;
+snAddStartingResourceStone.network = 0;
+snAddStartingResourceStone.defined = 0;
+snAddStartingResourceStone.available = 0;
+snAddStartingResourceStone.version = "1.0c";
+snAddStartingResourceStone.linked = [];
+snAddStartingResourceStone.related = [ 138, 139, 141 ];
+snAddStartingResourceStone.shortDescription = "Cheat - adds extra stone to starting resources.";
+
+snAddStartingResourceWood.id = 141;
+snAddStartingResourceWood.snName = "sn-add-starting-resource-wood";
+snAddStartingResourceWood.default = 0;
+snAddStartingResourceWood.category = "Economy";
+snAddStartingResourceWood.min = -32767;
+snAddStartingResourceWood.max = 32768;
+snAddStartingResourceWood.rmin = -32767;
+snAddStartingResourceWood.rmax = 32768;
+snAddStartingResourceWood.network = 0;
+snAddStartingResourceWood.defined = 0;
+snAddStartingResourceWood.available = 0;
+snAddStartingResourceWood.version = "1.0c";
+snAddStartingResourceWood.linked = [];
+snAddStartingResourceWood.related = [ 138, 139, 140 ];
+snAddStartingResourceWood.shortDescription = "Cheat - adds extra wood to starting resources.";
+
+snIntelligentGathering.id = 142;
+snIntelligentGathering.snName = "sn-intelligent-gathering";
+snIntelligentGathering.default = 0;
+snIntelligentGathering.category = "Economy";
+snIntelligentGathering.min = -32767;
+snIntelligentGathering.max = 32768;
+snIntelligentGathering.rmin = 0;
+snIntelligentGathering.rmax = 1;
+snIntelligentGathering.network = 0;
+snIntelligentGathering.defined = 1;
+snIntelligentGathering.available = 0;
+snIntelligentGathering.version = "1.0c";
+snIntelligentGathering.linked = [];
+snIntelligentGathering.related = [ 148, 149, 203 ];
+snIntelligentGathering.shortDescription = "Controls whether or not the intelligent gathering system is enabled.";
+
+snTaskUngroupedSoldiers.id = 143;
+snTaskUngroupedSoldiers.snName = "sn-task-ungrouped-soldiers";
+snTaskUngroupedSoldiers.default = 1;
+snTaskUngroupedSoldiers.category = "Defense";
+snTaskUngroupedSoldiers.min = 1;
+snTaskUngroupedSoldiers.max = 1;
+snTaskUngroupedSoldiers.rmin = 0;
+snTaskUngroupedSoldiers.rmax = 1;
+snTaskUngroupedSoldiers.network = 1;
+snTaskUngroupedSoldiers.defined = 1;
+snTaskUngroupedSoldiers.available = 0;
+snTaskUngroupedSoldiers.version = "1.0c";
+snTaskUngroupedSoldiers.linked = [];
+snTaskUngroupedSoldiers.related = [ 232 ];
+snTaskUngroupedSoldiers.shortDescription = "Controls whether or not ungrouped computer player soldiers get tasked to spread out and guard the computer player's general town area.";
+
+snTargetEvaluationBoat.id = 144;
+snTargetEvaluationBoat.snName = "sn-target-evaluation-boat";
+snTargetEvaluationBoat.default = 0;
+snTargetEvaluationBoat.category = "Attack";
+snTargetEvaluationBoat.min = -32767;
+snTargetEvaluationBoat.max = 32768;
+snTargetEvaluationBoat.rmin = -32767;
+snTargetEvaluationBoat.rmax = 32768;
+snTargetEvaluationBoat.network = 0;
+snTargetEvaluationBoat.defined = 1;
+snTargetEvaluationBoat.available = 0;
+snTargetEvaluationBoat.version = "1.0c";
+snTargetEvaluationBoat.linked = [ 81, 89, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationBoat.related = [];
+snTargetEvaluationBoat.shortDescription = "Sets the additive value used for influencing land units to attack or not attack boats. Must be &gt; 0 to influence land units to attack boats, 0 for no special influence, and less than 0 for aversion.";
+
+snNumberEnemyObjectsRequired.id = 145;
+snNumberEnemyObjectsRequired.snName = "sn-number-enemy-objects-required";
+snNumberEnemyObjectsRequired.default = 10;
+snNumberEnemyObjectsRequired.category = "Explore";
+snNumberEnemyObjectsRequired.min = -32767;
+snNumberEnemyObjectsRequired.max = 32768;
+snNumberEnemyObjectsRequired.rmin = 0;
+snNumberEnemyObjectsRequired.rmax = 32768;
+snNumberEnemyObjectsRequired.network = 0;
+snNumberEnemyObjectsRequired.defined = 1;
+snNumberEnemyObjectsRequired.available = 0;
+snNumberEnemyObjectsRequired.version = "1.0c";
+snNumberEnemyObjectsRequired.linked = [];
+snNumberEnemyObjectsRequired.related = [];
+snNumberEnemyObjectsRequired.shortDescription = "The count of the number of enemy objects the computer player must see before dropping the number of civilian explorers down to the minimum level.";
+
+snNumberMaxSkipCycles.id = 146;
+snNumberMaxSkipCycles.snName = "sn-number-max-skip-cycles";
+snNumberMaxSkipCycles.default = 50;
+snNumberMaxSkipCycles.category = "Other";
+snNumberMaxSkipCycles.min = -32767;
+snNumberMaxSkipCycles.max = 32768;
+snNumberMaxSkipCycles.rmin = 1;
+snNumberMaxSkipCycles.rmax = 32768;
+snNumberMaxSkipCycles.network = 0;
+snNumberMaxSkipCycles.defined = 1;
+snNumberMaxSkipCycles.available = 0;
+snNumberMaxSkipCycles.version = "1.0c";
+snNumberMaxSkipCycles.linked = [];
+snNumberMaxSkipCycles.related = [];
+snNumberMaxSkipCycles.shortDescription = "Undocumented.";
+
+snMostNeededResourceLookAhead.id = 147;
+snMostNeededResourceLookAhead.snName = "sn-most-needed-resource-look-ahead";
+snMostNeededResourceLookAhead.default = 10;
+snMostNeededResourceLookAhead.category = "AoE 1";
+snMostNeededResourceLookAhead.min = -32767;
+snMostNeededResourceLookAhead.max = 32768;
+snMostNeededResourceLookAhead.rmin = 0;
+snMostNeededResourceLookAhead.rmax = 32768;
+snMostNeededResourceLookAhead.network = 0;
+snMostNeededResourceLookAhead.defined = 0;
+snMostNeededResourceLookAhead.available = 1;
+snMostNeededResourceLookAhead.version = "1.0c";
+snMostNeededResourceLookAhead.linked = [];
+snMostNeededResourceLookAhead.related = [];
+snMostNeededResourceLookAhead.shortDescription = "AoE 1 only. The number of build list objects the computer player will use to look ahead to tabulate the resources required. Only used for the dynamic gathering percentages. Must be &gt;= 0.";
+
+snRetaskGatherAmount.id = 148;
+snRetaskGatherAmount.snName = "sn-retask-gather-amount";
+snRetaskGatherAmount.default = 20;
+snRetaskGatherAmount.category = "Economy";
+snRetaskGatherAmount.min = -32767;
+snRetaskGatherAmount.max = 32768;
+snRetaskGatherAmount.rmin = 0;
+snRetaskGatherAmount.rmax = 32768;
+snRetaskGatherAmount.network = 0;
+snRetaskGatherAmount.defined = 1;
+snRetaskGatherAmount.available = 0;
+snRetaskGatherAmount.version = "1.0c";
+snRetaskGatherAmount.linked = [ 149 ];
+snRetaskGatherAmount.related = [ 142, 203 ];
+snRetaskGatherAmount.shortDescription = "The minimum amount that a gatherer must gather before the computer player allows him to be retasked to another resource type. Some code may override this.";
+
+snMaxRetaskGatherAmount.id = 149;
+snMaxRetaskGatherAmount.snName = "sn-max-retask-gather-amount";
+snMaxRetaskGatherAmount.default = 40;
+snMaxRetaskGatherAmount.category = "Economy";
+snMaxRetaskGatherAmount.min = -32767;
+snMaxRetaskGatherAmount.max = 32768;
+snMaxRetaskGatherAmount.rmin = 0;
+snMaxRetaskGatherAmount.rmax = 32768;
+snMaxRetaskGatherAmount.network = 0;
+snMaxRetaskGatherAmount.defined = 1;
+snMaxRetaskGatherAmount.available = 0;
+snMaxRetaskGatherAmount.version = "1.0c";
+snMaxRetaskGatherAmount.linked = [ 148 ];
+snMaxRetaskGatherAmount.related = [ 142, 203 ];
+snMaxRetaskGatherAmount.shortDescription = "The maximum amount that a gatherer can be told to gather before being allowed to be retasked. Some code may override this.";
+
+snMaxStoragePits.id = 150;
+snMaxStoragePits.snName = "sn-max-storage-pits";
+snMaxStoragePits.default = -1;
+snMaxStoragePits.category = "AoE 1";
+snMaxStoragePits.min = -32767;
+snMaxStoragePits.max = 32768;
+snMaxStoragePits.rmin = 0;
+snMaxStoragePits.rmax = 32768;
+snMaxStoragePits.network = 0;
+snMaxStoragePits.defined = 0;
+snMaxStoragePits.available = 1;
+snMaxStoragePits.version = "1.0c";
+snMaxStoragePits.linked = [];
+snMaxStoragePits.related = [];
+snMaxStoragePits.shortDescription = "AoE 1 only. The maximum number of storage pits a computer player can build in one game. Must be &gt;= 0.";
+
+snMaxGranaries.id = 151;
+snMaxGranaries.snName = "sn-max-granaries";
+snMaxGranaries.default = -1;
+snMaxGranaries.category = "AoE 1";
+snMaxGranaries.min = -32767;
+snMaxGranaries.max = 32768;
+snMaxGranaries.rmin = 0;
+snMaxGranaries.rmax = 32768;
+snMaxGranaries.network = 0;
+snMaxGranaries.defined = 0;
+snMaxGranaries.available = 1;
+snMaxGranaries.version = "1.0c";
+snMaxGranaries.linked = [];
+snMaxGranaries.related = [];
+snMaxGranaries.shortDescription = "AoE 1 only. The maximum number of granaries a computer player can build in one game. Must be &gt;= 0.";
+
+snHouseOverage.id = 152;
+snHouseOverage.snName = "sn-house-overage";
+snHouseOverage.default = -1;
+snHouseOverage.category = "AoE 1";
+snHouseOverage.min = -32767;
+snHouseOverage.max = 32768;
+snHouseOverage.rmin = 0;
+snHouseOverage.rmax = 32768;
+snHouseOverage.network = 0;
+snHouseOverage.defined = 0;
+snHouseOverage.available = 1;
+snHouseOverage.version = "1.0c";
+snHouseOverage.linked = [];
+snHouseOverage.related = [];
+snHouseOverage.shortDescription = "AoE 1 only. The number of Houses that a computer player will autobuild over the amount needed to support 50 units. Must be &gt;= 0.";
+
+snUnknownData153.id = 153;
+snUnknownData153.snName = "unknown-data-153";
+snUnknownData153.default = -1;
+snUnknownData153.category = "None";
+snUnknownData153.min = -32767;
+snUnknownData153.max = 32768;
+snUnknownData153.rmin = -32767;
+snUnknownData153.rmax = 32768;
+snUnknownData153.network = 0;
+snUnknownData153.defined = 0;
+snUnknownData153.available = 0;
+snUnknownData153.version = "1.0c";
+snUnknownData153.linked = [];
+snUnknownData153.related = [];
+snUnknownData153.shortDescription = "Unused.";
+
+snUnknownData154.id = 154;
+snUnknownData154.snName = "unknown-data-154";
+snUnknownData154.default = -1;
+snUnknownData154.category = "None";
+snUnknownData154.min = -32767;
+snUnknownData154.max = 32768;
+snUnknownData154.rmin = -32767;
+snUnknownData154.rmax = 32768;
+snUnknownData154.network = 0;
+snUnknownData154.defined = 0;
+snUnknownData154.available = 0;
+snUnknownData154.version = "1.0c";
+snUnknownData154.linked = [];
+snUnknownData154.related = [];
+snUnknownData154.shortDescription = "Unused.";
+
+snBuildPlanDivisions.id = 155;
+snBuildPlanDivisions.snName = "sn-build-plan-divisions";
+snBuildPlanDivisions.default = 10;
+snBuildPlanDivisions.category = "AoE 1";
+snBuildPlanDivisions.min = -32767;
+snBuildPlanDivisions.max = 32768;
+snBuildPlanDivisions.rmin = 1;
+snBuildPlanDivisions.rmax = 32768;
+snBuildPlanDivisions.network = 0;
+snBuildPlanDivisions.defined = 0;
+snBuildPlanDivisions.available = "seems available";
+snBuildPlanDivisions.version = "1.0c";
+snBuildPlanDivisions.linked = [];
+snBuildPlanDivisions.related = [];
+snBuildPlanDivisions.shortDescription = "AoE 1 only. The number of divisions a computer player will place in its build list (used to calculate gathering percentages). Must be &gt;= 1.";
+
+snFoodModifierPercentage.id = 156;
+snFoodModifierPercentage.snName = "sn-food-modifier-percentage";
+snFoodModifierPercentage.default = 0;
+snFoodModifierPercentage.category = "Economy";
+snFoodModifierPercentage.min = -32767;
+snFoodModifierPercentage.max = 32768;
+snFoodModifierPercentage.rmin = -100;
+snFoodModifierPercentage.rmax = 100;
+snFoodModifierPercentage.network = 0;
+snFoodModifierPercentage.defined = 0;
+snFoodModifierPercentage.available = 0;
+snFoodModifierPercentage.version = "1.0c";
+snFoodModifierPercentage.linked = [ 117 ];
+snFoodModifierPercentage.related = [ 157, 158, 159 ];
+snFoodModifierPercentage.shortDescription = "Set to configure food gatherers: foodGatherers = ( sn-food-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
+
+snWoodModifierPercentage.id = 157;
+snWoodModifierPercentage.snName = "sn-wood-modifier-percentage";
+snWoodModifierPercentage.default = 0;
+snWoodModifierPercentage.category = "Economy";
+snWoodModifierPercentage.min = -32767;
+snWoodModifierPercentage.max = 32768;
+snWoodModifierPercentage.rmin = -100;
+snWoodModifierPercentage.rmax = 100;
+snWoodModifierPercentage.network = 0;
+snWoodModifierPercentage.defined = 0;
+snWoodModifierPercentage.available = 0;
+snWoodModifierPercentage.version = "1.0c";
+snWoodModifierPercentage.linked = [ 120 ];
+snWoodModifierPercentage.related = [ 156, 158, 159 ];
+snWoodModifierPercentage.shortDescription = "Set to configure wood gatherers: woodGatherers = ( sn-wood-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
+
+snStoneModifierPercentage.id = 158;
+snStoneModifierPercentage.snName = "sn-stone-modifier-percentage";
+snStoneModifierPercentage.default = 0;
+snStoneModifierPercentage.category = "Economy";
+snStoneModifierPercentage.min = -32767;
+snStoneModifierPercentage.max = 32768;
+snStoneModifierPercentage.rmin = -100;
+snStoneModifierPercentage.rmax = 100;
+snStoneModifierPercentage.network = 0;
+snStoneModifierPercentage.defined = 0;
+snStoneModifierPercentage.available = 0;
+snStoneModifierPercentage.version = "1.0c";
+snStoneModifierPercentage.linked = [ 119 ];
+snStoneModifierPercentage.related = [ 156, 157, 159 ];
+snStoneModifierPercentage.shortDescription = "Set to configure stone gatherers: stoneGatherers = ( sn-stone-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
+
+snGoldModifierPercentage.id = 159;
+snGoldModifierPercentage.snName = "sn-gold-modifier-percentage";
+snGoldModifierPercentage.default = 0;
+snGoldModifierPercentage.category = "Economy";
+snGoldModifierPercentage.min = -32767;
+snGoldModifierPercentage.max = 32768;
+snGoldModifierPercentage.rmin = -100;
+snGoldModifierPercentage.rmax = 100;
+snGoldModifierPercentage.network = 0;
+snGoldModifierPercentage.defined = 0;
+snGoldModifierPercentage.available = 0;
+snGoldModifierPercentage.version = "1.0c";
+snGoldModifierPercentage.linked = [ 118 ];
+snGoldModifierPercentage.related = [ 156, 157, 158 ];
+snGoldModifierPercentage.shortDescription = "Set to configure gold gatherers: goldGatherers = ( sn-gold-gatherer-percentage + this ) * gathererTotal * 0.01 + 0.5.";
+
+snMaxBuildPlanGathererPercentage.id = 160;
+snMaxBuildPlanGathererPercentage.snName = "sn-max-build-plan-gatherer-percentage";
+snMaxBuildPlanGathererPercentage.default = 50;
+snMaxBuildPlanGathererPercentage.category = "Economy";
+snMaxBuildPlanGathererPercentage.min = -32767;
+snMaxBuildPlanGathererPercentage.max = 32768;
+snMaxBuildPlanGathererPercentage.rmin = 0;
+snMaxBuildPlanGathererPercentage.rmax = 100;
+snMaxBuildPlanGathererPercentage.network = 0;
+snMaxBuildPlanGathererPercentage.defined = 1;
+snMaxBuildPlanGathererPercentage.available = 0;
+snMaxBuildPlanGathererPercentage.version = "1.0c";
+snMaxBuildPlanGathererPercentage.linked = [];
+snMaxBuildPlanGathererPercentage.related = [];
+snMaxBuildPlanGathererPercentage.shortDescription = "The maximum percentage of gatherers that a computer player will task based on the pregame requirements of the build plan.";
+
+snRequiredFirstBuilding.id = 161;
+snRequiredFirstBuilding.snName = "sn-required-first-building";
+snRequiredFirstBuilding.default = -1;
+snRequiredFirstBuilding.category = "AoE 1";
+snRequiredFirstBuilding.min = -32767;
+snRequiredFirstBuilding.max = 32768;
+snRequiredFirstBuilding.rmin = 0;
+snRequiredFirstBuilding.rmax = 4;
+snRequiredFirstBuilding.network = 0;
+snRequiredFirstBuilding.defined = 0;
+snRequiredFirstBuilding.available = 1;
+snRequiredFirstBuilding.version = "1.0c";
+snRequiredFirstBuilding.linked = [];
+snRequiredFirstBuilding.related = [];
+snRequiredFirstBuilding.shortDescription = "AoE 1 only. Controls what building a computer player must place first. 0: No restriction. 1: Either a Storage Pit or a granary. 2: A Storage Pit. 3: A Granary. 4: Both a Storage Pit and a Granary. Exceptions consist of a Town Center and sn-maximum-houses-before-dropsites.";
+
+snUnknownData162.id = 162;
+snUnknownData162.snName = "unknown-data-162";
+snUnknownData162.default = -1;
+snUnknownData162.category = "None";
+snUnknownData162.min = -32767;
+snUnknownData162.max = 32768;
+snUnknownData162.rmin = -32767;
+snUnknownData162.rmax = 32768;
+snUnknownData162.network = 0;
+snUnknownData162.defined = 0;
+snUnknownData162.available = 0;
+snUnknownData162.version = "1.0c";
+snUnknownData162.linked = [];
+snUnknownData162.related = [];
+snUnknownData162.shortDescription = "Unused.";
+
+snFoodDropsiteDistance.id = 163;
+snFoodDropsiteDistance.snName = "sn-food-dropsite-distance";
+snFoodDropsiteDistance.default = 3;
+snFoodDropsiteDistance.category = "Economy";
+snFoodDropsiteDistance.min = -32767;
+snFoodDropsiteDistance.max = 32768;
+snFoodDropsiteDistance.rmin = 3;
+snFoodDropsiteDistance.rmax = 255;
+snFoodDropsiteDistance.network = 0;
+snFoodDropsiteDistance.defined = 1;
+snFoodDropsiteDistance.available = 0;
+snFoodDropsiteDistance.version = "1.0c";
+snFoodDropsiteDistance.linked = [ 234, 235 ];
+snFoodDropsiteDistance.related = [ 164, 165, 166 ];
+snFoodDropsiteDistance.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its food.";
+
+snWoodDropsiteDistance.id = 164;
+snWoodDropsiteDistance.snName = "sn-wood-dropsite-distance";
+snWoodDropsiteDistance.default = 3;
+snWoodDropsiteDistance.category = "Economy";
+snWoodDropsiteDistance.min = -32767;
+snWoodDropsiteDistance.max = 32768;
+snWoodDropsiteDistance.rmin = 3;
+snWoodDropsiteDistance.rmax = 255;
+snWoodDropsiteDistance.network = 0;
+snWoodDropsiteDistance.defined = 1;
+snWoodDropsiteDistance.available = 0;
+snWoodDropsiteDistance.version = "1.0c";
+snWoodDropsiteDistance.linked = [ 233 ];
+snWoodDropsiteDistance.related = [ 163, 165, 166 ];
+snWoodDropsiteDistance.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its wood.";
+
+snStoneDropsiteDistance.id = 165;
+snStoneDropsiteDistance.snName = "sn-stone-dropsite-distance";
+snStoneDropsiteDistance.default = 3;
+snStoneDropsiteDistance.category = "Economy";
+snStoneDropsiteDistance.min = -32767;
+snStoneDropsiteDistance.max = 32768;
+snStoneDropsiteDistance.rmin = 3;
+snStoneDropsiteDistance.rmax = 255;
+snStoneDropsiteDistance.network = 0;
+snStoneDropsiteDistance.defined = 1;
+snStoneDropsiteDistance.available = 0;
+snStoneDropsiteDistance.version = "1.0c";
+snStoneDropsiteDistance.linked = [ 238 ];
+snStoneDropsiteDistance.related = [ 163, 164, 166 ];
+snStoneDropsiteDistance.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its stone.";
+
+snGoldDropsiteDistance.id = 166;
+snGoldDropsiteDistance.snName = "sn-gold-dropsite-distance";
+snGoldDropsiteDistance.default = 3;
+snGoldDropsiteDistance.category = "Economy";
+snGoldDropsiteDistance.min = -32767;
+snGoldDropsiteDistance.max = 32768;
+snGoldDropsiteDistance.rmin = 3;
+snGoldDropsiteDistance.rmax = 255;
+snGoldDropsiteDistance.network = 0;
+snGoldDropsiteDistance.defined = 1;
+snGoldDropsiteDistance.available = 0;
+snGoldDropsiteDistance.version = "1.0c";
+snGoldDropsiteDistance.linked = [ 237 ];
+snGoldDropsiteDistance.related = [ 163, 164, 165 ];
+snGoldDropsiteDistance.shortDescription = "The maximum number of tiles a computer player likes to walk to drop off its gold.";
+
+snInitialExplorationRequired.id = 167;
+snInitialExplorationRequired.snName = "sn-initial-exploration-required";
+snInitialExplorationRequired.default = 2;
+snInitialExplorationRequired.category = "Economy";
+snInitialExplorationRequired.min = -32767;
+snInitialExplorationRequired.max = 32768;
+snInitialExplorationRequired.rmin = 0;
+snInitialExplorationRequired.rmax = 100;
+snInitialExplorationRequired.network = 0;
+snInitialExplorationRequired.defined = 1;
+snInitialExplorationRequired.available = 0;
+snInitialExplorationRequired.version = "1.0c";
+snInitialExplorationRequired.linked = [ 32, 179, 256 ];
+snInitialExplorationRequired.related = [ 135, 136 ];
+snInitialExplorationRequired.shortDescription = "The percentage of the map that must be explored by a computer player before any building is allowed.";
+
+snRandomPlacementFactor.id = 168;
+snRandomPlacementFactor.snName = "sn-random-placement-factor";
+snRandomPlacementFactor.default = 50;
+snRandomPlacementFactor.category = "Economy";
+snRandomPlacementFactor.min = -32767;
+snRandomPlacementFactor.max = 32768;
+snRandomPlacementFactor.rmin = 0;
+snRandomPlacementFactor.rmax = 32768;
+snRandomPlacementFactor.network = 0;
+snRandomPlacementFactor.defined = 1;
+snRandomPlacementFactor.available = 0;
+snRandomPlacementFactor.version = "1.0c";
+snRandomPlacementFactor.linked = [];
+snRandomPlacementFactor.related = [];
+snRandomPlacementFactor.shortDescription = "A number that gets added into the placement of the computer player to randomize building placement (off of the calculated ideal).";
+
+snRequiredForestTiles.id = 169;
+snRequiredForestTiles.snName = "sn-required-forest-tiles";
+snRequiredForestTiles.default = 10;
+snRequiredForestTiles.category = "Economy";
+snRequiredForestTiles.min = -32767;
+snRequiredForestTiles.max = 32768;
+snRequiredForestTiles.rmin = 0;
+snRequiredForestTiles.rmax = 32768;
+snRequiredForestTiles.network = 0;
+snRequiredForestTiles.defined = 1;
+snRequiredForestTiles.available = 0;
+snRequiredForestTiles.version = "1.0c";
+snRequiredForestTiles.linked = [];
+snRequiredForestTiles.related = [ 112 ];
+snRequiredForestTiles.shortDescription = "The minimum number of forest tiles that a computer player must uncover before placing its first lumber camp.";
+
+snMinimumFood.id = 170;
+snMinimumFood.snName = "sn-minimum-food";
+snMinimumFood.default = 200;
+snMinimumFood.category = "AoE 1";
+snMinimumFood.min = -32767;
+snMinimumFood.max = 32768;
+snMinimumFood.rmin = 0;
+snMinimumFood.rmax = 32768;
+snMinimumFood.network = 0;
+snMinimumFood.defined = 0;
+snMinimumFood.available = 1;
+snMinimumFood.version = "1.0c";
+snMinimumFood.linked = [];
+snMinimumFood.related = [ 171, 172, 173 ];
+snMinimumFood.shortDescription = "AoE 1 only. The minimum amount of food a computer player likes to keep on hand. Must be &gt;= 0.";
+
+snMinimumWood.id = 171;
+snMinimumWood.snName = "sn-minimum-wood";
+snMinimumWood.default = 250;
+snMinimumWood.category = "AoE 1";
+snMinimumWood.min = -32767;
+snMinimumWood.max = 32768;
+snMinimumWood.rmin = 0;
+snMinimumWood.rmax = 32768;
+snMinimumWood.network = 0;
+snMinimumWood.defined = 0;
+snMinimumWood.available = 1;
+snMinimumWood.version = "1.0c";
+snMinimumWood.linked = [];
+snMinimumWood.related = [ 170, 172, 173 ];
+snMinimumWood.shortDescription = "AoE 1 only. The minimum amount of wood a computer player likes to keep on hand. Must be &gt;= 0.";
+
+snMinimumStone.id = 172;
+snMinimumStone.snName = "sn-minimum-stone";
+snMinimumStone.default = 150;
+snMinimumStone.category = "AoE 1";
+snMinimumStone.min = -32767;
+snMinimumStone.max = 32768;
+snMinimumStone.rmin = 0;
+snMinimumStone.rmax = 32768;
+snMinimumStone.network = 0;
+snMinimumStone.defined = 0;
+snMinimumStone.available = 1;
+snMinimumStone.version = "1.0c";
+snMinimumStone.linked = [];
+snMinimumStone.related = [ 170, 171, 173 ];
+snMinimumStone.shortDescription = "AoE 1 only. The minimum amount of stone a computer player likes to keep on hand. Must be &gt;= 0.";
+
+snMinimumGold.id = 173;
+snMinimumGold.snName = "sn-minimum-gold";
+snMinimumGold.default = 200;
+snMinimumGold.category = "AoE 1";
+snMinimumGold.min = -32767;
+snMinimumGold.max = 32768;
+snMinimumGold.rmin = 0;
+snMinimumGold.rmax = 32768;
+snMinimumGold.network = 0;
+snMinimumGold.defined = 0;
+snMinimumGold.available = 1;
+snMinimumGold.version = "1.0c";
+snMinimumGold.linked = [];
+snMinimumGold.related = [ 170, 171, 172 ];
+snMinimumGold.shortDescription = "AoE 1 only. The minimum amount of gold a computer player likes to keep on hand. Must be &gt;= 0.";
+
+snMaximumHousesBeforeDropsites.id = 174;
+snMaximumHousesBeforeDropsites.snName = "sn-maximum-houses-before-dropsites";
+snMaximumHousesBeforeDropsites.default = -1;
+snMaximumHousesBeforeDropsites.category = "AoE 1";
+snMaximumHousesBeforeDropsites.min = -32767;
+snMaximumHousesBeforeDropsites.max = 32768;
+snMaximumHousesBeforeDropsites.rmin = 0;
+snMaximumHousesBeforeDropsites.rmax = 32768;
+snMaximumHousesBeforeDropsites.network = 0;
+snMaximumHousesBeforeDropsites.defined = 0;
+snMaximumHousesBeforeDropsites.available = 1;
+snMaximumHousesBeforeDropsites.version = "1.0c";
+snMaximumHousesBeforeDropsites.linked = [];
+snMaximumHousesBeforeDropsites.related = [];
+snMaximumHousesBeforeDropsites.shortDescription = "AoE 1 only. The maximum number of Houses that can be built before a dropsite is built. Must be &gt;= 0.";
+
+snSpecificBuildItemToBuild.id = 175;
+snSpecificBuildItemToBuild.snName = "sn-specific-build-item-to-build";
+snSpecificBuildItemToBuild.default = -1;
+snSpecificBuildItemToBuild.category = "AoE 1";
+snSpecificBuildItemToBuild.min = -32767;
+snSpecificBuildItemToBuild.max = 32768;
+snSpecificBuildItemToBuild.rmin = 0;
+snSpecificBuildItemToBuild.rmax = 32768;
+snSpecificBuildItemToBuild.network = 0;
+snSpecificBuildItemToBuild.defined = 0;
+snSpecificBuildItemToBuild.available = "seems available";
+snSpecificBuildItemToBuild.version = "1.0c";
+snSpecificBuildItemToBuild.linked = [ 176 ];
+snSpecificBuildItemToBuild.related = [];
+snSpecificBuildItemToBuild.shortDescription = "AoE 1 only. A specific build item that should be inserted into the computer player's list. Must be a valid building ID.";
+
+snSpecificBuildItemTime.id = 176;
+snSpecificBuildItemTime.snName = "sn-specific-build-item-time";
+snSpecificBuildItemTime.default = -1;
+snSpecificBuildItemTime.category = "AoE 1";
+snSpecificBuildItemTime.min = -32767;
+snSpecificBuildItemTime.max = 32768;
+snSpecificBuildItemTime.rmin = 0;
+snSpecificBuildItemTime.rmax = 32768;
+snSpecificBuildItemTime.network = 0;
+snSpecificBuildItemTime.defined = 0;
+snSpecificBuildItemTime.available = "seems available";
+snSpecificBuildItemTime.version = "1.0c";
+snSpecificBuildItemTime.linked = [ 175 ];
+snSpecificBuildItemTime.related = [];
+snSpecificBuildItemTime.shortDescription = "AoE 1 only. The time (in minutes) that the sn-specific-build-item-to-build should be inserted into. Must be &gt;= 0.";
+
+snUnskippableItemType.id = 177;
+snUnskippableItemType.snName = "sn-unskippable-item-type";
+snUnskippableItemType.default = -1;
+snUnskippableItemType.category = "AoE 1";
+snUnskippableItemType.min = -32767;
+snUnskippableItemType.max = 32768;
+snUnskippableItemType.rmin = 0;
+snUnskippableItemType.rmax = 32768;
+snUnskippableItemType.network = 0;
+snUnskippableItemType.defined = 0;
+snUnskippableItemType.available = "seems available";
+snUnskippableItemType.version = "1.0c";
+snUnskippableItemType.linked = [];
+snUnskippableItemType.related = [];
+snUnskippableItemType.shortDescription = "AoE 1 only. Allows the computer player to not skip a particular item type during building. Must be a valid building ID.";
+
+snAttackDiplomacyImpact.id = 178;
+snAttackDiplomacyImpact.snName = "sn-attack-diplomacy-impact";
+snAttackDiplomacyImpact.default = 10;
+snAttackDiplomacyImpact.category = "Defense";
+snAttackDiplomacyImpact.min = -32767;
+snAttackDiplomacyImpact.max = 32768;
+snAttackDiplomacyImpact.rmin = 0;
+snAttackDiplomacyImpact.rmax = 100;
+snAttackDiplomacyImpact.network = 0;
+snAttackDiplomacyImpact.defined = 1;
+snAttackDiplomacyImpact.available = "available, except for when teams-locked is disabled";
+snAttackDiplomacyImpact.version = "1.0c";
+snAttackDiplomacyImpact.linked = [];
+snAttackDiplomacyImpact.related = [ 215 ];
+snAttackDiplomacyImpact.shortDescription = "The impact (positive or negative) that a computer player injects into his diplomacy system when attacked.";
+
+snPercentHalfExploration.id = 179;
+snPercentHalfExploration.snName = "sn-percent-half-exploration";
+snPercentHalfExploration.default = 30;
+snPercentHalfExploration.category = "Explore";
+snPercentHalfExploration.min = -32767;
+snPercentHalfExploration.max = 32768;
+snPercentHalfExploration.rmin = 0;
+snPercentHalfExploration.rmax = 100;
+snPercentHalfExploration.network = 0;
+snPercentHalfExploration.defined = 1;
+snPercentHalfExploration.available = 0;
+snPercentHalfExploration.version = "1.0c";
+snPercentHalfExploration.linked = [ 167, 32, 256 ];
+snPercentHalfExploration.related = [ 135, 136 ];
+snPercentHalfExploration.shortDescription = "The percentage of map exploration that allows the computer player to task down to half the number of explorers.";
+
+snAutoBuildHouses.id = 180;
+snAutoBuildHouses.snName = "sn-auto-build-houses";
+snAutoBuildHouses.default = -1;
+snAutoBuildHouses.category = "AoE 1";
+snAutoBuildHouses.min = -32767;
+snAutoBuildHouses.max = 32768;
+snAutoBuildHouses.rmin = 0;
+snAutoBuildHouses.rmax = 1;
+snAutoBuildHouses.network = 0;
+snAutoBuildHouses.defined = 0;
+snAutoBuildHouses.available = 1;
+snAutoBuildHouses.version = "1.0c";
+snAutoBuildHouses.linked = [];
+snAutoBuildHouses.related = [];
+snAutoBuildHouses.shortDescription = "AoE 1 only. Controls whether the computer player can decide to build its houses by itself. Must be 0 or 1.";
+
+snUpgradeToToolAgeAsap.id = 181;
+snUpgradeToToolAgeAsap.snName = "sn-upgrade-to-tool-age-asap";
+snUpgradeToToolAgeAsap.default = -1;
+snUpgradeToToolAgeAsap.category = "AoE 1";
+snUpgradeToToolAgeAsap.min = -32767;
+snUpgradeToToolAgeAsap.max = 32768;
+snUpgradeToToolAgeAsap.rmin = 0;
+snUpgradeToToolAgeAsap.rmax = 1;
+snUpgradeToToolAgeAsap.network = 0;
+snUpgradeToToolAgeAsap.defined = 0;
+snUpgradeToToolAgeAsap.available = 1;
+snUpgradeToToolAgeAsap.version = "1.0c";
+snUpgradeToToolAgeAsap.linked = [];
+snUpgradeToToolAgeAsap.related = [ 182, 183 ];
+snUpgradeToToolAgeAsap.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Tool Age as soon as it becomes available for research. Must be 0 or 1.";
+
+snUpgradeToBronzeAgeAsap.id = 182;
+snUpgradeToBronzeAgeAsap.snName = "sn-upgrade-to-bronze-age-asap";
+snUpgradeToBronzeAgeAsap.default = -1;
+snUpgradeToBronzeAgeAsap.category = "AoE 1";
+snUpgradeToBronzeAgeAsap.min = -32767;
+snUpgradeToBronzeAgeAsap.max = 32768;
+snUpgradeToBronzeAgeAsap.rmin = 0;
+snUpgradeToBronzeAgeAsap.rmax = 1;
+snUpgradeToBronzeAgeAsap.network = 0;
+snUpgradeToBronzeAgeAsap.defined = 0;
+snUpgradeToBronzeAgeAsap.available = 1;
+snUpgradeToBronzeAgeAsap.version = "1.0c";
+snUpgradeToBronzeAgeAsap.linked = [];
+snUpgradeToBronzeAgeAsap.related = [ 181, 183 ];
+snUpgradeToBronzeAgeAsap.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Bronze Age as soon as it becomes available for research. Must be 0 or 1.";
+
+snUpgradeToIronAgeAsap.id = 183;
+snUpgradeToIronAgeAsap.snName = "sn-upgrade-to-iron-age-asap";
+snUpgradeToIronAgeAsap.default = -1;
+snUpgradeToIronAgeAsap.category = "AoE 1";
+snUpgradeToIronAgeAsap.min = -32767;
+snUpgradeToIronAgeAsap.max = 32768;
+snUpgradeToIronAgeAsap.rmin = 0;
+snUpgradeToIronAgeAsap.rmax = 1;
+snUpgradeToIronAgeAsap.network = 0;
+snUpgradeToIronAgeAsap.defined = 0;
+snUpgradeToIronAgeAsap.available = 1;
+snUpgradeToIronAgeAsap.version = "1.0c";
+snUpgradeToIronAgeAsap.linked = [];
+snUpgradeToIronAgeAsap.related = [ 181, 182 ];
+snUpgradeToIronAgeAsap.shortDescription = "AoE 1 only. Controls whether or not the computer player will abandon all to upgrade to the Iron Age as soon as it becomes available for research. Must be 0 or 1.";
+
+snTargetEvaluationTimeKillRatio.id = 184;
+snTargetEvaluationTimeKillRatio.snName = "sn-target-evaluation-time-kill-ratio";
+snTargetEvaluationTimeKillRatio.default = 20;
+snTargetEvaluationTimeKillRatio.category = "Attack";
+snTargetEvaluationTimeKillRatio.min = -32767;
+snTargetEvaluationTimeKillRatio.max = 32768;
+snTargetEvaluationTimeKillRatio.rmin = -32767;
+snTargetEvaluationTimeKillRatio.rmax = 32768;
+snTargetEvaluationTimeKillRatio.network = 0;
+snTargetEvaluationTimeKillRatio.defined = 1;
+snTargetEvaluationTimeKillRatio.available = 0;
+snTargetEvaluationTimeKillRatio.version = "1.0c";
+snTargetEvaluationTimeKillRatio.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123 ];
+snTargetEvaluationTimeKillRatio.related = [];
+snTargetEvaluationTimeKillRatio.shortDescription = "The amount of influence the time to kill a target has in deciding what to attack.";
+
+snTargetEvaluationInProgress.id = 185;
+snTargetEvaluationInProgress.snName = "sn-target-evaluation-in-progress";
+snTargetEvaluationInProgress.default = 50;
+snTargetEvaluationInProgress.category = "Attack";
+snTargetEvaluationInProgress.min = -32767;
+snTargetEvaluationInProgress.max = 32768;
+snTargetEvaluationInProgress.rmin = -32767;
+snTargetEvaluationInProgress.rmax = 32768;
+snTargetEvaluationInProgress.network = 0;
+snTargetEvaluationInProgress.defined = 1;
+snTargetEvaluationInProgress.available = 0;
+snTargetEvaluationInProgress.version = "1.0c";
+snTargetEvaluationInProgress.linked = [ 81, 89, 144, 122, 79, 77, 78, 80, 83, 90, 82, 123, 184 ];
+snTargetEvaluationInProgress.related = [];
+snTargetEvaluationInProgress.shortDescription = "The amount of influence of continuing to attack a target already under attack.";
+
+snCoopDemandTributeInterval.id = 186;
+snCoopDemandTributeInterval.snName = "sn-coop-demand-tribute-interval";
+snCoopDemandTributeInterval.default = 0;
+snCoopDemandTributeInterval.category = "AoE 1";
+snCoopDemandTributeInterval.min = -32767;
+snCoopDemandTributeInterval.max = 32768;
+snCoopDemandTributeInterval.rmin = 0;
+snCoopDemandTributeInterval.rmax = 32768;
+snCoopDemandTributeInterval.network = 0;
+snCoopDemandTributeInterval.defined = 0;
+snCoopDemandTributeInterval.available = 1;
+snCoopDemandTributeInterval.version = "1.0c";
+snCoopDemandTributeInterval.linked = [ 187 ];
+snCoopDemandTributeInterval.related = [];
+snCoopDemandTributeInterval.shortDescription = "AoE 1 only. Controls how often the computer player may demand tribute from his computer player allies (in seconds). Must be &gt;= 0.";
+
+snCoopDemandTributeMaximum.id = 187;
+snCoopDemandTributeMaximum.snName = "sn-coop-demand-tribute-maximum";
+snCoopDemandTributeMaximum.default = 0;
+snCoopDemandTributeMaximum.category = "AoE 1";
+snCoopDemandTributeMaximum.min = -32767;
+snCoopDemandTributeMaximum.max = 32768;
+snCoopDemandTributeMaximum.rmin = 1;
+snCoopDemandTributeMaximum.rmax = 32768;
+snCoopDemandTributeMaximum.network = 0;
+snCoopDemandTributeMaximum.defined = 0;
+snCoopDemandTributeMaximum.available = 1;
+snCoopDemandTributeMaximum.version = "1.0c";
+snCoopDemandTributeMaximum.linked = [ 186 ];
+snCoopDemandTributeMaximum.related = [];
+snCoopDemandTributeMaximum.shortDescription = "AoE 1 only. Controls the maximum amount a computer player may demand from his computer player allies at any one time. Must be &gt;= 1.";
+
+snAttackWinningPlayer.id = 188;
+snAttackWinningPlayer.snName = "sn-attack-winning-player";
+snAttackWinningPlayer.default = 1;
+snAttackWinningPlayer.category = "Attack";
+snAttackWinningPlayer.min = -32767;
+snAttackWinningPlayer.max = 32768;
+snAttackWinningPlayer.rmin = 0;
+snAttackWinningPlayer.rmax = 1;
+snAttackWinningPlayer.network = 0;
+snAttackWinningPlayer.defined = 1;
+snAttackWinningPlayer.available = "available, but only for 1v1 and Wonder Race games";
+snAttackWinningPlayer.version = "1.0c";
+snAttackWinningPlayer.linked = [ 195 ];
+snAttackWinningPlayer.related = [ 249 ];
+snAttackWinningPlayer.shortDescription = "Controls whether or not the computer player will attack the winning player (if there is more than one to choose from).";
+
+snUnknownData189.id = 189;
+snUnknownData189.snName = "unknown-data-189";
+snUnknownData189.default = 50;
+snUnknownData189.category = "None";
+snUnknownData189.min = -32767;
+snUnknownData189.max = 32768;
+snUnknownData189.rmin = -32767;
+snUnknownData189.rmax = 32768;
+snUnknownData189.network = 0;
+snUnknownData189.defined = 0;
+snUnknownData189.available = 0;
+snUnknownData189.version = "1.0c";
+snUnknownData189.linked = [];
+snUnknownData189.related = [];
+snUnknownData189.shortDescription = "Unused.";
+
+snMaximumFood.id = 190;
+snMaximumFood.snName = "sn-maximum-food";
+snMaximumFood.default = 3000;
+snMaximumFood.category = "AoE 1";
+snMaximumFood.min = -32767;
+snMaximumFood.max = 32768;
+snMaximumFood.rmin = 0;
+snMaximumFood.rmax = 32768;
+snMaximumFood.network = 0;
+snMaximumFood.defined = 0;
+snMaximumFood.available = 1;
+snMaximumFood.version = "1.0c";
+snMaximumFood.linked = [];
+snMaximumFood.related = [ 191, 192, 193 ];
+snMaximumFood.shortDescription = "AoE 1 only. Controls the maximum amount of food the computer player likes to have on hand. Must be &gt;= 0.";
+
+snMaximumWood.id = 191;
+snMaximumWood.snName = "sn-maximum-wood";
+snMaximumWood.default = 2000;
+snMaximumWood.category = "AoE 1";
+snMaximumWood.min = -32767;
+snMaximumWood.max = 32768;
+snMaximumWood.rmin = 0;
+snMaximumWood.rmax = 32768;
+snMaximumWood.network = 0;
+snMaximumWood.defined = 0;
+snMaximumWood.available = 1;
+snMaximumWood.version = "1.0c";
+snMaximumWood.linked = [];
+snMaximumWood.related = [ 190, 192, 193 ];
+snMaximumWood.shortDescription = "AoE 1 only. Controls the maximum amount of wood the computer player likes to have on hand. Must be &gt;= 0.";
+
+snMaximumStone.id = 192;
+snMaximumStone.snName = "sn-maximum-stone";
+snMaximumStone.default = 1500;
+snMaximumStone.category = "AoE 1";
+snMaximumStone.min = -32767;
+snMaximumStone.max = 32768;
+snMaximumStone.rmin = 0;
+snMaximumStone.rmax = 32768;
+snMaximumStone.network = 0;
+snMaximumStone.defined = 0;
+snMaximumStone.available = 1;
+snMaximumStone.version = "1.0c";
+snMaximumStone.linked = [];
+snMaximumStone.related = [ 190, 191, 193 ];
+snMaximumStone.shortDescription = "AoE 1 only. Controls the maximum amount of stone the computer player likes to have on hand. Must be &gt;= 0.";
+
+snMaximumGold.id = 193;
+snMaximumGold.snName = "sn-maximum-gold";
+snMaximumGold.default = 3000;
+snMaximumGold.category = "AoE 1";
+snMaximumGold.min = -32767;
+snMaximumGold.max = 32768;
+snMaximumGold.rmin = 0;
+snMaximumGold.rmax = 32768;
+snMaximumGold.network = 0;
+snMaximumGold.defined = 0;
+snMaximumGold.available = 1;
+snMaximumGold.version = "1.0c";
+snMaximumGold.linked = [];
+snMaximumGold.related = [ 190, 191, 192 ];
+snMaximumGold.shortDescription = "AoE 1 only. Controls the maximum amount of gold the computer player likes to have on hand. Must be &gt;= 0.";
+
+snCoopShareInformation.id = 194;
+snCoopShareInformation.snName = "sn-coop-share-information";
+snCoopShareInformation.default = 1;
+snCoopShareInformation.category = "Other";
+snCoopShareInformation.min = -32767;
+snCoopShareInformation.max = 32768;
+snCoopShareInformation.rmin = 0;
+snCoopShareInformation.rmax = 1;
+snCoopShareInformation.network = 0;
+snCoopShareInformation.defined = 1;
+snCoopShareInformation.available = 0;
+snCoopShareInformation.version = "1.0c";
+snCoopShareInformation.linked = [];
+snCoopShareInformation.related = [ 196, 197 ];
+snCoopShareInformation.shortDescription = "Controls whether or not allied computer players share information about what they uncover (this is not like Cartography; instead, it's analogous to two humans chatting).";
+
+snAttackWinningPlayerFactor.id = 195;
+snAttackWinningPlayerFactor.snName = "sn-attack-winning-player-factor";
+snAttackWinningPlayerFactor.default = 25;
+snAttackWinningPlayerFactor.category = "Attack";
+snAttackWinningPlayerFactor.min = -32767;
+snAttackWinningPlayerFactor.max = 32768;
+snAttackWinningPlayerFactor.rmin = -32767;
+snAttackWinningPlayerFactor.rmax = 32768;
+snAttackWinningPlayerFactor.network = 0;
+snAttackWinningPlayerFactor.defined = 1;
+snAttackWinningPlayerFactor.available = "available, but only for 1v1 and Wonder Race games";
+snAttackWinningPlayerFactor.version = "1.0c";
+snAttackWinningPlayerFactor.linked = [ 188 ];
+snAttackWinningPlayerFactor.related = [ 249 ];
+snAttackWinningPlayerFactor.shortDescription = "The influence the sn-attack-winning-player will have on deciding who to attack if it's set to 1.";
+
+snCoopShareAttacking.id = 196;
+snCoopShareAttacking.snName = "sn-coop-share-attacking";
+snCoopShareAttacking.default = 1;
+snCoopShareAttacking.category = "Attack";
+snCoopShareAttacking.min = -32767;
+snCoopShareAttacking.max = 32768;
+snCoopShareAttacking.rmin = 0;
+snCoopShareAttacking.rmax = 1;
+snCoopShareAttacking.network = 0;
+snCoopShareAttacking.defined = 1;
+snCoopShareAttacking.available = "seems available, but only for 1v1 and Wonder Race games";
+snCoopShareAttacking.version = "1.0c";
+snCoopShareAttacking.linked = [ 197 ];
+snCoopShareAttacking.related = [ 194 ];
+snCoopShareAttacking.shortDescription = "Controls whether allied computer players can attack to defend each other.";
+
+snCoopShareAttackingInterval.id = 197;
+snCoopShareAttackingInterval.snName = "sn-coop-share-attacking-interval";
+snCoopShareAttackingInterval.default = 120;
+snCoopShareAttackingInterval.category = "Attack";
+snCoopShareAttackingInterval.min = -32767;
+snCoopShareAttackingInterval.max = 32768;
+snCoopShareAttackingInterval.rmin = 0;
+snCoopShareAttackingInterval.rmax = 32768;
+snCoopShareAttackingInterval.network = 0;
+snCoopShareAttackingInterval.defined = 1;
+snCoopShareAttackingInterval.available = "seems available, but only for 1v1 and Wonder Race games";
+snCoopShareAttackingInterval.version = "1.0c";
+snCoopShareAttackingInterval.linked = [ 196 ];
+snCoopShareAttackingInterval.related = [ 194 ];
+snCoopShareAttackingInterval.shortDescription = "Controls how often this computer player can ask another for help (in seconds).";
+
+snPercentageExploreExterminators.id = 198;
+snPercentageExploreExterminators.snName = "sn-percentage-explore-exterminators";
+snPercentageExploreExterminators.default = 50;
+snPercentageExploreExterminators.category = "Explore";
+snPercentageExploreExterminators.min = -32767;
+snPercentageExploreExterminators.max = 32768;
+snPercentageExploreExterminators.rmin = 0;
+snPercentageExploreExterminators.rmax = 100;
+snPercentageExploreExterminators.network = 0;
+snPercentageExploreExterminators.defined = 1;
+snPercentageExploreExterminators.available = 0;
+snPercentageExploreExterminators.version = "1.0c";
+snPercentageExploreExterminators.linked = [];
+snPercentageExploreExterminators.related = [];
+snPercentageExploreExterminators.shortDescription = "Determines how many of the computer player's soldier explore groups are set as extermination groups. Must be &gt;= 0 and &lt;= 100.";
+
+snUnknownData199.id = 199;
+snUnknownData199.snName = "unknown-data-199";
+snUnknownData199.default = 25;
+snUnknownData199.category = "None";
+snUnknownData199.min = -32767;
+snUnknownData199.max = 32768;
+snUnknownData199.rmin = -32767;
+snUnknownData199.rmax = 32768;
+snUnknownData199.network = 0;
+snUnknownData199.defined = 0;
+snUnknownData199.available = 0;
+snUnknownData199.version = "1.0c";
+snUnknownData199.linked = [];
+snUnknownData199.related = [];
+snUnknownData199.shortDescription = "Unused.";
+
+snUnknownData200.id = 200;
+snUnknownData200.snName = "unknown-data-200";
+snUnknownData200.default = 50;
+snUnknownData200.category = "None";
+snUnknownData200.min = -32767;
+snUnknownData200.max = 32768;
+snUnknownData200.rmin = -32767;
+snUnknownData200.rmax = 32768;
+snUnknownData200.network = 0;
+snUnknownData200.defined = 0;
+snUnknownData200.available = 0;
+snUnknownData200.version = "1.0c";
+snUnknownData200.linked = [];
+snUnknownData200.related = [];
+snUnknownData200.shortDescription = "Unused.";
+
+snTrackPlayerHistory.id = 201;
+snTrackPlayerHistory.snName = "sn-track-player-history";
+snTrackPlayerHistory.default = 0;
+snTrackPlayerHistory.category = "Other";
+snTrackPlayerHistory.min = -32767;
+snTrackPlayerHistory.max = 32768;
+snTrackPlayerHistory.rmin = 0;
+snTrackPlayerHistory.rmax = 1;
+snTrackPlayerHistory.network = 0;
+snTrackPlayerHistory.defined = 1;
+snTrackPlayerHistory.available = 0;
+snTrackPlayerHistory.version = "1.0c";
+snTrackPlayerHistory.linked = [];
+snTrackPlayerHistory.related = [ 105 ];
+snTrackPlayerHistory.shortDescription = "Decides whether or not a human player's tendencies are tracked or not.";
+
+snMinimumDropsiteBuffer.id = 202;
+snMinimumDropsiteBuffer.snName = "sn-minimum-dropsite-buffer";
+snMinimumDropsiteBuffer.default = 25;
+snMinimumDropsiteBuffer.category = "Economy";
+snMinimumDropsiteBuffer.min = -32767;
+snMinimumDropsiteBuffer.max = 32768;
+snMinimumDropsiteBuffer.rmin = 0;
+snMinimumDropsiteBuffer.rmax = 255;
+snMinimumDropsiteBuffer.network = 0;
+snMinimumDropsiteBuffer.defined = 1;
+snMinimumDropsiteBuffer.available = 0;
+snMinimumDropsiteBuffer.version = "1.0c";
+snMinimumDropsiteBuffer.linked = [ 86, 87, 260, 261 ];
+snMinimumDropsiteBuffer.related = [ 248 ];
+snMinimumDropsiteBuffer.shortDescription = "Controls how far away a computer player will keep dropsites in relation to enemy town centers.";
+
+snUseByTypeMaxGathering.id = 203;
+snUseByTypeMaxGathering.snName = "sn-use-by-type-max-gathering";
+snUseByTypeMaxGathering.default = 0;
+snUseByTypeMaxGathering.category = "Economy";
+snUseByTypeMaxGathering.min = -32767;
+snUseByTypeMaxGathering.max = 32768;
+snUseByTypeMaxGathering.rmin = 0;
+snUseByTypeMaxGathering.rmax = 1;
+snUseByTypeMaxGathering.network = 0;
+snUseByTypeMaxGathering.defined = 1;
+snUseByTypeMaxGathering.available = 0;
+snUseByTypeMaxGathering.version = "1.0c";
+snUseByTypeMaxGathering.linked = [];
+snUseByTypeMaxGathering.related = [ 142, 148, 149 ];
+snUseByTypeMaxGathering.shortDescription = "Controls whether or not logical, type-specific gatherer requirements are placed on the quantity of resources gatherers must collect before being allowed to be retasked.";
+
+snMinimumBoarHuntGroupSize.id = 204;
+snMinimumBoarHuntGroupSize.snName = "sn-minimum-boar-hunt-group-size";
+snMinimumBoarHuntGroupSize.default = 5;
+snMinimumBoarHuntGroupSize.category = "Economy";
+snMinimumBoarHuntGroupSize.min = -32767;
+snMinimumBoarHuntGroupSize.max = 8;
+snMinimumBoarHuntGroupSize.rmin = 0;
+snMinimumBoarHuntGroupSize.rmax = 8;
+snMinimumBoarHuntGroupSize.network = 0;
+snMinimumBoarHuntGroupSize.defined = 1;
+snMinimumBoarHuntGroupSize.available = 0;
+snMinimumBoarHuntGroupSize.version = "1.0c";
+snMinimumBoarHuntGroupSize.linked = [ 252, 244 ];
+snMinimumBoarHuntGroupSize.related = [ 235, 245 ];
+snMinimumBoarHuntGroupSize.shortDescription = "The number of villagers a computer player must collect before allowing boars to be hunted for food.";
+
+snAutoBuildDropsites.id = 205;
+snAutoBuildDropsites.snName = "sn-auto-build-dropsites";
+snAutoBuildDropsites.default = -1;
+snAutoBuildDropsites.category = "AoE 1";
+snAutoBuildDropsites.min = -32767;
+snAutoBuildDropsites.max = 32768;
+snAutoBuildDropsites.rmin = 0;
+snAutoBuildDropsites.rmax = 1;
+snAutoBuildDropsites.network = 0;
+snAutoBuildDropsites.defined = 0;
+snAutoBuildDropsites.available = 1;
+snAutoBuildDropsites.version = "1.0c";
+snAutoBuildDropsites.linked = [];
+snAutoBuildDropsites.related = [];
+snAutoBuildDropsites.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build storage pits and granaries. Must be 0 or 1.";
+
+snAutoBuildFarms.id = 206;
+snAutoBuildFarms.snName = "sn-auto-build-farms";
+snAutoBuildFarms.default = -1;
+snAutoBuildFarms.category = "AoE 1";
+snAutoBuildFarms.min = -32767;
+snAutoBuildFarms.max = 32768;
+snAutoBuildFarms.rmin = 0;
+snAutoBuildFarms.rmax = 1;
+snAutoBuildFarms.network = 0;
+snAutoBuildFarms.defined = 0;
+snAutoBuildFarms.available = 1;
+snAutoBuildFarms.version = "1.0c";
+snAutoBuildFarms.linked = [];
+snAutoBuildFarms.related = [];
+snAutoBuildFarms.shortDescription = "AoE 1 only. Controls whether or not the computer player can use extra wood to build Farms once all of the build list buildings are constructed. Must be 0 or 1.";
+
+snAutoBuildTowers.id = 207;
+snAutoBuildTowers.snName = "sn-auto-build-towers";
+snAutoBuildTowers.default = -1;
+snAutoBuildTowers.category = "AoE 1";
+snAutoBuildTowers.min = -32767;
+snAutoBuildTowers.max = 32768;
+snAutoBuildTowers.rmin = 0;
+snAutoBuildTowers.rmax = 1;
+snAutoBuildTowers.network = 0;
+snAutoBuildTowers.defined = 0;
+snAutoBuildTowers.available = 1;
+snAutoBuildTowers.version = "1.0c";
+snAutoBuildTowers.linked = [];
+snAutoBuildTowers.related = [];
+snAutoBuildTowers.shortDescription = "AoE 1 only. Controls whether or not the computer player can use extra stone to build towers. Must be 0 or 1.";
+
+snAutoBuildDocks.id = 208;
+snAutoBuildDocks.snName = "sn-auto-build-docks";
+snAutoBuildDocks.default = -1;
+snAutoBuildDocks.category = "AoE 1";
+snAutoBuildDocks.min = -32767;
+snAutoBuildDocks.max = 32768;
+snAutoBuildDocks.rmin = 0;
+snAutoBuildDocks.rmax = 1;
+snAutoBuildDocks.network = 0;
+snAutoBuildDocks.defined = 0;
+snAutoBuildDocks.available = 1;
+snAutoBuildDocks.version = "1.0c";
+snAutoBuildDocks.linked = [];
+snAutoBuildDocks.related = [];
+snAutoBuildDocks.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build Docks. Must be 0 or 1.";
+
+snAutoBuildFishingBoats.id = 209;
+snAutoBuildFishingBoats.snName = "sn-auto-build-fishing-boats";
+snAutoBuildFishingBoats.default = -1;
+snAutoBuildFishingBoats.category = "AoE 1";
+snAutoBuildFishingBoats.min = -32767;
+snAutoBuildFishingBoats.max = 32768;
+snAutoBuildFishingBoats.rmin = 0;
+snAutoBuildFishingBoats.rmax = 1;
+snAutoBuildFishingBoats.network = 0;
+snAutoBuildFishingBoats.defined = 0;
+snAutoBuildFishingBoats.available = 1;
+snAutoBuildFishingBoats.version = "1.0c";
+snAutoBuildFishingBoats.linked = [];
+snAutoBuildFishingBoats.related = [];
+snAutoBuildFishingBoats.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build fishing boats. Must be 0 or 1.";
+
+snAutoBuildTransports.id = 210;
+snAutoBuildTransports.snName = "sn-auto-build-transports";
+snAutoBuildTransports.default = -1;
+snAutoBuildTransports.category = "AoE 1";
+snAutoBuildTransports.min = -32767;
+snAutoBuildTransports.max = 32768;
+snAutoBuildTransports.rmin = 0;
+snAutoBuildTransports.rmax = 1;
+snAutoBuildTransports.network = 0;
+snAutoBuildTransports.defined = 0;
+snAutoBuildTransports.available = 1;
+snAutoBuildTransports.version = "1.0c";
+snAutoBuildTransports.linked = [];
+snAutoBuildTransports.related = [];
+snAutoBuildTransports.shortDescription = "AoE 1 only. Controls whether or not the computer player decides how and when to build transports. Must be 0 or 1.";
+
+snUnknownData211.id = 211;
+snUnknownData211.snName = "unknown-data-211";
+snUnknownData211.default = -1;
+snUnknownData211.category = "None";
+snUnknownData211.min = -32767;
+snUnknownData211.max = 32768;
+snUnknownData211.rmin = -32767;
+snUnknownData211.rmax = 32768;
+snUnknownData211.network = 0;
+snUnknownData211.defined = 0;
+snUnknownData211.available = 0;
+snUnknownData211.version = "1.0c";
+snUnknownData211.linked = [];
+snUnknownData211.related = [];
+snUnknownData211.shortDescription = "Unused.";
+
+snDesiredNumberDocks.id = 212;
+snDesiredNumberDocks.snName = "sn-desired-number-docks";
+snDesiredNumberDocks.default = 0;
+snDesiredNumberDocks.category = "AoE 1";
+snDesiredNumberDocks.min = -32767;
+snDesiredNumberDocks.max = 32768;
+snDesiredNumberDocks.rmin = 0;
+snDesiredNumberDocks.rmax = 32768;
+snDesiredNumberDocks.network = 0;
+snDesiredNumberDocks.defined = 0;
+snDesiredNumberDocks.available = 1;
+snDesiredNumberDocks.version = "1.0c";
+snDesiredNumberDocks.linked = [];
+snDesiredNumberDocks.related = [];
+snDesiredNumberDocks.shortDescription = "AoE 1 only. How many Docks the computer player wants in a given game. Must be &gt;= 0.";
+
+snDesiredNumberFishingBoats.id = 213;
+snDesiredNumberFishingBoats.snName = "sn-desired-number-fishing-boats";
+snDesiredNumberFishingBoats.default = 0;
+snDesiredNumberFishingBoats.category = "AoE 1";
+snDesiredNumberFishingBoats.min = -32767;
+snDesiredNumberFishingBoats.max = 32768;
+snDesiredNumberFishingBoats.rmin = 0;
+snDesiredNumberFishingBoats.rmax = 32768;
+snDesiredNumberFishingBoats.network = 0;
+snDesiredNumberFishingBoats.defined = 0;
+snDesiredNumberFishingBoats.available = 1;
+snDesiredNumberFishingBoats.version = "1.0c";
+snDesiredNumberFishingBoats.linked = [];
+snDesiredNumberFishingBoats.related = [];
+snDesiredNumberFishingBoats.shortDescription = "AoE 1 only. How many fishing boats the computer player wants in a given game. Must be &gt;= 0.";
+
+snDesiredNumberTransports.id = 214;
+snDesiredNumberTransports.snName = "sn-desired-number-transports";
+snDesiredNumberTransports.default = 0;
+snDesiredNumberTransports.category = "AoE 1";
+snDesiredNumberTransports.min = -32767;
+snDesiredNumberTransports.max = 32768;
+snDesiredNumberTransports.rmin = 0;
+snDesiredNumberTransports.rmax = 32768;
+snDesiredNumberTransports.network = 0;
+snDesiredNumberTransports.defined = 0;
+snDesiredNumberTransports.available = 1;
+snDesiredNumberTransports.version = "1.0c";
+snDesiredNumberTransports.linked = [];
+snDesiredNumberTransports.related = [];
+snDesiredNumberTransports.shortDescription = "AoE 1 only. How many transports the computer player wants in a given game. Must be &gt;= 0.";
+
+snAllowDiplomacyChangeOnAllyAttack.id = 215;
+snAllowDiplomacyChangeOnAllyAttack.snName = "sn-allow-diplomacy-change-on-ally-attack";
+snAllowDiplomacyChangeOnAllyAttack.default = 1;
+snAllowDiplomacyChangeOnAllyAttack.category = "AoE 1";
+snAllowDiplomacyChangeOnAllyAttack.min = -32767;
+snAllowDiplomacyChangeOnAllyAttack.max = 32768;
+snAllowDiplomacyChangeOnAllyAttack.rmin = 0;
+snAllowDiplomacyChangeOnAllyAttack.rmax = 1;
+snAllowDiplomacyChangeOnAllyAttack.network = 0;
+snAllowDiplomacyChangeOnAllyAttack.defined = 0;
+snAllowDiplomacyChangeOnAllyAttack.available = "seems available, except for when teams-locked is disabled";
+snAllowDiplomacyChangeOnAllyAttack.version = "1.0c";
+snAllowDiplomacyChangeOnAllyAttack.linked = [];
+snAllowDiplomacyChangeOnAllyAttack.related = [ 217, 178 ];
+snAllowDiplomacyChangeOnAllyAttack.shortDescription = "AoE 1 only. Controls whether or not the computer player can change his alliance when attacked by an ally. Must be 0 or 1.";
+
+snMinimumAmountForTrading.id = 216;
+snMinimumAmountForTrading.snName = "sn-minimum-amount-for-trading";
+snMinimumAmountForTrading.default = 50;
+snMinimumAmountForTrading.category = "Economy";
+snMinimumAmountForTrading.min = -32767;
+snMinimumAmountForTrading.max = 32768;
+snMinimumAmountForTrading.rmin = 0;
+snMinimumAmountForTrading.rmax = 32768;
+snMinimumAmountForTrading.network = 0;
+snMinimumAmountForTrading.defined = 1;
+snMinimumAmountForTrading.available = 0;
+snMinimumAmountForTrading.version = "1.0c";
+snMinimumAmountForTrading.linked = [];
+snMinimumAmountForTrading.related = [];
+snMinimumAmountForTrading.shortDescription = "Controls how much of a resource a computer player must have before using it for trading.";
+
+snAllowDiplomacyChangeOnTribute.id = 217;
+snAllowDiplomacyChangeOnTribute.snName = "sn-allow-diplomacy-change-on-tribute";
+snAllowDiplomacyChangeOnTribute.default = 0;
+snAllowDiplomacyChangeOnTribute.category = "AoE 1";
+snAllowDiplomacyChangeOnTribute.min = -32767;
+snAllowDiplomacyChangeOnTribute.max = 32768;
+snAllowDiplomacyChangeOnTribute.rmin = 0;
+snAllowDiplomacyChangeOnTribute.rmax = 1;
+snAllowDiplomacyChangeOnTribute.network = 0;
+snAllowDiplomacyChangeOnTribute.defined = 0;
+snAllowDiplomacyChangeOnTribute.available = "seems available, except for when teams-locked is disabled";
+snAllowDiplomacyChangeOnTribute.version = "1.0c";
+snAllowDiplomacyChangeOnTribute.linked = [];
+snAllowDiplomacyChangeOnTribute.related = [ 215 ];
+snAllowDiplomacyChangeOnTribute.shortDescription = "AoE 1 only. Controls whether or not the computer player will allow his diplomacy to change when he receives tribute from a player. Must be 0 or 1.";
+
+snEasiestReactionPercentage.id = 218;
+snEasiestReactionPercentage.snName = "sn-easiest-reaction-percentage";
+snEasiestReactionPercentage.default = 100;
+snEasiestReactionPercentage.category = "Attack";
+snEasiestReactionPercentage.min = 100;
+snEasiestReactionPercentage.max = 100;
+snEasiestReactionPercentage.rmin = 0;
+snEasiestReactionPercentage.rmax = 100;
+snEasiestReactionPercentage.network = 1;
+snEasiestReactionPercentage.defined = 1;
+snEasiestReactionPercentage.available = 0;
+snEasiestReactionPercentage.version = "1.0c";
+snEasiestReactionPercentage.linked = [ 219 ];
+snEasiestReactionPercentage.related = [ 229 ];
+snEasiestReactionPercentage.shortDescription = "Sets the effective reaction percentage (of normal LOS) a computer player unit will use in single-player Easiest level scenario or campaign games.";
+
+snEasierReactionPercentage.id = 219;
+snEasierReactionPercentage.snName = "sn-easier-reaction-percentage";
+snEasierReactionPercentage.default = 100;
+snEasierReactionPercentage.category = "Attack";
+snEasierReactionPercentage.min = 100;
+snEasierReactionPercentage.max = 100;
+snEasierReactionPercentage.rmin = 0;
+snEasierReactionPercentage.rmax = 100;
+snEasierReactionPercentage.network = 1;
+snEasierReactionPercentage.defined = 1;
+snEasierReactionPercentage.available = 0;
+snEasierReactionPercentage.version = "1.0c";
+snEasierReactionPercentage.linked = [ 218 ];
+snEasierReactionPercentage.related = [ 229 ];
+snEasierReactionPercentage.shortDescription = "Sets the effective reaction percentage (of normal LOS) a computer player unit will use in single-player easier scenario or campaign games.";
+
+snMaxFarms.id = 220;
+snMaxFarms.snName = "sn-max-farms";
+snMaxFarms.default = -1;
+snMaxFarms.category = "AoE 1";
+snMaxFarms.min = -32767;
+snMaxFarms.max = 32768;
+snMaxFarms.rmin = 0;
+snMaxFarms.rmax = 32768;
+snMaxFarms.network = 0;
+snMaxFarms.defined = 0;
+snMaxFarms.available = 1;
+snMaxFarms.version = "1.0c";
+snMaxFarms.linked = [];
+snMaxFarms.related = [];
+snMaxFarms.shortDescription = "AoE 1 only. Caps the number of Farms a computer player will build. Must be &gt;= 0.";
+
+snHitsBeforeAllianceChange.id = 221;
+snHitsBeforeAllianceChange.snName = "sn-hits-before-alliance-change";
+snHitsBeforeAllianceChange.default = 3;
+snHitsBeforeAllianceChange.category = "Other";
+snHitsBeforeAllianceChange.min = -32767;
+snHitsBeforeAllianceChange.max = 32768;
+snHitsBeforeAllianceChange.rmin = 0;
+snHitsBeforeAllianceChange.rmax = 32768;
+snHitsBeforeAllianceChange.network = 0;
+snHitsBeforeAllianceChange.defined = 1;
+snHitsBeforeAllianceChange.available = "available, except for when teams-locked is disabled";
+snHitsBeforeAllianceChange.version = "1.0c";
+snHitsBeforeAllianceChange.linked = [];
+snHitsBeforeAllianceChange.related = [];
+snHitsBeforeAllianceChange.shortDescription = "Sets the number of times a computer player will allow his units to be hit by an ally before allowing his diplomacy to be changed.";
+
+snMaxTowers.id = 222;
+snMaxTowers.snName = "sn-max-towers";
+snMaxTowers.default = 10;
+snMaxTowers.category = "AoE 1";
+snMaxTowers.min = -32767;
+snMaxTowers.max = 32768;
+snMaxTowers.rmin = 0;
+snMaxTowers.rmax = 32768;
+snMaxTowers.network = 0;
+snMaxTowers.defined = 0;
+snMaxTowers.available = "seems available";
+snMaxTowers.version = "1.0c";
+snMaxTowers.linked = [];
+snMaxTowers.related = [];
+snMaxTowers.shortDescription = "AoE 1 only. Caps the number of towers a computer player will build. Must be &gt;= 0. Starts at 0, changed to 10 after some time has elapsed.";
+
+snAutoBuildWarships.id = 223;
+snAutoBuildWarships.snName = "sn-auto-build-warships";
+snAutoBuildWarships.default = -1;
+snAutoBuildWarships.category = "AoE 1";
+snAutoBuildWarships.min = -32767;
+snAutoBuildWarships.max = 32768;
+snAutoBuildWarships.rmin = 0;
+snAutoBuildWarships.rmax = 1;
+snAutoBuildWarships.network = 0;
+snAutoBuildWarships.defined = 0;
+snAutoBuildWarships.available = 1;
+snAutoBuildWarships.version = "1.0c";
+snAutoBuildWarships.linked = [];
+snAutoBuildWarships.related = [];
+snAutoBuildWarships.shortDescription = "AoE 1 only. Determines if the computer player is allowed to decide how and when to build warships. Must be 0 or 1.";
+
+snDesiredNumberWarships.id = 224;
+snDesiredNumberWarships.snName = "sn-desired-number-warships";
+snDesiredNumberWarships.default = 0;
+snDesiredNumberWarships.category = "AoE 1";
+snDesiredNumberWarships.min = -32767;
+snDesiredNumberWarships.max = 32768;
+snDesiredNumberWarships.rmin = 0;
+snDesiredNumberWarships.rmax = 32768;
+snDesiredNumberWarships.network = 0;
+snDesiredNumberWarships.defined = 0;
+snDesiredNumberWarships.available = 1;
+snDesiredNumberWarships.version = "1.0c";
+snDesiredNumberWarships.linked = [];
+snDesiredNumberWarships.related = [];
+snDesiredNumberWarships.shortDescription = "AoE 1 only. How many warships the computer player wants in a given game. Must be &gt;= 0.";
+
+snAllowCivilianDefense.id = 225;
+snAllowCivilianDefense.snName = "sn-allow-civilian-defense";
+snAllowCivilianDefense.default = 1;
+snAllowCivilianDefense.category = "Defense";
+snAllowCivilianDefense.min = -32767;
+snAllowCivilianDefense.max = 32768;
+snAllowCivilianDefense.rmin = 0;
+snAllowCivilianDefense.rmax = 3;
+snAllowCivilianDefense.network = 0;
+snAllowCivilianDefense.defined = 1;
+snAllowCivilianDefense.available = 0;
+snAllowCivilianDefense.version = "1.0c";
+snAllowCivilianDefense.linked = [ ];
+snAllowCivilianDefense.related = [ 100, 258 ];
+snAllowCivilianDefense.shortDescription = "Set to 0 to disable civilian defense, 1 to defend against weak, non-ranged units, 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.";
+
+snNumberForwardBuilders.id = 226;
+snNumberForwardBuilders.snName = "sn-number-forward-builders";
+snNumberForwardBuilders.default = 0;
+snNumberForwardBuilders.category = "Attack";
+snNumberForwardBuilders.min = -32767;
+snNumberForwardBuilders.max = 32768;
+snNumberForwardBuilders.rmin = 0;
+snNumberForwardBuilders.rmax = 32768;
+snNumberForwardBuilders.network = 0;
+snNumberForwardBuilders.defined = 1;
+snNumberForwardBuilders.available = 0;
+snNumberForwardBuilders.version = "1.0c";
+snNumberForwardBuilders.linked = [];
+snNumberForwardBuilders.related = [];
+snNumberForwardBuilders.shortDescription = "The number of villagers a computer player uses to build outside of an enemy town. Forward builders refer specifically to those villagers that must board a Transport to cross over water that cannot otherwise be pathed, either because players are on islands, or because other forms of access have been walled-off. It is not necessary to specify forward builders, unless the villagers need to board a Transport.";
+
+snPercentAttackSoldiers.id = 227;
+snPercentAttackSoldiers.snName = "sn-percent-attack-soldiers";
+snPercentAttackSoldiers.default = 75;
+snPercentAttackSoldiers.category = "Attack";
+snPercentAttackSoldiers.min = -32767;
+snPercentAttackSoldiers.max = 32768;
+snPercentAttackSoldiers.rmin = 0;
+snPercentAttackSoldiers.rmax = 100;
+snPercentAttackSoldiers.network = 0;
+snPercentAttackSoldiers.defined = 1;
+snPercentAttackSoldiers.available = 0;
+snPercentAttackSoldiers.version = "1.0c";
+snPercentAttackSoldiers.linked = [];
+snPercentAttackSoldiers.related = [ 228, 36, 247 ];
+snPercentAttackSoldiers.shortDescription = "Sets the percentage of defense soldiers that will be sent into battle (modified for difficulty level) the next time attack-now is issued. All newly created soldiers are defense soldiers by default, and will remain defense soldiers until attack-now is issued. For example, if 10 soldiers were defending a town, and sn-percent-attack-soldiers was set to 50, then 5 soldiers will form an attack group and attack. This SN only needs to be set once, but it can be changed as needed. sn-percent-attack-soldiers works best when not using sn-number-defend-groups.";
+
+snPercentAttackBoats.id = 228;
+snPercentAttackBoats.snName = "sn-percent-attack-boats";
+snPercentAttackBoats.default = 75;
+snPercentAttackBoats.category = "Water";
+snPercentAttackBoats.min = -32767;
+snPercentAttackBoats.max = 32768;
+snPercentAttackBoats.rmin = 0;
+snPercentAttackBoats.rmax = 100;
+snPercentAttackBoats.network = 0;
+snPercentAttackBoats.defined = 1;
+snPercentAttackBoats.available = 0;
+snPercentAttackBoats.version = "1.0c";
+snPercentAttackBoats.linked = [];
+snPercentAttackBoats.related = [ 227, 58, 247 ];
+snPercentAttackBoats.shortDescription = "Sets the percentage of defense boats that will be sent into battle (modified for difficulty level) the next time attack-now is issued. All newly created boats are defense boats by default, and will remain defense boats until attack-now is issued. Both attack soldiers and attack boats will attack when attack-now is issued. This SN only needs to be set once, but it can be changed as needed.";
+
+snDoNotScaleForDifficultyLevel.id = 229;
+snDoNotScaleForDifficultyLevel.snName = "sn-do-not-scale-for-difficulty-level";
+snDoNotScaleForDifficultyLevel.default = 0;
+snDoNotScaleForDifficultyLevel.category = "Other";
+snDoNotScaleForDifficultyLevel.min = -32767;
+snDoNotScaleForDifficultyLevel.max = 32768;
+snDoNotScaleForDifficultyLevel.rmin = 0;
+snDoNotScaleForDifficultyLevel.rmax = 1;
+snDoNotScaleForDifficultyLevel.network = 0;
+snDoNotScaleForDifficultyLevel.defined = 1;
+snDoNotScaleForDifficultyLevel.available = 0;
+snDoNotScaleForDifficultyLevel.version = "1.0c";
+snDoNotScaleForDifficultyLevel.linked = [];
+snDoNotScaleForDifficultyLevel.related = [ 218, 219 ];
+snDoNotScaleForDifficultyLevel.shortDescription = "Disables the automatic difficulty-scaling. See Level of Difficulty - Random Map Game. Default = 0.";
+
+snGroupFormDistance.id = 230;
+snGroupFormDistance.snName = "sn-group-form-distance";
+snGroupFormDistance.default = 20;
+snGroupFormDistance.category = "Attack";
+snGroupFormDistance.min = -32767;
+snGroupFormDistance.max = 30;
+snGroupFormDistance.rmin = 0;
+snGroupFormDistance.rmax = 30;
+snGroupFormDistance.network = 0;
+snGroupFormDistance.defined = 1;
+snGroupFormDistance.available = 0;
+snGroupFormDistance.version = "1.0c";
+snGroupFormDistance.linked = [];
+snGroupFormDistance.related = [];
+snGroupFormDistance.shortDescription = "Sets the distance over which attack soldiers will group. Set this value high if buildings that train military units are far apart.";
+
+snIgnoreAttackGroupUnderAttack.id = 231;
+snIgnoreAttackGroupUnderAttack.snName = "sn-ignore-attack-group-under-attack";
+snIgnoreAttackGroupUnderAttack.default = 0;
+snIgnoreAttackGroupUnderAttack.category = "Attack";
+snIgnoreAttackGroupUnderAttack.min = -32767;
+snIgnoreAttackGroupUnderAttack.max = 32768;
+snIgnoreAttackGroupUnderAttack.rmin = 0;
+snIgnoreAttackGroupUnderAttack.rmax = 1;
+snIgnoreAttackGroupUnderAttack.network = 0;
+snIgnoreAttackGroupUnderAttack.defined = 1;
+snIgnoreAttackGroupUnderAttack.available = 0;
+snIgnoreAttackGroupUnderAttack.version = "1.0c";
+snIgnoreAttackGroupUnderAttack.linked = [];
+snIgnoreAttackGroupUnderAttack.related = [];
+snIgnoreAttackGroupUnderAttack.shortDescription = "Set to 1 to specify that defensive units should ignore attack groups under attack.";
+
+snGatherDefenseUnits.id = 232;
+snGatherDefenseUnits.snName = "sn-gather-defense-units";
+snGatherDefenseUnits.default = 0;
+snGatherDefenseUnits.category = "Defense";
+snGatherDefenseUnits.min = -32767;
+snGatherDefenseUnits.max = 32768;
+snGatherDefenseUnits.rmin = 0;
+snGatherDefenseUnits.rmax = 1;
+snGatherDefenseUnits.network = 0;
+snGatherDefenseUnits.defined = 1;
+snGatherDefenseUnits.available = 0;
+snGatherDefenseUnits.version = "1.0c";
+snGatherDefenseUnits.linked = [];
+snGatherDefenseUnits.related = [ 239, 143 ];
+snGatherDefenseUnits.shortDescription = "Set to 1 to send units to defend buildings under construction.";
+
+snMaximumWoodDropDistance.id = 233;
+snMaximumWoodDropDistance.snName = "sn-maximum-wood-drop-distance";
+snMaximumWoodDropDistance.default = -1;
+snMaximumWoodDropDistance.category = "Economy";
+snMaximumWoodDropDistance.min = -32767;
+snMaximumWoodDropDistance.max = 32768;
+snMaximumWoodDropDistance.rmin = -1;
+snMaximumWoodDropDistance.rmax = 255;
+snMaximumWoodDropDistance.network = 0;
+snMaximumWoodDropDistance.defined = 1;
+snMaximumWoodDropDistance.available = 0;
+snMaximumWoodDropDistance.version = "1.0c";
+snMaximumWoodDropDistance.linked = [ 164 ];
+snMaximumWoodDropDistance.related = [ 234, 235, 236, 237, 238 ];
+snMaximumWoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+
+snMaximumFoodDropDistance.id = 234;
+snMaximumFoodDropDistance.snName = "sn-maximum-food-drop-distance";
+snMaximumFoodDropDistance.default = -1;
+snMaximumFoodDropDistance.category = "Economy";
+snMaximumFoodDropDistance.min = -32767;
+snMaximumFoodDropDistance.max = 32768;
+snMaximumFoodDropDistance.rmin = -1;
+snMaximumFoodDropDistance.rmax = 255;
+snMaximumFoodDropDistance.network = 0;
+snMaximumFoodDropDistance.defined = 1;
+snMaximumFoodDropDistance.available = 0;
+snMaximumFoodDropDistance.version = "1.0c";
+snMaximumFoodDropDistance.linked = [ 163, 235, 236 ];
+snMaximumFoodDropDistance.related = [ 233, 237, 238 ];
+snMaximumFoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+
+snMaximumHuntDropDistance.id = 235;
+snMaximumHuntDropDistance.snName = "sn-maximum-hunt-drop-distance";
+snMaximumHuntDropDistance.default = -1;
+snMaximumHuntDropDistance.category = "Economy";
+snMaximumHuntDropDistance.min = -32767;
+snMaximumHuntDropDistance.max = 32768;
+snMaximumHuntDropDistance.rmin = -1;
+snMaximumHuntDropDistance.rmax = 255;
+snMaximumHuntDropDistance.network = 0;
+snMaximumHuntDropDistance.defined = 1;
+snMaximumHuntDropDistance.available = 0;
+snMaximumHuntDropDistance.version = "1.0c";
+snMaximumHuntDropDistance.linked = [ 234, 236 ];
+snMaximumHuntDropDistance.related = [ 204, 252, 244, 245, 233, 237, 238 ];
+snMaximumHuntDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+
+snMaximumFishBoatDropDistance.id = 236;
+snMaximumFishBoatDropDistance.snName = "sn-maximum-fish-boat-drop-distance";
+snMaximumFishBoatDropDistance.default = -1;
+snMaximumFishBoatDropDistance.category = "Water";
+snMaximumFishBoatDropDistance.min = -32767;
+snMaximumFishBoatDropDistance.max = 32768;
+snMaximumFishBoatDropDistance.rmin = -1;
+snMaximumFishBoatDropDistance.rmax = 255;
+snMaximumFishBoatDropDistance.network = 0;
+snMaximumFishBoatDropDistance.defined = 1;
+snMaximumFishBoatDropDistance.available = "available, except for water maps, however if the value will always be large enough, it should be fine";
+snMaximumFishBoatDropDistance.version = "1.0c";
+snMaximumFishBoatDropDistance.linked = [ 234, 235 ];
+snMaximumFishBoatDropDistance.related = [ 233, 237, 238 ];
+snMaximumFishBoatDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water.";
+
+snMaximumGoldDropDistance.id = 237;
+snMaximumGoldDropDistance.snName = "sn-maximum-gold-drop-distance";
+snMaximumGoldDropDistance.default = -1;
+snMaximumGoldDropDistance.category = "Economy";
+snMaximumGoldDropDistance.min = -32767;
+snMaximumGoldDropDistance.max = 32768;
+snMaximumGoldDropDistance.rmin = -1;
+snMaximumGoldDropDistance.rmax = 255;
+snMaximumGoldDropDistance.network = 0;
+snMaximumGoldDropDistance.defined = 1;
+snMaximumGoldDropDistance.available = 0;
+snMaximumGoldDropDistance.version = "1.0c";
+snMaximumGoldDropDistance.linked = [ 166 ];
+snMaximumGoldDropDistance.related = [ 233, 234, 235, 236, 238 ];
+snMaximumGoldDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+
+snMaximumStoneDropDistance.id = 238;
+snMaximumStoneDropDistance.snName = "sn-maximum-stone-drop-distance";
+snMaximumStoneDropDistance.default = -1;
+snMaximumStoneDropDistance.category = "Economy";
+snMaximumStoneDropDistance.min = -32767;
+snMaximumStoneDropDistance.max = 32768;
+snMaximumStoneDropDistance.rmin = -1;
+snMaximumStoneDropDistance.rmax = 255;
+snMaximumStoneDropDistance.network = 0;
+snMaximumStoneDropDistance.defined = 1;
+snMaximumStoneDropDistance.available = 0;
+snMaximumStoneDropDistance.version = "1.0c";
+snMaximumStoneDropDistance.linked = [ 165 ];
+snMaximumStoneDropDistance.related = [ 233, 234, 235, 236, 237 ];
+snMaximumStoneDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). By setting the parameters to the appropriate value it is possible to avoid having villagers walk all over the map to gather resources.";
+
+snGatherIdleSoldiersAtCenter.id = 239;
+snGatherIdleSoldiersAtCenter.snName = "sn-gather-idle-soldiers-at-center";
+snGatherIdleSoldiersAtCenter.default = -1;
+snGatherIdleSoldiersAtCenter.category = "Defense";
+snGatherIdleSoldiersAtCenter.min = -32767;
+snGatherIdleSoldiersAtCenter.max = 32768;
+snGatherIdleSoldiersAtCenter.rmin = 0;
+snGatherIdleSoldiersAtCenter.rmax = 1;
+snGatherIdleSoldiersAtCenter.network = 0;
+snGatherIdleSoldiersAtCenter.defined = 1;
+snGatherIdleSoldiersAtCenter.available = 0;
+snGatherIdleSoldiersAtCenter.version = "1.0c";
+snGatherIdleSoldiersAtCenter.linked = [];
+snGatherIdleSoldiersAtCenter.related = [ 232 ];
+snGatherIdleSoldiersAtCenter.shortDescription = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.";
+
+snGarrisonRams.id = 240;
+snGarrisonRams.snName = "sn-garrison-rams";
+snGarrisonRams.default = 1;
+snGarrisonRams.category = "Attack";
+snGarrisonRams.min = -32767;
+snGarrisonRams.max = 32768;
+snGarrisonRams.rmin = 0;
+snGarrisonRams.rmax = 1;
+snGarrisonRams.network = 0;
+snGarrisonRams.defined = 1;
+snGarrisonRams.available = "available, if you will not create rams";
+snGarrisonRams.version = "1.0c";
+snGarrisonRams.linked = [];
+snGarrisonRams.related = [];
+snGarrisonRams.shortDescription = "Set to 0 to turn off. When on, the CP AI tries (but doesn't always succeed) to put infantry units into rams before the attack group departs.";
+
+snDoNotTransportFromSameZone.id = 241;
+snDoNotTransportFromSameZone.snName = "sn-do-not-transport-from-same-zone";
+snDoNotTransportFromSameZone.default = 0;
+snDoNotTransportFromSameZone.category = "Water";
+snDoNotTransportFromSameZone.min = -32767;
+snDoNotTransportFromSameZone.max = 32768;
+snDoNotTransportFromSameZone.rmin = 0;
+snDoNotTransportFromSameZone.rmax = 1;
+snDoNotTransportFromSameZone.network = 0;
+snDoNotTransportFromSameZone.defined = 1;
+snDoNotTransportFromSameZone.available = "available, except for water maps requiring transport ships";
+snDoNotTransportFromSameZone.version = "1.0c";
+snDoNotTransportFromSameZone.linked = [];
+snDoNotTransportFromSameZone.related = [];
+snDoNotTransportFromSameZone.shortDescription = "Set to 1 to influence transport ship behavior.";
+
+snEnableNewBuildingSystem.id = 242;
+snEnableNewBuildingSystem.snName = "sn-enable-new-building-system";
+snEnableNewBuildingSystem.default = 0;
+snEnableNewBuildingSystem.category = "Economy";
+snEnableNewBuildingSystem.min = -32767;
+snEnableNewBuildingSystem.max = 32768;
+snEnableNewBuildingSystem.rmin = 0;
+snEnableNewBuildingSystem.rmax = 1;
+snEnableNewBuildingSystem.network = 0;
+snEnableNewBuildingSystem.defined = 1;
+snEnableNewBuildingSystem.available = 0;
+snEnableNewBuildingSystem.version = "1.1";
+snEnableNewBuildingSystem.linked = [];
+snEnableNewBuildingSystem.related = [ 243 ];
+snEnableNewBuildingSystem.shortDescription = "Set to 1 only once to request the new building system, featuring simultaneous construction and cancellation control.";
+
+snPercentBuildingCancellation.id = 243;
+snPercentBuildingCancellation.snName = "sn-percent-building-cancellation";
+snPercentBuildingCancellation.default = 100;
+snPercentBuildingCancellation.category = "Economy";
+snPercentBuildingCancellation.min = -32767;
+snPercentBuildingCancellation.max = 32768;
+snPercentBuildingCancellation.rmin = 1;
+snPercentBuildingCancellation.rmax = 100;
+snPercentBuildingCancellation.network = 0;
+snPercentBuildingCancellation.defined = 1;
+snPercentBuildingCancellation.available = 0;
+snPercentBuildingCancellation.version = "1.1";
+snPercentBuildingCancellation.linked = [];
+snPercentBuildingCancellation.related = [ 242 ];
+snPercentBuildingCancellation.shortDescription = "Set to the maximum allowable completion percentage for building cancellation.";
+
+snEnableBoarHunting.id = 244;
+snEnableBoarHunting.snName = "sn-enable-boar-hunting";
+snEnableBoarHunting.default = 0;
+snEnableBoarHunting.category = "Economy";
+snEnableBoarHunting.min = -32767;
+snEnableBoarHunting.max = 32768;
+snEnableBoarHunting.rmin = 0;
+snEnableBoarHunting.rmax = 2;
+snEnableBoarHunting.network = 0;
+snEnableBoarHunting.defined = 1;
+snEnableBoarHunting.available = 0;
+snEnableBoarHunting.version = "1.1";
+snEnableBoarHunting.linked = [ 204, 252 ];
+snEnableBoarHunting.related = [ 235, 245 ];
+snEnableBoarHunting.shortDescription = "Set to 1 to target deer and boar; if it's set to 2, deer will be ignored.";
+
+snMinimumNumberHunters.id = 245;
+snMinimumNumberHunters.snName = "sn-minimum-number-hunters";
+snMinimumNumberHunters.default = 0;
+snMinimumNumberHunters.category = "Economy";
+snMinimumNumberHunters.min = -32767;
+snMinimumNumberHunters.max = 32768;
+snMinimumNumberHunters.rmin = 0;
+snMinimumNumberHunters.rmax = 32768;
+snMinimumNumberHunters.network = 0;
+snMinimumNumberHunters.defined = 1;
+snMinimumNumberHunters.available = 0;
+snMinimumNumberHunters.version = "1.1";
+snMinimumNumberHunters.linked = [];
+snMinimumNumberHunters.related = [ 204, 252, 235, 244 ];
+snMinimumNumberHunters.shortDescription = "Set to force hunting. For best results when hunting boar, set this in conjunction with sn-minimum-boar-hunt-group-size.";
+
+snObjectRepairLevel.id = 246;
+snObjectRepairLevel.snName = "sn-object-repair-level";
+snObjectRepairLevel.default = 16387;
+snObjectRepairLevel.category = "Defense";
+snObjectRepairLevel.min = -32767;
+snObjectRepairLevel.max = 32768;
+snObjectRepairLevel.rmin = 0;
+snObjectRepairLevel.rmax = 32767;
+snObjectRepairLevel.network = 0;
+snObjectRepairLevel.defined = 1;
+snObjectRepairLevel.available = 0;
+snObjectRepairLevel.version = "1.1";
+snObjectRepairLevel.linked = [];
+snObjectRepairLevel.related = [];
+snObjectRepairLevel.shortDescription = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons. For scenarios and campaigns, the default is 1 for compatibility.";
+
+snEnablePatrolAttack.id = 247;
+snEnablePatrolAttack.snName = "sn-enable-patrol-attack";
+snEnablePatrolAttack.default = 0;
+snEnablePatrolAttack.category = "Attack";
+snEnablePatrolAttack.min = -32767;
+snEnablePatrolAttack.max = 32768;
+snEnablePatrolAttack.rmin = 0;
+snEnablePatrolAttack.rmax = 1;
+snEnablePatrolAttack.network = 1;
+snEnablePatrolAttack.defined = 1;
+snEnablePatrolAttack.available = 0;
+snEnablePatrolAttack.version = "1.1";
+snEnablePatrolAttack.linked = [];
+snEnablePatrolAttack.related = [ 227, 228, 36, 58 ];
+snEnablePatrolAttack.shortDescription = "Set to 1 to enable the patrol-style local targeting system. When attacking a distant target, this causes units to retarget against nearby sighted units immediately instead of waiting until they are in proximity to the original target.";
+
+snDropsiteSeparationDistance.id = 248;
+snDropsiteSeparationDistance.snName = "sn-dropsite-separation-distance";
+snDropsiteSeparationDistance.default = 10;
+snDropsiteSeparationDistance.category = "Economy";
+snDropsiteSeparationDistance.min = -32767;
+snDropsiteSeparationDistance.max = 32768;
+snDropsiteSeparationDistance.rmin = 1;
+snDropsiteSeparationDistance.rmax = 255;
+snDropsiteSeparationDistance.network = 0;
+snDropsiteSeparationDistance.defined = 1;
+snDropsiteSeparationDistance.available = 0;
+snDropsiteSeparationDistance.version = "1.1";
+snDropsiteSeparationDistance.linked = [ 86, 87, 260, 261 ];
+snDropsiteSeparationDistance.related = [ 202, 272 ];
+snDropsiteSeparationDistance.shortDescription = "Set to suggest the minimum distance between dropsites. Higher values can be useful for an escape camp when gatherers are under attack.";
+
+snTargetPlayerNumber.id = 249;
+snTargetPlayerNumber.snName = "sn-target-player-number";
+snTargetPlayerNumber.default = 0;
+snTargetPlayerNumber.category = "Attack";
+snTargetPlayerNumber.min = -32767;
+snTargetPlayerNumber.max = 32768;
+snTargetPlayerNumber.rmin = -1;
+snTargetPlayerNumber.rmax = 8;
+snTargetPlayerNumber.network = 0;
+snTargetPlayerNumber.defined = 1;
+snTargetPlayerNumber.available = 0;
+snTargetPlayerNumber.version = "1.1";
+snTargetPlayerNumber.linked = [];
+snTargetPlayerNumber.related = [ 188, 195, 250, 251 ];
+snTargetPlayerNumber.shortDescription = "Set to the number of the player that should be targeted for attack. If this sn is set to -1, initiating an attack will instead provide assistance to allies. When set to 0, sn-attack-winning-player will determine the target. Setting this to a player that cannot be attacked (an ally or the AI itself) will result in undefined behavior. You can also use this value with the &quot;target-player&quot; identifier in facts and actions.";
+
+snSafeTownSize.id = 250;
+snSafeTownSize.snName = "sn-safe-town-size";
+snSafeTownSize.default = 255;
+snSafeTownSize.category = "Defense";
+snSafeTownSize.min = -32767;
+snSafeTownSize.max = 32768;
+snSafeTownSize.rmin = 1;
+snSafeTownSize.rmax = 255;
+snSafeTownSize.network = 0;
+snSafeTownSize.defined = 1;
+snSafeTownSize.available = 0;
+snSafeTownSize.version = "1.1";
+snSafeTownSize.linked = [ 74, 73 ];
+snSafeTownSize.related = [ 249, 255 ];
+snSafeTownSize.shortDescription = "If an enemy building is inside both sn-maximum-town-size and the region specified by this sn, it will be targeted by defensive units. If the building is inside sn-maximum-town-size, but outside this region, it will be targeted only if it belongs to the player specified by sn-target-player-number.";
+
+snFocusPlayerNumber.id = 251;
+snFocusPlayerNumber.snName = "sn-focus-player-number";
+snFocusPlayerNumber.default = 0;
+snFocusPlayerNumber.category = "Attack";
+snFocusPlayerNumber.min = -32767;
+snFocusPlayerNumber.max = 32768;
+snFocusPlayerNumber.rmin = 0;
+snFocusPlayerNumber.rmax = 8;
+snFocusPlayerNumber.network = 0;
+snFocusPlayerNumber.defined = 1;
+snFocusPlayerNumber.available = 0;
+snFocusPlayerNumber.version = "1.1";
+snFocusPlayerNumber.linked = [];
+snFocusPlayerNumber.related = [ 249 ];
+snFocusPlayerNumber.shortDescription = "Set to any player number in order to use the &quot;focus-player&quot; identifier in facts and actions.";
+
+snMinimumBoarLureGroupSize.id = 252;
+snMinimumBoarLureGroupSize.snName = "sn-minimum-boar-lure-group-size";
+snMinimumBoarLureGroupSize.default = 0;
+snMinimumBoarLureGroupSize.category = "Economy";
+snMinimumBoarLureGroupSize.min = -32767;
+snMinimumBoarLureGroupSize.max = 32768;
+snMinimumBoarLureGroupSize.rmin = 0;
+snMinimumBoarLureGroupSize.rmax = 8;
+snMinimumBoarLureGroupSize.network = 0;
+snMinimumBoarLureGroupSize.defined = 1;
+snMinimumBoarLureGroupSize.available = 0;
+snMinimumBoarLureGroupSize.version = "1.1";
+snMinimumBoarLureGroupSize.linked = [ 204, 244 ];
+snMinimumBoarLureGroupSize.related = [ 235, 245 ];
+snMinimumBoarLureGroupSize.shortDescription = "Set to the number of villagers that will be sent in the initial boar luring group.";
+
+snPreferredMillPlacement.id = 253;
+snPreferredMillPlacement.snName = "sn-preferred-mill-placement";
+snPreferredMillPlacement.default = 0;
+snPreferredMillPlacement.category = "Economy";
+snPreferredMillPlacement.min = -32767;
+snPreferredMillPlacement.max = 32768;
+snPreferredMillPlacement.rmin = 0;
+snPreferredMillPlacement.rmax = 2;
+snPreferredMillPlacement.network = 0;
+snPreferredMillPlacement.defined = 1;
+snPreferredMillPlacement.available = 0;
+snPreferredMillPlacement.version = "1.1";
+snPreferredMillPlacement.linked = [];
+snPreferredMillPlacement.related = [];
+snPreferredMillPlacement.shortDescription = "Set to 0 for forage, 1 for deer, or 2 for shore fish.";
+
+snEnableOffensivePriority.id = 254;
+snEnableOffensivePriority.snName = "sn-enable-offensive-priority";
+snEnableOffensivePriority.default = 0;
+snEnableOffensivePriority.category = "Attack";
+snEnableOffensivePriority.min = -32767;
+snEnableOffensivePriority.max = 32768;
+snEnableOffensivePriority.rmin = 0;
+snEnableOffensivePriority.rmax = 1;
+snEnableOffensivePriority.network = 0;
+snEnableOffensivePriority.defined = 1;
+snEnableOffensivePriority.available = 0;
+snEnableOffensivePriority.version = "1.1";
+snEnableOffensivePriority.linked = [];
+snEnableOffensivePriority.related = [ 267 ];
+snEnableOffensivePriority.shortDescription = "Set to 1 to enable attack-now and attack groups to target using the priorities set by up-set-offense-priority.";
+
+snBuildingTargetingMode.id = 255;
+snBuildingTargetingMode.snName = "sn-building-targeting-mode";
+snBuildingTargetingMode.default = 0;
+snBuildingTargetingMode.category = "Attack";
+snBuildingTargetingMode.min = -32767;
+snBuildingTargetingMode.max = 32768;
+snBuildingTargetingMode.rmin = 0;
+snBuildingTargetingMode.rmax = 2;
+snBuildingTargetingMode.network = 0;
+snBuildingTargetingMode.defined = 1;
+snBuildingTargetingMode.available = 0;
+snBuildingTargetingMode.version = "1.1";
+snBuildingTargetingMode.linked = [ 74, 73 ];
+snBuildingTargetingMode.related = [ 249, 250, 262 ];
+snBuildingTargetingMode.shortDescription = "Set to 0 to target all buildings, 1 to ignore walls and gates, or 2 to ignore walls, gates, and dropsites. Please avoid this strategic number, as you may experience targeting failures under certain circumstances.";
+
+snHomeExplorationTime.id = 256;
+snHomeExplorationTime.snName = "sn-home-exploration-time";
+snHomeExplorationTime.default = 300;
+snHomeExplorationTime.category = "Explore";
+snHomeExplorationTime.min = -32767;
+snHomeExplorationTime.max = 32768;
+snHomeExplorationTime.rmin = 0;
+snHomeExplorationTime.rmax = 32768;
+snHomeExplorationTime.network = 0;
+snHomeExplorationTime.defined = 1;
+snHomeExplorationTime.available = 0;
+snHomeExplorationTime.version = "1.1";
+snHomeExplorationTime.linked = [ ];
+snHomeExplorationTime.related = [ 167, 32, 179 ];
+snHomeExplorationTime.shortDescription = "Set to the maximum amount of time, in seconds, that should be dedicated to exploring the home town center region.";
+
+snNumberCivilianMilitia.id = 257;
+snNumberCivilianMilitia.snName = "sn-number-civilian-militia";
+snNumberCivilianMilitia.default = 10;
+snNumberCivilianMilitia.category = "Attack";
+snNumberCivilianMilitia.min = -32767;
+snNumberCivilianMilitia.max = 32768;
+snNumberCivilianMilitia.rmin = 0;
+snNumberCivilianMilitia.rmax = 200;
+snNumberCivilianMilitia.network = 0;
+snNumberCivilianMilitia.defined = 1;
+snNumberCivilianMilitia.available = 0;
+snNumberCivilianMilitia.version = "1.1";
+snNumberCivilianMilitia.linked = [ 258 ];
+snNumberCivilianMilitia.related = [ ];
+snNumberCivilianMilitia.shortDescription = "Set to the maximum number of villagers who may be used to attack the enemy.";
+
+snAllowCivilianOffense.id = 258;
+snAllowCivilianOffense.snName = "sn-allow-civilian-offense";
+snAllowCivilianOffense.default = 0;
+snAllowCivilianOffense.category = "Attack";
+snAllowCivilianOffense.min = -32767;
+snAllowCivilianOffense.max = 32768;
+snAllowCivilianOffense.rmin = 0;
+snAllowCivilianOffense.rmax = 2;
+snAllowCivilianOffense.network = 0;
+snAllowCivilianOffense.defined = 1;
+snAllowCivilianOffense.available = 0;
+snAllowCivilianOffense.version = "1.1";
+snAllowCivilianOffense.linked = [ 257 ];
+snAllowCivilianOffense.related = [ 225 ];
+snAllowCivilianOffense.shortDescription = "Set to 1 to allow villagers to participate as soldiers in town-size attacks. If set to 2, villagers will target enemy villagers and buildings even if defensive military units are available. If set to 0, villagers will only be sent to attack enemy forward towers, without murder holes.";
+
+snPreferredTradeDistance.id = 259;
+snPreferredTradeDistance.snName = "sn-preferred-trade-distance";
+snPreferredTradeDistance.default = 100;
+snPreferredTradeDistance.category = "Economy";
+snPreferredTradeDistance.min = -32767;
+snPreferredTradeDistance.max = 32768;
+snPreferredTradeDistance.rmin = 0;
+snPreferredTradeDistance.rmax = 255;
+snPreferredTradeDistance.network = 1;
+snPreferredTradeDistance.defined = 1;
+snPreferredTradeDistance.available = 0;
+snPreferredTradeDistance.version = "1.1";
+snPreferredTradeDistance.linked = [];
+snPreferredTradeDistance.related = [];
+snPreferredTradeDistance.shortDescription = "Set to the preferred distance between local and remote trade buildings.";
+
+snLumberCampMaxDistance.id = 260;
+snLumberCampMaxDistance.snName = "sn-lumber-camp-max-distance";
+snLumberCampMaxDistance.default = 0;
+snLumberCampMaxDistance.category = "Economy";
+snLumberCampMaxDistance.min = -32767;
+snLumberCampMaxDistance.max = 32768;
+snLumberCampMaxDistance.rmin = 0;
+snLumberCampMaxDistance.rmax = 255;
+snLumberCampMaxDistance.network = 0;
+snLumberCampMaxDistance.defined = 1;
+snLumberCampMaxDistance.available = 0;
+snLumberCampMaxDistance.version = "1.1";
+snLumberCampMaxDistance.linked = [ 86, 261, 248, 202 ];
+snLumberCampMaxDistance.related = [ 87, 74, 73 ];
+snLumberCampMaxDistance.shortDescription = "Sets the maximum-town-size for lumber-camp placement, when non-zero. If set to 0, sn-camp-max-distance will be used instead.";
+
+snMiningCampMaxDistance.id = 261;
+snMiningCampMaxDistance.snName = "sn-mining-camp-max-distance";
+snMiningCampMaxDistance.default = 0;
+snMiningCampMaxDistance.category = "Economy";
+snMiningCampMaxDistance.min = -32767;
+snMiningCampMaxDistance.max = 32768;
+snMiningCampMaxDistance.rmin = 0;
+snMiningCampMaxDistance.rmax = 255;
+snMiningCampMaxDistance.network = 0;
+snMiningCampMaxDistance.defined = 1;
+snMiningCampMaxDistance.available = 0;
+snMiningCampMaxDistance.version = "1.1";
+snMiningCampMaxDistance.linked = [ 86, 260, 248, 202 ];
+snMiningCampMaxDistance.related = [ 87, 74, 73 ];
+snMiningCampMaxDistance.shortDescription = "Sets the maximum-town-size for mining-camp placement, when non-zero. If set to 0, sn-camp-max-distance will be used instead.";
+
+snWallTargetingMode.id = 262;
+snWallTargetingMode.snName = "sn-wall-targeting-mode";
+snWallTargetingMode.default = 0;
+snWallTargetingMode.category = "Attack";
+snWallTargetingMode.min = -32767;
+snWallTargetingMode.max = 32768;
+snWallTargetingMode.rmin = 0;
+snWallTargetingMode.rmax = 1;
+snWallTargetingMode.network = 1;
+snWallTargetingMode.defined = 1;
+snWallTargetingMode.available = 0;
+snWallTargetingMode.version = "1.1";
+snWallTargetingMode.linked = [];
+snWallTargetingMode.related = [ 255 ];
+snWallTargetingMode.shortDescription = "Set to 1 to allow military units to automatically target nearby walls and gates. If set to 0, they will likely be ignored.";
+
+snLivestockToTownCenter.id = 263;
+snLivestockToTownCenter.snName = "sn-livestock-to-town-center";
+snLivestockToTownCenter.default = 0;
+snLivestockToTownCenter.category = "Economy";
+snLivestockToTownCenter.min = -32767;
+snLivestockToTownCenter.max = 32768;
+snLivestockToTownCenter.rmin = 0;
+snLivestockToTownCenter.rmax = 1;
+snLivestockToTownCenter.network = 1;
+snLivestockToTownCenter.defined = 1;
+snLivestockToTownCenter.available = 0;
+snLivestockToTownCenter.version = "1.1";
+snLivestockToTownCenter.linked = [];
+snLivestockToTownCenter.related = [];
+snLivestockToTownCenter.shortDescription = "Set to 1 to require livestock, such as sheep, to gather at the town center. If set to 0, they will gather at mills, as well.";
+
+snEnableTrainingQueue.id = 264;
+snEnableTrainingQueue.snName = "sn-enable-training-queue";
+snEnableTrainingQueue.default = 0;
+snEnableTrainingQueue.category = "Economy";
+snEnableTrainingQueue.min = -32767;
+snEnableTrainingQueue.max = 32768;
+snEnableTrainingQueue.rmin = 0;
+snEnableTrainingQueue.rmax = 1;
+snEnableTrainingQueue.network = 0;
+snEnableTrainingQueue.defined = 1;
+snEnableTrainingQueue.available = 0;
+snEnableTrainingQueue.version = "1.1";
+snEnableTrainingQueue.linked = [];
+snEnableTrainingQueue.related = [];
+snEnableTrainingQueue.shortDescription = "Set to 1 to allow an additional unit to be queued at each building. If set to 0, buildings will train one unit at a time.";
+
+snIgnoreTowerElevation.id = 265;
+snIgnoreTowerElevation.snName = "sn-ignore-tower-elevation";
+snIgnoreTowerElevation.default = 0;
+snIgnoreTowerElevation.category = "Defense";
+snIgnoreTowerElevation.min = -32767;
+snIgnoreTowerElevation.max = 32768;
+snIgnoreTowerElevation.rmin = 0;
+snIgnoreTowerElevation.rmax = 1;
+snIgnoreTowerElevation.network = 0;
+snIgnoreTowerElevation.defined = 1;
+snIgnoreTowerElevation.available = 0;
+snIgnoreTowerElevation.version = "1.1";
+snIgnoreTowerElevation.linked = [];
+snIgnoreTowerElevation.related = [];
+snIgnoreTowerElevation.shortDescription = "Set to 1 to ignore elevation when placing towers. If set to 0, the AI will try to seek elevation advantage.";
+
+snTownCenterPlacement.id = 266;
+snTownCenterPlacement.snName = "sn-town-center-placement";
+snTownCenterPlacement.default = 0;
+snTownCenterPlacement.category = "Economy";
+snTownCenterPlacement.min = -32767;
+snTownCenterPlacement.max = 32768;
+snTownCenterPlacement.rmin = 0;
+snTownCenterPlacement.rmax = 899;
+snTownCenterPlacement.network = 0;
+snTownCenterPlacement.defined = 1;
+snTownCenterPlacement.available = 0;
+snTownCenterPlacement.version = "1.1";
+snTownCenterPlacement.linked = [];
+snTownCenterPlacement.related = [ 86, 87 ];
+snTownCenterPlacement.shortDescription = "Set to the building type to emulate for town center placement. If set to 0, the town center will be placed as usual.";
+
+snDisableTowerPriority.id = 267;
+snDisableTowerPriority.snName = "sn-disable-tower-priority";
+snDisableTowerPriority.default = 0;
+snDisableTowerPriority.category = "Attack";
+snDisableTowerPriority.min = -32767;
+snDisableTowerPriority.max = 32768;
+snDisableTowerPriority.rmin = 0;
+snDisableTowerPriority.rmax = 1;
+snDisableTowerPriority.network = 1;
+snDisableTowerPriority.defined = 1;
+snDisableTowerPriority.available = 0;
+snDisableTowerPriority.version = "1.1";
+snDisableTowerPriority.linked = [];
+snDisableTowerPriority.related = [ 254 ];
+snDisableTowerPriority.shortDescription = "Set to 1 to prevent the local targeting system from giving special priority to towers and other fortifications, including town centers and castles. If set to 0, these buildings will receive the usual special priority.";
+
+snPlacementZoneSize.id = 268;
+snPlacementZoneSize.snName = "sn-placement-zone-size";
+snPlacementZoneSize.default = 20;
+snPlacementZoneSize.category = "Economy";
+snPlacementZoneSize.min = -32767;
+snPlacementZoneSize.max = 32768;
+snPlacementZoneSize.rmin = 0;
+snPlacementZoneSize.rmax = 255;
+snPlacementZoneSize.network = 0;
+snPlacementZoneSize.defined = 1;
+snPlacementZoneSize.available = 0;
+snPlacementZoneSize.version = "1.1";
+snPlacementZoneSize.linked = [ 269, 270 ];
+snPlacementZoneSize.related = [ 73, 74 ];
+snPlacementZoneSize.shortDescription = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point.";
+
+snPlacementFailDelta.id = 269;
+snPlacementFailDelta.snName = "sn-placement-fail-delta";
+snPlacementFailDelta.default = 0;
+snPlacementFailDelta.category = "Economy";
+snPlacementFailDelta.min = -32767;
+snPlacementFailDelta.max = 32768;
+snPlacementFailDelta.rmin = -10;
+snPlacementFailDelta.rmax = 10;
+snPlacementFailDelta.network = 0;
+snPlacementFailDelta.defined = 1;
+snPlacementFailDelta.available = 0;
+snPlacementFailDelta.version = "1.1";
+snPlacementFailDelta.linked = [ 268, 270 ];
+snPlacementFailDelta.related = [ 73, 74 ];
+snPlacementFailDelta.shortDescription = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed.";
+
+snPlacementToCenter.id = 270;
+snPlacementToCenter.snName = "sn-placement-to-center";
+snPlacementToCenter.default = 0;
+snPlacementToCenter.category = "Economy";
+snPlacementToCenter.min = -32767;
+snPlacementToCenter.max = 32768;
+snPlacementToCenter.rmin = 0;
+snPlacementToCenter.rmax = 1;
+snPlacementToCenter.network = 0;
+snPlacementToCenter.defined = 1;
+snPlacementToCenter.available = 0;
+snPlacementToCenter.version = "1.1";
+snPlacementToCenter.linked = [ 268, 269 ];
+snPlacementToCenter.related = [ 73, 74, 249, 188 ];
+snPlacementToCenter.shortDescription = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with up-set-placement-data. If set to 0, the active target enemy's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
+
+snDisableAttackGroups.id = 271;
+snDisableAttackGroups.snName = "sn-disable-attack-groups";
+snDisableAttackGroups.default = 0;
+snDisableAttackGroups.category = "Attack";
+snDisableAttackGroups.min = -32767;
+snDisableAttackGroups.max = 32768;
+snDisableAttackGroups.rmin = 0;
+snDisableAttackGroups.rmax = 1;
+snDisableAttackGroups.network = 0;
+snDisableAttackGroups.defined = 1;
+snDisableAttackGroups.available = 0;
+snDisableAttackGroups.version = "1.1";
+snDisableAttackGroups.linked = [ 277 ];
+snDisableAttackGroups.related = [ 36, 26, 16 ];
+snDisableAttackGroups.shortDescription = "Set to 1 to disable automatic attack group targeting. Once groups are created, they can be used for defensive attack purposes using TSA. If set to 0, attack groups will perform offensive targeting as usual.";
+
+snAllowAdjacentDropsites.id = 272;
+snAllowAdjacentDropsites.snName = "sn-allow-adjacent-dropsites";
+snAllowAdjacentDropsites.default = 0;
+snAllowAdjacentDropsites.category = "Economy";
+snAllowAdjacentDropsites.min = -32767;
+snAllowAdjacentDropsites.max = 32768;
+snAllowAdjacentDropsites.rmin = 0;
+snAllowAdjacentDropsites.rmax = 1;
+snAllowAdjacentDropsites.network = 0;
+snAllowAdjacentDropsites.defined = 1;
+snAllowAdjacentDropsites.available = 0;
+snAllowAdjacentDropsites.version = "1.1";
+snAllowAdjacentDropsites.linked = [];
+snAllowAdjacentDropsites.related = [ 248 ];
+snAllowAdjacentDropsites.shortDescription = "Set to 1 to eliminate the standard requirement for a 1 tile buffer around mills, lumber camps, and mining camps. If set to 0, the 1 tile buffer is enforced as usual.";
+
+snDeferDropsiteUpdate.id = 273;
+snDeferDropsiteUpdate.snName = "sn-defer-dropsite-update";
+snDeferDropsiteUpdate.default = 0;
+snDeferDropsiteUpdate.category = "Economy";
+snDeferDropsiteUpdate.min = -32767;
+snDeferDropsiteUpdate.max = 32768;
+snDeferDropsiteUpdate.rmin = 0;
+snDeferDropsiteUpdate.rmax = 1;
+snDeferDropsiteUpdate.network = 0;
+snDeferDropsiteUpdate.defined = 1;
+snDeferDropsiteUpdate.available = 0;
+snDeferDropsiteUpdate.version = "1.1";
+snDeferDropsiteUpdate.linked = [];
+snDeferDropsiteUpdate.related = [];
+snDeferDropsiteUpdate.shortDescription = "Set to 1 to defer the dropsite-min-distance update until construction is complete. If set to 0, the dropsite update occurs when the building is placed on the map.";
+
+snMaximumGarrisonFill.id = 274;
+snMaximumGarrisonFill.snName = "sn-maximum-garrison-fill";
+snMaximumGarrisonFill.default = 0;
+snMaximumGarrisonFill.category = "Defense";
+snMaximumGarrisonFill.min = -32767;
+snMaximumGarrisonFill.max = 32768;
+snMaximumGarrisonFill.rmin = 0;
+snMaximumGarrisonFill.rmax = 20;
+snMaximumGarrisonFill.network = 0;
+snMaximumGarrisonFill.defined = 1;
+snMaximumGarrisonFill.available = 0;
+snMaximumGarrisonFill.version = "1.1";
+snMaximumGarrisonFill.linked = [ 275 ];
+snMaximumGarrisonFill.related = [];
+snMaximumGarrisonFill.shortDescription = "Set to the number of units to fill into each garrison target per command. If set to 0, this limit is removed.";
+
+snNumberGarrisonUnits.id = 275;
+snNumberGarrisonUnits.snName = "sn-number-garrison-units";
+snNumberGarrisonUnits.default = 0;
+snNumberGarrisonUnits.category = "Defense";
+snNumberGarrisonUnits.min = -32767;
+snNumberGarrisonUnits.max = 32768;
+snNumberGarrisonUnits.rmin = 0;
+snNumberGarrisonUnits.rmax = 40;
+snNumberGarrisonUnits.network = 0;
+snNumberGarrisonUnits.defined = 1;
+snNumberGarrisonUnits.available = 0;
+snNumberGarrisonUnits.version = "1.1";
+snNumberGarrisonUnits.linked = [ 274 ];
+snNumberGarrisonUnits.related = [];
+snNumberGarrisonUnits.shortDescription = "Set to the number of units that will garrison per command. If set to 0, it will default to the maximum of 40.";
+
+snFilterUnderAttack.id = 276;
+snFilterUnderAttack.snName = "sn-filter-under-attack";
+snFilterUnderAttack.default = 0;
+snFilterUnderAttack.category = "Attack";
+snFilterUnderAttack.min = -32767;
+snFilterUnderAttack.max = 32768;
+snFilterUnderAttack.rmin = 0;
+snFilterUnderAttack.rmax = 2;
+snFilterUnderAttack.network = 0;
+snFilterUnderAttack.defined = 1;
+snFilterUnderAttack.available = 0;
+snFilterUnderAttack.version = "1.1";
+snFilterUnderAttack.linked = [];
+snFilterUnderAttack.related = [];
+snFilterUnderAttack.shortDescription = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units will also be retreated, which may be computationally expensive. If set to 0, the filter is disabled.";
+
+snDisableDefendGroups.id = 277;
+snDisableDefendGroups.snName = "sn-disable-defend-groups";
+snDisableDefendGroups.default = 0;
+snDisableDefendGroups.category = "Defense";
+snDisableDefendGroups.min = -32767;
+snDisableDefendGroups.max = 32768;
+snDisableDefendGroups.rmin = 0;
+snDisableDefendGroups.rmax = 15;
+snDisableDefendGroups.network = 0;
+snDisableDefendGroups.defined = 1;
+snDisableDefendGroups.available = 0;
+snDisableDefendGroups.version = "1.1";
+snDisableDefendGroups.linked = [ 271 ];
+snDisableDefendGroups.related = [];
+snDisableDefendGroups.shortDescription = "Append flags to disable various defense systems: 1 to disable the defensive (TSA) targeting system, 2 to disable assistance inside sn-safe-town-size, 4 to disable assistance between sn-safe-town-size and sn-maximum-town-size, 8 to disable assistance outside sn-maximum-town-size. When assistance is disabled, please be aware that your units will only respond to attackers within their individual line of sight. If set to 0, units will respond to threats in town as usual.";
+
+snDockPlacementMode.id = 278;
+snDockPlacementMode.snName = "sn-dock-placement-mode";
+snDockPlacementMode.default = 0;
+snDockPlacementMode.category = "Water";
+snDockPlacementMode.min = -32767;
+snDockPlacementMode.max = 32768;
+snDockPlacementMode.rmin = -1;
+snDockPlacementMode.rmax = 1;
+snDockPlacementMode.network = 0;
+snDockPlacementMode.defined = 1;
+snDockPlacementMode.available = 0;
+snDockPlacementMode.version = "1.1";
+snDockPlacementMode.linked = [];
+snDockPlacementMode.related = [ 279, 280, 281 ];
+snDockPlacementMode.shortDescription = "Set to 1 to prefer placement toward the front, -1 to prefer placement toward the back, or 0 for standard placement.";
+
+snDockProximityFactor.id = 279;
+snDockProximityFactor.snName = "sn-dock-proximity-factor";
+snDockProximityFactor.default = 10000;
+snDockProximityFactor.category = "Water";
+snDockProximityFactor.min = -32767;
+snDockProximityFactor.max = 32768;
+snDockProximityFactor.rmin = -10000;
+snDockProximityFactor.rmax = 10000;
+snDockProximityFactor.network = 0;
+snDockProximityFactor.defined = 1;
+snDockProximityFactor.available = 0;
+snDockProximityFactor.version = "1.1";
+snDockProximityFactor.linked = [ 280 ];
+snDockProximityFactor.related = [ 278 ];
+snDockProximityFactor.shortDescription = "Set to the proximity factor for docks to be placed relative to one another. Positive values prefer more distance, while negative values prefer less distance.";
+
+snDockAvoidanceFactor.id = 280;
+snDockAvoidanceFactor.snName = "sn-dock-avoidance-factor";
+snDockAvoidanceFactor.default = 1000;
+snDockAvoidanceFactor.category = "Water";
+snDockAvoidanceFactor.min = -32767;
+snDockAvoidanceFactor.max = 32768;
+snDockAvoidanceFactor.rmin = -10000;
+snDockAvoidanceFactor.rmax = 10000;
+snDockAvoidanceFactor.network = 0;
+snDockAvoidanceFactor.defined = 1;
+snDockAvoidanceFactor.available = 0;
+snDockAvoidanceFactor.version = "1.1";
+snDockAvoidanceFactor.linked = [ 279 ];
+snDockAvoidanceFactor.related = [ 278 ];
+snDockAvoidanceFactor.shortDescription = "Set to the avoidance factor for docks in the same zone (body of water). Positive values avoid placement in the same zone, while negative values prefer it.";
+
+snDockTrainingFilter.id = 281;
+snDockTrainingFilter.snName = "sn-dock-training-filter";
+snDockTrainingFilter.default = 0;
+snDockTrainingFilter.category = "Water";
+snDockTrainingFilter.min = -32767;
+snDockTrainingFilter.max = 32768;
+snDockTrainingFilter.rmin = 0;
+snDockTrainingFilter.rmax = 2;
+snDockTrainingFilter.network = 0;
+snDockTrainingFilter.defined = 1;
+snDockTrainingFilter.available = 0;
+snDockTrainingFilter.version = "1.1";
+snDockTrainingFilter.linked = [];
+snDockTrainingFilter.related = [ 278 ];
+snDockTrainingFilter.shortDescription = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.";
+
+snFreeSiegeTargeting.id = 282;
+snFreeSiegeTargeting.snName = "sn-free-siege-targeting";
+snFreeSiegeTargeting.default = 0;
+snFreeSiegeTargeting.category = "Attack";
+snFreeSiegeTargeting.min = -32767;
+snFreeSiegeTargeting.max = 32768;
+snFreeSiegeTargeting.rmin = 0;
+snFreeSiegeTargeting.rmax = 3;
+snFreeSiegeTargeting.network = 0;
+snFreeSiegeTargeting.defined = 1;
+snFreeSiegeTargeting.available = 0;
+snFreeSiegeTargeting.version = "1.1";
+snFreeSiegeTargeting.linked = [];
+snFreeSiegeTargeting.related = [];
+snFreeSiegeTargeting.shortDescription = "Add bit flags together to generate a value: 1 = trebuchet; 2 = cannon-galleon. Set a flag for a unit to enable free offensive targeting with attack-now or attack groups. This may result in the targeting of units other than buildings. If set to 0, non-buildings will be ignored unless units must respond due to sn-enemy-sighted-response-distance.";
+
+snWarshipTargetingMode.id = 283;
+snWarshipTargetingMode.snName = "sn-warship-targeting-mode";
+snWarshipTargetingMode.default = 0;
+snWarshipTargetingMode.category = "Water";
+snWarshipTargetingMode.min = -32767;
+snWarshipTargetingMode.max = 32768;
+snWarshipTargetingMode.rmin = 0;
+snWarshipTargetingMode.rmax = 2;
+snWarshipTargetingMode.network = 0;
+snWarshipTargetingMode.defined = 1;
+snWarshipTargetingMode.available = 0;
+snWarshipTargetingMode.version = "1.1";
+snWarshipTargetingMode.linked = [];
+snWarshipTargetingMode.related = [];
+snWarshipTargetingMode.shortDescription = "Set to 1 to cause warships to target based on the unit with the shortest range in the group against fortifications. Set to 2 to eliminate the range check. If set to 0, warship groups will target based on the unit with the longest range.";
+
+snDisableSightedResponseCap.id = 284;
+snDisableSightedResponseCap.snName = "sn-disable-sighted-response-cap";
+snDisableSightedResponseCap.default = 0;
+snDisableSightedResponseCap.category = "Attack";
+snDisableSightedResponseCap.min = -32767;
+snDisableSightedResponseCap.max = 32768;
+snDisableSightedResponseCap.rmin = 0;
+snDisableSightedResponseCap.rmax = 1;
+snDisableSightedResponseCap.network = 0;
+snDisableSightedResponseCap.defined = 1;
+snDisableSightedResponseCap.available = 0;
+snDisableSightedResponseCap.version = "1.1";
+snDisableSightedResponseCap.linked = [ 19, 20 ];
+snDisableSightedResponseCap.related = [];
+snDisableSightedResponseCap.shortDescription = "Set to 1 to eliminate the cap of 50 on sn-enemy-sighted-response-distance. If set to 0, the cap will remain in effect for changes to sn-enemy-sighted-response-distance.";
+
+snDisableBuilderAssistance.id = 285;
+snDisableBuilderAssistance.snName = "sn-disable-builder-assistance";
+snDisableBuilderAssistance.default = 0;
+snDisableBuilderAssistance.category = "Economy";
+snDisableBuilderAssistance.min = -32767;
+snDisableBuilderAssistance.max = 32768;
+snDisableBuilderAssistance.rmin = 0;
+snDisableBuilderAssistance.rmax = 1;
+snDisableBuilderAssistance.network = 1;
+snDisableBuilderAssistance.defined = 1;
+snDisableBuilderAssistance.available = 0;
+snDisableBuilderAssistance.version = "1.1";
+snDisableBuilderAssistance.linked = [];
+snDisableBuilderAssistance.related = [];
+snDisableBuilderAssistance.shortDescription = "Set to 1 to prevent builders from assisting on nearby foundations after their work is complete. If set to 0, they will assist as usual.";
+
+snLocalTargetingMode.id = 286;
+snLocalTargetingMode.snName = "sn-local-targeting-mode";
+snLocalTargetingMode.default = 0;
+snLocalTargetingMode.category = "Attack";
+snLocalTargetingMode.min = -32767;
+snLocalTargetingMode.max = 32768;
+snLocalTargetingMode.rmin = 0;
+snLocalTargetingMode.rmax = 2;
+snLocalTargetingMode.network = 1;
+snLocalTargetingMode.defined = 1;
+snLocalTargetingMode.available = 0;
+snLocalTargetingMode.version = "1.1";
+snLocalTargetingMode.linked = [];
+snLocalTargetingMode.related = [];
+snLocalTargetingMode.shortDescription = "Set to 1 to prioritize attack bonuses and overall damage per hit. If set to 2, units will prioritize targets with high base pierce armor, such as rams; otherwise, they will target as usual. The offensive priority value of a target (-1 to 11) is added to the weight for modes 1 and 2, as well. If set to 0, units will target as usual.";
+
+snLivestockDefendPriority.id = 287;
+snLivestockDefendPriority.snName = "sn-livestock-defend-priority";
+snLivestockDefendPriority.default = 0;
+snLivestockDefendPriority.category = "Defense";
+snLivestockDefendPriority.min = -32767;
+snLivestockDefendPriority.max = 32768;
+snLivestockDefendPriority.rmin = 0;
+snLivestockDefendPriority.rmax = 1;
+snLivestockDefendPriority.network = 0;
+snLivestockDefendPriority.defined = 1;
+snLivestockDefendPriority.available = 0;
+snLivestockDefendPriority.version = "1.1";
+snLivestockDefendPriority.linked = [];
+snLivestockDefendPriority.related = [50, 56, 70, 52, 51, 55, 54, 53];
+snLivestockDefendPriority.shortDescription = "Set to 1 to allow sheep into the targetable sighted objects list.";
+
+snNumberTaskedUnits.id = 288;
+snNumberTaskedUnits.snName = "sn-number-tasked-units";
+snNumberTaskedUnits.default = 0;
+snNumberTaskedUnits.category = "Other";
+snNumberTaskedUnits.min = -32767;
+snNumberTaskedUnits.max = 32768;
+snNumberTaskedUnits.rmin = 0;
+snNumberTaskedUnits.rmax = 40;
+snNumberTaskedUnits.network = 0;
+snNumberTaskedUnits.defined = 1;
+snNumberTaskedUnits.available = 0;
+snNumberTaskedUnits.version = "1.5";
+snNumberTaskedUnits.linked = [];
+snNumberTaskedUnits.related = [];
+snNumberTaskedUnits.shortDescription = "Set to the number of units to require per group tasked by up-target-objects or up-target-point. The last group sent by a command may not reach the minimum required number. It's possible that no units will be sent to some of the last remote targets. If set to 0, units will be spread in order to ensure balanced group sizes to all remote targets.";
+
+snDisableVillagerGarrison.id = 291;
+snDisableVillagerGarrison.snName = "sn-disable-villager-garrison";
+snDisableVillagerGarrison.default = 0;
+snDisableVillagerGarrison.category = "Defense";
+snDisableVillagerGarrison.min = -32767;
+snDisableVillagerGarrison.max = 32768;
+snDisableVillagerGarrison.rmin = 0;
+snDisableVillagerGarrison.rmax = 3;
+snDisableVillagerGarrison.network = 0;
+snDisableVillagerGarrison.defined = 1;
+snDisableVillagerGarrison.available = 0;
+snDisableVillagerGarrison.version = "1.5";
+snDisableVillagerGarrison.linked = [];
+snDisableVillagerGarrison.related = [];
+snDisableVillagerGarrison.shortDescription = "Set to 3 to prevent villagers from auto-garrisoning for any reason. If set to 2, gaia is ignored and villagers will only garrison for enemy attacks if they can enter a town center. If set to 1, gaia is ignored and villagers will garrison for any enemy attacks. If set to 0, villagers will garrison as usual.";
+
+snTargetPointAdjustment.id = 292;
+snTargetPointAdjustment.snName = "sn-target-point-adjustment";
+snTargetPointAdjustment.default = 0;
+snTargetPointAdjustment.category = "Other";
+snTargetPointAdjustment.min = -32767;
+snTargetPointAdjustment.max = 32768;
+snTargetPointAdjustment.rmin = 0;
+snTargetPointAdjustment.rmax = 6;
+snTargetPointAdjustment.network = 0;
+snTargetPointAdjustment.defined = 1;
+snTargetPointAdjustment.available = 0;
+snTargetPointAdjustment.version = "1.5";
+snTargetPointAdjustment.linked = [];
+snTargetPointAdjustment.related = [];
+snTargetPointAdjustment.shortDescription = "Set to adjust the tile positioning of up-target-point toward 1:left, 2:top, 3:right, 4:bottom, 5:middle, 6:precise. If set to 0, actions will be directed to the absolute left-most point of a tile. If set to precise, you must directly pass a valid precise point goal pair (point x100 for precision) to up-target-point.";
+
+snUnexploredConstruction.id = 293;
+snUnexploredConstruction.snName = "sn-unexplored-construction";
+snUnexploredConstruction.default = 0;
+snUnexploredConstruction.category = "Economy";
+snUnexploredConstruction.min = -32767;
+snUnexploredConstruction.max = 32768;
+snUnexploredConstruction.rmin = 0;
+snUnexploredConstruction.rmax = 1;
+snUnexploredConstruction.network = 1;
+snUnexploredConstruction.defined = 1;
+snUnexploredConstruction.available = 0;
+snUnexploredConstruction.version = "1.5";
+snUnexploredConstruction.linked = [];
+snUnexploredConstruction.related = [];
+snUnexploredConstruction.shortDescription = "Set to 1 to allow the AI to construct buildings on unexplored tiles. If set to 0, the AI will have to directly explore tiles in order to build there as usual. Please do not enable this without #load-if-not-defined REVEAL-NORMAL.";
+
+snDisableTradeEvasion.id = 294;
+snDisableTradeEvasion.snName = "sn-disable-trade-evasion";
+snDisableTradeEvasion.default = 0;
+snDisableTradeEvasion.category = "Defense";
+snDisableTradeEvasion.min = -32767;
+snDisableTradeEvasion.max = 32768;
+snDisableTradeEvasion.rmin = 0;
+snDisableTradeEvasion.rmax = 1;
+snDisableTradeEvasion.network = 1;
+snDisableTradeEvasion.defined = 1;
+snDisableTradeEvasion.available = 0;
+snDisableTradeEvasion.version = "1.5";
+snDisableTradeEvasion.linked = [];
+snDisableTradeEvasion.related = [];
+snDisableTradeEvasion.shortDescription = "Set to 1 to prevent trade carts from abandoning their gold and trade route in order to evade attackers. If set to 0, trade carts will attempt to evade attackers as usual.";
+
+snBoarLureDestination.id = 295;
+snBoarLureDestination.snName = "sn-boar-lure-destination";
+snBoarLureDestination.default = 0;
+snBoarLureDestination.category = "Economy";
+snBoarLureDestination.min = -32767;
+snBoarLureDestination.max = 32768;
+snBoarLureDestination.rmin = 0;
+snBoarLureDestination.rmax = 23;
+snBoarLureDestination.network = 1;
+snBoarLureDestination.defined = 1;
+snBoarLureDestination.available = 0;
+snBoarLureDestination.version = "1.5";
+snBoarLureDestination.linked = [];
+snBoarLureDestination.related = [];
+snBoarLureDestination.shortDescription = "Set to a <a href='http://i.imgur.com/GHXNTXU.png' target='_blank'>value from this image</a> to adjust the boar lure destination at the town center. Add 12 to the normal value (0 to 11) to shift the point down to the grid corner. If set to 0, lurers will attempt to reach the center tile of the town center.";
 
 
 
@@ -17682,7 +18073,7 @@ pWallId.wildcardParam = [ {
 
 function commandsFilter() {
 	// Declare variables
-	var input, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
+	var input, category, type, version, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
 	input = document.getElementById("commandsInput");
 	category = document.getElementById("commandCategory");
 	type = document.getElementById("command-type");
@@ -17690,6 +18081,7 @@ function commandsFilter() {
 	filter = input.value.toUpperCase();
 	table = document.getElementById("index-table");
 	tr = table.getElementsByTagName("tr");
+	num = 0;
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -17705,6 +18097,7 @@ function commandsFilter() {
 					txtValue = tdVersion.textContent || tdVersion.innerText;
 					if(version.value == "All" || txtValue == version.value) {
 						tr[i].style.display = "";
+						num = num + 1;
 					}
 					else {
 						tr[i].style.display = "none";
@@ -17719,16 +18112,18 @@ function commandsFilter() {
 			}
 		}
 	}
+	document.getElementById("num-results").innerHTML = "Num Results: " + num;
 }
 
 function parametersFilter() {
 	// Declare variables
-	var input, filter, table, tr, tdName, tdVersion, i, txtValue;
+	var input, version, filter, table, tr, tdName, tdVersion, i, txtValue, num;
 	input = document.getElementById("parametersInput");
 	version = document.getElementById("parameter-version");
 	filter = input.value.toUpperCase();
 	table = document.getElementById("index-table");
 	tr = table.getElementsByTagName("tr");
+	num = 0;
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -17740,6 +18135,7 @@ function parametersFilter() {
 				txtValue = tdVersion.textContent || tdVersion.innerText;
 				if(version.value == "All" || txtValue == version.value) {
 					tr[i].style.display = "";
+					num = num + 1;
 				}
 				else {
 					tr[i].style.display = "none";
@@ -17750,4 +18146,122 @@ function parametersFilter() {
 			}
 		}
 	}
+	document.getElementById("num-results").innerHTML = "Num Results: " + num;
+}
+
+function snFilter() {
+	// Declare variables
+	var input, category, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
+	input = document.getElementById("snInput");
+	category = document.getElementById("sn-category");
+	category = category.value;
+	network = document.getElementById("sn-network");
+	if (network.value == "Network") {
+		network = 1;
+	}
+	else if (network.value == "Standard") {
+		network = 0;
+	}
+	else {
+		network = -1;
+	}
+	defined = document.getElementById("sn-defined");
+	if (defined.value == "Undefined") {
+		defined = 0;
+	}
+	else if (defined.value == "Defined") {
+		defined = 1;
+	}
+	else {
+		defined = -1;
+	}
+	active = document.getElementById("sn-active");
+	if (active.value == "Obsolete") {
+		active = 1;
+	}
+	else if (active.value == "Active") {
+		active = 0;
+	}
+	else if (active.value == "Conditional") {
+		active = 2;
+	}
+	else {
+		active = -1;
+	}
+	version = document.getElementById("sn-version");
+	if (version.value == "All") {
+		version = "All";
+	}
+	else if (version.value == "1.0c") {
+		version = "1.0c";
+	}
+	else if (version.value == "UP") {
+		version = "UP";
+	}
+	else if (version.value == "1.1 Only") {
+		version = "1.1";
+	}
+	else if (version.value == "1.5 Only") {
+		version = "1.5";
+	}
+	filter = input.value.toUpperCase();
+	table = document.getElementById("index-table");
+	tr = table.getElementsByTagName("tr");
+	num = 0;
+
+	//Loop through all table rows, and hide those who don't match the search query
+	for (i = 0; i < tr.length - 1; i++) {
+	//for (i = 0; i < 1; i++) {
+		tdId = snArray[i].id;
+		tdName = snArray[i].snName;
+		tdCategory = snArray[i].category;
+		tdNetwork = snArray[i].network;
+		tdDefined = snArray[i].defined;
+		tdActive = snArray[i].available;
+		if(typeof snArray[i].available === "string") {
+			tdActive = 2;
+		}
+		tdVersion = snArray[i].version;
+		if(tdName == "sn-percent-civilian-explorers") {
+			if(tdName && tdId) {
+				console.log(tdId,tdName);
+			}
+		}
+
+		if (typeof tdName !== undefined && typeof tdId !== undefined) {
+			if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
+				if(category == "All" || tdCategory == category) {
+					if(network == -1 || tdNetwork == network) {
+						if(defined == -1 || tdDefined == defined) {
+							if(active == -1 || tdActive == active) {
+								if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
+									tr[i + 1].style.display = "";
+									num = num + 1;
+								}
+								else {
+									tr[i + 1].style.display = "none";
+								}
+							}
+							else {
+								tr[i + 1].style.display = "none";
+							}
+						}
+						else {
+							tr[i + 1].style.display = "none";
+						}
+					}
+					else {
+						tr[i + 1].style.display = "none";
+					}
+				}
+				else {
+					tr[i + 1].style.display = "none";
+				}
+			}
+			else {
+				tr[i + 1].style.display = "none";
+			}
+		}
+	}
+	document.getElementById("num-results").innerHTML = "Num Results: " + num;
 }

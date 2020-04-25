@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>A Collection of Helpful Info and Tips</h2>
+			<p>This page is just an assortment of helpful informative posts that are stored here for your information. They may eventually be converted into their own guide someday.</p>
+			<h3>Table of Contents</h3>
+			<ul>
+				<li><a href="#local-targeting">How Local Targets Are Chosen</a></li>
+			</ul>
+			<hr>
+			<h3 id="local-targeting">How Local Targets Are Chosen</h3>
+			<p>The strategic number scripter64 talks about below is <a href="../../strategic-numbers/sn-details.html#snLocalTargetingMode">sn-local-targeting-mode</a>.</p>
+			<p>Question from Finaldeath: <a href="http://forums.aiscripters.com/viewtopic.php?p=57429#p57429">Link</a></p>
+			<blockquote>
+				<p>Local targeting specifically affects TSA when the units are not attacking the targeted building, and when reacting to a unit under attack (in the required sn-enemy-sighted-response-distance) right?</p>
+				<p>If so this will really help. I presume siege weapons (specifically the ones hardcoded as "attacking buildings" - Petards, Trebuchets, Rams and Cannon Galleons) still act as normal and ignore this. :)</p>				
+				<p>Thanks a lot - any improvement to those things are really nice and get over my befuddlement of AI armies doing silly things. I hope this puts the nail into the figurative coffin of "target evaluation SNs work" camp now :) since essentially that is what they were described as doing - this exact kind of thing.</p>
+				<p>One thing before I test it fully - what weight does the factors add? Is it a mere +1? or +50% or something? If I set it to 1 ("deal most damage") and set Rams to priority 11 and everything else to priory -1 (including buildings) will it target Rams still? for instance will Pikemen ignore the Knights and attack the Rams?</p>
+			</blockquote>
+			<p>Answer from scripter64: <a href="http://forums.aiscripters.com/viewtopic.php?p=57430#p57430">Link</a></p>
+			<blockquote>
+				<p>Probably, yes, to the first question. It's the general targeting system, unrelated to attack groups, attack-now, and defensive TSA building targeting, which is used to go after nearby targets. With sn:1, the true attack value (attack+bonuses-armor) * 3 + offensive-priority-value = weight. If the true attack value is <= 1, then -5 weight is used instead. For sn:2, these things only apply if the target has >= 40 base pierce armor; otherwise, sn:2 = sn:0. In other words, sn:2 is primarily for defense from things like rams coming for your trebuchets, etc. With sn:1, you might get the best behavior.</p>
+				<p>In addition, from the hard-coded 1.0c local targeting system, 5 weight is given to the current target, 0-75 weight based on distance (nearest available target is 75, farthest is 0), and 0-10 weight is given to time to eliminate the target based on number of hits and reload time. After all weights are added together, the target with the highest weight is attacked.</p>
+				<p>However, units that don't move have reduced priority compared to units that move, except rams, cannon galleons, petards, and trebuchets have this ordering reversed and prioritize units that don't move first.</p>
+			</blockquote>
+			<hr>
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>

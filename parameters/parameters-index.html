@@ -14,13 +14,16 @@
 		<div id="nav-placeholder"></div>
 		<h2>Parameters</h2>
 		<p>
+			<label for="parametersInput" class="input-label">Search</label>
+			<label for="parameter-version" class="dropdown-label">Version</label>
 			<input type="text" id="parametersInput" onkeyup="parametersFilter()" placeholder="Search for parameters...">
-			<select id="parameter-version" onchange="parametersFilter()" autocomplete="off">
+			<select id="parameter-version" class="drop-filter"  onchange="parametersFilter()" autocomplete="off">
 				<option value="All" selected>All</option>
 				<option value="1.0c">1.0c</option>
 				<option value="1.1">1.1</option>
 			</select>
 		</p>
+		<p id="num-results"></p>
 		<div id="parameterTable"></div>
 		<div id="footer-placeholder"></div>
 	</div>
@@ -45,6 +48,7 @@
 		}
 		text += "</table>"
 		document.getElementById("parameterTable").innerHTML = text;
+		document.getElementById("num-results").innerHTML = "Num Results: 114";
 	</script>
 </body>
 </html>

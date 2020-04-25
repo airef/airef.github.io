@@ -13,7 +13,51 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Strategic Numbers</h2>
-		<p>This page will be filled at a later date.</p>
+		<p>
+			<label for="snInput" class="sn-input-label">Search</label>
+			<label for="sn-category" class="dropdown-label">Category</label>
+			<label for="sn-network" class="dropdown-label">Network</label>
+			<label for="sn-defined" class="dropdown-label">Defined</label>
+			<label for="sn-active" class="dropdown-label">Active</label>
+			<label for="sn-version" class="dropdown-label">Version</label>
+			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off">
+			<select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
+				<option value="All" selected>All</option>
+				<option value="AoE 1">AoE 1</option>
+				<option value="Attack">Attack</option>
+				<option value="Defense">Defense</option>
+				<option value="Economy">Economy</option>
+				<option value="Explore">Explore</option>
+				<option value="Water">Water</option>
+				<option value="Other">Other</option>
+				<option value="None">None</option>
+			</select>
+			<select id="sn-network" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Network">
+				<option value="All" selected>All</option>
+				<option value="Network">Network</option>
+				<option value="Standard">Standard</option>
+			</select>
+			<select id="sn-defined" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Defined">
+				<option value="All" selected>All</option>
+				<option value="Defined">Defined</option>
+				<option value="Undefined">Undefined</option>
+			</select>
+			<select id="sn-active" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Active">
+				<option value="All" selected>All</option>
+				<option value="Active">Active</option>
+				<option value="Conditional">Conditional</option>
+				<option value="Obsolete">Obsolete</option>
+			</select>
+			<select id="sn-version" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Game Version">
+				<option value="All" selected>All</option>
+				<option value="1.0c">1.0c</option>
+				<option value="UP">UP</option>
+				<option value="1.1 Only">1.1 Only</option>
+				<option value="1.5 Only">1.5 Only</option>
+			</select>
+		</p>
+		<p id="num-results"></p>
+		<p id="snTable"></p>
 		<div id="footer-placeholder"></div>
 	</div>
 	
@@ -21,9 +65,75 @@
 		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
 		var currPage = "sn";
 	</script>
+	<script src="../js/commands.js"></script>
 	<script src="../js/nav.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../jqueryui/jquery-ui.min.js"></script>
+	
+	<script>
+		var text = "<table id=\"index-table\">";
+		text += "<tr><th>ID</th><th>Strategic Number</th><th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Version</th></tr>";
+		for(var i = 0; i < snArray.length; i++) {
+			text += "<tr>";
+			text += "<td>" + snArray[i].id + "</td>";
+			text += "<td class=\"sn-name\" title=\"" + snArray[i].shortDescription;
+			text += "\">" + snArray[i].getLink() + "</td>";
+			text += "<td>" + snArray[i].min + "</td>";
+			text += "<td>" + snArray[i].max + "</td>";
+			text += "<td>" + snArray[i].rmin + "</td>";
+			text += "<td>" + snArray[i].rmax + "</td>";
+			text += "<td>" + snArray[i].default + "</td><td>";
+			if(snArray[i].network == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Standard\">&#10007&nbsp;</span>";
+			}
+			else if(snArray[i].network == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"Network Sync\">&#10003&nbsp;</span>";
+			}
+			if(snArray[i].defined == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Undefined\"> &#10007&nbsp;</span>";
+			}
+			else if(snArray[i].defined == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"Defined\"> &#10003&nbsp;</span>";
+			}
+			if(snArray[i].available == 0) {
+				text += "<span class=\"sn-check-flag\" title=\"Active\"> &#10003</span></td>";
+			}
+			else if(snArray[i].available == 1) {
+				text += "<span class=\"sn-x-flag\" title=\"Obsolete\"> &#10007</span></td>";
+			}
+			else {
+				text += "<span class=\"sn-question-flag\" title=\"" + snArray[i].available;
+				text += "\"> ?</td>";
+			}
+			text += "<td>" + snArray[i].version + "</td>";
+			text += "</tr>";
+		}
+		text += "</table>"
+		document.getElementById("snTable").innerHTML = text;
+
+		var num = 295;
+		document.getElementById("num-results").innerHTML = "Num Results: 295";
+	</script>
+	<script>
+		$(function() {
+			$(".sn-name").tooltip({
+				show: {delay:500, duration:200},
+				hide: {duration:200}
+			});
+			$(".sn-check-flag").tooltip({
+				show: {delay:500, duration:200},
+				hide: {duration:200}
+			});
+			$(".sn-x-flag").tooltip({
+				show: {delay:500, duration:200},
+				hide: {duration:200}
+			});
+			$(".sn-question-flag").tooltip({
+				show: {delay:500, duration:200},
+				hide: {duration:200}
+			});
+		});
+	</script>
 
 </body>
 </html>

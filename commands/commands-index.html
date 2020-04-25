@@ -14,8 +14,11 @@
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
 		<p>
+			<label for="commandsInput" class="input-label">Search</label>
+			<label for="command-type" class="dropdown-label">Type</label>
+			<label for="command-version" class="dropdown-label">Version</label>
 			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off">
-			<!--<select id="command-category" onchange="commandsFilter()" autocomplete="off">
+			<!--<select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off">
 				<option value="All" selected>All</option>
 				<option value="DUC">DUC</option>
 				<option value="Attack & Defense">Attack & Defense</option>
@@ -36,18 +39,19 @@
 				<option value="Water">Water</option>
 				<option value="Other">Other</option>
 			</select>-->
-			<select id="command-type" onchange="commandsFilter()" autocomplete="off" title="Command Type">
+			<select id="command-type" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Type">
 				<option value="All" selected>All</option>
 				<option value="Fact">Fact</option>
 				<option value="Action">Action</option>
 				<option value="Both">Both</option>
 			</select>
-			<select id="command-version" onchange="commandsFilter()" autocomplete="off" title="Game Version">
+			<select id="command-version" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="1.0c">1.0c</option>
 				<option value="1.1">1.1</option>
 			</select>
 		</p>
+		<p id="num-results"></p>
 		<p id="commandsTable"></p>
 		<div id="footer-placeholder"></div>
 	</div>
@@ -75,6 +79,7 @@
 		}
 		text += "</table>"
 		document.getElementById("commandsTable").innerHTML = text;
+		document.getElementById("num-results").innerHTML = "Num Results: 357";
 	</script>
 	<script>
 		$(function() {

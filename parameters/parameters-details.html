@@ -41,7 +41,7 @@
 				info += "<h3>Description</h3></p><p>" + parametersArray[i].description + "</p>";
 				/*info += "<p><h3>Range</h3> " + parametersArray[i].range + "</p>";
 				info += "<p><h3>Version Introduced</h3> " + parametersArray[i].paramVersion;
-				if (parametersArray[i].esParamName != undefined) {
+				if (typeof parametersArray[i].esParamName !== undefined) {
 					info += ", with parameter name " + parametersArray[i].esParamName + ".";
 				}
 				if (parametersArray[i].relatedParams.length > 0) {
@@ -58,7 +58,7 @@
 				info += "<p><h3>Info</h3></p>";
 				info += "<p><table><tr><td>Range</td><td>" + parametersArray[i].range + "</td></tr>";
 				info += "<tr><td>Version Introduced</td><td>" + parametersArray[i].paramVersion; + "</td></tr>";
-				if (parametersArray[i].esParamName != undefined) {
+				if (typeof parametersArray[i].esParamName !== undefined) {
 					info += ", with parameter name " + parametersArray[i].esParamName + ".";
 				}
 				if (parametersArray[i].relatedParams.length > 0) {
@@ -98,10 +98,10 @@
 					for (var k = 0; k < parametersArray[i].operatorTypes.length; k++) {
 						info += "<tr><td>" + parametersArray[i].operatorTypes[k].id + "</td>";
 						info += "<td>" + parametersArray[i].operatorTypes[k].operator[0] + "</td>";
-						if (parametersArray[i].operatorTypes[k].operator[1] != undefined) {
+						if (typeof parametersArray[i].operatorTypes[k].operator[1] !== undefined) {
 							info += "<td>" + parametersArray[i].operatorTypes[k].operator[1] + "</td>";
 						}
-						if (parametersArray[i].operatorTypes[k].operator[2] != undefined) {
+						if (typeof parametersArray[i].operatorTypes[k].operator[2] !== undefined) {
 							info += "<td>" + parametersArray[i].operatorTypes[k].operator[2] + "</td>";
 						}
 						info += "<td>" + parametersArray[i].operatorTypes[k].description + "</td></tr>";
@@ -112,13 +112,23 @@
 				{
 					info += "<p><h3>Defined Values</h3></p>";
 					info += "<p><input type=\"text\" id=\"valueListInput\" onkeyup=\"valueListFilter()\" placeholder=\"Search for values...\"></p>";
-					info += '<table id="value-list-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
-					for (var l = 0; l < parametersArray[i].valueList.length; l++) {
-						info += "<tr><td>" + parametersArray[i].valueList[l].id + "</td>";
-						info += "<td>" + parametersArray[i].valueList[l].name + "</td>";
-						info += "<td>" + parametersArray[i].valueList[l].description + "</td></tr>";
+					info += '<table id="value-list-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th>';
+					if (parametersArray[i].upParamName == "FactId") {
+						info += "<th id=\"parameter-col\">Parameter</th>";
+						info += "<th id=\"players-col\">Available Players</th>";
 					}
-					info += "</table>";
+					for (var l = 0; l < parametersArray[i].valueList.length; l++) {
+						info += "</tr><tr><td>" + parametersArray[i].valueList[l].id + "</td>";
+						info += "<td>" + parametersArray[i].valueList[l].name + "</td>";
+						info += "<td>" + parametersArray[i].valueList[l].description + "</td>";
+						if (typeof parametersArray[i].valueList[l].parameter !== undefined) {
+							info += "<td>" + parametersArray[i].valueList[l].parameter + "</td>";
+						}
+						if (typeof parametersArray[i].valueList[l].players !== undefined) {
+							info += "<td>" + parametersArray[i].valueList[l].players + "</td>";
+						}
+					}
+					info += "</tr></table>";
 				}
 				if (parametersArray[i].wildcardParam.length > 0)
 				{

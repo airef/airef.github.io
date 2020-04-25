@@ -220,7 +220,41 @@ code {
 	text-indent: 10px;
 }
 
-#command-type, #command-version, #command-category, #parameter-version {
+.input-label {
+	width: 78%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.sn-input-label {
+	width: 48%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.dropdown-label {
+	width: 10%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+label {
+	text-indent: 5px;
+}
+
+#snInput {
+	width: 48%; 
+	font-size: 14px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+.drop-filter {
 	width: 10%;
 	font-size: 14px;
 	padding: 10px 0;
@@ -230,4 +264,36 @@ code {
 
 .param .dir-type {
 	cursor: default;
+}
+
+hr {
+	background-color: #ccc;
+	border-width: 0px;
+	height: 1px;
+}
+
+blockquote {
+	background-color: #eee;
+	border-left: 3px solid #ccc;
+	padding-left: 15px;
+}
+
+.sn-check-flag {
+	font-weight: bold;
+	color: green;
+	text-shadow: 1px 1px 0.5px #999;
+}
+
+.sn-x-flag {
+	font-weight: bold;
+	color: red;
+	text-shadow: 1px 1px 0.5px #999;
+}
+
+.sn-question-flag {
+	font-weight: bold;
+	color: orange;
+	font-size: 10pt;
+	line-height: 9pt;
+	text-shadow: 1px 1px 0.5px #999;
 }
