@@ -41,7 +41,7 @@
 				info += "<h3>Description</h3></p><p>" + parametersArray[i].description + "</p>";
 				/*info += "<p><h3>Range</h3> " + parametersArray[i].range + "</p>";
 				info += "<p><h3>Version Introduced</h3> " + parametersArray[i].paramVersion;
-				if (typeof parametersArray[i].esParamName !== undefined) {
+				if (parametersArray[i].esParamName != "") {
 					info += ", with parameter name " + parametersArray[i].esParamName + ".";
 				}
 				if (parametersArray[i].relatedParams.length > 0) {
@@ -58,7 +58,7 @@
 				info += "<p><h3>Info</h3></p>";
 				info += "<p><table><tr><td>Range</td><td>" + parametersArray[i].range + "</td></tr>";
 				info += "<tr><td>Version Introduced</td><td>" + parametersArray[i].paramVersion; + "</td></tr>";
-				if (typeof parametersArray[i].esParamName !== undefined) {
+				if (parametersArray[i].esParamName != "") {
 					info += ", with parameter name " + parametersArray[i].esParamName + ".";
 				}
 				if (parametersArray[i].relatedParams.length > 0) {

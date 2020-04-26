@@ -15,6 +15,7 @@ class Command {
 		this.commandLinks = [];
 		this.relatedCommands = [];
 		this.commandCategory = [];
+		this.example = "";
 	}
 
 	getLink () {
@@ -18222,13 +18223,8 @@ function snFilter() {
 			tdActive = 2;
 		}
 		tdVersion = snArray[i].version;
-		if(tdName == "sn-percent-civilian-explorers") {
-			if(tdName && tdId) {
-				console.log(tdId,tdName);
-			}
-		}
 
-		if (typeof tdName !== undefined && typeof tdId !== undefined) {
+		if (tdName != "" && tdId.toString().length > 0) {
 			if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
 				if(category == "All" || tdCategory == category) {
 					if(network == -1 || tdNetwork == network) {

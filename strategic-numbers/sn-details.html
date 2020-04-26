@@ -24,6 +24,7 @@
 			location.reload();
 		}
 	</script>
+	<script src="../js/commands.js"></script>
 	<script src="../js/nav.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../jqueryui/jquery-ui.min.js"></script>
@@ -33,16 +34,85 @@
 		item = item.slice(index + 1,item.length + 1);
 		document.getElementById("item-name").innerHTML = item;
 		
-		var info = "<table><tr>";
+		var info = "";
 		var i = 0;
+		var linkedId, relatedId;
 		while ( i < snArray.length) {
-			if ( snArray[i].snName = item) {
-				info += "<td>" + snArray[i].snName + "</td>";
+			if ( snArray[i].snName == item) {
+				if(snArray[i].description != "") {
+					info += "<h3>Description</h3></p><p>" + snArray[i].description + "</p>";
+				}
+				else {
+					info += "<h3>Description</h3></p><p>" + snArray[i].shortDescription + "</p>";
+				}
+				info += "<p><h3>Info</h3></p>";
+				info += "<p><table><tr><td>Default</td><td>" + snArray[i].default + "</td></tr>";
+				info += "<tr><td>Required/Usable Range</td><td>" + snArray[i].rmin + " to " + snArray[i].rmax + "</td></tr>";
+				info += "<tr><td>Allowable Range</td><td>" + snArray[i].min + " to " + snArray[i].max + "</td></tr>";
+				switch (snArray[i].network) {
+					case 0:
+						info += "<tr><td>Network Sync?</td><td>No</td></tr>";
+						break;
+					case 1:
+						info += "<tr><td>Network Sync?</td><td>Yes</td></tr>";
+						break;
+				}
+				switch (snArray[i].defined) {
+					case 0:
+						info += "<tr><td>Defined By AI Engine?</td><td>No</td></tr>";
+						break;
+					case 1:
+						info += "<tr><td>Defined By AI Engine?</td><td>Yes</td></tr>";
+						break;
+				}
+				switch (snArray[i].available) {
+					case 0:
+						info += "<tr><td>Available As Custom SN?</td><td>No, SN is used by the AI Engine.</td></tr>";
+						break;
+					case 1:
+						info += "<tr><td>Available As Custom SN?</td><td>Yes, SN is obsolete.</td></tr>";
+						break;
+					default:
+						info += "<tr><td>Available As Custom SN?</td><td>" + snArray[i].available + "</td></tr>";
+				}
+				info += "<tr><td>Version Added</td><td>" + snArray[i].version + "</td></tr>";
+				if( snArray[i].linked.length > 0) {
+					info += "<tr><td>Linked SNs</td><td>";
+					for (var j = 0; j < snArray[i].linked.length; j++) {
+						linkedId = snArray[i].linked[j];
+						for (var m = 0; m < snArray.length; m++) {
+							if (snArray[m].id == linkedId) {
+								info += snArray[m].getLink();
+								info += ", &nbsp;";
+								break;
+							}
+						}
+					}
+					var pos = info.lastIndexOf(",");
+					info = info.slice(0, pos);
+					info += "</td></tr>";
+				}
+				if (snArray[i].related.length > 0) {
+					info += "<tr><td>Related SNs</td><td>";
+					for (var k = 0; k < snArray[i].related.length; k++) {
+						relatedId = snArray[i].related[k];
+						for (var n = 0; n < snArray.length; n++) {
+							if (snArray[n].id == relatedId) {
+								info += snArray[n].getLink();
+								info += ", &nbsp;";
+								break;
+							}
+						}
+					}
+					pos = info.lastIndexOf(",");
+					info = info.slice(0, pos);
+					info += "</td></tr>";
+				}
+				info += "</table>";
 				break;
 			}
 			i++;
 		}
-		info += "</tr></table>";
 		document.getElementById("item-details").innerHTML = info;
 	</script>
 

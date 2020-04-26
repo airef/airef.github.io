@@ -88,7 +88,7 @@
 					info += "</td></tr>";
 				}
 				info += "</table>";
-				if(typeof commandsArray[i].example !== undefined) {
+				if(commandsArray[i].example != "") {
 					if(commandsArray[i].example.length > 0) {
 						info += "<p><h3>Example</h3></p><p>";
 						for (var l = 0; l < commandsArray[i].example.length; l++) {
@@ -101,7 +101,6 @@
 			}
 			i++;
 		}
-		info += "</tr></table>";
 		document.getElementById("item-details").innerHTML = info;
 	</script>
 	<script>
