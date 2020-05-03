@@ -1353,12 +1353,12 @@ cCanSellCommodity.commandParameters = [ {
 } ];
 
 //can-spy
-cCanSpy.shortDescription = "Checks if the spy command can be executed.";
-cCanSpy.description = "Checks if the spy command can be executed. It only works in regicide games. The computer player does see the revealed area around the enemy kings as expected. This does not take into account escrow stockpiles.";
+cCanSpy.shortDescription = "Checks if the spy command can be executed. Only works in Regicide games.";
+cCanSpy.description = "Checks if the spy command can be executed. It only works to research the Treason effect in regicide games. The computer player does see the revealed area around the enemy kings as expected. This does not take into account escrow stockpiles.";
 
 //can-spy-with-escrow
-cCanSpyWithEscrow.shortDescription = "Checks if the spy command can be executed.";
-cCanSpyWithEscrow.description = "Checks if the spy command can be executed. It only works in regicide games. The computer player does see the revealed area around the enemy kings as expected. This fact does take into account escrow stockpiles.";
+cCanSpyWithEscrow.shortDescription = "Checks if the spy command can be executed. Only works in Regicide games.";
+cCanSpyWithEscrow.description = "Checks if the spy command can be executed. It only works to research the Treason effect in regicide games. The computer player does see the revealed area around the enemy kings as expected. This fact does take into account escrow stockpiles.";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
@@ -3207,7 +3207,8 @@ cSoldierCount.commandParameters = [ {
 } ];
 
 //spy
-cSpy.shortDescription = "Executes a spy command.";
+cSpy.shortDescription = "Executes a spy command. Only works in Regicide games.";
+cSpy.description = "Executes a spy command. Only works in Regicide games to research the Treason effect.";
 
 //stance-toward
 cStanceToward.shortDescription = "Checks the computer player's stance toward a given player.";
@@ -17345,6 +17346,7 @@ snDropsiteSeparationDistance.version = "1.1";
 snDropsiteSeparationDistance.linked = [ 86, 87, 260, 261 ];
 snDropsiteSeparationDistance.related = [ 202, 272 ];
 snDropsiteSeparationDistance.shortDescription = "Set to suggest the minimum distance between dropsites. Higher values can be useful for an escape camp when gatherers are under attack.";
+snDropsiteSeparationDistance.description = "Set to suggest the minimum distance between dropsites.</p><p>From scripter64: \"I've found the best value, in general, to be around 3 or 4, which allows mills, mining camps, and lumber camps to be built near each other, but not too near. Setting it to higher values can be useful if you'd like to build an escape camp for when your gatherers are under attack.\"";
 
 snTargetPlayerNumber.id = 249;
 snTargetPlayerNumber.snName = "sn-target-player-number";
@@ -17696,7 +17698,7 @@ snPlacementToCenter.available = 0;
 snPlacementToCenter.version = "1.1";
 snPlacementToCenter.linked = [ 268, 269 ];
 snPlacementToCenter.related = [ 73, 74, 249, 188 ];
-snPlacementToCenter.shortDescription = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with up-set-placement-data. If set to 0, the active target enemy's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
+snPlacementToCenter.shortDescription = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with up-set-placement-data. If set to 0, the active target player's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
 
 snDisableAttackGroups.id = 271;
 snDisableAttackGroups.snName = "sn-disable-attack-groups";
@@ -18070,194 +18072,2910 @@ snBoarLureDestination.shortDescription = "Set to a <a href='http://i.imgur.com/G
 
 
 
+rangeTechsArray = [ {	
+	name: "Crossbowman",
+	aiName: "ri-crossbow",
+	weirdName: 1,
+	id: 100,
+	building: "Archery Range",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Skirmisher",
+	aiName: "ri-elite-skirmisher",
+	weirdName: 0,
+	id: 98,
+	building: "Archery Range",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Arbalest",
+	aiName: "ri-arbalest",
+	weirdName: 0,
+	id: 237,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Cavalry Archer",
+	aiName: "ri-heavy-cavalry-archer",
+	weirdName: 0,
+	id: 218,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hand Cannon",
+	aiName: "ri-hand-cannon",
+	weirdName: 0,
+	id: 85,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Imperial Skirmisher",
+	aiName: "ri-imperial-skirmisher",
+	weirdName: 2,
+	id: 655,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vietnamese",
+	notes: "Available for Vietnamese allies"
+}, {	
+	name: "Elite Genitour",
+	aiName: "ri-elite-genitour",
+	weirdName: 2,
+	id: 599,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Berbers",
+	notes: "Available for Berber allies"
+}, {	
+	name: "Thumb Ring",
+	aiName: "ri-thumb-ring",
+	weirdName: 0,
+	id: 437,
+	building: "Archery Range",
+	age: 3,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Parthian Tactics",
+	aiName: "ri-parthian-tactics",
+	weirdName: 0,
+	id: 436,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+barracksTechsArray = [ {	
+	name: "Man-at-Arms",
+	aiName: "ri-man-at-arms",
+	weirdName: 0,
+	id: 222,
+	building: "Barracks",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Long Swordsman",
+	aiName: "ri-long-swordsman",
+	weirdName: 0,
+	id: 207,
+	building: "Barracks",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Pikeman",
+	aiName: "ri-pikeman",
+	weirdName: 0,
+	id: 197,
+	building: "Barracks",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Eagle Warrior",
+	aiName: "eagle warrior",
+	weirdName: 0,
+	id: 384,
+	building: "Barracks",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Two-Handed Swordsman",
+	aiName: "ri-two-handed-swordsman",
+	weirdName: 0,
+	id: 217,
+	building: "Barracks",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Champion",
+	aiName: "ri-champion",
+	weirdName: 0,
+	id: 264,
+	building: "Barracks",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Halberdier",
+	aiName: "ri-halberdier",
+	weirdName: 0,
+	id: 429,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Eagle Warrior",
+	aiName: "ri-elite-eagle-warrior",
+	weirdName: 0,
+	id: 434,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Supplies",
+	aiName: "ri-supplies",
+	weirdName: 2,
+	id: 716,
+	building: "Barracks",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Tracking",
+	aiName: "ri-tracking",
+	weirdName: 0,
+	id: 90,
+	building: "Barracks",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 0,
+	civ: "",
+	notes: "Auto-researched with barracks construction in Feudal Age in DE"
+}, {	
+	name: "Squires",
+	aiName: "ri-squires",
+	weirdName: 0,
+	id: 215,
+	building: "Barracks",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Arson",
+	aiName: "ri-arson",
+	weirdName: 2,
+	id: 602,
+	building: "Barracks",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+blacksmithTechsArray = [ {	
+	name: "Forging",
+	aiName: "ri-forging",
+	weirdName: 0,
+	id: 67,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Fletching",
+	aiName: "ri-fletching",
+	weirdName: 0,
+	id: 199,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Scale Mail Armor",
+	aiName: "ri-scale-mail",
+	weirdName: 1,
+	id: 74,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Padded Archer Armor",
+	aiName: "ri-padded-archer-armor",
+	weirdName: 0,
+	id: 211,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Scale Barding Armor",
+	aiName: "ri-scale-barding",
+	weirdName: 1,
+	id: 81,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Iron Casting",
+	aiName: "ri-iron-casting",
+	weirdName: 0,
+	id: 68,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bodkin Arrow",
+	aiName: "ri-bodkin-arrow",
+	weirdName: 0,
+	id: 200,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Chain Mail Armor",
+	aiName: "ri-chain-mail",
+	weirdName: 1,
+	id: 76,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Leather Archer Armor",
+	aiName: "ri-leather-archer-armor",
+	weirdName: 0,
+	id: 212,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Chain Barding Armor",
+	aiName: "ri-chain-barding",
+	weirdName: 1,
+	id: 82,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Blast Furnace",
+	aiName: "ri-blast-furnace",
+	weirdName: 0,
+	id: 75,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bracer",
+	aiName: "ri-bracer",
+	weirdName: 0,
+	id: 201,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Plate Mail Armor",
+	aiName: "ri-plate-mail",
+	weirdName: 1,
+	id: 77,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Ring Archer Armor",
+	aiName: "ri-ring-archer-armor",
+	weirdName: 0,
+	id: 219,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Plate Barding Armor",
+	aiName: "ri-plate-barding",
+	weirdName: 1,
+	id: 80,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+castleTechsArray = [ {	
+	name: "Conscription",
+	aiName: "ri-conscription",
+	weirdName: 0,
+	id: 315,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hoardings",
+	aiName: "ri-hoardings",
+	weirdName: 0,
+	id: 379,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Sappers",
+	aiName: "ri-sappers",
+	weirdName: 0,
+	id: 321,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Spies/Treason",
+	aiName: "ri-spies-treason",
+	weirdName: 0,
+	id: 408,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Use with " + cSpy.getLink() + " command to research Treason"
+}, {	
+	name: "Elite Jaguar Warrior",
+	aiName: "ri-elite-jaguar-man",
+	weirdName: 1,
+	id: 432,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Aztecs",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Atlatl",
+	aiName: "",
+	weirdName: 0,
+	id: 460,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Aztecs",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Garland Wars",
+	aiName: "",
+	weirdName: 0,
+	id: 24,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Aztecs",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Camel Archer",
+	aiName: "ri-elite-camel-archer",
+	weirdName: 2,
+	id: 565,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Berbers",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Kasbah",
+	aiName: "",
+	weirdName: 0,
+	id: 578,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Berbers",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Maghrabi Camels",
+	aiName: "",
+	weirdName: 0,
+	id: 579,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Berbers",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Longbowman",
+	aiName: "ri-elite-longbowman",
+	weirdName: 0,
+	id: 360,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Yeomen",
+	aiName: "",
+	weirdName: 0,
+	id: 3,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "Castle Age in WK/DE, can use my-unique-research"
+}, {	
+	name: "Warwolf",
+	aiName: "",
+	weirdName: 0,
+	id: 461,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Elite Konnik",
+	aiName: "ri-elite-konnik",
+	weirdName: 2,
+	id: 678,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bulgarians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Stirrups",
+	aiName: "",
+	weirdName: 0,
+	id: 685,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bulgarians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Bagains",
+	aiName: "",
+	weirdName: 0,
+	id: 686,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bulgarians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Arambai",
+	aiName: "ri-elite-arambai",
+	weirdName: 2,
+	id: 619,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Burmese",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Howdah",
+	aiName: "",
+	weirdName: 0,
+	id: 626,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Burmese",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Manipur Cavalry",
+	aiName: "",
+	weirdName: 0,
+	id: 627,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Burmese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Cataphract",
+	aiName: "ri-elite-cataphract",
+	weirdName: 0,
+	id: 361,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Byzantines",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Greek Fire",
+	aiName: "",
+	weirdName: 0,
+	id: 464,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Byzantines",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Logistica",
+	aiName: "",
+	weirdName: 0,
+	id: 61,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Byzantines",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Woad Raider",
+	aiName: "ri-elite-woad-raider",
+	weirdName: 0,
+	id: 370,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Celts",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Stronghold",
+	aiName: "",
+	weirdName: 0,
+	id: 482,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Celts",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Furor Celtica",
+	aiName: "",
+	weirdName: 0,
+	id: 5,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Celts",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Chu Ko Nu",
+	aiName: "ri-elite-chu-ko-nu",
+	weirdName: 0,
+	id: 362,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Chinese",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Great Wall",
+	aiName: "",
+	weirdName: 0,
+	id: 462,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Chinese",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Rocketry",
+	aiName: "",
+	weirdName: 0,
+	id: 52,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Chinese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Kipchak",
+	aiName: "ri-elite-kipchak",
+	weirdName: 2,
+	id: 682,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Cumans",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Steppe Husbandry",
+	aiName: "",
+	weirdName: 0,
+	id: 689,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Cumans",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Cuman Mercenaries",
+	aiName: "",
+	weirdName: 0,
+	id: 690,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Cumans",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Shotel Warrior",
+	aiName: "ri-elite-shotel-warrior",
+	weirdName: 2,
+	id: 569,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Ethiopians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Royal Heirs",
+	aiName: "",
+	weirdName: 0,
+	id: 574,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Ethiopians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Torsion Engines",
+	aiName: "",
+	weirdName: 0,
+	id: 575,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Ethiopians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Throwing Axeman",
+	aiName: "ri-elite-throwing-axeman",
+	weirdName: 0,
+	id: 363,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Franks",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Chivalry",
+	aiName: "",
+	weirdName: 0,
+	id: 493,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Franks",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Bearded Axe",
+	aiName: "",
+	weirdName: 0,
+	id: 83,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Franks",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Huskarl",
+	aiName: "ri-elite-huskarl",
+	weirdName: 0,
+	id: 365,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Goths",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Anarchy",
+	aiName: "",
+	weirdName: 0,
+	id: 16,
+	building: "Castle",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Goths",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Perfusion",
+	aiName: "",
+	weirdName: 0,
+	id: 457,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Goths",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Tarkan",
+	aiName: "ri-elite-tarkan",
+	weirdName: 0,
+	id: 2,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Huns",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Marauders",
+	aiName: "",
+	weirdName: 0,
+	id: 483,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Huns",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Atheism",
+	aiName: "",
+	weirdName: 0,
+	id: 21,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Huns",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Kamayuk",
+	aiName: "ri-elite-kamayuk",
+	weirdName: 2,
+	id: 509,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Incas",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Andean Sling",
+	aiName: "",
+	weirdName: 0,
+	id: 516,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Incas",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Couriers/Fabric Shields",
+	aiName: "",
+	weirdName: 0,
+	id: 517,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Incas",
+	notes: "Renamed Fabric Shields in DE, can use my-unique-research"
+}, {	
+	name: "Elite Elephant Archer",
+	aiName: "ri-elite-elephant-archer",
+	weirdName: 2,
+	id: 481,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Indians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Sultans",
+	aiName: "",
+	weirdName: 0,
+	id: 506,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Indians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Shatagni",
+	aiName: "",
+	weirdName: 0,
+	id: 507,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Indians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Genoese Crossbowman",
+	aiName: "ri-elite-genoese-crossbowman",
+	weirdName: 2,
+	id: 468,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Italians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Pavise",
+	aiName: "",
+	weirdName: 0,
+	id: 494,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Italians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Silk Road",
+	aiName: "",
+	weirdName: 0,
+	id: 499,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Italians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Samurai",
+	aiName: "ri-elite-samurai",
+	weirdName: 0,
+	id: 366,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Japanese",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Yasama",
+	aiName: "",
+	weirdName: 0,
+	id: 484,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Japanese",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Kataparuto",
+	aiName: "",
+	weirdName: 0,
+	id: 59,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Japanese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Ballista Elephant",
+	aiName: "ri-elite-ballista-elephant",
+	weirdName: 2,
+	id: 615,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Khmer",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Double Crossbow",
+	aiName: "",
+	weirdName: 0,
+	id: 623,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Khmer",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Tusk Swords",
+	aiName: "",
+	weirdName: 0,
+	id: 622,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Khmer",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite War Wagon",
+	aiName: "ri-elite-war-wagon",
+	weirdName: 0,
+	id: 450,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Koreans",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Panokseon",
+	aiName: "",
+	weirdName: 0,
+	id: 486,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Koreans",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Shinkichon",
+	aiName: "",
+	weirdName: 0,
+	id: 445,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Koreans",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Leitis",
+	aiName: "ri-elite-leitis",
+	weirdName: 2,
+	id: 684,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Lithuanians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Hill Forts",
+	aiName: "",
+	weirdName: 0,
+	id: 691,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Lithuanians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Tower Shields",
+	aiName: "",
+	weirdName: 0,
+	id: 692,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Lithuanians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Magyar Huszar",
+	aiName: "ri-elite-magyar-huszar",
+	weirdName: 2,
+	id: 472,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Magyars",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Corvinian Army/Mercenaries",
+	aiName: "",
+	weirdName: 0,
+	id: 514,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Magyars",
+	notes: "Renamed Corvinian Army in DE"
+}, {	
+	name: "Recurve Bow",
+	aiName: "",
+	weirdName: 0,
+	id: 515,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Magyars",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Karambit Warrior",
+	aiName: "ri-elite-karambit-warrior",
+	weirdName: 2,
+	id: 617,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malay",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Thalassocracy",
+	aiName: "",
+	weirdName: 0,
+	id: 624,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malay",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Forced Levy",
+	aiName: "",
+	weirdName: 0,
+	id: 625,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malay",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Gbeto",
+	aiName: "ri-elite-gbeto",
+	weirdName: 2,
+	id: 567,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Tigui",
+	aiName: "",
+	weirdName: 0,
+	id: 576,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Farimba",
+	aiName: "",
+	weirdName: 0,
+	id: 577,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Malians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Plumed Archer",
+	aiName: "ri-elite-plumed-archer",
+	weirdName: 0,
+	id: 27,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Mayans",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Obsidian Arrows",
+	aiName: "",
+	weirdName: 0,
+	id: 485,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Mayans",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "El Dorado",
+	aiName: "",
+	weirdName: 0,
+	id: 4,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Mayans",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Mangudai",
+	aiName: "ri-elite-mangudai",
+	weirdName: 0,
+	id: 371,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Mongols",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Nomads",
+	aiName: "",
+	weirdName: 0,
+	id: 487,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Mongols",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Drill",
+	aiName: "",
+	weirdName: 0,
+	id: 6,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Mongols",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite War Elephant",
+	aiName: "ri-elite-war-elephant",
+	weirdName: 0,
+	id: 367,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Persians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Boiling Oil",
+	aiName: "",
+	weirdName: 0,
+	id: 488,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 0,
+	civ: "Persians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Kamandaran",
+	aiName: "",
+	weirdName: 0,
+	id: 488,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Persians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Mahouts",
+	aiName: "",
+	weirdName: 0,
+	id: 7,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Persians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Organ Gun",
+	aiName: "ri-elite-organ-gun",
+	weirdName: 2,
+	id: 563,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Portuguese",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Carrack",
+	aiName: "",
+	weirdName: 0,
+	id: 572,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Portuguese",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Arquebus",
+	aiName: "",
+	weirdName: 0,
+	id: 573,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Portuguese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Mameluke",
+	aiName: "ri-elite-mameluke",
+	weirdName: 0,
+	id: 368,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Saracens",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Madrasah",
+	aiName: "",
+	weirdName: 0,
+	id: 490,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Saracens",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Zealotry",
+	aiName: "",
+	weirdName: 0,
+	id: 9,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Saracens",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Boyar",
+	aiName: "ri-elite-boyar",
+	weirdName: 2,
+	id: 504,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Slavs",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Orthodoxy",
+	aiName: "",
+	weirdName: 0,
+	id: 512,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Slavs",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Druzhina",
+	aiName: "",
+	weirdName: 0,
+	id: 513,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Slavs",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Conquistador",
+	aiName: "ri-elite-conquistador",
+	weirdName: 0,
+	id: 60,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Spanish",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Inquisition",
+	aiName: "",
+	weirdName: 0,
+	id: 492,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Spanish",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Supremacy",
+	aiName: "",
+	weirdName: 0,
+	id: 440,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Spanish",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Keshik",
+	aiName: "ri-elite-keshik",
+	weirdName: 2,
+	id: 680,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tatars",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Silk Armor",
+	aiName: "",
+	weirdName: 0,
+	id: 687,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tatars",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Timurid Siegecraft",
+	aiName: "",
+	weirdName: 0,
+	id: 688,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tatars",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Teutonic Knight",
+	aiName: "ri-elite-teutonic-knight",
+	weirdName: 0,
+	id: 364,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Teutons",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Ironclad",
+	aiName: "",
+	weirdName: 0,
+	id: 489,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Teutons",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Crenellations",
+	aiName: "",
+	weirdName: 0,
+	id: 11,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Teutons",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Janissary",
+	aiName: "ri-elite-janissary",
+	weirdName: 0,
+	id: 369,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Turks",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Sipahi",
+	aiName: "",
+	weirdName: 0,
+	id: 491,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Turks",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Artillery",
+	aiName: "",
+	weirdName: 0,
+	id: 10,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Turks",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Rattan Archer",
+	aiName: "ri-elite-rattan-archer",
+	weirdName: 2,
+	id: 621,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vietnamese",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Chatras",
+	aiName: "",
+	weirdName: 0,
+	id: 628,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vietnamese",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Paper Money",
+	aiName: "",
+	weirdName: 0,
+	id: 629,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vietnamese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Berserk",
+	aiName: "ri-elite-berserk",
+	weirdName: 0,
+	id: 398,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Vikings",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Chieftains",
+	aiName: "",
+	weirdName: 0,
+	id: 463,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vikings",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Berserkergang",
+	aiName: "",
+	weirdName: 0,
+	id: 49,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Vikings",
+	notes: "can use my-unique-research"
+} ];	
+	
+dockTechsArray = [ {	
+	name: "War Galley",
+	aiName: "ri-war-galley",
+	weirdName: 0,
+	id: 34,
+	building: "Dock",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Galleon",
+	aiName: "ri-galleon",
+	weirdName: 0,
+	id: 35,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Fast Fire Ship",
+	aiName: "ri-fast-fire-ship",
+	weirdName: 0,
+	id: 246,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Demolition Ship",
+	aiName: "ri-heavy-demolition-ship",
+	weirdName: 0,
+	id: 244,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Cannon Galleon",
+	aiName: "ri-cannon-galleon",
+	weirdName: 0,
+	id: 37,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Cannon Galleon",
+	aiName: "ri-deck-guns",
+	weirdName: 1,
+	id: 376,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Caravel",
+	aiName: "ri-elite-caravel",
+	weirdName: 2,
+	id: 597,
+	building: "Dock",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Portuguese",
+	notes: ""
+}, {	
+	name: "Elite Longboat",
+	aiName: "ri-elite-longboat",
+	weirdName: 0,
+	id: 372,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Vikings",
+	notes: ""
+}, {	
+	name: "Elite Turtle Ship",
+	aiName: "ri-elite-turtle-ship",
+	weirdName: 0,
+	id: 448,
+	building: "Dock",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Koreans",
+	notes: ""
+}, {	
+	name: "Gillnets",
+	aiName: "ri-gillnets",
+	weirdName: 2,
+	id: 65,
+	building: "Dock",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Careening",
+	aiName: "ri-careening",
+	weirdName: 0,
+	id: 374,
+	building: "Dock",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Dry Dock",
+	aiName: "ri-dry-dock",
+	weirdName: 0,
+	id: 375,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Shipwright",
+	aiName: "ri-shipwright",
+	weirdName: 0,
+	id: 373,
+	building: "Dock",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+lcTechsArray = [ {	
+	name: "Double-Bit Axe",
+	aiName: "ri-double-bit-axe",
+	weirdName: 0,
+	id: 202,
+	building: "Lumber Camp",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bow Saw",
+	aiName: "ri-bow-saw",
+	weirdName: 0,
+	id: 203,
+	building: "Lumber Camp",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Two-Man Saw",
+	aiName: "ri-two-man-saw",
+	weirdName: 0,
+	id: 221,
+	building: "Lumber Camp",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+marketTechsArray = [ {	
+	name: "Cartography",
+	aiName: "ri-cartography",
+	weirdName: 0,
+	id: 19,
+	building: "Market",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: "Auto-researched with market construction in WK/DE"
+}, {	
+	name: "Coinage",
+	aiName: "ri-coinage",
+	weirdName: 0,
+	id: 23,
+	building: "Market",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Castle Age in WK/DE"
+}, {	
+	name: "Caravan",
+	aiName: "ri-caravan",
+	weirdName: 0,
+	id: 48,
+	building: "Market",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Banking",
+	aiName: "ri-banking",
+	weirdName: 0,
+	id: 17,
+	building: "Market",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Imperial Age in WK/DE"
+}, {	
+	name: "Guilds",
+	aiName: "ri-guilds",
+	weirdName: 0,
+	id: 15,
+	building: "Market",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+millTechsArray = [ {	
+	name: "Horse Collar",
+	aiName: "ri-horse-collar",
+	weirdName: 0,
+	id: 14,
+	building: "Mill",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Plow",
+	aiName: "ri-heavy-plow",
+	weirdName: 0,
+	id: 13,
+	building: "Mill",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Crop Rotation",
+	aiName: "ri-crop-rotation",
+	weirdName: 0,
+	id: 12,
+	building: "Mill",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+mcTechsArray = [ {	
+	name: "Gold Mining",
+	aiName: "ri-gold-mining",
+	weirdName: 0,
+	id: 55,
+	building: "Mining Camp",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Stone Mining",
+	aiName: "ri-stone-mining",
+	weirdName: 0,
+	id: 278,
+	building: "Mining Camp",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Gold Shaft Mining",
+	aiName: "ri-gold-shaft-mining",
+	weirdName: 0,
+	id: 182,
+	building: "Mining Camp",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Stone Shaft Mining",
+	aiName: "ri-stone-shaft-mining",
+	weirdName: 0,
+	id: 279,
+	building: "Mining Camp",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+monasteryTechsArray = [ {	
+	name: "Atonement",
+	aiName: "ri-atonement",
+	weirdName: 0,
+	id: 319,
+	building: "Monastery",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Block Printing",
+	aiName: "ri-block-printing",
+	weirdName: 0,
+	id: 230,
+	building: "Monastery",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Fervor",
+	aiName: "ri-fervor",
+	weirdName: 0,
+	id: 252,
+	building: "Monastery",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Herbal Medicine",
+	aiName: "",
+	weirdName: 0,
+	id: 441,
+	building: "Monastery",
+	age: 3,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heresy",
+	aiName: "ri-heresy",
+	weirdName: 0,
+	id: 439,
+	building: "Monastery",
+	age: 3,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Redemption",
+	aiName: "ri-redemption",
+	weirdName: 0,
+	id: 316,
+	building: "Monastery",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Sanctity",
+	aiName: "ri-sanctity",
+	weirdName: 0,
+	id: 231,
+	building: "Monastery",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Faith",
+	aiName: "ri-faith",
+	weirdName: 0,
+	id: 45,
+	building: "Monastery",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Illumination",
+	aiName: "ri-illumination",
+	weirdName: 0,
+	id: 233,
+	building: "Monastery",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Theocracy",
+	aiName: "ri-theocracy",
+	weirdName: 0,
+	id: 438,
+	building: "Monastery",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+siegeWorkshopTechsArray = [ {	
+	name: "Capped Ram",
+	aiName: "ri-capped-ram",
+	weirdName: 0,
+	id: 96,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Castle Age for Cuman civilization"
+}, {	
+	name: "Siege Ram",
+	aiName: "ri-siege-ram",
+	weirdName: 0,
+	id: 255,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Onager",
+	aiName: "ri-onager",
+	weirdName: 0,
+	id: 257,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siege Onager",
+	aiName: "ri-siege-onager",
+	weirdName: 0,
+	id: 320,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Scorpion",
+	aiName: "ri-heavy-scorpion",
+	weirdName: 0,
+	id: 239,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bombard Cannon",
+	aiName: "ri-bombard-cannon",
+	weirdName: 0,
+	id: 188,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 1,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: ""
+} ];	
+	
+stableTechsArray = [ {	
+	name: "Light Cavalry",
+	aiName: "ri-light-cavalry",
+	weirdName: 0,
+	id: 254,
+	building: "Stable",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hussar",
+	aiName: "ri-hussar",
+	weirdName: 0,
+	id: 428,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Cavalier",
+	aiName: "ri-cavalier",
+	weirdName: 0,
+	id: 209,
+	building: "Stable",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Paladin",
+	aiName: "ri-paladin",
+	weirdName: 0,
+	id: 265,
+	building: "Stable",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Camel [Rider]",
+	aiName: "ri-heavy-camel",
+	weirdName: 0,
+	id: 236,
+	building: "Stable",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Renamed Heavy Camel Rider in DE"
+}, {	
+	name: "Imperial Camel [Rider]",
+	aiName: "ri-imperial-camel-rider",
+	weirdName: 0,
+	id: 521,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Indians",
+	notes: "Renamed Imperial Camel Rider in DE"
+}, {	
+	name: "Elite Battle Elephant",
+	aiName: "ri-elite-battle-elephant",
+	weirdName: 2,
+	id: 631,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Steppe Lancer",
+	aiName: "ri-elite-steppe-lancer",
+	weirdName: 2,
+	id: 715,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bloodlines",
+	aiName: "ri-bloodlines",
+	weirdName: 0,
+	id: 435,
+	building: "Stable",
+	age: 2,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Husbandry",
+	aiName: "ri-husbandry",
+	weirdName: 0,
+	id: 39,
+	building: "Stable",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+tcTechsArray = [ {	
+	name: "Loom",
+	aiName: "ri-loom",
+	weirdName: 0,
+	id: 22,
+	building: "Town Center",
+	age: 1,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Feudal Age",
+	aiName: "feudal-age",
+	weirdName: 1,
+	id: 101,
+	building: "Town Center",
+	age: 1,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Castle Age",
+	aiName: "castle-age",
+	weirdName: 1,
+	id: 102,
+	building: "Town Center",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Town Watch",
+	aiName: "ri-town-watch",
+	weirdName: 0,
+	id: 8,
+	building: "Town Center",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Wheelbarrow",
+	aiName: "ri-wheel-barrow",
+	weirdName: 1,
+	id: 213,
+	building: "Town Center",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Imperial Age",
+	aiName: "imperial-age",
+	weirdName: 1,
+	id: 103,
+	building: "Town Center",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Town Patrol",
+	aiName: "ri-town-patrol",
+	weirdName: 0,
+	id: 280,
+	building: "Town Center",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hand Cart",
+	aiName: "ri-hand-cart",
+	weirdName: 0,
+	id: 249,
+	building: "Town Center",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+universityTechsArray = [ {	
+	name: "Fortified Wall",
+	aiName: "ri-fortified-wall",
+	weirdName: 0,
+	id: 194,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Guard Tower",
+	aiName: "ri-guard-tower",
+	weirdName: 0,
+	id: 140,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Keep",
+	aiName: "ri-keep",
+	weirdName: 0,
+	id: 63,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bombard Tower",
+	aiName: "ri-bombard-tower",
+	weirdName: 0,
+	id: 64,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Ballistics",
+	aiName: "ri-ballistics",
+	weirdName: 0,
+	id: 93,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heated Shot",
+	aiName: "ri-heated-shot",
+	weirdName: 0,
+	id: 380,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Masonry",
+	aiName: "ri-masonry",
+	weirdName: 0,
+	id: 50,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Murder Holes",
+	aiName: "ri-murder-holes",
+	weirdName: 0,
+	id: 322,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Treadmill Crane",
+	aiName: "ri-stonecutting",
+	weirdName: 1,
+	id: 54,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Architecture",
+	aiName: "ri-architecture",
+	weirdName: 0,
+	id: 51,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Arrowslits",
+	aiName: "ri-arrowslits",
+	weirdName: 2,
+	id: 608,
+	building: "University",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Chemistry",
+	aiName: "ri-chemistry",
+	weirdName: 0,
+	id: 47,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siege Engineers",
+	aiName: "ri-siege-engineers",
+	weirdName: 0,
+	id: 377,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+
+techsArray = [rangeTechsArray, barracksTechsArray, blacksmithTechsArray, castleTechsArray, dockTechsArray, lcTechsArray, marketTechsArray, millTechsArray, mcTechsArray, monasteryTechsArray, siegeWorkshopTechsArray, stableTechsArray, tcTechsArray, universityTechsArray];
+
+techsBuildingsArray = ["Archery Range", "Barracks", "Blacksmith", "Castle", "Dock", "Lumber Camp", "Market", "Mill", "Mining Camp", "Monastery", "Siege Workshop", "Stable", "Town Center", "University"];
 
 
-function commandsFilter() {
-	// Declare variables
-	var input, category, type, version, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
-	input = document.getElementById("commandsInput");
-	category = document.getElementById("commandCategory");
-	type = document.getElementById("command-type");
-	version = document.getElementById("command-version");
-	filter = input.value.toUpperCase();
-	table = document.getElementById("index-table");
-	tr = table.getElementsByTagName("tr");
-	num = 0;
 
-	// Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr.length; i++) {
-		tdName = tr[i].getElementsByTagName("td")[0];
-		tdType = tr[i].getElementsByTagName("td")[2];
-		tdVersion = tr[i].getElementsByTagName("td")[3];
-
-		if (tdName) {
-			txtValue = tdName.textContent || tdName.innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1 && tdType) {
-				txtValue = tdType.textContent || tdType.innerText;
-				if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
-					txtValue = tdVersion.textContent || tdVersion.innerText;
-					if(version.value == "All" || txtValue == version.value) {
-						tr[i].style.display = "";
-						num = num + 1;
-					}
-					else {
-						tr[i].style.display = "none";
-					}
-				}
-				else {
-					tr[i].style.display = "none";
-				}
-			}
-			else {
-				tr[i].style.display = "none";
-			}
-		}
-	}
-	document.getElementById("num-results").innerHTML = "Num Results: " + num;
-}
-
-function parametersFilter() {
-	// Declare variables
-	var input, version, filter, table, tr, tdName, tdVersion, i, txtValue, num;
-	input = document.getElementById("parametersInput");
-	version = document.getElementById("parameter-version");
-	filter = input.value.toUpperCase();
-	table = document.getElementById("index-table");
-	tr = table.getElementsByTagName("tr");
-	num = 0;
-
-	// Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr.length; i++) {
-		tdName = tr[i].getElementsByTagName("td")[0];
-		tdVersion = tr[i].getElementsByTagName("td")[2];
-		if (tdName) {
-			txtValue = tdName.textContent || tdName.innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				txtValue = tdVersion.textContent || tdVersion.innerText;
-				if(version.value == "All" || txtValue == version.value) {
-					tr[i].style.display = "";
-					num = num + 1;
-				}
-				else {
-					tr[i].style.display = "none";
-				}
-			}
-			else {
-				tr[i].style.display = "none";
-			}
-		}
-	}
-	document.getElementById("num-results").innerHTML = "Num Results: " + num;
-}
-
-function snFilter() {
-	// Declare variables
-	var input, category, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
-	input = document.getElementById("snInput");
-	category = document.getElementById("sn-category");
-	category = category.value;
-	network = document.getElementById("sn-network");
-	if (network.value == "Network") {
-		network = 1;
-	}
-	else if (network.value == "Standard") {
-		network = 0;
-	}
-	else {
-		network = -1;
-	}
-	defined = document.getElementById("sn-defined");
-	if (defined.value == "Undefined") {
-		defined = 0;
-	}
-	else if (defined.value == "Defined") {
-		defined = 1;
-	}
-	else {
-		defined = -1;
-	}
-	active = document.getElementById("sn-active");
-	if (active.value == "Obsolete") {
-		active = 1;
-	}
-	else if (active.value == "Active") {
-		active = 0;
-	}
-	else if (active.value == "Conditional") {
-		active = 2;
-	}
-	else {
-		active = -1;
-	}
-	version = document.getElementById("sn-version");
-	if (version.value == "All") {
-		version = "All";
-	}
-	else if (version.value == "1.0c") {
-		version = "1.0c";
-	}
-	else if (version.value == "UP") {
-		version = "UP";
-	}
-	else if (version.value == "1.1 Only") {
-		version = "1.1";
-	}
-	else if (version.value == "1.5 Only") {
-		version = "1.5";
-	}
-	filter = input.value.toUpperCase();
-	table = document.getElementById("index-table");
-	tr = table.getElementsByTagName("tr");
-	num = 0;
-
-	//Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr.length - 1; i++) {
-	//for (i = 0; i < 1; i++) {
-		tdId = snArray[i].id;
-		tdName = snArray[i].snName;
-		tdCategory = snArray[i].category;
-		tdNetwork = snArray[i].network;
-		tdDefined = snArray[i].defined;
-		tdActive = snArray[i].available;
-		if(typeof snArray[i].available === "string") {
-			tdActive = 2;
-		}
-		tdVersion = snArray[i].version;
-
-		if (tdName != "" && tdId.toString().length > 0) {
-			if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
-				if(category == "All" || tdCategory == category) {
-					if(network == -1 || tdNetwork == network) {
-						if(defined == -1 || tdDefined == defined) {
-							if(active == -1 || tdActive == active) {
-								if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
-									tr[i + 1].style.display = "";
-									num = num + 1;
-								}
-								else {
-									tr[i + 1].style.display = "none";
-								}
-							}
-							else {
-								tr[i + 1].style.display = "none";
-							}
-						}
-						else {
-							tr[i + 1].style.display = "none";
-						}
-					}
-					else {
-						tr[i + 1].style.display = "none";
-					}
-				}
-				else {
-					tr[i + 1].style.display = "none";
-				}
-			}
-			else {
-				tr[i + 1].style.display = "none";
-			}
-		}
-	}
-	document.getElementById("num-results").innerHTML = "Num Results: " + num;
-}

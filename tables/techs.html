@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Technologies</h2>
+		<p><strong>Legend:</strong> Technologies with unexpected AI names are marked in <span class="weird-tech-name">yellow</span>. Technologies only defined in DE are marked in <span class="de-tech-name">green</span>.</p>
+		<p>
+			<label for="techsInput" class="techs-input-label">Search</label>
+			<label for="techs-building" class="dropdown-label">Building</label>
+			<label for="techs-age" class="dropdown-label">Age</label>
+			<label for="techs-versions" class="dropdown-label">Version</label>
+			<input type="text" id="techsInput" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off">
+			<select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
+				<option value="All" selected>All</option>
+				<option value="Archery Range">Archery Range</option>
+				<option value="Barracks">Barracks</option>
+				<option value="Blacksmith">Blacksmith</option>
+				<option value="Castle">Castle</option>
+				<option value="Dock">Dock</option>
+				<option value="Lumber Camp">Lumber Camp</option>
+				<option value="Market">Market</option>
+				<option value="Mill">Mill</option>
+				<option value="Mining Camp">Mining Camp</option>
+				<option value="Monastery">Monastery</option>
+				<option value="Siege Workshop">Siege Workshop</option>
+				<option value="Stable">Stable</option>
+				<option value="Town Center">Town Center</option>
+				<option value="University">University</option>
+			</select>
+			<select id="techs-age" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Age">
+				<option value="All" selected>All</option>
+				<option value="Dark">Dark</option>
+				<option value="Feudal">Feudal</option>
+				<option value="Castle">Castle</option>
+				<option value="Imperial">Imperial</option>
+			</select>
+			<select id="techs-version" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Game Version">
+				<option value="All" selected>All</option>
+				<option value="AoK">AoK</option>
+				<option value="TC">TC</option>
+				<option value="HD/WK">HD/WK</option>
+				<option value="DE">DE</option>
+			</select>
+		</p>
+		<p id="num-results"></p>
+		<div id="techIndex"></div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "units-techs";
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
+	
+	<script>
+		var numTechs;
+		var text = "";
+		for(var i = 0; i < techsArray.length; i++) {
+			numTechs = 0;
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"techs-building-header\">" + techsBuildingsArray[i] + "</h3>";
+			text += "<table class=\"tech-table\" id=\"bldg-" + i + "\"><tr><th class=\"techs-id-col\">ID</th><th class=\"techs-name-col\">Name</th><th class=\"techs-ainame-col\">AI Name</th><th class=\"techs-building-col\">Building</th><th \"techs-age-col\">Age</th><th class=\"techs-civ-col\">Civilization</th><th class=\"techs-versions-col\">Versions<br/>(AoK,TC,HD,DE)</th><th class=\"techs-notes-col\">Notes</th></tr>";
+			for(var j = 0; j < techsArray[i].length; j++) {
+				text += "<tr>";
+				text += "<td>" + techsArray[i][j].id + "</td>";
+				text += "<td>" + techsArray[i][j].name + "</td>";
+				if(techsArray[i][j].weirdName == 1) {
+					text += "<td class=\"weird-tech-name\">" + techsArray[i][j].aiName + "</td>";
+				}
+				else if (techsArray[i][j].weirdName == 2) {
+					text += "<td class=\"de-tech-name\">" + techsArray[i][j].aiName + "</td>";
+				}
+				else {
+					text += "<td>" + techsArray[i][j].aiName + "</td>";
+				}
+				text += "<td>" + techsArray[i][j].building + "</td>";
+				text += "<td>" + techsArray[i][j].age + "</td>";
+				text += "<td>" + techsArray[i][j].civ + "</td><td class=\"version-icons\">";
+				if(techsArray[i][j].aok == 1) {
+					text += "<img src=\"../images/aok_64.png\" title=\"Age of Kings\"/> ";
+				}
+				else {
+					text += "<img src=\"../images/trans_64.png\"/> ";
+				}
+				if(techsArray[i][j].tc == 1) {
+					text += "<img src=\"../images/tc_64.png\" title=\"The Conquerors\"/> ";
+				}
+				else {
+					text += "<img src=\"../images/trans_64.png\"/> ";
+				}
+				if(techsArray[i][j].wk == 1) {
+					text += "<img src=\"../images/hd_64.png\" title=\"HD and WololoKingdoms\"/> ";
+				}
+				else {
+					text += "<img src=\"../images/trans_64.png\"/> ";
+				}
+				if(techsArray[i][j].de == 1) {
+					text += "<img src=\"../images/de_64.png\" title=\"Definitive Edition\"/>";
+				}
+				else {
+					text += "<img src=\"../images/trans_64.png\"/>";
+				}
+				text += "<td>" + techsArray[i][j].notes + "</td>";
+				text += "</td></tr>";
+				numTechs++;
+			}
+			text += "</table>"
+		}
+		document.getElementById("techIndex").innerHTML = text;
+
+		document.getElementById("num-results").innerHTML = "Num Results: 221";
+	</script>
+	<script>
+		function techsFilter() {
+			// Declare variables
+			var input, building, age, version, filter, table, tr, tdName, tdId, tdAiName, tdBuilding, tdAge, tdAok, tdTc, tdWk, tdDe, i, h, num, bldgNum, header;
+			input = document.getElementById("techsInput");
+			building = document.getElementById("techs-building");
+			building = building.value;
+			age = document.getElementById("techs-age");
+			if (age.value == "All") {
+				age = "All";
+			}
+			else if (age.value == "Dark") {
+				age = 1;
+			}
+			else if (age.value == "Feudal") {
+				age = 2;
+			}
+			else if (age.value == "Castle") {
+				age = 3;
+			}
+			else if (age.value == "Imperial") {
+				age = 4;
+			}
+			version = document.getElementById("techs-version");
+			if (version.value == "All") {
+				version = "All";
+			}
+			else if (version.value == "AoK") {
+				version = "AoK";
+			}
+			else if (version.value == "TC") {
+				version = "TC";
+			}
+			else if (version.value == "HD/WK") {
+				version = "HD/WK";
+			}
+			else if (version.value == "DE") {
+				version = "DE";
+			}
+			filter = input.value.toUpperCase();
+			num = 0;
+			for (h = 0; h < techsArray.length; h++) {
+				table = document.getElementById("bldg-" + h);
+				tr = table.getElementsByTagName("tr");
+				header = document.getElementById("bldg-header-" + h);
+				bldgNum = 0;
+
+				//Loop through all table rows, and hide those who don't match the search query
+				for (i = 0; i < tr.length - 1; i++) {
+					tdId = techsArray[h][i].id;
+					tdName = techsArray[h][i].name;
+					tdAiName = techsArray[h][i].aiName;
+					tdBuilding = techsArray[h][i].building;
+					tdAge = techsArray[h][i].age;
+					tdAok = techsArray[h][i].aok;
+					tdTc = techsArray[h][i].tc;
+					tdWk = techsArray[h][i].wk;
+					tdDe = techsArray[h][i].de;
+
+					if (tdName != "" && tdId.toString().length > 0) {
+						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
+							if(building == "All" || tdBuilding == building) {
+								if(age == "All" || tdAge == age) {
+									if(version == "All" || (version == "AoK" && tdAok == 1) || (version == "TC" && tdTc == 1) || (version == "HD/WK" && tdWk == 1) || (version == "DE" && tdDe == 1)) {
+										tr[i + 1].style.display = "";
+										num = num + 1;
+										bldgNum = bldgNum + 1;
+									}
+									else {
+										tr[i + 1].style.display = "none";
+									}
+								}
+								else {
+									tr[i + 1].style.display = "none";
+								}
+							}
+							else {
+								tr[i + 1].style.display = "none";
+							}
+						}
+						else {
+							tr[i + 1].style.display = "none";
+						}
+					}
+				}
+				if (bldgNum == 0) {
+					header.style.display = "none";
+					tr[0].style.display = "none";
+				}
+				else {
+					header.style.display = "";
+					tr[0].style.display = "";
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		}
+	</script>
+	<script>
+		$(function() {
+			$(".version-icons").tooltip({
+				show: {delay:200, duration:200},
+				hide: {duration:200}
+			});
+		});
+	</script>
+
+</body>
+</html>

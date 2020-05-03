@@ -157,6 +157,11 @@ h3 {
 	margin: 0 0 20px 0;
 }
 
+.techs-building-header {
+	font: 16pt "Georgia", Arial, sans-serif;
+	margin: 20px 0 0 0;
+}
+
 h4 {
 	font: 14pt "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
@@ -234,6 +239,13 @@ code {
 	font-weight: bold;
 }
 
+.techs-input-label {
+	width: 68%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
 .dropdown-label {
 	width: 10%;
 	padding-top: 10px;
@@ -247,6 +259,15 @@ label {
 
 #snInput {
 	width: 48%; 
+	font-size: 14px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#techsInput {
+	width: 68%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -296,4 +317,57 @@ blockquote {
 	font-size: 10pt;
 	line-height: 9pt;
 	text-shadow: 1px 1px 0.5px #999;
+}
+
+.techs-table {
+	table-layout: fixed;
+}
+
+.version-icons img {
+	width: 16px;
+	height: 16px;
+}
+
+.version-icons {
+	text-align: center;
+}
+
+.techs-id-col {
+	width: 4%;
+}
+
+.techs-name-col {
+	width: 17%;
+}
+
+.techs-ainame-col {
+	width: 18%;
+}
+
+.techs-building-col {
+	width: 12%;
+}
+
+.techs-age-col {
+	width: 4%;
+}
+
+.techs-civ-col {
+	width: 8%;
+}
+
+.techs-versions-col {
+	width: 7%;
+}
+
+.techs-notes-col {
+	width: 30%;
+}
+
+.weird-tech-name {
+	background-color: #fe9;
+}
+
+.de-tech-name {
+	background-color: #cfc;
 }

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
 	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <html>
 <body>
@@ -115,21 +116,134 @@
 		document.getElementById("num-results").innerHTML = "Num Results: 295";
 	</script>
 	<script>
+		function snFilter() {
+			// Declare variables
+			var input, category, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
+			input = document.getElementById("snInput");
+			category = document.getElementById("sn-category");
+			category = category.value;
+			network = document.getElementById("sn-network");
+			if (network.value == "Network") {
+				network = 1;
+			}
+			else if (network.value == "Standard") {
+				network = 0;
+			}
+			else {
+				network = -1;
+			}
+			defined = document.getElementById("sn-defined");
+			if (defined.value == "Undefined") {
+				defined = 0;
+			}
+			else if (defined.value == "Defined") {
+				defined = 1;
+			}
+			else {
+				defined = -1;
+			}
+			active = document.getElementById("sn-active");
+			if (active.value == "Obsolete") {
+				active = 1;
+			}
+			else if (active.value == "Active") {
+				active = 0;
+			}
+			else if (active.value == "Conditional") {
+				active = 2;
+			}
+			else {
+				active = -1;
+			}
+			version = document.getElementById("sn-version");
+			if (version.value == "All") {
+				version = "All";
+			}
+			else if (version.value == "1.0c") {
+				version = "1.0c";
+			}
+			else if (version.value == "UP") {
+				version = "UP";
+			}
+			else if (version.value == "1.1 Only") {
+				version = "1.1";
+			}
+			else if (version.value == "1.5 Only") {
+				version = "1.5";
+			}
+			filter = input.value.toUpperCase();
+			table = document.getElementById("index-table");
+			tr = table.getElementsByTagName("tr");
+			num = 0;
+
+			//Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length - 1; i++) {
+			//for (i = 0; i < 1; i++) {
+				tdId = snArray[i].id;
+				tdName = snArray[i].snName;
+				tdCategory = snArray[i].category;
+				tdNetwork = snArray[i].network;
+				tdDefined = snArray[i].defined;
+				tdActive = snArray[i].available;
+				if(typeof snArray[i].available === "string") {
+					tdActive = 2;
+				}
+				tdVersion = snArray[i].version;
+
+				if (tdName != "" && tdId.toString().length > 0) {
+					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
+						if(category == "All" || tdCategory == category) {
+							if(network == -1 || tdNetwork == network) {
+								if(defined == -1 || tdDefined == defined) {
+									if(active == -1 || tdActive == active) {
+										if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
+											tr[i + 1].style.display = "";
+											num = num + 1;
+										}
+										else {
+											tr[i + 1].style.display = "none";
+										}
+									}
+									else {
+										tr[i + 1].style.display = "none";
+									}
+								}
+								else {
+									tr[i + 1].style.display = "none";
+								}
+							}
+							else {
+								tr[i + 1].style.display = "none";
+							}
+						}
+						else {
+							tr[i + 1].style.display = "none";
+						}
+					}
+					else {
+						tr[i + 1].style.display = "none";
+					}
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		}
+	</script>
+	<script>
 		$(function() {
 			$(".sn-name").tooltip({
-				show: {delay:500, duration:200},
+				show: {delay:200, duration:200},
 				hide: {duration:200}
 			});
 			$(".sn-check-flag").tooltip({
-				show: {delay:500, duration:200},
+				show: {delay:200, duration:200},
 				hide: {duration:200}
 			});
 			$(".sn-x-flag").tooltip({
-				show: {delay:500, duration:200},
+				show: {delay:200, duration:200},
 				hide: {duration:200}
 			});
 			$(".sn-question-flag").tooltip({
-				show: {delay:500, duration:200},
+				show: {delay:200, duration:200},
 				hide: {duration:200}
 			});
 		});

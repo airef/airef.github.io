@@ -82,6 +82,51 @@
 		document.getElementById("num-results").innerHTML = "Num Results: 357";
 	</script>
 	<script>
+		function commandsFilter() {
+			// Declare variables
+			var input, category, type, version, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
+			input = document.getElementById("commandsInput");
+			category = document.getElementById("commandCategory");
+			type = document.getElementById("command-type");
+			version = document.getElementById("command-version");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("index-table");
+			tr = table.getElementsByTagName("tr");
+			num = 0;
+
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				tdName = tr[i].getElementsByTagName("td")[0];
+				tdType = tr[i].getElementsByTagName("td")[2];
+				tdVersion = tr[i].getElementsByTagName("td")[3];
+
+				if (tdName) {
+					txtValue = tdName.textContent || tdName.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1 && tdType) {
+						txtValue = tdType.textContent || tdType.innerText;
+						if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
+							txtValue = tdVersion.textContent || tdVersion.innerText;
+							if(version.value == "All" || txtValue == version.value) {
+								tr[i].style.display = "";
+								num = num + 1;
+							}
+							else {
+								tr[i].style.display = "none";
+							}
+						}
+						else {
+							tr[i].style.display = "none";
+						}
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		}
+	</script>
+	<script>
 		$(function() {
 			$(".command-name").tooltip({
 				content: function() {

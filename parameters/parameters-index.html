@@ -50,5 +50,40 @@
 		document.getElementById("parameterTable").innerHTML = text;
 		document.getElementById("num-results").innerHTML = "Num Results: 114";
 	</script>
+	<script>
+		function parametersFilter() {
+			// Declare variables
+			var input, version, filter, table, tr, tdName, tdVersion, i, txtValue, num;
+			input = document.getElementById("parametersInput");
+			version = document.getElementById("parameter-version");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("index-table");
+			tr = table.getElementsByTagName("tr");
+			num = 0;
+
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				tdName = tr[i].getElementsByTagName("td")[0];
+				tdVersion = tr[i].getElementsByTagName("td")[2];
+				if (tdName) {
+					txtValue = tdName.textContent || tdName.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						txtValue = tdVersion.textContent || tdVersion.innerText;
+						if(version.value == "All" || txtValue == version.value) {
+							tr[i].style.display = "";
+							num = num + 1;
+						}
+						else {
+							tr[i].style.display = "none";
+						}
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		}
+	</script>
 </body>
 </html>

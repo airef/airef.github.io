@@ -10,6 +10,7 @@ navContent += '<div class="header">';
 			navContent += '<li><a id="commands-link" href="' + urlPrefix + '/commands/commands-index.html">Commands</a></li>';
 			navContent += '<li><a id="param-link" href="' + urlPrefix + '/parameters/parameters-index.html">Parameters</a></li>';
 			navContent += '<li><a id="sn-link" href="' + urlPrefix + '/strategic-numbers/sn-index.html">Strategic Numbers</a></li>';
+			navContent += '<li><a id="units-techs-link" href="' + urlPrefix + '/tables/tables-index.html">Units/Techs</a></li>';
 			navContent += '<li><a id="duc-link" href="' + urlPrefix + '/duc/duc-index.html">DUC</a></li>';
 			navContent += '<li><a id="resources-link" href="' + urlPrefix + '/resources/res-index.html">Resources</a></li></ul><hr></div>';
 document.getElementById("nav-placeholder").innerHTML = navContent;
@@ -25,6 +26,9 @@ switch (currPage) {
 		break;
 	case "sn":
 		document.getElementById("sn-link").setAttribute("id", "active");
+		break;
+	case "units-techs":
+		document.getElementById("units-techs-link").setAttribute("id", "active");
 		break;
 	case "duc":
 		document.getElementById("duc-link").setAttribute("id", "active");
@@ -44,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				footerContent += '<li><a id="footer-commands-link" href="' + urlPrefix + '/commands/commands-index.html">Commands</a></li>';
 				footerContent += '<li><a id="footer-param-link" href="' + urlPrefix + '/parameters/parameters-index.html">Parameters</a></li>';
 				footerContent += '<li><a id="footer-sn-link" href="' + urlPrefix + '/strategic-numbers/sn-index.html">Strategic Numbers</a></li>';
+				footerContent += '<li><a id="footer-units-techs-link" href="' + urlPrefix + '/tables/tables-index.html">Units/Techs</a></li>';
 				footerContent += '<li><a id="footer-duc-link" href="' + urlPrefix + '/duc/duc-index.html">DUC</a></li>';
 				footerContent += '<li><a id="footer-resources-link" href="' + urlPrefix + '/resources/res-index.html">Resources</a></li></ul></div>';
 		document.getElementById("footer-placeholder").innerHTML = footerContent;
@@ -59,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function(){
 				break;
 			case "sn":
 				document.getElementById("footer-sn-link").setAttribute("id", "active");
+				break;
+			case "units-techs":
+				document.getElementById("footer-units-techs-link").setAttribute("id", "active");
 				break;
 			case "duc":
 				document.getElementById("footer-duc-link").setAttribute("id", "active");
