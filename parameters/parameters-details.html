@@ -117,15 +117,16 @@
 						info += "<th id=\"parameter-col\">Parameter</th>";
 						info += "<th id=\"players-col\">Available Players</th>";
 					}
-					for (var l = 0; l < parametersArray[i].valueList.length; l++) {
-						info += "</tr><tr><td>" + parametersArray[i].valueList[l].id + "</td>";
-						info += "<td>" + parametersArray[i].valueList[l].name + "</td>";
-						info += "<td>" + parametersArray[i].valueList[l].description + "</td>";
-						if (typeof parametersArray[i].valueList[l].parameter !== undefined) {
-							info += "<td>" + parametersArray[i].valueList[l].parameter + "</td>";
+					for (var p = 0; p < parametersArray[i].valueList.length; p++) {
+						info += "</tr><tr><td>" + parametersArray[i].valueList[p].id + "</td>";
+						info += "<td>" + parametersArray[i].valueList[p].name + "</td>";
+						info += "<td>" + parametersArray[i].valueList[p].description + "</td>";
+						console.log (typeof parametersArray[i].valueList[p].parameter);
+						if (parametersArray[i].upParamName == "FactId") {
+							info += "<td>" + parametersArray[i].valueList[p].parameter + "</td>";
 						}
-						if (typeof parametersArray[i].valueList[l].players !== undefined) {
-							info += "<td>" + parametersArray[i].valueList[l].players + "</td>";
+						if (parametersArray[i].upParamName == "FactId") {
+							info += "<td>" + parametersArray[i].valueList[p].players + "</td>";
 						}
 					}
 					info += "</tr></table>";
