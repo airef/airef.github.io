@@ -744,6 +744,84 @@ var releaseNotes = [ {
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
+		number: "20170504-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170504-100000)! This update changes the way ADD_ATTRIBUTE adjusts flags for ATTR_HERO_STATUS and ATTR_TRAITS. If ATTR_HERO_STATUS or ATTR_TRAITS are modified by the ADD_ATTRIBUTE effect, the new value flags will be appended. If flag 256 is set, the value flags will be removed instead. This change allows 0x80 to work as a flag instead of being taken for the previous negative number check. Basically, you can just add 256 to remove the flags in the first byte ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170504-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170504-000000)! This is a rec/save/sync breaking update! If you have any recs, etc. that you'd like to preserve from previous v1.5 betas, please backup the previous 20170502-000000 build. Recs for v1.4 and earlier are fine on latest.</p><p>This update fixes a core simulation bug (sync breaker lol) carried from v1.0c in the garrison system, which would cause groups of units to be unable to garrison into a target building in a single action, requiring multiple re-garrison attempts. In addition to this fix, ATTR_SHOWN_ATTACK, ATTR_SHOWN_RANGE, ATTR_SHOWN_MELEE_ARMOR, ATTR_SHOWN_PIERCE_ARMOR, ATTR_TRAITS, ATTR_CIV_ID, ATTR_PIECE, and ATTR_DEAD_ID have been added to the tech system. ATTR_HERO_STATUS, ATTR_ATTACK_DELAY, ATTR_HERO_HEAL_TIME, ATTR_SHOWN_ATTACK, ATTR_SHOWN_RANGE, ATTR_SHOWN_MELEE_ARMOR, ATTR_SHOWN_PIERCE_ARMOR, and ATTR_TRAITS can now be modified by the ADD_ATTRIBUTE effect. If ATTR_HERO_STATUS or ATTR_TRAITS are modified by the ADD_ATTRIBUTE effect, positive values append flags, while negative values remove flags. Thanks to II2N for the garrison report! Thanks to John_the_Late and danielpr for tech feedback!</p><p>Unrelated, but here's an <a href=\"" + urlPrefix + "/images/scripter-target-point-adjustment.png\">image explaining where the sn-target-point-adjustment values are positioned on a tile. Thanks, Cake!",
+		itemsAffected: [snTargetPointAdjustment],
+		scriptingType: "ai"
+	}, {
+		number: "20170502-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170502-000000)! This update enables expansions to override taunt mp3s with a \"Games\[YourStuff]\Taunt\" folder. If a taunt can't be found in the expansion folder, the base game taunt will play instead if available. In addition, the hotkey files have been made per-expansion, as well, and will be stored in the \"Games\[YourStuff]\" folder. If the hki doesn't yet exist for an expansion, the base game hki settings will be inherited until the player adjusts them. Thanks to Jineapple for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170430-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170430-000000)! This update adds the \"assign_to\" LAND_GENERATION command to make player assignment easier, especially when using direct_placement in rms scripts. There's a fair amount of functionality in this command, so please see the reference for all of the detail. Thanks to Cake for the idea!</p><p>It seems that someone here or another person who was linked by someone here unfortunately leaked the direct link on reddit yesterday lol. Let's try to ensure that this stays somewhat more private until it's ready or those people will have unnecessary issues with their recs/saves later on. I remember how v1.1 was secret here almost forever until the GNAOKH Incident ",
+		itemsAffected: [],
+		scriptingType: "rms"
+	}, {
+		number: "20170425-100000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170425-100000)! This update adjusts the weather effects slightly to reduce flicker and ensure the rain \"drops\" aren't as large and distracting on the screen. Thanks to Aleph for feedback! Thanks for testing, Kor! For normal games, phoenixv1s, the rms script can use the new weather_type command to adjust rain, etc. Kunyi, it might be best to visit the chat and ask there, as I haven't had much time to create real, practical example scripts with those new commands yet ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170425-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170425-000000)! This update adds additional multiplayer debug data for beta testing. In addition, it disables the !C warning prompt for maps that use effect_amount or effect_percent with Gaia effects only. This allows rms designers to use those commands more freely to adjust resources or animals like they can with resource_delta, leaving the !C warning prompt for cases where non-Gaia players are modified. Thanks to LightTree for feedback!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20170423-000000",
+		version: 1.5,
+		notes: "UserPatch v1.5 Beta has been released (20170423-100000)! This update reduces the water flow movement speed and adjusts the highlights on shallow water to be more subtle. Still refining water/weather. Sorry, ER ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "-000000",
+		version: 1.5,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
 		number: "-000000",
 		version: 1.5,
 		notes: "",
@@ -782,5 +860,5 @@ var releaseNotes = [ {
 	}, {
 
 		
-		//finished page 415
+		//finished page 410
 	}];
