@@ -19056,7 +19056,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-unique-research (DE only)"
 }, {	
 	name: "Perfusion",
 	aiName: "",
@@ -19069,7 +19069,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-unique-research"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Elite Tarkan",
 	aiName: "ri-elite-tarkan",
