@@ -13258,13 +13258,13 @@ pTimerState.valueList = [ {
 	id: 0,
 	description: "The timer is disabled."
 }, {
-	name: "timer-running",
-	id: 1,
-	description: "The timer has been set, but it hasn't been triggered yet."
-}, {
 	name: "timer-triggered",
-	id: 2,
+	id: 1,
 	description: "The timer has triggered, and it hasn't been disabled yet."
+}, {
+	name: "timer-running",
+	id: 2,
+	description: "The timer has been set, but it hasn't been triggered yet."
 } ];
 
 //Type
