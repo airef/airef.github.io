@@ -16006,7 +16006,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-carry",
 	id: 16,
-	description: "The object's remaining amount of resources left in it, such as the remaining food left in a boar. Also includes monk faith generation, flares, and unit corpses. The latter two have carry because of a decay timer that controls when they are removed from the map."
+	description: "The amount of resources an object is carrying. This includes the amount of resources a villager is holding, the amount of food left in decaying animals, monk faith generation, flares, and unit corpses. The latter two have carry because of a decay timer that controls when they are removed from the map."
 }, {
 	name: "object-data-garrisoned",
 	id: 17,
@@ -21471,7 +21471,7 @@ objectsBarracksArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Eagle Scout/<br>Eagle Warrior",
+	name: "Eagle Scout (TC)/<br>Eagle Warrior (non-TC)",
 	aiName: "eagle-warrior",
 	line: "eagle-warrior-line",
 	id: 751,
@@ -21502,7 +21502,7 @@ objectsBarracksArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
-	weirdName: 1,
+	weirdName: 5,
 	aok: 0,
 	tc: 0,
 	wk: 1,
