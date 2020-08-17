@@ -49,7 +49,7 @@
 				<option value="All" selected>All</option>
 				<option value="AoK">AoK</option>
 				<option value="TC">TC</option>
-				<option value="HD/WK">HD/WK</option>
+				<option value="WK">WK</option>
 				<option value="DE">DE</option>
 			</select>
 		</p>
@@ -73,7 +73,7 @@
 		for(var i = 0; i < techsArray.length; i++) {
 			numTechs = 0;
 			text += "<h3 id=\"bldg-header-" + i + "\" class=\"techs-building-header\">" + techsBuildingsArray[i] + "</h3>";
-			text += "<table class=\"tech-table\" id=\"bldg-" + i + "\"><tr><th class=\"techs-id-col\">ID</th><th class=\"techs-name-col\">Name</th><th class=\"techs-ainame-col\">AI Name</th><th class=\"techs-building-col\">Building</th><th \"techs-age-col\">Age</th><th class=\"techs-civ-col\">Civilization</th><th class=\"techs-versions-col\">Versions<br/>(AoK,TC,HD,DE)</th><th class=\"techs-notes-col\">Notes</th></tr>";
+			text += "<table class=\"tech-table\" id=\"bldg-" + i + "\"><tr><th class=\"techs-id-col\">ID</th><th class=\"techs-name-col\">Name</th><th class=\"techs-ainame-col\">AI Name</th><th class=\"techs-building-col\">Building</th><th \"techs-age-col\">Age</th><th class=\"techs-civ-col\">Civilization</th><th class=\"techs-versions-col\">Versions<br/>(AoK,TC,WK,DE)</th><th class=\"techs-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < techsArray[i].length; j++) {
 				text += "<tr>";
 				text += "<td>" + techsArray[i][j].id + "</td>";
@@ -157,8 +157,8 @@
 			else if (version.value == "TC") {
 				version = "TC";
 			}
-			else if (version.value == "HD/WK") {
-				version = "HD/WK";
+			else if (version.value == "WK") {
+				version = "WK";
 			}
 			else if (version.value == "DE") {
 				version = "DE";
@@ -187,7 +187,7 @@
 						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
 							if(building == "All" || tdBuilding == building) {
 								if(age == "All" || tdAge == age) {
-									if(version == "All" || (version == "AoK" && tdAok == 1) || (version == "TC" && tdTc == 1) || (version == "HD/WK" && tdWk == 1) || (version == "DE" && tdDe == 1)) {
+									if(version == "All" || (version == "AoK" && tdAok == 1) || (version == "TC" && tdTc == 1) || (version == "WK" && tdWk == 1) || (version == "DE" && tdDe == 1)) {
 										tr[i + 1].style.display = "";
 										num = num + 1;
 										bldgNum = bldgNum + 1;

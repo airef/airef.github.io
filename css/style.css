@@ -6,7 +6,7 @@ body {
 .container {
 	background-color: #fff;
 	margin: 10px auto;
-	max-width: 60%;
+	max-width: 70%;
 	padding: 12px;
 	border: 1px solid #000;
 	box-shadow: 0 0 10px #666;
@@ -157,7 +157,7 @@ h3 {
 	margin: 0 0 20px 0;
 }
 
-.techs-building-header {
+.techs-building-header, .objects-building-header {
 	font: 16pt "Georgia", Arial, sans-serif;
 	margin: 20px 0 0 0;
 }
@@ -246,6 +246,13 @@ code {
 	font-weight: bold;
 }
 
+.objects-input-label {
+	width: 58%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
 .dropdown-label {
 	width: 10%;
 	padding-top: 10px;
@@ -268,6 +275,15 @@ label {
 
 #techsInput {
 	width: 68%; 
+	font-size: 14px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#objectsInput {
+	width: 58%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -319,8 +335,12 @@ blockquote {
 	text-shadow: 1px 1px 0.5px #999;
 }
 
-.techs-table {
+.techs-table, .objects-table {
 	table-layout: fixed;
+}
+
+.techs-table th, .objects-table th {
+	vertical-align: bottom;
 }
 
 .version-icons img {
@@ -364,10 +384,62 @@ blockquote {
 	width: 30%;
 }
 
-.weird-tech-name {
+.objects-id-col {
+	width: 3%;
+}
+
+.objects-name-col {
+	width: 10%;
+}
+
+.objects-ainame-col {
+	width: 9%;
+}
+
+.objects-line-col {
+	width: 10%;
+}
+
+.objects-class-col {
+	width: 9%;
+}
+
+.objects-cmdId-col {
+	width: 9%;
+}
+
+.objects-building-col {
+	width: 8%;
+}
+
+.objects-age-col {
+	width: 3%;
+}
+
+.objects-dead-unit-col {
+	width: 5%;
+}
+
+.objects-projectile-col {
+	width: 5%;
+}
+
+.objects-chem-projectile-col {
+	width: 5%;
+}
+
+.objects-versions-col {
+	width: 6%;
+}
+
+.objects-notes-col {
+	width: 18%;
+}
+
+.weird-tech-name, .weird-object-name {
 	background-color: #fe9;
 }
 
-.de-tech-name {
+.de-tech-name, .de-object-name {
 	background-color: #cfc;
 }
