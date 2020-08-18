@@ -385,7 +385,7 @@ blockquote {
 }
 
 .objects-id-col {
-	width: 3%;
+	width: 7%;
 }
 
 .objects-name-col {
@@ -429,11 +429,11 @@ blockquote {
 }
 
 .objects-versions-col {
-	width: 6%;
+	width: 5%;
 }
 
 .objects-notes-col {
-	width: 18%;
+	width: 15%;
 }
 
 .weird-tech-name, .weird-object-name {
@@ -442,4 +442,8 @@ blockquote {
 
 .de-tech-name, .de-object-name {
 	background-color: #cfc;
+}
+
+.multiple-id-object {
+	background-color: #fcc;
 }

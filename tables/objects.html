@@ -14,7 +14,7 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Objects</h2>
-		<p>Objects with unexpected AI names are marked in <span class="weird-object-name">yellow</span>. Objects only defined in DE are marked in <span class="de-object-name">green</span>.</p>
+		<p>Objects that have different IDs depending on the game version are marked in <span class="multiple-id-object">red</span>. Objects with unexpected AI names are marked in <span class="weird-object-name">yellow</span>. Objects only defined in DE are marked in <span class="de-object-name">green</span>.</p>
 		<p>The <strong>Dead Object ID</strong> belongs to the decaying object that is placed on the map when a unit is killed or a building is destroyed. AIs can count the dead objects they own, but they can only be counted by individual IDs. <a href="https://airef.github.io/commands/commands-details.html#cc-players-unit-type-count">cc-players-unit-type-count</a> is required to count the dead objects of other players.</p>
 		<p>The <strong>Proj. ID</strong> belongs to the projectile object that is created when a ranged object fires a projectile. These IDs are <i>not</i> the same as <a href="https://airef.github.io/parameters/parameters-details.html#ProjectileType">ProjectileType</a>. <a href="https://airef.github.io/commands/commands-details.html#cc-players-unit-type-count">cc-players-unit-type-count</a> is required to count the projectiles of other players by ID, so using <a href="https://airef.github.io/commands/commands-details.html#up-projectile-detected">up-projectile-detected</a> is recommended.</p>
 		<p>The <strong>Chem. Proj. ID</strong> belongs to the flaming projectile object that is created when a ranged object fires a projectile after Chemistry is researched. These IDs are <i>not</i> the same as <a href="https://airef.github.io/parameters/parameters-details.html#ProjectileType">ProjectileType</a>. <a href="https://airef.github.io/commands/commands-details.html#cc-players-unit-type-count">cc-players-unit-type-count</a> is required to count the projectiles of other players by ID, so using <a href="https://airef.github.io/commands/commands-details.html#up-projectile-detected">up-projectile-detected</a> is recommended.</p>
@@ -116,13 +116,21 @@
 	<script>
 		var numobjects;
 		var text = "";
+		var objectID = "";
 		for(var i = 0; i < objectsArray.length; i++) {
 			numobjects = 0;
 			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArray[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdid-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th \"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectie-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC,WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdid-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th \"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectie-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArray[i].length; j++) {
+				objectID = objectsArray[i][j].id.toString();
 				text += "<tr>";
-				text += "<td>" + objectsArray[i][j].id + "</td>";
+				if(objectID.indexOf(":") > -1)
+				{
+					text += "<td class=\"multiple-id-object\">" + objectsArray[i][j].id + "</td>";
+				}
+				else {
+					text += "<td>" + objectsArray[i][j].id + "</td>";
+				}
 				text += "<td>" + objectsArray[i][j].name + "</td>";
 				if(objectsArray[i][j].weirdName == 1 || objectsArray[i][j].weirdName == 3) {
 					text += "<td class=\"weird-object-name\">" + objectsArray[i][j].aiName + "</td>";
@@ -181,7 +189,7 @@
 		}
 		document.getElementById("objectIndex").innerHTML = text;
 
-		document.getElementById("num-results").innerHTML = "Num Results: 514";
+		document.getElementById("num-results").innerHTML = "Num Results: 478";
 	</script>
 	<script>
 		function objectsFilter() {
