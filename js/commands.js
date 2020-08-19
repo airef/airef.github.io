@@ -522,6 +522,7 @@ var pGameType = new Parameter("GameType","1.0c");
 var pGoalId = new Parameter("GoalId","1.0c","&#60;goal-id&#62;");
 var pGroupId = new Parameter("GroupId","1.1");
 var pGroupType = new Parameter("GroupType","1.1");
+var pGuardFlag = new Parameter("GuardFlag","1.1");
 var pGuardState = new Parameter("GuardState","1.1");
 var pHitpoints = new Parameter("HitPoints","1.1");
 var pId = new Parameter("Id","1.1");
@@ -557,6 +558,7 @@ var pPoint = new Parameter("Point","1.1");
 var pPositionType = new Parameter("PositionType","1.1");
 var pPrecise = new Parameter("Precise","1.1");
 var pPreserveResearch = new Parameter("PreserveResearch","1.1");
+var pProgressType = new Parameter("ProgressType", "1.1");
 var pProjectileType = new Parameter("ProjectileType","1.1");
 var pPriorityType = new Parameter("PriorityType","1.1");
 var pRemoteIndex = new Parameter("RemoteIndex","1.1");
@@ -599,7 +601,7 @@ var pValue = new Parameter("Value","1.0c","&#60;value&#62;");
 var pVictory = new Parameter("Victory","1.0c","&#60;victory-condition&#62;");
 var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardState, pHitpoints, pId, pIdleType, pIndex, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber();
@@ -10703,7 +10705,7 @@ cUpGetGroupSize.relatedCommands = [];
 
 //up-get-guard-state
 cUpGetGuardState.shortDescription = "Get the guard state into 4 consecutive extended goals.";
-cUpGetGuardState.description = "Get the guard state into 4 consecutive extended goals. The goals will be filled with data in the following order: TypeId, ResourceAmount, ResourceDelta, GuardFlags. Please use up-compare-flag to check the guard flags. If guard-flag-resource is set in GuardFlags, then ResourceDelta/100 will slowly be added to ResourceAmount as long as TypeId objects remain. If both guard-flag-resource and guard-flag-inverse are set, then the resources will be added only when there are no TypeId objects left. If the guard-flag-victory condition is set, the AI will be defeated if no TypeId objects remain.";
+cUpGetGuardState.description = "Get the guard state into 4 consecutive extended goals. The guard state is defined in custom random maps using the guard_state command, which enables a resource trickle and/or a defeat condition depending on whether a certain unit type is killed. The goals will be filled with data in the following order: TypeId, ResourceAmount, ResourceDelta, GuardFlags. Please use up-compare-flag to check the guard flags (see " + pGuardFlag.getLink() + " for a list of guard flags). If guard-flag-resource is set in GuardFlags, then ResourceDelta/100 will slowly be added to ResourceAmount as long as TypeId objects remain. If both guard-flag-resource and guard-flag-inverse are set, then the resources will be added only when there are no TypeId objects left. If the guard-flag-victory condition is set, the AI will be defeated if no TypeId objects remain.";
 cUpGetGuardState.commandParameters = [ {
 	nameLink: pState.getLink(),
 	name: "State",
@@ -15153,7 +15155,7 @@ pExtension.relatedParams = [pMapType, pFormattedString, pString, pText];
 //FactId
 pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.</p><p>Several FactIds can only be used with " + cUpGetFact.getLink() + " or with my-player-number as the player number in commands like " + cUpGetPlayerFact.getLink() + ". See the values list below for information.</p><p>Also, all commands that use FactId also include " + pParam.getLink() + ". See the values list below for the expected type of parameter.";
 pFactId.shortDescription = "Selects the fact type to be checked and stored in a goal.";
-pFactId.range = "0 to 53.";
+pFactId.range = "0 to 54.";
 pFactId.relatedParams = [pFindPlayerMethod, pGuardState, pLimit, pObjectData, pParam, pResourceAmount, pType];
 pFactId.valueList = [ {
 	name: "game-time",
@@ -15452,7 +15454,7 @@ pFactId.valueList = [ {
 }, {
 	name: "cc-gaia-type-count",
 	id: 49,
-	description: "The total number of the given Gaia resource that currently exists on the map, regardless of whether the AI has explored it. This is the only FactId that does not a corresponding Fact. If you need to do a comparison with the total number of a given Gaia resource on the map, use " + cCcPlayersUnitTypeCount.getLink() + " with Gaia as the player number instead.",
+	description: "The total number of the given Gaia resource that currently exists on the map, regardless of whether the AI has explored it. This FactId does not have a corresponding Fact. If you need to do a comparison with the total number of a given Gaia resource on the map, use " + cCcPlayersUnitTypeCount.getLink() + " with Gaia as the player number instead.",
 	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
 	players: "self"
 }, {
@@ -15478,6 +15480,12 @@ pFactId.valueList = [ {
 	id: 53,
 	description: "The amount of the given resource for the given player since the tribute memory has been cleared with " + cClearTributeMemory.getLink() + ".",
 	parameter: pResource.getLink(),
+	players: "any"
+}, {
+	name: "treaty-time",
+	id: 54,
+	description: "DE only. The amount of treaty time left, in seconds. This FactId does not have a corresponding Fact.",
+	parameter: "0",
 	players: "any"
 } ];
 
@@ -15641,11 +15649,30 @@ pGroupType.valueList = [ {
 	description: "Trade carts currently trading."
 } ];
 
+//GuardFlag
+pGuardFlag.description = "Bitwise flags to store the guard state. This parameter only defines the flags returned from the goal that stores the guard flags from a " + cUpGetGuardState.getLink() + " command. This parameter is not used in any command.";
+pGuardFlag.shortDescription = "Bitwise flags to store the guard state.";
+pGuardFlag.range = "1, 2, 4.";
+pGuardFlag.relatedParams = [pGuardState];
+pGuardFlag.valueList = [ {
+	name: "guard-flag-victory",
+	id: 1,
+	description: "AI will be defeated if no TypeId objects remain. The TypeId is defined in the guard_state command used in the custom RM script, and it is stored in the first goal value returned from " +cUpGetGuardState.getLink() + "."
+}, {
+	name: "guard-flag-resource",
+	id: 2,
+	description: "ResourceDelta/100 will slowly be added to ResourceAmount as long as TypeId objects remain. The ResourceDelta, ResourceAmount, and TypeId are defined in the guard_state command used in the custom RM script. The TypeId, ResourceDelta, and ResourceAmount are stored in the first three goal values returned from " +cUpGetGuardState.getLink() + ", respectively."
+}, {
+	name: "guard-flag-inverse",
+	id: 4,
+	description: "If guard-flag-resource flag is set, resources will be added only when there are no TypeId objects left. This will not invert guard-flag-victory, only guard-flag-resource."
+} ];
+
 //GuardState
 pGuardState.description = "The first of four consecutive goals to read the guard state.";
 pGuardState.shortDescription = "The first of four consecutive goals to read the guard state.";
 pGuardState.range = "An extended goal ID, from 41 to 509.";
-pGuardState.relatedParams = [pFactId, pLimit, pType, pVictory];
+pGuardState.relatedParams = [pFactId, pGuardFlag, pLimit, pType, pVictory];
 
 //Hitpoints
 pHitpoints.description = "The amount of hit points for the objects that are being compared.";
@@ -15934,7 +15961,7 @@ pNewName.relatedParams = [pCode, pLanguageId, pString, pText];
 pObjectData.description = "Data information about an object.";
 pObjectData.shortDescription = "Data information about an object.";
 pObjectData.range = "-1 to 82.";
-pObjectData.relatedParams = [pActionId, pData, pFactId, pOrderId];
+pObjectData.relatedParams = [pActionId, pData, pFactId, pOrderId, pProgressType];
 pObjectData.valueList = [ {
 	name: "object-data-index",
 	id: -1,
@@ -16182,7 +16209,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-progress-type",
 	id: 60,
-	description: "The type of progress the object has (training or researching). Objects that cannot train or research return -2. An object that can train or research but is doing neither will return 0. If the object is training or researching, a value from the " + dcProgressType.getLink() + " list will be returned."
+	description: "The type of progress the object has (training or researching). Objects that cannot train or research return -2. An object that can train or research but is doing neither will return 0. If the object is training or researching, a value from the " + pProgressType.getLink() + " list will be returned."
 }, {
 	name: "object-data-progress-value",
 	id: 61,
@@ -16271,6 +16298,14 @@ pObjectData.valueList = [ {
 	name: "object-data-upgrade-type",
 	id: 82,
 	description: "The true " + pObjectId.getLink() + " of the object. If the object is a man-at-arms, this will return 75 (man-at-arms). This ObjectData was needed because object-data-type functions just like object-data-base-type under in non-scenario games."
+}, {
+	name: "object-data-object-data-ownership",
+	id: 83,
+	description: "DE only. Returns the player number that owns the object or is the most dominant player nearby. Returns -2 if the object cannot be captured. Returns -1 if it can be captured but no player units are nearby."
+}, {
+	name: "object-data-capture-flag",
+	id: 84,
+	description: "DE only. The capture type of an object owned by gaia or another player. 0 = capture never, 1 = capture once, 2 = capture multiple times, 3 = capture livestock/artifact."
 } ];
 
 //ObjectId
@@ -16590,6 +16625,21 @@ pPrecise.relatedParams = [pBorder, pDistance, pPoint];
 pPreserveResearch.description = "If set to 1, buildings performing research will not be affected when the building is reset.";
 pPreserveResearch.shortDescription = "If set to 1, buildings performing research will not be affected when the building is reset.";
 pPreserveResearch.range = "0 or 1.";
+
+//ProgressType
+pProgressType.description = "The type of progress being made by a building. This is only used to define values returned by object-data-progress-type. It is not a parameter for any commands.";
+pProgressType.shortDescription = "The type of progress being made by a building.";
+pProgressType.range = "102 or 103";
+pProgressType.relatedParams = [pObjectData];
+pProgressType.valueList = [ {
+	name: "progress-type-train",
+	id: 102,
+	description: "The building is training a unit."
+}, {
+	name: "progress-type-research",
+	id: 103,
+	description: "The building is researching a technology."
+} ];
 
 //ProjectileType
 pProjectileType.description = "The source of the projectile to check. Note that the actual " + pObjectId.getLink() + " of the projectile does not work.";
@@ -17987,7 +18037,7 @@ pTypeId.range = "A valid " + pObjectId.getLink() + " or one of the object line w
 pTypeId.relatedParams = [pBuildingId, pClassId, pObjectId, pUnitId, pUpgradeId];
 
 //UnitId
-pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.";
+pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
 pUnitId.shortDescription = "The object ID of a unit, the unit type name, or a unit's class.";
 pUnitId.range = "A valid UnitId.";
 pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId, pUpgradeId];
@@ -18048,97 +18098,97 @@ pUnitId.wildcardParam = [ {
 	id: -286,
 	description: "Includes scout-cavalry, light-cavalry, and hussar."
 }, {
-	name: "camel-archer-line",
-	id: -285,
-	description: "DE only. Includes camel-archer and elite-camel-archer."
-}, {
 	name: "cannon-galleon-line",
-	id: -284,
+	id: -285,
 	description: "Includes cannon-galleon and elite-cannon-galleon."
 }, {
 	name: "longboat-line",
-	id: -283,
+	id: -284,
 	description: "Includes longboat and elite-longboat."
 }, {
 	name: "turtle-ship-line",
-	id: -282,
+	id: -283,
 	description: "Includes turtle-ship and elite-turtle-ship."
 }, {
 	name: "berserk-line",
-	id: -281,
+	id: -282,
 	description: "Includes berserk and elite-berserk."
 }, {
 	name: "cataphract-line",
-	id: -280,
+	id: -281,
 	description: "Includes cataphract and elite-cataphract."
 }, {
 	name: "chu-ko-nu-line",
-	id: -279,
+	id: -280,
 	description: "Includes chu-ko-nu and elite-chu-ko-nu."
 }, {
 	name: "huskarl-line",
-	id: -278,
+	id: -279,
 	description: "Includes huskarl and elite-huskarl. Doesn't include huskarls trained at the Barracks."
 }, {
 	name: "janissary-line",
-	id: -277,
+	id: -278,
 	description: "Includes janissary and elite-janissary."
 }, {
 	name: "longbowman-line",
-	id: -276,
+	id: -277,
 	description: "Includes longbowman and elite-longbowman."
 }, {
 	name: "mameluke-line",
-	id: -275,
+	id: -276,
 	description: "Includes mameluke and elite-mameluke."
 }, {
 	name: "mangudai-line",
-	id: -274,
+	id: -275,
 	description: "Includes mangudai and elite-mangudai."
 }, {
 	name: "samurai-line",
-	id: -273,
+	id: -274,
 	description: "Includes samurai and elite-samurai."
 }, {
 	name: "teutonic-knight-line",
-	id: -272,
+	id: -273,
 	description: "Includes teutonic-knight and elite-teutonic-knight."
 }, {
 	name: "throwing-axeman-line",
-	id: -271,
+	id: -272,
 	description: "Includes throwing-axeman and elite-throwing-axeman."
 }, {
 	name: "war-elephant-line",
-	id: -270,
+	id: -271,
 	description: "Includes war-elephant and elite-war-elephant."
 }, {
 	name: "war-wagon-line",
-	id: -269,
+	id: -270,
 	description: "Includes war-wagon and elite-war-wagon."
 }, {
 	name: "woad-raider-line",
-	id: -268,
+	id: -269,
 	description: "Includes woad-raider and elite-woad-raider."
 }, {
 	name: "jaguar-man-line",
-	id: -267,
+	id: -268,
 	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
 }, {
 	name: "eagle-warrior-line",
-	id: -266,
+	id: -267,
 	description: "Includes eagle-warrior (the Eagle Scout in WK and DE) and elite-eagle-warrior. DE also includes heavy-eagle-warrior (the Castle Age Eagle Warrior). WK does not."
 }, {
 	name: "plumed-archer-line",
-	id: -265,
+	id: -266,
 	description: "Includes plumed-archer and elite-plumed-archer."
 }, {
 	name: "tarkan-line",
-	id: -264,
+	id: -265,
 	description: "Includes tarkan and elite-tarkan. Does not include tarkans trained at the Stable."
 }, {
 	name: "conquistador-line",
-	id: -263,
+	id: -264,
 	description: "Includes conquistador and elite-conquistador."
+}, {
+	name: "camel-archer-line",
+	id: -263,
+	description: "DE only. Includes camel-archer and elite-camel-archer."
 }, {
 	name: "genoese-crossbowman-line",
 	id: -262,
@@ -30150,7 +30200,7 @@ objectsOtherArray = [ {
 	notes: ""
 }, {	
 	name: "Flare",
-	aiName: "",
+	aiName: "flare",
 	line: "",
 	id: 274,
 	class: "miscellaneous-class",
@@ -30166,7 +30216,7 @@ objectsOtherArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "Placed on map when flare is sent"
+	notes: "Placed on map when flare is sent."
 }, {	
 	name: "Revealer",
 	aiName: "",
