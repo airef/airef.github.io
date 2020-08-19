@@ -99,10 +99,10 @@
 					for (var k = 0; k < parametersArray[i].operatorTypes.length; k++) {
 						info += "<tr><td>" + parametersArray[i].operatorTypes[k].id + "</td>";
 						info += "<td>" + parametersArray[i].operatorTypes[k].operator[0] + "</td>";
-						if (typeof parametersArray[i].operatorTypes[k].operator[1] !== undefined) {
+						if (parametersArray[i].operatorTypes[0].operator.length > 1) {
 							info += "<td>" + parametersArray[i].operatorTypes[k].operator[1] + "</td>";
 						}
-						if (typeof parametersArray[i].operatorTypes[k].operator[2] !== undefined) {
+						if (parametersArray[i].operatorTypes[0].operator.length > 2) {
 							info += "<td>" + parametersArray[i].operatorTypes[k].operator[2] + "</td>";
 						}
 						info += "<td>" + parametersArray[i].operatorTypes[k].description + "</td></tr>";
@@ -135,7 +135,8 @@
 				if (parametersArray[i].wildcardParam.length > 0)
 				{
 					info += "<p><h3>Defined Wildcard Parameters</h3></p>";
-					info += '<table><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
+					info += "<p><input type=\"text\" id=\"wildcardParamInput\" onkeyup=\"wildcardParamFilter()\" placeholder=\"Search for values...\"></p>";
+					info += '<table id="wildcard-param-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
 					for (var m = 0; m < parametersArray[i].wildcardParam.length; m++) {
 						info += "<tr><td>" + parametersArray[i].wildcardParam[m].id + "</td>";
 						info += "<td>" + parametersArray[i].wildcardParam[m].name + "</td>";
@@ -168,6 +169,30 @@
 			input = document.getElementById("valueListInput");
 			filter = input.value.toUpperCase();
 			table = document.getElementById("value-list-table");
+			tr = table.getElementsByTagName("tr");
+		
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				tdCol1 = tr[i].getElementsByTagName("td")[0];
+				tdCol2 = tr[i].getElementsByTagName("td")[1];
+				if (tdCol1) {
+					txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
+					txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
+					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+		function wildcardParamFilter() {
+			// Declare variables
+			var input, filter, table, tr, tdCol1, tdCol2, i, txtValue;
+			input = document.getElementById("wildcardParamInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("wildcard-param-table");
 			tr = table.getElementsByTagName("tr");
 		
 			// Loop through all table rows, and hide those who don't match the search query

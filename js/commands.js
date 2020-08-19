@@ -17987,10 +17987,247 @@ pTypeId.range = "A valid " + pObjectId.getLink() + " or one of the object line w
 pTypeId.relatedParams = [pBuildingId, pClassId, pObjectId, pUnitId, pUpgradeId];
 
 //UnitId
-pUnitId.description = "The object ID of a unit, the unit type name, or a unit's class. See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for reference.";
+pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.";
 pUnitId.shortDescription = "The object ID of a unit, the unit type name, or a unit's class.";
 pUnitId.range = "A valid UnitId.";
 pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId, pUpgradeId];
+pUnitId.wildcardParam = [ {
+	name: "archer-line",
+	id: -299,
+	description: "Includes archer, crossbowman, and arbalest."
+}, {
+	name: "cavalry-archer-line",
+	id: -298,
+	description: "Includes cavalry-archer and heavy-cavalry-archer."
+}, {
+	name: "skirmisher-line",
+	id: -297,
+	description: "Includes skirmisher and elite-skirmisher. DE also includes imperial-skirmisher. WK does not."
+}, {
+	name: "militiaman-line",
+	id: -296,
+	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion."
+}, {
+	name: "spearman-line",
+	id: -295,
+	description: "Includes spearman, pikeman, and halberdier."
+}, {
+	name: "demolition-ship-line",
+	id: -294,
+	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship."
+}, {
+	name: "fire-ship-line",
+	id: -293,
+	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship."
+}, {
+	name: "galley-line",
+	id: -292,
+	description: "Includes galley, war-galley, and galleon."
+}, {
+	name: "battering-ram-line",
+	id: -291,
+	description: "Includes battering-ram, capped-ram, and siege-ram."
+}, {
+	name: "mangonel-line",
+	id: -290,
+	description: "Includes mangonel, onager (not WK), and siege-onager."
+}, {
+	name: "scorpion-line",
+	id: -289,
+	description: "Includes scorpion and heavy-scorpion."
+}, {
+	name: "camel-line",
+	id: -288,
+	description: "Includes camel and heavy-camel. DE also includes imperial-camel."
+}, {
+	name: "knight-line",
+	id: -287,
+	description: "Includes knight, cavalier, and paladin."
+}, {
+	name: "scout-cavalry-line",
+	id: -286,
+	description: "Includes scout-cavalry, light-cavalry, and hussar."
+}, {
+	name: "camel-archer-line",
+	id: -285,
+	description: "DE only. Includes camel-archer and elite-camel-archer."
+}, {
+	name: "cannon-galleon-line",
+	id: -284,
+	description: "Includes cannon-galleon and elite-cannon-galleon."
+}, {
+	name: "longboat-line",
+	id: -283,
+	description: "Includes longboat and elite-longboat."
+}, {
+	name: "turtle-ship-line",
+	id: -282,
+	description: "Includes turtle-ship and elite-turtle-ship."
+}, {
+	name: "berserk-line",
+	id: -281,
+	description: "Includes berserk and elite-berserk."
+}, {
+	name: "cataphract-line",
+	id: -280,
+	description: "Includes cataphract and elite-cataphract."
+}, {
+	name: "chu-ko-nu-line",
+	id: -279,
+	description: "Includes chu-ko-nu and elite-chu-ko-nu."
+}, {
+	name: "huskarl-line",
+	id: -278,
+	description: "Includes huskarl and elite-huskarl. Doesn't include huskarls trained at the Barracks."
+}, {
+	name: "janissary-line",
+	id: -277,
+	description: "Includes janissary and elite-janissary."
+}, {
+	name: "longbowman-line",
+	id: -276,
+	description: "Includes longbowman and elite-longbowman."
+}, {
+	name: "mameluke-line",
+	id: -275,
+	description: "Includes mameluke and elite-mameluke."
+}, {
+	name: "mangudai-line",
+	id: -274,
+	description: "Includes mangudai and elite-mangudai."
+}, {
+	name: "samurai-line",
+	id: -273,
+	description: "Includes samurai and elite-samurai."
+}, {
+	name: "teutonic-knight-line",
+	id: -272,
+	description: "Includes teutonic-knight and elite-teutonic-knight."
+}, {
+	name: "throwing-axeman-line",
+	id: -271,
+	description: "Includes throwing-axeman and elite-throwing-axeman."
+}, {
+	name: "war-elephant-line",
+	id: -270,
+	description: "Includes war-elephant and elite-war-elephant."
+}, {
+	name: "war-wagon-line",
+	id: -269,
+	description: "Includes war-wagon and elite-war-wagon."
+}, {
+	name: "woad-raider-line",
+	id: -268,
+	description: "Includes woad-raider and elite-woad-raider."
+}, {
+	name: "jaguar-man-line",
+	id: -267,
+	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
+}, {
+	name: "eagle-warrior-line",
+	id: -266,
+	description: "Includes eagle-warrior (the Eagle Scout in WK and DE) and elite-eagle-warrior. DE also includes heavy-eagle-warrior (the Castle Age Eagle Warrior). WK does not."
+}, {
+	name: "plumed-archer-line",
+	id: -265,
+	description: "Includes plumed-archer and elite-plumed-archer."
+}, {
+	name: "tarkan-line",
+	id: -264,
+	description: "Includes tarkan and elite-tarkan. Does not include tarkans trained at the Stable."
+}, {
+	name: "conquistador-line",
+	id: -263,
+	description: "Includes conquistador and elite-conquistador."
+}, {
+	name: "genoese-crossbowman-line",
+	id: -262,
+	description: "DE only. Includes genoese-crossbowman and elite-genoese-crossbowman."
+}, {
+	name: "elephant-archer-line",
+	id: -261,
+	description: "DE only. Includes elephant-archer and elite-elephant-archer."
+}, {
+	name: "boyar-line",
+	id: -260,
+	description: "DE only. Includes boyar and elite-boyar."
+}, {
+	name: "magyar-huszar-line",
+	id: -259,
+	description: "DE only. Includes magyar-huszar and elite-maygar-huszar."
+}, {
+	name: "kamayuk-line",
+	id: -258,
+	description: "Includes kamayuk and elite-kamayuk."
+}, {
+	name: "caravel-line",
+	id: -257,
+	description: "DE only. Includes caravel and elite-caravel."
+}, {
+	name: "organ-gun-line",
+	id: -256,
+	description: "DE only. Includes organ-gun and elite-organ-gun."
+}, {
+	name: "gbeto-line",
+	id: -255,
+	description: "DE only. Includes gbeto and elite-gbeto."
+}, {
+	name: "shotel-warrior-line",
+	id: -254,
+	description: "DE only. Includes shotel-warrior and elite-shotel-warrior."
+}, {
+	name: "genitour-line",
+	id: -253,
+	description: "DE only. Includes genitour and elite-genitour."
+}, {
+	name: "ballista-elephant-line",
+	id: -252,
+	description: "DE only. Includes ballista-elephant and elite-ballista-elephant."
+}, {
+	name: "rattan-archer-line",
+	id: -251,
+	description: "DE only. Includes rattan-archer and elite-rattan-archer."
+}, {
+	name: "arambai-line",
+	id: -250,
+	description: "DE only. Includes arambai and elite-arambai."
+}, {
+	name: "battle-elephant-line",
+	id: -249,
+	description: "DE only. Includes battle-elephant and elite-battle-elephant."
+}, {
+	name: "karambit-warrior-line",
+	id: -248,
+	description: "DE only. Includes karambit-warrior and elite-karambit-warrior."
+}, {
+	name: "konnik-line",
+	id: -247,
+	description: "DE only. Includes konnik and elite-konnik. Does not include dismounted konniks or konniks trained from Kreposts."
+}, {
+	name: "krepost-konnik-line",
+	id: -246,
+	description: "DE only. Includes krepost-konnik and elite-krepost-konnik. Does not include konniks trained at the castle or dismounted konniks."
+}, {
+	name: "foot-konnik-line",
+	id: -245,
+	description: "DE only. Includes foot-konnik and elite-foot-konnik. Does not include mounted konniks."
+}, {
+	name: "leitis-line",
+	id: -244,
+	description: "DE only. Includes leitis and elite-leitis."
+}, {
+	name: "kipchak-line",
+	id: -243,
+	description: "DE only. Includes kipchak and elite-kipchak. Does not include kipchaks that allies can train after Cuman Mercenaries is researched."
+}, {
+	name: "keshik-line",
+	id: -242,
+	description: "DE only. Includes keshik and elite-keshik."
+}, {
+	name: "steppe-lancer-line",
+	id: -241,
+	description: "DE only. Includes steppe-lancer and elite-steppe-lancer."
+} ];
 
 //UpgradeId
 pUpgradeId.description = "A " + pGoalId.getLink() + " to store the upgrade type id. Note: this stores the current upgraded version of that unit/building line, not the next upgrade in the upgrade sequence.";
