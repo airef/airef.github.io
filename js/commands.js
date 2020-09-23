@@ -5142,14 +5142,15 @@ snEnableTrainingQueue.category = "Economy";
 snEnableTrainingQueue.min = -32767;
 snEnableTrainingQueue.max = 32768;
 snEnableTrainingQueue.rmin = 0;
-snEnableTrainingQueue.rmax = 1;
+snEnableTrainingQueue.rmax = 15;
 snEnableTrainingQueue.network = 0;
 snEnableTrainingQueue.defined = 1;
 snEnableTrainingQueue.available = 0;
 snEnableTrainingQueue.version = "1.1";
 snEnableTrainingQueue.linked = [];
 snEnableTrainingQueue.related = [];
-snEnableTrainingQueue.shortDescription = "Set to 1 to allow an additional unit to be queued at each building. If set to 0, buildings will train one unit at a time.";
+snEnableTrainingQueue.shortDescription = "Set to values > 0 to allow an additional unit(s) to be queued at each building. If set to 0, buildings will train one unit at a time.";
+snEnableTrainingQueue.shortDescription = "Set to values > 0 to allow an additional unit(s) to be queued at each building. For example, if set to 3, then 3 units can be queued to be trained after the currently training unit. If set to 0, buildings will train one unit at a time.";
 
 snIgnoreTowerElevation.id = 265;
 snIgnoreTowerElevation.snName = "sn-ignore-tower-elevation";
@@ -8657,7 +8658,7 @@ cUpAlliedSn.example = [ {
 cUpAlliedSn.relatedCommands = [];
 
 //up-assign-builders
-cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
+cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.";
 cUpAssignBuilders.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -14673,71 +14674,71 @@ pCiv.valueList = [ {
 }, {
 	name: "italian",
 	id: 19,
-	description: "Italians"
+	description: "Italians. Must define with a defconst before it can be used."
 }, {
 	name: "indian",
 	id: 20,
-	description: "Indians"
+	description: "Indians. Must define with a defconst before it can be used."
 }, {
 	name: "incan",
 	id: 21,
-	description: "Incas"
+	description: "Incas. Must define with a defconst before it can be used."
 }, {
 	name: "magyar",
 	id: 22,
-	description: "Magyars"
+	description: "Magyars. Must define with a defconst before it can be used."
 }, {
 	name: "slavic",
 	id: 23,
-	description: "Slavs"
+	description: "Slavs. Must define with a defconst before it can be used."
 }, {
 	name: "portuguese",
 	id: 24,
-	description: "Portuguese"
+	description: "Portuguese. Must define with a defconst before it can be used."
 }, {
 	name: "ethiopian",
 	id: 25,
-	description: "Ethiopians"
+	description: "Ethiopians. Must define with a defconst before it can be used."
 }, {
 	name: "malian",
 	id: 26,
-	description: "Malians"
+	description: "Malians. Must define with a defconst before it can be used."
 }, {
 	name: "berbers",
 	id: 27,
-	description: "Berbers"
+	description: "Berbers. Must define with a defconst before it can be used."
 }, {
 	name: "khmer",
 	id: 28,
-	description: "Khmer"
+	description: "Khmer. Must define with a defconst before it can be used."
 }, {
 	name: "malay",
 	id: 29,
-	description: "Malay"
+	description: "Malay. Must define with a defconst before it can be used."
 }, {
 	name: "burmese",
 	id: 30,
-	description: "Burmese"
+	description: "Burmese. Must define with a defconst before it can be used."
 }, {
 	name: "vietnamese",
 	id: 31,
-	description: "Vietnamese"
+	description: "Vietnamese. Must define with a defconst before it can be used."
 }, {
 	name: "bulgarians",
 	id: 32,
-	description: "Bulgarians"
+	description: "Bulgarians. Must define with a defconst before it can be used."
 }, {
 	name: "tatars",
 	id: 33,
-	description: "Tatars"
+	description: "Tatars. Must define with a defconst before it can be used."
 }, {
 	name: "cumans",
 	id: 34,
-	description: "Cumans"
+	description: "Cumans. Must define with a defconst before it can be used."
 }, {
 	name: "lithuanians",
 	id: 35,
-	description: "Lithuanians"
+	description: "Lithuanians. Must define with a defconst before it can be used."
 } ];
 
 //ClassId
@@ -16299,7 +16300,7 @@ pObjectData.valueList = [ {
 	id: 82,
 	description: "The true " + pObjectId.getLink() + " of the object. If the object is a man-at-arms, this will return 75 (man-at-arms). This ObjectData was needed because object-data-type functions just like object-data-base-type under in non-scenario games."
 }, {
-	name: "object-data-object-data-ownership",
+	name: "object-data-ownership",
 	id: 83,
 	description: "DE only. Returns the player number that owns the object or is the most dominant player nearby. Returns -2 if the object cannot be captured. Returns -1 if it can be captured but no player units are nearby."
 }, {
@@ -17648,7 +17649,7 @@ pSize.relatedParams = [pCount, pGroupId, pGroupType];
 //SnId
 pSnId.description = "A strategic number. See <a href=\"" + urlPrefix + "/strategic-numbers/sn-index.html\">Strategic Numbers</a> for a list of usable strategic numbers and their descriptions.";
 pSnId.shortDescription = "A valid strategic number.";
-pSnId.range = "0 to 295.";
+pSnId.range = "0 to 511.";
 pSnId.relatedParams = [pDiffParameterId, pGoalId, pId];
 
 //SourceClass
@@ -18288,7 +18289,7 @@ pUpgradeId.relatedParams = [pBuildingId, pObjectId, pTypeId, pUpgradeId];
 //Value
 pValue.description = "An integer value. Used for many different purposes.";
 pValue.shortDescription = "An integer value. Used for many different purposes.";
-pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for extended goals (goals 41-510) have a 32-bit signed integer range (-2,147,483,648 to 2,147,483,647).";
+pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for extended goals (goals 41-510) and extended strategic numbers (SNs 242-511) have a 32-bit signed integer range (-2,147,483,648 to 2,147,483,647).";
 pValue.relatedParams = [pCount];
 
 //Victory
@@ -22714,7 +22715,7 @@ objectsCastleArray = [ {
 	aiName: "magyar-huszar",
 	line: "magyar-huszar-line",
 	id: 869,
-	class: "archery-class",
+	class: "cavalry-class",
 	cmdId: "cmdid-military",
 	building: "Castle",
 	age: 3,
@@ -22733,7 +22734,7 @@ objectsCastleArray = [ {
 	aiName: "elite-magyar-huszar",
 	line: "magyar-huszar-line",
 	id: 871,
-	class: "archery-class",
+	class: "cavalry-class",
 	cmdId: "cmdid-military",
 	building: "Castle",
 	age: 4,
@@ -24797,7 +24798,7 @@ objectsTownCenterArray = [ {
 }];	
 	
 objectsBuildingsArray = [ {	
-	name: "Town Center",
+	name: "Town Center (Dark Age)",
 	aiName: "town-center",
 	line: "",
 	id: 109,
@@ -24814,7 +24815,64 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "For TC foundations use town-center-foundation (ID 621), In DE dead units are 1408 (Age 1), 1431 (Age 2), 1432 (Age 3), 1433 (Age 4)"
+	notes: "For TC foundations use town-center-foundation (ID 621), In DE dead unit is 1408"
+}, {	
+	name: "Town Center (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 71,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "146",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "For TC foundations use town-center-foundation (ID 621), In DE dead unit is 1431"
+}, {	
+	name: "Town Center (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 141,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "146",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "For TC foundations use town-center-foundation (ID 621), In DE dead unit is 1432"
+}, {	
+	name: "Town Center (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 142,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "146",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "For TC foundations use town-center-foundation (ID 621), In DE dead unit is 1433"
 }, {	
 	name: "Town Center (Foundation)",
 	aiName: "town-center-foundation",
@@ -24835,7 +24893,235 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1408"
 }, {	
-	name: "House",
+	name: "Town Center (Annex 1, Dark Age)",
+	aiName: "",
+	line: "",
+	id: 618,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 614,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Castle Age)",
+	aiName: "",
+	line: "",
+	id: 481,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 611,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {
+	name: "Town Center (Annex 2, Dark Age)",
+	aiName: "",
+	line: "",
+	id: 619,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 615,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Castle Age)",
+	aiName: "",
+	line: "",
+	id: 482,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Castle Age)",
+	aiName: "",
+	line: "",
+	id: 612,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 3, Dark Age)",
+	aiName: "",
+	line: "",
+	id: 620,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 616,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Castle Age)",
+	aiName: "",
+	line: "",
+	id: 483,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 613,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {		
+	name: "House (Dark Age)",
 	aiName: "house",
 	line: "",
 	id: 70,
@@ -24852,9 +25138,66 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1403 (Age 1), 1434 (Age 2), 1435 (Ages 3-4)"
+	notes: "In DE, dead unit is 1403"
+}, {		
+	name: "House (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 463,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "191",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1434"
+}, {		
+	name: "House (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 464,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "191",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1435"
+}, {		
+	name: "House (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 465,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "191",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1435"
 }, {	
-	name: "Mill",
+	name: "Mill (Dark Age)",
 	aiName: "mill",
 	line: "",
 	id: 68,
@@ -24873,7 +25216,64 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1404"
 }, {	
-	name: "Mining Camp",
+	name: "Mill (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 129,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1404"
+}, {	
+	name: "Mill (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 130,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1404"
+}, {	
+	name: "Mill (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 131,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1404"
+}, {	
+	name: "Mining Camp (Dark Age)",
 	aiName: "mining-camp",
 	line: "",
 	id: 584,
@@ -24892,7 +25292,64 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1410"
 }, {	
-	name: "Lumber Camp",
+	name: "Mining Camp (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 585,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1410"
+}, {	
+	name: "Mining Camp (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 586,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1410"
+}, {	
+	name: "Mining Camp (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 587,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1410."
+}, {	
+	name: "Lumber Camp (Dark Age)",
 	aiName: "lumber-camp",
 	line: "",
 	id: 562,
@@ -24911,7 +25368,64 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1409"
 }, {	
-	name: "Dock",
+	name: "Lumber Camp (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 563,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1409"
+}, {	
+	name: "Lumber Camp (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 564,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1409"
+}, {	
+	name: "Lumber Camp (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 565,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "144",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1409"
+}, {	
+	name: "Dock (Dark Age)",
 	aiName: "dock",
 	line: "",
 	id: 45,
@@ -24919,6 +25433,63 @@ objectsBuildingsArray = [ {
 	cmdId: "cmdid-civilian-building",
 	building: "Buildings",
 	age: 1,
+	deadUnit: "",
+	projectile: "512",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Dock (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 133,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "512",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Dock (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 47,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "512",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Dock (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 51,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
 	deadUnit: "",
 	projectile: "512",
 	chemProjectile: "",
@@ -24987,7 +25558,7 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Blacksmith",
+	name: "Blacksmith (Feudal Age)",
 	aiName: "blacksmith",
 	line: "",
 	id: 103,
@@ -25004,9 +25575,47 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1419 (Age 2), 1420 (Ages 3-4)"
+	notes: "In DE, dead unit is 1419"
 }, {	
-	name: "Market",
+	name: "Blacksmith (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 18,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1420"
+}, {	
+	name: "Blacksmith (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 19,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1420"
+}, {	
+	name: "Market (Feudal Age)",
 	aiName: "market",
 	line: "",
 	id: 84,
@@ -25023,9 +25632,47 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1422 (Age 2), 1423 (Age 3), 1424 (Age 4)"
+	notes: "In DE, dead unit is 1422"
 }, {	
-	name: "Monastery",
+	name: "Market (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 116,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "146",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1423"
+}, {	
+	name: "Market (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 137,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "146",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1424"
+}, {	
+	name: "Monastery (Castle Age, Base)",
 	aiName: "monastery",
 	line: "",
 	id: 104,
@@ -25044,7 +25691,64 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1421"
 }, {	
-	name: "University",
+	name: "Monastery (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 30,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1421. The Feudal Age tech upgrades the monastery to this unit, but it's not available unit Castle Age."
+}, {	
+	name: "Monastery (Castle Age, Upgraded)",
+	aiName: "",
+	line: "",
+	id: 31,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1421. The Castle Age tech upgrades the monastery to this unit."
+}, {	
+	name: "Monastery (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 32,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1421"
+}, {	
+	name: "University (Castle Age)",
 	aiName: "university",
 	line: "",
 	id: 209,
@@ -25061,7 +25765,26 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1427 (Age 3), 1428 (Age 4)"
+	notes: "In DE, dead unit is 1427"
+}, {	
+	name: "University (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 210,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "146",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1428"
 }, {	
 	name: "Wonder",
 	aiName: "wonder",
@@ -25101,7 +25824,7 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1446"
 }, {	
-	name: "Barracks",
+	name: "Barracks (Dark Age)",
 	aiName: "barracks",
 	line: "",
 	id: 12,
@@ -25118,9 +25841,66 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1402 (Age 1), 1413 (Age 2), 1414 (Ages 3-4)"
+	notes: "In DE, dead unit is 1402"
 }, {	
-	name: "Archery Range",
+	name: "Barracks (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 498,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1413"
+}, {	
+	name: "Barracks (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 132,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1414"
+}, {	
+	name: "Barracks (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 20,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1414"
+}, {	
+	name: "Archery Range (Feudal Age)",
 	aiName: "archery-range",
 	line: "",
 	id: 87,
@@ -25137,9 +25917,47 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1415 (Age 2), 1416 (Ages 3-4)"
+	notes: "In DE, dead unit is 1415"
 }, {	
-	name: "Stable",
+	name: "Archery Range (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 10,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1416"
+}, {	
+	name: "Archery Range (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 14,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1416"
+}, {	
+	name: "Stable (Feudal Age)",
 	aiName: "stable",
 	line: "",
 	id: 101,
@@ -25156,7 +25974,45 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1417 (Age 2), 1418 (Ages 3-4)"
+	notes: "In DE, dead unit is 1417"
+}, {	
+	name: "Stable (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 86,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1418"
+}, {	
+	name: "Stable (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 86,
+	class: "building-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "In DE, dead unit is 1418"
 }, {	
 	name: "Siege Workshop",
 	aiName: "siege-workshop",
@@ -25175,7 +26031,7 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "In DE, dead units are 1425 (Age 2), 1426 (Ages 3-4)"
+	notes: "In DE, dead units are 1425 (Age 3), 1426 (Ages 4)"
 }, {	
 	name: "Outpost",
 	aiName: "outpost",
@@ -25405,6 +26261,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1440"
 }, {	
+	name: "Palisade Gate (Ascending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 791,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Palisade Gate (Ascending Foundation)",
 	aiName: "",
 	line: "",
@@ -25461,6 +26336,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1441"
+}, {	
+	name: "Palisade Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 795,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Palisade Gate (Descending Foundation)",
 	aiName: "",
@@ -25519,6 +26413,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1442"
 }, {	
+	name: "Palisade Gate (Horizontal Endpieces)",
+	aiName: "",
+	line: "",
+	id: 799,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Palisade Gate (Horizontal Foundation)",
 	aiName: "",
 	line: "",
@@ -25575,6 +26488,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1444"
+}, {	
+	name: "Palisade Gate (Vertical Endpieces)",
+	aiName: "",
+	line: "",
+	id: 803,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Palisade Gate (Vertical Foundation)",
 	aiName: "",
@@ -25633,6 +26565,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1500"
 }, {	
+	name: "Gate (Ascending Endpieces)",
+	aiName: "gate-ascending-open",
+	line: "",
+	id: 81,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Gate (Ascending Foundation)",
 	aiName: "gate,<br>gate-ascending",
 	line: "",
@@ -25689,6 +26640,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "gate-descending-open is incorrectly defined in UserPatchConst.per as 99 instead of 91, in DE dead unit is 1501"
+}, {	
+	name: "Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 95,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Gate (Descending Foundation)",
 	aiName: "gate-descending",
@@ -25747,6 +26717,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1502"
 }, {	
+	name: "Gate (Horizontal Endpieces)",
+	aiName: "gate-horizontal-open",
+	line: "",
+	id: 663,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Gate (Horizontal Foundation)",
 	aiName: "gate-horizontal",
 	line: "",
@@ -25803,6 +26792,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1503"
+}, {	
+	name: "Gate (Vertical Endpieces)",
+	aiName: "gate-vertical-open",
+	line: "",
+	id: 673,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Gate (Vertical Foundation)",
 	aiName: "gate-vertical",
@@ -25861,6 +26869,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1504"
 }, {	
+	name: "Fortified Gate (Ascending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 80,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Fortified Gate (Ascending Foundation)",
 	aiName: "",
 	line: "",
@@ -25917,6 +26944,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1505"
+}, {	
+	name: "Fortified Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 92,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Fortified Gate (Descending Foundation)",
 	aiName: "",
@@ -25975,6 +27021,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1506"
 }, {	
+	name: "Fortified Gate (Horizontal Endpieces)",
+	aiName: "",
+	line: "",
+	id: 664,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
 	name: "Fortified Gate (Horizontal Foundation)",
 	aiName: "",
 	line: "",
@@ -26031,6 +27096,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1507"
+}, {	
+	name: "Fortified Gate (Vertical Endpieces)",
+	aiName: "",
+	line: "",
+	id: 672,
+	class: "gate-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
 }, {	
 	name: "Fortified Gate (Vertical Foundation)",
 	aiName: "",
