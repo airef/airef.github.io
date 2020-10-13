@@ -6416,14 +6416,14 @@ cChatToEnemiesUsingRange.commandParameters = [ {
 } ];
 
 //chat-to-player
-cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player.";
+cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
 cChatToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
 	type: "Player",
 	dir: "in",
 	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows \"any\"/\"every\" wildcard parameters for AnyPlayer."
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
 }, {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -6435,14 +6435,14 @@ cChatToPlayer.commandParameters = [ {
 
 //chat-to-player-using-id
 cChatToPlayerUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to a given player.";
-cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the LanguageId parameter.";
+cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the LanguageId parameter. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
 cChatToPlayerUsingId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
 	type: "Player",
 	dir: "in",
 	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows \"any\"/\"every\" wildcard parameters for AnyPlayer."
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
 }, {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -6454,14 +6454,14 @@ cChatToPlayerUsingId.commandParameters = [ {
 
 //chat-to-player-using-range
 cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
+cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
 cChatToPlayerUsingRange.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
 	type: "Player",
 	dir: "in",
 	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows \"any\"/\"every\" wildcard parameters for AnyPlayer."
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
 }, {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -6530,7 +6530,7 @@ cClearTributeMemory.commandParameters = [ {
 	type: "Player",
 	dir: "in",
 	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows \"any\"/\"every\" wildcard parameters for AnyPlayer. It also allows for rule variables for AnyPlayer."
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer. It also allows for rule variables for AnyPlayer."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -7111,7 +7111,7 @@ cMilitaryPopulation.commandParameters = [ {
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
-cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerComputer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7123,7 +7123,7 @@ cPlayerComputer.commandParameters = [ {
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
-cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerHuman.description = "Checks if the given player is a human player. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerHuman.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7135,7 +7135,7 @@ cPlayerHuman.commandParameters = [ {
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
-cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
 + pAnyPlayer.getLink() + ".";
 cPlayerInGame.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
@@ -7431,7 +7431,7 @@ cPlayersStance.commandParameters = [ {
 	name: "ESPlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows \"any\"/\"every\" wildcard parameters for pESPlayerStance.",
+	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
 	note: "The diplomacy stance of the player."
 } ];
 
@@ -7840,7 +7840,7 @@ cSetSignal.commandParameters = [ {
 
 //set-stance
 cSetStance.shortDescription = "Sets the stance toward a given player.";
-cSetStance.description = "Sets the stance toward a given player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
+cSetStance.description = "Sets the stance toward a given player. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
 cSetStance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7934,7 +7934,7 @@ cStanceToward.commandParameters = [ {
 	name: "ESPlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows \"any\"/\"every\" wildcard parameters for pESPlayerStance.",
+	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
 	note: "The diplomacy stance toward the player."
 } ];
 
@@ -8100,14 +8100,14 @@ cTrain.commandParameters = [ {
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
-cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
+cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
 cTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
 	type: "Player",
 	dir: "in",
 	range: "Any PlayerId.",
-	note: "The player(s) to tribute. The action allows \"any\"/\"every\" wildcard parameters for AnyPlayer."
+	note: "The player(s) to tribute. The action allows the any/every wildcard parameters for AnyPlayer."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
