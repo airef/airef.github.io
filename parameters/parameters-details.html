@@ -88,10 +88,10 @@
 				{
 					info += "<p><h3>Operator Types</h3></p>";
 					if (parametersArray[i].operatorTypes[0].operator.length > 1) {
-						info += "<table><tr><th>ID</th><th>Version-1</th><th>Version-2</th>";
+						info += "<table><tr><th>UP ID</th><th>DE ID</th><th>Version-1</th><th>Version-2</th>";
 					}
 					else {
-						info += "<table><tr><th>ID</th><th>Operator</th>";
+						info += "<table><tr><th>UP ID</th><th>DE ID</th><th>Operator</th>";
 					}
 					if (parametersArray[i].operatorTypes[0].operator.length > 2) {
 						info += "<th>Version-3</th>";
@@ -99,6 +99,7 @@
 					info += "<th>Description</th></tr>";
 					for (var k = 0; k < parametersArray[i].operatorTypes.length; k++) {
 						info += "<tr><td>" + parametersArray[i].operatorTypes[k].id + "</td>";
+						info += "<td>" + parametersArray[i].operatorTypes[k].deId + "</td>";
 						info += "<td>" + parametersArray[i].operatorTypes[k].operator[0] + "</td>";
 						if (parametersArray[i].operatorTypes[0].operator.length > 1) {
 							info += "<td>" + parametersArray[i].operatorTypes[k].operator[1] + "</td>";

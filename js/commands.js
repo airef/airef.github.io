@@ -8658,7 +8658,8 @@ cUpAlliedSn.example = [ {
 cUpAlliedSn.relatedCommands = [];
 
 //up-assign-builders
-cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.";
+cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
+cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.";
 cUpAssignBuilders.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -10158,7 +10159,7 @@ cUpFindRemote.relatedCommands = [];
 
 //up-find-resource
 cUpFindResource.shortDescription = "Find gatherable resource objects for direct targeting.";
-cUpFindResource.description = "Find gatherable resource objects for direct targeting. This command stores data in the remote list and it will consider the status value set by up-filter-status. To find stone, gold, fallen trees, and other directly gatherable resources, status-resource is required. For standing trees and living objects, status-ready is required. Please ensure the proper status is set before searching. The remote index will reset automatically when switching between this command and other remote search commands like up-find-remote. If Resource changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
+cUpFindResource.description = "Find gatherable resource objects for direct targeting. This command stores data in the remote list and it will consider the status value set by up-filter-status. To find stone, gold, fallen trees, and other directly gatherable resources, status-resource is required. For standing trees and living objects, status-ready is required. Please ensure the proper status is set before searching. The remote index will reset automatically when switching between this command and other remote search commands like up-find-remote. If Resource changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>When searching with boar-class (class 910), this command will not include wolves in the search.";
 cUpFindResource.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -12129,6 +12130,7 @@ cUpPlayerDistance.relatedCommands = [];
 
 //up-players-in-game
 cUpPlayersInGame.shortDescription = "Check the number of active players in the game of the specified stance.";
+cUpPlayersInGame.description = "Check the number of active players in the game of the specified stance. Players are considered allied with themselves, so \"ally\" will include the AI player itself.";
 cUpPlayersInGame.commandParameters = [ {
 	nameLink: pPlayerStance.getLink(),
 	name: "PlayerStance",
@@ -14002,74 +14004,92 @@ pCompareOp.prefixTypes = [ {
 pCompareOp.operatorTypes = [ {
 	operator: ["c:&#60;", "&#60;", "less-than"],
 	id: 0,
+	deId: 18,
 	description: "Less than."
 }, {
 	operator: ["c:&#60;=", "&#60;=","less-or-equal"],
 	id: 1,
+	deId: 19,
 	description: "Less than or equal."
 }, {
 	operator: ["c:&#62;", "&#62;", "greater-than"],
 	id: 2,
+	deId: 20,
 	description: "Greater than."
 }, {
 	operator: ["c:&#62;=", "&#62;=", "greater-or-equal"],
 	id: 3,
+	deId: 21,
 	description: "Greater than or equal."
 }, {
 	operator: ["c:==", "==", "equal"],
 	id: 4,
+	deId: 22,
 	description: "Equal. Note: one equals sign (=) is an assignment operator used in the " + pMathOp.getLink() + " operator. Always use \"==\" when you want to compare."
 }, {
 	operator: ["c:!=", "!=", "not-equal"],
 	id: 5,
+	deId: 23,
 	description: "Not equal."
 }, {
 	operator: ["g:&#60;", "", ""],
 	id: 7,
+	deId: 12,
 	description: "Less than the goal's value."
 }, {
 	operator: ["g:&#60;=", "",""],
 	id: 8,
+	deId: 13,
 	description: "Less than or equal to the goal's value."
 }, {
 	operator: ["g:&#62;", "", ""],
 	id: 9,
+	deId: 14,
 	description: "Greater than the goal's value."
 }, {
 	operator: ["g:&#62;=", "", ""],
 	id: 10,
+	deId: 15,
 	description: "Greater than or equal to the goal's value."
 }, {
 	operator: ["g:==", "", ""],
 	id: 11,
+	deId: 16,
 	description: "Equal to the goal's value. Note: one equals sign (=) is an assignment operator used in the " + pMathOp.getLink() + " operator. Always use \"==\" when you want to compare."
 }, {
 	operator: ["g:!=", "", ""],
 	id: 12,
+	deId: 17,
 	description: "Not equal to the goal's value."
 }, {
 	operator: ["s:&#60;", "", ""],
 	id: 14,
+	deId: 6,
 	description: "Less than the strategic number's value."
 }, {
 	operator: ["s:&#60;=", "",""],
 	id: 15,
+	deId: 7,
 	description: "Less than or equal to the strategic number's value."
 }, {
 	operator: ["s:&#62;", "", ""],
 	id: 16,
+	deId: 8,
 	description: "Greater than the strategic number's value."
 }, {
 	operator: ["s:&#62;=", "", ""],
 	id: 17,
+	deId: 9,
 	description: "Greater than or equal to the strategic number's value."
 }, {
 	operator: ["s:==", "", ""],
 	id: 18,
+	deId: 10,
 	description: "Equal to the strategic number's value. Note: one equals sign (=) is an assignment operator used in the " + pMathOp.getLink() + " operator. Always use \"==\" when you want to compare."
 }, {
 	operator: ["s:!=", "", ""],
 	id: 19,
+	deId: 11,
 	description: "Not equal to the strategic number's value."
 } ];
 
@@ -14091,147 +14111,183 @@ pMathOp.prefixTypes = [ {
 pMathOp.operatorTypes = [ {
 	operator: ["c:="],
 	id: 0,
+	deId: 24,
 	description: "Set the first operand equal to the constant value of the second operand."
 }, {
 	operator: ["c:+"],
 	id: 1,
+	deId: 25,
 	description: "Add the constant value of the second operand to the first operand."
 }, {
 	operator: ["c:-"],
 	id: 2,
+	deId: 26,
 	description: "Subtract the constant value of the second operand from the first operand."
 }, {
 	operator: ["c:*"],
 	id: 3,
+	deId: 27,
 	description: "Multiply the first operand by the constant value of the second operand."
 }, {
 	operator: ["c:z/"],
 	id: 4,
+	deId: 33,
 	description: "Divide the first operand by the constant value of the second operand. The quotient is rounded down to the nearest integer."
 }, {
 	operator: ["c:/"],
 	id: 5,
+	deId: 28,
 	description: "Divide the first operand by the constant value of the second operand. The quotient is rounded to the nearest integer."
 }, {
 	operator: ["c:mod"],
 	id: 6,
+	deId: 31,
 	description: "Divide the first operand by the constant value of the second operand. Store the remainder instead of the quotient."
 }, {
 	operator: ["c:min"],
 	id: 7,
+	deId: 29,
 	description: "Store the smallest value between the first operand and the constant value of the second operand."
 }, {
 	operator: ["c:max"],
 	id: 8,
+	deId: 30,
 	description: "Store the largest value between the first operand and the constant value of the second operand."
 }, {
 	operator: ["c:neg"],
 	id: 9,
+	deId: 32,
 	description: "Negate the constant value of the second operand and store the result in the first operand. If the constant is already negative, this will store its positive value."
 }, {
-	operator: ["c:%*"],
-	id: 10,
-	description: "Treat the constant value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
-}, {
 	operator: ["c:%/"],
-	id: 11,
+	id: 10,
+	deId: 35,
 	description: "Divide the first operand by the constant value of the second operand, and convert the quotient to a percent, rounded to the nearest integer, i.e. (first operand / second operand * 100)."
+}, {
+	operator: ["c:%*"],
+	id: 11,
+	deId: 34,
+	description: "Treat the constant value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
 }, {
 	operator: ["g:="],
 	id: 12,
+	deId: 12,
 	description: "Set the first operand equal to the goal value of the second operand."
 }, {
 	operator: ["g:+"],
 	id: 13,
+	deId: 13,
 	description: "Add the goal value of the second operand to the first operand."
 }, {
 	operator: ["g:-"],
 	id: 14,
+	deId: 14,
 	description: "Subtract the goal value of the second operand from the first operand."
 }, {
 	operator: ["g:*"],
 	id: 15,
+	deId: 15,
 	description: "Multiply the first operand by the goal value of the second operand."
 }, {
 	operator: ["g:z/"],
 	id: 16,
+	deId: 21,
 	description: "Divide the first operand by the goal value of the second operand. The quotient is rounded down to the nearest integer."
 }, {
 	operator: ["g:/"],
 	id: 17,
+	deId: 16,
 	description: "Divide the first operand by the goal value of the second operand. The quotient is rounded to the nearest integer."
 }, {
 	operator: ["g:mod"],
 	id: 18,
+	deId: 19,
 	description: "Divide the first operand by the goal value of the second operand. Store the remainder instead of the quotient."
 }, {
 	operator: ["g:min"],
 	id: 19,
+	deId: 17,
 	description: "Store the smallest value between the first operand and the goal value of the second operand."
-}, {
-	operator: ["g:neg"],
-	id: 20,
-	description: "Negate the goal value of the second operand and store the result in the first operand. If the goal is already negative, this will store its positive value."
 }, {
 	operator: ["g:max"],
 	id: 20,
+	deId: 18,
 	description: "Store the largest value between the first operand and the goal value of the second operand."
 }, {
-	operator: ["g:%*"],
+	operator: ["g:neg"],
 	id: 21,
-	description: "Treat the goal value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
+	deId: 20,
+	description: "Negate the goal value of the second operand and store the result in the first operand. If the goal is already negative, this will store its positive value."
 }, {
 	operator: ["g:%/"],
 	id: 22,
+	deId: 23,
 	description: "Divide the first operand by the goal value of the second operand, and convert the quotient to a percent, rounded to the nearest integer, i.e. (first operand / second operand * 100)."
+}, {
+	operator: ["g:%*"],
+	id: 23,
+	deId: 22,
+	description: "Treat the goal value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
 }, {
 	operator: ["s:="],
 	id: 24,
+	deId: 0,
 	description: "Set the first operand equal to the strategic number value of the second operand."
 }, {
 	operator: ["s:+"],
 	id: 25,
+	deId: 1,
 	description: "Add the strategic number value of the second operand to the first operand."
 }, {
 	operator: ["s:-"],
 	id: 26,
+	deId: 2,
 	description: "Subtract the strategic number value of the second operand from the first operand."
 }, {
 	operator: ["s:*"],
 	id: 27,
+	deId: 3,
 	description: "Multiply the first operand by the strategic number value of the second operand."
 }, {
 	operator: ["s:z/"],
 	id: 28,
+	deId: 9,
 	description: "Divide the first operand by the strategic number value of the second operand. The quotient is rounded down to the nearest integer."
 }, {
 	operator: ["s:/"],
 	id: 29,
+	deId: 4,
 	description: "Divide the first operand by the strategic number value of the second operand. The quotient is rounded to the nearest integer."
 }, {
 	operator: ["s:mod"],
 	id: 30,
+	deId: 7,
 	description: "Divide the first operand by the strategic number value of the second operand. Store the remainder instead of the quotient."
 }, {
 	operator: ["s:min"],
 	id: 31,
+	deId: 5,
 	description: "Store the smallest value between the first operand and the strategic number value of the second operand."
 }, {
 	operator: ["s:max"],
 	id: 32,
+	deId: 6,
 	description: "Store the largest value between the first operand and the strategic number value of the second operand."
 }, {
 	operator: ["s:neg"],
 	id: 33,
+	deId: 8,
 	description: "Negate the strategic number value of the second operand and store the result in the first operand. If the strategic number is already negative, this will store its positive value."
 }, {
-	operator: ["s:%*"],
-	id: 34,
-	description: "Treat the strategic number value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
-}, {
 	operator: ["s:%/"],
-	id: 35,
+	id: 34,
+	deId: 11,
 	description: "Divide the first operand by the strategic number value of the second operand, and convert the quotient to a percent, rounded to the nearest integer, i.e. (first operand / second operand * 100)."
+}, {
+	operator: ["s:%*"],
+	id: 35,
+	deId: 10,
+	description: "Treat the strategic number value of the second operand as a percentage and find that percentage of the first parameter, rounded to the nearest integer, i.e. (first operand * second operand / 100)."
 } ];
 
 //typeOp
@@ -14242,14 +14298,17 @@ pTypeOp.relatedParams = [pCompareOp, pMathOp];
 pTypeOp.operatorTypes = [ {
 	operator: ["c:"],
 	id: 6,
+	deId: 0,
 	description: "Treats the following parameter as a constant. If the following parameter is a defined value, such as a goal or a unit type, this will use the numeric Id value assigned to this parameter."
 }, {
 	operator: ["g:"],
 	id: 13,
+	deId: 2,
 	description: "Treats the following parameter as a goal and reference the value that the goal is set to."
 }, {
 	operator: ["s:"],
 	id: 20,
+	deId: 1,
 	description: "Treats the following parameter as a strategic number and reference the value that the strategic number is set to."
 } ];
 
@@ -15413,7 +15472,7 @@ pFactId.valueList = [ {
 }, {
 	name: "players-in-game",
 	id: 42,
-	description: "The number of players in the game that match the given stance. The AI player is considered allied with itself, so the number of allied players in the game includes itself. To get the total number of players, use &quot;any&quot as the PlayersStance.",
+	description: "The number of players in the game that match the given stance (any, ally, neutral, or enemy). To get the total number of players, use &quot;any&quot as the PlayersStance. The AI player is considered allied with itself, so the number of allied players in the game includes itself.",
 	parameter: pPlayerStance.getLink(),
 	players: "self"
 }, {
@@ -16342,11 +16401,11 @@ pObjectStatus.valueList = [ {
 }, {
 	name: "status-ready",
 	id: 2,
-	description: "Most active objects. Also includes live animals, live trees"
+	description: "Default. Most active objects. Also includes live animals, live trees."
 }, {
 	name: "status-resource",
 	id: 3,
-	description: "Some resources: berries, down trees, gold, and stone"
+	description: "Some resources: berries, down trees, gold, and stone."
 }, {
 	name: "status-down",
 	id: 4,
