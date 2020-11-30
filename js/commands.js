@@ -4644,7 +4644,7 @@ snMaximumWoodDropDistance.default = -1;
 snMaximumWoodDropDistance.category = "Economy";
 snMaximumWoodDropDistance.min = -32767;
 snMaximumWoodDropDistance.max = 32768;
-snMaximumWoodDropDistance.rmin = -1;
+snMaximumWoodDropDistance.rmin = -2;
 snMaximumWoodDropDistance.rmax = 255;
 snMaximumWoodDropDistance.network = 0;
 snMaximumWoodDropDistance.defined = 1;
@@ -4652,7 +4652,8 @@ snMaximumWoodDropDistance.available = 0;
 snMaximumWoodDropDistance.version = "1.0c";
 snMaximumWoodDropDistance.linked = [ 164 ];
 snMaximumWoodDropDistance.related = [ 234, 235, 236, 237, 238 ];
-snMaximumWoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+snMaximumWoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumWoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables wood gathering.";
 
 snMaximumFoodDropDistance.id = 234;
 snMaximumFoodDropDistance.snName = "sn-maximum-food-drop-distance";
@@ -4660,7 +4661,7 @@ snMaximumFoodDropDistance.default = -1;
 snMaximumFoodDropDistance.category = "Economy";
 snMaximumFoodDropDistance.min = -32767;
 snMaximumFoodDropDistance.max = 32768;
-snMaximumFoodDropDistance.rmin = -1;
+snMaximumFoodDropDistance.rmin = -2;
 snMaximumFoodDropDistance.rmax = 255;
 snMaximumFoodDropDistance.network = 0;
 snMaximumFoodDropDistance.defined = 1;
@@ -4668,7 +4669,8 @@ snMaximumFoodDropDistance.available = 0;
 snMaximumFoodDropDistance.version = "1.0c";
 snMaximumFoodDropDistance.linked = [ 163, 235, 236 ];
 snMaximumFoodDropDistance.related = [ 233, 237, 238 ];
-snMaximumFoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+snMaximumFoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumFoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables all food gathering, except for hunting.";
 
 snMaximumHuntDropDistance.id = 235;
 snMaximumHuntDropDistance.snName = "sn-maximum-hunt-drop-distance";
@@ -4676,7 +4678,7 @@ snMaximumHuntDropDistance.default = -1;
 snMaximumHuntDropDistance.category = "Economy";
 snMaximumHuntDropDistance.min = -32767;
 snMaximumHuntDropDistance.max = 32768;
-snMaximumHuntDropDistance.rmin = -1;
+snMaximumHuntDropDistance.rmin = -2;
 snMaximumHuntDropDistance.rmax = 255;
 snMaximumHuntDropDistance.network = 0;
 snMaximumHuntDropDistance.defined = 1;
@@ -4684,7 +4686,8 @@ snMaximumHuntDropDistance.available = 0;
 snMaximumHuntDropDistance.version = "1.0c";
 snMaximumHuntDropDistance.linked = [ 234, 236 ];
 snMaximumHuntDropDistance.related = [ 204, 252, 244, 245, 233, 237, 238 ];
-snMaximumHuntDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+snMaximumHuntDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumHuntDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables hunting gathering.";
 
 snMaximumFishBoatDropDistance.id = 236;
 snMaximumFishBoatDropDistance.snName = "sn-maximum-fish-boat-drop-distance";
@@ -4692,7 +4695,7 @@ snMaximumFishBoatDropDistance.default = -1;
 snMaximumFishBoatDropDistance.category = "Water";
 snMaximumFishBoatDropDistance.min = -32767;
 snMaximumFishBoatDropDistance.max = 32768;
-snMaximumFishBoatDropDistance.rmin = -1;
+snMaximumFishBoatDropDistance.rmin = -2;
 snMaximumFishBoatDropDistance.rmax = 255;
 snMaximumFishBoatDropDistance.network = 0;
 snMaximumFishBoatDropDistance.defined = 1;
@@ -4700,7 +4703,8 @@ snMaximumFishBoatDropDistance.available = "available, except for water maps, how
 snMaximumFishBoatDropDistance.version = "1.0c";
 snMaximumFishBoatDropDistance.linked = [ 234, 235 ];
 snMaximumFishBoatDropDistance.related = [ 233, 237, 238 ];
-snMaximumFishBoatDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water.";
+snMaximumFishBoatDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumFishBoatDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water. -2 disables fish gathering for fishing ships.";
 
 snMaximumGoldDropDistance.id = 237;
 snMaximumGoldDropDistance.snName = "sn-maximum-gold-drop-distance";
@@ -4708,7 +4712,7 @@ snMaximumGoldDropDistance.default = -1;
 snMaximumGoldDropDistance.category = "Economy";
 snMaximumGoldDropDistance.min = -32767;
 snMaximumGoldDropDistance.max = 32768;
-snMaximumGoldDropDistance.rmin = -1;
+snMaximumGoldDropDistance.rmin = -2;
 snMaximumGoldDropDistance.rmax = 255;
 snMaximumGoldDropDistance.network = 0;
 snMaximumGoldDropDistance.defined = 1;
@@ -4716,7 +4720,8 @@ snMaximumGoldDropDistance.available = 0;
 snMaximumGoldDropDistance.version = "1.0c";
 snMaximumGoldDropDistance.linked = [ 166 ];
 snMaximumGoldDropDistance.related = [ 233, 234, 235, 236, 238 ];
-snMaximumGoldDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).";
+snMaximumGoldDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumGoldDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables gold gathering.";
 
 snMaximumStoneDropDistance.id = 238;
 snMaximumStoneDropDistance.snName = "sn-maximum-stone-drop-distance";
@@ -4724,7 +4729,7 @@ snMaximumStoneDropDistance.default = -1;
 snMaximumStoneDropDistance.category = "Economy";
 snMaximumStoneDropDistance.min = -32767;
 snMaximumStoneDropDistance.max = 32768;
-snMaximumStoneDropDistance.rmin = -1;
+snMaximumStoneDropDistance.rmin = -2;
 snMaximumStoneDropDistance.rmax = 255;
 snMaximumStoneDropDistance.network = 0;
 snMaximumStoneDropDistance.defined = 1;
@@ -4732,7 +4737,8 @@ snMaximumStoneDropDistance.available = 0;
 snMaximumStoneDropDistance.version = "1.0c";
 snMaximumStoneDropDistance.linked = [ 165 ];
 snMaximumStoneDropDistance.related = [ 233, 234, 235, 236, 237 ];
-snMaximumStoneDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). By setting the parameters to the appropriate value it is possible to avoid having villagers walk all over the map to gather resources.";
+snMaximumStoneDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
+snMaximumStoneDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).  -2 disables wood gathering.";
 
 snGatherIdleSoldiersAtCenter.id = 239;
 snGatherIdleSoldiersAtCenter.snName = "sn-gather-idle-soldiers-at-center";
@@ -14004,33 +14010,33 @@ pCompareOp.prefixTypes = [ {
 pCompareOp.operatorTypes = [ {
 	operator: ["c:&#60;", "&#60;", "less-than"],
 	id: 0,
-	deId: 18,
-	description: "Less than."
+	deId: "0,18",
+	description: "Less than. In DE, the first DE ID is for &#60; and the second DE ID is for c:&#60;."
 }, {
 	operator: ["c:&#60;=", "&#60;=","less-or-equal"],
 	id: 1,
-	deId: 19,
-	description: "Less than or equal."
+	deId: "1,19",
+	description: "Less than or equal. In DE, the first DE ID is for &#60;= and the second DE ID is for c:&#60;=."
 }, {
 	operator: ["c:&#62;", "&#62;", "greater-than"],
 	id: 2,
-	deId: 20,
-	description: "Greater than."
+	deId: "2,20",
+	description: "Greater than. In DE, the first DE ID is for &#62; and the second DE ID is for c:&#62;."
 }, {
 	operator: ["c:&#62;=", "&#62;=", "greater-or-equal"],
 	id: 3,
-	deId: 21,
-	description: "Greater than or equal."
+	deId: "3,21",
+	description: "Greater than or equal. In DE, the first DE ID is for &#62;= and the second DE ID is for c:&#62;=."
 }, {
 	operator: ["c:==", "==", "equal"],
 	id: 4,
-	deId: 22,
-	description: "Equal. Note: one equals sign (=) is an assignment operator used in the " + pMathOp.getLink() + " operator. Always use \"==\" when you want to compare."
+	deId: "4,22",
+	description: "Equal. Note: one equals sign (=) is an assignment operator used in the " + pMathOp.getLink() + " operator. Always use \"==\" when you want to compare. In DE, the first DE ID is for == and the second DE ID is for c:==."
 }, {
 	operator: ["c:!=", "!=", "not-equal"],
 	id: 5,
-	deId: 23,
-	description: "Not equal."
+	deId: "5,23",
+	description: "Not equal. In DE, the first DE ID is for != and the second DE ID is for c:!=."
 }, {
 	operator: ["g:&#60;", "", ""],
 	id: 7,
@@ -19406,7 +19412,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-unique-research (DE only)"
+	notes: "can use my-unique-research"
 }, {	
 	name: "Perfusion",
 	aiName: "",
@@ -19419,7 +19425,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-second-unique-research"
+	notes: "can use my-second-unique-research (DE only)"
 }, {	
 	name: "Elite Tarkan",
 	aiName: "ri-elite-tarkan",
@@ -19486,7 +19492,7 @@ castleTechsArray = [ {
 	civ: "Incas",
 	notes: "can use my-second-unique-research (DE only)"
 }, {	
-	name: "Couriers/Fabric Shields",
+	name: "Fabric Shields/Couriers",
 	aiName: "",
 	weirdName: 0,
 	id: 517,
@@ -19668,7 +19674,7 @@ castleTechsArray = [ {
 	civ: "Koreans",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
-	name: "Panokseon",
+	name: "Eupseong/Panokseon",
 	aiName: "",
 	weirdName: 0,
 	id: 486,
