@@ -5646,7 +5646,7 @@ snWildAnimalExploration.shortDescription = "Allows wild horses, wild camel and b
 
 snTtkfactorScalar.id = 301;
 snTtkfactorScalar.snName = "sn-ttkfactor-scalar";
-snTtkfactorScalar.default = 0;
+snTtkfactorScalar.default = 100;
 snTtkfactorScalar.category = "Attack";
 snTtkfactorScalar.min = -32767;
 snTtkfactorScalar.max = 32768;
@@ -5658,7 +5658,7 @@ snTtkfactorScalar.available = 0;
 snTtkfactorScalar.version = "DE";
 snTtkfactorScalar.linked = [];
 snTtkfactorScalar.related = [];
-snTtkfactorScalar.shortDescription = "Time to kill an object scalar (in seconds). Likely affects retargeting against nearby units.";
+snTtkfactorScalar.shortDescription = "Time to kill an object scalar (in seconds). The scalar is a percentage. Likely affects retargeting against nearby units.";
 
 snMaximumPatrolDistance.id = 302;
 snMaximumPatrolDistance.snName = "sn-maximum-patrol-distance";
@@ -5674,11 +5674,11 @@ snMaximumPatrolDistance.available = 0;
 snMaximumPatrolDistance.version = "DE";
 snMaximumPatrolDistance.linked = [];
 snMaximumPatrolDistance.related = [];
-snMaximumPatrolDistance.shortDescription = "How far a unit likes to travel from the patrol path, if the unit goes outside this distance on the patrol path, it'll return to patrolling.";
+snMaximumPatrolDistance.shortDescription = "How far a unit likes to travel from the patrol path, if the unit goes outside this distance on the patrol path, it'll return to patrolling. -1 means no maximum distance.";
 
 snVillagerAttackReset.id = 303;
 snVillagerAttackReset.snName = "sn-villager-attack-reset";
-snVillagerAttackReset.default = 0;
+snVillagerAttackReset.default = 1;
 snVillagerAttackReset.category = "Economy";
 snVillagerAttackReset.min = -32767;
 snVillagerAttackReset.max = 32768;
@@ -5690,7 +5690,7 @@ snVillagerAttackReset.available = 0;
 snVillagerAttackReset.version = "DE";
 snVillagerAttackReset.linked = [];
 snVillagerAttackReset.related = [];
-snVillagerAttackReset.shortDescription = "Disables the auto-villager attack reset so you can attack distant units/targets with villagers. If set to 0, stops the villager from automatically retasking after being tasked to attack.";
+snVillagerAttackReset.shortDescription = "If set to 0, disables the auto-villager attack reset so you can attack distant units/targets with villagers.";
 
 snGateTypeForWall.id = 304;
 snGateTypeForWall.snName = "sn-gate-type-for-wall";
@@ -16448,11 +16448,11 @@ pObjectData.valueList = [ {
 	description: "Returns 1 if the object is a full hero (hero flag 1) or it has the no-convert flag set (hero flag 2, see object-data-hero-flags for details). Unconvertible buildings like town centers and castles return 0 because their no-convert feature is hard-coded separately from hero non-conversion."
 }, {
 	name: "object-data-frame-delay",
-	id: 79,
+	id: 78,
 	description: "The object's frame delay. Frame delay is the number of frames between the start of the attack animation and the launch of the projectile. Unfortunately, the duration of each frame in the animation is different for each unit, so it's very difficult to calculate the precise duration of frame delay."
 }, {
 	name: "object-data-attack-count",
-	id: 70,
+	id: 79,
 	description: "The number of times the object has tried to damage its target."
 }, {
 	name: "object-data-to-precise",
