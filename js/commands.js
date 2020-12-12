@@ -14748,7 +14748,7 @@ pBorder.range = "0 to 32767.";
 pBorder.relatedParams = [pPoint, pPositionType, pPrecise, pTiles];
 
 //BuildingId
-pBuildingId.description = "A building object, either the defined building type name, the object ID assigned to it, or the building's class. Sometimes can also be a building line. See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for reference.";
+pBuildingId.description = "A building object, either the defined building type name, the object ID assigned to it, or the building's class. Sometimes can also be a building line. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for reference.";
 pBuildingId.shortDescription = "A building object, either the defined building type name, the object ID assigned to it, or the building's class.";
 pBuildingId.range = "A valid building ID.";
 pBuildingId.relatedParams = [pClassId, pObjectId, pId, pTypeId, pUnitId, pUpgradeId, pWallId];
@@ -14909,7 +14909,7 @@ pCiv.valueList = [ {
 } ];
 
 //ClassId
-pClassId.description = "A class ID. Each object in the game is assigned a class that contains other similar objects. Class IDs can often be used in place of a unit ID. Classes with an asterisk (*) in the name must be defined with a defconst. All other classes are defined in the UserPatchConst.per file that comes with a UserPatch installation.</p><p>See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> to see which units belong to each class.";
+pClassId.description = "A class ID. Each object in the game is assigned a class that contains other similar objects. Class IDs can often be used in place of a unit ID. Classes with an asterisk (*) in the name must be defined with a defconst. All other classes are defined in the UserPatchConst.per file that comes with a UserPatch installation.</p><p>See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> to see which units belong to each class.";
 pClassId.shortDescription = "A class ID.";
 pClassId.range = "-1, 900 to 999.";
 pClassId.relatedParams = [pBuildingId, pCmdId, pObjectId, pSourceClass, pTargetClass, pTypeId, pUnitId];
@@ -16477,7 +16477,7 @@ pObjectData.valueList = [ {
 } ];
 
 //ObjectId
-pObjectId.description = "A " + pUnitId.getLink() + " or a " + pBuildingId.getLink() + ". See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for details.";
+pObjectId.description = "A " + pUnitId.getLink() + " or a " + pBuildingId.getLink() + ". See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for details.";
 pObjectId.shortDescription = "A UnitId or a BuildingId.";
 pObjectId.range = "A valid " + pUnitId.getLink() + " or a valid " + pBuildingId.getLink() + ".";
 pObjectId.relatedParams = [pBuildingId, pClassId, pId, pTypeId, pUnitId, pUpgradeId];
@@ -18199,13 +18199,13 @@ pType.range = "A " + pGoalId.getLink() + ". These range from 1 to 512.";
 pType.relatedParams = [pGameType, pGuardState, pLimit, pVictory];
 
 //TypeId
-pTypeId.description = "The type of object. This can be either the object name or an object line ID. See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for a list of object names and object line wildcard parameters.";
+pTypeId.description = "The type of object. This can be either the object name or an object line ID. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of object names and object line wildcard parameters.";
 pTypeId.shortDescription = "The type of object.";
 pTypeId.range = "A valid " + pObjectId.getLink() + " or one of the object line wildcard parameters.";
 pTypeId.relatedParams = [pBuildingId, pClassId, pObjectId, pUnitId, pUpgradeId];
 
 //UnitId
-pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/resources/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
+pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
 pUnitId.shortDescription = "The object ID of a unit, the unit type name, or a unit's class.";
 pUnitId.range = "A valid UnitId.";
 pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId, pUpgradeId];
