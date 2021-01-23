@@ -4744,7 +4744,7 @@ snMaximumStoneDropDistance.version = "1.0c";
 snMaximumStoneDropDistance.linked = [ 165 ];
 snMaximumStoneDropDistance.related = [ 233, 234, 235, 236, 237 ];
 snMaximumStoneDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumStoneDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).  -2 disables wood gathering.";
+snMaximumStoneDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).  -2 disables stone gathering.";
 
 snGatherIdleSoldiersAtCenter.id = 239;
 snGatherIdleSoldiersAtCenter.snName = "sn-gather-idle-soldiers-at-center";
@@ -6135,7 +6135,7 @@ cCanBuyCommodity.commandParameters = [ {
 
 //can-research
 cCanResearch.shortDescription = "Checks if the given research can start.";
-cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles.</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>";
+cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>";
 cCanResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -7758,7 +7758,7 @@ cReleaseEscrow.commandParameters = [ {
 
 //research
 cResearch.shortDescription = "Researches the given item.";
-cResearch.description = "Researches the given item. To prevent cheating, this action uses the same criteria as the can-research fact to make sure the item can be researched.";
+cResearch.description = "Researches the given item. To prevent cheating, this action will fail if the item currently cannot be researched (i.e. the tech prerequisites are not met, there is no available building, or the player cannot afford the item).";
 cResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10473,7 +10473,7 @@ cUpGaiaTypeCountTotal.relatedCommands = [];
 
 //up-garrison
 cUpGarrison.shortDescription = "Garrison all units of the specified type into another object.";
-cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line).";
+cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line). DE requires \"feudal-battering-ram\" (ID 1258) instead of battering-ram.";
 cUpGarrison.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -10497,8 +10497,11 @@ cUpGarrison.commandParameters = [ {
 	note: "The type of unit that will be garrisoned."
 } ];
 cUpGarrison.example = [ {
-	title: "Garrison all available infantry into battering rams.",
+	title: "Garrison all available infantry into battering rams. Non-DE example only.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison battering-ram c: infantry-class) ; infantry-class = 906\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Garrison all available infantry into battering rams. DE requires you to use \"feudal-battering-ram\" (ID 1258) for all civs because the base battering ram unit was changed when they implemented the Cuman civ bonus.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison feudal-battering-ram c: infantry-class) ; infantry-class = 906\r\n\t(disable-self)\r\n)"
 }, {
 	title: "Garrison all available archers into towers.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison watch-tower c: archer-line)\r\n\t(disable-self)\r\n)"
@@ -10563,6 +10566,7 @@ cUpGetAttackerClass.relatedCommands = [];
 
 //up-get-cost-delta
 cUpGetCostDelta.shortDescription = "Get the difference between player resources and the current cost data.";
+cUpGetCostDelta.description = "Get the difference between player resources and the current cost data, and store this difference in four consecutive goals in the order of food, wood, stone, and gold.</p><p>The calculation is the current stockpile minus the current amount stored in the four cost goals from the most recent " + cUpSetupCostData.getLink() + " command.";
 cUpGetCostDelta.commandParameters = [ {
 	nameLink: pId.getLink(),
 	name: "Id",
@@ -10572,8 +10576,8 @@ cUpGetCostDelta.commandParameters = [ {
 	note: "The first of 4 consecutive goals to store the cost delta for food, wood, stone, and gold."
 } ];
 cUpGetCostDelta.example = [ {
-	title: "Store the resource difference into the 4 goals starting with gl-delta-food.",
-	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defconst gl-delta-food 121)\r\n(defconst gl-delta-wood 122)\r\n(defconst gl-delta-stone 123)\r\n(defconst gl-delta-gold 124)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 1 gl-cost-food)\r\n\t(up-add-object-cost c: archer-line c: 10)\r\n\t(up-get-cost-delta gl-delta-food)\r\n\t(disable-self)\r\n)"
+	title: "Store the resource difference into the 4 goals starting with gl-delta-food. If the current stockpile is 100 food, 300 wood, 50 stone, and 200 gold, then the code from the following example will store 100 in gl-delta-food, 50 in gl-delta-wood, 50 in gl-delta-stone, and -250 in gl-delta-gold.",
+	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defconst gl-delta-food 121)\r\n(defconst gl-delta-wood 122)\r\n(defconst gl-delta-stone 123)\r\n(defconst gl-delta-gold 124)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 1 gl-cost-food)\r\n\t(up-add-object-cost c: archer-line c: 10) ;stores 250 in gl-cost-wood, 450 in gl-cost-gold, and 0 in gl-cost-food and gl-cost-stone (smaller amounts for Mayans civ)\r\n\t(up-get-cost-delta gl-delta-food)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGetCostDelta.relatedCommands = [];
 
@@ -13972,7 +13976,10 @@ cUpUngarrison.example = [ {
 	title: "Release all garrisoned units in docks.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: dock)\r\n\t(disable-self)\r\n)"
 }, {
-	title: "Release all garrisoned units in battering rams.",
+	title: "Release all garrisoned units in battering rams. Non-DE example.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram-line)\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Release all garrisoned units in battering rams. In DE, you must use feudal-battering-ram instead since the base battering ram",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram-line)\r\n\t(disable-self)\r\n)"
 } ];
 cUpUngarrison.relatedCommands = [];
@@ -18244,7 +18251,7 @@ pUnitId.wildcardParam = [ {
 }, {
 	name: "battering-ram-line",
 	id: -291,
-	description: "Includes battering-ram, capped-ram, and siege-ram."
+	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE."
 }, {
 	name: "mangonel-line",
 	id: -290,
@@ -24028,6 +24035,25 @@ objectsMonasteryArray = [ {
 }];	
 	
 objectsSiegeWorkshopArray = [ {	
+	name: "Battering Ram (Feudal)",
+	aiName: "feudal-battering-ram",
+	line: "battering-ram-line",
+	id: 1258,
+	class: "siege-weapon-class",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 2,
+	deadUnit: "23",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "In DE, this unit ID is now the base unit for ALL civs. ID 35 is an upgrade."
+}, {	
 	name: "Battering Ram",
 	aiName: "battering-ram",
 	line: "battering-ram-line",
