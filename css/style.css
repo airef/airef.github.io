@@ -79,7 +79,7 @@ table {
 	cursor: default;
 }
 
-table#index-table {
+table#index-table, table.index-table {
 	width: 100%;
 }
 
@@ -216,7 +216,7 @@ code {
 	line-height: 1.5;
 }
 
-#commandsInput, #parametersInput, #valueListInput, #wildcardParamInput {
+#commandsInput, #parametersInput, #valueListInput, #wildcardParamInput, #searchInput {
 	width: 78%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -446,4 +446,8 @@ blockquote {
 
 .multiple-id-object {
 	background-color: #fcc;
+}
+
+.highlight { 
+	background-color: red; 
 }

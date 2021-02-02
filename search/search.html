@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Commands Index</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Search</h2>
+		<p>Type in search bar to search through the names and descriptions of all commands, parameters, parameter values, and strategic numbers.</p>
+		<p>
+			<label for="searchInput" class="input-label">Search</label>
+			<input type="text" id="searchInput" onkeyup="searchFilter()" placeholder="Search entire site..." autocomplete="off" autofocus="autofocus">
+		</p>
+		<p id="num-results"></p>
+		<p id="searchTable"></p>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "search";
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
+	
+	<script>
+	</script>
+	<script>
+		function searchFilter() {
+			// Declare variables
+			var input, filter, num, text;
+			var nameUpper, descriptionUpper, valueNameUpper, valueDescUpper, commandNum, parameterNum, paramValueNum, snNum;
+			input = document.getElementById("searchInput");
+			filter = input.value.toUpperCase();
+			num = 0;
+
+			text = "<h3 id=\"commands-header\">Commands</h3><table class=\"index-table\" id=\"commands-table\">";
+			text += "<tr><th>Command Name</th><th>Description</th><th>Match Type</th></tr>";
+			for(var i = 0; i < commandsArray.length; i++) {
+				nameUpper = commandsArray[i].commandName.toUpperCase();
+				descriptionUpper = commandsArray[i].description.toUpperCase();
+				if (! (descriptionUpper)) {
+					descriptionUpper = commandsArray[i].shortDescription.toUpperCase();
+				}
+				if (nameUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"command-name\" title=\"" + commandsArray[i].commandName;
+					text += "\">" + commandsArray[i].getLink() + "</td>";
+					text += "<td>" + commandsArray[i].shortDescription + "</td>";
+					text += "<td>Name</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+				else if (descriptionUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"command-name\" title=\"" + commandsArray[i].commandName;
+					text += "\">" + commandsArray[i].getLink() + "</td>";
+					text += "<td>" + commandsArray[i].shortDescription + "</td>";
+					text += "<td>Description</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+			}
+			commandNum = num;
+			text += "</table>"
+			text += "<h3 id=\"parameters-header\" style=\"padding-top: 15px\">Parameters</h3><table class=\"index-table\" id=\"parameters-table\">";
+			text += "<tr><th>Page Name</th><th>Description</th><th>Match Type</th></tr>";
+			for(var i = 0; i < parametersArray.length; i++) {
+				nameUpper = parametersArray[i].upParamName.toUpperCase();
+				descriptionUpper = parametersArray[i].description.toUpperCase();
+				if (! (descriptionUpper)) {
+					descriptionUpper = parametersArray[i].shortDescription.toUpperCase();
+				}
+				if (nameUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+					text += "\">" + parametersArray[i].getLink() + "</td>";
+					text += "<td>" + parametersArray[i].shortDescription + "</td>";
+					text += "<td>Name</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+				else if (descriptionUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+					text += "\">" + parametersArray[i].getLink() + "</td>";
+					text += "<td>" + parametersArray[i].shortDescription + "</td>";
+					text += "<td>Description</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+			}
+			parameterNum = num - commandNum;
+			text += "</table>"
+			text += "<h3 id=\"param-values-header\" style=\"padding-top: 15px\">Parameter Values</h3><table class=\"index-table\" id=\"param-values-table\">";
+			text += "<tr><th>Parameter Value Name</th><th>Description</th><th>Parameter</th><th>Match Type</th></tr>";
+			for(var i = 0; i < parametersArray.length; i++) {
+				nameUpper = parametersArray[i].upParamName.toUpperCase();
+				descriptionUpper = parametersArray[i].description.toUpperCase();
+				if (! (descriptionUpper)) {
+					descriptionUpper = parametersArray[i].shortDescription.toUpperCase();
+				}
+				if (parametersArray[i].operatorTypes.length > 0) {
+					for (j = 0; j < parametersArray[i].operatorTypes.length; j++) {
+						valueNameUpper = parametersArray[i].operatorTypes[j].operator[0].toUpperCase();
+						valueDescUpper = parametersArray[i].operatorTypes[j].description.toUpperCase();
+						if (valueNameUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].operatorTypes[j].operator[0] + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].operatorTypes[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Name</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+						else if (valueDescUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].operatorTypes[j].operator[0] + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].operatorTypes[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Description</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+					}
+				}
+				else if (parametersArray[i].valueList.length > 0) {
+					for (j = 0; j < parametersArray[i].valueList.length; j++) {
+						valueNameUpper = parametersArray[i].valueList[j].name.toUpperCase();
+						valueDescUpper = parametersArray[i].valueList[j].description.toUpperCase();
+						if (valueNameUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].valueList[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].valueList[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Name</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+						else if (valueDescUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].valueList[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].valueList[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Description</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+					}
+				}
+				else if (parametersArray[i].wildcardParam.length > 0) {
+					for (j = 0; j < parametersArray[i].wildcardParam.length; j++) {
+						valueNameUpper = parametersArray[i].wildcardParam[j].name.toUpperCase();
+						valueDescUpper = parametersArray[i].wildcardParam[j].description.toUpperCase();
+						if (valueNameUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].wildcardParam[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].wildcardParam[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Name</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+						else if (valueDescUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].wildcardParam[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].wildcardParam[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Description</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+					}
+				}
+				else if (parametersArray[i].ruleVariables.length > 0) {
+					for (j = 0; j < parametersArray[i].ruleVariables.length; j++) {
+						valueNameUpper = parametersArray[i].ruleVariables[j].name.toUpperCase();
+						valueDescUpper = parametersArray[i].ruleVariables[j].description.toUpperCase();
+						if (valueNameUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].ruleVariables[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].ruleVariables[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Name</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+						else if (valueDescUpper.indexOf(filter) > -1) {
+							text += "<tr>";
+							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
+							text += "\">" + '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + parametersArray[i].upParamName + '">' + parametersArray[i].ruleVariables[j].name + '</a>' + "</td>";
+							text += "<td>" + parametersArray[i].ruleVariables[j].description + "</td>";
+							text += "<td>" + parametersArray[i].getLink() + "</td>";
+							text += "<td>Description</td>";
+							text += "</tr>";
+							num = num + 1;
+						}
+					}
+				}
+			}
+			paramValueNum = num - commandNum - parameterNum;
+			text += "</table>"
+			text += "<h3 id=\"sn-header\" style=\"padding-top: 15px\">Strategic Numbers</h3><table class=\"index-table\" id=\"sn-table\">";
+			text += "<tr><th>Page Name</th><th>Description</th><th>Match Type</th></tr>";
+			for(var i = 0; i < snArray.length; i++) {
+				nameUpper = snArray[i].snName.toUpperCase();
+				descriptionUpper = snArray[i].description.toUpperCase();
+				if (! (descriptionUpper)) {
+					descriptionUpper = snArray[i].shortDescription.toUpperCase();
+				}
+				if (nameUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"sn-name\" title=\"" + snArray[i].snName;
+					text += "\">" + snArray[i].getLink() + "</td>";
+					text += "<td>" + snArray[i].shortDescription + "</td>";
+					text += "<td>Name</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+				else if (descriptionUpper.indexOf(filter) > -1) {
+					text += "<tr>";
+					text += "<td class=\"sn-name\" title=\"" + snArray[i].snName;
+					text += "\">" + snArray[i].getLink() + "</td>";
+					text += "<td>" + snArray[i].shortDescription + "</td>";
+					text += "<td>Description</td>";
+					text += "</tr>";
+					num = num + 1;
+				}
+			}
+			snNum = num - commandNum - parameterNum - paramValueNum;
+			text += "</table>"
+			document.getElementById("searchTable").innerHTML = text;
+
+			// Loop through all table rows, and hide those who don't match the search query
+			/*for (i = 0; i < tr.length; i++) {
+				tdName = tr[i].getElementsByTagName("td")[0];
+				tdDescription = tr[i].getElementsByTagName("td")[1];
+
+				if (tdName) {
+					txtName = tdName.textContent || tdName.innerText;
+					txtDescription = tdDescription.textContent || tdDescription.innerText;
+					if (txtName.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+						num = num + 1;
+					}
+					else if (txtDescription.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+						num = num + 1;
+					}
+					else {
+						tr[i].style.display = "none";
+					}
+				}
+			}*/
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+			if (commandNum == 0) {
+				document.getElementById("commands-header").style.display = "none";
+				document.getElementById("commands-table").style.display = "none";
+			}
+			if (parameterNum == 0) {
+				document.getElementById("parameters-header").style.display = "none";
+				document.getElementById("parameters-table").style.display = "none";
+			}
+			if (paramValueNum == 0) {
+				document.getElementById("param-values-header").style.display = "none";
+				document.getElementById("param-values-table").style.display = "none";
+			}
+			if (snNum == 0) {
+				document.getElementById("sn-header").style.display = "none";
+				document.getElementById("sn-table").style.display = "none";
+			}
+		}
+
+
+		/**
+		 * Highlight keywords inside a DOM element
+		 * @param {string} elem Element to search for keywords in
+		 * @param {string[]} keywords Keywords to highlight
+		 * @param {boolean} caseSensitive Differenciate between capital and lowercase letters
+		 * @param {string} cls Class to apply to the highlighted keyword
+		 */
+		function highlight(elem, keywords, caseSensitive = false, cls = 'highlight') {
+		const flags = caseSensitive ? 'gi' : 'g';
+		// Sort longer matches first to avoid
+		// highlighting keywords within keywords.
+		keywords.sort((a, b) => b.length - a.length);
+		Array.from(elem.childNodes).forEach(child => {
+			const keywordRegex = RegExp(keywords.join('|'), flags);
+			if (child.nodeType !== 3) { // not a text node
+			highlight(child, keywords, caseSensitive, cls);
+			} else if (keywordRegex.test(child.textContent)) {
+			const frag = document.createDocumentFragment();
+			let lastIdx = 0;
+			child.textContent.replace(keywordRegex, (match, idx) => {
+				const part = document.createTextNode(child.textContent.slice(lastIdx, idx));
+				const highlighted = document.createElement('span');
+				highlighted.textContent = match;
+				highlighted.classList.add(cls);
+				frag.appendChild(part);
+				frag.appendChild(highlighted);
+				lastIdx = idx + match.length;
+			});
+			const end = document.createTextNode(child.textContent.slice(lastIdx));
+			frag.appendChild(end);
+			child.parentNode.replaceChild(frag, child);
+			}
+		});
+		}
+	</script>
+</body>
+</html>
