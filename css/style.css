@@ -1,5 +1,5 @@
 body {
-	background-color: #ccc;
+	background-color: #333;
 	margin: 0;
 }
 
@@ -9,7 +9,7 @@ body {
 	max-width: 70%;
 	padding: 12px;
 	border: 1px solid #000;
-	box-shadow: 0 0 10px #666;
+	box-shadow: 0 0 15px #fff;
 }
 
 .header	{
@@ -143,17 +143,17 @@ td {
 }
 
 h1 {
-	font: 28pt "Georgia", Arial, sans-serif;
+	font: 32pt 'Crimson Text', "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
 }
 
 h2 {
-	font: 24pt "Georgia", Arial, sans-serif;
+	font: 26pt 'Crimson Text', "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
 }
 
 h3 {
-	font: 16pt "Georgia", Arial, sans-serif;
+	font: 18pt 'Crimson Text', "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
 }
 
