@@ -14913,6 +14913,14 @@ pCiv.valueList = [ {
 	name: "lithuanians",
 	id: 35,
 	description: "Lithuanians. Must define with a defconst before it can be used."
+}, {
+	name: "burgundians",
+	id: 36,
+	description: "Burgundians. Must define with a defconst before it can be used."
+}, {
+	name: "sicilians",
+	id: 37,
+	description: "Sicilians. Must define with a defconst before it can be used."
 } ];
 
 //ClassId
@@ -15205,12 +15213,12 @@ pData.relatedParams = [pObjectData];
 //Difficulty
 pDifficulty.description = "The current difficulty level. The ordering of difficulty settings is the opposite of what one would expect!: easiest > easy > moderate > hard > hardest. Make sure that this is taken in account when using facts to compare difficulties.";
 pDifficulty.shortDescription = "The current difficulty level.";
-pDifficulty.range = "0 to 4. Range is -1 to 4 for AoE2:DE.";
+pDifficulty.range = "0 to 4. Range is -1 to 4 for DE.";
 pDifficulty.relatedParams = [pDiffParameterId];
 pDifficulty.valueList = [ {
 	name: "extreme",
 	id: -1,
-	description: "Extreme difficulty. Defined only for AoE2:DE."
+	description: "Extreme difficulty. Defined only for DE."
 }, {
 	name: "hardest",
 	id: 0,
@@ -18219,239 +18227,313 @@ pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId, pUpgrad
 pUnitId.wildcardParam = [ {
 	name: "archer-line",
 	id: -299,
+	deId: -299,
 	description: "Includes archer, crossbowman, and arbalest."
 }, {
 	name: "cavalry-archer-line",
 	id: -298,
+	deId: -298,
 	description: "Includes cavalry-archer and heavy-cavalry-archer."
 }, {
 	name: "skirmisher-line",
 	id: -297,
+	deId: -297,
 	description: "Includes skirmisher and elite-skirmisher. DE also includes imperial-skirmisher. WK does not."
 }, {
 	name: "militiaman-line",
 	id: -296,
+	deId: -296,
 	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion."
 }, {
 	name: "spearman-line",
 	id: -295,
+	deId: -295,
 	description: "Includes spearman, pikeman, and halberdier."
 }, {
 	name: "demolition-ship-line",
 	id: -294,
+	deId: -294,
 	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship."
 }, {
 	name: "fire-ship-line",
 	id: -293,
+	deId: -293,
 	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship."
 }, {
 	name: "galley-line",
 	id: -292,
+	deId: -292,
 	description: "Includes galley, war-galley, and galleon."
 }, {
 	name: "battering-ram-line",
 	id: -291,
+	deId: -291,
 	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE."
 }, {
 	name: "mangonel-line",
 	id: -290,
+	deId: -290,
 	description: "Includes mangonel, onager (not WK), and siege-onager."
 }, {
 	name: "scorpion-line",
 	id: -289,
+	deId: -289,
 	description: "Includes scorpion and heavy-scorpion."
 }, {
 	name: "camel-line",
 	id: -288,
+	deId: -288,
 	description: "Includes camel and heavy-camel. DE also includes imperial-camel."
 }, {
 	name: "knight-line",
 	id: -287,
+	deId: -287,
 	description: "Includes knight, cavalier, and paladin."
 }, {
 	name: "scout-cavalry-line",
 	id: -286,
+	deId: -286,
 	description: "Includes scout-cavalry, light-cavalry, and hussar."
 }, {
 	name: "cannon-galleon-line",
 	id: -285,
+	deId: -284,
 	description: "Includes cannon-galleon and elite-cannon-galleon."
 }, {
 	name: "longboat-line",
 	id: -284,
+	deId: -283,
 	description: "Includes longboat and elite-longboat."
 }, {
 	name: "turtle-ship-line",
 	id: -283,
+	deId: -282,
 	description: "Includes turtle-ship and elite-turtle-ship."
 }, {
 	name: "berserk-line",
 	id: -282,
+	deId: -281,
 	description: "Includes berserk and elite-berserk."
 }, {
 	name: "cataphract-line",
 	id: -281,
+	deId: -280,
 	description: "Includes cataphract and elite-cataphract."
 }, {
 	name: "chu-ko-nu-line",
 	id: -280,
+	deId: -279,
 	description: "Includes chu-ko-nu and elite-chu-ko-nu."
 }, {
 	name: "huskarl-line",
 	id: -279,
+	deId: -278,
 	description: "Includes huskarl and elite-huskarl. Doesn't include huskarls trained at the Barracks."
 }, {
 	name: "janissary-line",
 	id: -278,
+	deId: -277,
 	description: "Includes janissary and elite-janissary."
 }, {
 	name: "longbowman-line",
 	id: -277,
+	deId: -276,
 	description: "Includes longbowman and elite-longbowman."
 }, {
 	name: "mameluke-line",
 	id: -276,
+	deId: -275,
 	description: "Includes mameluke and elite-mameluke."
 }, {
 	name: "mangudai-line",
 	id: -275,
+	deId: -274,
 	description: "Includes mangudai and elite-mangudai."
 }, {
 	name: "samurai-line",
 	id: -274,
+	deId: -273,
 	description: "Includes samurai and elite-samurai."
 }, {
 	name: "teutonic-knight-line",
 	id: -273,
+	deId: -272,
 	description: "Includes teutonic-knight and elite-teutonic-knight."
 }, {
 	name: "throwing-axeman-line",
 	id: -272,
+	deId: -271,
 	description: "Includes throwing-axeman and elite-throwing-axeman."
 }, {
 	name: "war-elephant-line",
 	id: -271,
+	deId: -270,
 	description: "Includes war-elephant and elite-war-elephant."
 }, {
 	name: "war-wagon-line",
 	id: -270,
+	deId: -269,
 	description: "Includes war-wagon and elite-war-wagon."
 }, {
 	name: "woad-raider-line",
 	id: -269,
+	deId: -268,
 	description: "Includes woad-raider and elite-woad-raider."
 }, {
 	name: "jaguar-man-line",
 	id: -268,
+	deId: -267,
 	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
 }, {
 	name: "eagle-warrior-line",
 	id: -267,
+	deId: -266,
 	description: "Includes eagle-warrior (the Eagle Scout in WK and DE) and elite-eagle-warrior. DE also includes heavy-eagle-warrior (the Castle Age Eagle Warrior). WK does not."
 }, {
 	name: "plumed-archer-line",
 	id: -266,
+	deId: -265,
 	description: "Includes plumed-archer and elite-plumed-archer."
 }, {
 	name: "tarkan-line",
 	id: -265,
+	deId: -264,
 	description: "Includes tarkan and elite-tarkan. Does not include tarkans trained at the Stable."
 }, {
 	name: "conquistador-line",
 	id: -264,
+	deId: -263,
 	description: "Includes conquistador and elite-conquistador."
 }, {
 	name: "camel-archer-line",
-	id: -263,
+	id: "NA",
+	deId: -285,
 	description: "DE only. Includes camel-archer and elite-camel-archer."
 }, {
 	name: "genoese-crossbowman-line",
-	id: -262,
+	id: "NA",
+	deId: -262,
 	description: "DE only. Includes genoese-crossbowman and elite-genoese-crossbowman."
 }, {
 	name: "elephant-archer-line",
-	id: -261,
+	id: "NA",
+	deId: -261,
 	description: "DE only. Includes elephant-archer and elite-elephant-archer."
 }, {
 	name: "boyar-line",
-	id: -260,
+	id: "NA",
+	deId: -260,
 	description: "DE only. Includes boyar and elite-boyar."
 }, {
 	name: "magyar-huszar-line",
-	id: -259,
+	id: "NA",
+	deId: -259,
 	description: "DE only. Includes magyar-huszar and elite-maygar-huszar."
 }, {
 	name: "kamayuk-line",
-	id: -258,
+	id: "NA",
+	deId: -258,
 	description: "Includes kamayuk and elite-kamayuk."
 }, {
 	name: "caravel-line",
-	id: -257,
+	id: "NA",
+	deId: -257,
 	description: "DE only. Includes caravel and elite-caravel."
 }, {
 	name: "organ-gun-line",
-	id: -256,
+	id: "NA",
+	deId: -256,
 	description: "DE only. Includes organ-gun and elite-organ-gun."
 }, {
 	name: "gbeto-line",
-	id: -255,
+	id: "NA",
+	deId: -255,
 	description: "DE only. Includes gbeto and elite-gbeto."
 }, {
 	name: "shotel-warrior-line",
-	id: -254,
+	id: "NA",
+	deId: -254,
 	description: "DE only. Includes shotel-warrior and elite-shotel-warrior."
 }, {
 	name: "genitour-line",
-	id: -253,
+	id: "NA",
+	deId: -253,
 	description: "DE only. Includes genitour and elite-genitour."
 }, {
 	name: "ballista-elephant-line",
-	id: -252,
+	id: "NA",
+	deId: -252,
 	description: "DE only. Includes ballista-elephant and elite-ballista-elephant."
 }, {
 	name: "rattan-archer-line",
-	id: -251,
+	id: "NA",
+	deId: -251,
 	description: "DE only. Includes rattan-archer and elite-rattan-archer."
 }, {
 	name: "arambai-line",
-	id: -250,
+	id: "NA",
+	deId: -250,
 	description: "DE only. Includes arambai and elite-arambai."
 }, {
 	name: "battle-elephant-line",
-	id: -249,
+	id: "NA",
+	deId: -249,
 	description: "DE only. Includes battle-elephant and elite-battle-elephant."
 }, {
 	name: "karambit-warrior-line",
-	id: -248,
+	id: "NA",
+	deId: -248,
 	description: "DE only. Includes karambit-warrior and elite-karambit-warrior."
 }, {
 	name: "konnik-line",
-	id: -247,
+	id: "NA",
+	deId: -247,
 	description: "DE only. Includes konnik and elite-konnik. Does not include dismounted konniks or konniks trained from Kreposts."
 }, {
 	name: "krepost-konnik-line",
-	id: -246,
+	id: "NA",
+	deId: -246,
 	description: "DE only. Includes krepost-konnik and elite-krepost-konnik. Does not include konniks trained at the castle or dismounted konniks."
 }, {
 	name: "foot-konnik-line",
-	id: -245,
+	id: "NA",
+	deId: -245,
 	description: "DE only. Includes foot-konnik and elite-foot-konnik. Does not include mounted konniks."
 }, {
 	name: "leitis-line",
-	id: -244,
+	id: "NA",
+	deId: -244,
 	description: "DE only. Includes leitis and elite-leitis."
 }, {
 	name: "kipchak-line",
-	id: -243,
+	id: "NA",
+	deId: -243,
 	description: "DE only. Includes kipchak and elite-kipchak. Does not include kipchaks that allies can train after Cuman Mercenaries is researched."
 }, {
 	name: "keshik-line",
-	id: -242,
+	id: "NA",
+	deId: -242,
 	description: "DE only. Includes keshik and elite-keshik."
 }, {
 	name: "steppe-lancer-line",
-	id: -241,
+	id: "NA",
+	deId: -241,
 	description: "DE only. Includes steppe-lancer and elite-steppe-lancer."
+}, {
+	name: "coustillier-line",
+	id: "NA",
+	deId: -240,
+	description: "DE only. Includes coustillier and elite-coustillier."
+}, {
+	name: "serjeant-line",
+	id: "NA",
+	deId: -239,
+	description: "DE only. Includes serjeant and elite-serjeant."
+}, {
+	name: "donjon-serjeant-line",
+	id: "NA",
+	deId: -238,
+	description: "DE only. Includes donjon-serjeant and elite-donjon-serjeant."
 } ];
 
 //UpgradeId
@@ -19224,6 +19306,45 @@ castleTechsArray = [ {
 	civ: "Bulgarians",
 	notes: "can use my-unique-research"
 }, {	
+	name: "Elite Coustillier",
+	aiName: "ri-elite-coustillier",
+	weirdName: 2,
+	id: 751,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Burgundians",
+	notes: "can use my-unique-unit-upgrade, Lords of the West DLC only"
+}, {	
+	name: "Burgundian Vineyards",
+	aiName: "",
+	weirdName: 0,
+	id: 754,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Burgundians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Flemish Revolution",
+	aiName: "",
+	weirdName: 0,
+	id: 755,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Burgundians",
+	notes: "can use my-unique-research"
+}, {
 	name: "Elite Arambai",
 	aiName: "ri-elite-arambai",
 	weirdName: 2,
@@ -20171,6 +20292,45 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Saracens",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Serjeant",
+	aiName: "ri-elite-serjeant",
+	weirdName: 2,
+	id: 753,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Sicilians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "First Crusade",
+	aiName: "",
+	weirdName: 0,
+	id: 756,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Sicilians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Scutage",
+	aiName: "",
+	weirdName: 0,
+	id: 757,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Sicilians",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Boyar",
@@ -22239,6 +22399,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: "Can be counted with konnik-set"
 }, {
+	name: "Coustillier",
+	aiName: "coustillier",
+	line: "coustillier-line",
+	id: "1655",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1656",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {
+	name: "Elite Coustillier",
+	aiName: "elite-coustillier",
+	line: "coustillier-line",
+	id: "1657",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1656",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {
 	name: "Arambai",
 	aiName: "arambai",
 	line: "arambai-line",
@@ -23189,6 +23387,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Serjeant",
+	aiName: "serjeant",
+	line: "serjeant-line",
+	id: 1658,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 2,
+	deadUnit: "1662",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+}, {
+	name: "Elite Serjeant",
+	aiName: "elite-serjeant",
+	line: "serjeant-line",
+	id: 1659,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1662",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+}, {	
 	name: "Boyar",
 	aiName: "boyar",
 	line: "boyar-line",
@@ -23894,6 +24130,46 @@ objectsDockArray = [ {
 	de: 1,
 	notes: "Harbors also use projectiles 512 and 526"
 }];	
+
+objectsDonjonArray = [ {
+	name: "Serjeant (Donjon)",
+	aiName: "donjon-serjeant",
+	line: "donjon-serjeant-line",
+	id: 1660,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Donjon",
+	age: 2,
+	deadUnit: "1662",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+}, {
+	name: "Elite Serjeant (Donjon)",
+	aiName: "elite-donjon-serjeant",
+	line: "donjon-serjeant-line",
+	id: 1661,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1662",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+}];
 	
 objectsKrepostArray = [ {	
 	name: "Konnik (Krepost)",
@@ -24988,6 +25264,63 @@ objectsTownCenterArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Can be counted with villager-stone"
+}, {
+	name: "Flemish Militia (Male)",
+	aiName: "flemish-pikeman",
+	line: "",
+	id: 1663,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 4,
+	deadUnit: "1664",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 1,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {
+	name: "Flemish Militia (Female)",
+	aiName: "",
+	line: "",
+	id: 1697,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 4,
+	deadUnit: "1664",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {
+	name: "Flemish Militia (Train)",
+	aiName: "",
+	line: "",
+	id: 1699,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 4,
+	deadUnit: "1664",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "This is the unit you can train after Flemish Revolution is researched, Lords of the West DLC only"
 }];	
 	
 objectsBuildingsArray = [ {	
@@ -26191,7 +26524,7 @@ objectsBuildingsArray = [ {
 	name: "Stable (Imperial Age)",
 	aiName: "",
 	line: "",
-	id: 86,
+	id: 153,
 	class: "building-class",
 	cmdId: "cmdid-military-building",
 	building: "Buildings",
@@ -26415,6 +26748,25 @@ objectsBuildingsArray = [ {
 	wk: 0,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Donjon",
+	aiName: "donjon",
+	line: "",
+	id: 1665,
+	class: "tower-class",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1524",
+	projectile: "504, 505",
+	chemProjectile: "517, 518",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {	
 	name: "Palisade Gate (Ascending Closed)",
 	aiName: "",
@@ -29023,6 +29375,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Bernard d'Armagnac",
+	aiName: "",
+	line: "",
+	id: 1687,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1688",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "Bleda the Hun",
 	aiName: "",
 	line: "",
@@ -29041,6 +29412,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1371"
+}, {	
+	name: "Bohemond",
+	aiName: "",
+	line: "",
+	id: 1681,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1682",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {	
 	name: "Bui Bi",
 	aiName: "",
@@ -29194,6 +29584,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Dafydd ap Gruffydd",
+	aiName: "",
+	line: "",
+	id: 1685,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1686",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "Dagnajan",
 	aiName: "",
 	line: "",
@@ -29250,6 +29659,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Edward Longshanks",
+	aiName: "",
+	line: "",
+	id: 1669,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1670",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {	
 	name: "El Cid",
 	aiName: "",
@@ -29516,6 +29944,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Gilbert de Clare",
+	aiName: "",
+	line: "",
+	id: 1671,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1672",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {	
 	name: "Girgen Khan",
 	aiName: "",
@@ -29839,6 +30286,25 @@ objectsHeroesArray = [ {
 	wk: 0,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Jacqueline of Hainaut",
+	aiName: "",
+	line: "",
+	id: 1692,
+	class: "king-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1328",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {
 	name: "Jarl",
 	aiName: "",
@@ -29972,6 +30438,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "John the Fearless",
+	aiName: "",
+	line: "",
+	id: 1673,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1674",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {
 	name: "Khosrau",
 	aiName: "",
@@ -30258,6 +30743,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Llywelyn ap Gruffydd",
+	aiName: "",
+	line: "",
+	id: 1683,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1684",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "Lord de Graville",
 	aiName: "",
 	line: "",
@@ -30524,6 +31028,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1633"
 }, {	
+	name: "Philip the Good",
+	aiName: "",
+	line: "",
+	id: 1675,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1676",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "Pope Leo I",
 	aiName: "",
 	line: "",
@@ -30676,6 +31199,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Robert Guiscard",
+	aiName: "",
+	line: "",
+	id: 1677,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1678",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "Robin Hood",
 	aiName: "",
 	line: "",
@@ -30694,6 +31236,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Roger Bosso",
+	aiName: "",
+	line: "",
+	id: 1679,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1680",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
 }, {	
 	name: "Roland",
 	aiName: "",
@@ -31360,6 +31921,44 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1225"
 }, {	
+	name: "Warwolf Trebuchet",
+	aiName: "",
+	line: "",
+	id: 1690,
+	class: "unpacked-trebuchet-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "194",
+	projectile: "371",
+	chemProjectile: "469",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
+	name: "Warwolf Trebuchet (Packed)",
+	aiName: "",
+	line: "",
+	id: 1691,
+	class: "packed-trebuchet-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "735",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Lords of the West DLC only"
+}, {	
 	name: "William the Conqueror",
 	aiName: "",
 	line: "",
@@ -31668,6 +32267,6 @@ objectsOtherArray = [ {
 }];	
 
 
-objectsArray = [objectsRangeArray, objectsBarracksArray, objectsCastleArray, objectsDockArray, objectsKrepostArray, objectsMarketArray, objectsMonasteryArray, objectsSiegeWorkshopArray, objectsStableArray, objectsTownCenterArray, objectsBuildingsArray, objectsGaiaArray, objectsHeroesArray, objectsOtherArray];
+objectsArray = [objectsRangeArray, objectsBarracksArray, objectsCastleArray, objectsDockArray, objectsDonjonArray, objectsKrepostArray, objectsMarketArray, objectsMonasteryArray, objectsSiegeWorkshopArray, objectsStableArray, objectsTownCenterArray, objectsBuildingsArray, objectsGaiaArray, objectsHeroesArray, objectsOtherArray];
 
-objectsBuildingsArray = ["Archery Range", "Barracks", "Castle", "Dock", "Krepost", "Market", "Monastery", "Siege Workshop", "Stable", "Town Center", "Buildings", "Gaia", "Heroes", "Other"];
+objectsBuildingsArray = ["Archery Range", "Barracks", "Castle", "Dock", "Donjon", "Krepost", "Market", "Monastery", "Siege Workshop", "Stable", "Town Center", "Buildings", "Gaia", "Heroes", "Other"];

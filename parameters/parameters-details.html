@@ -128,8 +128,6 @@
 						//console.log (typeof parametersArray[i].valueList[p].parameter);
 						if (parametersArray[i].upParamName == "FactId") {
 							info += "<td>" + parametersArray[i].valueList[p].parameter + "</td>";
-						}
-						if (parametersArray[i].upParamName == "FactId") {
 							info += "<td>" + parametersArray[i].valueList[p].players + "</td>";
 						}
 					}
@@ -139,9 +137,16 @@
 				{
 					info += "<p><h3>Defined Wildcard Parameters</h3></p>";
 					info += "<p><input type=\"text\" id=\"wildcardParamInput\" onkeyup=\"wildcardParamFilter()\" placeholder=\"Search for values...\"></p>";
-					info += '<table id="wildcard-param-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th></tr>';
+					info += '<table id="wildcard-param-table"><tr><th>ID</th>'
+					if (parametersArray[i].upParamName == "UnitId") {
+						info += "<th id=\"deId-col\">DE ID</th>";
+					}
+					info += '<th id="name-col">Name</th><th>Description</th></tr>';
 					for (var m = 0; m < parametersArray[i].wildcardParam.length; m++) {
 						info += "<tr><td>" + parametersArray[i].wildcardParam[m].id + "</td>";
+						if (parametersArray[i].upParamName == "UnitId") {
+							info += "<td>" + parametersArray[i].wildcardParam[m].deId + "</td>";
+						}
 						info += "<td>" + parametersArray[i].wildcardParam[m].name + "</td>";
 						info += "<td>" + parametersArray[i].wildcardParam[m].description + "</td></tr>";
 					}
@@ -192,7 +197,7 @@
 		}
 		function wildcardParamFilter() {
 			// Declare variables
-			var input, filter, table, tr, tdCol1, tdCol2, i, txtValue;
+			var input, filter, table, tr, tdCol1, tdCol2, tdCol3, i, txtValue;
 			input = document.getElementById("wildcardParamInput");
 			filter = input.value.toUpperCase();
 			table = document.getElementById("wildcard-param-table");
@@ -202,10 +207,12 @@
 			for (i = 0; i < tr.length; i++) {
 				tdCol1 = tr[i].getElementsByTagName("td")[0];
 				tdCol2 = tr[i].getElementsByTagName("td")[1];
+				tdCol3 = tr[i].getElementsByTagName("td")[2];
 				if (tdCol1) {
 					txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
 					txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
-					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1) {
+					txtValueCol3 = tdCol3.textContent || tdCol3.innerText;
+					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1 || txtValueCol3.toUpperCase().indexOf(filter) > -1) {
 						tr[i].style.display = "";
 					}
 					else {
