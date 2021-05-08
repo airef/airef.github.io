@@ -17,59 +17,118 @@
 		<div id="nav-placeholder"></div>
 		<div class="article">
 			<h2>Leif Ericson's Introduction to DUC</h2>
-			<h3>Chapter 1: Search Lists</h3>
+			<h3>Chapter 1A: Search Lists</h3>
 			
-			<p>Think about how you play the game. First, you select an object or group of objects, and second you execute an action by right-clicking, using a button, or using a hotkey. This two-step process is analogous to how you use DUC.</p>
+			<p>For our first chapter, let's start off with a fun example to show how you can use DUC to send knights to raid enemy lumber camps.</p>
+			
+			<p>DUC works similar to how as a human player plays the game. To do anything in the game, you first select some objects. Then, you give those objects an action or check information about them. This two-step process is analogous to how you use DUC. To tell the AI to send its knights to raid a lumber camp, first we need to make some code to pick the knights we want to attack with. Then, we need to find an enemy lumber camp to target and tell the AI's knights to attack.</p>
 
-			<p>The first step to hunting a boar is to 'select' a villager to lure the boar. How do you do that in AI code? You do this through a DUC search. To start, let's add some code and introduce two Userpatch commands.</p>
+			<p>Of course, the code in these tutorials could be improved or expanded upon, but it will give you a solid foundation to make your own DUC army control.</p>
+
+			<p>First, let's create some defconsts to name and initialize the goals and timer we will use in our code. Also, let's store the location of our TC and determine which enemy is the closest to us. That will be the player we attack. Lastly, if we have at least 6 knights, set g-knight-raiding to 1 to show that we are ready to start raiding.</p>
 
 			<pre><code><table class="commented-example">
-				<tr><td>1</td><td>(defconst g-boar-hunt-status 101)</td></tr>
-				<tr><td>2</td><td></td></tr>
-				<tr><td>3</td><td>(defrule</td></tr>
-				<tr><td>4</td><td>(true)</td></tr>
-				<tr><td>5</td><td>=></td></tr>
-				<tr><td>6</td><td>(set-goal g-boar-hunt-status 0)</td></tr>
-				<tr><td>7</td><td>(disable-self)</td></tr>
-				<tr><td>8</td><td>)</td></tr>
-				<tr><td>9</td><td></td></tr>
-				<tr><td>10</td><td>(defrule</td></tr>
-				<tr><td>11</td><td>(goal g-boar-hunt-status 0)</td></tr>
-				<tr><td>12</td><td>(dropsite-min-distance live-boar < 35)</td></tr>
-				<tr><td>13</td><td>=></td></tr>
-				<tr><td>14</td><td>(up-full-reset-search)</td></tr>
-				<tr><td>15</td><td>(up-find-local c: villager-class c: 1)</td></tr>
-				<tr><td>16</td><td>(set-goal g-boar-hunt-status 1)</td></tr>
-				<tr><td>17</td><td>)</td></tr>
+				<tr><th>Line</th><th>Code</th><th>Comment</th></tr>
+				<tr><td>1</td><td>(defconst g-knight-raiding 101)</td><td>Track the status of our knight raid</td></tr>
+				<tr><td>2</td><td>(defconst g-position-self-x 102)</td><td>x-coordinate of our starting TC</td></tr>
+				<tr><td>3</td><td>(defconst g-position-self-y 103)</td><td>y-coordinate of our starting TC</td></tr>
+				<tr><td>4</td><td>(defconst g-closest-enemy 104)</td><td>Store the player number of our closest enemy</td></tr>
+				<tr><td>5</td><td>(defconst g-local-total 105)</td><td>Stores the number of units in the local search list (explained below)</td></tr>
+				<tr><td>6</td><td>(defconst g-local-last 106)</td><td>Stores the number of units from the last local DUC search</td></tr>
+				<tr><td>7</td><td>(defconst g-remote-total 107)</td><td>Stores the number of units in the remote search list</td></tr>
+				<tr><td>8</td><td>(defconst g-remote-last 108)</td><td>Stores the number of units from the last remote DUC search</td></tr>
+				<tr><td>9</td><td>(defconst g-building-target-id 109)</td><td>Stores the map ID of the closest enemy building</td></tr>
+				<tr><td>10</td><td>(defconst t-attack-timer 1)</td><td>A timer to separate attacks</td></tr>
+				<tr><td>11</td><td></td><td></td></tr>
+				<tr><td>12</td><td>(defrule</td><td></td></tr>
+				<tr><td>13</td><td>(true)</td><td></td></tr>
+				<tr><td>14</td><td>=></td<td></td><td></td></tr>
+				<tr><td>15</td><td>(set-goal g-knight-raiding 0)</td><td></td></tr>
+				<tr><td>16</td><td>(up-get-point position-self g-position-self-x)</td><td>Store the location of our TC in g-position-self-x and g-position-self-y</td></tr>
+				<tr><td>17</td><td>(disable-self)</td><td></td></tr>
+				<tr><td>18</td><td>)</td><td></td></tr>
+				<tr><td>19</td><td></td><td></td></tr>
+				<tr><td>20</td><td>(defrule</td><td></td></tr>
+				<tr><td>21</td><td>(goal g-knight-raiding 0)</td><td></td></tr>
+				<tr><td>22</td><td>(not (town-under-attack))</td><td></td></tr>
+				<tr><td>23</td><td>(players-building-count any-enemy > 0)</td><td></td></tr>
+				<tr><td>24</td><td>=></td><td></td></tr>
+				<tr><td>25</td><td>(up-find-player enemy find-closest g-closest-enemy)</td><td>Find the closest enemy and store the player ID</td></tr>
+				<tr><td>26</td><td>(up-modify-sn sn-focus-player-number g:= g-closest-enemy)</td><td>Set the focus player to be the closest enemy</td></tr>
+				<tr><td>27</td><td>)</td><td></td></tr>
+				<tr><td>28</td><td></td><td></td></tr>
+				<tr><td>29</td><td>(defrule</td><td></td></tr>
+				<tr><td>30</td><td>(goal g-knight-raiding 0)</td><td></td></tr>
+				<tr><td>31</td><td>(unit-type-count knight-line >= 6)</td><td></td></tr>
+				<tr><td>32</td><td>(not (town-under-attack))</td><td></td></tr>
+				<tr><td>33</td><td>(players-building-count any-enemy > 0)</td><td></td></tr>
+				<tr><td>34</td><td>(players-building-type-count focus-player lumber-camp > 0)</td><td>Our closest enemy has a lumber camp</td></tr>
+				<tr><td>35</td><td>=></td><td></td></tr>
+				<tr><td>36</td><td>(set-goal g-knight-raiding 1)</td><td></td></tr>
+				<tr><td>37</td><td>)</td><td></td></tr>
 			</table></code></pre>
 
-			<p>Let's summarize this code. First, we've created a goal to track our status while hunting the boar. Then, if a live boar is within 35 tiles of a dropsite, we'll reset all previous DUC searches and search for a villager. If you are new to Userpatch, you may be happy to know that three new options were added to the <a href="https://airef.github.io/commands/commands-details.html#dropsite-min-distance">dropsite-min-distance</a> command: boar-hunting, deer-hunting, and live-boar. To learn more about these options, read about them in the <a href="https://airef.github.io/parameters/parameters-details.html#Resource">Resource</a> parameter. Now let's get into the details on how these Userpatch commands work.</p>
+			<p>Now let's get to the DUC stuff. First, we need to pick the knights that should attack. Second, we need to pick a lumber camp to target. To do this in an AI script, we need to perform two different DUC searches, one for the knights that we own, and one for the lumber camp owned by our enemy. To do anything with the objects found in these searches, we will need to store the results of our search, which brings us to the most fundamental concept in DUC: search lists.</p>
+
+			<h2>Search Lists</h3>
+
+			<p>Results from DUC searches are stored in one of two lists: search-local and search-remote.</p>
+
+			<p>search-local is used to store the objects that we want to command. As you can guess, search-local can only store the AI's own objects, not the objects of other players. The size of search-local is limited to 240, which is often more than you need. In our code, we will want to search for the knights we want to raid with and store them in search-local.</p>
+
+			<p>search-remote is used to store the objects that we want to target. Unlike search-local, search-remote can store objects from any player, even Gaia or the AI itself. For example, if we wanted to make villagers force drop resources at the town center, the town center would be the target of the action, so the town center would be stored in search-remote. Unfortunately, search-remote can only store 40 objects. In our code, we will want to search for the enemy lumber camp for the knights to target in their raid and store it in search-remote.</p>
+
+			<p>So, how do you DUC search for objects and store them in search-local or search-remote? With <a href="https://airef.github.io/commands/commands-details.html#up-find-local">up-find-local</a> and <a href="https://airef.github.io/commands/commands-details.html#up-find-remote">up-find-remote</a>. Let's start adding some DUC code to our script.</p>
+
+			<h2>Local Searching</h2>
+
+			<pre><code><table class="commented-example">
+				<tr><th>Line</th><th>Code</th><th>Comment</th></tr>
+				<tr><td>1</td><td>(defrule</td><td></td></tr>
+				<tr><td></td><td>(goal g-knight-raiding 1)</td><td></td></tr>
+				<tr><td></td><td>(unit-type-count knight-line >= 6)</td><td></td></tr>
+				<tr><td></td><td>(not (town-under-attack))</td><td></td></tr>
+				<tr><td></td><td>(players-building-count any-enemy > 0)</td><td></td></tr>
+				<tr><td></td><td>(players-building-count focus-player > 0)</td><td></td></tr>
+				<tr><td></td><td>=></td><td></td></tr>
+				<tr><td></td><td>(up-full-reset-search)</td><td></td></tr>
+				<tr><td></td><td>(up-find-local c: knight-line c: 240)</td><td>Code to search for a maximum of 240 knights</td></tr>
+				<tr><td></td><td>)</td><td></td></tr>
+			</table></code></pre>
+
+			<p>Here you can see the use of two DUC commands: <a href="https://airef.github.io/commands/commands-details.html#up-full-reset-search">up-full-reset-search</a> and up-find-local.</p>
 
 			<h3>up-full-reset-search</h3>
 
-			<p>For now, simply use <a href="https://airef.github.io/commands/commands-details.html#up-full-reset-search">up-full-reset-search</a> whenever you want to start a new search from scratch and forget the results and search settings from your previous searches. We'll get into the nuances of this command later.</p>
+			<p>This command clears the results of all previous DUC searches and filters. When you're starting a new section of DUC code in your AI it's important to start with an empty search-local and search-remote. Otherwise, if you have leftover units from a previous DUC search still in the search lists, then you could accidentally command or target the wrong objects, resulting in what's called a "DUC leak". up-full-reset-search is not the only way to reset the searches and filters (we'll go through the other options later), but it is the most efficient option in many cases.</p>
 
-			<h3>up-find-local (and up-find-remote)</h3>
+			<h3>up-find-local</h3>
 
-			<p><a href="https://airef.github.io/commands/commands-details.html#up-find-local">up-find-local</a> is one of the most common ways to do a DUC search. This command and the related command, <a href="https://airef.github.io/commands/commands-details.html#up-find-remote">up-find-remote</a>, will likely form most of your searches with DUC.</p>
+			<p>up-find-local searches for objects owned by the AI player and adds the found objects (if any) to the search-local list. You have two pieces of information you need provide for up-find-local: the type of objects to search for and the number of objects to search for.</p>
 
-			<p>To explain these commands, let's introduce our first important DUC concept: search lists. When we want to search for objects to do some sort of action, we need to store the objects we found in a search list first. Userpatch conveniently provides two different search lists where we can store the results from our searches: search-local and search-remote. up-find-local stores results from its search in the search-local list, and up-find-remote stores results from its search in the search-remote list.</p>
+			<p>Our code above used the line (up-find-local c: knight-line c: 240). Here, we chose knight-line as the type of object to search for, and we told the AI to try to search for 240 knights. Since we chose to search for knight-line, this code will also search for cavaliers or paladins. If the AI cannot find 240 knights (pretty likely), then it will store as many knights as it can find in search-local. In other words, this code will try to add all of our knights to search-local. If you only wanted to raid with a smaller number of knights, say 6 knights, then you'd change 240 to 6.</p>
 
-			<p>The search-local list can only store the AI's own units and buildings, and it can store a maximum of 240 objects. In general, you'll use up-find-local to search for units or buildings that you want to directly control in some way, such as executing an action or checking info about them.</p>
+			<hr>
 
-			<p>Unlike the search-local list, the search-remote list can store units and buildings for any player, including Gaia (player 0) and the AI's own units and buildings. However, it can only store a maximum of 40 objects. In general, you'll use up-find-remote to find units or buildings that'll be the recipient of an action from objects in the search-local list. In addition, you'll use up-find-remote whenever you want to check something about another player's units or buildings, such as checking the HP of an enemy villager or searching for a nearby enemy castle.</p>
+			<p>The article is under construction past this point. Check it out again later for more knight power. ;)
 
-			<p>In our example, we want to find a villager to lure a boar. Since the villager is executing the action, we should add a villager to the search-local list with up-find-local, as seen in this line of code:</p>
-
-			<div class="example"><p>(up-find-local c: villager-class c: 1)</p></div>
-
-			<p>Let's break this line down. up-find-local searches for objects owned by the AI player and adds the found objects (if any) to the search-local list. You have two pieces of information you need provide for up-find-local: the type of objects to search for and the number of objects to search for.</p>
-
-			<p>Here, we chose villager-class as the type of object to search for. We used 'villager-class' instead of 'villager' because we want to be able to select a villager no matter whether the villager is male or female, or whether it's a shepherd, builder, lumberjack, etc. For most AI commands, 'villager' can refer to a villager with any of these tasks. However, for DUC searches, 'villager' is quite specific, and it only refers to the male villager not assigned to a task. Similarly, you cannot use sets that count multiple types of units, such as monk-set, trebuchet-set, villager-forager, or villager-repairer in DUC searches. You can use unit lines and object classes though.</p>
-
-			<p>Second, we need to give the number of objects to search for. In this case, we want the AI to only search for one villager to lure the boar, so we use 1.</p>
-
-			<p>You might have a few questions. Does this randomly select a villager? Can I control which villager is used to lure the boar? In the next article, we'll cover how to control which villager should lure the boar. <a href="./leif-duc-tutorial-2.html">Read on!</a> <small>(chapter 2 in progress)</small></p>
+			<pre><code><table class="commented-example">
+				<tr><th>Line</th><th>Code</th><th>Comment</th></tr>
+				<tr><td>1</td><td>(defrule</td><td></td></tr>
+				<tr><td></td><td>(goal g-knight-raiding 1)</td><td></td></tr>
+				<tr><td></td><td>(unit-type-count knight-line >= 6)</td><td></td></tr>
+				<tr><td></td><td>(not (town-under-attack))</td><td></td></tr>
+				<tr><td></td><td>(players-building-count any-enemy > 0)</td><td></td></tr>
+				<tr><td></td><td>(players-building-count focus-player > 0)</td><td></td></tr>
+				<tr><td></td><td>=></td><td></td></tr>
+				<tr><td></td><td>(up-full-reset-search)</td><td></td></tr>
+				<tr><td></td><td>(up-filter-include cmdid-military -1 -1 -1)</td><td></td></tr>
+				<tr><td></td><td>(up-filter-exclude -1 actionid-explore orderid-relic warship-class)</td><td></td></tr>
+				<tr><td></td><td>(up-find-local c: all-units-class c: 240)</td><td></td></tr>
+				<tr><td></td><td>(up-remove-objects search-local object-data-hitpoints < 50)</td><td></td></tr>
+				<tr><td></td><td>(up-get-search-state g-local-total)</td><td></td></tr>
+				<tr><td></td><td>)</td><td></td></tr>
+			</table></code></pre>
 
 			<h3>Index</h3>
 			<ul><li><a href="./leif-duc-tutorial-intro.html">Introduction</a></li>

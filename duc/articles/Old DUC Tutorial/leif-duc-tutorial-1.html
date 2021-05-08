@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+	<title>Leif's DUC Tutorial</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Leif Ericson's Introduction to DUC</h2>
+			<h3>Chapter 1: Search Lists</h3>
+			
+			<p>Think about how you play the game. First, you select an object or group of objects, and second you execute an action by right-clicking, using a button, or using a hotkey. This two-step process is analogous to how you use DUC.</p>
+
+			<p>The first step to hunting a boar is to 'select' a villager to lure the boar. How do you do that in AI code? You do this through a DUC search. To start, let's add some code and introduce two Userpatch commands.</p>
+
+			<pre><code><table class="commented-example">
+				<tr><td>1</td><td>(defconst g-boar-hunt-status 101)</td></tr>
+				<tr><td>2</td><td></td></tr>
+				<tr><td>3</td><td>(defrule</td></tr>
+				<tr><td>4</td><td>(true)</td></tr>
+				<tr><td>5</td><td>=></td></tr>
+				<tr><td>6</td><td>(set-goal g-boar-hunt-status 0)</td></tr>
+				<tr><td>7</td><td>(disable-self)</td></tr>
+				<tr><td>8</td><td>)</td></tr>
+				<tr><td>9</td><td></td></tr>
+				<tr><td>10</td><td>(defrule</td></tr>
+				<tr><td>11</td><td>(goal g-boar-hunt-status 0)</td></tr>
+				<tr><td>12</td><td>(dropsite-min-distance live-boar < 35)</td></tr>
+				<tr><td>13</td><td>=></td></tr>
+				<tr><td>14</td><td>(up-full-reset-search)</td></tr>
+				<tr><td>15</td><td>(up-find-local c: villager-class c: 1)</td></tr>
+				<tr><td>16</td><td>(set-goal g-boar-hunt-status 1)</td></tr>
+				<tr><td>17</td><td>)</td></tr>
+			</table></code></pre>
+
+			<p>Let's summarize this code. First, we've created a goal to track our status while hunting the boar. Then, if a live boar is within 35 tiles of a dropsite, we'll reset all previous DUC searches and search for a villager. If you are new to Userpatch, you may be happy to know that three new options were added to the <a href="https://airef.github.io/commands/commands-details.html#dropsite-min-distance">dropsite-min-distance</a> command: boar-hunting, deer-hunting, and live-boar. To learn more about these options, read about them in the <a href="https://airef.github.io/parameters/parameters-details.html#Resource">Resource</a> parameter. Now let's get into the details on how these Userpatch commands work.</p>
+
+			<h3>up-full-reset-search</h3>
+
+			<p>For now, simply use <a href="https://airef.github.io/commands/commands-details.html#up-full-reset-search">up-full-reset-search</a> whenever you want to start a new search from scratch and forget the results and search settings from your previous searches. We'll get into the nuances of this command later.</p>
+
+			<h3>up-find-local (and up-find-remote)</h3>
+
+			<p><a href="https://airef.github.io/commands/commands-details.html#up-find-local">up-find-local</a> is one of the most common ways to do a DUC search. This command and the related command, <a href="https://airef.github.io/commands/commands-details.html#up-find-remote">up-find-remote</a>, will likely form most of your searches with DUC.</p>
+
+			<p>To explain these commands, let's introduce our first important DUC concept: search lists. When we want to search for objects to do some sort of action, we need to store the objects we found in a search list first. Userpatch conveniently provides two different search lists where we can store the results from our searches: search-local and search-remote. up-find-local stores results from its search in the search-local list, and up-find-remote stores results from its search in the search-remote list.</p>
+
+			<p>The search-local list can only store the AI's own units and buildings, and it can store a maximum of 240 objects. In general, you'll use up-find-local to search for units or buildings that you want to directly control in some way, such as executing an action or checking info about them.</p>
+
+			<p>Unlike the search-local list, the search-remote list can store units and buildings for any player, including Gaia (player 0) and the AI's own units and buildings. However, it can only store a maximum of 40 objects. In general, you'll use up-find-remote to find units or buildings that'll be the recipient of an action from objects in the search-local list. In addition, you'll use up-find-remote whenever you want to check something about another player's units or buildings, such as checking the HP of an enemy villager or searching for a nearby enemy castle.</p>
+
+			<p>In our example, we want to find a villager to lure a boar. Since the villager is executing the action, we should add a villager to the search-local list with up-find-local, as seen in this line of code:</p>
+
+			<div class="example"><p>(up-find-local c: villager-class c: 1)</p></div>
+
+			<p>Let's break this line down. up-find-local searches for objects owned by the AI player and adds the found objects (if any) to the search-local list. You have two pieces of information you need provide for up-find-local: the type of objects to search for and the number of objects to search for.</p>
+
+			<p>Here, we chose villager-class as the type of object to search for. We used 'villager-class' instead of 'villager' because we want to be able to select a villager no matter whether the villager is male or female, or whether it's a shepherd, builder, lumberjack, etc. For most AI commands, 'villager' can refer to a villager with any of these tasks. However, for DUC searches, 'villager' is quite specific, and it only refers to the male villager not assigned to a task. Similarly, you cannot use sets that count multiple types of units, such as monk-set, trebuchet-set, villager-forager, or villager-repairer in DUC searches. You can use unit lines and object classes though.</p>
+
+			<p>Second, we need to give the number of objects to search for. In this case, we want the AI to only search for one villager to lure the boar, so we use 1.</p>
+
+			<p>You might have a few questions. Does this randomly select a villager? Can I control which villager is used to lure the boar? In the next article, we'll cover how to control which villager should lure the boar. <a href="./leif-duc-tutorial-2.html">Read on!</a> <small>(chapter 2 in progress)</small></p>
+
+			<h3>Index</h3>
+			<ul><li><a href="./leif-duc-tutorial-intro.html">Introduction</a></li>
+			<li>Chapter 1: Search Lists</li></ul>
+
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "duc";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>

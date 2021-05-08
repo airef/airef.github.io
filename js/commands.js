@@ -682,6 +682,7 @@ var snEnableBoarHunting = new StrategicNumber();
 var snEnableNewBuildingSystem = new StrategicNumber();
 var snEnableOffensivePriority = new StrategicNumber();
 var snEnablePatrolAttack = new StrategicNumber();
+var snEnableResearchQueue = new StrategicNumber();
 var snEnableTrainingQueue = new StrategicNumber();
 var snEnemySightedResponseDistance = new StrategicNumber();
 var snExploreGroupMakeup = new StrategicNumber();
@@ -905,7 +906,7 @@ var snUnknownData199 = new StrategicNumber();
 var snUnknownData200 = new StrategicNumber();
 var snUnknownData211 = new StrategicNumber();
 
-var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTrackPlayerHistory, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownData006, snUnknownData007, snUnknownData008, snUnknownData009, snUnknownData010, snUnknownData011, snUnknownData012, snUnknownData013, snUnknownData014, snUnknownData015, snUnknownData017, snUnknownData021, snUnknownData027, snUnknownData033, snUnknownData113, snUnknownData116, snUnknownData137, snUnknownData153, snUnknownData154, snUnknownData162, snUnknownData189, snUnknownData199, snUnknownData200, snUnknownData211];
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTrackPlayerHistory, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownData006, snUnknownData007, snUnknownData008, snUnknownData009, snUnknownData010, snUnknownData011, snUnknownData012, snUnknownData013, snUnknownData014, snUnknownData015, snUnknownData017, snUnknownData021, snUnknownData027, snUnknownData033, snUnknownData113, snUnknownData116, snUnknownData137, snUnknownData153, snUnknownData154, snUnknownData162, snUnknownData189, snUnknownData199, snUnknownData200, snUnknownData211];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -1730,7 +1731,8 @@ snGoldDefendPriority.available = 0;
 snGoldDefendPriority.version = "1.0c";
 snGoldDefendPriority.linked = [];
 snGoldDefendPriority.related = [ 56, 70, 52, 51, 55, 54, 53, 287 ];
-snGoldDefendPriority.shortDescription = "Sets the priority of defending gold. A priority of 0 means that gold will not be defended. A priority of 1 means that gold has the highest defend priority.";
+snGoldDefendPriority.shortDescription = "Allows gold mines to be added to the targetable sighted objects list.";
+snGoldDefendPriority.description = "Allows gold mines to be added to the targetable sighted objects list. However, since Userpatch 1.4, gold mines are targetable by default, so this SN is no longer necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending gold. A priority of 0 means that gold will not be defended. A priority of 1 means that gold has the highest defend priority.";
 
 snStoneDefendPriority.id = 51;
 snStoneDefendPriority.snName = "sn-stone-defend-priority";
@@ -1746,7 +1748,8 @@ snStoneDefendPriority.available = 0;
 snStoneDefendPriority.version = "1.0c";
 snStoneDefendPriority.linked = [];
 snStoneDefendPriority.related = [ 56, 70, 52, 50, 55, 54, 53, 287 ];
-snStoneDefendPriority.shortDescription = "Sets the priority of defending stone.";
+snStoneDefendPriority.shortDescription = "Allows stone mines to be added to the targetable sighted objects list.";
+snStoneDefendPriority.description = "Allows stone mines to be added to the targetable sighted objects list. However, since Userpatch 1.4, stone mines are targetable by default, so this SN is no longer necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending stone. A priority of 0 means that stone will not be defended. A priority of 1 means that stone has the highest defend priority.";
 
 snForageDefendPriority.id = 52;
 snForageDefendPriority.snName = "sn-forage-defend-priority";
@@ -1762,7 +1765,8 @@ snForageDefendPriority.available = 0;
 snForageDefendPriority.version = "1.0c";
 snForageDefendPriority.linked = [];
 snForageDefendPriority.related = [ 56, 70, 51, 50, 55, 54, 53, 287 ];
-snForageDefendPriority.shortDescription = "Sets the priority of defending forage sites.";
+snForageDefendPriority.shortDescription = "Allows forage bush class objects to be added to the targetable sighted objects list.";
+snForageDefendPriority.description = "Allows forage bush class objects to be added to the targetable sighted objects list. However, since Userpatch 1.4, forage bushes are targetable by default, so this SN is no longer necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending forage sites.";
 
 snChokePointDefendPriority.id = 53;
 snChokePointDefendPriority.snName = "sn-choke-point-defend-priority";
@@ -1810,7 +1814,8 @@ snRelicDefendPriority.available = 1;
 snRelicDefendPriority.version = "1.0c";
 snRelicDefendPriority.linked = [];
 snRelicDefendPriority.related = [ 56, 70, 52, 51, 50, 54, 53, 287 ];
-snRelicDefendPriority.shortDescription = "Sets the priority of defending relic carts.";
+snRelicDefendPriority.shortDescription = "Allows relics to be added to the targetable sighted objects list.";
+snRelicDefendPriority.description = "Allows relics to be added to the targetable sighted objects list. However, relics have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending relic carts.";
 
 snTownDefendPriority.id = 56;
 snTownDefendPriority.snName = "sn-town-defend-priority";
@@ -1826,7 +1831,8 @@ snTownDefendPriority.available = 0;
 snTownDefendPriority.version = "1.0c";
 snTownDefendPriority.linked = [];
 snTownDefendPriority.related = [ 70, 52, 51, 50, 55, 54, 53, 287 ];
-snTownDefendPriority.shortDescription = "Sets the priority of defending the computer player's town.";
+snTownDefendPriority.shortDescription = "Allows town centers to be added to the targetable sighted objects list.";
+snTownDefendPriority.description = "Allows town centers to be added to the targetable sighted objects list. However, town centers have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending the computer player's town.";
 
 snDefenseDistance.id = 57;
 snDefenseDistance.snName = "sn-defense-distance";
@@ -2050,7 +2056,8 @@ snDockDefendPriority.available = "available, except for water maps";
 snDockDefendPriority.version = "1.0c";
 snDockDefendPriority.linked = [];
 snDockDefendPriority.related = [ 56, 52, 51, 50, 55, 54, 53, 287 ];
-snDockDefendPriority.shortDescription = "Sets the priority of defending the dock.";
+snGoldDefendPriority.shortDescription = "Allows docks to be added to the targetable sighted objects list.";
+snGoldDefendPriority.description = "Allows docks to be added to the targetable sighted objects list. However, docks have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending the dock.";
 
 snLockAndAttackResponse.id = 71;
 snLockAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
@@ -4970,6 +4977,7 @@ snMinimumBoarLureGroupSize.version = "1.1";
 snMinimumBoarLureGroupSize.linked = [ 204, 244 ];
 snMinimumBoarLureGroupSize.related = [ 235, 245 ];
 snMinimumBoarLureGroupSize.shortDescription = "Set to the number of villagers that will be sent in the initial boar luring group.";
+snMinimumBoarLureGroupSize.description = "Set to the number of villagers that will be sent in the initial boar luring group.</p><p>The initial luring group size is determined exclusively by sn-minimum-boar-lure-group-size. If this is set excessively high, luring a new boar will be blocked, which is useful to ensure that all new hunters will help with an existing lure only. If sn-minimum-boar-lure-group-size is set to 0, a new boar lure is guaranteed to start if sn-minimum-number-hunters requests at least 1 hunter and sn-enable-boar-hunting is set appropriately.</p><p>The sn-minimum-boar-hunt-group-size value is used only to determine how many hunters should be active during a lure. Each time a lurer is hit, it will try to request up to sn-minimum-boar-hunt-group-size hunters in total to help with the hunt. If it's set to 7, for example, it will request support hunters until there are 7 total hunters. After it is down, each boar will accept a maximum of 8 gatherers. The 9th will have to seek a new boar, if sn-minimum-boar-lure-group-size permits it.";
 
 snPreferredMillPlacement.id = 253;
 snPreferredMillPlacement.snName = "sn-preferred-mill-placement";
@@ -5147,6 +5155,22 @@ snLivestockToTownCenter.linked = [];
 snLivestockToTownCenter.related = [];
 snLivestockToTownCenter.shortDescription = "Set to 1 to require livestock, such as sheep, to gather at the town center. If set to 0, they will gather at mills, as well.";
 
+snEnableResearchQueue.id = 306;
+snEnableResearchQueue.snName = "sn-enable-research-queue";
+snEnableResearchQueue.default = 0;
+snEnableResearchQueue.category = "Economy";
+snEnableResearchQueue.min = -32767;
+snEnableResearchQueue.max = 32768;
+snEnableResearchQueue.rmin = 0;
+snEnableResearchQueue.rmax = 1;
+snEnableResearchQueue.network = 0;
+snEnableResearchQueue.defined = 1;
+snEnableResearchQueue.available = 0;
+snEnableResearchQueue.version = "DE";
+snEnableResearchQueue.linked = [];
+snEnableResearchQueue.related = [264];
+snEnableResearchQueue.shortDescription = "Controls whether AI players can (or cannot) queue technologies along with units when " + snEnableTrainingQueue.getLink() + " is enabled. Set to 1 to enable queued technologies.";
+
 snEnableTrainingQueue.id = 264;
 snEnableTrainingQueue.snName = "sn-enable-training-queue";
 snEnableTrainingQueue.default = 0;
@@ -5160,9 +5184,9 @@ snEnableTrainingQueue.defined = 1;
 snEnableTrainingQueue.available = 0;
 snEnableTrainingQueue.version = "1.1";
 snEnableTrainingQueue.linked = [];
-snEnableTrainingQueue.related = [];
+snEnableTrainingQueue.related = [306];
 snEnableTrainingQueue.shortDescription = "Set to values > 0 to allow an additional unit(s) to be queued at each building. If set to 0, buildings will train one unit at a time.";
-snEnableTrainingQueue.shortDescription = "Set to values > 0 to allow an additional unit(s) to be queued at each building. For example, if set to 3, then 3 units can be queued to be trained after the currently training unit. If set to 0, buildings will train one unit at a time.";
+snEnableTrainingQueue.description = "Set to values > 0 to allow an additional unit(s) to be queued at each building. For example, if set to 3, then 3 units can be queued to be trained after the currently training unit. If set to 0, buildings will train one unit at a time.</p><p>By default, technologies can't be queued. To enable queued technologies in DE, set " + snEnableResearchQueue.getLink() + " to 1, and technologies will use sn-enable-training-queue as well.";
 
 snIgnoreTowerElevation.id = 265;
 snIgnoreTowerElevation.snName = "sn-ignore-tower-elevation";
@@ -5195,6 +5219,7 @@ snTownCenterPlacement.version = "1.1";
 snTownCenterPlacement.linked = [];
 snTownCenterPlacement.related = [ 86, 87 ];
 snTownCenterPlacement.shortDescription = "Set to the building type to emulate for town center placement. If set to 0, the town center will be placed as usual.";
+snTownCenterPlacement.description = "Set to the building type to emulate for town center placement, like lumber-camp. If set to 0, the town center will be placed as usual. Note that it is complete emulation, so if you set it to mill, it will use " + snMillMaxDistance.getLink() + " for its maximum-town-size.</p><p>Example: (set-strategic-number sn-town-center-placement mill) ;attempt to emulate mill placement";
 
 snDisableTowerPriority.id = 267;
 snDisableTowerPriority.snName = "sn-disable-tower-priority";
@@ -5211,6 +5236,7 @@ snDisableTowerPriority.version = "1.1";
 snDisableTowerPriority.linked = [];
 snDisableTowerPriority.related = [ 254 ];
 snDisableTowerPriority.shortDescription = "Set to 1 to prevent the local targeting system from giving special priority to towers and other fortifications, including town centers and castles. If set to 0, these buildings will receive the usual special priority.";
+snDisableTowerPriority.description = "Set to 1 to prevent the local targeting system from giving special priority to towers and other fortifications, including town centers and castles. If set to 0, these buildings will receive the usual special priority. In combination with sn-ignore-attack-group-under-attack:1, you can better avoid being lured by town centers during early attacks, though using retreat or DUC commands to avoid town centers will be more effective overall. Note: this sn requires a packet to be sent for each change in a multiplayer game, so please consider this when using it.";
 
 snPlacementZoneSize.id = 268;
 snPlacementZoneSize.snName = "sn-placement-zone-size";
@@ -5227,6 +5253,7 @@ snPlacementZoneSize.version = "1.1";
 snPlacementZoneSize.linked = [ 269, 270 ];
 snPlacementZoneSize.related = [ 73, 74 ];
 snPlacementZoneSize.shortDescription = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point.";
+snPlacementZoneSize.description = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point. The default for this sn is 20. A small zone size (0) will provide more precise positioning. A large value allows you to surround the enemy when forward building. sn-placement-zone-size is stored with the placement data, so this SN can be changed once the building has been added to the building placement queue.";
 
 snPlacementFailDelta.id = 269;
 snPlacementFailDelta.snName = "sn-placement-fail-delta";
@@ -5243,6 +5270,7 @@ snPlacementFailDelta.version = "1.1";
 snPlacementFailDelta.linked = [ 268, 270 ];
 snPlacementFailDelta.related = [ 73, 74 ];
 snPlacementFailDelta.shortDescription = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed.";
+snPlacementFailDelta.description = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed. This sn does not affect forward building. It should be a low value (-2 to 2). The default is 0, which means that only the per-building zone-size is increased for each placement failure. Unlike sn-placement-zone-size, sn-placement-fail-delta is not stored with the placement data.";
 
 snPlacementToCenter.id = 270;
 snPlacementToCenter.snName = "sn-placement-to-center";
@@ -5355,6 +5383,7 @@ snFilterUnderAttack.version = "1.1";
 snFilterUnderAttack.linked = [];
 snFilterUnderAttack.related = [];
 snFilterUnderAttack.shortDescription = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units will also be retreated, which may be computationally expensive. If set to 0, the filter is disabled.";
+snFilterUnderAttack.description = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units (within 6 tiles) will also be retreated, not just units that are under attack, which may be computationally expensive. The nearby units that will be retreated do not consider the filter type provided to up-retreat-to, and will be all military units except monks. The 1 and 2 states will also reject high base pierce armor units >= 20, so rams are left despite being attacked. If set to 0, the filter is disabled.";
 
 snDisableDefendGroups.id = 277;
 snDisableDefendGroups.snName = "sn-disable-defend-groups";
@@ -5387,6 +5416,7 @@ snDockPlacementMode.version = "1.1";
 snDockPlacementMode.linked = [];
 snDockPlacementMode.related = [ 279, 280, 281 ];
 snDockPlacementMode.shortDescription = "Set to 1 to prefer placement toward the front, -1 to prefer placement toward the back, or 0 for standard placement.";
+snDockPlacementMode.description = "Set to 1 to prefer placement toward the front, -1 to prefer placement toward the back, or 0 for standard placement.</p><p>Placement toward the front or back means closer to the map center or further away from the map center, relative to the home town center. Higher positive values like 2 or 3 can theoretically set an even higher priority toward placing the dock near the map center.</p><p>Note: it is important to explore the area you want the AI to build the dock. Otherwise, it will only build the dock on shoreline you have explored.";
 
 snDockProximityFactor.id = 279;
 snDockProximityFactor.snName = "sn-dock-proximity-factor";
@@ -5435,6 +5465,7 @@ snDockTrainingFilter.version = "1.1";
 snDockTrainingFilter.linked = [];
 snDockTrainingFilter.related = [ 278 ];
 snDockTrainingFilter.shortDescription = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.";
+snDockTrainingFilter.description = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.</p><p>Here is some sample code from scripter64 to set sn-dock-training-filter to the best possible state:</p><p>(defrule\r\n\t(true)\r\n=>\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n\t(set-goal gl-dock-attack-training 0)\r\n)\r\n\r\n(defrule\r\n\t(up-train-site-ready c: galley)\r\n=>\r\n\t(chat-to-all \"A dock is available to train warships.\")\r\n\t(set-strategic-number sn-dock-training-filter 2)\r\n\t(set-goal gl-dock-attack-training 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with recent sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with any sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n)\r\n\r\n;sn-dock-training-filter is now set to the best possible state";
 
 snFreeSiegeTargeting.id = 282;
 snFreeSiegeTargeting.snName = "sn-free-siege-targeting";
@@ -5531,6 +5562,7 @@ snLivestockDefendPriority.version = "1.1";
 snLivestockDefendPriority.linked = [];
 snLivestockDefendPriority.related = [50, 56, 70, 52, 51, 55, 54, 53];
 snLivestockDefendPriority.shortDescription = "Set to 1 to allow sheep into the targetable sighted objects list.";
+snLivestockDefendPriority.description = "Set to 1 to allow sheep into the targetable sighted objects list. However, since Userpatch 1.4, livestock are targetable by default, so this SN is no longer necessary.";
 
 snNumberTaskedUnits.id = 288;
 snNumberTaskedUnits.snName = "sn-number-tasked-units";
@@ -5732,7 +5764,8 @@ snProfilingThreshold.shortDescription = "Not currently used in public release.";
 
 //acknowledge-event
 cAcknowledgeEvent.shortDescription = "Acknowledges a received event by resetting the associated flag.";
-cAcknowledgeEvent.commandCategory = ["Data"];
+cAcknowledgeEvent.description = "Acknowledges a received event by resetting the associated flag. Scenario triggers that execute an AI Script Goal effect are the only events that AI scripts can detect.</p><p>This command, along with " + cEventDetected.getLink() + ", is used to detect an AI Script Goal effect from a scenario trigger, often with the intention of changing the AI behavior after the scenario trigger has fired. The scenario designer chooses an AI Trigger number for the AI Script Goal effect in the scenario editor. Then, the event-detected command in the AI script will detect when this trigger effect happens. The event-detected command will remain true after the AI Script Goal trigger effect fires, so acknowledge-event is used to reset the event-detected flag so that event-detected will no longer be true, similar to how the " + cDisableTimer.getLink() + " command clears a timer that has triggered or how the " + cAcknowledgeTaunt.getLink() + " command accepts the taunt message."
+cAcknowledgeEvent.commandCategory = ["Scenarios"];
 cAcknowledgeEvent.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
@@ -5748,6 +5781,11 @@ cAcknowledgeEvent.commandParameters = [ {
 	range: "0 to 255.",
 	note: "The EventId to acknowledge."
 } ];
+cAcknowledgeEvent.example = [ {
+	title: "If an AI Script Goal trigger effect has fired with AI trigger 36, detect it with event-detected and acknowledge it with acknowledge-event. gl-trigger-event-fired is set to 1 so that (goal gl-trigger-event-fired 1) can be used as a condition to change the AI behavior in the scenario after the AI Script Goal trigger effect has fired.",
+	data: "(defconst gl-trigger-effect-fired 101)\r\n(defrule\r\n\t(event-detected trigger 36)\r\n=&gt;\r\n\t(set-goal gl-trigger-effect-fired 1)\r\n\t(acknowledge-event trigger 36)\r\n)"
+} ];
+cAcknowledgeEvent.relatedCommands = [cEventDetected, cSetSignal, cUpGetEvent, cUpGetSignal, cUpSetEvent, cUpSetSignal];
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
@@ -5841,6 +5879,7 @@ cBuildForward.commandParameters = [ {
 
 //build-gate
 cBuildGate.shortDescription = "Builds a gate as part of the given perimeter wall.";
+cBuildGate.description = "Builds a gate as part of the given perimeter wall. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ".";
 cBuildGate.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -5852,7 +5891,7 @@ cBuildGate.commandParameters = [ {
 
 //build-wall
 cBuildWall.shortDescription = "Builds a wall line of the given wall type at the given perimeter.";
-cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ".";
+cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ".";
 cBuildWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6179,7 +6218,7 @@ cCanSpyWithEscrow.description = "Checks if the spy command can be executed. It o
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
-cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6191,7 +6230,7 @@ cCanTrain.commandParameters = [ {
 
 //can-train-with-escrow
 cCanTrainWithEscrow.shortDescription = "Checks that the training of a given unit can start, if escrow is used.";
-cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrainWithEscrow.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8196,7 +8235,7 @@ cTraceFact.shortDescription = "Undocumented action that doesn't work. Probably o
 
 //train
 cTrain.shortDescription = "Trains the given unit.";
-cTrain.description = "Trains the given unit. To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cTrain.description = "Trains the given unit. To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
 cTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8228,7 +8267,7 @@ cTributeToPlayer.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-32768 to 32767.",
+	range: "0 to 32767.",
 	note: "The amount of the resource to tribute."
 } ];
 
@@ -8349,7 +8388,7 @@ cVictoryCondition.commandParameters = [ {
 
 //wall-completed-percentage
 cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given perimeter wall.";
-cWallCompletedPercentage.description = "Checks the completion percentage for a given perimeter wall. Trees and other destructible natural barriers are included and count as completed.";
+cWallCompletedPercentage.description = "Checks the completion percentage for a given perimeter wall. Trees and other destructible natural barriers are included and count as completed. The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.";
 cWallCompletedPercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -8375,7 +8414,7 @@ cWallCompletedPercentage.commandParameters = [ {
 
 //wall-invisible-percentage
 cWallInvisiblePercentage.shortDescription = "Checks what percentage of the potential wall placement is covered with fog.";
-cWallInvisiblePercentage.description = "Checks what percentage of the potential wall placement is covered with fog. If the invisible percentage is not equal to 0 we do not know if there is a hole or not. This is because the hidden tile(s) might have a tree(s).";
+cWallInvisiblePercentage.description = "Checks what percentage of the potential wall placement is covered with fog. If the invisible percentage is not equal to 0 we do not know if there is a hole or not. This is because the hidden tile(s) might have a tree(s). The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the invisible percentage until the pass after the given wall perimeter has been enabled.";
 cWallInvisiblePercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -8504,6 +8543,7 @@ cUpAddObjectById.relatedCommands = [];
 
 //up-add-object-cost
 cUpAddObjectCost.shortDescription = "Add or subtract objects of a specific type to the current cost data.";
+cUpAddObjectCost.description = "Add or subtract objects of a specific type to the current cost data.</p><p>Note the special exception for town centers below. Gates likely also need to use foundation IDs instead.";
 cUpAddObjectCost.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -8892,6 +8932,7 @@ cUpBoundPoint.relatedCommands = [];
 
 //up-build
 cUpBuild.shortDescription = "Add a building to the construction queue with dynamic values.";
+cUpBuild.description = "Add a building to the construction queue with dynamic values.</p><p>The AI will avoid placing the building in the following locations according to the placement type:</p><p>System 1 (used by place-normal, place-control, and place-point):</p><ul><li>Ally (and self): will avoid placing the building on tiles where an allied building already exists.</li><li>Enemy: will avoid placing the building on tiles where an enemy building already exists. Will also avoid placing a building within the attack range of a tower, TC, or castle, + 0.5 tiles.</li></ul><p>System 2 (used by place-forward):</p><ul><li>Ally (and self): will avoid placing the building on tiles where an allied building already exists.</li><li>Enemy: will avoid placing the building on tiles where an enemy building already exists. Will also avoid placing a building within any enemy building's line of sight, + 2 tiles.</li></ul>";
 cUpBuild.commandParameters = [ {
 	nameLink: pPlacementType.getLink(),
 	name: "PlacementType",
@@ -9157,6 +9198,7 @@ cUpCanSearch.relatedCommands = [];
 
 //up-can-train
 cUpCanTrain.shortDescription = "Check if a unit can be trained with dynamic values.";
+cUpCanTrain.description = "Check if a unit can be trained with dynamic values.</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cUpCanTrain.commandParameters = [ {
 	nameLink: pEscrowState.getLink(),
 	name: "EscrowState",
@@ -9386,6 +9428,7 @@ cUpCleanSearch.relatedCommands = [];
 
 //up-compare-const
 cUpCompareConst.shortDescription = "Perform a comparison with a constant value.";
+cUpCompareConst.description = "Perform a comparison with a constant value. A defconst that defines a string (quoted text) stores a string table index where the string is stored. Therefore, up-compare-const will compare against the string index of such a defconst, rather than the text itself.";
 cUpCompareConst.commandParameters = [ {
 	nameLink: pId.getLink(),
 	name: "Id",
@@ -9720,6 +9763,7 @@ cUpDeleteObjects.relatedCommands = [];
 
 //up-defender-count
 cUpDefenderCount.shortDescription = "Check the number of units actively defending in town.";
+cUpDefenderCount.description = "Check the number of units actively defending in town. With this command you can check to see if your TSA attack is actually actively targeting anything or if it's just idling. If, after expecting your new town-size to initiate a defensive attack, the response from this command is far less than expected for several consecutive turns, your target may be unreachable by the defensive targeting system (target has been walled for protection by one of their allies, etc.) and you may need to switch targets.";
 cUpDefenderCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9743,6 +9787,7 @@ cUpDefenderCount.relatedCommands = [];
 
 //up-disband-group-type
 cUpDisbandGroupType.shortDescription = "Disband all internal groups of the specified type.";
+cUpDisbandGroupType.description = "Disband all internal groups of the specified type. To attack with groups with TSA, it is possible to collect units into large groups, disband with up-disband-group-type, and then send them with TSA.";
 cUpDisbandGroupType.commandParameters = [ {
 	nameLink: pGroupType.getLink(),
 	name: "GroupType",
@@ -10205,7 +10250,7 @@ cUpFindPlayer.relatedCommands = [];
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
-cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).";
+cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.";
 cUpFindPlayerFlare.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -10224,12 +10269,18 @@ cUpFindPlayerFlare.commandParameters = [ {
 cUpFindPlayerFlare.example = [ {
 	title: "Get the position of any enemy flare.",
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(unit-type-count flare > 0) ; flare = 274\r\n=&gt;\r\n\t(up-find-player-flare any-enemy gl-point-x)\r\n)"
+}, {
+	title: "Find any allied flare.",
+	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(unit-type-count flare > 0) ;see a flare?\r\n=&gt;\r\n\t(up-find-player-flare any-ally gl-point-x) ;find the flare\r\n)\r\n\r\n(defrule\r\n\t(unit-type-count flare > 0) ;continuing from previous rule\r\n\t(up-compare-goal gl-point-x != -1) ;the point is valid\r\n=>\r\n\t(up-chat-data-to-all \"FX: %d\" g: gl-point-x) ;display the point\r\n\t(up-chat-data-to-all \"FY: %d\" g: gl-point-y)\r\n)"
+}, {
+	title: "Find the flare sender, as well.",
+	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(unit-type-count flare == 0) ;no flares?\r\n=>\r\n\t(up-jump-rule 3) ;skip flare checks\r\n)\r\n\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-strategic-number sn-focus-player-number 1)	 ;check first player\r\n\t(up-find-player-flare 1 gl-point-x)\r\n)\r\n\r\n(defrule\r\n\t(up-compare-goal gl-point-x != -1) ;flare exists\r\n\t(strategic-number sn-focus-player-number != my-player-number) ;ignore self\r\n\t(stance-toward focus-player ally) ;player is allied\r\n=>\r\n\t(up-chat-data-to-all \"P#: %d\" s: sn-focus-player-number) ;display details\r\n\t(up-chat-data-to-all \"FX: %d\" g: gl-point-x)\r\n\t(up-chat-data-to-all \"FY: %d\" g: gl-point-y)\r\n\t(up-jump-rule 1) ;end loop or comment this to check all flares\r\n)\r\n\r\n(defrule\r\n\t(strategic-number sn-focus-player-number < 8)\r\n=>\r\n\t(up-modify-sn sn-focus-player-number c:+ 1) ;check next player\r\n\t(up-find-player-flare focus-player gl-point-x)\r\n\t(up-jump-rule -2) ;continue loop\r\n)"
 } ];
 cUpFindPlayerFlare.relatedCommands = [];
 
 //up-find-remote
 cUpFindRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
-cUpFindRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
+cUpFindRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>For self/ally objects, it can find them directly at all times. For non-ally objects, if the object has been sighted and is either a building or has been seen/reseen within the past 5 seconds, it can be found. This should allow the AI to target units that are clearly visible without cheating, and target sighted enemy buildings in the fog.</p><p>One other note: although the new targeting and find commands aren't as heavy as attack-now, like any command that directly manipulates units like retreat-now, guard-unit, etc., please try not to flood them.";
 cUpFindRemote.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -10473,7 +10524,7 @@ cUpGaiaTypeCountTotal.relatedCommands = [];
 
 //up-garrison
 cUpGarrison.shortDescription = "Garrison all units of the specified type into another object.";
-cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line). DE requires \"feudal-battering-ram\" (ID 1258) instead of battering-ram.";
+cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line). DE requires \"feudal-battering-ram\" (ID 1258) instead of battering-ram.</p><p>Objects tasked to garrison are prioritized in the order from newest to oldest trained/built.";
 cUpGarrison.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -12986,6 +13037,7 @@ cUpRetaskGatherers.relatedCommands = [];
 
 //up-retreat-now
 cUpRetreatNow.shortDescription = "Retreat all military units to the home town center.";
+cUpRetreatNow.description = "Retreat all military units to the home town center. Military units within 6 range of the home town center will not be told to retreat.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command.";
 cUpRetreatNow.commandParameters = [];
 cUpRetreatNow.example = [ {
 	title: "Retreat to the home town center.",
@@ -12995,6 +13047,7 @@ cUpRetreatNow.relatedCommands = [];
 
 //up-retreat-to
 cUpRetreatTo.shortDescription = "Retreat all units of a specific type to a random instance of another.";
+cUpRetreatTo.description = "Retreat all units of a specific type to a random instance of another. Military units within 6 range of the retreat target object (the object in the first parameter) will not be told to retreat, to allow better defense of the retreat object, such as an offensive trebuchet or a castle.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command.";
 cUpRetreatTo.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -13745,7 +13798,7 @@ cUpStoreTypeName.relatedCommands = [];
 
 //up-target-objects
 cUpTargetObjects.shortDescription = "Direct local search results against remote search results.";
-cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none.";
+cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none. The other " + pTargetAction.getLink() + " options available for " + cUpTargetPoint.getLink() + " will not work.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetObjects.commandParameters = [ {
 	nameLink: pTarget.getLink(),
 	name: "Target",
@@ -13783,7 +13836,7 @@ cUpTargetObjects.relatedCommands = [];
 
 //up-target-point
 cUpTargetPoint.shortDescription = "Direct local search results to a specific point on the map.";
-cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the TargetAction enumeration. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to -1,-1 to reset distance.";
+cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the TargetAction enumeration. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to the point (-1,-1) first to reset distance.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetPoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -13857,6 +13910,7 @@ cUpTimerStatus.relatedCommands = [];
 
 //up-train
 cUpTrain.shortDescription = "Add a unit to the training queue with dynamic values.";
+cUpTrain.description = "Add a unit to the training queue with dynamic values.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
 cUpTrain.commandParameters = [ {
 	nameLink: pEscrowState.getLink(),
 	name: "EscrowState",
@@ -13887,7 +13941,7 @@ cUpTrain.relatedCommands = [];
 
 //up-train-site-ready
 cUpTrainSiteReady.shortDescription = "Check if a unit's training site is ready and available.";
-cUpTrainSiteReady.description = "Check if a unit's training site is ready and available.</p><p><strong>Important Note:</strong> Unit lines, negative unit IDs, or invalid unit Ids may result in a crash.</p><p>An alternative to this command is finding a building you want to check, setting it as the target object with " + cUpSetTargetObject.getLink() + " or " + cUpSetTargetById.getLink() + " and using " + cUpGetObjectData.getLink() + " like this:</p><div class=\"example\"><pre><code>(up-get-object-data object-data-progress-type gl-data)</pre></code></div><p> If 0 is stored in gl-data, then the building is not training or researching, and it is ready to train units.";
+cUpTrainSiteReady.description = "Check if a unit's training site is ready and available.</p><p><strong>Important Note:</strong> Unit lines, negative unit IDs, or invalid unit Ids may result in a crash. Do not use unit lines or unit classes with this command. Please use the root unit type instead.</p><p>In most cases, the unit you use to test whether a train site is ready doesn't matter. However, for docks, the unit you choose to test is important. Trade cogs may be rejected by the dock if you use " + snDockTrainingFilter.getLink() + " and it hasn't found an allied dock. On the other hand, a military ship (galley works to test all of these) uses enemy ships/docks to determine if it is acceptable when that sn is in use. Fishing ships may also provide a different result sooner or later.</p><p>An alternative to this command is finding a building you want to check, setting it as the target object with " + cUpSetTargetObject.getLink() + " or " + cUpSetTargetById.getLink() + " and using " + cUpGetObjectData.getLink() + " like this:</p><div class=\"example\"><pre><code>(up-get-object-data object-data-progress-type gl-data)</pre></code></div><p> If 0 is stored in gl-data, then the building is not training or researching, and it is ready to train units.";
 cUpTrainSiteReady.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -13948,6 +14002,7 @@ cUpTributeToPlayer.relatedCommands = [];
 
 //up-update-targets
 cUpUpdateTargets.shortDescription = "Perform an immediate update for objects in town size.";
+cUpUpdateTargets.description = "Perform an immediate update for objects in town size.</p><p>This command is important when using TSA. If you expand town size, new targets inside sn-maximum-town-size are quickly added into the target list (the list of enemy objects within sn-maximum-town-size). However, if you reduce sn-maximum-town-size, you have to wait until the target refresh for these objects to be removed from the target list, which happens every 15 seconds. This can cause issues with retreating, for example. Using up-update-targets will immediately update the target list, resolving the issue.";
 cUpUpdateTargets.commandParameters = [];
 cUpUpdateTargets.example = [ {
 	title: "Retreat to the home town center after reducing town size.",
@@ -14549,7 +14604,7 @@ pAge.valueList = [ {
 }, {
 	name: "imperial-age",
 	id: 3,
-	description: "Dark Age."
+	description: "Imperial Age."
 }, {
 	name: "post-imperial-age",
 	id: 105,
@@ -16141,14 +16196,14 @@ pNewName.range = "A string (quoted text), no longer than 24 characters.";
 pNewName.relatedParams = [pCode, pLanguageId, pString, pText];
 
 //ObjectData
-pObjectData.description = "Data information about an object.";
+pObjectData.description = "Data information about an object.</p><p><strong>Important Note:</strong> some object data is not available for units marching in formation when using " + cUpGetObjectData.getLink() + " or " + cUpObjectData.getLink() + ": object-data-action, object-data-order, object-data-target, and object-data-target-id.";
 pObjectData.shortDescription = "Data information about an object.";
 pObjectData.range = "-1 to 82.";
 pObjectData.relatedParams = [pActionId, pData, pFactId, pOrderId, pProgressType];
 pObjectData.valueList = [ {
 	name: "object-data-index",
 	id: -1,
-	description: "Use only with " + cUpRemoveObjects.getLink() + ". This will remove objects by the search index."
+	description: "Use only with " + cUpRemoveObjects.getLink() + ". This will remove objects by the search index. Returns -2 for " + cUpGetObjectData.getLink() + " and " + cUpObjectData.getLink() + "."
 }, {
 	name: "object-data-id",
 	id: 0,
@@ -16172,15 +16227,15 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-action",
 	id: 5,
-	description: "The object's action. See " + pActionId.getLink() + " for a description and list of object action IDs."
+	description: "The object's action. See " + pActionId.getLink() + " for a description and list of object action IDs. This data is NOT available for units marching in formation. When the objects is idle or marching in formation, this data returns -1."
 }, {
 	name: "object-data-order",
 	id: 6,
-	description: "The object's order. See " + pOrderId.getLink() + " for a description and list of object order IDs."
+	description: "The object's order. See " + pOrderId.getLink() + " for a description and list of object order IDs. This data is NOT available for units marching in formation. When the object is not executing an order or marching in formation, this data returns -1."
 }, {
 	name: "object-data-target",
 	id: 7,
-	description: "The object-data-class of the object that the target-object is targeting."
+	description: "The object-data-class of the object that the object is targeting. This data is NOT available for units marching in formation. When the object is not targeting anything or is marching in formation toward the target, this data returns -1."
 }, {
 	name: "object-data-point-x",
 	id: 8,
@@ -16208,7 +16263,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-dropsite",
 	id: 14,
-	description: "The " + pUnitId.getLink() + " of the dropsite that belongs to the resource that is being gathered by the target-object. This will always be the UnitId of a mill, lumber camp, and mining camp for food, wood, and gold/stone, even if resources are being dropped off at a town center. A villager who hasn't been assigned a role (name change) will also given the result &quot;mill&quot;. All villagers given a non-gathering task, and all other objects will return -1 as a result."
+	description: "The " + pUnitId.getLink() + " of the dropsite that belongs to the resource that is being gathered by the object. This will always be the UnitId of a mill, lumber camp, and mining camp for food, wood, and gold/stone, even if resources are being dropped off at a town center. A villager who hasn't been assigned a role (name change) will also given the result &quot;mill&quot;. All villagers given a non-gathering task and all other objects will return -1."
 }, {
 	name: "object-data-resource",
 	id: 15,
@@ -16216,7 +16271,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-carry",
 	id: 16,
-	description: "The amount of resources an object is carrying. This includes the amount of resources a villager is holding, the amount of food left in decaying animals, monk faith generation, flares, and unit corpses. The latter two have carry because of a decay timer that controls when they are removed from the map."
+	description: "The amount of resources an object is carrying. This includes the amount of resources a villager is holding, the amount of food left in decaying animals, monk faith generation, flares, and unit corpses. The latter two have carry because of a decay timer that controls when they are removed from the map. Objects that cannot carry resources return 0."
 }, {
 	name: "object-data-garrisoned",
 	id: 17,
@@ -16240,19 +16295,19 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-action-time",
 	id: 22,
-	description: "The amount of time the object has been on the map. The amount of time seems to be the amount of game time, divided by 3."
+	description: "The amount of time the object has been on the map (?). The amount of time seems to be the amount of game time, divided by 3. Attacking an object seems to reset this data to 0."
 }, {
 	name: "object-data-target-id",
 	id: 23,
-	description: "The ID of the object that the target-object is targeting."
+	description: "The ID of the object that the object is targeting. This data is NOT available for units marching in formation. When an object is not targeting anything or is marching in formation, this data returns -1."
 }, {
 	name: "object-data-formation-id",
 	id: 24,
-	description: "The formation of the object. See " + pFormation.getLink() + " for more information."
+	description: "The formation of the object. Unfortunately, this object data doesn't match " + pFormation.getLink() + " and it seems to be able to change depending on the object's action, even if the formation type isn't changed. When not marching in formation, this returns -1."
 }, {
 	name: "object-data-patrolling",
 	id: 25,
-	description: "Returns 1 if the object is patrolling, otherwise 0."
+	description: "Returns 1 if the object is patrolling, otherwise 0. This data is not affected by " + snEnablePatrolAttack.getLink() + "."
 }, {
 	name: "object-data-strike-armor",
 	id: 26,
@@ -16264,19 +16319,19 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-base-attack",
 	id: 28,
-	description: "The object's current base attack, including researched technologies. The base attack is the attack displayed on the screen, not including hidden attack bonuses. Hidden attack bonus amounts cannot be detected by AIs."
+	description: "The object's current base attack, including researched technologies. Attack bonus amounts are not included and cannot be detected by AIs. :("
 }, {
 	name: "object-data-locked",
 	id: 29,
-	description: "Returns 1 if the object (gate or palisade gate) is locked, otherwise 0."
+	description: "Returns 1 if the gate object (gate or palisade gate) is locked, otherwise 0. Non-gate objects return -2."
 }, {
 	name: "object-data-garrison-id",
 	id: 30,
-	description: "Untested. Likely is the map-based Id of the building or unit the object is garrisoned inside. If the object is not garrisoned, object-data-garrison-id is -2."
+	description: "Unknown. Doesn't seem to be the map-based Id of the building or unit the object is garrisoned inside. If the object is not garrisoned, object-data-garrison-id is -2."
 }, {
 	name: "object-data-train-count",
 	id: 31,
-	description: "The number of units are queued at the object for training."
+	description: "The number of units are queued at the object for training. Objects that cannot train units return -2."
 }, {
 	name: "object-data-tasks-count",
 	id: 32,
@@ -16284,19 +16339,19 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-attacker-count",
 	id: 33,
-	description: "The number of objects that are attacking the target-object. This is not increased for certain situations, like hunting."
+	description: "The number of objects that are attacking the object. This is not increased for certain situations, like hunting."
 }, {
 	name: "object-data-attacker-id",
 	id: 34,
-	description: "The map-based " + pId.getLink() + " of the object attacking the target-object. If multiple objects are attacking, it's likely the most recent object to attack, but this is untested. Not set for certain situations, like hunting. Doesn't work with villagers."
+	description: "The map-based " + pId.getLink() + " of the enemy unit or building that is attacking the object. If multiple objects are attacking, it's either the object that most recently attacked or the attacker with the lowest map-based ID. When attacked by ranged units, the ID is set when the projectile is launched, but when attacked by melee units the ID is not set until the melee unit causes damage. Not set for certain situations, like hunting. Doesn't work with villagers. If the object is not under attack, this returns -2. Once the ID is set, there appears to be about a 30 second cooldown until the ID is reset back to -2 if no other unit has attacked in that 30 second window."
 }, {
 	name: "object-data-under-attack",
 	id: 35,
-	description: "Returns 1 if the object is being attacked, otherwise 0. Not set for certain situations, like hunting. Doesn't work for villagers."
+	description: "Returns 1 if the object is being attacked, otherwise 0. When attacked by ranged units, this data returns 1 only after the projectile is launched, but when attacked by melee units this data returns 1 only when the melee unit causes damage. Not set for certain situations, like hunting. Doesn't work for villagers. Once set to 1, there appears to be about a 30 second cooldown until the data is reset back to 0 if no other unit has attacked in that 30 second window."
 }, {
 	name: "object-data-attack-timer",
 	id: 36,
-	description: "Likely a timer countdown for building objects. When a building is attacked, a 60-second timer starts and counts down toward 0. This timer is reset every time the building is attacked."
+	description: "Likely a timer countdown for building objects. When a building is attacked, a 60-second timer starts and counts down toward 0. This timer is reset every time the building is attacked. Non-building objects always return 0."
 }, {
 	name: "object-data-point-z",
 	id: 37,
@@ -16316,7 +16371,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-researching",
 	id: 41,
-	description: "Returns 1 when the object is researching a technology, otherwise 0."
+	description: "Returns 1 when the object is researching a technology, otherwise 0. Objects that cannot research technologies return -2."
 }, {
 	name: "object-data-tile-position",
 	id: 42,
@@ -16324,7 +16379,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-tile-inverse",
 	id: 43,
-	description: "The opposite tile position of the object's position on the tile. If the object is on the top part of the tile, object-data-tile-inverse will be 4 (bottom). See " + snTargetPointAdjustment.getLink() + " for details on the tile positions."
+	description: "The opposite tile position of the object's position on the tile. If the object is on the top part of the tile (position 2), object-data-tile-inverse will be 4 (bottom). See " + snTargetPointAdjustment.getLink() + " for details on the tile positions."
 }, {
 	name: "object-data-distance",
 	id: 44,
@@ -16352,27 +16407,27 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-move-x",
 	id: 50,
-	description: "The x-coordinate of the object's most recent targeted location. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued."
+	description: "The x-coordinate of the object's most recent targeted location. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued. If the object has never targeted a location, this will return -1."
 }, {
 	name: "object-data-move-y",
 	id: 51,
-	description: "The y-coordinate of the object's most recent targeted location. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued."
+	description: "The y-coordinate of the object's most recent targeted location. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued. If the object has never targeted a location, this will return -1."
 }, {
 	name: "object-data-precise-move-x",
 	id: 52,
-	description: "The precise x-coordinate of the object's most recent targeted location, multiplied by 100. Precise locations are accurate to 1/100 of a tile. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued."
+	description: "The precise x-coordinate of the object's most recent targeted location, multiplied by 100. Precise locations are accurate to 1/100 of a tile. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued. If the object has never targeted a location, this will return -100."
 }, {
 	name: "object-data-precise-move-y",
 	id: 53,
-	description: "The precise y-coordinate of the object's most recent targeted location, multiplied by 100. Precise locations are accurate to 1/100 of a tile. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued."
+	description: "The precise y-coordinate of the object's most recent targeted location, multiplied by 100. Precise locations are accurate to 1/100 of a tile. Applies to move, attack, and other related commands. Automatic activities such as chasing enemy units will not set a new location because a direct command was never issued. If the object has never targeted a location, this will return -100."
 }, {
 	name: "object-data-reload-time",
 	id: 54,
-	description: "The object's reload time, in milliseconds. For ranged units, you also need to add on the frame delay to this reload time."
+	description: "The object's reload time, in milliseconds. This is the time between subsequent attacks. Note that this is the reload time statistic pulled from the data files. For the time remaining until the unit can attack again, use object-data-next-attack."
 }, {
 	name: "object-data-next-attack",
 	id: 55,
-	description: "The time until the object can attack again, in milliseconds. The time is a countdown that starts at the object's object-data-reload-time and counts down to 0. The countdown begins at the start of the unit's attack animation, not necessarily when a projectile is launched."
+	description: "The time until the object can attack again, in milliseconds. The time is a countdown that starts at the object's object-data-reload-time and counts down to 0. The countdown begins at the start of the unit's attack animation. This isn't a problem for melee units since they deal damage immediately at the start of their attack animation. However, ranged units have a delay between the start of their attack animation and when the projectile is launched. You can find the delays of each object in seconds here: <a href=\"https://ageofempires.fandom.com/wiki/Frame_delay\">link</a>. For example, a crossbowman's reload time is 2000 milliseconds, and the time length of their projectile delay is 0.35 seconds, or 350 milliseconds. So, if the object-data-next-attack is below 1650 (2000 minus 350), that means that the crossbowman has shot their arrow and is waiting until they can shoot again."
 }, {
 	name: "object-data-train-site",
 	id: 56,
@@ -16396,7 +16451,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-progress-value",
 	id: 61,
-	description: "The percent completion for the unit the object is training or the technology the object is researching."
+	description: "The percent completion for the unit the object is training or the technology the object is researching. Objects that cannot train or research return -2."
 }, {
 	name: "object-data-min-range",
 	id: 62,
@@ -16404,7 +16459,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-target-time",
 	id: 63,
-	description: "The amount of time, in milliseconds, that the object has been attacking its current target. Also seems to return negative amounts when a villager is herding animals for some reason."
+	description: "The amount of time, in milliseconds, that the object has been attacking its current target. Also seems to return negative amounts when a villager is herding animals for some reason. Objects that aren't attacking return -2."
 }, {
 	name: "object-data-heresy",
 	id: 64,
@@ -16432,7 +16487,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-ballistics",
 	id: 70,
-	description: "Returns 1 if the object is benefitting from Ballistics."
+	description: "Returns 1 if the projectile the object fires is benefitting from Ballistics, otherwise 0."
 }, {
 	name: "object-data-gather-type",
 	id: 71,
@@ -16464,15 +16519,15 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-frame-delay",
 	id: 78,
-	description: "The object's frame delay. Frame delay is the number of frames between the start of the attack animation and the launch of the projectile. Unfortunately, the duration of each frame in the animation is different for each unit, so it's very difficult to calculate the precise duration of frame delay."
+	description: "The object's frame delay. Frame delay is the number of graphics frames between the start of the attack animation and the launch of the projectile. Unfortunately, the duration of each frame in the animation is different for each unit, so it's very difficult to calculate the precise duration of frame delay. Use this website instead: <a href=\"https://ageofempires.fandom.com/wiki/Frame_delay\">link</a>."
 }, {
 	name: "object-data-attack-count",
 	id: 79,
-	description: "The number of times the object has tried to damage its target."
+	description: "The number of times the object has tried to damage its most recent target. This number is not reset to 0 until a new target has been found. If the object has never targeted anything, this returns 0."
 }, {
 	name: "object-data-to-precise",
 	id: 80,
-	description: "The precise distance from the object to a precise target point. object-data-precise-distance is probably the precise distance from the object to a normal point."
+	description: "The precise distance from the object to the target point, x 100. This probably differs from object-data-precise-distance if the target point has been set with " + cUpSetPreciseTargetPoint.getLink() + "."
 }, {
 	name: "object-data-base-type",
 	id: 81,
@@ -16484,11 +16539,11 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-ownership",
 	id: 83,
-	description: "DE only. Returns the player number that owns the object or is the most dominant player nearby. Returns -2 if the object cannot be captured. Returns -1 if it can be captured but no player units are nearby."
+	description: "DE only. Returns the player number that owns the object or is the most dominant player nearby. Returns -2 if the object cannot be captured. Returns -1 if it can be captured but no player units are nearby. Returns -2 on UP or WK."
 }, {
 	name: "object-data-capture-flag",
 	id: 84,
-	description: "DE only. The capture type of an object owned by gaia or another player. 0 = capture never, 1 = capture once, 2 = capture multiple times, 3 = capture livestock/artifact."
+	description: "DE only. The capture type of an object owned by gaia or another player. 0 = capture never, 1 = capture once, 2 = capture multiple times, 3 = capture livestock/artifact. Returns -2 on UP or WK."
 } ];
 
 //ObjectId
@@ -16498,7 +16553,7 @@ pObjectId.range = "A valid " + pUnitId.getLink() + " or a valid " + pBuildingId.
 pObjectId.relatedParams = [pBuildingId, pClassId, pId, pTypeId, pUnitId, pUpgradeId];
 
 //ObjectList
-pObjectList.description = "Specifies whether the filter should apply to objects in the active list or the inactive list.";
+pObjectList.description = "Specifies whether the filter should apply to objects in the active list or the inactive list.</p><p>Here's some background info from scripter64 in response to a question on why some custom flags in a mod weren't being animated:</p><p>Custom building flags can't be animated due to the performance overhead of updating them. There can be many houses and wall segments (each one counts as a separate \"building\") on a map each game, so ES moved these objects into a separate [inactive] list that does not update per-turn to avoid excessive computational overhead. When attacked, they are moved into the main per-turn update list in order to animate their fire if necessary. Gates are always in the main list.</p><p>The current flag fix only enables the palisade wall ends to animate by moving those specific objects into the main object list that can update per-turn for redrawing and animation. It would probably be bad for the general performance of the game if we were to undo the ES optimization entirely and allow all objects into the per-turn update list.";
 pObjectList.shortDescription = "Either list-active or list-inactive.";
 pObjectList.range = "0 or 1.";
 pObjectList.relatedParams = [pObjectStatus];
@@ -16767,7 +16822,7 @@ pPositionType.valueList = [ {
 }, {
 	name: "position-flank",
 	id: 6,
-	description: "The expected position where the nearest enemy flank player should be. Returns the point (-1,-1) when all TCs are destroyed."
+	description: "The expected position where the nearest enemy flank player should be, found by evaluating all of the scout-opposite points for all members of the team and picking the closest point. Returns the point (-1,-1) when all TCs are destroyed."
 }, {
 	name: "position-zero",
 	id: 7,
@@ -17773,7 +17828,7 @@ pScoutMethod.valueList = [ {
 }, {
 	name: "scout-flank",
 	id: 6,
-	description: "Scouts the expected position where the nearest enemy flank player should be."
+	description: "Scouts the expected position where the nearest enemy flank player should be, found by evaluating all of the scout-opposite points for all members of the team and picking the closest point."
 } ];
 
 //SearchOrder
@@ -18545,7 +18600,7 @@ pUpgradeId.relatedParams = [pBuildingId, pObjectId, pTypeId, pUpgradeId];
 //Value
 pValue.description = "An integer value. Used for many different purposes.";
 pValue.shortDescription = "An integer value. Used for many different purposes.";
-pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for extended goals (goals 41-510) and extended strategic numbers (SNs 242-511) have a 32-bit signed integer range (-2,147,483,648 to 2,147,483,647).";
+pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for goals and extended strategic numbers (SNs 242-511) have a 32-bit signed integer range instead (-2,147,483,648 to 2,147,483,647).";
 pValue.relatedParams = [pCount];
 
 //Victory
@@ -18783,7 +18838,7 @@ barracksTechsArray = [ {
 	notes: ""
 }, {	
 	name: "Eagle Warrior",
-	aiName: "eagle warrior",
+	aiName: "ri-eagle-warrior",
 	weirdName: 0,
 	id: 384,
 	building: "Barracks",

@@ -312,7 +312,7 @@ hr {
 blockquote {
 	background-color: #eee;
 	border-left: 3px solid #ccc;
-	padding-left: 15px;
+	padding: 2px 15px 2px 15px
 }
 
 .sn-check-flag {
