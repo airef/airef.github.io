@@ -3786,6 +3786,150 @@ var releaseNotes = [ {
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
+		number: "20120421-130345",
+		version: 1.1,
+		notes: "UserPatch 20120421-130345 has been released! This update includes performance optimizations for all of the up-get-* commands. In addition, I've modified the network transfer code again, which I hope resolves the connectivity issues.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20120420-180340",
+		version: 1.1,
+		notes: "UserPatch 20120420-180340 has been released! This update resolves 68: #UserPatch [AI Scripting] A mechanism is required to calculate sums with wildcard player ids. I believe this was originally requested by Suriel; it was so long ago lol. Now, with up-get-fact-sum, you can get the sum of every-enemy's military-population, etc. All of the following commands will operate as either a fact or an action in a rule. For best performance, use the command that is most direct. For example, don't use up-get-player-fact with my-player-number; just use up-get-fact.</p><p><strong>New Facts and Actions</strong><br>1. (up-get-fact inConstFactId inConstFactParam outGoalFactData)<br>- Use to store a fact for my-player-number into outGoalFactData. inConstFactParam can be 0.<br>- This command can operate as either a fact or an action in a rule.<br>- Example: (up-get-fact military-population 0 gl-population) ;store the AI's data into gl-population<br>2. (up-get-target-fact inConstFactId inConstFactParam outGoalFactData)<br>- Use to store a fact for target-player into outGoalFactData. inConstFactParam can be 0.<br>- This command can operate as either a fact or an action in a rule.<br>- Example: (up-get-target-fact population 0 gl-population) ;store the target data into gl-population<br>3. (up-get-focus-fact inConstFactId inConstFactParam outGoalFactData)<br>- Use to store a fact for focus-player into outGoalFactData. inConstFactParam can be 0.<br>- This command can operate as either a fact or an action in a rule.<br>- Example: (up-get-focus-fact civilian-population 0 gl-population) ;store the focus data into gl-population<br>4. (up-get-player-fact inPlayerId inConstFactId inConstFactParam outGoalFactData)<br>- Use to store a fact for inPlayerId into outGoalFactData. inConstFactParam can be 0.<br>- This command can operate as either a fact or an action in a rule.<br>- Example: (up-get-player-fact my-player-number food-amount 0 gl-food) ;store \"food-amount\" into gl-food<br>5. (up-get-fact-sum inPlayerId inConstFactId inConstFactParam outGoalFactData)<br>- Use to store the sum of facts for multi-player wildcards into outGoalFactData. inConstFactParam can be 0.<br>- This command can operate as either a fact or an action in a rule.<br>- Example: (up-get-fact-sum every-enemy military-population 0 gl-population) ;store the sum into gl-population",
+		itemsAffected: [cUpGetFact, cUpGetTargetFact, cUpGetFocusFact, cUpGetPlayerFact, cUpGetFactSum],
+		scriptingType: "ai"
+	}, {
+		number: "20120419-114808",
+		version: 1.1,
+		notes: "UserPatch 20120419-114808 has been released! This update resolves 324: #UserPatch [Maps & RMS] Random map scripts must be able to request nomad-style starting resources. Now rm scripts can use a new \"nomad_resources\" command under PLAYER_SETUP to request nomad starting resource distribution. In addition, the \"ai_info_map_type\" command has been extended to 4 parameters, in order to allow random map scripts to set new #load symbols for AIs: UP-NOMAD-STYLE and UP-MICHI-STYLE. Please update your map if you currently use \"ai_info_map_type\".</p><p><strong>New RM Commands</strong><br>1. ai_info_map_type inConstMapName inConstIsNomad inConstIsMichi inConstZero<br>- Set inConstMapName to the value that best identifies your rms script for AIs.<br>- Set inConstIsNomad to 1 if this is nomad style, or 0 if it is not.<br>- Set inConstIsMichi to 1 if this is michi style, or 0 if it is not.<br>- Set inConstZero parameter to 0.<br>- Location: under the <PLAYER_SETUP> section<br>- Example: ai_info_map_type BLACK_FOREST 1 1 0 ;BLACK-FOREST-MAP, UP-NOMAD-STYLE, UP-MICHI-STYLE #load<br>- Values for inConstMapName:<br>ARABIA, ARCHIPELAGO, ARENA, BALTIC, BLACK_FOREST, COASTAL, CONTINENTAL, CRATER_LAKE, FORTRESS, GHOST_LAKE, GOLD_RUSH, HIGHLAND, ISLANDS, MEDITERRANEAN, MIGRATION, MONGOLIA, NOMAD, OASIS, RIVERS, SALT_MARSH, SCANDANAVIA, TEAM_ISLANDS, YUCATAN, CUSTOM<br>2. nomad_resources<br>- No parameters are required for this command.<br>- Location: under the <PLAYER_SETUP> section<br>- Example: nomad_resources ;set starting resources like nomad",
+		itemsAffected: [],
+		scriptingType: "rms"
+	}, {
+		number: "20120419-075249",
+		version: 1.1,
+		notes: "UserPatch 20120419-075249 has been released! This update resolves 323: #UserPatch [Core Bug] AI units may walk on water if they are retargeted during transport. This issue has existed for a long time. Finally, Cysion provided this scenario, which made it very easy to recreate the failure. It happens on original 1.0c, as well. Thanks, Cysion!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20120419-050202",
+		version: 1.1,
+		notes: "UserPatch 20120419-050202 has been released! This update resolves 322: #UserPatch [AI Scripting] A new load symbol is required for AIs to detect a multiplayer game. You can now detect #load-if-defined UP-MULTIPLAYER-GAME. Thanks to Duck for the idea! In addition, forget everything I wrote about 20120418-193806 lol. The changes are now:</p><p>up-allied-resource-amount - was \"up-allied-resource\" and \"up-resource-value\"<br>- corresponds to \"up-resource-amount\" for self<br>- for \"up-get-player-fact\", use the \"resource-amount\" FactId for both (IMPORTANT, BREAKING CHANGE)<br>up-allied-resource-percent - was \"up-resource-percent\"<br>- corresponds to \"up-resource-percent\" for self (this command is new)<br>- for \"up-get-player-fact\", use the \"resource-percent\" FactId for both<br>up-get-allied-target - still exists<br>- deprecated in favor of up-allied-sn+sn-target-player-number, up-get-player-fact+allied-sn<br>- please remove references to this sooner rather than later<br>up-resource-value - removed<br>- removed in favor of \"up-allied-resource-amount\"<br>- please remove references to this immediately</p><p>Summary of current resource commands:<br>For my-player-number exclusively: up-resource-amount, up-resource-percent<br>For allied players: up-allied-resource-amount, up-allied-resource-percent<br>Please update FactId defconsts for \"up-get-player-fact\" from UserPatchConst.per",
+		itemsAffected: [cUpResourceAmount, cUpResourcePercent, cUpAlliedResourceAmount, cUpAlliedResourcePercent],
+		scriptingType: "ai"
+	}, {
+		number: "20120418-193806",
+		version: 1.1,
+		notes: "UserPatch 20120418-193806 has been released! This update makes some changes to some command names: up-allied-resource and up-allied-resource-percent. The names were getting a bit long and lol, so I think this is an improvement. Note that up-allied-resource still exists, however, up-allied-resource-percent has already been dropped, since no one could have implemented it so soon lol. The defconsts in UserPatchConst.per have been updated accordingly. Please update your AIs to the new names as soon as possible and remove any deprecated commands. The old stuff won't be dropped any time soon, though, so please don't worry. Beta :lol:</p><p><strong>New Command Naming/Adjustments</strong><br>- up-get-allied-target (exists): deprecated in favor of up-allied-sn+sn-target-player-number, up-get-player-fact+allied-sn<br>- up-allied-resource (exists): renamed up-resource-value<br>- up-allied-resource-percent (removed): renamed up-resource-percent",
+		itemsAffected: [cUpAlliedResourceAmount, cUpAlliedResourcePercent],
+		scriptingType: "ai"
+	}, {
+		number: "20120418-174301",
+		version: 1.1,
+		notes: "UserPatch 20120418-174301 has been released! This update resolves 321: #UserPatch [AI Scripting] A new fact is required to read floating point resource amounts from players. This fact is like up-allied-resource, except it multiplies the value by 100 before converting it to an integer, so you can finally read resource amounts like 0.30 as 30, instead of just receiving a 0. This command also works with my-player-number. In addition, allied-resource-percent (39) has been added for up-get-player-fact. Thanks to fen for the idea!</p><p><strong>New Facts</strong><br>1. (up-allied-resource-percent inPlayerId inConstResourceAmount compareOp inOpValue)<br>- Use to perform a comparison with an allied player's (human or AI) internal resource value * 100.<br>- Example: (up-allied-resource-percent any-ally amount-tribute-inefficiency < 30) ;returns true if coinage is complete",
+		itemsAffected: [cUpAlliedResourcePercent, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20120418-165510",
+		version: 1.1,
+		notes: "UserPatch 20120418-165510 has been released! This update makes yet another adjustment for multiplayer games. I've increased the required timeout significantly to see if it helps with dropped packets. Don't worry about logs anymore, as the issue is clearly packet loss. Thanks to offwo, sh, and ryshep for their help with the logs!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20120418-133910",
+		version: 1.1,
+		notes: "UserPatch 20120418-133910 has been released! This update resolves 320: #UserPatch [AI Scripting] A new action is required for AIs to find specific players in sequence. Now, in addition to the old up-find-player, there is a up-find-next-player. The only difference between these commands is that the last parameter is used by up-find-next-player to determine which player number should be selected next. The old up-find-player command disregards the initial value of the goal that is passed into the command. Both set this goal to the new result.</p><p>In addition, both commands can now use a new \"find-ordered\" value for FindPlayerMethod. This will return the highest matching player number for the first result (up-find-player), then each matching player number in ascending order afterward if you use up-find-next-player. The other FindPlayerMethods work as expected, so up-find-player+find-closest will give you the nearest player number, and up-find-next-player+find-closest will then cycle toward the farthest. At the end of any sequence, up-find-next-player will go back to the start.</p><p><strong>New Actions</strong><br>1. (up-find-next-player inConstPlayerStance inConstFindPlayerMethod inOutGoalPlayerId)<br>- Use to find the next active player in the game based on the provided information.<br>- Example: (up-find-next-player enemy find-ordered gl-next-player) ;stores the player number after gl-next-player<br>- Example: (up-find-player any find-ordered gl-number-players) ;stores the highest matching player number",
+		itemsAffected: [cUpFindPlayer, cUpFindNextPlayer],
+		scriptingType: "ai"
+	}, {
+		number: "20120417-185547",
+		version: 1.1,
+		notes: "UserPatch 20120417-185547 has been released! This update resolves 319: #UserPatch [Core Bug] Executing up-set-placement-data under certain conditions will crash the game. Thanks to LarzPorsinna for the report! In addition, the inOpDistance parameter for this command has been extended. Its new range is -254 to 254.",
+		itemsAffected: [cUpSetPlacementData],
+		scriptingType: "ai"
+	}, {
+		number: "20120417-141720",
+		version: 1.1,
+		notes: "UserPatch 20120417-141720 has been released! This update adds even more information to the \"Debug network logging\" feature for when errors occur during multiplayer communications.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20120417-115146",
+		version: 1.1,
+		notes: "UserPatch 20120417-115146 has been released! This update resolves 318: #UserPatch [Core Bug] Multiplayer command messages are queued with an incorrect data size. I have no idea what negative effects his bug may have been causing, but, in the best case scenario where nothing was misinterpreting data, at least memory usage will be reduced a bit. This issue was confirmed by ES_MattP, existing in the 1.0c network code.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20120416-210803",
+		version: 1.1,
+		notes: "UserPatch 20120416-210803 has been released! This update resolves 317: #UserPatch [Core Bug] Gates are limited to the extent that AIs are likely to wall themselves inside. I think we've all seen this problem before lol.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20120416-093415",
+		version: 1.1,
+		notes: "UserPatch 20120416-093415 has been released! This update resolves 316: #UserPatch [Core Bug] Executing up-build more than once per AI rule pass will crash the game. Note that, even now, only 1 build/up-build command is allowed to succeed per AI rule pass. Subsequent build commands will silently fail. Thanks to Holtzclaw for the report!</p><p>One other thing: for convenience, any rule that takes the \"EscrowState\" goal parameter can now be left as 0 to ignore using any goal and just operate as not-with-escrow: (up-build place-normal 0 c: barracks) = (build barracks).",
+		itemsAffected: [pEscrowState],
+		scriptingType: "ai"
+	}, {
+		number: "20120415-111210",
+		version: 1.1,
+		notes: "UserPatch 20120415-111210 has been released! This update resolves 315: #UserPatch [AI Scripting] AIs must be able to perform more accurate placement for buildings. Now, up-build has a new PlacementType: place-control. In combination with up-set-placement-data and up-reset-placement, we might be able to get some very interesting building placements lol. Note: docks cannot be targeted using place-control... yet.</p><p>1. (up-set-placement-data inPlayerId inConstObjectId typeOp inOpDistance)<br>- Use to specify placement information for subsequent \"up-build place-control\" commands.<br>- Set inPlayerId to the AI's player number or an ally. The focus-player and this-* ids are accepted, as well.<br>- Set inConstObjectId to focus placement on the latest object of that type. -1 = the home tc.<br>- Set inOpDistance to a positive or negative value to influence relative placement; range: -128 to 127.<br>- Be careful when attempting to place with insufficient exploration.<br>- Relative placement is based on either the target-player's location or, if unavailable, the center of the map.<br>- Example: (up-set-placement-data my-player-number -1 c: -25) ;place 25 tiles behind the home tc<br>- Example: (up-set-placement-data this-any-ally lumber-camp c: 2) ;2 tiles from this ally's latest lumber-camp<br>2. (up-reset-placement typeOp inOpBuildingId)<br>- Use to clear the placement list for the specified building type, if it seems blocked.<br>- Example: (up-reset-placement c: barracks) ;clears all pending barracks without a foundation",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
 		number: "",
 		version: 1.1,
 		notes: "",
@@ -3806,5 +3950,5 @@ var releaseNotes = [ {
 	}, {
 
 		
-		//finished page 187
+		//finished page 182
 	}];

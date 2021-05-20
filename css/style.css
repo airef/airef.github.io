@@ -157,14 +157,19 @@ h3 {
 	margin: 0 0 20px 0;
 }
 
+h4 {
+	font: 14pt 'Crimson Text', "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
+h5 {
+	font: 12pt 'Crimson Text', "Georgia", Arial, sans-serif;
+	margin: 0 0 20px 0;
+}
+
 .techs-building-header, .objects-building-header {
 	font: 16pt "Georgia", Arial, sans-serif;
 	margin: 20px 0 0 0;
-}
-
-h4 {
-	font: 14pt "Georgia", Arial, sans-serif;
-	margin: 0 0 20px 0;
 }
 
 p {
