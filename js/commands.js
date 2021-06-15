@@ -15,6 +15,7 @@ class Command {
 		this.commandLinks = [];
 		this.relatedCommands = [];
 		this.commandCategory = [];
+		this.complexity = [];
 		this.example = "";
 	}
 
@@ -480,8 +481,10 @@ var cUpUngarrison = new Command("up-ungarrison","Action","1.1");
 var cUpUnitTypeInTown = new Command("up-unit-type-in-town","Fact","1.1");
 var cUpUpdateTargets = new Command("up-update-targets","Action","1.1");
 var cUpVillagerTypeInTown = new Command("up-villager-type-in-town","Fact","1.1");
+var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
+var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown];
+var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","1.0c","&#60;rel-op&#62;");
@@ -492,6 +495,7 @@ var pAge = new Parameter("Age","1.0c","&#60;age&#62;");
 var pAllyPlayer = new Parameter("AllyPlayer","1.1");
 var pAnyPlayer = new Parameter("AnyPlayer","1.0c","&#60;player-number&#62;");
 var pAttackStance = new Parameter("AttackStance","1.1");
+var pAttrId = new Parameter("AttrId","DE");
 var pBorder = new Parameter("Border","1.1");
 var pBuildingId = new Parameter("BuildingId","1.0c","&#60;building&#62;");
 var pCiv = new Parameter("Civ","1.0c","&#60;civ&#62;");
@@ -507,6 +511,7 @@ var pDifficulty = new Parameter("Difficulty","1.0c","&#60;difficulty&#62;");
 var pDiffParameterId = new Parameter("DiffParameterId","1.0c","&#60;difficulty-parameter&#62;");
 var pDistance = new Parameter("Distance","1.1");
 var pElapsedTime = new Parameter("ElapsedTime","1.1");
+var pEffectId = new Parameter("EffectId","DE");
 var pEscrowState = new Parameter("EscrowState","1.1");
 var pESPlayerStance = new Parameter("ESPlayerStance","1.0c","&#60;diplomacy-stance&#62;");
 var pEventId = new Parameter("EventId","1.0c","&#60;event-id&#62;");
@@ -528,6 +533,7 @@ var pHitpoints = new Parameter("HitPoints","1.1");
 var pId = new Parameter("Id","1.1");
 var pIdleType = new Parameter("IdleType","1.1");
 var pIndex = new Parameter("Index","1.1");
+var pItemId = new Parameter("ItemId","DE");
 var pLanguageId = new Parameter("LanguageId","1.0c","&#60;string-id&#62;","&#60;string-id-start&#62;");
 var pLimit = new Parameter("Limit","1.1");
 var pLocalIndex = new Parameter("LocalIndex","1.1");
@@ -601,7 +607,7 @@ var pValue = new Parameter("Value","1.0c","&#60;value&#62;");
 var pVictory = new Parameter("Victory","1.0c","&#60;victory-condition&#62;");
 var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pAttrId, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pEffectId, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pItemId, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber();
@@ -2650,6 +2656,7 @@ snSpecialAttackType2.version = "1.0c";
 snSpecialAttackType2.linked = [ 110 ];
 snSpecialAttackType2.related = [ 106, 108 ];
 snSpecialAttackType2.shortDescription = "Set to any unit, building, or group id to direct attacks.";
+snSpecialAttackType2.shortDescription = "Set to any unit, building, or group id to direct attacks. This SN only affects soldiers attacking with attack groups or " + cAttackNow.getLink() + ".";
 
 snSpecialAttackType3.id = 108;
 snSpecialAttackType3.snName = "sn-special-attack-type3";
@@ -4538,6 +4545,7 @@ snAllowCivilianDefense.version = "1.0c";
 snAllowCivilianDefense.linked = [ ];
 snAllowCivilianDefense.related = [ 100, 258 ];
 snAllowCivilianDefense.shortDescription = "Set to 0 to disable civilian defense, 1 to defend against weak, non-ranged units, 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.";
+snAllowCivilianDefense.description = "Set to 0 to disable civilian defense except against gaia (wolves, etc.), 1 to defend against weak, non-ranged units (like 1.0c), 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.</p><p>For reference, villager speed: default: 0.8, wheelbarrow: 0.88, hand-cart: 0.97.<br>For archer-line and skirmisher-line, speed: 0.96.</p><p>With " + snAllowCivilianOffense.getLink() + " set to 1, the \"weak units\" check is eliminated, allowing for a more aggressive response. Despite the speed advantage, even with only wheelbarrow, early ranged units are swiftly eliminated by villagers with minimal losses and luring.";
 
 snNumberForwardBuilders.id = 226;
 snNumberForwardBuilders.snName = "sn-number-forward-builders";
@@ -4817,6 +4825,7 @@ snEnableNewBuildingSystem.version = "1.1";
 snEnableNewBuildingSystem.linked = [];
 snEnableNewBuildingSystem.related = [ 243 ];
 snEnableNewBuildingSystem.shortDescription = "Set to 1 only once to request the new building system, featuring simultaneous construction and cancellation control.";
+snEnableNewBuildingSystem.description = "Set to 1 only once to request the new building system, featuring simultaneous construction and cancellation control. If you want to enable new building system, you should do it either first thing in the script, or at any time that you have zero builders and zero pending buildings.";
 
 snPercentBuildingCancellation.id = 243;
 snPercentBuildingCancellation.snName = "sn-percent-building-cancellation";
@@ -4881,6 +4890,7 @@ snObjectRepairLevel.version = "1.1";
 snObjectRepairLevel.linked = [];
 snObjectRepairLevel.related = [];
 snObjectRepairLevel.shortDescription = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons. For scenarios and campaigns, the default is 1 for compatibility.";
+snObjectRepairLevel.description = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons.</p><p>For scenarios and campaigns, the default is 1 for compatibility. The default is 16387 (wonder, castle, monastery, town-center, siege) for all other game modes.</p><p>Examples:<br>0 = wonder only (essentially disabled)<br>1 = wonder, castle, monastery (the 1.0c repair level)<br>3 = wonder, castle, monastery, town-center<br>20547 = wonder, castle, monastery, town-center, dock, towers, siege weapons (scripter64 uses this in Chameleon)<br>20547 = 0 + 1 + 2 + 64 + 4096 + 16384";
 
 snEnablePatrolAttack.id = 247;
 snEnablePatrolAttack.snName = "sn-enable-patrol-attack";
@@ -5075,6 +5085,7 @@ snAllowCivilianOffense.version = "1.1";
 snAllowCivilianOffense.linked = [ 257 ];
 snAllowCivilianOffense.related = [ 225 ];
 snAllowCivilianOffense.shortDescription = "Set to 1 to allow villagers to participate as soldiers in town-size attacks. If set to 2, villagers will target enemy villagers and buildings even if defensive military units are available. If set to 0, villagers will only be sent to attack enemy forward towers, without murder holes.";
+snAllowCivilianOffense.description = "Set to 1 to allow villagers to participate as soldiers in town-size attacks. If set to 2, villagers will target enemy villagers and buildings even if defensive military units are available. If set to 0, villagers will only be sent to attack enemy forward towers, without murder holes.</p><p>When set to 1 or 2, this strategic number also disables the \"weak units\" check of " + snAllowCivilianDefense.getLink() + ".";
 
 snPreferredTradeDistance.id = 259;
 snPreferredTradeDistance.snName = "sn-preferred-trade-distance";
@@ -5139,6 +5150,7 @@ snWallTargetingMode.version = "1.1";
 snWallTargetingMode.linked = [];
 snWallTargetingMode.related = [ 255 ];
 snWallTargetingMode.shortDescription = "Set to 1 to allow military units to automatically target nearby walls and gates. If set to 0, they will likely be ignored.";
+snWallTargetingMode.description = "Set to 1 to allow military units to automatically target nearby walls and gates. If set to 0, they will likely be ignored. It's good to use sn-wall-targeting-mode set to 1 if you are attacking with retargetable attack groups or, sometimes, TSA. It may be bad for attack-now, since they cannot be retargeted by the AI script,";
 
 snLivestockToTownCenter.id = 263;
 snLivestockToTownCenter.snName = "sn-livestock-to-town-center";
@@ -5767,7 +5779,6 @@ snProfilingThreshold.shortDescription = "Not currently used in public release.";
 //acknowledge-event
 cAcknowledgeEvent.shortDescription = "Acknowledges a received event by resetting the associated flag.";
 cAcknowledgeEvent.description = "Acknowledges a received event by resetting the associated flag. Scenario triggers that execute an AI Script Goal effect are the only events that AI scripts can detect.</p><p>This command, along with " + cEventDetected.getLink() + ", is used to detect an AI Script Goal effect from a scenario trigger, often with the intention of changing the AI behavior after the scenario trigger has fired. The scenario designer chooses an AI Trigger number for the AI Script Goal effect in the scenario editor. Then, the event-detected command in the AI script will detect when this trigger effect happens. The event-detected command will remain true after the AI Script Goal trigger effect fires, so acknowledge-event is used to reset the event-detected flag so that event-detected will no longer be true, similar to how the " + cDisableTimer.getLink() + " command clears a timer that has triggered or how the " + cAcknowledgeTaunt.getLink() + " command accepts the taunt message."
-cAcknowledgeEvent.commandCategory = ["Scenarios"];
 cAcknowledgeEvent.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
@@ -5787,12 +5798,13 @@ cAcknowledgeEvent.example = [ {
 	title: "If an AI Script Goal trigger effect has fired with AI trigger 36, detect it with event-detected and acknowledge it with acknowledge-event. gl-trigger-event-fired is set to 1 so that (goal gl-trigger-event-fired 1) can be used as a condition to change the AI behavior in the scenario after the AI Script Goal trigger effect has fired.",
 	data: "(defconst gl-trigger-effect-fired 101)\r\n(defrule\r\n\t(event-detected trigger 36)\r\n=&gt;\r\n\t(set-goal gl-trigger-effect-fired 1)\r\n\t(acknowledge-event trigger 36)\r\n)"
 } ];
+cAcknowledgeEvent.commandCategory = ["Scenarios"];
 cAcknowledgeEvent.relatedCommands = [cEventDetected, cSetSignal, cUpGetEvent, cUpGetSignal, cUpSetEvent, cUpSetSignal];
+cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
-cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
-cAcknowledgeTaunt.commandCategory = ["Chat"];
+cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
 cAcknowledgeTaunt.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -5807,15 +5819,28 @@ cAcknowledgeTaunt.commandParameters = [ {
 	dir: "in",
 	range: "1 to 255",
 } ];
+cAcknowledgeTaunt.example = [ {
+	title: "Launch an attack when an ally taunts 31 (\"Attack an Enemy Now!\") if the AI has enough soldiers to attack. Acknowledge the taunt so that the attack command is only sent once.",
+	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt any-ally 31)\r\n)"
+} ];
+cAcknowledgeTaunt.commandCategory = ["Chat", "Player Any"];
+cAcknowledgeTaunt.relatedCommands = [cTaunt, cTauntDetected, cTauntUsingRange];
+cAcknowledgeTaunt.complexity = "Low";
 
 //attack-now
 cAttackNow.shortDescription = "Forces attack with currently available attack units.";
-cAttackNow.description ="Forces attack with currently available attack units. Units are designated as attack units by using " + snPercentAttackSoldiers.getLink() + " or " + snPercentAttackBoats.getLink() + ".";
+cAttackNow.description ="Forces attack with currently available attack units. Units are designated as attack units by using " + snPercentAttackSoldiers.getLink() + " or " + snPercentAttackBoats.getLink() + ".</p><p>Once the attack-now command is issued, all attack units will group up into formations, pick a building or unit to target, and march toward that location to attack, mostly ignoring enemy units and buildings along the way. Once the soldiers reach the target, they will attack the target and nearby units. Once the target is destroyed, a new target will be selected. This process will continue until all attack units from the attack-now command are killed.</p><p>To stop an attack-now attack, use " + cUpResetAttackNow.getLink() + ".</p><p>Three important notes:</p><ol><li><strong>Do not spam this command!</strong> Frequent attack-now commands can cause severe lag. Each successive attack-now command will cause the units to recalculate their target, which can often be quite expensive and should not be done frequently. If possible, use a timer to issue an attack-now command every X seconds instead.</li><li>attack-now is only one of four methods to attack the enemy: attack-now, attack groups, town size attack (TSA), and DUC. The Attack groups method sends an attack when " + snNumberAttackGroups.getLink() + " is greater than zero. TSA sends an attack when the enemy buildings are within the distance of " + snMaximumTownSize.getLink() + ". Direct Unit Control (<a href=\"https://airef.github.io/duc/duc-index.html\">DUC</a>) can manually issue direct attack or patrol actions to selected groups of units against manually selected targets.</li><li>As noted above, sn-number-attack-groups is used in the attack groups attack method and does not impact attack-now.</li></ol>";
+cAttackNow.example = [ {
+	title: "Issue an attack every 5 minutes (300 seconds) if we have > 12 military units.",
+	data: "(defconst t-attack-timer 1)\r\n(defrule\r\n\t(game-time >= 300)\r\n\t(up-timer-status t-attack-timer != timer-running)\r\n\t(military-population > 12)\r\n=&gt;\r\n\t(attack-now)\r\n\t(enable-timer t-attack-timer 300)\r\n)"
+} ];
 cAttackNow.commandCategory = ["Attack & Defense"];
+cAttackNow.relatedCommands = [cUpResetAttackNow, cUpRetreatNow, cUpRetreatTo];
+cAttackNow.complexity = "Low";
 
 //attack-soldier-count
 cAttackSoldierCount.shortDescription = "Checks the computer player's attack soldier count.";
-cAttackSoldierCount.description = "Compares the computer player's attack soldier count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack soldiers are those assigned to attack groups (using the attack-group SNs) or assigned from the " + cAttackNow.getLink() + " command. Setting " + snNumberAttackGroups.getLink() + " to 0 and using " + cUpResetAttackNow.getLink() + " means soldiers are no longer attack soldiers.";
+cAttackSoldierCount.description = "Compares the computer player's attack soldier count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack soldiers are those attacking with the attack groups method (setting " + snNumberAttackGroups.getLink() + " > 0) or are attacking with the " + cAttackNow.getLink() + " command.</p><p>Setting sn-number-attack-groups to 0 and using " + cUpDisbandGroupType.getLink() + " to disband land attack groups when attacking with attack groups will reset the soldiers, and they will no longer be considered attack soldiers. Likewise, using " + cUpResetAttackNow.getLink() + " when attacking with attack-now will reset the soldiers, and they will no longer be considered attack soldiers.";
 cAttackSoldierCount.commandCategory = ["Attack & Defense", "Counting"];
 cAttackSoldierCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
@@ -5836,7 +5861,6 @@ cAttackSoldierCount.commandParameters = [ {
 //attack-warboat-count
 cAttackWarboatCount.shortDescription = "Checks the computer player's attack warboat count.";
 cAttackWarboatCount.description = "Compares the computer player's attack warboat count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack warboats are those assigned to boat attack groups (using the boat-attack-group SNs) or assigned from the " + cAttackNow.getLink() + " command. If you stop calling " + cAttackNow.getLink() + " then they are immediately no longer attack warboats - even without using " + cUpResetAttackNow.getLink() + ".";
-cAttackWarboatCount.commandCategory = ["Attack & Defense", "Counting", "Water"];
 cAttackWarboatCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -5852,11 +5876,11 @@ cAttackWarboatCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cAttackWarboatCount.commandCategory = ["Attack & Defense", "Counting", "Water"];
 
 //build
 cBuild.shortDescription = "Builds the given building.";
 cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
-cBuild.commandCategory = ["Build & Train"];
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5865,11 +5889,11 @@ cBuild.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
+cBuild.commandCategory = ["Build & Train"];
 
 //build-forward
 cBuildForward.shortDescription = "Builds the given building close to an enemy.";
 cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
-cBuildForward.commandCategory = ["Build & Train"];
 cBuildForward.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5878,6 +5902,7 @@ cBuildForward.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
+cBuildForward.commandCategory = ["Build & Train"];
 
 //build-gate
 cBuildGate.shortDescription = "Builds a gate as part of the given perimeter wall.";
@@ -6859,7 +6884,7 @@ cDeleteUnit.commandParameters = [ {
 
 //difficulty
 cDifficulty.shortDescription = "Checks the difficulty setting.";
-cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as 5 and hardest as 1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard or Hardest.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard or Hardest.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy: 133% (0:25 to 0:33)</li><li>moderate: 100%</li><li>hard: 100%</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>Hardest adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled! Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See sn-do-not-scale-for-difficulty-level for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
+cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as 5 and hardest as 1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard or Hardest.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard or Hardest.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy: 133% (0:25 to 0:33)</li><li>moderate: 100%</li><li>hard: 100%</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>Hardest adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled! Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See " + snDoNotScaleForDifficultyLevel.getLink() + " for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
 cDifficulty.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7238,7 +7263,7 @@ cMapType.commandParameters = [ {
 	type: "Const",
 	dir: "in",
 	range: "A valid MapType",
-	note: "The type of map, such as \"arabia\"."
+	note: "The type of map, such as arabia."
 } ];
 
 //military-population
@@ -8810,7 +8835,7 @@ cUpAlliedSn.relatedCommands = [];
 
 //up-assign-builders
 cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
-cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.";
+cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.</p><p>Assigning the number of builders by class is best for walls and gates. By default, like v1.0c, wonders have 250 (max) builders, and the wall class has 2.";
 cUpAssignBuilders.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -8967,7 +8992,19 @@ cUpBuild.commandParameters = [ {
 } ];
 cUpBuild.example = [ {
 	title: "Build an outpost without escrowed resources.",
-	data: "(defrule\r\n\t(up-can-build 0 c: outpost)\r\n=&gt;\r\n\t(up-build place-normal 0 c: outpost)\r\n)"
+	data: "(defrule\r\n\t(up-can-build 0 c: outpost)\r\n\t(up-pending-objects c: outpost < 1)\r\n=&gt;\r\n\t(up-build place-normal 0 c: outpost)\r\n)"
+}, {
+	title: "Build a forward siege workshop.",
+	data: "(defrule\r\n\t(up-can-build 0 c: siege-workshop)\r\n\t(up-pending-objects c: siege-workshop < 1)\r\n=&gt;\r\n\t(up-build place-forward 0 c: siege-workshop)\r\n)"
+}, {
+	title: "Build a town center 40 tiles behind the ally's town center, with escrow.",
+	data: "(defconst gl-escrow 101)\r\n(defrule\r\n\t(player-in-game any-ally)\r\n\t(can-build town-center)\r\n\t(up-pending-objects c: town-center < 1)\r\n=&gt;\r\n\t(up-set-placement-data this-any-ally -1 c: -40) ;-1 = home tc\r\n\t(set-goal gl-escrow with-escrow)\r\n\t(up-build place-control gl-escrow c: town-center)\r\n)"
+}, {
+	title: "Build a watch tower 4 tiles toward the target enemy from a lumber camp.",
+	data: "(defrule\r\n\t(building-type-count lumber-camp > 0)\r\n\t(can-build watch-tower)\r\n\t(up-pending-objects c: watch-tower < 1)\r\n=&gt;\r\n\t(up-set-placement-data my-player-number lumber-camp c: 4)\r\n\t(up-build place-control 0 c: watch-tower)\r\n)"
+}, {
+	title: "Build a market at a flared location.",
+	data: "(defconst gl-market-point-x 102)\r\n(defconst gl-market-point-y 103)\r\n(defrule\r\n\t(cc-players-unit-type-count any-human-ally 274 >= 1) ;274 = flare\r\n\t(can-build market)\r\n\t(up-pending-objects c: market < 1)\r\n=&gt;\r\n\t(up-find-player-flare any-human-ally gl-market-point-x)\r\n\t(up-set-target-point gl-market-point-x)\r\n\t(up-build place-point 0 c: market)\r\n)"
 } ];
 cUpBuild.relatedCommands = [];
 
@@ -9807,6 +9844,7 @@ cUpDisbandGroupType.relatedCommands = [];
 
 //up-drop-resources
 cUpDropResources.shortDescription = "Request a drop by gatherers carrying a specific number of a resource.";
+cUpDropResources.description = "Request a drop by gatherers carrying a specific number of a resource. This command works for both villagers and fishing ships.";
 cUpDropResources.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -11443,6 +11481,7 @@ cUpGetTargetFact.relatedCommands = [];
 
 //up-get-threat-data
 cUpGetThreatData.shortDescription = "Get the elapsed time, player, source, and target of the last threat.";
+cUpGetThreatData.description = "Get the elapsed time, player, source, and target of the last threat. This command returns the absolute, most recent attack information before the rule pass begins. If the last attack event was from a p2 archer against one of your villagers, you'll get \"time, 2, 900, 904\" in return (900 = archery-class, 904 = villager-class). In an epic battle, it would become relatively useless in determining what is going on.";
 cUpGetThreatData.commandParameters = [ {
 	nameLink: pElapsedTime.getLink(),
 	name: "ElapsedTime",
@@ -12744,10 +12783,10 @@ cUpResetUnit.relatedCommands = [];
 cUpResetAttackNow.shortDescription = "Reset the infinite targeting loop flag set by attack-now.";
 cUpResetAttackNow.commandParameters = [];
 cUpResetAttackNow.example = [ {
-	title: "Unset the attack-now flag for active groups.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-attack-now)\r\n\t(disable-self)\r\n)"
+	title: "Unset the attack-now flag for active groups. Also, reset units and retreat to the home town center.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-attack-now)\r\n\t(up-reset-unit c: -1) ;-1 is the all-units-class\r\n\t(up-retreat-now)\r\n\t(disable-self)\r\n)"
 } ];
-cUpResetAttackNow.relatedCommands = [];
+cUpResetAttackNow.relatedCommands = [cAttackNow];
 
 //up-reset-building
 cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type.";
@@ -12900,7 +12939,7 @@ cUpResetSearch.relatedCommands = [];
 
 //up-reset-target-priorities
 cUpResetTargetPriorities.shortDescription = "Reset or clear offensive or defensive targeting priorities.";
-cUpResetTargetPriorities.description = "Reset or clear offensive or defensive targeting priorities. Restore default priorities with 0. For defensive priorities, setting Mode to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.";
+cUpResetTargetPriorities.description = "Reset or clear offensive or defensive targeting priorities. Restore default priorities with 0. For defensive priorities, setting Mode to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</p><p>Target units on -1 offensive priority will not hold the attention of attackers if a higher priority unit appears, and you may notice attack behavior that is a bit similar to how patrol selects its targets. If the target unit is not -1 priority, the attacker may retarget, but primarily to other units with the same offensive priority. Battering rams and cannon galleons prefer to attack non-moving targets, while all other units prefer moving targets.";
 cUpResetTargetPriorities.commandParameters = [ {
 	nameLink: pPriorityType.getLink(),
 	name: "PriorityType",
@@ -13010,6 +13049,7 @@ cUpResourcePercent.relatedCommands = [];
 
 //up-retask-gatherers
 cUpRetaskGatherers.shortDescription = "Retask a specific number of villagers gathering from a resource.";
+cUpRetaskGatherers.description = "Retask a specific number of villagers gathering from a resource. This command will attempt to retask villagers to preferred resources after dropping the resources, and it also works with fishing ships.";
 cUpRetaskGatherers.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -13040,7 +13080,7 @@ cUpRetaskGatherers.relatedCommands = [];
 
 //up-retreat-now
 cUpRetreatNow.shortDescription = "Retreat all military units to the home town center.";
-cUpRetreatNow.description = "Retreat all military units to the home town center. Military units within 6 range of the home town center will not be told to retreat.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command.";
+cUpRetreatNow.description = "Retreat all military units to the home town center. Military units within 6 range of the home town center will not be told to retreat.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command.</p><p>It should work with groups and idle units. There's a chance that you may need to disband attack groups before using it, though, by setting the attack group sns to 0 (sn-number-attack-groups, min, and max). It will also work with TSA units, unless an enemy building exists in max-town-size. In that case, TSA overrides the retreat, I think, and resends them to the target. It should also work with attack-now if you use " + cUpResetAttackNow.getLink + " before using up-retreat-now.";
 cUpRetreatNow.commandParameters = [];
 cUpRetreatNow.example = [ {
 	title: "Retreat to the home town center.",
@@ -13188,7 +13228,7 @@ cUpSellCommodity.relatedCommands = [];
 
 //up-set-defense-priority
 cUpSetDefensePriority.shortDescription = "Set the defensive (TSA) targeting priority for a building.";
-cUpSetDefensePriority.description = "Set the defensive (TSA) targeting priority for a building. This has no effect against units.</p>";
+cUpSetDefensePriority.description = "Set the defensive (TSA) targeting priority for a building. This has no effect against units.</p><p>Also, unit lines do not work here, so just set the base unit type id (spearman for the entire spearman-line, etc.). Classes may be used, as well.</p><p>For walls, use class 927; for gates, use class 939.</p>";
 cUpSetDefensePriority.description += "<p>Default priorities by building:</p>";
 cUpSetDefensePriority.description += "<table class=\"commented-example\"><tr><th>Priority</th><th>Building(s)</th></tr>";
 cUpSetDefensePriority.description += "<tr><td>-1</td><td>default</td></tr>";
@@ -13350,7 +13390,7 @@ cUpSetIndirectGoal.relatedCommands = [];
 
 //up-set-offense-priority
 cUpSetOffensePriority.shortDescription = "Set the offensive targeting priority for an object.";
-cUpSetOffensePriority.description = "Set the offensive targeting priority for an object. This is used when attacking with " + snNumberAttackGroups.getLink() + " or " + cAttackNow.getLink() + ". " + snEnableOffensivePriority.getLink() + " must be set to 1 for these priorities to take effect.</p><p>Note: offensive priorities have a very small range. You can turn the priorities up to 11, but no more.";
+cUpSetOffensePriority.description = "Set the offensive targeting priority for an object. This is used when attacking with " + snNumberAttackGroups.getLink() + " or " + cAttackNow.getLink() + ". " + snEnableOffensivePriority.getLink() + " must be set to 1 for these priorities to take effect.</p><p>Note: offensive priorities have a very small range. You can turn the priorities up to 11 (highest), but no more.</p><p>Also, unit lines do not work here, so just set the base unit type id (spearman for the entire spearman-line, etc.). Classes may be used, as well.</p><p>Target units on -1 offensive priority will not hold the attention of attackers if a higher priority unit appears. If the target unit is not -1 priority, the attacker may retarget to other units nearby, but primarily to other units with the same offensive priority. Battering rams and cannon galleons prefer to attack non-moving targets, while all other units prefer moving targets. If you clear offensive priorities with " + cUpResetTargetPriorities.getLink() + ", you may notice attack behavior that is a bit similar to patrol.";
 cUpSetOffensePriority.description += "<p>Default offensive priorities by class/type id: (classes that are not actually used in the game are marked with an asterisk)</p><p>";
 cUpSetOffensePriority.description += "<table class=\"commented-example\"><tr><th>Priority</th><th>Class/Unit ID</th><th>Class/Unit Name</th></tr>";
 cUpSetOffensePriority.description += "<tr><td>-1</td><td>default</td><td></td></tr>";
@@ -14116,6 +14156,79 @@ cUpVillagerTypeInTown.example = [ {
 } ];
 cUpVillagerTypeInTown.relatedCommands = [];
 
+//fe-cc-effect-amount
+cFeCcEffectAmount.shortDescription = "Apply a research-style effect with an integer value for the AI player.";
+cFeCcEffectAmount.description = "Apply a research-style effect with an integer value for the AI player. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values. If you need to make an effect with a decimal value, use " + cFeCcEffectPercent.getLink() + ".";
+cFeCcEffectAmount.commandParameters = [ {
+	nameLink: pEffectId.getLink(),
+	name: "EffectId",
+	type: "Const",
+	dir: "in",
+	range: "0 to 9",
+	note: "Sets the ID of the effect the command will have, such as effect-set-attribute."
+}, {
+	nameLink: pItemId.getLink(),
+	name: "ItemId",
+	type: "Const",
+	dir: "in",
+	range: "an ObjectId or a TechId",
+	note: "The type of object that will be affected, such as villager-class, or the research name or ID."
+}, {
+	nameLink: pAttrId.getLink(),
+	name: "AttrId",
+	type: "Const",
+	dir: "in",
+	range: "0 to 109",
+	note: "Sets the Id of the attribute the effect will change, such as attribute-hp."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "The amount of the effect."
+} ];
+cFeCcEffectAmount.example = [ {
+	title: "Give villagers 10 extra hitpoints.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-cc-effect-amount effect-add-attribute villager-class attribute-hp 10)\r\n)"
+} ];
+cFeCcEffectAmount.relatedCommands = [cFeCcEffectPercent];
+
+//fe-cc-effect-percent
+cFeCcEffectPercent.shortDescription = "Apply a research-style effect with a percentage for the AI player.";
+cFeCcEffectPercent.description = "Apply a research-style effect with a percentage for the AI player. This command is identical to " + cFeCcEffectAmount.getLink() + ", except the value is divided by 100 to provide decimal precision. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values.";
+cFeCcEffectPercent.commandParameters = [ {
+	nameLink: pEffectId.getLink(),
+	name: "EffectId",
+	type: "Const",
+	dir: "in",
+	range: "0 to 9",
+	note: "Sets the ID of the effect the command will have, such as effect-set-attribute."
+}, {
+	nameLink: pItemId.getLink(),
+	name: "ItemId",
+	type: "Const",
+	dir: "in",
+	range: "an ObjectId or a TechId",
+	note: "The type of object that will be affected, such as villager-class, or the research name or ID."
+}, {
+	nameLink: pAttrId.getLink(),
+	name: "AttrId",
+	type: "Const",
+	dir: "in",
+	range: "0 to 109",
+	note: "Sets the Id of the attribute the effect will change, such as attribute-hp."
+}, {
+	nameLink: pPercent.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "The amount of the effect. Will be divided by 100 with precision."
+} ];
+cFeCcEffectPercent.example = [];
+cFeCcEffectPercent.relatedCommands = [cFeCcEffectAmount];
+
 
 
 
@@ -14806,6 +14919,197 @@ pAttackStance.valueList = [ {
 	description: "No Attack Stance. Soldiers will only attack if ordered to target an object through DUC."
 } ];
 
+//AttrId
+pAttrId.description = "The id of an attribute to modify, such as attribute-hp. Since the " + cFeCcEffectAmount.getLink() + " and " + cFeCcEffectPercent.getLink() + " are similar to researching a custom technology for free, you can think of the AttrId as specifying what the technology will change or modify.</p><p>Please note that all of the attribute descriptions below are my (Leif Ericson's) educated guess, and I have done no testing on these attributes (yet).";
+pAttrId.shortDescription = "The id of an attribute to modify, such as attribute-hp.";
+pAttrId.range = "0 to 109."
+pAttrId.relatedParams = [pEffectId];
+pAttrId.valueList = [ {
+	name: "attribute-hp",
+	id: 0,
+	description: "The object's hit points."
+}, {
+	name: "attribute-los",
+	id: 1,
+	description: "The object's line of sight."
+}, {
+	name: "attribute-obj-max",
+	id: 2,
+	description: "Unknown."
+}, {
+	name: "attribute-radius-x",
+	id: 3,
+	description: "Unknown. Possibly the radius of the object's size in the x direction."
+}, {
+	name: "attribute-radius-y",
+	id: 4,
+	description: "Unknown. Possibly the radius of the object's size in the y direction."
+}, {
+	name: "attribute-speed",
+	id: 5,
+	description: "The object's speed. Probably multiplied by 100, but this is untested."
+}, {
+	name: "attribute-turn-speed",
+	id: 6,
+	description: "The time it takes the object to turn from one rotation/facing direction to the next. Most objects' turn speed is zero, but this is observable for ships and trebuchets."
+}, {
+	name: "attribute-armor",
+	id: 8,
+	description: "The object's armor. Unknown whether this is melee armor, pierce armor, or both, but it's likely just melee armor. It seems like there isn't a way to choose which armor type to modify, or there is a complex formula that allows you to specify the armor type and amount in a single value."
+}, {
+	name: "attribute-weapon",
+	id: 9,
+	description: "Unknown. Probably the object's attack. It's possible there is a complex formula that allows you to specify the type of attack/attack bonus and the amount in a single value."
+}, {
+	name: "attribute-speed-of-attack",
+	id: 10, 
+	description: "The object's attack speed. Unknown whether this is given in seconds or milliseconds, but probably the latter."
+}, {
+	name: "attribute-hit-chance",
+	id: 11,
+	description: "Unknown. Probably the object's accuracy. Likely multiplied by 100."
+}, {
+	name: "attribute-weapon-range",
+	id: 12,
+	description: "The object's range."
+}, {
+	name: "attribute-work-rate",
+	id: 13,
+	description: "The object's work rate. This attribute is primarily relevant for buildings, which determines the speed that units and techs are trained and researched."
+}, {
+	name: "attribute-carry-capacity",
+	id: 14,
+	description: "The amount the object can carry. This affects the resource capacity villagers can carry and also the amount of resources that Gaia/player owned resources can hold."
+}, {
+	name: "attribute-base-armor",
+	id: 15,
+	description: "Similar to attribute-armor. Untested, but this likely affects the original armor amount, so it wouldn't display as + or - like it would for blacksmith armor upgrades."
+}, {
+	name: "attribute-missile-id",
+	id: 16,
+	description: "The ID of the object's projectile. See the Proj. ID in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to get the projectile IDs of each unit."
+}, {
+	name: "attribute-building-facet",
+	id: 17,
+	description: "Unknown. Likely the rotation the building faces, though most buildings only have one direction anyway."
+}, {
+	name: "attribute-defensive-terrain",
+	id: 18,
+	description: "Unknown. Could be the same as Terrain Defense Bonus from Advanced Genie Editor."
+}, {
+	name: "attribute-targetting-type",
+	id: 19,
+	description: "Unknown."
+}, {
+	name: "attribute-minimum-weapon-range",
+	id: 20,
+	description: "The object's minimum range."
+}, {
+	name: "attribute-attribute-amount-held",
+	id: 21,
+	description: "Unknown. The attribute-attribute in the attribute name isn't a typo. ;)"
+}, {
+	name: "attribute-area-effect",
+	id: 22,
+	description: "Likely the object's blast radius."
+}, {
+	name: "attribute-search-radius",
+	id: 23,
+	description: "The object's search radius. This is often equal to LOS, and it determines the radius where the object will respond to enemy units."
+}, {
+	name: "attribute-hidden-damage-resist",
+	id: 24,
+	description: "Unknown. Could be the same as the Bonus Damage Resist field from Advanced Genie Editor."
+}, {
+	name: "attribute-icon-id",
+	id: 25,
+	description: "The ID of the object's icon."
+}, {
+	name: "attribute-fire-missile-at-frame",
+	id: 41,
+	description: "Likely the frame delay, the number of graphical frames to must be displayed from the attack animation before the projectile will fire."
+}, {
+	name: "attribute-area-effect-level.",
+	id: 44,
+	description: "Likely the object's blast attack level. The blast damage for objects with level 3 or higher only damage the targeted object. The blast damage for objects with level 2 will damage nearby objects that are within the blast radius of the attack. The blast damage for objects with level 1 can damage trees. The blast damage for objects with level 0 can damage all resources. <strong>Note:</strong> many buildings and cavalry units have blast level 0, so it is wise to check if the blast radius is > 0 before checking the blast level."
+}, {
+	name: "attribute-blast-defense-level",
+	id: 45,
+	description: "The object's blast defense level. The object will receive blast damage from units with a blast attack level greater than or equal to the object's blast defense level."
+}, {
+	name: "attribute-shown-attack",
+	id: 46,
+	description: "The object's shown attack. A + or - value will be displayed in the interface if the actual attack is higher or lower than the shown attack, respectively."
+}, {
+	name: "attribute-shown-range",
+	id: 47,
+	description: "The object's shown range. A + or - value will be displayed in the interface if the actual range is higher or lower than the shown attack, respectively."
+}, {
+	name: "attribute-shown-melee-armor",
+	id: 48,
+	description: "The object's shown melee armor. A + or - value will be displayed in the interface if the actual melee armor is higher or lower than the shown attack, respectively. Uncertain if shown pierce armor can be affected with this attribute."
+}, {
+	name: "attribute-name-id",
+	id: 50,
+	description: "Likely the language ID location of the object's name."
+}, {
+	name: "attribute-description-id",
+	id: 51,
+	description: "Likely the language ID location of the object's description."
+}, {
+	name: "attribute-terrain-restriction",
+	id: 53,
+	description: "The terrain the object can travel or be placed on. Likely the same as the Terrain Table field in Advanced Genie Editor."
+}, {
+	name: "attribute-death-spawn-obj",
+	id: 57,
+	description: "The ID of a new object that is spawned when an object dies. This is usually the unit's corpse or ruins, but it is used by the Konnik to spawn a dismounted Konnik when the mounted Konnik dies."
+}, {
+	name: "attribute-hotkey-id",
+	id: 58,
+	description: "Likely the language ID location of the letter for the object's default hotkey."
+}, {
+	name: "attribute-resource-cost",
+	id: 100,
+	description: "Likely let's you change the " + pResourceAmount.getLink() + " cost for a resource besides food, wood, gold, or stone."
+}, {
+	name: "attribute-creation-time",
+	id: 101,
+	description: "The amount of time to create the object, in seconds."
+}, {
+	name: "attribute-garrison-arrows",
+	id: 102,
+	description: "Likely either the extra number of projectiles the object will fire or the max number of arrows the object can fire when fully garrisoned. Not sure how this differs from attribute-max-dup-missiles."
+}, {
+	name: "attribute-food-cost",
+	id: 103,
+	description: "The object's food cost."
+}, {
+	name: "attribute-wood-cost",
+	id: 104,
+	description: "The object's wood cost."
+}, {
+	name: "attribute-gold-cost",
+	id: 105,
+	description: "The object's gold cost."
+}, {
+	name: "attribute-stone-cost",
+	id: 106,
+	description: "The object's stone cost."
+}, {
+	name: "attribute-max-dup-missiles",
+	id: 107, 
+	description: "Likely either the extra number of projectiles the object will fire or the max number of arrows the object can fire when fully garrisoned. Not sure how this differs from attribute-garrison-arrows"
+}, {
+	name: "attribute-garrison-heal-rate",
+	id: 108,
+	description: "The object's heal rate for units that are garrisoned inside. Likely multiplied by 100 or 1000 (not sure which, sorry)."
+}, {
+	name: "attribute-regenration-rate",
+	id: 109,
+	description: "Note the [incorrect] spelling. The speed the object will heal at. Likely multiplied by 100 or 1000 (not sure which, sorry)."
+} ];
+
 //Border
 pBorder.description = "The border width for bounding the point.</p><p>Please ensure that Border is a valid value and will not cause an overflow for the map size. If Precise is set to 1 in the " + cUpBoundPrecisePoint.getLink() + " command, the map size will be multiplied by 100 before bounding, so the border should be adjusted accordingly.";
 pBorder.shortDescription = "The border width for bounding the point.";
@@ -15319,6 +15623,53 @@ pDistance.description = "The distance between two points. Always stored in a goa
 pDistance.shortDescription = "The distance between two points. Always stored in a goal.";
 pDistance.range = "A valid GoalId. Max range for a GoalId is 1 to 512.";
 pDistance.relatedParams = [pMaxDistance, pMinDistance, pPercent, pPerimeter, pPoint, pPrecise, pStrict, pTiles];
+
+//EffectId
+pEffectId.description = "The id of an Effect such as effect_set_attribute. This parameter determines how the " + pAttrId.getLink() + " should be affected. Since the " + cFeCcEffectAmount.getLink() + " and " + cFeCcEffectPercent.getLink() + " are similar to researching a custom technology for free, you can think of the EffectId as specifying the type of technology the command will execute, such as upgrading a new unit or adding hit points to a building. The available EffectIds are very similar to the Command Types dropdown on the Effects tab of the Advanced Genie Editor when a tech effect is selected.</p><p>Please note that I (Leif Ericson) have not tested the effects below, and they are just educated guesses at the moment.";
+pEffectId.shortDescription = "The id of an Effect such as effect_set_attribute.";
+pEffectId.range = "0 to 9.";
+pEffectId.relatedParams = [pAttrId];
+pEffectId.valueList = [ {
+	name: "effect-set-attribute",
+	id: 0,
+	description: "Set the attribute to the specified value."
+}, {
+	name: "effect-mod-resource",
+	id: 1,
+	description: "Add or subtract the specified value to/from a given " + pResourceAmount.getLink() + " stockpile."
+}, {
+	name: "effect-enable-object",
+	id: 2,
+	description: "Enable the specified object for the player. Untested if this effect can also disable the specified object if the Value/Percent parameter is set to 0."
+}, {
+	name: "effect-upgrade-unit",
+	id: 3,
+	description: "Upgrade the specified object to a different specified object. Untested whether you need to specify the upgraded object ID in the AttrId or Value/Percent parameter, or if the effect will automatically calculate which object to upgrade to."
+}, {
+	name: "effect-add-attribute",
+	id: 4,
+	description: "Add or subtract the specified value to/from a given object's attribute."
+}, {
+	name: "effect-mul-attribute",
+	id: 5,
+	description: "Multiply a given object's attribute by the specified value."
+}, {
+	name: "effect-mul-resource",
+	id: 6,
+	description: "Multiply the player's specified " + pResourceAmount.getLink() + " by a given value."
+}, {
+	name: "effect-enable-tech",
+	id: 7,
+	description: "Enable the specified technology for the player. Untested if this effect can also disable the specified technology if the Value/Percent parameter is set to 0."
+}, {
+	name: "effect-modify-tech",
+	id: 8,
+	description: "Add or subtract the given value from the attribute of the specified technology. Untested, but this likely only affects the technology cost and research time. attribute-creation-time and the various attribute-*-cost attributes seem like likely candidates for this."
+}, {
+	name: "effect-set-player-data",
+	id: 9,
+	description: "Untested. Set the player's specified player data to the given value. Uncertain what this different player data could be. Perhaps this sets the data for another player?"
+} ];
 
 //ElapsedTime
 pElapsedTime.description = "The elapsed time in milliseconds, usually the elapsed time after an event like an attack threat or a projectile firing.";
@@ -16918,7 +17269,7 @@ pProjectileType.valueList = [ {
 }, {
 	name: "projectile-any",
 	id: 7,
-	description: "Any projectile from soldiers, siege weapons, ships, or buildings."
+	description: "Any projectile from soldiers, siege weapons, scorpions, ships, or buildings."
 } ];
 
 //PriorityType
@@ -28213,7 +28564,7 @@ objectsGaiaArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "This is the dead sheep after all food has been gathered"
+	notes: "ID 595 is the dead sheep after all food has been gathered. Slaughtered sheep that still have food remain as ID 594."
 }, {	
 	name: "Turkey",
 	aiName: "",

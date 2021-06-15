@@ -80,6 +80,16 @@
 					break;
 				}
 				info += "</tr><tr><td>Version Introduced</td><td>" + commandsArray[i].commandVersion; + "</td></tr>";
+				if (commandsArray[i].commandCategory.length > 0) {
+					info += "<tr><td>Category</td><td>";
+					for (var m = 0; m < commandsArray[i].commandCategory.length; m++) {
+						info += commandsArray[i].commandCategory[m];
+						info += ", &nbsp;";
+					}
+					var pos = info.lastIndexOf(",");
+					info = info.slice(0, pos);
+					info += "</td></tr>";
+				}
 				if (commandsArray[i].relatedCommands.length > 0) {
 					info += "<tr><td>Related Commands</td><td>";
 					for (var k = 0; k < commandsArray[i].relatedCommands.length; k++) {
