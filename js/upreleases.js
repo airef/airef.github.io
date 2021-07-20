@@ -3822,7 +3822,7 @@ var releaseNotes = [ {
 		number: "20120418-174301",
 		version: 1.1,
 		notes: "UserPatch 20120418-174301 has been released! This update resolves 321: #UserPatch [AI Scripting] A new fact is required to read floating point resource amounts from players. This fact is like up-allied-resource, except it multiplies the value by 100 before converting it to an integer, so you can finally read resource amounts like 0.30 as 30, instead of just receiving a 0. This command also works with my-player-number. In addition, allied-resource-percent (39) has been added for up-get-player-fact. Thanks to fen for the idea!</p><p><strong>New Facts</strong><br>1. (up-allied-resource-percent inPlayerId inConstResourceAmount compareOp inOpValue)<br>- Use to perform a comparison with an allied player's (human or AI) internal resource value * 100.<br>- Example: (up-allied-resource-percent any-ally amount-tribute-inefficiency < 30) ;returns true if coinage is complete",
-		itemsAffected: [cUpAlliedResourcePercent, cUpGetPlayerFact],
+		itemsAffected: [cUpAlliedResourcePercent, cUpGetFact, cUpGetPlayerFact],
 		scriptingType: "ai"
 	}, {
 		number: "20120418-165510",
@@ -3870,7 +3870,7 @@ var releaseNotes = [ {
 		number: "20120415-111210",
 		version: 1.1,
 		notes: "UserPatch 20120415-111210 has been released! This update resolves 315: #UserPatch [AI Scripting] AIs must be able to perform more accurate placement for buildings. Now, up-build has a new PlacementType: place-control. In combination with up-set-placement-data and up-reset-placement, we might be able to get some very interesting building placements lol. Note: docks cannot be targeted using place-control... yet.</p><p>1. (up-set-placement-data inPlayerId inConstObjectId typeOp inOpDistance)<br>- Use to specify placement information for subsequent \"up-build place-control\" commands.<br>- Set inPlayerId to the AI's player number or an ally. The focus-player and this-* ids are accepted, as well.<br>- Set inConstObjectId to focus placement on the latest object of that type. -1 = the home tc.<br>- Set inOpDistance to a positive or negative value to influence relative placement; range: -128 to 127.<br>- Be careful when attempting to place with insufficient exploration.<br>- Relative placement is based on either the target-player's location or, if unavailable, the center of the map.<br>- Example: (up-set-placement-data my-player-number -1 c: -25) ;place 25 tiles behind the home tc<br>- Example: (up-set-placement-data this-any-ally lumber-camp c: 2) ;2 tiles from this ally's latest lumber-camp<br>2. (up-reset-placement typeOp inOpBuildingId)<br>- Use to clear the placement list for the specified building type, if it seems blocked.<br>- Example: (up-reset-placement c: barracks) ;clears all pending barracks without a foundation",
-		itemsAffected: [],
+		itemsAffected: [cUpSetPlacementData, cUpResetPlacement],
 		scriptingType: "ai"
 	}, {
 		number: "20120414-153037",
@@ -4098,7 +4098,7 @@ var releaseNotes = [ {
 		number: "20120324-142906",
 		version: 1.1,
 		notes: "UserPatch 20120324-142906 has been released! This update resolves 278: #UserPatch [AI Scripting] A new fact is required to access internal resource data from any allied player, and 279: #UserPatch [Core Bug] The game cannot be paused after the viewer is defeated in single player mode. Now, you can perform comparisons with any ally's internal resource data (ResourceAmount type from UserPatchConst.per) using the \"up-allied-resource\" fact. This works exactly like up-resource-amount, except that it reads allied resource data. In addition, allied-resource (38) has been added for use with up-get-player-fact. We really need a complete list of these internal resource data ids (almost 200 of them). I remember offwo had one, but I lost the log lol. Thanks to II2N for reporting the pause issue!</p><p>New Fact:<br>(up-allied-resource inPlayerId inConstResourceAmount compareOp inOpValue)<br> Use to perform a comparison with an allied player's (human or AI) internal resource value.<br>- Example: (up-allied-resource any-ally food < 50) ;returns true if any ally's food < 50",
-		itemsAffected: [cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpGetPlayerFact, pFactId],
+		itemsAffected: [cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpGetFact, cUpGetPlayerFact, pFactId],
 		scriptingType: "ai"
 	}, {
 		number: "20120323-143320",
@@ -4152,13 +4152,13 @@ var releaseNotes = [ {
 		number: "20120319-140908",
 		version: 1.1,
 		notes: "UserPatch 20120319-140908 has been released! This update resolves 271: #UserPatch [AI Scripting] A new fact is required to access strategic numbers from allied computer players. As with allied-goal, allied-sn (37) has been added to UserPatchConst.per, for use with up-get-player-fact. This feature essentially makes up-get-allied-target obsolete, since you can now read an ally's sn-target-player-number directly lol. AI communication can now be quite powerful.</p><p>New Fact:<br>(up-allied-sn inPlayerId inSnId compareOp inOpValue)<br>- Use to perform a comparison with an allied AI's strategic number value.<br>- Example: (up-allied-sn any-ally sn-maximum-town-size > 50) ;returns true if any ally has sn-maximum-town-size > 50",
-		itemsAffected: [cUpAlliedSn, pFactId, cUpGetPlayerFact],
+		itemsAffected: [cUpAlliedSn, pFactId, cUpGetFact, cUpGetPlayerFact],
 		scriptingType: "ai"
 	}, {
 		number: "20120318-121708",
 		version: 1.1,
 		notes: "UserPatch 20120318-121708 has been released! This update resolves 268: #UserPatch [Core Bug] The game may crash if a trade building is selected as gaia (natural wonders), 269: #UserPatch [AI Scripting] A new fact is required to access goal data from allied computer players, and 270: #UserPatch [AI Scripting] A new action is required to delete distant farms outside dropsite range.</p><p>In addition, allied-goal (36) has been added to UserPatchConst.per, for use with up-get-player-fact. I think the ability to read goals from allied AIs will make communication far more efficient than exchanging taunts. Note that this is not a new category of goals; it simply means that allied AIs can read each other's standard goals from 1-512. Thanks to offwo for reporting 268, marathon for the allied-goal idea, and Promi for delete-distant-farms!</p><p>New Fact:<br>(up-allied-goal inPlayerId inGoalId compareOp inOpValue)<br>- Use to perform a comparison with an allied AI's goal variable.<br>- Example: (up-allied-goal any-ally gl-something == 5) ;returns true if any ally has a goal with the same #id == 5</p><p>New Action:<br>(up-delete-distant-farms typeOp inOpDropDistance)<br>- Use to delete all farms that exist outside the specified drop distance.<br>- Example: (up-delete-distant-farms c: 8) ;deletes farms where the dropsite-min-distance > 8",
-		itemsAffected: [cUpAlliedGoal, cUpDeleteDistantFarms, cUpGetPlayerFact, pFactId],
+		itemsAffected: [cUpAlliedGoal, cUpDeleteDistantFarms, cUpGetFact, cUpGetPlayerFact, pFactId],
 		scriptingType: "ai"
 	}, {
 		number: "20120317-063946",
@@ -4542,7 +4542,7 @@ var releaseNotes = [ {
 		number: "20111217-105000",
 		version: 1.1,
 		notes: "UserPatch 20111217-105000 has been released! This update resolves 206: #UserPatch [AI Scripting] AIs must be able to perform calculations with player distance data. Now, AIs can use up-get-player-fact with a new (defconst player-distance 35) to get distance data into goals for calculations (see UserPatchConst.per). I've also extended up-get-player-fact, so that its first parameter will accept target-player and focus-player for its player number values. This means that up-get-target-fact isn't required to use those shortcuts anymore. It will remain for compatibility, though.",
-		itemsAffected: [cUpGetPlayerFact],
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact],
 		scriptingType: "ai"
 	}, {
 		number: "20111216-185914",
@@ -5088,7 +5088,7 @@ var releaseNotes = [ {
 		number: "20111025-234549",
 		version: 1.1,
 		notes: "UserPatch 20111025-234549 has been released! This update resolves 131: #UserPatch [AI Scripting] A new fact is required for AIs to check internal resource data, and 132: #UserPatch [AI Scripting] A new action is required for AIs to retreat to specific targets. The first fix adds (up-resource-amount inResourceId compareOp inValue), as requested by offwo, for AIs to perform comparisons with all internal resources, which includes things like total conversions, kills, and currently held relics. I have no idea what most of the internal resources are yet lol. A \"resource-amount\" identifier is now available for use with up-get-player-fact, as well. The second fix adds (up-retreat-to inObjectId redirectOp inRetreatUnitId), so AIs can retreat all of a specific unit type to a random object of a specific building or unit type.</p><p>Here are the new defconsts:</p><p>;--------------------------------------<br>; Define FactId Constants<br>;--------------------------------------<br>(defconst game-time 0)<br>(defconst population-cap 1)<br>(defconst population-headroom 2)<br>(defconst housing-headroom 3)<br>(defconst idle-farm-count 4)<br>(defconst food-amount 5)<br>(defconst wood-amount 6)<br>(defconst stone-amount 7)<br>(defconst gold-amount 8)<br>(defconst escrow-amount 9)<br>(defconst commodity-buying-price 10)<br>(defconst commodity-selling-price 11)<br>(defconst dropsite-min-distance 12)<br>(defconst soldier-count 13)<br>(defconst attack-soldier-count 14)<br>(defconst defend-soldier-count 15)<br>(defconst warboat-count 16)<br>(defconst attack-warboat-count 17)<br>(defconst defend-warboat-count 18)<br>(defconst current-age 19)<br>(defconst current-score 20)<br>(defconst civilization 21)<br>(defconst player-number 22)<br>(defconst player-in-game 23)<br>(defconst unit-count 24)<br>(defconst unit-type-count 25)<br>(defconst unit-type-count-total 26)<br>(defconst building-count 27)<br>(defconst building-type-count 28)<br>(defconst building-type-count-total 29)<br>(defconst population 30)<br>(defconst military-population 31)<br>(defconst civilian-population 32)<br>(defconst random-number 33)<br>(defconst resource-amount 34)</p><p>;--------------------------------------<br>; Define GroupId Constants<br>;--------------------------------------<br>(defconst infantry-class 906)<br>(defconst archery-class 900)<br>(defconst cavalry-class 912)<br>(defconst cavalry-archer-class 936)<bR>(defconst archery-cannon-class 944)<br>(defconst cavalry-cannon-class 923)<br>(defconst monastery-class 918)<br>(defconst siege-weapon-class 913)<br>(defconst scorpion-class 955)<br>(defconst packed-trebuchet-class 951)<br>(defconst unpacked-trebuchet-class 954)<br>(defconst petard-class 935)<br>(defconst warship-class 922)<br>(defconst all-units-class -1)</p><p>;--------------------------------------<br>; Define ResearchState Constants<br>;--------------------------------------<br>(defconst research-unavailable 0)<br>(defconst research-available 1)<br>(defconst research-pending 2)<br>(defconst research-complete 3)</p><p>;--------------------------------------<br>; Define StanceId Constants<br>;--------------------------------------<br>(defconst aggressive 0)<br>(defconst defensive 1)<br>(defconst stand-ground 2)<br>(defconst no-attack 3)</p><p>;--------------------------------------<br>; Define ResourceId Constants<br>;--------------------------------------<br>(defconst amount-kills 20)<br>(defconst amount-kill-ratio 44)<br>(defconst amount-losses 154)<br>(defconst amount-razings 43)<br>(defconst amount-conversions 41)<br>(defconst amount-techs 21)<br>(defconst amount-relics 7)</p><p>;--------------------------------------<br>; Define FindPlayerOp Constants<br>;--------------------------------------<br>(defconst attacker 0)<br>(defconst random 1)</p><p>New stuff: (defconst resource-amount 34) under \"Define FactId Constants\" and the \"Define ResourceId Constants\" section.",
-		itemsAffected: [cUpResourceAmount, pFactId, cUpGetPlayerFact, cUpRetreatTo],
+		itemsAffected: [cUpResourceAmount, pFactId, cUpGetFact, cUpGetPlayerFact, cUpRetreatTo],
 		scriptingType: "ai"
 	}, {
 		number: "20111021-144106",
@@ -5181,25 +5181,753 @@ var releaseNotes = [ {
 		itemsAffected: [cUpRetaskGatherers],
 		scriptingType: "ai"
 	}, {
-		number: "",
+		number: "20110731-015845",
 		version: 1.1,
-		notes: "",
+		notes: "UserPatch 20110731-015845 has been released! This update includes the deer-hunting identifier for dropsite-min-distance, as requested. Now, you can use dropsite-min-distance with hunting, boar-hunting, and deer-hunting, in addition to the original resource types.",
+		itemsAffected: [cDropsiteMinDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20110730-224820",
+		version: 1.1,
+		notes: "UserPatch 20110730-224820 has been released! This update adds a new \"boar-hunting\" identifier for use with dropsite-min-distance, resolving 118: #UserPatch [Economy] A method is required to determine the dropsite distance to boar. As before, \"dropsite-min-distance hunting\" gets the minimum distance for both deer and boar.</p><p>This version is incompatible with previous save files and recordings.",
+		itemsAffected: [cDropsiteMinDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20110730-160512",
+		version: 1.1,
+		notes: "UserPatch 20110730-160512 has been released! This update resolves 116: #UserPatch [Core Bug] Setting a building's gather point may damage adjacent enemy units. :lol: When an enemy unit's bounding ellipse intersects the bounding box of a building, setting the gather point onto that unit actually initiates an attack. This means that even buildings with 0 range and 0 attack can damage adjacent units due to the fact that the minimum damage permitted per attack is 1.",
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
-		number: "",
+		number: "20110730-135457",
 		version: 1.1,
-		notes: "",
+		notes: "UserPatch 20110730-135457 has been released! This update simply reduces the optional bombard tower attack bonus against siege from +40 to +15. It works out better, I think. At least, it's not like this:",
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
-		number: "",
+		number: "20110729-201956",
 		version: 1.1,
-		notes: "",
+		notes: "UserPatch 20110729-201956 has been released! This update includes more boar luring optimizations, reducing the code by at least 90%. Please test it if you have time ",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110729-142121",
+		version: 1.1,
+		notes: "UserPatch 20110729-142121 has been released! This update contains some code optimizations for the boar luring system. Please note that recordings and saved games from the past several versions will not be compatible with earlier patch builds, due to the various internal changes.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110729-050909",
+		version: 1.1,
+		notes: "UserPatch 20110729-050909 has been released! This update includes more fixes for boar hunting. Now, all support hunters will no longer try to \"evade\" the boar, backing away from it and wasting time. Only the lurer will try to avoid the boar, leading it to the home town center, while the support hunters fire at it constantly, moving only to maintain range.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110728-191756",
+		version: 1.1,
+		notes: "UserPatch 20110728-191756 has been released! This update tweaks boar luring by requesting 1 support hunter to assist the lurer up front, removing the 10-tile limitation on the secondary support requests, and reverting to retreat and shoot for the lurer closer to the town center.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110728-145054",
+		version: 1.1,
+		notes: "UserPatch 20110728-145054 has been released! This update resolves 115: #UserPatch [Request] Provide additional terrain slots as an optional feature. Another one for modders. ",
 		itemsAffected: [],
 		scriptingType: "none"
 	}, {
-
-		
-		//finished page 96
+		number: "20110728-101409",
+		version: 1.1,
+		notes: "UserPatch 20110728-101409 has been released! This update resolves 114: #UserPatch [Request] Allow hidden terrains to be used in the scenario editor. Another little thing that might help scenario designers. It took some creative code to \"hack\" together the names for these from bits and pieces of text in the language.dll. Evil localization",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110727-194744",
+		version: 1.1,
+		notes: "UserPatch 20110727-194744 has been released! This update includes a fix for boar luring and moves the bombard tower fix to the unchecked state. Thanks for the report and recording, fen!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110727-091936",
+		version: 1.1,
+		notes: "UserPatch 20110727-091936 has been released! This update tweaks the experimental boar luring code a little bit.	Let me know what you think",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110726-192247",
+		version: 1.1,
+		notes: "UserPatch 20110726-192247 has been released! This update includes some new experimental boar luring code. Please let me know what you think so far. As for the optional features, in the end, no one will see the feature selection window by default. The final release will be a chrome-less install to avoid confusion. The feature selection window is useful for testing and for advanced customization later on.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110726-092239",
+		version: 1.1,
+		notes: "UserPatch 20110726-092239 has been released! This update is intended to resolve 112: #UserPatch [Request] Bombard towers are no longer effective against siege weapons. Since a previous patch changed their attack from strike to pierce, bombard towers have only been able to cause 1hp damage against units with heavy pierce armor. This effectively makes them useless against battering-ram-line and trebuchets. Reverting their attack to strike shifts the balance to the other extreme, making them overpowered against most siege weapons. As a compromise, this update creates a small, but significant, +40 attack bonus against siege weapons for bombard towers. The +40 was chosen because that is the attack bonus that bombard towers have against ships.</p><p>Note: this fix is provided as an optional feature for now. It is not yet a part of the core v1.1 update. I decided to fix it after learning from \"somewhere\" that the fact that they cause almost no damage to siege weapons was not intended.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110724-023650",
+		version: 1.1,
+		notes: "UserPatch 20110724-023650 has been released! This update finally resolves 111: #UserPatch [AI Behavior] Unpacked trebuchets should not be ignored by nearby units. Good times",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110723-041056",
+		version: 1.1,
+		notes: "UserPatch 20110723-041056 has been released! This update is intended to resolve 71: #UserPatch [AI Scripting] New facts are required to detect standard victory conditions. However, I added various other features and capabilities, as well. I think it might be best if I just listed everything.</p><p>New Strategic Number: sn-focus-player-number: snId:251; default:0, range:0-8<br>- facilitates player manipulation, without affecting targeting</p><p>New Player Identifier: focus-player<br>In the same way that target-player is linked to sn-target-player-number, focus-player is linked to sn-focus-player-number. It can be used with any fact or action that expects a player number, except for up-get-player-fact.</p><p>New Rule Action: (up-get-victory-data outGoalPlayer outGoalType outGoalTime)<br>- outGoalPlayer will have the player number of whoever will win first via wonder, relics, or monument<br>- outGoalType will be one of the following: relic, wonder, or monument<br>- outGoalTime will be the internal victory clock: yearsRemaining = (outGoalTime / 10)<br>- if no one is going to win: outGoalPlayer = 0, outGoalType = 0, outGoalTime = -1</p>",
+		itemsAffected: [snFocusPlayerNumber, pPlayerId],
+		scriptingType: "ai"
+	}, {
+		number: "20110722-163027",
+		version: 1.1,
+		notes: "UserPatch 20110722-163027 has been released! This update adds a couple of silent command line ops:<br>- install: SetupAoC.exe -i (will also reinstall/update with default features)<br>- uninstall: SetupAoC.exe -u</p><p>I figured these might be useful for Kor, if he decides to integrate the patch into his setup system in the future.<br>The Win9X/ME/2K all-purpose patch installer was also updated with these capabilities.<br>I don't think the patch is ready yet, but maybe someday... ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110722-020759",
+		version: 1.1,
+		notes: "UserPatch 20110722-020759 has been released! This update resolves 110: #UserPatch [Request] Allow all standard terrains to be used with the blank map generator. It's just one of those little things",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110721-235123",
+		version: 1.1,
+		notes: "UserPatch 20110721-235123 has been released! This update resolves 22: #UserPatch [Economy] Relics aren't distributed to other monasteries. Now, monks will intelligently choose which monastery to drop relics into. In other words, if one monastery is full, monks will deliver their relics to another monastery. You should no longer see monks struggling until the end of time, trying to put a relic into a monastery that is filled to capacity",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110719-222404",
+		version: 1.1,
+		notes: "UserPatch 20110719-222404 has been released! This update is intended to resolve 24: #UserPatch [Economy] AI scouts often fail to find critical resources before departing. Obviously, it can never be perfect every time, but I hope it's better than it was. The new scouting system will try to circle the home town center as thoroughly as it can before reverting to the old scouting system for random exploration.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110716-105603",
+		version: 1.1,
+		notes: "UserPatch 20110716-105603 has been released! Just a minor installer-related update.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110713-134802",
+		version: 1.1,
+		notes: "UserPatch 20110713-134802 has been released! This update includes a fix for AI gaia unit conversion, disabling the feature for scenarios and campaigns. In addition, the new experimental scouting code is included. If sn-total-number-explorers is set to 0, scouts will be detasked at the next opportunity. I'd appreciate any feedback!",
+		itemsAffected: [snTotalNumberExplorers],
+		scriptingType: "ai"
+	}, {
+		number: "20110710-075043",
+		version: 1.1,
+		notes: "UserPatch 20110710-075043 has been released! This update makes a few minor changes to the gate targeting code. I'm working on idle units and scouting issues, at the moment. More to come!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110706-163833",
+		version: 1.1,
+		notes: "UserPatch 20110706-163833 has been released! This update fixes a minor bug that caused sheep to be automatically sent to the town center for human players upon placing their first town center on nomad-style maps.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110705-031521",
+		version: 1.1,
+		notes: "UserPatch 20110705-031521 has been released! This update resolves 79: #UserPatch [Request] Onagers cannot target trees directly after saving a chapter. This one is for new member, Barbarossa89 ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110703-011030",
+		version: 1.1,
+		notes: "UserPatch 20110703-011030 has been released! This update makes a small change to trade carts, so they will not target an incomplete replacement market, after their original target market is destroyed, causing them to become idle. It also moves monks and transport ships under military-population, and enables the in-game statistics displays to show non-idle fishing ships and barracks huskarls. I think more may need to be done in order to ensure that trade carts don't idle, so I haven't \"resolved\" that issue on the tracker yet.</p><p>Note: Military statistics are now calculated by adding units together by group id, instead of adding them together by unit id (this was incredibly inefficient code lol, involving dozens of read+addition operations for each display pass).",
+		itemsAffected: [cMilitaryPopulation, cPlayersMilitaryPopulation],
+		scriptingType: "ai"
+	}, {
+		number: "20110701-112551",
+		version: 1.1,
+		notes: "UserPatch 20110701-112551 has been released! Just a minor bug fix.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110701-095830",
+		version: 1.1,
+		notes: "UserPatch 20110701-095830 has been released! This update includes a new fact: (up-attacker-class compareOp inUnitClassId) to make it easier to check the attacker's identity in rules. Now, you don't have to use the (up-get-attacker-class) action to store the attacker data before testing it. I also made some performance optimizations for the extended villager id code.",
+		itemsAffected: [cUpAttackerClass],
+		scriptingType: "ai"
+	}, {
+		number: "20110630-190023",
+		version: 1.1,
+		notes: "UserPatch 20110630-190023 has been released! This update resolves 65: #UserPatch [AI Scripting] Villagers cannot be counted by task. Here are the new identifiers that can be used with unit-type-count-like facts:<br>- villager-shepherd: 973<br>- villager-forager: 974<br>- villager-farmer: 975<br>- villager-hunter: 976<br>- villager-fisherman: 977<br>- villager-food: 978<br>- villager-wood: 979<br>- villager-stone: 980<br>- villager-gold: 981<br>- villager-builder: 982<br>- villager-repairer: 983<br>- villager-base: 984</p><p>These are predefined for UserPatch AIs, so you don't have to defconst them. The villager-base identifier counts untasked villagers (their names are simply \"Villager\" when you click on them). This identifier cannot be used to reliably determine the idle villager count, since many idle villagers are actually lumberjacks, etc. It can, however, be used to accurately determine when villagers are fighting against wolves or enemy units. Another method will be required to count actual idle villagers (and trade units). I'll work on that at a later time. Thanks, everyone!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110629-182615",
+		version: 1.1,
+		notes: "UserPatch 20110629-182615 has been released! This update contains a new action: (up-pending-placement prefixId:< inObjectId), which can be used with building expansion systems. It will return true while the system is trying to place a building of the specified type. Do not use this fact with mills or camps; they use a different placement system. I also made a few minor tweaks to the new building system.",
+		itemsAffected: [cUpPendingPlacement],
+		scriptingType: "ai"
+	}, {
+		number: "20110629-104735",
+		version: 1.1,
+		notes: "UserPatch 20110629-104735 has been released! This update contains some tweaks to the resource priority modifications, in order to ensure that farms are preferred over forage a bit more.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110628-080708",
+		version: 1.1,
+		notes: "UserPatch 20110628-080708 has been released! This update makes some changes to boar assistance, fixes the player setup chat log (as requested by LightTree), and optimizes some of the new building system code. In addition, farms now have priority over forage bushes for gathering.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110627-094213",
+		version: 1.1,
+		notes: "UserPatch 20110627-094213 has been released! This update includes a new action: (up-drop-resources inResourceType prefix:< inMinResources). With this, you can request all gatherers of a specific type, who are carrying more than inMinResources, to drop their resources on demand. If you're hunting and have less than 50 food, you can execute something like (up-drop-resources food c:< 15) on a timer to avoid idle tc time. The prefix:< redirection operator is used to identify the type of inMinResources; it is not a comparison. This action could be useful for things like fast castles when you're really close to 800f/200g, wood for buildings, and other stuff I haven't even considered.",
+		itemsAffected: [cUpDropResources],
+		scriptingType: "ai"
+	}, {
+		number: "",
+		version: 1.1,
+		notes: "UserPatch 20110626-020209 has been released! This is a relatively major update.<br>1. new action: (up-get-allied-target inGoalAllyPlayerId outGoalTargetNumber)<br>2. new action: (up-get-attacker-class outGoalAttackerClass)<br>3. new player identifier: target-player, which can be used where a player id is required</p><p>The first action, up-get-allied-target, allows for team coordination, by allowing allies to read each other's target player numbers. If you try to read an invalid player, such as an enemy, it will just return 0. You would typically want to figure out a team leader and check that player's target to get all other team members on the same page. An example of how to use it can be found in Chameleon\\userpatch\\targeting.per.</p><p>The next action, up-get-attacker-class, should be used after \"town-under-attack\" to determine the unit class of the attacker. If, for example, it returns 922, it's probably a naval attack. Class 910 indicates a wolf/jaguar attack. It is constantly updated and will retain the last attacker's class indefinitely. Before any attacks, it will return class 900 (archer/skirmisher), so just ignore it until the first town-under-attack.</p><p>Finally, there's the new player identifier, target-player. It's like my-player-number, but it isn't a constant, so you can't use it with the c:operators or up-get-player-fact (up-get-target-fact makes that issue irrelevant). It becomes whatever value you assign to sn-target-player-number.</p><p>Here are some example uses with facts:<br>(player-in-game target-player) ;checks if the target-player is in the game and hasn't lost<br>(stance-toward target-player enemy) ;checks if the target-player is an enemy<br>(players-building-count target-player > 0) ;checks the building-count of the target-player</p><p>Here are some example uses with actions:<br>(set-stance target-player enemy)<br>(chat-to-player target-player \"You are the target lol.\")<br>(up-chat-data-to-player target-player \"The target is player %d (you lol).\" s:< sn-target-player-number)</p><p>I released an update for Chameleon, as well, that fixes a few things and uses some of these new features.</p><p>The readme for the patch was reorganized, as well. I hope I didn't break anything",
+		itemsAffected: [cUpAlliedSn, cUpGetAttackerClass, pPlayerId],
+		scriptingType: "none"
+	}, {
+		number: "20110625-084221",
+		version: 1.1,
+		notes: "UserPatch 20110625-084221 has been released! This update breaks up-get-player-fact/up-get-target-fact by adding a new factId: player-in-game. There's also a set of findPlayerOp consts for use with the new (up-find-player [any|ally|neutral|enemy] findPlayerOp goalId) action. This action will search the players that are still in the game and return the one that matches the provided criteria. You can use 2 options with findPlayerOp for now: attacker and random. If you execute (up-find-player any attacker goalId), you can determine if the attacker was gaia by checking if the goal is 0. If you'd like to get the last actual player attacker, use \"enemy\" instead of \"any\" for the stance.</p><p>;--------------------------------------<br>; Define FactId Constants<br>;--------------------------------------<br>(defconst game-time 0)<br>(defconst population-cap 1)<br>(defconst population-headroom 2)<br>(defconst housing-headroom 3)<br>(defconst idle-farm-count 4)<br>(defconst food-amount 5)<br>(defconst wood-amount 6)<br>(defconst stone-amount 7)<br>(defconst gold-amount 8)<br>(defconst escrow-amount 9)<br>(defconst commodity-buying-price 10)<br>(defconst commodity-selling-price 11)<br>(defconst dropsite-min-distance 12)<br>(defconst soldier-count 13)<br>(defconst attack-soldier-count 14)<br>(defconst defend-soldier-count 15)<br>(defconst warboat-count 16)<br>(defconst attack-warboat-count 17)<br>(defconst defend-warboat-count 18)<br>(defconst current-age 19)<br>(defconst current-score 20)<br>(defconst civilization 21)<br>(defconst player-number 22)<br>(defconst player-in-game 23)<br>(defconst unit-count 24)<br>(defconst unit-type-count 25)<br>(defconst unit-type-count-total 26)<br>(defconst building-count 27)<br>(defconst building-type-count 28)<br>(defconst building-type-count-total 29)<br>(defconst population 30)<br>(defconst military-population 31)<br>(defconst civilian-population 32)<br>(defconst random-number 33)</p><p>;--------------------------------------<br>; Define GroupId Constants<br>;--------------------------------------<br>(defconst infantry-class 906)<br>(defconst archery-class 900)<br>(defconst cavalry-class 912)<br>(defconst cavalry-archer-class 936)<br>(defconst archery-cannon-class 944)<br>(defconst cavalry-cannon-class 923)<br>(defconst monastery-class 918)<br>(defconst siege-weapon-class 913)<br>(defconst scorpion-class 955)<br>(defconst packed-trebuchet-class 951)<br>(defconst unpacked-trebuchet-class 954)<br>(defconst petard-class 935)<br>(defconst warship-class 922)<br>(defconst all-units-class -1)</p><p>;--------------------------------------<br>; Define ResearchState Constants<br>;--------------------------------------<br>(defconst research-unavailable 0)<br>(defconst research-available 1)<br>(defconst research-pending 2)<br>(defconst research-complete 3)</p><p>;--------------------------------------<br>; Define StanceId Constants<br>;--------------------------------------<br>(defconst aggressive 0)<br>(defconst defensive 1)<br>(defconst stand-ground 2)<br>(defconst no-attack 3)</p><p>;--------------------------------------<br>; Define FindPlayerOp Constants<br>;--------------------------------------<br>(defconst attacker 0)<br>(defconst random 1)",
+		itemsAffected: [pFactId, cUpFindPlayer, ],
+		scriptingType: "ai"
+	}, {
+		number: "20110624-174802",
+		version: 1.1,
+		notes: "UserPatch 20110624-174802 has been released! This update includes another new sn and resolves 104: #UserPatch [AI Behavior] Town size expansion attacks cannot be targeted against a specific player. The new sn is sn-safe-town-size, snId:250, default:255, range:1-255. Here's how it works: If an enemy building is inside both sn-maximum-town-size and the region specified by this sn, it will be targeted by defensive units. If the building is inside sn-maximum-town-size, but outside this region, it will be targeted only if it belongs to the player specified by sn-target-player-number. This allows for a \"safe zone\" against all enemy players building on your town, while targeting only the sn-target-player-number player outside the safe zone during TSA. I think this might be useful",
+		itemsAffected: [snSafeTownSize],
+		scriptingType: "ai"
+	}, {
+		number: "20110624-043320",
+		version: 1.1,
+		notes: "UserPatch 20110624-043320 has been released! This update adds a new sn, a new fact/action, and resolves the following two issues, which I hope will greatly enhance team play:<br>102: #UserPatch [AI Behavior] AIs cannot target their attacks against a specific player<br>103: #UserPatch [AI Behavior] AIs cannot reliably render assistance to allies under attack</p><p>1. new sn-target-player-number, snId:249, default: 0, range: -1, 0, 1-8<br>2. new (up-get-target-fact factId parameter goalId) that can be used as either a fact or an action in rules</p><p>First, sn-target-player-number is used to specify which player to target for attacks. If this sn is set to -1, initiating an attack will instead provide assistance to allies. When set to 0, sn-attack-winning-player will determine the target. Setting this to a player that cannot be attacked (an ally or the AI itself) will result in undefined attack behavior. When this sn is set to an actual target player (1-8), up-get-target-fact allows the AI to get information about the target, like its civilization, etc. It works just like the newly renamed up-get-player-fact (previously up-read-fact-data).</p><p>Soon, I'll be creating some additional \"helper\" functions, so scripts will be able to get the closest enemy player, the last attacker, etc. These functions will allow AIs to set sn-target-player-number even more intelligently.",
+		itemsAffected: [snTargetPlayerNumber, cUpGetTargetFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110624-003125",
+		version: 1.1,
+		notes: "UserPatch 20110624-003125 has been released! Please don't kill me, jd lol. I've made some breaking changes to all kinds of stuff, in order to make some future changes more intuitive. I'm sorry!</p><p>1. \"up-read-fact-data\" has been renamed \"up-get-player-fact\" (I hope that's an easy find/replace)<br>2. up-get-player-fact has 2 new factIds: civilization and player-number (see defconsts below)<br>3. a new sn has been created: sn-dropsite-separation-distance, snId:248, default: 10, range: >= 1</p><p>The new sn, sn-dropsite-separation-distance, suggests to the system the minimum distance that you would like between dropsites. The game has been using 10 all this time, which is why camps could not be placed near one another and why dropsites spread away from the player's town rather quickly. I've found the best value, in general, to be around 3 or 4, which allows mills, mining camps, and lumber camps to be built near each other, but not too near. Setting it to higher values can be useful if you'd like to build an escape camp for when your gatherers are under attack.</p><p>Here are the updated defconsts from UserPatchSpecific.per:</p><p>;--------------------------------------<br>; Define FactId Constants<br>;--------------------------------------<br>(defconst game-time 0)<br>(defconst population-cap 1)<br>(defconst population-headroom 2)<br>(defconst housing-headroom 3)<br>(defconst idle-farm-count 4)<br>(defconst food-amount 5)<br>(defconst wood-amount 6)<br>(defconst stone-amount 7)<br>(defconst gold-amount 8)<br>(defconst escrow-amount 9)<br>(defconst commodity-buying-price 10)<br>(defconst commodity-selling-price 11)<br>(defconst dropsite-min-distance 12)<br>(defconst soldier-count 13)<br>(defconst attack-soldier-count 14)<br>(defconst defend-soldier-count 15)<br>(defconst warboat-count 16)<br>(defconst attack-warboat-count 17)<br>(defconst defend-warboat-count 18)<br>(defconst current-age 19)<br>(defconst current-score 20)<br>(defconst civilization 21)<br>(defconst player-number 22)<br>(defconst unit-count 23)<br>(defconst unit-type-count 24)<br>(defconst unit-type-count-total 25)<br>(defconst building-count 26)<br>(defconst building-type-count 27)<br>(defconst building-type-count-total 28)<br>(defconst population 29)<br>(defconst military-population 30)<br>(defconst civilian-population 31)<br>(defconst random-number 32)</p><p>;--------------------------------------<br>; Define GroupId Constants<br>;--------------------------------------<br>(defconst infantry-class 906)<br>(defconst archery-class 900)<br>(defconst cavalry-class 912)<br>(defconst cavalry-archer-class 936)<br>(defconst archery-cannon-class 944)<br>(defconst cavalry-cannon-class 923)<br>(defconst monastery-class 918)<br>(defconst siege-weapon-class 913)<br>(defconst scorpion-class 955)<br>(defconst packed-trebuchet-class 951)<br>(defconst unpacked-trebuchet-class 954)<br>(defconst petard-class 935)<br>(defconst warship-class 922)<br>(defconst all-units-class -1)</p><p>;--------------------------------------<br>; Define ResearchState Constants<br>;--------------------------------------<br>(defconst research-unavailable 0)<br>(defconst research-available 1)<br>(defconst research-pending 2)<br>(defconst research-complete 3)</p><p>;--------------------------------------<br>; Define StanceId Constants<br>;--------------------------------------<br>(defconst aggressive 0)<br>(defconst defensive 1)<br>(defconst stand-ground 2)<br>(defconst no-attack 3)",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact, snDropsiteSeparationDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20110623-004010",
+		version: 1.1,
+		notes: "UserPatch 20110623-004010 has been released! This update resolves 27: #UserPatch [Military] At times, AIs fail to attack walls and gates when obstructed. AIs will now attack gates, prioritizing them over standard wall segments under all circumstances. In addition, sn-special-attack-type2 set to 939 (gate class) will now add additional influence as expected. Set it to 927 (wall class) to influence wall segment targeting over gates and other objects. Humans can no longer make a \"wall\" of gates to hide from AIs! Finally, a preliminary wall flag fix was added as an optional feature. If enough people are concerned about lag, I'll leave it optional instead of integrating it into the core v1.1 update.",
+		itemsAffected: [snSpecialAttackType2],
+		scriptingType: "ai"
+	}, {
+		number: "20110620-165544",
+		version: 1.1,
+		notes: "UserPatch 20110620-165544 has been released to fix a minor issue with the load-random compatibility code that was causing Chameleon (and possibly other v1.1 AIs) to load improperly on occasion, as reported by jd. Thanks!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110619-213115",
+		version: 1.1,
+		notes: "UserPatch 20110619-213115 has been released! This update resolves 101: #UserPatch [Request] Allow the player to survey the map after a single player game ends. This should make everything a lot easier when watching AI wars.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110619-201003",
+		version: 1.1,
+		notes: "UserPatch 20110619-201003 has been released! This update resolves 2 issues:<br>99: #UserPatch [Core Bug] Messages sent at the start of a recorded game do not appear<br>100: #UserPatch [Request] Adjust the default settings of the replay viewer</p><p>Fix 100 disables \"demo loop\" and \"view lock\" by default. It was a bit annoying to see the recording jump back to the start without being able to survey the end of the game.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110618-113234",
+		version: 1.1,
+		notes: "UserPatch 20110618-113234 has been released! This update resolves 98: #UserPatch [Core Bug] Chat messages sent after an empty/taunt message override each other. You should no longer see blank lines in the chat log due to taunts/empty messages, and messages should not override each other, I hope. No patrol changes... yet",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110611-025247",
+		version: 1.1,
+		notes: "UserPatch 20110611-025247 has been released! This update contains a bug-fix for the patrol system for human players (sorry lol). This system is still a work-in-progress, so there might be some issues. I didn't mention this or the last release on twitter for that reason. Please consider it an internal beta ",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110610-092802",
+		version: 1.1,
+		notes: "UserPatch 20110610-092802 has been released! This update provides a new sn, sn-enable-patrol-attack (snId:247, default: 0, range: 0-1), to permit AIs to enable patrol-style attacking without patrol, using either attack groups or attack-now. The patrol attack system can be toggled, on or off, mid-attack. Units are still directed by the core attack system, so they will not walk back and forth over an arbitrary area like a standard patrol operation.</p><p>I think this may actually make attack-now the superior attack method. The system works best with large groups and ranged units, at the moment; there's plenty of room for improvement. I haven't tested this in multiplayer yet, so, for now, I would advise against enabling this sn for any AI that you will use online. Please try it if you have time!",
+		itemsAffected: [snEnablePatrolAttack],
+		scriptingType: "ai"
+	}, {
+		number: "20110610-002456",
+		version: 1.1,
+		notes: "UserPatch 20110610-002456 has been released! This update resolves an issue mentioned by Archon and marathon: repairing a siege unit as it moves has no effect on its hit points. Repairing will now work as marathon suggested, where as long as the repairer is in range, the object will gain hp. If the object moves too far away, the repairer will stop repairing in order to catch up. I think it works well",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110609-183229",
+		version: 1.1,
+		notes: "UserPatch 20110609-183229 has been released! This update, for readability purposes, renames :% to :%*, :~% to :%/, and :0/ to :z/. I hope it's an easy find/replace for anyone who was already using the old operators lol. I'm sorry about the switch.",
+		itemsAffected: [pMathOp],
+		scriptingType: "ai"
+	}, {
+		number: "20110609-032907",
+		version: 1.1,
+		notes: "UserPatch 20110609-032907 has been released! This update makes several changes to math operators:</p><p>- [c|g|s]:/ operator: division, rounding to the nearest integer<br>- [c|g|s]:0/ operator: division, rounding toward zero by truncating the decimal, which was previously [c|g|s]:/<br>- [c|g|s]:mod operator: modulo operation that was previously [c|g|s]:%<br>- [c|g|s]:% operator: percentage shortcut that performs * value / 100, rounding to the nearest integer<br>- [c|g|s]:~% operator: inverse percentage shortcut that performs * 100 / value, rounding to the nearest integer</p><p>I hope these new operators make everything a bit easier. Thanks to jd for the ideas",
+		itemsAffected: [pMathOp],
+		scriptingType: "ai"
+	}, {
+		number: "20110607-161422",
+		version: 1.1,
+		notes: "UserPatch 20110607-161422 has been released! This is a major update, with breaking changes for older save files and recordings again. The pseudo-random number generator has been improved with a new algorithm that has better distribution, with similar speed. For any given group of settings, there are now 4294967296 possible maps, instead of 32768. I also reduced the patch code segment size and added a patch-exclusive data segment to avoid ES' data space.",
+		itemsAffected: [cGenerateRandomNumber],
+		scriptingType: "ai"
+	}, {
+		number: "20110606-150059",
+		version: 1.1,
+		notes: "UserPatch 20110606-150059 has been released! 200 gatherers. Good times",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110605-152258",
+		version: 1.1,
+		notes: "UserPatch 20110605-152258 has been released! This update includes a fix for hunting distance data that may have been stored improperly in previous versions of the patch. It would have affected the results of this command: (dropsite-min-distance hunting X X). In addition, I've begun research into the 100 villager limit and expanded the player databases to provide the space necessary to expand that limit later. This is a breaking change, so saved games and recordings created prior to this version will not work with this one. Please keep your old patch if you wish to use those files.",
+		itemsAffected: [cDropsiteMinDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20110604-220346",
+		version: 1.1,
+		notes: "UserPatch 20110604-220346 has been released! Please refer to the twitter feed or the tracker for more information about the fixes (boring, internal changes only, this time lol).",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110529-020642",
+		version: 1.1,
+		notes: "UserPatch 20110529-020642 has been released! This update includes a fix for the issue where if two AIs, usually with the same name, chat the same message at the same time, they will incorrectly appear in the same player color.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110527-104105",
+		version: 1.1,
+		notes: "UserPatch 20110527-104105 has been released! This update resolves the Nomad issue where sheep that are discovered before a TC is built idle indefinitely. Now, all AIs, including 1.0c AIs, will send their sheep to the TC when it's placed/built. This version should not go out-of-sync in multiplayer.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110526-013134",
+		version: 1.1,
+		notes: "UserPatch 20110526-013134 has been released! This update resolves the coop slot shift bug in multiplayer. A small, but important bug fix",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110524-041204",
+		version: 1.1,
+		notes: "UserPatch 20110524-041204 has been released! This update contains a fix for the player slot shift bug, I hope",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110521-161450",
+		version: 1.1,
+		notes: "UserPatch 20110521-161450 has been released! This update allows AI players to \"convert\" gaia units and buildings as they are discovered. Thanks for the notice, fen!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110520-221648",
+		version: 1.1,
+		notes: "UserPatch 20110520-221648 has been released! This update attempts to resolve the issue where lumber and mining camps cannot be built near one another. Incidentally, if anyone has twitter, I've set up an account and linked it with the issue tracker on my old site, so people can follow the progress of the patch as issues are resolved. Only the v1.1 (critical bugs + AI) issues have been added to the tracker for now. I'll add the issues for v1.1a (minor bugs + water) and v1.1b (convenience features, etc.) sooner or later lol. The tracker lists everything that has been resolved, along with what's currently being worked on. The site itself is on free hosting, so it isn't always stable, but uptime isn't really a concern here.</p><p>When this project goes public, the tracker will make it a lot easier to manage all of the issues and requests coming in from 3 (or more) different sites (it wouldn't be fun for MuRRay lol). I also hope people who no longer follow the game at sites like this one and aokh will learn about the patch on twitter and rejoin the fun. ",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110509-025406",
+		version: 1.1,
+		notes: "UserPatch 20110509-025406 has been released! This update contains some internal changes to support up-print-list (temporary debug action) and a bug fix for the optional logging commands.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110505-000309",
+		version: 1.1,
+		notes: "UserPatch 20110505-000309 has been released! This update enables AIs to use hero units as scouts for exploration. You can see the effect of this on maps like ES@Sherwood Forest, where the AI's hunting wolf will now run off to explore.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110502-150559",
+		version: 1.1,
+		notes: "UserPatch 20110502-150559 has been released! This update restores the optional script logging feature with log and log-trace functionality. It was removed during The Bug hunt, but now it's back",
+		itemsAffected: [cLog, cLogTrace],
+		scriptingType: "ai"
+	}, {
+		number: "20110502-135111",
+		version: 1.1,
+		notes: "UserPatch 20110502-135111 has been released! This update is very important, as now all AIs, including pre-patch AIs that have not opted in to the new building system with sn-enable-new-building-system set to 1, will be protected from the epic build-screw (aka. the buildings-destroyed-mid-construction-can-never-be-built-again bug). I think this fix is critical and I hope it helps a lot of existing AIs, especially for when it strikes farms and castles.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110501-223936",
+		version: 1.1,
+		notes: "UserPatch 20110501-223936 has been released, fixing issues with up-read-fact-data and the following dataId values: soldier-count, attack-soldier-count, defend-soldier-count, warboat-count, attack-warboat-count, and defend-warboat-count. Note, however, that these defend counts are simply the number of units that are not attacking; they do not indicate whether or not the units are engaged in actual defense.</p><p>Here's how the game calculates it:<br>- soldier-count = 10<br>- attack-soldier-count = 6<br>- defend-soldier-count = 10 - 6 = 4</p><p>Thanks again!",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110501-132615",
+		version: 1.1,
+		notes: "UserPatch 20110501-132615 has been released! This update includes an optional feature, changing automated filename formats to yyyymmdd-hhmmss - txt.ext, as requested by fen. I also completed some internal refactoring. Thanks, as always, for testing, fen! Thanks, kunyi!",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110430-130738",
+		version: 1.1,
+		notes: "UserPatch 20110430-130738 has been released! This version includes a new optional feature to replace snow/ice terrain with grass/moss. I've been doing some rms generator research recently, in order to find the functions that parse the rms script, perform terrain manipulation, etc. From the map-related requests on the list, this was the easiest, so lol",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110428-145535",
+		version: 1.1,
+		notes: "UserPatch 20110428-145535 has been released! This version ensures that AIs that use the new building system and cancellation support do not go out of sync in multiplayer games. If a building was cancelled in earlier versions, it was extremely likely that the multiplayer game would go oos.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110427-120225",
+		version: 1.1,
+		notes: "UserPatch 20110427-120225 has been released! This version includes the vote panel/serial sync bug fix, 225 and 250 population limits, and disables the ungrouped AI player (team -) alliance. In addition, up-set-attack-stance, up-retreat-now, up-guard-unit, and up-reset-unit have been made multiplayer safe, and should not cause the game to go out of sync. As mentioned earlier, up-out-of-sync has been added for testing purposes. Please install the default features only.",
+		itemsAffected: [cUpSetAttackStance, cUpRetreatNow, cUpGuardUnit, cUpResetUnit],
+		scriptingType: "ai"
+	}, {
+		number: "20110329-144219",
+		version: 1.1,
+		notes: "UserPatch 20110329-144219 has been released, which addresses that epic bug.	Thanks for letting me know about that, LarzPorsinna!</p><p>Editor's note: the reported bug is as follows: \"Just thought I'd report that using (up-retreat-now) when forward building causes the forward builders to retreat and remain inactive (ie the AI won't retask them). More interestingly, the building foundation graphics transform into the full-blown building graphic - so for example, a forward built castle could appear before a builder has even come anywhere near it! It's only a graphical thing, and the (fake) buildings don't actually function until their construction is completed by somebody else. I think it looks awesome personally, but it might be a bug that's worth fixing.\"",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110328-091039",
+		version: 1.1,
+		notes: "UserPatch 20110328-091039 has been released! This update contains up-guard-unit, up-reset-unit, and a minor bug fix for up-retreat-now. The up-guard-unit command will assign a single unit of the requested type to guard a random unit of the other type, as long as they are on the same continent. The up-reset-unit command will disband all guards of the requested type. You can guard both units and buildings, so there are many things to think about. If you execute up-retreat-now without up-reset-unit, units will still guard their targets while retreating. Attacking will disband guards.</p><p>An example of guarding a monk with spearman-line:<br>(up-guard-unit monk c:< spearman-line)</p><p>An example of disbanding spearman-line guards:<br>(up-reset-unit c:< spearman-line)",
+		itemsAffected: [cUpGuardUnit, cUpResetUnit, cUpRetreatNow],
+		scriptingType: "ai"
+	}, {
+		number: "20110327-055709",
+		version: 1.1,
+		notes: "UserPatch 20110327-055709 has been released! This update fixes the simultaneous town center construction issue that Suriel discovered, in addition to merging up-set-unit-stance and up-set-unit-type-stance into up-set-attack-stance. This new action can set stances using any of the standard unit ids, unit-line ids, and group ids from the common unit list. If you wish to change the stance of all units, use -1 for the all-units-class. In addition, this update enables AIs to build docks on Nomad and along ice on maps such as Scandinavia and Baltic.</p><p>Finally, sn-special-attack-type2 can now be set to any specific object or group id (lines do not work, however) to target them. It seems to work relatively well with attack groups, but not with TSA. Set it to target \"mining-camp\" and watch what happens lol. The sn-special-attack-influence values don't seem to do anything, but I haven't researched them in detail yet. Incidentally, sn-special-attack-type1 set to 1 will target monasteries, while sn-special-attack-type3 set to 1 will target wonders, as before. Note that all 3 of these sns only direct units toward a target. Once they arrive, the internal targeting AI may retask them to \"higher priority targets\" nearby, which can be a problem.</p><p>If you were wondering, sn-special-attack-type2 originally targeted units against the gate group id. This doesn't seem to work, however, as I think gates have some kind of exception in the code since they are passable objects. I'll look into it further after I finish \"up-target-unit\" for direct targeting.",
+		itemsAffected: [cUpSetAttackStance, snSpecialAttackType2],
+		scriptingType: "ai"
+	}, {
+		number: "20110324-035557",
+		version: 1.1,
+		notes: "UserPatch 20110324-035557 has been released! This is a small update to fix a minor bug when using up-read-fact-data as a fact in the conditionals section of a rule. Just noticed it in passing; sorry",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110324-031926",
+		version: 1.1,
+		notes: "UserPatch 20110324-031926 has been released! Research for this one didn't take as long as I thought. This update contains the new up-retreat-now command to send military units back toward the home town center. With this fix, I now have an understanding of how to target any unit anywhere. This opens a lot of new scenarios. I can probably make a up-target-unit command that takes unitClassId values like the stance command to send units toward anything... sheep to the town center on demand (which should help on nomad), etc. More to come. Sorry, MuRRay!",
+		itemsAffected: [cUpRetreatNow],
+		scriptingType: "ai"
+	}, {
+		number: "20110323-174740",
+		version: 1.1,
+		notes: "UserPatch 20110323-174740 has been released! I've moved a couple of the (hopefully) unrelated task-ungrouped fixes back into the core 1.1 update. That's all. I'm in research mode, for now, so new updates might be limited.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110322-183630",
+		version: 1.1,
+		notes: "UserPatch 20110322-183630 has been released! With the help of LightTree, fenris, and grok, we were able to isolate the vote panel breaking issue to the task-ungrouped-soldiers fix in direct ip games. As such, this update isolates that fix, so it can be selected for LAN use until I study the issue further.",
+		itemsAffected: [snTaskUngroupedSoldiers],
+		scriptingType: "ai"
+	}, {
+		number: "20110321-142318",
+		version: 1.1,
+		notes: "UserPatch 20110321-142318 has been released! This contains a minor tweak to ensure that the \"AI Map Type\" is limited to valid, defined values in the scenario editor.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110321-032004",
+		version: 1.1,
+		notes: "UserPatch 20110321-032004 has been released! This update renders SetupMap obsolete, as I have enabled direct generation of random map scripts in the scenario editor. As for the recorded games (and saved games), I'm sorry, LightTree. The only thing you can do is revert to 1.0c temporarily, as the formats are incompatible with each other. As for incompatibility between v1.1s, that might be a problem until the final release lol.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110321-005901",
+		version: 1.1,
+		notes: "UserPatch 20110321-005901 has been released! This update includes the new up-set-unit-stance and up-set-unit-type-stance actions. The set-unit-stance action modifies units by groupId, while the set-unit-type-stance action modifies them by the usual unit names, etc. Note that these commands should not be run in a loop on EVERY processing pass. Execute them with care, like you would with attack-now. They aren't nearly as computationally expensive as attack-now, but it's good to think about performance. The extended line constants, such as trebuchet-line and combined-huskarl-line, only work with counter facts, so they cannot be used here. I also fixed a critical bug in the repair code that would cause the game to crash if a human was playing.</p><p>Here are the new defconsts:</p><p>;--------------------------------------<br>; Define GroupId Constants<br>;--------------------------------------<br>(defconst infantry-class 6)<br>(defconst archery-class 0)<br>(defconst cavalry-class 12)<br>(defconst cavalry-archer-class 36)<br>(defconst archery-cannon-class 44)<br>(defconst cavalry-cannon-class 23)<br>(defconst monastery-class 18)<bR>(defconst siege-weapon-class 13)<br>(defconst scorpion-class 55)<br>(defconst packed-trebuchet-class 51)<br>(defconst unpacked-trebuchet-class 54)<br>(defconst petard-class 35)<br>(defconst warship-class 22)<br>(defconst all-units-class -1)</p><p>;--------------------------------------<br>; Define StanceId Constants<br>;--------------------------------------<br>(defconst aggressive 0)<br>(defconst defensive 1)<br>(defconst stand-ground 2)<br>(defconst no-attack 3)",
+		itemsAffected: [cUpSetAttackStance],
+		scriptingType: "ai"
+	}, {
+		number: "20110320-153614",
+		version: 1.1,
+		notes: "UserPatch 20110320-153614 has been released! This is a relatively minor update that replaces up-research-in-progress with up-research-status. The reason for the change is that I don't like \"not\" commands lol. Oh, and it allows for checking all other research states, as well! Here are the defconsts:</p><p>(defconst research-unavailable 0)<br>(defconst research-available 1)<br>(defconst research-pending 2)<br>(defconst research-complete 3)</p><p>In this way, you can do things like (up-research-status ri-loom >= research-pending) to find out if something is either in-progress or complete in a single statement. Things like (up-research-status feudal-age < research-available) work, too. Anyway, now that the critical bugs list has been trimmed down again, I'll get back to stances, formations, and stuff.",
+		itemsAffected: [cUpResearchStatus],
+		scriptingType: "ai"
+	}, {
+		number: "20110319-184856",
+		version: 1.1,
+		notes: "UserPatch 20110319-184856 has been released! This update contains several new features. First, you can now use unit-type-count with \"combined-huskarl-line\" (id:972) to get a combined total of huskarls, regardless of where they are trained. Next, sn-object-repair-level (snId:246) has been implemented. The default of 0 will repair wonders, castles, town-centers, monasteries, docks, towers, and siege weapons. If it's set to -1, nothing will be repaired. Setting it to 1 will extend repair to all other normal buildings. If it's set to 2, houses, gates, and walls will be added to the list. This last mode is more computationally expensive to use than the others, since repairability has to be computed for each wall segment and house and there are usually a lot of these. Finally, as I mentioned earlier, there was a bug that prevented delete-building (and the delete key pressed by the viewer) from destroying completed structures. This is now fixed.</p><p>Please test these new features if you have time!",
+		itemsAffected: [snObjectRepairLevel],
+		scriptingType: "ai"
+	}, {
+		number: "20110317-131812",
+		version: 1.1,
+		notes: "I'll extend the assistance distance to 100. I think sn-maximum-hunt-drop-distance should effectively control it :) Ok, I've uploaded UserPatch 20110317-131812 with the distance set to 100. I hope it helps!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110317-124734",
+		version: 1.1,
+		notes: "UserPatch 20110317-124734 has been released! This update includes the above mentioned repair fix, so villagers should now repair all standard buildings, except houses, walls, and gates (those repair way too slowly for the cost), and all siege weapons. I made sure that they won't go insane, however, and send 50 villagers off to repair things at the same time.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110317-112532",
+		version: 1.1,
+		notes: "UserPatch 20110317-112532 has been released! This update fixes the critical bug where AIs do not close wall openings created by lumberjacks and siege. This fix might actually make walls useful for AIs under the right conditions.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110316-161837",
+		version: 1.1,
+		notes: "UserPatch 20110316-161837 has been released! This update extends their hard-coded maximum boar hunter assistance distance from 10 to 30, which should hopefully eliminate the problem where hunting is blocked. I don't think it's worth spending an sn to make that configurable, but if you think otherwise, let me know. I think maximum-hunt-drop-distance and the other hunting sns should allow for effective control. Please test it if you have time!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110315-162314",
+		version: 1.1,
+		notes: "UserPatch 20110315-162314 has been released! This update corrects the critical bug where AIs lose the ability to construct buildings after placing a wonder. In addition, there are now 3 states for sn-enable-boar-hunting: 0, which is the default, disables boar hunting, 1 enables boar hunting, and 2 enables boar hunting and disables deer hunting. When it's set to 2, sn-minimum-boar-hunt-group-size does not prevent boar hunting from starting if there aren't enough hunters available, so it might be good to set it to the same value as sn-minimum-number-hunters. In that way, once any villager targets a boar, the requested minimum number of villagers should instantly join them in the hunt.</p><p>I hope this helps to further improve your time, Suriel ",
+		itemsAffected: [snEnableBoarHunting],
+		scriptingType: "ai"
+	}, {
+		number: "20110313-175955",
+		version: 1.1,
+		notes: "UserPatch 20110313-175955 has been released (third time today lol)! This update provides new, extended unit lines for trebuchets and monks. In order to count both monks and monk-with-relic units, use monk-line (constId:970). To count both packed and unpacked trebuchets, use trebuchet-line (constId:971). Special units of both types are included. These new unit lines should help to eliminate the extra rules that were needed to determine when to begin training. Both of the new lines are pre-defined for patch-exclusive AIs, but AIs that desire backward compatibility will need to defconst them.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110313-162019",
+		version: 1.1,
+		notes: "UserPatch 20110313-162019 has been released! This update enables sn-minimum-number-hunters (snId:245). If this is set to a number greater than 0, the AI will attempt to send gatherers to hunt whenever possible, until the minimum is reached. This should allow for much more precise hunting than before. I recommend setting it to 0 at the start of the game to allow villagers to spread to normal tasks first and, when the time is right, you can modify both this and sn-enable-boar-hunting as necessary. If the current number of hunters is less than the minimum, any new villagers trained should instantly become hunters. Strangely, implementing sn-minimum-number-hunters was infinitely easier than sn-enable-boar-hunting lol. I thought this one would take a week or two to finish. Please test this when you have time!",
+		itemsAffected: [snMinimumNumberHunters],
+		scriptingType: "ai"
+	}, {
+		number: "20110313-134557",
+		version: 1.1,
+		notes: "UserPatch 20110313-134557 has been released! This update finally disables boar hunting by default, so older AIs that use forced hunting won't unintentionally lose villagers. In other words, sn-enable-boar-hunting (snId:244) is now in effect. By setting this to 1, boar hunting will be permitted. If it is set to 0, which is the default, boar hunting will be disabled. You can change this setting at any time during a game. I'll work on sn-minimum-number-hunters (snId:245) next.",
+		itemsAffected: [snEnableBoarHunting],
+		scriptingType: "ai"
+	}, {
+		number: "20110311-103810",
+		version: 1.1,
+		notes: "UserPatch 20110311-103810 has been released! This update will hopefully fix that strange issue with the multiplayer resigned thing stuff lol. I tested it and it seems to work, but please try it as well.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110311-000503",
+		version: 1.1,
+		notes: "UserPatch 20110311-000503 has been released! I've made some progress toward enabling sn-enable-boar-hunting, but it's still not done. I also added current-age and random-number as dataIds for read-fact-data (sorry, some of the defconsts shifted again lol). Here are the new values:</p><p>(defconst game-time 0)<br>(defconst population-cap 1)<br>(defconst population-headroom 2)<br>(defconst housing-headroom 3)<br>(defconst idle-farm-count 4)<br>(defconst food-amount 5)<br>(defconst wood-amount 6)<br>(defconst stone-amount 7)<br>(defconst gold-amount 8)<br>(defconst escrow-amount 9)<br>(defconst commodity-buying-price 10)<br>(defconst commodity-selling-price 11)<br>(defconst dropsite-min-distance 12)<br>(defconst soldier-count 13)<br>(defconst attack-soldier-count 14)<br>(defconst defend-soldier-count 15)<br>(defconst warboat-count 16)<br>(defconst attack-warboat-count 17)<br>(defconst defend-warboat-count 18)<br>(defconst current-age 19)<br>(defconst current-score 20)<br>(defconst unit-count 21)<br>(defconst unit-type-count 22)<br>(defconst unit-type-count-total 23)<br>(defconst building-count 24)<br>(defconst building-type-count 25)<br>(defconst building-type-count-total 26)<br>(defconst population 27)<br>(defconst military-population 28)<br>(defconst civilian-population 29)<br>(defconst random-number 30)",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110310-101222",
+		version: 1.1,
+		notes: "UserPatch 20110310-101222 has been released! The last of the first wave of script changes has been completed, with the addition of the chat-data-to-player action and the ability to use read-fact-data in the conditional part of rules, as well. I can now focus on the hunting sns without interruption.",
+		itemsAffected: [cUpChatDataToPlayer, cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110309-191504",
+		version: 1.1,
+		notes: "UserPatch 20110309-191504 has been released! This is a fairly major update with some breaking changes. First, sn-enable-new-building-system, sn-percent-building-cancellation, sn-enable-boar-hunting, and sn-minimum-number-hunters (the hunting sns are still not active) have been predefined for patch-exclusive AIs. AIs that wish to have backward compatibility, however, will still need to defconst them. Next, the v: prefix, for compareOps and mathOps, has been changed to c: to represent constants. In addition, UP-2000-RULES was removed entirely, in favor of UP-AVAILABLE, which allows for the detection of the patch, without regard for version.</p><p>Finally, all facts, built-in and extended, are now able to use the enhanced comparison operators. This means that you can do something like (players-unit-type-count any-enemy militiaman-line g:>= gl-some-goal). I think this last change will allow for much more streamlined and powerful rules. Please test these new features if you have time.",
+		itemsAffected: [snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, pCompareOp, pMathOp],
+		scriptingType: "ai"
+	}, {
+		number: "20110309-040356",
+		version: 1.1,
+		notes: "UserPatch 20110309-040356 has been released! This update hopefully fixes the issue where, after restoring a multiplayer game, AI players have no name shown next to their chat lines. Please test this to ensure that everything works as expected. As for the issue with custom AIs shown with built-in civ names for players other than the host, that reflects their compatibility decision to abstract custom AIs as \"just AIs\" for multiplayer. If the host disconnects, custom AI players are able to transparently continue on as the built-in computer AI, which ensures that the game doesn't fail/crash. I think I'll leave that as it is for that reason.</p><p>I think I should to get back to the important gameplay fixes for a while. I might have time for the minor stuff and feature requests later.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110308-234355",
+		version: 1.1,
+		notes: "UserPatch 20110308-234355 has been released! This update is intended to make the patch a bit more future proof and potentially increase script loading performance. First, let me explain the script loading process. All files that are requested by '(load \"file-name\")' are fully parsed, regardless of any #load-if preprocessor conditionals that tell the system to skip it. All \"load-random\" commands will try to load one of the named scripts if possible, once again, regardless of #load-if conditionals. However, if \"load-random\" cannot select a file due to the random number being out of range (low total or all zeros), the command will do nothing.</p><p>This is the only way to avoid the error checking system and, as such, it is the foundation for the backward, and now forward, compatibility mechanism that I have implemented. Previously, I had enabled (load-random + \"file-name\") to allow a script to load a file 100% of the time, exclusively on the patch. This takes advantage of a quirk in their code, which allows + to be passed as a valid load-percentage parameter, resulting in 0% being assigned to the file on the unpatched game. After the new changes, this is still the case, and (load-random + \"file-name\") will cause \"file-name\" to be ignored on 1.0c and loaded 100% of the time on this and all future versions of the patch. However, I have added the capability to append defconsts to the + to allow for #load-if-based, conditional load-random commands.</p><p>This will allow for future versions of the patch to ignore files that target older versions of the patch, and it will allow patch-specific AIs to skip entire chains of subscripts, which could greatly improve load-time performance if used correctly (to skip other game mode-related subscripts, for example).</p><p>Here is an example of how it can be used for compatibility:</p><p>#load-if-defined UP-VERSION-1.1<br>(defconst up-1.1-load 100)<br>#end-if<br>#load-if-defined UP-VERSION-1.2<br>(defconst up-1.2-load 100)<br>#end-if</p><p>; These commands will be ignored on the unpatched game,<br>; since the +text will be converted to 0<br>(load-random + \"script-to-load-on-all-userpatch-versions\")<br>(load-random<br>+up-1.1-load \"script-to-load-on-1.1-only\"<br>+up-1.2-load \"script-to-load-on-1.2-only\"<br>)",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110308-010347",
+		version: 1.1,
+		notes: "UserPatch 20110308-010347 has been released! This update finally shifts the UserPatch snIds into the new block, which should help to avoid any backward compatibility issues with AIs that have adopted unused sns. I completed some additional code refactoring and updated Chameleon with the new snIds, as well. Here are the new snIds:</p><p>snId:242: sn-enable-new-building-system. Replaces sn-legacy-building-system. Set to 1 for the new system.<br>snId:243: sn-percent-building-cancellation. Same as before; range: 1-100.<br>snId:244: sn-enable-boar-hunting. Has no effect yet; boar hunting is on by default; range: 0/1.</p><p>Boar hunting will be disabled by default as soon as I enable the setting. LightTree, thanks for the screenshot! It looks like those positions are closed; does that mean that the shadow players don't actually appear in the game? Maybe it's just a simple case of them not clearing their interface variables properly. I'll look into it, nevertheless.",
+		itemsAffected: [snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting],
+		scriptingType: "ai"
+	}, {
+		number: "20110307-190525",
+		version: 1.1,
+		notes: "UserPatch 20110307-190525 has been released! This update expands the player database, allowing for 512 goals, 50 timers, 255 total sns (don't use them though, as they are reserved for patch settings), and a lot of unused space for who knows what lol. I also fixed a critical issue where the player database expansion wasn't being saved with the rest of the game data. Due to the required format changes, please do not mix save files between 1.0c and 1.1. Finally, I think I fixed the task-ungrouped issue with the recorded games. Basically, there are 3 conditionals that they placed over the spreading effect: first, if it's multiplayer, expand; second, if it's recording under certain circumstances, expand; and finally, if task-ungrouped is enabled, expand. I've now restricted it to only task-ungrouped-soldiers.</p><p>I haven't moved sn-legacy-building-system and sn-percent-building-cancellation to the new block of sns yet, so they remain as snIds 152 and 128, for now. I'll move them to 243 and 244 after I create the boar sn.",
+		itemsAffected: [snTaskUngroupedSoldiers],
+		scriptingType: "ai"
+	}, {
+		number: "20110306-232607",
+		version: 1.1,
+		notes: "UserPatch 20110306-232607 has been released! This update fixes the mp save/restore issue, I hope. As for the task-ungrouped-soldiers issue, I am absolutely certain that it was done by design. They put a conditional on the spreading operation that tells it to ignore the sn and spread anyway if the multiplayer game flag has been set. In other words, the sn wasn't the true problem; it was the code that they added to deliberately ignore the sn that was the problem.",
+		itemsAffected: [snTaskUngroupedSoldiers],
+		scriptingType: "ai"
+	}, {
+		number: "20110305-161034",
+		version: 1.1,
+		notes: "UserPatch 20110305-161034 has been released! This update contains the new dataId values for up-read-fact-data shown above, the new modulo math operator %, and a replacement for up-chat-goal called up-chat-data-to-self, which allows for values, goals, and sns to be printed out. I'll add up-chat-data-to-player as soon as I can. By the way, if you want a % sign in your formatted text, make sure you double it, or there might be a problem. Oh, and for LightTree, I've now added the ability to start multiplayer games against only AI players.</p><p>Here's an example of printing sn-food-gatherer-percentage: (up-chat-data-to-self \"Food Gathering: %d%%.\" s:< sn-food-gatherer-percentage)",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact, cUpChatDataToSelf],
+		scriptingType: "ai"
+	}, {
+		number: "20110304-162240",
+		version: 1.1,
+		notes: "UserPatch 20110304-162240 has been released! This update enhances up-read-fact-data by enabling unit-type-count and building-type-count as dataIds. Due to some refactoring and other reorganization, the dataId defconsts have changed. Here are the new values:</p><p>(defconst food-amount 0)<br>(defconst wood-amount 1)<br>(defconst stone-amount 2)<br>(defconst gold-amount 3)<br>(defconst escrow-amount 4)<br>(defconst current-score 5)<br>(defconst unit-count 6)<br>(defconst unit-type-count 7)<br>(defconst building-count 8)<br>(defconst building-type-count 9)<br>(defconst population 10)<br>(defconst military-population 11)<br>(defconst civilian-population 12)",
+		itemsAffected: [cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110303-180522",
+		version: 1.1,
+		notes: "UserPatch 20110303-180522 has been released! This update contains... all of the math and compare functions and all of that other stuff lol. If you use up-chat-goal, make 100% sure that your format text has a %d inside it. If it's not there, the game will probably crash. So: (up-chat-goal \"This is my goal: %d!!!\" gl-some-goal).</p><p>Editor's note: here are the changes scripter64 referenced:</p><p>I have now added a fact transfer action: up-read-fact-data. It currently allows for the reading of food-amount, wood-amount, stone-amount, and gold-amount for the player exclusively, and current-score, population, military-population, civilian-population, unit-count, and building-count for any player, including the special this-* playerIds.</p><p>Here's the format for the command:(up-read-fact-data playerId dataId parameter goalId)</p><p>I've now expanded the executable file size in order to make more room for updates in the future. I was beginning to run out of room lol.</p><p>In order to implement your requests, I've enhanced the available operators for extensibility.</p><p>Before operator extensions:<br>(up-compare-goal with-value gl-some-data > 5)<br>(up-compare-goal with-goal gl-some-data > gl-other-stuff)</p><p>After operator extensions:<br>(up-compare-goal gl-some-data > 5)<br>(up-compare-goal gl-some-data gl:> gl-other-stuff)<br>(up-compare-goal gl-some-data sn:> sn-food-gatherer-percentage)</p><p>I think it allows for much cleaner syntax and makes it easier to read. I'm working toward a way to get your scenarios to work. More to come.",
+		itemsAffected: [cUpChatDataToSelf, pMathOp, pCompareOp, cUpGetFact, cUpGetPlayerFact],
+		scriptingType: "ai"
+	}, {
+		number: "20110302-015906",
+		version: 1.1,
+		notes: "UserPatch 20110302-015906 has been released! I have goal math done lol. You can now assign, add, subtract, multiply, and divide goals by constant values and other goals. I hope this gets tested a lot :lol:</p>(defconst with-value 0)<br>(defconst with-goal 1)<br>(defconst gl-test-data-1 1)<br>(defconst gl-test-data-2 2)<br>(defconst equ 0)<br>(defconst add 1)<br>(defconst sub 2)<br>(defconst mul 3)<br>(defconst div 4)",
+		itemsAffected: [pMathOp, cUpModifyGoal],
+		scriptingType: "ai"
+	}, {
+		number: "20110302-001246",
+		version: 1.1,
+		notes: "UserPatch 20110302-001246 has been released! This update may finally make goals more useful than strategic numbers. With the new up-compare-goal fact, you can now compare goals with both constant values and other goals. Would anyone be interested in goal math? lol</p><p>(defconst with-value 0)<br>(defconst with-goal 1)<br>(defconst gl-test-data-1 1)<br>(defconst gl-test-data-2 50)</p><p>(defrule<br>(up-compare-goal with-value gl-test-data-1 > 0)<br>(up-compare-goal with-goal gl-test-data-1 <= gl-test-data-2)<br>=><br>(chat-to-all \"This could be interesting.\")<br>)",
+		itemsAffected: [cUpCompareGoal],
+		scriptingType: "ai"
+	}, {
+		number: "20110301-192754",
+		version: 1.1,
+		notes: "UserPatch 20110301-192754 has been released! This update contains the ability the detect deer and boar. You will need to defconst 4 as something like \"hunting\" and then use (dropsite-min-distance hunting operator value) to detect the distance of huntable animals. If it's 255, it means that none were detected (I tried to make it work like the other resources). This should allow for very precise detection of when hunting is possible, and at what range, so AIs will be able to commit a proper number of villagers to the task, eliminating the passive, guessing approach.</p><p>I'll just say right now that maneuvering around all of their code in order to calculate the distance for deer, boar, and javelina, and then store that information in the new player database storage area was exhausting. I hope I won't have to do that kind of thing again any time soon. :lol: Please test this if you have time.",
+		itemsAffected: [cDropsiteMinDistance],
+		scriptingType: "ai"
+	}, {
+		number: "20110228-135521",
+		version: 1.1,
+		notes: "UserPatch 20110228-135521 has been released! This update includes the expanded player database fix, which now allows for a total of 60 rules and 20 timers. I will add the dropsite-min-distance extension as soon as possible.",
+		itemsAffected: [pTimerId],
+		scriptingType: "ai"
+	}, {
+		number: "20110227-150555",
+		version: 1.1,
+		notes: "UserPatch 20110227-150555 has been released! This update resolves the wolf issue with the previous version. The issue was related to the fact that boars and wolves are classified under the same category: dangerous animals. The previous fix that allowed boars to be considered as resources indirectly allowed wolves to be, as well; you saw the result lol. This new fix takes that issue into consideration and should be a proper solution. Thanks for testing it, fenris! As you said, if you didn't notice the problem when you did, it may have gone unfixed forever",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110227-115223",
+		version: 1.1,
+		notes: "I just uploaded UserPatch 20110227-115223, but it has no new features relative to 20110227-092016. I simply renamed a few things and updated the Readme.txt. The op is essentially the Readme now, with the new information.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110227-092016",
+		version: 1.1,
+		notes: "UserPatch 20110227-092016 has been released! This update enables boar hunting. That is all.	I know; I'm sorry. Boars, it's no longer safe for you",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110227-054241",
+		version: 1.1,
+		notes: "UserPatch 20110227-054241 has been released for epic win. Now, players can easily use AIs in multiplayer. Only the host needs to have the AIs installed. SetupMulti is now obsolete; I love technology.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110226-141252",
+		version: 1.1,
+		notes: "UserPatch 20110226-141252 has been released! This update finally resolves the issue with sn-task-ungrouped-soldiers in multiplayer games. Now, the default for this sn is off, or 0. In multiplayer games, military units now respond as they should to changes to this sn by spreading apart when it's set to 1 and standing still when it's set to 0.</p><p>:dance :dance :dance :dance :dance :dance :dance :dance :dance :dance :dance<br>I'm done with all of the critical bugs!",
+		itemsAffected: [snTaskUngroupedSoldiers],
+		scriptingType: "ai"
+	}, {
+		number: "20110226-094144",
+		version: 1.1,
+		notes: "UserPatch 20110226-094144 has been released! This update contains the fix for trade carts, so they should now travel across shallows to other markets (this one is for you, LightTree; welcome to the forum!). I thought I was never going to get that one done lol. The last of the critical bugs is sn-task-ungrouped-soldiers in multiplayer, so I'll try to fix that soon. Then, maybe I'll look into the boars.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110226-030359",
+		version: 1.1,
+		notes: "UserPatch 20110226-030359 has been released! This update enables the feature selection capability of SetupAoC, so that optional features can be developed and thrown in, but kept separate from the core, like the new additional full map print options (1:1 and 1:2) and AI logging to aoeai.txt with the \"log\" and \"log-trace\" commands. The log is shared, by the way, so don't use the log commands with more than one AI per game or it will become hard to read.",
+		itemsAffected: [cLog, cLogTrace],
+		scriptingType: "ai"
+	}, {
+		number: "20110224-222526",
+		version: 1.1,
+		notes: "UserPatch 20110224-222526 has been released! This update contains the shared string table fix (increased to 5000) and a proper solution for TLS. Now, villagers respond as usual to all threats, except they no longer have any desire to rush towers. Please test it if you have time! Ok, back to the trade carts for me",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110224-001350",
+		version: 1.1,
+		notes: "I decided to upload UserPatch 20110224-001350 now, with the [sn-attack-winning-player-factor] fix, as the trade bug might take a while. Waiting for a simultaneous release isn't a good reason to leave a crashing bug in the game lol. I also cleaned up the installer to avoid flooding pointless information to the user.",
+		itemsAffected: [snAttackWinningPlayerFactor],
+		scriptingType: "ai"
+	}, {
+		number: "0110223-224730",
+		version: 1.1,
+		notes: "UserPatch 20110223-224730 has been released! This update refines the rebuilding fix a little and should eliminate TLS entirely for all AIs, I hope. There's no need to opt-in to this fix. The fish trap sounds like a trap!",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110222-200938",
+		version: 1.1,
+		notes: "UserPatch 20110222-200938 has been released! This one restores the rebuilding fix, meaning AIs that opt-in to the new building system will no longer automatically rebuild cancelled buildings. I had to work around the fact that the building placement system uses cancellation as a way to search for a place to put the foundation lol. I hope it's stable this time. As for ...the list, it's not something I can post in a nice format with each item on a single line. Some of the items are simply copies of your posts, so this thread IS the list.</p><p>If it's on this thread, it's on the list. Next: TLS. This one could take a while.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110222-002905",
+		version: 1.1,
+		notes: "Here is an interim release, 20110222-002905, that I believe is bug free after watching some test games. The prior bug was related to the fact that the \"rebuilding\" code is used for building placement, at times, as well. I'll need to find a workaround for that. Cancellation configuration still works; it just auto-rebuilds in this release.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110221-230434",
+		version: 1.1,
+		notes: "There might be a small bug if the AI doesn't opt-in to the new building system (snId:152) with that release. I'll fix it and hopefully update it before you get it!</p><p>Edit: Fixed with UserPatch 20110221-230434! The bug would have occurred if an AI didn't opt-in to the new building system. They wouldn't auto-rebuild cancelled buildings, so those buildings would have been lost to them afterwards. For that reason, only AIs that opt-in will benefit from the changes; those that don't should behave as they do now.</p><p>Edit: Hmm, there might still be a bug. I'll get back to you.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110221-220144",
+		version: 1.1,
+		notes: "UserPatch 20110221-220144 has been released! This update finally resolves all critical building bugs, I hope. Building cancellation can now be controlled by snId:128 (defconst it as sn-percent-building-cancel or something). By default, it is set to 100, meaning the building will always be cancelled. 25 means it will cancel if the building is 25% done or less, etc. 0 means never cancel. It can be changed dynamically, at any time. Cancelled buildings will not be rebuilt automatically in a loop, as they are now. AIs must request construction with their rules, as usual. ",
+		itemsAffected: [snPercentBuildingCancellation],
+		scriptingType: "ai"
+	}, {
+		number: "20110220-154845",
+		version: 1.1,
+		notes: "UserPatch 20110220-154845 has been released! This update contains the modified version identifier (1.1) and MuRRay's \"up-research-in-progress\" fact. It complements up-pending-objects, and was easier than finishing the cancellation fix, so I did it quickly lol. The demo AI was updated to show how it works. Now, back to cancellation :lol:</p><p>Edit: found unit damage code and building damage code. Discovered that buildings are cancelled, not by damaging the builder, but by simply attempting to damage the builder by targeting it. Cancellation occurs at the moment of attack, however, and not the moment of targeting. Still working on it.",
+		itemsAffected: [cUpResearchStatus],
+		scriptingType: "ai"
+	}, {
+		number: "20110219-061934",
+		version: 1.1,
+		notes: "UserPatch 20110219-061934 has been released. This enhancement update renames \"up-buildings-under-construction\" to \"up-pending-objects.\" The reason for this change is that it can now count both buildings under construction and units being trained. The included demo AI demonstrates this by tracking villagers as they are trained. Another use for this feature would be to regulate military training for when you have, say, 2 barracks in feudal, but don't want to flood units from both unless attacked. The update app also provides more detail as to the features being installed and the patches they contain. Right now, there's only the core update feature, but maybe some stuff can be optional later on.</p><p>Still working on the cancellation bug. More to come",
+		itemsAffected: [cUpPendingObjects],
+		scriptingType: "ai"
+	}, {
+		number: "20110218-211338",
+		version: 1.1,
+		notes: "UserPatch 20110218-211338 has been released. This update is intended to make the patch more acceptable, from a legal perspective. It will now update any 1.0c/e installation by simply modifying age2_x1.exe if it is already decrypted, or else transparently decrypting it for the user and then patching it. If the user did not have a no-cd patch installed before this update, they will still need their CD after the update in order to play. I hope this helps to legitimize the update on sites like aokh, where it seems that they forbid discussion of the 1.0e update due to its no-cd aspect.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110218-173930",
+		version: 1.1,
+		notes: "UserPatch 20110218-173930 has been released! With this release, I eliminated the prepatched download, as I don't want to get this site into any trouble. I also automated the release process to create a nice update package, readme, etc. for easy upload. The primary change in this release is enabling backward compatibility with unpatched games, so that an AI can work under both circumstances. The included demo AI demonstrates how to do this using (load-random + \"file-name\"). This command is ignored by the unpatched version (taking advantage of an oversight on their part, regarding the \"+\" lol) and will always be loaded by the patched version, which allows for bypassing the error-checking routines of the AI parser, so that the unpatched version never has to encounter the new facts, etc.",
+		itemsAffected: [],
+		scriptingType: "ai"
+	}, {
+		number: "20110217-230300",
+		version: 1.1,
+		notes: "New Updater App + Demo AI: http://www.sendspace.com/file/fpus86<br>Patches decrypted age2_x1.exe v1.0c or v1.0e: 2.57 MB (2,699,309 bytes). It will not patch age2_x1.icd, as that file is encrypted by SafeDisc. I may create another method of patching that works with SafeDisc later on.",
+		itemsAffected: [],
+		scriptingType: "none"
+	}, {
+		number: "20110217-163300",
+		version: 1.1,
+		notes: "Here it is! http://www.sendspace.com/file/ddeam3</p><p>Change Log:<br>- Update: interrupted building/farm screw fixed<br>- Update: limitless building is now opt-in with (set-strategic-number 152 0); defconst it as \"sn-limit-building\"<br>- Update: unintended overbuilding quirk fixed<bR>- Update: no limitation on simultaneous construction<br>- Update: new \"up-buildings-under-construction\" fact<br>- Update: rule limit increased to 2000<br>- Update: #load-if-defined UP-2000-RULES - feature flag for detecting the new limit (and the patch, for now)<br>- Update: #load-if-defined TURBO-RANDOM-MAP - no UP prefix, since this flag is for an existing feature<br>- Update: #load-if-defined ALL-TECHS-ENABLED - same as above</p><p>If you opt-in to the building fix, remember to use \"up-buildings-under-construction\" as shown on the previous page to ensure that house construction remains under control. No more pavilions needed! Oh, and don't toggle the sn-limit-building flag during the game. It should be considered a one-time setting.",
+		itemsAffected: [snEnableNewBuildingSystem, cUpPendingObjects],
+		scriptingType: "ai"
+	}, {
+		number: "20110216-184400",
+		version: 1.1,
+		notes: "Here's the new patch! http://www.sendspace.com/file/rp68rt</p><p>Change Log:<br>- Update: no limitation on simultaneous construction<br>- Update: new \"up-buildings-under-construction\" fact<br>- Update: rule limit increased to 2000<br>- Update: #load-if-defined UP-2000-RULES - feature flag for detecting the new limit (and the patch, for now)<br>- Update: #load-if-defined TURBO-RANDOM-MAP - no UP prefix, since this flag is for an existing feature<br>- Update: #load-if-defined ALL-TECHS-ENABLED - same as above</p><p>Before testing any AIs with this new version, at least modify their housing rules to add:<br>up-buildings-under-construction house == 0)</p><p>There's a minor issue when buildings can't be placed immediately, but I have a fix in mind. It doesn't cause any kind of failure, just unintentional overbuilding. I might need to create a way to allow each AI to opt-in to the new limitless building. Slowly moving toward the sn code.",
+		itemsAffected: [cUpPendingObjects],
+		scriptingType: "ai"
+	}, {
+		number: "20110215-234200",
+		version: 1.1,
+		notes: "If anyone would like to try the following fixes, you can download this patched executable.</p><p>1. Rule limit increased to 2000.<br>2. #load-if-defined UP-2000-RULES - new feature flag for detecting the rule limit increase<br>3. #load-if-defined TURBO-RANDOM-MAP - no UP prefix, since this new flag represents an existing feature<br>4. #load-if-defined ALL-TECHS-ENABLED - same as above",
+		itemsAffected: [],
+		scriptingType: "ai"
 	}];

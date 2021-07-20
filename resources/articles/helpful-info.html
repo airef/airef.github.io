@@ -23,6 +23,10 @@
 				<li><a href="#local-targeting">How Local Targets Are Chosen</a></li>
 				<li><a href="#attack-group-targeting">How Attack Groups Select Targets</a></li>
 				<li><a href="#controlled-building-placement-system">Controlled Building Placement System (up-build place-control)</a></li>
+				<li><a href="#villager-retasking">Villager Retasking Conditions</a></li>
+				<li><a href="#sn-boar-hunting">Boar Hunting With Strategic Numbers</a></li>
+				<li><a href="#building-construction-distances">Building Construction Min/Max Distances</a></li>
+				<li><a href="#building-system">Explanation of Building System</a></li>
 			</ul>
 			<hr>
 			<h3 id="local-targeting">How Local Targets Are Chosen</h3>
@@ -70,6 +74,93 @@
 				<p><img src="https://i.imgur.com/FUpDF.gif"></p>
 				<p>Blue: home town center (red around it on the last series is the farm zone)<br>Red: target-player focus (or map center if target doesn't exist)<br>Green: possible placement region that expands each pass.</p>
 				<p>There are 3 series in the image with 4 passes each. I hope it's easy to visualize how they would continue to expand.</p>
+			</blockquote>
+			<hr>
+			<h3 id="villager-retasking">Villager Retasking Conditions</h3>
+			<p>From scripter64 in 2011: <a href="http://forums.aiscripters.com/viewtopic.php?p=38993#p38993">Link</a></p>
+			<blockquote>
+				<p>A retasking event will occur for a villager when they:</p>
+				<ul><li>Are required on a different resource (gatherer-percentage sns)</li>
+				<li>Can't reach their target resource</li>
+				<li>Finish constructing a building</li>
+				<li>Have just been trained</li>
+				<li>Are attacked by something</li></ul>
+			</blockquote>
+			<hr>
+			<h3 id="sn-boar-hunting">Boar Hunting With Strategic Numbers</h3>
+			<p>From scripter64 in 2011: <a href="http://forums.aiscripters.com/viewtopic.php?p=38961#p38961">Link</a></p>
+			<blockquote>
+				<p>Here are a few example scenarios, so you can see how the various hunting sns combine to affect behavior. Villagers that are instantly retasked to provide assistance to the original hunter, due to sn-minimum-boar-hunt-group-size, may already be part of the hunting group, if sn-minimum-number-hunters has requested them up front.</p>
+				<p><strong>Scenario #1</strong></p>
+				<p>- sn-enable-boar-hunting: 0<br>- sn-minimum-boar-hunt-group-size: 0<br>- sn-minimum-number-hunters: 0<br>Result:<br>- Behavior is identical to pre-patch.<br>- Deer may be hunted after higher priority food sources.</p>
+				<p><strong>Scenario #2</strong></p>
+				<p>- sn-enable-boar-hunting: 0<br>- sn-minimum-boar-hunt-group-size: 0<br>- sn-minimum-number-hunters: 2<br>Result:<br>- 2 villagers will be forced to hunt deer after a retasking event is triggered.</p>
+				<p><strong>Scenario #3</strong></p>
+				<p>- sn-enable-boar-hunting: 1<br>- sn-minimum-boar-hunt-group-size: 4<br>- sn-minimum-number-hunters: 0<br>Result:<br>- Villagers may hunt boar or deer after higher priority sources.<br>- If boar hunting begins, 3 villagers will be instantly retasked to assist.</p>
+				<p><strong>Scenario #4</strong></p>
+				<p>- sn-enable-boar-hunting: 1<br>- sn-minimum-boar-hunt-group-size: 4<br>- sn-minimum-number-hunters: 4<br>Result:<br>- 4 villagers will be forced to hunt boar or deer.<br>- If boar hunting begins, 3 villagers will be instantly retasked to assist.</p>
+				<p><strong>Scenario #5</strong></p>
+				<p>- sn-enable-boar-hunting: 2<br>- sn-minimum-boar-hunt-group-size: 4<br>- sn-minimum-number-hunters: 0<br>Result:<br>- Villagers may hunt boar exclusively after higher priority sources.<br>- If boar hunting begins, 3 villagers will be instantly retasked to assist.</p>
+				<p><strong>Scenario #6</strong></p>
+				<p>- sn-enable-boar-hunting: 2<br>- sn-minimum-boar-hunt-group-size: 4<br>- sn-minimum-number-hunters: 4<br>Result:<br>- 4 villagers will be forced to hunt boar exclusively, ignoring deer.<br>- If boar hunting begins, 3 villagers will be instantly retasked to assist.</p>
+				<p><strong>Scenario #7</strong></p>
+				<p>- sn-enable-boar-hunting: 2<br>- sn-minimum-boar-hunt-group-size: 0<br>- sn-minimum-number-hunters: 4<br>Result:<br>- 4 villagers will be forced to hunt boar exclusively, ignoring deer.<br>- If boar hunting begins, no villagers will intentionally be retasked to assist.</p>
+				<p><strong>Scenario #8</strong></p>
+				<p>- sn-enable-boar-hunting: 2<br>- sn-minimum-boar-hunt-group-size: 0<br>- sn-minimum-number-hunters: 0<br>Result:<br>- Villagers may hunt boar exclusively after higher priority sources.<br>- If boar hunting begins, no villagers will intentionally be retasked to assist.</p>
+			</blockquote>
+			<hr>
+			<h3 id="building-construction-distances">Building Construction Min/Max Distances</h3>
+			<p>According to a list posted by scripter64 in 2011 (<a href="http://forums.aiscripters.com/viewtopic.php?p=38081#p38081">Link</a>), the min and max distances buildings can be built with the 1.0c build command or (up-build place-normal) vary according to how the buildings are assigned to various groups:</p>
+			<blockquote>
+				<p>Group 1: min: 7, max: sn-camp-max-distance</p>
+				<ul><li>mining-camp</li></ul>
+				<p>Group 2: min: 4, max: sn-mill-max-distance</p>
+				<ul><li>mill</li></ul>
+				<p>Group 3: min: sn-minimum-town-size, max: sn-maximum-town-size</p>
+				<ul><li>watch-tower</li><li>guard-tower</li><li>keep</li><li>bombard-tower</li></ul>
+				<p>Group 4: min: sn-minimum-town-size, max: sn-maximum-town-size</p>
+				<ul><li>palisade-wall</li><li>stone-wall</li><li>fortified-wall</li></ul>
+				<p>Group 5: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>Everything else</li></ul>
+				<p>Group 6: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>wonder</li></ul>
+				<p>Group 7: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>dock</li></ul>
+				<p>Group 8: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>farm</li></ul>
+				<p>Group 9: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>town-center</li></ul>
+				<p>Group 10: min: 4, max: sn-maximum-town-size</p>
+				<ul><li>house</li></ul>
+				<p>Group 11: min: 7, max: sn-camp-max-distance</p>
+				<ul><li>lumber-camp</li></ul>
+				<p>Group 12: min: sn-maximum-town-size, max: sn-maximum-town-size * 2</p>
+				<ul><li>outpost</li></ul>
+			</blockquote>
+			<hr>
+			<h3 id="building-system">Explanation of Building System</h3>
+			<p>Here's an explanation by scripter64 of the 1.0c building system and how he changed it to fix the bug where buildings occasionally wouldn't get built for the rest of the game. It's possible the Userpatch building system has changed since this 2011 post.</p>
+			<blockquote>
+				<p>I'll explain the cause by explaining how the build system works:</p>
+				<ul><li>AI requests building</li>
+				<li>add building to build list, set flag to block activity until the next rule pass, set flag to block this building</li>
+				<li>found location to place building, activity block probably expired, building-specific block still active</li>
+				<li>building-type-count-total building + 1</li>
+				<li>building-type-count building + 1</li>
+				<li>processing</li>
+				<li>building-type-count-total building - 1</li>
+				<li>building-type-count building - 1</li>
+				<li>processing</li>
+				<li>building-type-count-total building + 1</li>
+				<li>building-type-count building + 1</li>
+				<li>processing</li>
+				<li>building-type-count building - 1</li>
+				<li>after the above: building-type-count-total is +1, building-specific block is active</li>
+				<li>villager is constructing...</li>
+				<li>building is finished</li>
+				<li>building-type-count building + 1</li>
+				<li>building-specific block is disabled</li></ul>
+				<p>Now you can see what happens if the process is interrupted: the building-specific block is never removed. I changed the process to conditionally remove the block after the building foundation is placed, instead of after it has completed, if the user has opted in to the new system.</p>
 			</blockquote>
 			<hr>
 

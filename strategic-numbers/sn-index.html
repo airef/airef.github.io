@@ -22,7 +22,7 @@
 			<label for="sn-network" class="dropdown-label">Network</label>
 			<label for="sn-defined" class="dropdown-label">Defined</label>
 			<label for="sn-active" class="dropdown-label">Active</label>
-			<label for="sn-version" class="dropdown-label">Version</label>
+			<label for="sn-version" class="dropdown-label">Version Introduced</label>
 			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off" autofocus="autofocus">
 			<select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
 				<option value="All" selected>All</option>
@@ -57,6 +57,7 @@
 				<option value="UP">UP</option>
 				<option value="1.1 Only">1.1 Only</option>
 				<option value="1.5 Only">1.5 Only</option>
+				<option value="HD">HD</option>
 				<option value="DE">DE</option>
 			</select>
 		</p>
@@ -173,6 +174,9 @@
 			}
 			else if (version.value == "1.5 Only") {
 				version = "1.5";
+			}
+			else if (version.value == "HD") {
+				version = "HD";
 			}
 			else if (version.value == "DE") {
 				version = "DE";
