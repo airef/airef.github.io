@@ -2062,8 +2062,8 @@ snDockDefendPriority.available = "available, except for water maps";
 snDockDefendPriority.version = "1.0c";
 snDockDefendPriority.linked = [];
 snDockDefendPriority.related = [ 56, 52, 51, 50, 55, 54, 53, 287 ];
-snGoldDefendPriority.shortDescription = "Allows docks to be added to the targetable sighted objects list.";
-snGoldDefendPriority.description = "Allows docks to be added to the targetable sighted objects list. However, docks have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending the dock.";
+snDockDefendPriority.shortDescription = "Allows docks to be added to the targetable sighted objects list.";
+snDockDefendPriority.description = "Allows docks to be added to the targetable sighted objects list. However, docks have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending the dock.";
 
 snLockAndAttackResponse.id = 71;
 snLockAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
