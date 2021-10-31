@@ -484,7 +484,7 @@ var cUpVillagerTypeInTown = new Command("up-villager-type-in-town","Fact","UP");
 var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
 var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent];
+var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","1.0c","&#60;rel-op&#62;");
@@ -7998,7 +7998,7 @@ cSetSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-32768 to 32767.",
+	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
 	note: "The value to set the shared goal to."
 } ];
 
@@ -8065,7 +8065,7 @@ cSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-32768 to 32767.",
+	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
 	note: "A number for comparison."
 } ];
 
@@ -12774,7 +12774,7 @@ cUpResearchStatus.commandParameters = [ {
 	name: "ResearchState",
 	type: "Op",
 	dir: "in",
-	range: "research-unavailable, research-available, research-pending, research-complete",
+	range: "research-unavailable, research-available, research-pending, research-complete, research-queued, research-disabled",
 	note: "The research status to compare with."
 } ];
 cUpResearchStatus.example = [ {
@@ -13532,7 +13532,7 @@ cUpSetSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Op",
 	dir: "in",
-	range: "-32768 to 32767",
+	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
 	note: "The new value for the shared goal."
 } ];
 cUpSetSharedGoal.example = [ {
@@ -15288,6 +15288,14 @@ pCiv.valueList = [ {
 	name: "sicilians",
 	id: 37,
 	description: "Sicilians. Must define with a defconst before it can be used."
+}, {
+	name: "poles",
+	id: 38,
+	description: "Poles. Must define with a defconst before it can be used."
+}, {
+	name: "bohemians",
+	id: 39,
+	description: "Bohemians. Must define with a defconst before it can be used."
 } ];
 
 //ClassId
@@ -17307,9 +17315,13 @@ pRemoteList.relatedParams = [pIndex, pLocalIndex, pLocalList, pRemoteIndex, pSea
 //ResearchState
 pResearchState.description = "The status of the research.";
 pResearchState.shortDescription = "The status of the research.";
-pResearchState.range = "0 to 3.";
+pResearchState.range = "UP: 0 to 3, DE: -1 to 4.";
 pResearchState.relatedParams = [pTechId];
 pResearchState.valueList = [ {
+	name: "research-disabled",
+	id: -1,
+	description: "DE only. The research is not available to the civilization."
+}, {
 	name: "research-unavailable",
 	id: 0,
 	description: "The research is not available, either because the age or technology prerequisites haven't been met, or the research is not available in the civ's tech tree."
@@ -17325,6 +17337,10 @@ pResearchState.valueList = [ {
 	name: "research-complete",
 	id: 3,
 	description: "The research has been completed."
+}, {
+	name: "research-queued",
+	id: 4,
+	description: "DE only. The research has been queued."
 } ];
 
 //ResetCost
@@ -18384,6 +18400,10 @@ pTargetAction.valueList = [ {
 	name: "action-none",
 	id: 18,
 	description: "The current actions of the objects in the local list will not change."
+}, {
+	name: "action-attack-move",
+	id: 19,
+	description: "Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
 } ];
 
 //TargetClass
@@ -18707,7 +18727,7 @@ pUnitId.wildcardParam = [ {
 	name: "scout-cavalry-line",
 	id: -286,
 	deId: -286,
-	description: "Includes scout-cavalry, light-cavalry, and hussar."
+	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar."
 }, {
 	name: "cannon-galleon-line",
 	id: -285,
@@ -18948,6 +18968,21 @@ pUnitId.wildcardParam = [ {
 	id: "NA",
 	deId: -238,
 	description: "DE only. Includes donjon-serjeant and elite-donjon-serjeant."
+}, {
+	name: "obuch-line",
+	id: "NA",
+	deId: -237,
+	description: "DE only. Includes obuch and elite-obuch."
+}, {
+	name: "hussite-wagon-line",
+	id: "NA",
+	deId: -236,
+	description: "DE only. Includes hussite-wagon and elite-hussite-wagon."
+}, {
+	name: "bombard-cannon-line",
+	id: "NA",
+	deId: -235,
+	description: "DE only. Includes bombard-cannon and houfnice."
 } ];
 
 //UpgradeId
@@ -19681,6 +19716,45 @@ castleTechsArray = [ {
 	civ: "Britons",
 	notes: "can use my-second-unique-research (DE only)"
 }, {	
+	name: "Elite Hussite Wagon",
+	aiName: "ri-elite-hussite-wagon",
+	weirdName: 2,
+	id: 781,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bohemians",
+	notes: "can use my-unique-unit-upgrade, Dawn of the Dukes DLC only"
+}, {	
+	name: "Wagenburg Tactics",
+	aiName: "",
+	weirdName: 0,
+	id: 784,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bohemians",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Hussite Reforms",
+	aiName: "",
+	weirdName: 0,
+	id: 785,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bohemians",
+	notes: "can use my-unique-research"
+}, {
 	name: "Elite Konnik",
 	aiName: "ri-elite-konnik",
 	weirdName: 2,
@@ -20628,6 +20702,45 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Persians",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Obuch",
+	aiName: "ri-elite-obuch",
+	weirdName: 2,
+	id: 779,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Poles",
+	notes: "can use my-unique-unit-upgrade (Dawn of the Dukes DLC only)"
+}, {	
+	name: "Szlachta Privileges",
+	aiName: "",
+	weirdName: 0,
+	id: 782,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Poles",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Lechitic Legacy",
+	aiName: "",
+	weirdName: 0,
+	id: 783,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Poles",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Organ Gun",
@@ -21605,6 +21718,19 @@ siegeWorkshopTechsArray = [ {
 	de: 0,
 	civ: "",
 	notes: ""
+}, {	
+	name: "Houfnice",
+	aiName: "ri-houfnice",
+	weirdName: 0,
+	id: 787,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bohemians",
+	notes: "Dawn of the Dukes DLC only"
 } ];	
 	
 stableTechsArray = [ {	
@@ -21633,6 +21759,19 @@ stableTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+}, {	
+	name: "Winged Hussar",
+	aiName: "ri-winged-hussar",
+	weirdName: 0,
+	id: 786,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "Dawn of the Dukes DLC only"
 }, {	
 	name: "Cavalier",
 	aiName: "ri-cavalier",
@@ -22737,6 +22876,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Hussite Wagon",
+	aiName: "hussite-wagon",
+	line: "hussite-wagon-line",
+	id: 1704,
+	class: "scorpion-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1705",
+	projectile: "1733, 1119",
+	chemProjectile: "",
+	civ: "Bohemians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {	
+	name: "Elite Hussite Wagon",
+	aiName: "elite-hussite-wagon",
+	line: "hussite-wagon-line",
+	id: 1706,
+	class: "scorpion-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1705",
+	projectile: "1733, 1119",
+	chemProjectile: "",
+	civ: "Bohemians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {
 	name: "Konnik",
 	aiName: "konnik",
 	line: "konnik-line",
@@ -23725,6 +23902,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {
+	name: "Obuch",
+	aiName: "obuch",
+	line: "obuch-line",
+	id: 1701,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1702",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Poles",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {	
+	name: "Elite Obuch",
+	aiName: "elite-obuch",
+	line: "obuch-line",
+	id: 1703,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1702",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Poles",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {	
 	name: "Organ Gun",
 	aiName: "organ-gun",
 	line: "organ-gun-line",
@@ -24917,7 +25132,7 @@ objectsSiegeWorkshopArray = [ {
 }, {	
 	name: "Bombard Cannon",
 	aiName: "bombard-cannon",
-	line: "",
+	line: "bombard-cannon-line",
 	id: 36,
 	class: "siege-weapon-class",
 	cmdId: "cmdid-military",
@@ -24933,6 +25148,25 @@ objectsSiegeWorkshopArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Requires Chemistry (and Bombard Cannon tech for AoK)"
+}, {
+	name: "Houfnice",
+	aiName: "houfnice",
+	line: "bombard-cannon-line",
+	id: 1709,
+	class: "siege-weapon-class",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "1710",
+	projectile: "368",
+	chemProjectile: "",
+	civ: "Bohemians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes only. Requires Chemistry."
 }, {
 	name: "Siege Tower",
 	aiName: "siege-tower",
@@ -25011,6 +25245,25 @@ objectsStableArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Winged Hussar",
+	aiName: "winged-hussar",
+	line: "scout-cavalry-line",
+	id: 1707,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "1708",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
 }, {	
 	name: "Knight",
 	aiName: "knight",
@@ -26212,6 +26465,63 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1404"
+}, {	
+	name: "Folwark (Dark Age)",
+	aiName: "folwark",
+	line: "",
+	id: 1734,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1528",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Poles",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {	
+	name: "Folwark (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 1711,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1525",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Poles",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
+}, {	
+	name: "Folwark (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 1720,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1527",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Poles",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only."
 }, {	
 	name: "Mining Camp (Dark Age)",
 	aiName: "mining-camp",
@@ -29179,6 +29489,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1634"
 }, {	
+	name: "Birch Tree",
+	aiName: "",
+	line: "",
+	id: 1717,
+	class: "tree-class",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "415",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Dragon Tree",
 	aiName: "",
 	line: "",
@@ -29618,6 +29947,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Algirdas",
+	aiName: "",
+	line: "",
+	id: "1725",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1726",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Archbishop",
 	aiName: "",
 	line: "",
@@ -29941,6 +30289,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Crusader Knight",
+	aiName: "",
+	line: "",
+	id: "1723",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1724",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Cuauhtemoc",
 	aiName: "",
 	line: "",
@@ -30055,6 +30422,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1224"
 }, {	
+	name: "Dmitri of Moscow",
+	aiName: "",
+	line: "",
+	id: "1730",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "139",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Duke D'Alençon",
 	aiName: "",
 	line: "",
@@ -30149,6 +30535,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Emperor Sigismund",
+	aiName: "",
+	line: "",
+	id: "1729",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "633",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
 }, {	
 	name: "Envoy",
 	aiName: "",
@@ -30720,6 +31125,44 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "Lords of the West DLC only"
 }, {
+	name: "Jadwiga",
+	aiName: "",
+	line: "",
+	id: "1715",
+	class: "monastery-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1716",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
+	name: "Jan Zizka",
+	aiName: "",
+	line: "",
+	id: "1713",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1714",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Jarl",
 	aiName: "",
 	line: "",
@@ -30872,6 +31315,44 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "Lords of the West DLC only"
 }, {
+	name: "Jogaila",
+	aiName: "",
+	line: "",
+	id: "1718",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1719",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
+	name: "Kestutis",
+	aiName: "",
+	line: "",
+	id: "1721",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1722",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Khosrau",
 	aiName: "",
 	line: "",
@@ -31232,6 +31713,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Mikhail of Tver",
+	aiName: "",
+	line: "",
+	id: "1731",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "877",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
 }, {	
 	name: "Miklos Toldi",
 	aiName: "",
@@ -32240,6 +32740,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 732"
 }, {	
+	name: "Ulrich von Jungingen",
+	aiName: "",
+	line: "",
+	id: "1727",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1728",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
+}, {	
 	name: "Urus Khan",
 	aiName: "",
 	line: "",
@@ -32448,6 +32967,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1625"
+}, {	
+	name: "Young Jagwiga",
+	aiName: "",
+	line: "",
+	id: "1732",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "431",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dawn of the Dukes DLC only"
 }, {	
 	name: "Zawisza the Black",
 	aiName: "",
