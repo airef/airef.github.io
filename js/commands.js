@@ -5800,6 +5800,7 @@ cAcknowledgeEvent.example = [ {
 } ];
 cAcknowledgeEvent.commandCategory = ["Scenarios"];
 cAcknowledgeEvent.relatedCommands = [cEventDetected, cSetSignal, cUpGetEvent, cUpGetSignal, cUpSetEvent, cUpSetSignal];
+cAcknowledgeEvent.relatedSNs = [];
 cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
@@ -5825,6 +5826,7 @@ cAcknowledgeTaunt.example = [ {
 } ];
 cAcknowledgeTaunt.commandCategory = ["Chat", "Player Any"];
 cAcknowledgeTaunt.relatedCommands = [cTaunt, cTauntDetected, cTauntUsingRange];
+cAcknowledgeTaunt.relatedSNs = [];
 cAcknowledgeTaunt.complexity = "Low";
 
 //attack-now
@@ -5834,14 +5836,14 @@ cAttackNow.example = [ {
 	title: "Issue an attack every 5 minutes (300 seconds) if we have > 12 military units.",
 	data: "(defconst t-attack-timer 1)\r\n(defrule\r\n\t(game-time >= 300)\r\n\t(up-timer-status t-attack-timer != timer-running)\r\n\t(military-population > 12)\r\n=&gt;\r\n\t(attack-now)\r\n\t(enable-timer t-attack-timer 300)\r\n)"
 } ];
-cAttackNow.commandCategory = ["Attack & Defense"];
-cAttackNow.relatedCommands = [cUpResetAttackNow, cUpRetreatNow, cUpRetreatTo];
+cAttackNow.commandCategory = ["Attack"];
+cAttackNow.relatedCommands = [cUpResetAttackNow, cUpRetreatNow, cUpRetreatTo, cUpSetOffensePriority];
+cAttackNow.relatedSNs = [snAttackGroupGatherSpacing, snAttackIntelligence, snAttackWinningPlayer, snAttackWinningPlayerFactor, snEnableOffensivePriority, snGroupFormDistance, snPercentAttackSoldiers, snPercentAttackBoats, snTargetPlayerNumber];
 cAttackNow.complexity = "Low";
 
 //attack-soldier-count
 cAttackSoldierCount.shortDescription = "Checks the computer player's attack soldier count.";
-cAttackSoldierCount.description = "Compares the computer player's attack soldier count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack soldiers are those attacking with the attack groups method (setting " + snNumberAttackGroups.getLink() + " > 0) or are attacking with the " + cAttackNow.getLink() + " command.</p><p>Setting sn-number-attack-groups to 0 and using " + cUpDisbandGroupType.getLink() + " to disband land attack groups when attacking with attack groups will reset the soldiers, and they will no longer be considered attack soldiers. Likewise, using " + cUpResetAttackNow.getLink() + " when attacking with attack-now will reset the soldiers, and they will no longer be considered attack soldiers.";
-cAttackSoldierCount.commandCategory = ["Attack & Defense", "Counting"];
+cAttackSoldierCount.description = "Compares the computer player's attack soldier count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack soldiers are those attacking with the attack groups method (setting " + snNumberAttackGroups.getLink() + " > 0) or are attacking with the " + cAttackNow.getLink() + " command.</p><p>Setting sn-number-attack-groups to 0 and using " + cUpDisbandGroupType.getLink() + " to disband land attack groups when attacking with attack groups will reset the soldiers, and they will no longer be considered attack soldiers. Likewise, using " + cUpResetAttackNow.getLink() + " when attacking with attack-now will reset the soldiers, and they will no longer be considered attack soldiers. Monks are included as land attack soldiers when attacking.";
 cAttackSoldierCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -5857,10 +5859,18 @@ cAttackSoldierCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cAttackSoldierCount.example = [ {
+	title: "Check to see if we have at least 20 land soldiers attacking with attack-now or attack groups.",
+	data: "(defrule\r\n\t(attack-soldier-count >= 20)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cAttackSoldierCount.commandCategory = ["Attack", "Counting"];
+cAttackSoldierCount.relatedCommands = [cAttackWarboatCount, cDefendSoldierCount, cDefendWarboatCount, cSoldierCount, cWarboatCount];
+cAttackSoldierCount.relatedSNs = [snNumberAttackGroups, snPercentAttackSoldiers];
+cAttackSoldierCount.complexity = "Low";
 
 //attack-warboat-count
 cAttackWarboatCount.shortDescription = "Checks the computer player's attack warboat count.";
-cAttackWarboatCount.description = "Compares the computer player's attack warboat count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack warboats are those assigned to boat attack groups (using the boat-attack-group SNs) or assigned from the " + cAttackNow.getLink() + " command. If you stop calling " + cAttackNow.getLink() + " then they are immediately no longer attack warboats - even without using " + cUpResetAttackNow.getLink() + ".";
+cAttackWarboatCount.description = "Compares the computer player's attack warboat count to " + pValue.getLink() + " using " + pCompareOp.getLink() + " and returns true if the condition is met. Attack warboats are those assigned to boat attack groups with the " + cAttackNow.getLink() + " command, not with the " + snNumberBoatAttackGroups.getLink() + " SN. If you stop calling " + cAttackNow.getLink() + " then they are immediately no longer attack warboats - even without using " + cUpResetAttackNow.getLink() + ".";
 cAttackWarboatCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -5876,11 +5886,18 @@ cAttackWarboatCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-cAttackWarboatCount.commandCategory = ["Attack & Defense", "Counting", "Water"];
+cAttackWarboatCount.example = [ {
+	title: "Check to see if we have at least 5 warboats attacking with attack-now.",
+	data: "(defrule\r\n\t(attack-warboat-count >= 5)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cAttackWarboatCount.commandCategory = ["Attack", "Counting", "Water"];
+cAttackWarboatCount.relatedCommands = [cAttackSoldierCount, cDefendSoldierCount, cDefendWarboatCount, cSoldierCount, cWarboatCount];
+cAttackWarboatCount.relatedSNs = [snNumberBoatAttackGroups, snPercentAttackBoats];
+cAttackWarboatCount.complexity = "Low";
 
 //build
 cBuild.shortDescription = "Builds the given building.";
-cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build command, the AI will place the building at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center, except dropsites. Dropsites are instead placed within " + snCampMaxDistance.getLink() + ", " + snMillMaxDistance.getLink() + ", " + snLumberCampMaxDistance.getLink() + ", or " + snMiningCampMaxDistance.getLink() + " tiles from the starting town center, depending on the type of dropsite. Towers will also be placed at least " + snMinimumTownSize.getLink() + " tiles away from the town center. In addition, no buildings except farms will be placed within four tiles of a town center. For more info on each building, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.";
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5889,11 +5906,18 @@ cBuild.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
-cBuild.commandCategory = ["Build & Train"];
+cBuild.example = [ {
+	title: "Order the AI to construct a house at a random location within sn-maximum-town-size.",
+	data: "(defrule\r\n\t(can-build house)\r\n=>\r\n\t(build house)\r\n)"
+} ];
+cBuild.commandCategory = ["Buildings"];
+cBuild.relatedCommands = [cBuildForward, cBuildGate, cBuildWall, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
+cBuild.relatedSNs = [snAllowAdjacentDropsites, snCampMaxDistance, snDropsiteSeparationDistance, snFoodDropsiteDistance, snGoldDropsiteDistance, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snLumberCampMaxDistance, snMaxSkipsPerAttempt, snMaximumTownSize, snMillMaxDistance, snMinimumDropsiteBuffer, snMinimumTownSize, snMiningCampMaxDistance, snNumberBuildAttemptsBeforeSkip, snPreferredMillPlacement, snPreferredTradeDistance, snRandomPlacementFactor, snStoneDropsiteDistance, snTownCenterPlacement, snUnexploredConstruction, snWoodDropsiteDistance];
+cBuild.complexity = "Low";
 
 //build-forward
 cBuildForward.shortDescription = "Builds the given building close to an enemy.";
-cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build-forward command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build-forward command, the AI will place the building near the enemy player specified by " + snTargetPlayerNumber.getLink() + " or the player specified by " + snAttackWinningPlayer.getLink() + " if sn-target-player-number is set to 0. build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.";
 cBuildForward.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5902,7 +5926,14 @@ cBuildForward.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
-cBuildForward.commandCategory = ["Build & Train"];
+cBuildForward.example = [ {
+	title: "Order the AI to construct a watch tower near the enemy.",
+	data: "(defrule\r\n\t(can-build watch-tower)\r\n=>\r\n\t(build-forward watch-tower)\r\n)"
+} ];
+cBuildForward.commandCategory = ["Build"];
+cBuildForward.relatedCommands = [cBuild, cBuildGate, cBuildWall, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
+cBuildForward.relatedSNs = [snAttackWinningPlayer, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snMaxSkipsPerAttempt, snNumberBuildAttemptsBeforeSkip, snTargetPlayerNumber, snUnexploredConstruction];
+cBuildForward.complexity = "Low";
 
 //build-gate
 cBuildGate.shortDescription = "Builds a gate as part of the given perimeter wall.";
@@ -26467,7 +26498,7 @@ objectsBuildingsArray = [ {
 	notes: "In DE, dead unit is 1404"
 }, {	
 	name: "Folwark (Dark Age)",
-	aiName: "folwark",
+	aiName: "",
 	line: "",
 	id: 1734,
 	class: "building-class",
@@ -26483,7 +26514,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
 }, {	
 	name: "Folwark (Feudal Age)",
 	aiName: "",
@@ -26502,7 +26533,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
 }, {	
 	name: "Folwark (Castle Age)",
 	aiName: "",
@@ -26521,7 +26552,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
 }, {	
 	name: "Mining Camp (Dark Age)",
 	aiName: "mining-camp",

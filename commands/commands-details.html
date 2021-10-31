@@ -100,6 +100,16 @@
 					info = info.slice(0, pos);
 					info += "</td></tr>";
 				}
+				if (commandsArray[i].relatedSNs.length > 0) {
+					info += "<tr><td>Related Strategic Numbers</td><td>";
+					for (var k = 0; k < commandsArray[i].relatedSNs.length; k++) {
+						info += commandsArray[i].relatedSNs[k].getLink();
+						info += ", &nbsp;";
+					}
+					var pos = info.lastIndexOf(",");
+					info = info.slice(0, pos);
+					info += "</td></tr>";
+				}
 				info += "</table>";
 				if(commandsArray[i].example != "") {
 					if(commandsArray[i].example.length > 0) {
