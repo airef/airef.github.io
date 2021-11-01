@@ -102,8 +102,8 @@
 				}
 				if (commandsArray[i].relatedSNs.length > 0) {
 					info += "<tr><td>Related Strategic Numbers</td><td>";
-					for (var k = 0; k < commandsArray[i].relatedSNs.length; k++) {
-						info += commandsArray[i].relatedSNs[k].getLink();
+					for (var p = 0; p < commandsArray[i].relatedSNs.length; p++) {
+						info += commandsArray[i].relatedSNs[p].getLink();
 						info += ", &nbsp;";
 					}
 					var pos = info.lastIndexOf(",");

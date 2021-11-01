@@ -14,6 +14,7 @@ class Command {
 		this.commandExample = "";
 		this.commandLinks = [];
 		this.relatedCommands = [];
+		this.relatedSNs = [];
 		this.commandCategory = [];
 		this.complexity = [];
 		this.example = "";
@@ -5937,7 +5938,7 @@ cBuildForward.complexity = "Low";
 
 //build-gate
 cBuildGate.shortDescription = "Builds a gate as part of the given perimeter wall.";
-cBuildGate.description = "Builds a gate as part of the given perimeter wall. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ".";
+cBuildGate.description = "Builds a gate as part of the given perimeter wall. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances, and the gate will only be constructed within this calculated wall pattern. This command cannot be used to build a gate within wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.";
 cBuildGate.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -5946,10 +5947,19 @@ cBuildGate.commandParameters = [ {
 	range: "1 or 2.",
 	note: "The perimeter to build to build the gate at. Perimeter 1 has a smaller raidus than 2."
 } ];
+cBuildGate.example = [ {
+	title: "Order the AI to build a gate at perimeter 2.",
+	data: "(defrule\r\n\t(can-build-gate 2)\r\n=>\r\n\t(build-gate 2)\r\n)"
+} ];
+cBuildGate.commandCategory = ["Build", "Walls & Gates"];
+cBuildGate.relatedCommands = [cBuild, cBuildForward, cBuildWall, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement
+];
+cBuildGate.relatedSNs = [snUnexploredConstruction];
+cBuildGate.complexity = "Low";
 
 //build-wall
 cBuildWall.shortDescription = "Builds a wall line of the given wall type at the given perimeter.";
-cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ".";
+cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern. This command cannot be used to rebuild parts of wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.";
 cBuildWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -5965,6 +5975,15 @@ cBuildWall.commandParameters = [ {
 	range: "A WallId.",
 	note: "The type of wall to construct. Can use WallId wildcard parameters."
 } ];
+cBuildWall.example = [ {
+	title: "Order the AI to build a stone wall around the town at perimeter 2.",
+	data: "(defrule\r\n\t(can-build-wall 2 stone-wall-line)\r\n\t(can-afford-complete-wall 2 stone-wall-line)\r\n\t(wall-completed-percentage 2 < 100)\r\n=>\r\n\t(build-wall 2 stone-wall-line)\r\n)"
+} ];
+cBuildWall.commandCategory = ["Build", "Walls & Gates"];
+cBuildWall.relatedCommands = [cBuild, cBuildForward, cBuildGate, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement
+];
+cBuildWall.relatedSNs = [snUnexploredConstruction];
+cBuildWall.complexity = "Low";
 
 //building-available
 cBuildingAvailable.shortDescription = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met.";
@@ -5977,6 +5996,7 @@ cBuildingAvailable.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building to check availability for."
 } ];
+//cBuildingAvailable.relatedSNs = [];
 
 //building-count
 cBuildingCount.shortDescription = "Checks the computer player's building count. Only existing buildings are included.";
