@@ -5898,7 +5898,7 @@ cAttackWarboatCount.complexity = "Low";
 
 //build
 cBuild.shortDescription = "Builds the given building.";
-cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build command, the AI will place the building at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center, except dropsites. Dropsites are instead placed within " + snCampMaxDistance.getLink() + ", " + snMillMaxDistance.getLink() + ", " + snLumberCampMaxDistance.getLink() + ", or " + snMiningCampMaxDistance.getLink() + " tiles from the starting town center, depending on the type of dropsite. Towers will also be placed at least " + snMinimumTownSize.getLink() + " tiles away from the town center. In addition, no buildings except farms will be placed within four tiles of a town center. For more info on each building, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.";
+cBuild.description = "Builds the given building. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build command, the AI will place the building at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center, except dropsites. Dropsites are instead placed within " + snCampMaxDistance.getLink() + ", " + snMillMaxDistance.getLink() + ", " + snLumberCampMaxDistance.getLink() + ", or " + snMiningCampMaxDistance.getLink() + " tiles from the starting town center, depending on the type of dropsite. Towers will also be placed at least " + snMinimumTownSize.getLink() + " tiles away from the town center. In addition, no buildings except farms will be placed within four tiles of a town center. For more info on each building, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.";
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5931,14 +5931,14 @@ cBuildForward.example = [ {
 	title: "Order the AI to construct a watch tower near the enemy.",
 	data: "(defrule\r\n\t(can-build watch-tower)\r\n=>\r\n\t(build-forward watch-tower)\r\n)"
 } ];
-cBuildForward.commandCategory = ["Build"];
+cBuildForward.commandCategory = ["Buildings"];
 cBuildForward.relatedCommands = [cBuild, cBuildGate, cBuildWall, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
 cBuildForward.relatedSNs = [snAttackWinningPlayer, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snMaxSkipsPerAttempt, snNumberBuildAttemptsBeforeSkip, snTargetPlayerNumber, snUnexploredConstruction];
 cBuildForward.complexity = "Low";
 
 //build-gate
 cBuildGate.shortDescription = "Builds a gate as part of the given perimeter wall.";
-cBuildGate.description = "Builds a gate as part of the given perimeter wall. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances, and the gate will only be constructed within this calculated wall pattern. This command cannot be used to build a gate within wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.";
+cBuildGate.description = "Builds a gate as part of the given perimeter wall. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances when the " + cBuildWall.getLink() + " command is issued. Once the AI finds an appropriate location to build a gate within the given perimeter and the build-gate command is issued, the AI will replace four wall segments with a gate foundation.</p><p>This command cannot be used to build a gate within wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.</p><p>This command cannot be used to build palisade gates. Palisade gates can only be built with the " + cUpBuildLine.getLink() + " command.";
 cBuildGate.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -5951,15 +5951,14 @@ cBuildGate.example = [ {
 	title: "Order the AI to build a gate at perimeter 2.",
 	data: "(defrule\r\n\t(can-build-gate 2)\r\n=>\r\n\t(build-gate 2)\r\n)"
 } ];
-cBuildGate.commandCategory = ["Build", "Walls & Gates"];
-cBuildGate.relatedCommands = [cBuild, cBuildForward, cBuildWall, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement
-];
+cBuildGate.commandCategory = ["Buildings", "Walls & Gates"];
+cBuildGate.relatedCommands = [cBuild, cBuildForward, cBuildWall, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement];
 cBuildGate.relatedSNs = [snUnexploredConstruction];
 cBuildGate.complexity = "Low";
 
 //build-wall
 cBuildWall.shortDescription = "Builds a wall line of the given wall type at the given perimeter.";
-cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern. This command cannot be used to rebuild parts of wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.";
+cBuildWall.description = "Builds a wall line of the given wall type at the given perimeter. The given perimeter must first be enabled with " + cEnableWallPlacement.getLink() + ". The action allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". The only wall line wildcard parameter is stone-wall-line.</p><p>Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern. This command cannot be used to rebuild parts of wall segments that existed at the start of the game, such as the starting walls in Arena or Fortress.";
 cBuildWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -5979,15 +5978,14 @@ cBuildWall.example = [ {
 	title: "Order the AI to build a stone wall around the town at perimeter 2.",
 	data: "(defrule\r\n\t(can-build-wall 2 stone-wall-line)\r\n\t(can-afford-complete-wall 2 stone-wall-line)\r\n\t(wall-completed-percentage 2 < 100)\r\n=>\r\n\t(build-wall 2 stone-wall-line)\r\n)"
 } ];
-cBuildWall.commandCategory = ["Build", "Walls & Gates"];
-cBuildWall.relatedCommands = [cBuild, cBuildForward, cBuildGate, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement
-];
+cBuildWall.commandCategory = ["Buildings", "Walls & Gates"];
+cBuildWall.relatedCommands = [cBuild, cBuildForward, cBuildGate, cCanBuildGate, cCanBuildGateWithEscrow, cEnableWallPlacement];
 cBuildWall.relatedSNs = [snUnexploredConstruction];
 cBuildWall.complexity = "Low";
 
 //building-available
 cBuildingAvailable.shortDescription = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met.";
-cBuildingAvailable.description = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met. It does not check that there are enough resources to build the building. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuildingAvailable.description = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met. It does not check that there are enough resources to build the building. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-available watch-tower) will work regardless of tower upgrades.</p><p>When the AI checks the tech tree prerequisites, this includes checking whether the prerequisite age has been researched. There isn't a way at the beginning of the game to check if the building will be available for the civilization in future ages.";
 cBuildingAvailable.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -5996,10 +5994,18 @@ cBuildingAvailable.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building to check availability for."
 } ];
-//cBuildingAvailable.relatedSNs = [];
+cBuildingAvailable.example = [ {
+	title: "Check if stables are available. This will return true if the AI is in Feudal Age, has a barracks, and isn't Aztecs, Incas, or Mayans.",
+	data: "(defrule\r\n\t(building-available stable)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cBuildingAvailable.commandCategory = ["Buildings", "Can Do"];
+cBuildingAvailable.relatedCommands = [cCanBuild, cCanBuildGate, cCanBuildWall, cResearchAvailable, cUnitAvailable, cUpCanBuild, cUpCanBuildLine];
+cBuildingAvailable.relatedSNs = [];
+cBuildingAvailable.complexity = "Low";
 
 //building-count
 cBuildingCount.shortDescription = "Checks the computer player's building count. Only existing buildings are included.";
+cBuildingCount.description = "Checks the computer player's building count. Only existing buildings are included, not buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.";
 cBuildingCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -6015,9 +6021,18 @@ cBuildingCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cBuildingCount.example = [ {
+	title: "Check if the AI has at least five buildings, not including the starting town center, walls, or gates.",
+	data: "(defrule\r\n\t(building-count >= 5)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cBuildingCount.commandCategory = ["Buildings", "Counting"];
+cBuildingCount.relatedCommands = [cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cCcPlayersBuildingCount, cPlayersBuildingCount];
+cBuildingCount.relatedSNs = [];
+cBuildingCount.complexity = "Low";
 
 //building-count-total
 cBuildingCountTotal.shortDescription = "Checks the computer player's total building count, either existing buildings or buildings under construction.";
+cBuildingCountTotal.description = "Checks the computer player's total building count, either existing buildings or buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.";
 cBuildingCountTotal.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -6033,10 +6048,18 @@ cBuildingCountTotal.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cBuildingCountTotal.example = [ {
+	title: "Check if the AI has at least seven buildings, including buildings under construction but not including the starting town center, walls, or gates.",
+	data: "(defrule\r\n\t(building-count-total >= 7)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cBuildingCountTotal.commandCategory = ["Buildings", "Counting"];
+cBuildingCountTotal.relatedCommands = [cBuildingCount, cBuildingTypeCount, cBuildingTypeCountTotal, cCcPlayersBuildingCount, cPlayersBuildingCount];
+cBuildingCountTotal.relatedSNs = [];
+cBuildingCountTotal.complexity = "Low";
 
 //building-type-count
 cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type are included.";
-cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class when using building-type-count. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
 cBuildingTypeCount.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6059,10 +6082,18 @@ cBuildingTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cBuildingTypeCount.example = [ {
+	title: "Check if the AI has less than three fully constructed town centers.",
+	data: "(defrule\r\n\t(building-type-count town-center < 3)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cBuildingTypeCount.commandCategory = ["Buildings", "Counting"];
+cBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCountTotal, cCcPlayersBuildingTypeCount];
+cBuildingTypeCount.relatedSNs = [];
+cBuildingTypeCount.complexity = "Low";
 
 //building-type-count-total
 cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type, either existing or being constructed.";
-cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class when using building-type-count-total. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
 cBuildingTypeCountTotal.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6085,9 +6116,18 @@ cBuildingTypeCountTotal.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cBuildingTypeCountTotal.example = [ {
+	title: "Check if the AI has at least one lumber camp, either fully constructed or being constructed.",
+	data: "(defrule\r\n\t(building-type-count-total lumber-camp >= 1)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cBuildingTypeCountTotal.commandCategory = ["Buildings", "Counting"];
+cBuildingTypeCountTotal.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cCcPlayersBuildingTypeCount];
+cBuildingTypeCountTotal.relatedSNs = [];
+cBuildingTypeCountTotal.complexity = "Low";
 
 //buy-commodity
 cBuyCommodity.shortDescription = "Buys one lot of the given commodity.";
+cBuyCommodity.description = "Buys one lot of the given commodity. The AI will buy 100 of the given commodity (wood, food, or stone) at the current trading price.";
 cBuyCommodity.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -6096,10 +6136,18 @@ cBuyCommodity.commandParameters = [ {
 	range: "food, wood, or stone",
 	note: "The commodity to buy."
 } ];
+cBuyCommodity.example = [ {
+	title: "Buy 100 food if the AI has enough gold to do so.",
+	data: "(defrule\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
+} ];
+cBuyCommodity.commandCategory = ["Economy", "Trading"];
+cBuyCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
+cBuyCommodity.complexity = "Low";
 
 //can-afford-building
 cCanAffordBuilding.shortDescription = "Checks whether the computer player has enough resources to build the given building.";
-cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-afford-building watch-tower) will work regardless of tower upgrades.";
 cCanAffordBuilding.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6108,10 +6156,18 @@ cCanAffordBuilding.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building to check affordability for."
 } ];
+cCanAffordBuilding.example = [ {
+	title: "Checks if the AI can afford a wonder.",
+	data: "(defrule\r\n\t(can-afford-building wonder)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanAffordBuilding.commandCategory = ["Buildings", "Can Do"];
+cCanAffordBuilding.relatedCommands = [cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit];
+cCanAffordBuilding.relatedSNs = [];
+cCanAffordBuilding.complexity = "Low";
 
 //can-afford-complete-wall
 cCanAffordCompleteWall.shortDescription = "Checks whether the computer player has enough resources to finish the wall at the given perimeter.";
-cCanAffordCompleteWall.description = "Checks whether the computer player has enough resources to finish the given wall type at the " + pPerimeter.getLink() + ". In particular it checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>The tech tree prerequisites are met.</li><li>Required resources are avaliable.</li></ul><p>It does not take into account escrowed resources. It does not check if wall area is explored or if " + cEnableWallPlacement.getLink() + " has been used. " + pPerimeter.getLink() + " is either: '1' for a 10-20 tile radius aroung home TC or '2' for an 18-30 tile radius.";
+cCanAffordCompleteWall.description = "Checks whether the computer player has enough resources to finish the given wall type at the " + pPerimeter.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued. In particular, can-afford-complete-wall checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>The tech tree prerequisites are met.</li><li>Required resources are avaliable.</li></ul><p>It does not take into account escrowed resources. It does not check if wall area is explored or if " + cEnableWallPlacement.getLink() + " has been used. " + pPerimeter.getLink() + " is either: '1' for a 10-20 tile radius aroung home TC or '2' for an 18-30 tile radius.";
 cCanAffordCompleteWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6127,10 +6183,18 @@ cCanAffordCompleteWall.commandParameters = [ {
 	range: "A WallId.",
 	note: "The type of wall to construct. Can use WallId wildcard parameters."
 } ];
+cCanAffordCompleteWall.example = [ {
+	title: "Checks if the AI can afford a stone wall at perimeter 2.",
+	data: "(defrule\r\n\t(can-afford-complete-wall 2 stone-wall-line)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanAffordCompleteWall.commandCategory = ["Walls & Gates", "Can Do"];
+cCanAffordCompleteWall.relatedCommands = [cCanAffordBuilding, cCanAffordResearch, cCanAffordUnit];
+cCanAffordCompleteWall.relatedSNs = [];
+cCanAffordCompleteWall.complexity = "Low";
 
 //can-afford-research
 cCanAffordResearch.shortDescription = "Checks whether the computer player has enough resources to perform the given research.";
-cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. Also checks that the research is avaliable for the civ, that its not already researched and that the computer player has reached the required age. Does not check if the required building is built. The fact does not take into account escrowed resources.";
+cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. Also checks that the research is available for the civ, that its not already researched and that the computer player has reached the required age. Does not check if the required building is built. The fact does not take into account escrowed resources.";
 cCanAffordResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6139,10 +6203,18 @@ cCanAffordResearch.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to be researched."
 } ];
+cCanAffordResearch.example = [ {
+	title: "Checks if the AI can afford the Paladin upgrade. If the player hasn't yet researched Cavalier, the civ doesn't have the Paladin upgrade available, or the player has already resarched Paladin, this will also return false.",
+	data: "(defrule\r\n\t(can-afford-research ri-paladin)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanAffordResearch.commandCategory = ["Techs", "Can Do"];
+cCanAffordResearch.relatedCommands = [cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordUnit];
+cCanAffordResearch.relatedSNs = [];
+cCanAffordResearch.complexity = "Low";
 
 //can-afford-unit
 cCanAffordUnit.shortDescription = "Checks whether the computer player has enough resources to train the given unit.";
-cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". These wildcard parameters allow you to specify a unit line rather than an individual unit in the unit line.";
 cCanAffordUnit.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6151,10 +6223,18 @@ cCanAffordUnit.commandParameters = [ {
 	range: "A UnitId.",
 	note: "The unit to check affordability for."
 } ];
+cCanAffordUnit.example = [ {
+	title: "Checks if the AI can afford a battering ram.",
+	data: "(defrule\r\n\t(can-afford-unit battering-ram)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanAffordUnit.commandCategory = ["Units", "Can Do"];
+cCanAffordUnit.relatedCommands = [cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch];
+cCanAffordUnit.relatedSNs = [];
+cCanAffordUnit.complexity = "Low";
 
 //can-build
-cCanBuild.shortDescription = "This fact checks whether the computer player can build the given building.";
-cCanBuild.description = "This fact checks whether the computer player can build the given building. In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for Khmer in Wololo Kingdoms).</li><li>Resources needed for the building are available, not counting escrow stockpiles.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cCanBuild.shortDescription = "This fact checks whether the computer player can build the given building, not counting escrow stockpiles.";
+cCanBuild.description = "This fact checks whether the computer player can build the given building. In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for Khmer in Wololo Kingdoms).</li><li>Resources needed for the building are available, <strong>not counting escrow stockpiles</strong>.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a can-build or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
 cCanBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6163,6 +6243,14 @@ cCanBuild.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
+cCanBuild.example = [ {
+	title: "Checks if the AI can build an archery-range without escrowed wood.",
+	data: "(defrule\r\n\t(can-build archery-range)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuild.commandCategory = ["Buildings", "Can Do"];
+cCanBuild.relatedCommands = [cBuildingAvailable, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cBuild, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
+cCanBuild.relatedSNs = [snEnableNewBuildingSystem, snInitialExplorationRequired];
+cCanBuild.complexity = "Low";
 
 //can-build-with-escrow
 cCanBuildWithEscrow.shortDescription = "This fact checks whether the computer player can build the given building.";
@@ -6175,10 +6263,18 @@ cCanBuildWithEscrow.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be constructed."
 } ];
+cCanBuildWithEscrow.example = [ {
+	title: "Checks if the AI can build a town-center, including escrowed wood and stone.",
+	data: "(defrule\r\n\t(can-build-with-escrow town-center)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuildWithEscrow.commandCategory = ["Buildings", "Can Do"];
+cCanBuildWithEscrow.relatedCommands = [cCanBuild, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cBuild, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
+cCanBuildWithEscrow.relatedSNs = [snEnableNewBuildingSystem, snInitialExplorationRequired];
+cCanBuildWithEscrow.complexity = "Low";
 
 //can-build-gate
 cCanBuildGate.shortDescription = "Checks whether construction of a stone gate as part of the given perimeter wall can start.";
-cCanBuildGate.description = "Checks whether construction of a stone gate as part of the given perimeter wall can start. It checks:</p><ul><li>It is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow resources).</li><li>There is a location in an existing wall to build it.</li></ul><p>It will return false if it cannot fit a gate 3 tiles away from existing gates.";
+cCanBuildGate.description = "Checks whether construction of a stone gate as part of the given perimeter wall can start. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued. Once the AI finds an appropriate location to build a gate within the given perimeter and the " + cBuildGate.getLink() + " command is issued, the AI will replace four wall segments with a gate foundation.</p><p>can-build-gate checks:</p><ul><li>It is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow resources).</li><li>There is a location in an existing wall to build it.</li></ul><p>It will return false if it cannot fit a gate 3 tiles away from existing gates.</p><p>This command cannot check whether a palisade gate can be built. Palisade gates can only be built with the " + cUpBuildLine.getLink() + " command, and to check whether a palisade gate can be built, use the " + cUpCanBuildLine.getLink() + " command.";
 cCanBuildGate.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6187,10 +6283,18 @@ cCanBuildGate.commandParameters = [ {
 	range: "1 or 2.",
 	note: "The perimeter to build to build the gate at. Perimeter 1 has a smaller raidus than 2."
 } ];
+cCanBuildGate.example = [ {
+	title: "Checks if the AI can build a gate as part of perimeter 1 without escrowed stone.",
+	data: "(defrule\r\n\t(can-build-gate 1)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuildGate.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
+cCanBuildGate.relatedCommands = [cBuildingAvailable, cCanBuild, cCanBuildWithEscrow, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cBuildGate, cEnableWallPlacement, cGateCount];
+cCanBuildGate.relatedSNs = [];
+cCanBuildGate.complexity = "Low";
 
 //can-build-gate-with-escrow
 cCanBuildGateWithEscrow.shortDescription = "Checks whether construction of a stone gate as part of the given perimeter wall can start, if escrow is used.";
-cCanBuildGateWithEscrow.description = "Checks whether construction of a stone gate as part of the given perimeter wall can start. It checks:</p><ul><li>It is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is a location in an existing wall to build it.</li></ul><p>It will return false if it cannot fit a gate 3 tiles away from existing gates.";
+cCanBuildGateWithEscrow.description = "Checks whether construction of a stone gate as part of the given perimeter wall can start. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued. Once the AI finds an appropriate location to build a gate within the given perimeter and the " + cBuildGate.getLink() + " command is issued, the AI will replace four wall segments with a gate foundation.</p><p> can-build-gate-with-escrow checks:</p><ul><li>It is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is a location in an existing wall to build it.</li></ul><p>It will return false if it cannot fit a gate 3 tiles away from existing gates.</p><p>This command cannot check whether a palisade gate can be built. Palisade gates can only be built with the " + cUpBuildLine.getLink() + " command, and to check whether a palisade gate can be built, use the " + cUpCanBuildLine.getLink() + " command.";
 cCanBuildGateWithEscrow.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6199,10 +6303,18 @@ cCanBuildGateWithEscrow.commandParameters = [ {
 	range: "1 or 2.",
 	note: "The perimeter to build to build the gate at. Perimeter 1 has a smaller raidus than 2."
 } ];
+cCanBuildGateWithEscrow.example = [ {
+	title: "Checks if the AI can build a gate as part of perimeter 1, including escrowed stone.",
+	data: "(defrule\r\n\t(can-build-gate-with-escrow 1)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuildGateWithEscrow.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
+cCanBuildGateWithEscrow.relatedCommands = [cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildWall, cCanBuildWallWithEscrow, cBuildGate, cEnableWallPlacement, cGateCount];
+cCanBuildGateWithEscrow.relatedSNs = [];
+cCanBuildGateWithEscrow.complexity = "Low";
 
 //can-build-wall
 cCanBuildWall.shortDescription = "Checks whether a given wall type can be built at the given perimeter.";
-cCanBuildWall.description = "Checks whether a given wall type can be built at the given perimeter. In particular it checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>There is a location to build a wall.</li><li>Required resources are available, not counting escrow amounts.</li></ul><p>This fact checks that there is enough stone for at least 5 wall pieces, whereas can-afford-complete-wall checks if there is enough stone for the entire wall. The fact allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". Note you are allowed to enable wall placement at both perimeters.";
+cCanBuildWall.description = "Checks whether a given wall type can be built at the given perimeter without escrowed resources. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued.</p><p>In particular, can-build-wall checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>There is a location to build a wall.</li><li>Required resources are available, not counting escrow amounts.</li></ul><p>This fact checks that there is enough stone for at least 5 wall pieces, whereas " + cCanAffordCompleteWall.getLink() + " checks if there is enough stone for the entire wall. The fact allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". The only available wall line wildcard parameter is stone-wall-line. Note you are allowed to enable wall placement at both perimeters.";
 cCanBuildWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6218,10 +6330,18 @@ cCanBuildWall.commandParameters = [ {
 	range: "A WallId.",
 	note: "The type of wall to construct. Can use WallId wildcard parameters."
 } ];
+cCanBuildWall.example = [ {
+	title: "Checks if the AI can build a palisade wall at perimeter 1.",
+	data: "(defrule\r\n\t(can-build-wall 1 palisade-wall)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuildWall.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
+cCanBuildWall.relatedCommands = [cBuildingAvailable, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWallWithEscrow, cBuildWall, cEnableWallPlacement, cUpBuildLine, cUpCanBuildLine];
+cCanBuildWall.relatedSNs = [];
+cCanBuildWall.complexity = "Low";
 
 //can-build-wall-with-escrow
 cCanBuildWallWithEscrow.shortDescription = "Checks whether a given wall type can be built at the given perimeter, if escrow is used.";
-cCanBuildWallWithEscrow.description = "Checks whether a given wall type can be built at the given perimeter. In particular it checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>There is a location to build a wall.</li><li>Required resources are available including escrow stockpiles.</li></ul><p>This fact checks that there is enough stone for at least 5 wall pieces, whereas can-afford-complete-wall checks if there is enough stone for the entire wall. The fact allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". Note you are allowed to enable wall placement at both perimeters.";
+cCanBuildWallWithEscrow.description = "Checks whether a given wall type can be built at the given perimeter, including with escrowed resources.Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued.</p><p>In particular, can-build-wall-with-escrow checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>There is a location to build a wall.</li><li>Required resources are available including escrow stockpiles.</li></ul><p>This fact checks that there is enough stone for at least 5 wall pieces, whereas " + cCanAffordCompleteWall.getLink() + " checks if there is enough stone for the entire wall. The fact allows the use of wall line wildcard parameters for " + pWallId.getLink() + ". The only available wall line wildcard parameter is stone-wall-line. Note you are allowed to enable wall placement at both perimeters.";
 cCanBuildWallWithEscrow.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -6237,6 +6357,14 @@ cCanBuildWallWithEscrow.commandParameters = [ {
 	range: "A WallId.",
 	note: "The type of wall to construct. Can use WallId wildcard parameters."
 } ];
+cCanBuildWallWithEscrow.example = [ {
+	title: "Checks if the AI can build a stone wall at perimeter 2.",
+	data: "(defrule\r\n\t(can-build-wall 2 stone-wall-line)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuildWallWithEscrow.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
+cCanBuildWallWithEscrow.relatedCommands = [cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cBuildWall, cEnableWallPlacement, cUpBuildLine, cUpCanBuildLine];
+cCanBuildWallWithEscrow.relatedSNs = [];
+cCanBuildWallWithEscrow.complexity = "Low";
 
 //can-buy-commodity
 cCanBuyCommodity.shortDescription = "Checks whether the computer player can buy one lot of the given commodity.";
@@ -17371,7 +17499,7 @@ pResearchState.relatedParams = [pTechId];
 pResearchState.valueList = [ {
 	name: "research-disabled",
 	id: -1,
-	description: "DE only. The research is not available to the civilization."
+	description: "DE only. Theoretically, this would be the status when the research is not available to the civilization. However, in most cases (if not all cases) the status is actually research-unavailable if the research isn't available to the civilization."
 }, {
 	name: "research-unavailable",
 	id: 0,
