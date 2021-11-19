@@ -6067,7 +6067,7 @@ snProfilingThreshold.rmax = 32768;
 snProfilingThreshold.network = 0;
 snProfilingThreshold.defined = 1;
 snProfilingThreshold.available = 0;
-snProfilingThreshold.effective = 1;
+snProfilingThreshold.effective = 0;
 snProfilingThreshold.version = "DE";
 snProfilingThreshold.linked = [];
 snProfilingThreshold.related = [];
@@ -6444,7 +6444,7 @@ cBuyCommodity.example = [ {
 	data: "(defrule\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
 cBuyCommodity.commandCategory = ["Economy", "Trading"];
-cBuyCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cBuyCommodity.relatedCommands = [cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
 cBuyCommodity.complexity = "Low";
 
@@ -6671,7 +6671,7 @@ cCanBuildWallWithEscrow.complexity = "Low";
 
 //can-buy-commodity
 cCanBuyCommodity.shortDescription = "Checks whether the computer player can buy one lot of the given commodity.";
-cCanBuyCommodity.description = "Checks whether the computer player can buy one lot of the given commodity. The fact does not take into account escrowed resources.";
+cCanBuyCommodity.description = "Checks whether the computer player can buy one lot (100 resources) of the given commodity (food, wood, or stone). The fact does not take into account escrowed resources. In other words, this checks if the AI has a market and enough gold at the current buying price for the specified commodity to be able to buy 100 of the specified commodity.";
 cCanBuyCommodity.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -6680,10 +6680,18 @@ cCanBuyCommodity.commandParameters = [ {
 	range: "food, wood, or stone",
 	note: "The commodity to buy."
 } ];
+cCanBuyCommodity.example = [ {
+	title: "Checks to see if the AI has a market and enough gold to buy 100 wood.",
+	data: "(defrule\r\n\t(can-buy-commodity wood)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanBuyCommodity.relatedCommands = [cBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cCanBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
+cCanBuyCommodity.complexity = "Low";
 
 //can-research
 cCanResearch.shortDescription = "Checks if the given research can start.";
-cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>";
+cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>.";
 cCanResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6692,10 +6700,24 @@ cCanResearch.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to be researched."
 } ];
+cCanResearch.example = [ {
+	title: "Checks to see if the AI can research Wheelbarrow (notice the unusual extra dash in the research name). If so, research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research ri-wheel-barrow)\r\n=>\r\n\t(research ri-wheel-barrow)\r\n)"
+}, {
+	title: "Checks to see if the AI can research Feudal Age. If so, research Feudal Age.",
+	data: "(defrule\r\n\t(can-research feudal-age)\r\n=>\r\n\t(research feudal-age)\r\n)"
+}, {
+	title: "Checks to see if the AI can research Wheelbarrow, but instead it checks by using the research ID (213). If so, research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research 213)\r\n=>\r\n\t(research 213)\r\n)"
+} ];
+cCanResearch.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanResearch.relatedCommands = [cCanAffordResearch, cCanResearchWithEscrow, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
+cCanResearch.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
+cCanResearch.complexity = "Low";
 
 //can-research-with-escrow
 cCanResearchWithEscrow.shortDescription = "Checks if the given research can start, if escrow is used.";
-cCanResearchWithEscrow.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available, including escrow stockpiles.</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>";
+cCanResearchWithEscrow.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available, including escrow stockpiles.</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>.";
 cCanResearchWithEscrow.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6704,6 +6726,20 @@ cCanResearchWithEscrow.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to be researched."
 } ];
+cCanResearchWithEscrow.example = [ {
+	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included (notice the unusual extra dash in the research name). If so, research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research-with-escrow ri-wheel-barrow)\r\n=>\r\n\t(research ri-wheel-barrow)\r\n)"
+}, {
+	title: "Checks to see if the AI can research Feudal Age if escrowed resources are included. If so, research Feudal Age",
+	data: "(defrule\r\n\t(can-research-with-escrow feudal-age)\r\n=>\r\n\t(research feudal-age)\r\n)"
+}, {
+	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included, but instead it checks by using the research ID (213). If so, research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research-with-escrow 213)\r\n=>\r\n\t(research 213)\r\n)"
+} ];
+cCanResearchWithEscrow.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanResearchWithEscrow.relatedCommands = [cCanAffordResearch, cCanResearch, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
+cCanResearchWithEscrow.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
+cCanResearchWithEscrow.complexity = "Low";
 
 //can-sell-commodity
 cCanSellCommodity.shortDescription = "Checks whether the computer player can sell one lot of the given commodity.";
