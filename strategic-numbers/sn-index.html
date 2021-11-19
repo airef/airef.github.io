@@ -17,8 +17,16 @@
 		<div id="nav-placeholder"></div>
 		<h2>Strategic Numbers</h2>
 		<p>
+			<strong>Category:</strong> indicates the type of strategic number. AoE1 means the SN was only used in AoE1, but it was never removed from the AI engine's strategic number list.<br>
+			<strong>Effective:</strong> indicates whether the strategic number has an impact on AI behavior. Several strategic numbers do not work because they are holdovers from AoE1 or were never implemented properly.<br>
+			<strong>Network:</strong> indicates whether the strategic number is sent along the network to clients to prevent out of sync issues.<br>
+			<strong>Defined:</strong> indicates whether the name of the strategic number is predefined in the AI engine and doesn't require a defconst to be used.<br>
+			<strong>Active:</strong> indicates whether the strategic number has an impact on AI behavior and/or is modifiable by other SNs. Obsolete means that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. Conditional means that the strategic number can be considered available to be used like an obsolete SN in certain settings.
+		</p>
+		<p>
 			<label for="snInput" class="sn-input-label">Search</label>
 			<label for="sn-category" class="dropdown-label">Category</label>
+			<label for="sn-effective" class="dropdown-label">Effective</label>
 			<label for="sn-network" class="dropdown-label">Network</label>
 			<label for="sn-defined" class="dropdown-label">Defined</label>
 			<label for="sn-active" class="dropdown-label">Active</label>
@@ -34,6 +42,11 @@
 				<option value="Water">Water</option>
 				<option value="Other">Other</option>
 				<option value="None">None</option>
+			</select>
+			<select id="sn-effective" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Effective">
+				<option value="All" selected>All</option>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
 			</select>
 			<select id="sn-network" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Network">
 				<option value="All" selected>All</option>
@@ -88,6 +101,12 @@
 			text += "<td>" + snArray[i].rmin + "</td>";
 			text += "<td>" + snArray[i].rmax + "</td>";
 			text += "<td>" + snArray[i].default + "</td><td>";
+			if(snArray[i].effective == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Doesn't Work\">&#10007&nbsp;</span>";
+			}
+			else if(snArray[i].effective == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"Works\">&#10003&nbsp;</span>";
+			}
 			if(snArray[i].network == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Standard\">&#10007&nbsp;</span>";
 			}
@@ -122,10 +141,12 @@
 	<script>
 		function snFilter() {
 			// Declare variables
-			var input, category, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
+			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
 			input = document.getElementById("snInput");
 			category = document.getElementById("sn-category");
 			category = category.value;
+			effective = document.getElementById("sn-effective");
+			effective = effective.value;
 			network = document.getElementById("sn-network");
 			if (network.value == "Network") {
 				network = 1;
@@ -192,6 +213,7 @@
 				tdId = snArray[i].id;
 				tdName = snArray[i].snName;
 				tdCategory = snArray[i].category;
+				tdEffective = snArray[i].effective;
 				tdNetwork = snArray[i].network;
 				tdDefined = snArray[i].defined;
 				tdActive = snArray[i].available;
@@ -203,12 +225,17 @@
 				if (tdName != "" && tdId.toString().length > 0) {
 					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
 						if(category == "All" || tdCategory == category) {
-							if(network == -1 || tdNetwork == network) {
-								if(defined == -1 || tdDefined == defined) {
-									if(active == -1 || tdActive == active) {
-										if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
-											tr[i + 1].style.display = "";
-											num = num + 1;
+							if(effective == "All" || tdEffective == effective) {
+								if(network == -1 || tdNetwork == network) {
+									if(defined == -1 || tdDefined == defined) {
+										if(active == -1 || tdActive == active) {
+											if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
+												tr[i + 1].style.display = "";
+												num = num + 1;
+											}
+											else {
+												tr[i + 1].style.display = "none";
+											}
 										}
 										else {
 											tr[i + 1].style.display = "none";

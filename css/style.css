@@ -101,6 +101,7 @@ td {
 	border-bottom: 1px solid #bbb;
 	font: 9pt "Segoe UI", Arial, sans-serif;
 	vertical-align: top;
+	word-wrap: break-word;
 }
 
 .commented-example {
@@ -167,9 +168,28 @@ h5 {
 	margin: 0 0 20px 0;
 }
 
-.techs-building-header, .objects-building-header {
+.techs-building-header, .objects-building-header{
 	font: 16pt "Georgia", Arial, sans-serif;
 	margin: 20px 0 0 0;
+}
+
+.techs-building-header, .objects-building-header{
+	font: 16pt "Georgia", Arial, sans-serif;
+	margin: 20px 0 0 0;
+}
+
+.techs-building-header, .objects-building-header{
+	font: 16pt "Georgia", Arial, sans-serif;
+	margin: 20px 0 0 0;
+}
+
+.patch-notes-year {
+	margin: 10px 0 10px 2%;
+	font-size: 24pt;
+}
+
+.patch-notes-month {
+	margin: 10px 0 10px 4%;
 }
 
 p {
@@ -221,7 +241,7 @@ code {
 	line-height: 1.5;
 }
 
-#commandsInput, #parametersInput, #valueListInput, #wildcardParamInput, #searchInput {
+#commandsInput, #parametersInput, #valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
 	width: 78%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -237,8 +257,8 @@ code {
 	font-weight: bold;
 }
 
-.sn-input-label {
-	width: 48%;
+.sn-input-label{
+	width: 38%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
@@ -251,7 +271,7 @@ code {
 	font-weight: bold;
 }
 
-.objects-input-label {
+.objects-input-label, .patch-notes-input-label {
 	width: 58%;
 	padding-top: 10px;
 	display: inline-block;
@@ -270,7 +290,7 @@ label {
 }
 
 #snInput {
-	width: 48%; 
+	width: 38%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -287,7 +307,7 @@ label {
 	text-indent: 10px;
 }
 
-#objectsInput {
+#objectsInput, #patchNotesInput {
 	width: 58%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -340,7 +360,13 @@ blockquote {
 	text-shadow: 1px 1px 0.5px #999;
 }
 
-.techs-table, .objects-table {
+.patch-table {
+	table-layout: fixed;
+	width: 96%;
+	margin-left: 4%;
+}
+
+.techs-table, .objects-table{
 	table-layout: fixed;
 }
 
@@ -439,6 +465,22 @@ blockquote {
 
 .objects-notes-col {
 	width: 15%;
+}
+
+.patch-notes-version-col {
+	width: 4%
+}
+
+.patch-notes-release-col {
+	width: 11%
+}
+
+.patch-notes-type-col {
+	width: 4%
+}
+
+.patch-notes-description-col {
+	width: 81%
 }
 
 .weird-tech-name, .weird-object-name {
