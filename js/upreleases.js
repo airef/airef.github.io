@@ -12186,10 +12186,10 @@ var releaseNotes = [ {
 	itemsAffected: [],
 	scriptingType: "none"
 }, {	
-	number: "0120202-004011",
-	year: 120,
-	month: 20,
-	day: -2,
+	number: "20120202-004011",
+	year: 2012,
+	month: 2,
+	day: 2,
 	version: 1.1,
 	notes: "UserPatch 20120202-004011 has been released! This resolves 245: #UserPatch [AI Behavior] The boar lurer ungarrison handler requires additional data validation code. Without this additional check, untasked villagers may never ungarrison from various buildings. Thanks to LightTree for the report!",
 	itemsAffected: [],
@@ -14562,10 +14562,10 @@ var releaseNotes = [ {
 	itemsAffected: [snAttackWinningPlayerFactor],
 	scriptingType: "ai"
 }, {	
-	number: "0110223-224730",
-	year: 110,
-	month: 22,
-	day: -3,
+	number: "20110223-224730",
+	year: 2011,
+	month: 2,
+	day: 23,
 	version: 1.1,
 	notes: "UserPatch 20110223-224730 has been released! This update refines the rebuilding fix a little and should eliminate TLS entirely for all AIs, I hope. There's no need to opt-in to this fix. The fish trap sounds like a trap!",
 	itemsAffected: [],

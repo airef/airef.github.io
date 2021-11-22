@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Userpatch Patch Notes</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Userpatch Patch Notes</h2><p>
+			<label for="patchNotesInput" class="patch-notes-input-label">Search</label>
+			<label for="patchNotesVersion" class="dropdown-label">Version</label>
+			<label for="patchNotesYear" class="dropdown-label">Year</label>
+			<label for="patchNotesMonth" class="dropdown-label">Month</label>
+			<label for="patchNotesType" class="dropdown-label">Release Type</label>
+			<input type="text" id="patchNotesInput" onkeyup="patchNotesFilter()" placeholder="Search patch notes..." autocomplete="off" autofocus="autofocus">
+			<select id="patchNotesVersion" class="drop-filter" onchange="patchNotesFilter()" autocomplete="off" title="UP Version">
+				<option value="All" selected>All</option>
+				<option value="1.1">1.1</option>
+				<option value="1.2">1.2</option>
+				<option value="1.3">1.3</option>
+				<option value="1.4">1.4</option>
+				<option value="1.5">1.5</option>
+			</select>
+			<select id="patchNotesYear" class="drop-filter" onchange="patchNotesFilter()" autocomplete="off" title="Year">
+				<option value="All" selected>All</option>
+				<option value="2011">2011</option>
+				<option value="2012">2012</option>
+				<option value="2013">2013</option>
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+			</select>
+			<select id="patchNotesMonth" class="drop-filter" onchange="patchNotesFilter()" autocomplete="off" title="Month">
+				<option value="All" selected>All</option>
+				<option value="1">January</option>
+				<option value="2">February</option>
+				<option value="3">March</option>
+				<option value="4">April</option>
+				<option value="5">May</option>
+				<option value="6">June</option>
+				<option value="7">July</option>
+				<option value="8">August</option>
+				<option value="9">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+			</select>
+			<select id="patchNotesType" class="drop-filter" onchange="patchNotesFilter()" autocomplete="off" title="Scripting Type">
+				<option value="All" selected>All</option>
+				<option value="ai">AI</option>
+				<option value="rms">RMS</option>
+				<option value="other">Other</option>
+			</select>
+		</p>
+		<p id="num-results"></p>
+		<p id="patchNotesTable"></p>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "units-techs";
+	</script>
+	<script src="../js/upreleases.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
+
+	<script>
+		var num = 0;
+		var text = "";
+		var hasReleases = false;
+
+		for(var i = 0; i < releaseVersions.length; i++) {
+			text += "<h2 id=\"version-header-" + i + "\" class=\"patch-notes-header, patch-notes-version\">Version " + releaseVersions[i] + "</h2>";
+			for(var j = 0; j < releaseYears.length; j++) {
+				for(var k = 0; k < releaseNotes.length; k++) {
+					if(releaseNotes[k].version == releaseVersions[i] && releaseNotes[k].year == releaseYears[j]) {
+						hasReleases = true;
+						text += "<h3 id=\"year-header-" + i + "-" + j + "\" class=\"patch-notes-header, patch-notes-year\">" + releaseYears[j] + "</h3>";
+						break;
+					}
+				}
+				if (hasReleases) {
+					hasReleases = false;
+					for(var m = releaseMonths.length - 1; m >= 0; m--) {
+						for(var n = 0; n < releaseNotes.length; n++) {
+							if(releaseNotes[n].version == releaseVersions[i] && releaseNotes[n].year == releaseYears[j] && releaseNotes[n].month == m + 1) {
+								hasReleases = true;
+								text += "<h3 id=\"month-header-" + i + "-" + j + "-" + (m + 1) + "\" class=\"patch-notes-header, patch-notes-month\">" + releaseMonths[m] + "</h3>";
+								text += "<table class=\"patch-table\"><tr id=\"header-row-" + i + "-" + j + "-" + (m + 1) + "\" class=\"patch-notes-col\"><th class=\"patch-notes-version-col\">Version</th><th class=\"patch-notes-release-col\">Release</th><th class=\"patch-notes-type-col\">Type</th><th class=\"patch-notes-description-col\">Description</th></tr>";
+								break;
+							}
+						}
+						if(hasReleases) {
+							for(var p = 0; p < releaseNotes.length; p++) {
+								if(releaseNotes[p].version == releaseVersions[i] && releaseNotes[p].year == releaseYears[j] && releaseNotes[p].month == m + 1) {
+									text += "<tr id=\"patch-notes-release-" + p + "\" class=\"patch-notes-release-row\"><td>" + releaseNotes[p].version + "</td>";
+									text += "<td>" + releaseNotes[p].number + "</td>";
+									if(releaseNotes[p].scriptingType == "ai") {
+										text += "<td>AI</td>";
+									}
+									else if (releaseNotes[p].scriptingType == "rms") {
+										text += "<td>RMS</td>";
+									}
+									else {
+										text += "<td>Other</td>";
+									}
+									text += "<td>" + releaseNotes[p].notes;
+									if (releaseNotes[p].itemsAffected.length > 0) {
+										text += "<br><strong>Items Affected: </strong>";
+										for(var q = 0; q < releaseNotes[p].itemsAffected.length; q++) {
+											text += releaseNotes[p].itemsAffected[q].getLink();
+											if (q < releaseNotes[p].itemsAffected.length - 1) {
+												text += ", ";
+											}
+										}
+									}
+									text += "</td></tr>";
+									num = num + 1;
+								}
+							}
+							text += "</table>";
+						}
+					}
+					text += "<hr id=\"year-hr-" + i + "-" + j + "\" class=\"patch-notes-year-hr\">";
+					hasReleases = false;
+				}
+			}
+		}
+		document.getElementById("patchNotesTable").innerHTML = text;
+		document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		
+	</script>
+
+
+	<script>
+		function patchNotesFilter() {
+			var num = 0;
+			var text = "";
+			var hasReleases = false;
+			var notes = "";
+
+			// Declare variables
+			var input, version, year, month, type, filter, table, tr, versionHeader, yearHeader, monthHeader, yearHr, colHeader, tempText, i, j, k, m, n;
+			input = document.getElementById("patchNotesInput");
+			filter = input.value.toUpperCase();
+			version = document.getElementById("patchNotesVersion");
+			year = document.getElementById("patchNotesYear");
+			month = document.getElementById("patchNotesMonth");
+			type = document.getElementById("patchNotesType");
+			tableArray = document.getElementsByTagName("table");
+			versionHeader = document.getElementsByClassName("patch-notes-version");
+			yearHeader = document.getElementsByClassName("patch-notes-year");
+			monthHeader = document.getElementsByClassName("patch-notes-month");
+			colHeader = document.getElementsByClassName("patch-notes-col");
+			yearHr = document.getElementsByClassName("patch-notes-year-hr");
+			tr = document.getElementsByClassName("patch-notes-release-row");
+			
+			//Remove releases that don't match search
+			num = 0;
+			for(i = 0; i < releaseNotes.length; i++) {
+				notes = releaseNotes[i].notes.toString();
+				notes = notes.toUpperCase();
+				if((releaseNotes[i].version == version.value || version.value == "All") && (releaseNotes[i].year == year.value || year.value == "All") && (releaseNotes[i].month == month.value || month.value == "All") && notes.indexOf(filter) > -1 && (releaseNotes[i].scriptingType == type.value || type.value == "All")) {
+					tr[i].style.display = "";
+					num++;
+				}
+				else {
+					tr[i].style.display = "none";
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+
+			for(i = 0; i < versionHeader.length; i++) {
+				versionHeader[i].style.display = "none";
+			}
+
+			for(i = 0; i < yearHeader.length; i++) {
+				yearHeader[i].style.display = "none";
+			}
+
+			for(i = 0; i < monthHeader.length; i++) {
+				monthHeader[i].style.display = "none";
+			}
+
+			for(i = 0; i < yearHr.length; i++) {
+				yearHr[i].style.display = "none";
+			}
+
+			for(i = 0; i < colHeader.length; i++) {
+				colHeader[i].style.display = "none";
+			}
+
+			for(i = 0; i < releaseNotes.length; i++) {
+				notes = releaseNotes[i].notes.toString();
+				notes = notes.toUpperCase();
+				if((releaseNotes[i].version == version.value || version.value == "All") && (releaseNotes[i].year == year.value || year.value == "All") && (releaseNotes[i].month == month.value || month.value == "All") && notes.indexOf(filter) > -1 && (releaseNotes[i].scriptingType == type.value || type.value == "All")) {
+					for(j = 0; j < versionHeader.length; j++) {
+						for(k = 0; k < releaseVersions.length; k++) {
+							if((versionHeader[j].id == "version-header-" + k) && (releaseNotes[i].version == releaseVersions[k])) {
+								versionHeader[j].style.display = "";
+								for(m = 0; m < yearHeader.length; m++) {
+									for(n = 0; n < releaseYears.length; n++) {
+										if((yearHeader[m].id == "year-header-" + j + "-" + n) && (releaseNotes[i].year == releaseYears[n])) {
+											yearHeader[m].style.display = "";
+											yearHr[m].style.display = "";
+											for(p = 0; p < monthHeader.length; p++) {
+												for(q = 0; q < releaseMonths.length; q++) {
+													if((monthHeader[p].id == "month-header-" + j + "-" + n + "-" + (q+1)) && (releaseNotes[i].month == q+1)) {
+														monthHeader[p].style.display = "";
+														colHeader[p].style.display = "";
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>
