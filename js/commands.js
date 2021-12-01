@@ -6109,7 +6109,7 @@ cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
-cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
+cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
 cAcknowledgeTaunt.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6464,7 +6464,7 @@ cCanAffordBuilding.example = [ {
 	data: "(defrule\r\n\t(can-afford-building wonder)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCanAffordBuilding.commandCategory = ["Buildings", "Can Do"];
-cCanAffordBuilding.relatedCommands = [cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit];
+cCanAffordBuilding.relatedCommands = [cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cUpCanBuild];
 cCanAffordBuilding.relatedSNs = [];
 cCanAffordBuilding.complexity = "Low";
 
@@ -6727,14 +6727,14 @@ cCanResearchWithEscrow.commandParameters = [ {
 	note: "The technology to be researched."
 } ];
 cCanResearchWithEscrow.example = [ {
-	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included (notice the unusual extra dash in the research name). If so, research Wheelbarrow.",
-	data: "(defrule\r\n\t(can-research-with-escrow ri-wheel-barrow)\r\n=>\r\n\t(research ri-wheel-barrow)\r\n)"
+	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included (notice the unusual extra dash in the research name). If so, release escrowed food and wood and research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research-with-escrow ri-wheel-barrow)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow wood)\r\n\t(research ri-wheel-barrow)\r\n)"
 }, {
-	title: "Checks to see if the AI can research Feudal Age if escrowed resources are included. If so, research Feudal Age",
-	data: "(defrule\r\n\t(can-research-with-escrow feudal-age)\r\n=>\r\n\t(research feudal-age)\r\n)"
+	title: "Checks to see if the AI can research Feudal Age if escrowed resources are included. If so, release escrowed food and research Feudal Age",
+	data: "(defrule\r\n\t(can-research-with-escrow feudal-age)\r\n=>\r\n\t(release-escrow food)\r\n\t(research feudal-age)\r\n)"
 }, {
-	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included, but instead it checks by using the research ID (213). If so, research Wheelbarrow.",
-	data: "(defrule\r\n\t(can-research-with-escrow 213)\r\n=>\r\n\t(research 213)\r\n)"
+	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included, but instead it checks by using the research ID (213). If so, release escrowed food and wood and research Wheelbarrow.",
+	data: "(defrule\r\n\t(can-research-with-escrow 213)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow wood)\r\n\t(research 213)\r\n)"
 } ];
 cCanResearchWithEscrow.commandCategory = ["Can Do", "Economy", "Trading"];
 cCanResearchWithEscrow.relatedCommands = [cCanAffordResearch, cCanResearch, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
@@ -6743,7 +6743,7 @@ cCanResearchWithEscrow.complexity = "Low";
 
 //can-sell-commodity
 cCanSellCommodity.shortDescription = "Checks whether the computer player can sell one lot of the given commodity.";
-cCanSellCommodity.description = "Checks whether the computer player can sell one lot of the given commodity. The fact does not take into account escrowed resources.";
+cCanSellCommodity.description = "Checks whether the computer player can sell one lot (100 resources) of the given commodity (food, wood, or stone). The fact does not take into account escrowed resources. In other words, this checks if the AI has a market and has at least 100 of the specified commodity that it can sell for gold.";
 cCanSellCommodity.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -6752,18 +6752,42 @@ cCanSellCommodity.commandParameters = [ {
 	range: "food, wood, or stone",
 	note: "The commodity to sell."
 } ];
+cCanSellCommodity.example = [ {
+	title: "Checks to see if the AI has a market and 100 food that it can sell.",
+	data: "(defrule\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanSellCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cCanSellCommodity.relatedSNs = [snMinimumAmountForTrading];
+cCanSellCommodity.complexity = "Low";
 
 //can-spy
-cCanSpy.shortDescription = "Checks if the spy command can be executed. Only works in Regicide games.";
-cCanSpy.description = "Checks if the spy command can be executed. It only works to research the Treason effect in regicide games. The computer player does see the revealed area around the enemy kings as expected. This does not take into account escrow stockpiles.";
+cCanSpy.shortDescription = "Checks if the AI can research Treason without escrowed resources. Only works in Regicide games.";
+cCanSpy.description = "Checks if the AI can research Treason without escrowed resources. Only works in Regicide games. The computer player does see the revealed area around the enemy kings as expected.";
+cCanSpy.example = [ {
+	title: "Checks to see if the AI can research Treason without escrowed resources. If so, research Treason.",
+	data: "(defrule\r\n\t(can-spy)\r\n=>\r\n\t(spy)\r\n)"
+} ];
+cCanSpy.commandCategory = ["Can Do", "Techs"];
+cCanSpy.relatedCommands = [cCanSpyWithEscrow, cSpy];
+cCanSpy.relatedSNs = [];
+cCanSpy.complexity = "Low";
 
 //can-spy-with-escrow
-cCanSpyWithEscrow.shortDescription = "Checks if the spy command can be executed. Only works in Regicide games.";
-cCanSpyWithEscrow.description = "Checks if the spy command can be executed. It only works to research the Treason effect in regicide games. The computer player does see the revealed area around the enemy kings as expected. This fact does take into account escrow stockpiles.";
+cCanSpyWithEscrow.shortDescription = "Checks if the AI can research Treason, including escrowed resources. Only works in Regicide games.";
+cCanSpyWithEscrow.description = "Checks if the AI can research Treason, including escrowed resources. The computer player does see the revealed area around the enemy kings as expected.";
+cCanSpyWithEscrow.example = [ {
+	title: "Checks to see if the AI can research Treason with escrowed resources. If so, release escrowed gold and research Treason.",
+	data: "(defrule\r\n\t(can-spy-with-escrow)\r\n=>\r\n\t(release-escrow gold)\r\n\t(spy)\r\n)"
+} ];
+cCanSpyWithEscrow.commandCategory = ["Can Do", "Techs"];
+cCanSpyWithEscrow.relatedCommands = [cCanSpy, cSpy];
+cCanSpyWithEscrow.relatedSNs = [];
+cCanSpyWithEscrow.complexity = "Low";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
-cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6772,10 +6796,27 @@ cCanTrain.commandParameters = [ {
 	range: "A UnitId. This fact allows the use of unit line wildcard parameters for UnitId.",
 	note: "The unit to train."
 } ];
+cCanTrain.example = [ {
+	title: "Checks to see if the AI can train camels using the base unit. If so, train camels. Note, this example is equivalent to the example below.",
+	data: "(defrule\r\n\t(can-train camel)\r\n=>\r\n\t(train camel)\r\n)"
+}, {
+	title: "Checks to see if the AI can train camels using the camel-line unit line. If so, train camels.",
+	data: "(defrule\r\n\t(can-train camel-line)\r\n=>\r\n\t(train camel)\r\n)"
+}, {
+	title: "Checks to see if the AI can train camels using the camel unit ID (ID 329). If so, train camels using the camel unit ID.",
+	data: "(defrule\r\n\t(can-train 329)\r\n=>\r\n\t(train 329)\r\n)"
+}, {
+	title: "Checks to see if the AI can train its unique unit. If so, train the unique unit.",
+	data: "(defrule\r\n\t(can-train my-unique-unit-line)\r\n=>\r\n\t(train my-unique-unit-line)\r\n)"
+} ];
+cCanTrain.commandCategory = ["Can Do", "Units"];
+cCanTrain.relatedCommands = [cCanAffordUnit, cCanTrainWithEscrow, cTrain, cUnitAvailable, cUpCanTrain, cUpTrain];
+cCanTrain.relatedSNs = [snDockTrainingFilter, snEnableTrainingQueue];
+cCanTrain.complexity = "Low";
 
 //can-train-with-escrow
 cCanTrainWithEscrow.shortDescription = "Checks that the training of a given unit can start, if escrow is used.";
-cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrainWithEscrow.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6784,10 +6825,27 @@ cCanTrainWithEscrow.commandParameters = [ {
 	range: "A UnitId. This action allows the use of unit line wildcard parameters for UnitId.",
 	note: "The unit to train."
 } ];
+cCanTrainWithEscrow.example = [ {
+	title: "Checks to see if the AI can train camels using the base unit with escrow. If so, release food and gold escrow and train camels. Note, this example is equivalent to the example below.",
+	data: "(defrule\r\n\t(can-train-with-escrow camel)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow gold)\r\n\t(train camel)\r\n)"
+}, {
+	title: "Checks to see if the AI can train camels using the camel-line unit line with escrow. If so, release food and gold escrow and train camels.",
+	data: "(defrule\r\n\t(can-train-with-escrow camel-line)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow gold)\r\n\t(train camel)\r\n)"
+}, {
+	title: "Checks to see if the AI can train camels using the camel unit ID (ID 329) with escrow. If so, release food and gold escrow and train camels using the camel unit ID.",
+	data: "(defrule\r\n\t(can-train-with-escrow 329)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow gold)\r\n\t(train 329)\r\n)"
+}, {
+	title: "Checks to see if the AI can train its unique unit with escrow. If so, release all escrowed resources and train the unique unit.",
+	data: "(defrule\r\n\t(can-train-with-escrow my-unique-unit-line)\r\n=>\r\n\t(up-release-escrow)\r\n\t(train my-unique-unit-line)\r\n)"
+} ];
+cCanTrainWithEscrow.commandCategory = ["Can Do", "Units"];
+cCanTrainWithEscrow.relatedCommands = [cCanAffordUnit, cCanTrain, cTrain, cUnitAvailable, cUpCanTrain, cUpTrain];
+cCanTrainWithEscrow.relatedSNs = [snDockTrainingFilter, snEnableTrainingQueue];
+cCanTrainWithEscrow.complexity = "Low";
 
 //cc-add-resource
 cCcAddResource.shortDescription = "A cheating action that adds the given resource amount to the computer player.";
-cCcAddResource.description = "A cheating action that adds the given resource amount to the computer player. It is to be used in scenarios to avoid late game oddities such as computer player villagers going all over the map while looking for the last pile of gold.";
+cCcAddResource.description = "A cheating action that adds the given resource amount to the computer player. This command works even if cheats are disabled. It is to be used in scenarios to avoid late game oddities such as computer player villagers going all over the map while looking for the last pile of gold. Negative amounts can be used to remove resources from the computer player's stockpile.";
 cCcAddResource.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -6803,10 +6861,18 @@ cCcAddResource.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "The amount of resources to add."
 } ];
+cCcAddResource.example = [ {
+	title: "If cheats are enabled, give an extra 1500 food to the computer player if it has less than 1000 food.",
+	data: "(defrule\r\n\t(cheats-enabled)\r\n\t(food-amount < 1000)\r\n=>\r\n\t(cc-add-resource food 1500)\r\n)"
+} ];
+cCcAddResource.commandCategory = ["Cheat", "Economy"];
+cCcAddResource.relatedCommands = [cCheatsEnabled, cCcAddResource, cUpCcAddResource, cUpCcSendCheat];
+cCcAddResource.relatedSNs = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood];
+cCcAddResource.complexity = "Low";
 
 //cc-players-building-count
 cCcPlayersBuildingCount.shortDescription = "A cheating version of players-building-count.";
-cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen – fog is ignored. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + " and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen – fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cCcPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6832,7 +6898,7 @@ cCcPlayersBuildingCount.commandParameters = [ {
 
 //cc-players-building-type-count
 cCcPlayersBuildingTypeCount.shortDescription = "A cheating version of players-building-type-count.";
-cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". For use in scenarios only. This fact checks the given player's building count. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen – fog is ignored. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + " and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen – fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
 cCcPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6865,7 +6931,7 @@ cCcPlayersBuildingTypeCount.commandParameters = [ {
 
 //cc-players-unit-count
 cCcPlayersUnitCount.shortDescription = "A cheating version of players-unit-count.";
-cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cCcPlayersUnitCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6891,7 +6957,7 @@ cCcPlayersUnitCount.commandParameters = [ {
 
 //cc-players-unit-type-count
 cCcPlayersUnitTypeCount.shortDescription = "A cheating version of players-unit-type-count.";
-cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". For use in scenarios only. This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". Counting Gaia units (player number 0) is not considered cheating.";
+cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". Counting Gaia units (player number 0) is not considered cheating.";
 cCcPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7108,7 +7174,7 @@ cChatToEnemiesUsingRange.commandParameters = [ {
 } ];
 
 //chat-to-player
-cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
+cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7127,7 +7193,7 @@ cChatToPlayer.commandParameters = [ {
 
 //chat-to-player-using-id
 cChatToPlayerUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to a given player.";
-cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the LanguageId parameter. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
+cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the LanguageId parameter. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7146,7 +7212,7 @@ cChatToPlayerUsingId.commandParameters = [ {
 
 //chat-to-player-using-range
 cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
+cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingRange.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7215,7 +7281,7 @@ cCivSelected.commandParameters = [ {
 
 //clear-tribute-memory
 cClearTributeMemory.shortDescription = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared.";
-cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ".";
+cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cClearTributeMemory.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7804,7 +7870,7 @@ cMilitaryPopulation.commandParameters = [ {
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
-cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerComputer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7816,7 +7882,7 @@ cPlayerComputer.commandParameters = [ {
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
-cPlayerHuman.description = "Checks if the given player is a human player. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerHuman.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7828,7 +7894,7 @@ cPlayerHuman.commandParameters = [ {
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
-cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows the any/every wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 + pAnyPlayer.getLink() + ".";
 cPlayerInGame.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
@@ -7841,19 +7907,19 @@ cPlayerInGame.commandParameters = [ {
 
 //player-number
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
-cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the player's color.";
+cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the player's color. Only a number between 1 to 8 can be used.";
 cPlayerNumber.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "1 to 8",
 	note: "The PlayerId to check for a match."
 } ];
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
-cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game AnyPlayer))</code></pre></div>The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game AnyPlayer))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerResigned.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7865,7 +7931,7 @@ cPlayerResigned.commandParameters = [ {
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
-cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayerValid.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7877,7 +7943,7 @@ cPlayerValid.commandParameters = [ {
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
-cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen – no cheating. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + " and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen – no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
 cPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7903,7 +7969,7 @@ cPlayersBuildingCount.commandParameters = [ {
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
-cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen – no cheating. The computer player relies only on what it has seen – no cheating. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + " and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen – no cheating. The computer player relies only on what it has seen – no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
 cPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7936,7 +8002,7 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civ.";
-cPlayersCiv.description = "Checks the given player's civ. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersCiv.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7955,7 +8021,7 @@ cPlayersCiv.commandParameters = [ {
 
 //players-civilian-population
 cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
-cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersCivilianPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7981,7 +8047,7 @@ cPlayersCivilianPopulation.commandParameters = [ {
 
 //players-current-age
 cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
-cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersCurrentAge.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8007,7 +8073,7 @@ cPlayersCurrentAge.commandParameters = [ {
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
-cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersCurrentAgeTime.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8033,7 +8099,7 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 
 //players-military-population
 cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
-cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersMilitaryPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8059,7 +8125,7 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 
 //players-population
 cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
-cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8085,7 +8151,7 @@ cPlayersPopulation.commandParameters = [ {
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
-cPlayersScore.description = "Checks the given player's current score. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersScore.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8110,8 +8176,8 @@ cPlayersScore.commandParameters = [ {
 } ];
 
 //players-stance
-cPlayersStance.shortDescription = "Checks the given player's diplomatic stance.";
-cPlayersStance.description = "Checks the given player's diplomatic stance. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersStance.shortDescription = "Checks the given player's diplomatic stance toward the computer player.";
+cPlayersStance.description = "Checks the given player's diplomatic stance. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersStance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8130,7 +8196,7 @@ cPlayersStance.commandParameters = [ {
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
-cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersTribute.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8163,7 +8229,7 @@ cPlayersTribute.commandParameters = [ {
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
-cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersTributeMemory.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8196,7 +8262,7 @@ cPlayersTributeMemory.commandParameters = [ {
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen – no cheating.";
-cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen – no cheating. For allies and self only trained units are included. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen – no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersUnitCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8222,7 +8288,7 @@ cPlayersUnitCount.commandParameters = [ {
 
 //players-unit-type-count
 cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen – no cheating.";
-cPlayersUnitTypeCount.description = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen – no cheating. For allies and self only trained units of the given type are included. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitTypeCount.description = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen – no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8533,7 +8599,7 @@ cSetSignal.commandParameters = [ {
 
 //set-stance
 cSetStance.shortDescription = "Sets the stance toward a given player.";
-cSetStance.description = "Sets the stance toward a given player. The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
+cSetStance.description = "Sets the stance toward a given player. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
 cSetStance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8614,7 +8680,7 @@ cSpy.description = "Executes a spy command. Only works in Regicide games to rese
 
 //stance-toward
 cStanceToward.shortDescription = "Checks the computer player's stance toward a given player.";
-cStanceToward.description = "Checks the computer player's stance toward a given player. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cStanceToward.description = "Checks the computer player's stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cStanceToward.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8724,7 +8790,7 @@ cTaunt.commandParameters = [ {
 
 //taunt-detected
 cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
-cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cTauntDetected.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8793,7 +8859,7 @@ cTrain.commandParameters = [ {
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
-cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer.";
+cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
 cTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9891,7 +9957,7 @@ cUpChatDataToAll.example = [ {
 cUpChatDataToAll.relatedCommands = [];
 
 //up-chat-data-to-player
-cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player.";
+cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cUpChatDataToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -10813,7 +10879,7 @@ cUpFindPlayer.relatedCommands = [];
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
-cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.";
+cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cUpFindPlayerFlare.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -11258,7 +11324,7 @@ cUpGetFact.relatedCommands = [];
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
-cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule.",
+cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.",
 cUpGetFactMax.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -11296,7 +11362,7 @@ cUpGetFactMax.relatedCommands = [];
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
-cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule.";
+cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.";
 cUpGetFactMin.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -11334,7 +11400,7 @@ cUpGetFactMin.relatedCommands = [];
 
 //up-get-fact-sum
 cUpGetFactSum.shortDescription = "Read the sum of facts for specific players into a goal.";
-cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action.";
+cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action. The action only allows the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.";
 cUpGetFactSum.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -11600,7 +11666,7 @@ cUpGetPathDistance.relatedCommands = [];
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
-cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
 cUpGetPlayerColor.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -11624,7 +11690,7 @@ cUpGetPlayerColor.relatedCommands = [];
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
-cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible.";
+cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
 cUpGetPlayerFact.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12071,6 +12137,7 @@ cUpGetTimer.relatedCommands = [];
 
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
+cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
 cUpGetUpgradeId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12822,6 +12889,7 @@ cUpPendingPlacement.relatedCommands = [];
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
+cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cUpPlayerDistance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "Any",
@@ -13190,12 +13258,12 @@ cUpRemoveObjects.commandParameters = [ {
 	range: "a value from the ObjectData enumeration",
 	note: "The type of data to retrieve or -1 to use the object index."
 }, {
-	nameLink: pTypeOp.getLink(),
-	name: "typeOp",
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -13425,6 +13493,7 @@ cUpResetScouts.relatedCommands = [];
 
 //up-reset-search
 cUpResetSearch.shortDescription = "Reset the search state for the direct unit targeting system.";
+cUpResetSearch.description = "Reset the search state for the direct unit targeting system.</p><p>Each of the four parameters can be 0 or 1:</p><ol><li>If the first parameter is 1, the search memory from previous local searches is reset. This allows all local objects to be available for the next local search. If the first parameter is 0, objects from previous local searches since the last local list reset will not be available in the next search.</li><li>If the second parameter is 1, the local list search results will be emptied. If the second parameter is 0, objects in the local list will remain in the local list.</li><li>If the third parameter is 1, the search memory from previous remote searches is reset. This allows all remote objects to be available for the next local search. If the third parameter is 0, objects from previous remote searches since the last remote list reset will not be available in the next search.</li><li>If the fourth parameter is 1, the remote list search results will be emptied. If the fourth parameter is 0, objects in the remote list will remain in the remote list.</li></ol>";
 cUpResetSearch.commandParameters = [ {
 	nameLink: pLocalIndex.getLink(),
 	name: "LocalIndex",
@@ -13457,6 +13526,12 @@ cUpResetSearch.commandParameters = [ {
 cUpResetSearch.example = [ {
 	title: "Clear all search states.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-search 1 1 1 1)\r\n)"
+}, {
+	title: "Clear all search states in the local list only. Leave the remote list untouched.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-search 1 1 0 0)\r\n)"
+}, {
+	title: "Empty the remote list, but don't allow the objects found in the previous remote searches to be found in the next remote search.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-search 0 0 0 1)\r\n)"
 } ];
 cUpResetSearch.relatedCommands = [];
 
@@ -14248,7 +14323,7 @@ cUpStoreMapName.relatedCommands = [];
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
-cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cUpStorePlayerChat.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -14265,7 +14340,7 @@ cUpStorePlayerChat.relatedCommands = [];
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
-cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cUpStorePlayerName.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -14531,6 +14606,7 @@ cUpTrainSiteReady.relatedCommands = [];
 
 //up-tribute-to-player
 cUpTributeToPlayer.shortDescription = "Tribute a variable amount of resources to other players.";
+cUpTributeToPlayer.description = "Tribute a variable amount of resources to other players. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
 cUpTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -15653,7 +15729,7 @@ pBuildingId.wildcardParam = [ {
 //Civ
 pCiv.description = "The player's civilization. You may need to define some civilizations with a defconst.";
 pCiv.shortDescription = "The player's civilization.";
-pCiv.range = "0 to 18 for The Conquerors game version. 0 to 31 for AoK:HD and Wololo Kingdoms versions. 0 to 35 for AoE2:DE.";
+pCiv.range = "0 to 18 for The Conquerors game version. 0 to 31 for AoK:HD and Wololo Kingdoms versions. 0 to 39 for AoE2:DE.";
 pCiv.valueList = [ {
 	name: "gaia",
 	id: 0,
@@ -17083,7 +17159,7 @@ pNewName.relatedParams = [pCode, pLanguageId, pString, pText];
 //ObjectData
 pObjectData.description = "Data information about an object.</p><p><strong>Important Note:</strong> some object data is not available for units marching in formation when using " + cUpGetObjectData.getLink() + " or " + cUpObjectData.getLink() + ": object-data-action, object-data-order, object-data-target, and object-data-target-id.";
 pObjectData.shortDescription = "Data information about an object.";
-pObjectData.range = "-1 to 82.";
+pObjectData.range = "-1 to 84.";
 pObjectData.relatedParams = [pActionId, pData, pFactId, pOrderId, pProgressType];
 pObjectData.valueList = [ {
 	name: "object-data-index",
