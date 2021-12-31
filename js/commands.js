@@ -6362,7 +6362,7 @@ cBuildingCountTotal.complexity = "Low";
 
 //building-type-count
 cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type are included.";
-cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class when using building-type-count. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
+cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
 cBuildingTypeCount.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6396,7 +6396,7 @@ cBuildingTypeCount.complexity = "Low";
 
 //building-type-count-total
 cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type, either existing or being constructed.";
-cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class when using building-type-count-total. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
+cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
 cBuildingTypeCountTotal.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6872,7 +6872,7 @@ cCcAddResource.complexity = "Low";
 
 //cc-players-building-count
 cCcPlayersBuildingCount.shortDescription = "A cheating version of players-building-count.";
-cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen – fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen - fog is ignored. Unlike building-count, buildings that existed from the start of the game, such as the starting town center, are included. Also, farms are included, but walls and gates are not included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cCcPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6895,10 +6895,18 @@ cCcPlayersBuildingCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCcPlayersBuildingCount.example = [ {
+	title: "Cheat through the fog of war to check if the every enemy has at least three buildings, not including walls or gates.",
+	data: "(defrule\r\n\t(cc-players-building-count every-enemy >= 3)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCcPlayersBuildingCount.commandCategory = ["Buildings", "Cheat", "Counting", "Player Any"];
+cCcPlayersBuildingCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cCcPlayersBuildingTypeCount, cCheatsEnabled, cPlayersBuildingCount];
+cCcPlayersBuildingCount.relatedSNs = [];
+cCcPlayersBuildingCount.complexity = "Low";
 
 //cc-players-building-type-count
 cCcPlayersBuildingTypeCount.shortDescription = "A cheating version of players-building-type-count.";
-cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen – fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen - fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>It also allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (cc-players-building-type-count any-enemy watch-tower > 0) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class. Classes don't work for enemy players with players-building-type-count, but they do work with cc-players-building-type-count.</li></ol>";
 cCcPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6928,6 +6936,14 @@ cCcPlayersBuildingTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCcPlayersBuildingTypeCount.example = [ {
+	title: "Cheat through the fog of war to check if at least one enemy has a castle.",
+	data: "(defrule\r\n\t(cc-players-building-type-count any-enemy castle > 0)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCcPlayersBuildingTypeCount.commandCategory = ["Buildings", "Cheat", "Counting", "Player Any"];
+cCcPlayersBuildingTypeCount.relatedCommands = [cBuildingTypeCount, cBuildingTypeCountTotal, cCcPlayersBuildingCount, cCheatsEnabled, cPlayersBuildingTypeCount];
+cCcPlayersBuildingTypeCount.relatedSNs = [];
+cCcPlayersBuildingTypeCount.complexity = "Low";
 
 //cc-players-unit-count
 cCcPlayersUnitCount.shortDescription = "A cheating version of players-unit-count.";
@@ -6954,10 +6970,18 @@ cCcPlayersUnitCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCcPlayersUnitCount.example = [ {
+	title: "Cheat through the fog of war to check if an enemy has less than five units.",
+	data: "(defrule\r\n\t(cc-players-unit-count any-enemy < 5)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCcPlayersUnitCount.commandCategory = ["Cheat", "Counting", "Player Any", "Units"];
+cCcPlayersUnitCount.relatedCommands = [cCcPlayersUnitTypeCount, cCheatsEnabled, cPlayersUnitCount, cUnitCount, cUnitCountTotal];
+cCcPlayersUnitCount.relatedSNs = [];
+cCcPlayersUnitCount.complexity = "Low";
 
 //cc-players-unit-type-count
 cCcPlayersUnitTypeCount.shortDescription = "A cheating version of players-unit-type-count.";
-cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". Counting Gaia units (player number 0) is not considered cheating.";
+cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only, though most AI tournaments allows its use to see if particular Gaia objects are on the map at the beginning of the game, for custom map detection purposes. For example, some scripts will check to see if fish are on the map to detect if the map is a water map.</p><p>This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". Counting Gaia units (player number 0) is not considered cheating.</p><p>There are four ways you can specify the unit \"type\":<ol><li><strong>Unit Name:</strong> the name of an individual unit, such as villager, spearman, or monk.</li><li><strong>Unit Id:</strong> the numerical ID assigned to each unit, such as 4 (the archer) or 74 (militiaman). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Unit Line:</strong> the unit line for the unit. This includes all units in a unit line. For example, archer-line includes archers, crossbowmen, and arbalests.</li><li><strong>Unit Class:</strong> the class of a unit, such as infantry-class, cavalry-archer-class, or monastery-class. Classes group several unit types together into a single category. Using a unit class will count all units of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each unit's class. Classes don't work for enemy players with players-unit-type-count, but they do work with cc-players-unit-type-count.</li></ol>";
 cCcPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6987,10 +7011,18 @@ cCcPlayersUnitTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCcPlayersUnitTypeCount.example = [ {
+	title: "Cheat through the fog of war to see if there are any fish on the map. Gaia is player number 0.",
+	data: "(defrule\r\n\t(cc-players-unit-type-count 0 shore-fish-class > 0)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCcPlayersUnitTypeCount.commandCategory = ["Cheat", "Counting", "Player Any", "Units"];
+cCcPlayersUnitTypeCount.relatedCommands = [cCcPlayersUnitCount, cCheatsEnabled, cPlayersUnitTypeCount, cUnitTypeCount, cUnitTypeCountTotal];
+cCcPlayersUnitTypeCount.relatedSNs = [];
+cCcPlayersUnitTypeCount.complexity = "Low";
 
 //chat-local
 cChatLocal.shortDescription = "Displays the given string as a local chat message to all players.";
-cChatLocal.description = "Displays the given string as a local chat message to all players. Local chat messages don't display chat messages with the player color, making this command strictly inferior to " + cChatToAll.getLink() + ".";
+cChatLocal.description = "Displays the given string (a message in quotation marks) as a local chat message to all players. Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToAll.getLink() + ".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to all players and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to all players and send the message \" TC\" to all players.";
 cChatLocal.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -6999,10 +7031,18 @@ cChatLocal.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatLocal.example = [ {
+	title: "Chat \"glhf\" to all players with a white text color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local \"glhf\")\r\n)"
+} ];
+cChatLocal.commandCategory = ["Chat"];
+cChatLocal.relatedCommands = [cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll];
+cChatLocal.relatedSNs = [];
+cChatLocal.complexity = "Low";
 
 //chat-local-to-self
 cChatLocalToSelf.shortDescription = "Displays a given string as local chat message to self.";
-cChatLocalToSelf.description = "Displays a given string as local chat message. The message is displayed only if the user is the same player as the computer player sending the message. For debugging purposes only. Local chat messages don't display chat messages with the player color, making this command strictly inferior to " + cChatToPlayer.getLink() + " with my-player-number as the player Id.";
+cChatLocalToSelf.description = "Displays a given string (a message in quotation marks) as local chat message. The message is displayed only if the user is the same player as the computer player sending the message. For debugging purposes only. Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToPlayer.getLink() + " with my-player-number as the player Id.</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to self and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to self and send the message \" TC\" to self.";
 cChatLocalToSelf.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -7011,10 +7051,18 @@ cChatLocalToSelf.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatLocalToSelf.example = [ {
+	title: "Chat \"testing\" to self with a white text color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local-to-self \"testing\")\r\n)"
+} ];
+cChatLocalToSelf.commandCategory = ["Chat"];
+cChatLocalToSelf.relatedCommands = [cChatLocal, cChatLocalUsingId, cChatLocalUsingRange, cChatTrace];
+cChatLocalToSelf.relatedSNs = [];
+cChatLocalToSelf.complexity = "Low";
 
 //chat-local-using-id
-cChatLocalUsingId.shortDescription = "Displays a string, defined by a string id, as a local chat message.";
-cChatLocalUsingId.description = "Displays a string, defined by a string id, as a local chat message. For more info on String ids, see the description of the LanguageId parameter. Local chat messages don't display chat messages with the player color, making this command strictly inferior to " + cChatToAllUsingId.getLink() + ".";
+cChatLocalUsingId.shortDescription = "Displays a string, defined by a string id, as a local chat message to all players.";
+cChatLocalUsingId.description = "Displays a string, defined by a string id, as a local chat message to all players. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToAllUsingId.getLink() + ".";
 cChatLocalUsingId.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7023,10 +7071,18 @@ cChatLocalUsingId.commandParameters = [ {
 	range: "A valid LanguageId.",
 	note: "The ID of the text string stored in the language.dll files that will be sent as a chat message."
 } ];
+cChatLocalUsingId.example = [ {
+	title: "Chat \"No wonder thou wert victorious! I shalt abdicate.\" to all players with a white text color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local-using-id 22322)\r\n)"
+} ];
+cChatLocalUsingId.commandCategory = ["Chat"];
+cChatLocalUsingId.relatedCommands = [cChatLocal, cChatLocalToSelf, cChatLocalUsingRange, cChatToAllUsingId];
+cChatLocalUsingId.relatedSNs = [];
+cChatLocalUsingId.complexity = "Medium";
 
 //chat-local-using-range
-cChatLocalUsingRange.shortDescription = "Displays a random string as a local chat message. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatLocalUsingRange.description = "Displays a random string as a local chat message. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the LanguageId parameter. Local chat messages don't display chat messages with the player color, making this command strictly inferior to " + cChatToAllUsingRange.getLink() + ".";
+cChatLocalUsingRange.shortDescription = "Displays a random string as a local chat message to all players. The random string is defined by a string id randomly picked out of a given string id range.";
+cChatLocalUsingRange.description = "Displays a random string as a local chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.</p><p>Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToAllUsingRange.getLink() + ".";
 cChatLocalUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7042,9 +7098,18 @@ cChatLocalUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible LanguageIds to choose from, starting from the given LanguageId."
 } ];
+cChatLocalUsingRange.example = [ {
+	title: "Chat a random message selected from a string id between 22300 and 22321 (a range of 22) to all players with a white text color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local-using-range 22300 22)\r\n)"
+} ];
+cChatLocalUsingRange.commandCategory = ["Chat"];
+cChatLocalUsingRange.relatedCommands = [cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatToAllUsingRange];
+cChatLocalUsingRange.relatedSNs = [];
+cChatLocalUsingRange.complexity = "Medium";
 
 //chat-to-all
 cChatToAll.shortDescription = "Sends a given string as a chat message to all players.";
+cChatToAll.description = "Sends a given string (a message in quotation marks) as a chat message to all players.</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to all players and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to all players and send the message \" TC\" to all players.";
 cChatToAll.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -7053,10 +7118,18 @@ cChatToAll.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatToAll.example = [ {
+	title: "Chat \"glhf\" to all players with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-all \"glhf\")\r\n)"
+} ];
+cChatToAll.commandCategory = ["Chat"];
+cChatToAll.relatedCommands = [cChatLocal, cChatToAllUsingId, cChatToAllUsingRange];
+cChatToAll.relatedSNs = [];
+cChatToAll.complexity = "Low";
 
 //chat-to-all-using-id
 cChatToAllUsingId.shortDescription = "Sends a string, defined by a string id, as a chat message to all players.";
-cChatToAllUsingId.description = "Sends a string, defined by a string id, as a chat message to all players. For more info on String ids, see the description of the LanguageId parameter.";
+cChatToAllUsingId.description = "Sends a string, defined by a string id, as a chat message to all players. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"";
 cChatToAllUsingId.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7065,10 +7138,18 @@ cChatToAllUsingId.commandParameters = [ {
 	range: "A valid LanguageId.",
 	note: "The ID of the text string stored in the language.dll files that will be sent as a chat message."
 } ];
+cChatToAllUsingId.example = [ {
+	title: "Chat \"No wonder thou wert victorious! I shalt abdicate.\" to all players with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-all-using-id 22322)\r\n)"
+} ];
+cChatToAllUsingId.commandCategory = ["Chat"];
+cChatToAllUsingId.relatedCommands = [cChatLocalUsingId, cChatToAll, cChatToAllUsingRange];
+cChatToAllUsingId.relatedSNs = [];
+cChatToAllUsingId.complexity = "Medium";
 
 //chat-to-all-using-range
 cChatToAllUsingRange.shortDescription = "Sends a random string as chat message to all players. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToAllUsingRange.description = "Sends a random string as chat message to all players. The random string is defined by a string id randomly picked out of a given string id range.";
+cChatToAllUsingRange.description = "Sends a random string as chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToAllUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7085,12 +7166,17 @@ cChatToAllUsingRange.commandParameters = [ {
 	note: "The range of possible LanguageIds to choose from, starting from the given LanguageId."
 } ];
 cChatToAllUsingRange.example = [ {
-	title: "Send a random message with a " + pLanguageId.getLink() + " between 5020 and 5024.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(chat-to-all-using-range 5020 5)\r\n)"
+	title: "Chat a random message selected from a string id between 22300 and 22321 (a range of 22) to all players with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-all-using-range 22300 22)\r\n)"
 } ];
+cChatToAllUsingRange.commandCategory = ["Chat"];
+cChatToAllUsingRange.relatedCommands = [cChatLocalUsingRange, cChatToAll, cChatToAllUsingId];
+cChatToAllUsingRange.relatedSNs = [];
+cChatToAllUsingRange.complexity = "Medium";
 
 //chat-to-allies
 cChatToAllies.shortDescription = "Sends a given string as a chat message to allies.";
+cChatToAllies.description = "Sends a given string as a chat message to allies.</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to all allies and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to all allies and send the message \" TC\" to all allies.";
 cChatToAllies.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -7099,10 +7185,18 @@ cChatToAllies.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatToAllies.example = [ {
+	title: "Chat \"glhf\" to all allies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-allies \"glhf\")\r\n)"
+} ];
+cChatToAllies.commandCategory = ["Chat"];
+cChatToAllies.relatedCommands = [cChatToAll, cChatToAlliesUsingId, cChatToAlliesUsingRange];
+cChatToAllies.relatedSNs = [];
+cChatToAllies.complexity = "Low";
 
 //chat-to-allies-using-id
-cChatToAlliesUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to allied players.";
-cChatToAlliesUsingId.description = "sends a string, defined by a string id, as a chat message to allied players. For more info on String ids, see the description of the LanguageId parameter.";
+cChatToAlliesUsingId.shortDescription = "Sends a string, defined by a string id, as a chat message to allied players.";
+cChatToAlliesUsingId.description = "Sends a string, defined by a string id, as a chat message to allied players. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"";
 cChatToAlliesUsingId.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7111,10 +7205,18 @@ cChatToAlliesUsingId.commandParameters = [ {
 	range: "A valid LanguageId.",
 	note: "The ID of the text string stored in the language.dll files that will be sent as a chat message."
 } ];
+cChatToAlliesUsingId.example = [ {
+	title: "Chat \"No wonder thou wert victorious! I shalt abdicate.\" to all allies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-allies-using-id 22322)\r\n)"
+} ];
+cChatToAlliesUsingId.commandCategory = ["Chat"];
+cChatToAlliesUsingId.relatedCommands = [cChatToAllUsingId, cChatToAllies, cChatToAlliesUsingRange];
+cChatToAlliesUsingId.relatedSNs = [];
+cChatToAlliesUsingId.complexity = "Medium";
 
 //chat-to-allies-using-range
 cChatToAlliesUsingRange.shortDescription = "Sends a random string as chat message to allies. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToAlliesUsingRange.description = "Sends a random string as chat message to allies. The random string is defined by a string id randomly picked out of a given string id range.";
+cChatToAlliesUsingRange.description = "Sends a random string as chat message to allies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToAlliesUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7130,9 +7232,18 @@ cChatToAlliesUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible LanguageIds to choose from, starting from the given LanguageId."
 } ];
+cChatToAlliesUsingRange.example = [ {
+	title: "Chat a random message selected from a string id between 22300 and 22321 (a range of 22) to all allies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-allies-using-range 22300 22)\r\n)"
+} ];
+cChatToAlliesUsingRange.commandCategory = ["Chat"];
+cChatToAlliesUsingRange.relatedCommands = [cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId];
+cChatToAlliesUsingRange.relatedSNs = [];
+cChatToAlliesUsingRange.complexity = "Medium";
 
 //chat-to-enemies
 cChatToEnemies.shortDescription = "Sends a given string as a chat message to enemies.";
+cChatToEnemies.description = "Sends a given string as a chat message to enemies.</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to all enemies and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to all enemies and send the message \" TC\" to all enemies.";
 cChatToEnemies.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -7141,10 +7252,18 @@ cChatToEnemies.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatToEnemies.example = [ {
+	title: "Chat \"glhf\" to all enemies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-enemies \"glhf\")\r\n)"
+} ];
+cChatToEnemies.commandCategory = ["Chat"];
+cChatToEnemies.relatedCommands = [cChatToAll, cChatToEnemiesUsingId, cChatToEnemiesUsingRange];
+cChatToEnemies.relatedSNs = [];
+cChatToEnemies.complexity = "Low";
 
 //chat-to-enemies-using-id
 cChatToEnemiesUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to enemy players.";
-cChatToEnemiesUsingId.description = "sends a string, defined by a string id, as a chat message to enemy players. For more info on String ids, see the description of the LanguageId parameter.";
+cChatToEnemiesUsingId.description = "sends a string, defined by a string id, as a chat message to enemy players. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"";
 cChatToEnemiesUsingId.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7153,10 +7272,18 @@ cChatToEnemiesUsingId.commandParameters = [ {
 	range: "A valid LanguageId.",
 	note: "The ID of the text string stored in the language.dll files that will be sent as a chat message."
 } ];
+cChatToEnemiesUsingId.example = [ {
+	title: "Chat \"No wonder thou wert victorious! I shalt abdicate.\" to all enemies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-enemies-using-id 22322)\r\n)"
+} ];
+cChatToEnemiesUsingId.commandCategory = ["Chat"];
+cChatToEnemiesUsingId.relatedCommands = [cChatToAllUsingId, cChatToEnemies, cChatToEnemiesUsingRange];
+cChatToEnemiesUsingId.relatedSNs = [];
+cChatToEnemiesUsingId.complexity = "Medium";
 
 //chat-to-enemies-using-range
 cChatToEnemiesUsingRange.shortDescription = "Sends a random string as chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToEnemiesUsingRange.description = "Sends a random string as chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range.";
+cChatToEnemiesUsingRange.description = "Sends a random string as chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToEnemiesUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7172,9 +7299,18 @@ cChatToEnemiesUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible LanguageIds to choose from, starting from the given LanguageId."
 } ];
+cChatToEnemiesUsingRange.example = [ {
+	title: "Chat a random message selected from a string id between 22300 and 22321 (a range of 22) to all enemies with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-enemies-using-range 22300 22)\r\n)"
+} ];
+cChatToEnemiesUsingRange.commandCategory = ["Chat"];
+cChatToEnemiesUsingRange.relatedCommands = [cChatToAllUsingRange, cChatToEnemies, cChatToEnemiesUsingId];
+cChatToEnemiesUsingRange.relatedSNs = [];
+cChatToEnemiesUsingRange.complexity = "Medium";
 
 //chat-to-player
-cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player.";
+cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
 cChatToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7190,10 +7326,21 @@ cChatToPlayer.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that will be sent as a chat message."
 } ];
+cChatToPlayer.example = [ {
+	title: "If an enemy player is Goths, send a chat to this player with the AI's player color.",
+	data: "(defrule\r\n\t(players-civ any-enemy gothic)\r\n=>\r\n\t(chat-to-player this-any-enemy \"I know you are a Goth\")\r\n)"
+}, {
+	title: "Chat \"testing\" to self with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player my-player-number \"testing\")\r\n)"
+} ];
+cChatToPlayer.commandCategory = ["Chat"];
+cChatToPlayer.relatedCommands = [cChatLocalToSelf, cChatToPlayerUsingId, cChatToPlayerUsingRange];
+cChatToPlayer.relatedSNs = [];
+cChatToPlayer.complexity = "Low";
 
 //chat-to-player-using-id
 cChatToPlayerUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to a given player.";
-cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the LanguageId parameter. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7209,10 +7356,18 @@ cChatToPlayerUsingId.commandParameters = [ {
 	range: "A valid LanguageId.",
 	note: "The ID of the text string stored in the language.dll files that will be sent as a chat message."
 } ];
+cChatToPlayerUsingId.example = [ {
+	title: "Chat \"No wonder thou wert victorious! I shalt abdicate.\" to the current target player with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player target-player 22322)\r\n)"
+} ];
+cChatToPlayerUsingId.commandCategory = ["Chat"];
+cChatToPlayerUsingId.relatedCommands = [cChatLocalUsingId, cChatToPlayer, cChatToPlayerUsingRange];
+cChatToPlayerUsingId.relatedSNs = [];
+cChatToPlayerUsingId.complexity = "Medium";
 
 //chat-to-player-using-range
 cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingRange.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7235,9 +7390,18 @@ cChatToPlayerUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible LanguageIds to choose from, starting from the given LanguageId."
 } ];
+cChatToPlayerUsingRange.example = [ {
+	title: "Chat a random message selected from a string id between 22300 and 22321 (a range of 22) to the current focus player with the AI's player color.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player-using-range focus-player 22300 22)\r\n)"
+} ];
+cChatToPlayerUsingRange.commandCategory = ["Chat"];
+cChatToPlayerUsingRange.relatedCommands = [cChatLocalUsingRange, cChatToPlayer, cChatToPlayerUsingId];
+cChatToPlayerUsingRange.relatedSNs = [];
+cChatToPlayerUsingRange.complexity = "Medium";
 
 //chat-trace
-cChatTrace.shortDescription = "Displays the given value as a chat message. Used purely for testing to check when a rule gets executed.";
+cChatTrace.shortDescription = "Displays the given value to all players as a chat message. Used purely for testing to check when a rule gets executed.";
+cChatTrace.description = "Displays the given value to all players as a chat message, with \"Trace \" in front. Used purely for testing to check when a rule gets executed.";
 cChatTrace.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7246,6 +7410,14 @@ cChatTrace.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "The value to send as a chat message."
 } ];
+cChatTrace.example = [ {
+	title: "Chat \"Trace 5\" to all players.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-trace 5)\r\n)"
+} ];
+cChatTrace.commandCategory = ["Chat"];
+cChatTrace.relatedCommands = [cChatToAll];
+cChatTrace.relatedSNs = [];
+cChatTrace.complexity = "Don't Use";
 
 //cheats-enabled
 cCheatsEnabled.shortDescription = "Checks whether the cheats have been enabled.";
@@ -7511,7 +7683,7 @@ cDoctrine.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-32768 to 32767.",
+	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A value for comparison with the doctrine."
 } ];
 
@@ -7786,8 +7958,8 @@ cHousingHeadroom.commandParameters = [ {
 } ];
 
 //idle-farm-count
-cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count – the number of farms with no farmers.";
-cIdleFarmCount.description = "Checks a computer player's idle farm count – the number of farms with no farmers. It should be used before a new farm is built to make sure it is needed.";
+cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers.";
+cIdleFarmCount.description = "Checks a computer player's idle farm count - the number of farms with no farmers. It should be used before a new farm is built to make sure it is needed.";
 cIdleFarmCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7907,7 +8079,7 @@ cPlayerInGame.commandParameters = [ {
 
 //player-number
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
-cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the player's color. Only a number between 1 to 8 can be used.";
+cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the AI's player color. Only a number between 1 to 8 can be used.";
 cPlayerNumber.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7943,7 +8115,7 @@ cPlayerValid.commandParameters = [ {
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
-cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen – no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
 cPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7969,7 +8141,7 @@ cPlayersBuildingCount.commandParameters = [ {
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
-cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen – no cheating. The computer player relies only on what it has seen – no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
 cPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8261,8 +8433,8 @@ cPlayersTributeMemory.commandParameters = [ {
 } ];
 
 //players-unit-count
-cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen – no cheating.";
-cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen – no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
+cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersUnitCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8287,8 +8459,8 @@ cPlayersUnitCount.commandParameters = [ {
 } ];
 
 //players-unit-type-count
-cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen – no cheating.";
-cPlayersUnitTypeCount.description = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen – no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating.";
+cPlayersUnitTypeCount.description = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
 cPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8526,7 +8698,7 @@ cSetDoctrine.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-32768 to 32767.",
+	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the doctrine to."
 } ];
 
@@ -16915,8 +17087,8 @@ pIndex.range = "0 to 239 for the search-local list. 0 to 39 for the search-remot
 pIndex.relatedParams = [pLocalIndex, pLocalList, pRemoteIndex, pRemoteList, pSearchOrder, pSearchSource];
 
 //LanguageId
-pLanguageId.description = "The ID assigned to a string (quoted text) stored in one of the language.dll files. All words and phrases used by the game are stored in these files.";
-pLanguageId.shortDescription = "The ID assigned to a string (quoted text) stored in one of the language.dll files.";
+pLanguageId.description = "The ID assigned to a string (quoted text) stored in one of the language.dll files or in a string text file. All words and phrases used by the game are stored in these files. If you have the DE version, you can easily find a list of all language IDs in your Steam installation, usually at \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\en\\strings\\key-value\\key-value-strings-utf8.txt\". For example, language ID 22322 is \"No wonder thou wert victorious! I shalt abdicate.\"";
+pLanguageId.shortDescription = "The ID assigned to a string (quoted text) stored in one of the language.dll files or string text file.";
 pLanguageId.range = "a valid LanguageId.";
 pLanguageId.relatedParams = [pCode, pNewName, pString, pText];
 
