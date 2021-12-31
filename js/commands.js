@@ -7666,8 +7666,7 @@ cDisableRule.commandParameters = [ {
 	dir: "in",
 	range: "0 to 32767",
 	note: "The rule id of the rule to disable."
-}
-]
+} ];
 
 //disable-self
 cDisableSelf.shortDescription = "Disables the rule that it is part of so that the rule is never run again.";
@@ -7733,8 +7732,7 @@ cEnableRule.commandParameters = [ {
 	dir: "in",
 	range: "0 to 32767",
 	note: "The rule id of the rule to enable."
-}
-]
+} ];
 
 //enable-timer
 cEnableTimer.shortDescription = "Enables the given timer and sets it to the given time interval.";
@@ -8659,36 +8657,12 @@ cSellCommodity.commandParameters = [ {
 
 //set-author-email
 cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
-cSetAuthorEmail.commandParameters = [ {
-	nameLink: pText.getLink(),
-	name: "Text",
-	type: "Const",
-	dir: "in",
-	range: "A string (quoted text).",
-	note: "Not used by the game."
-} ];
 
 //set-author-name
 cSetAuthorName.shortDescription = "The game does not use it for anything.";
-cSetAuthorName.commandParameters = [ {
-	nameLink: pText.getLink(),
-	name: "Text",
-	type: "Const",
-	dir: "in",
-	range: "A string (quoted text).",
-	note: "Not used by the game."
-} ];
 
 //set-author-version
 cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
-cSetAuthorVersion.commandParameters = [ {
-	nameLink: pText.getLink(),
-	name: "Text",
-	type: "Const",
-	dir: "in",
-	range: "A string (quoted text).",
-	note: "Not used by the game."
-} ];
 
 //set-difficulty-parameter
 cSetDifficultyParameter.shortDescription = "Sets a given difficulty parameter to a given value.";
@@ -8771,7 +8745,7 @@ cSetSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
+	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the shared goal to."
 } ];
 
@@ -8838,7 +8812,7 @@ cSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Const",
 	dir: "in",
-	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
+	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A number for comparison."
 } ];
 
@@ -14314,7 +14288,7 @@ cUpSetSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Op",
 	dir: "in",
-	range: "-2,147,483,648 to 2,147,483,647",
+	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
 	note: "The new value for the shared goal."
 } ];
 cUpSetSharedGoal.example = [ {
