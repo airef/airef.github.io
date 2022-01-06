@@ -4364,7 +4364,8 @@ snTrackPlayerHistory.effective = 0;
 snTrackPlayerHistory.version = "1.0c";
 snTrackPlayerHistory.linked = [];
 snTrackPlayerHistory.related = [ 105 ];
-snTrackPlayerHistory.shortDescription = "Decides whether or not a human player's tendencies are tracked or not.";
+snTrackPlayerHistory.shortDescription = "Doesn't work. Decides whether or not a human player's tendencies are tracked or not.";
+snTrackPlayerHistory.description = "It does nothing in UP 1.5 or DE. in 1.0c it wrote a load of gibberish to a file called yyyyyyyyyyyyyyy and occasionally caused a crash. The original intent in the CPSB was to \"decide whether or not a human player's tendencies are tracked or not.\"";
 
 snMinimumDropsiteBuffer.id = 202;
 snMinimumDropsiteBuffer.snName = "sn-minimum-dropsite-buffer";
@@ -6308,7 +6309,7 @@ cBuildingAvailable.complexity = "Low";
 
 //building-count
 cBuildingCount.shortDescription = "Checks the computer player's building count. Only existing buildings are included.";
-cBuildingCount.description = "Checks the computer player's building count. Only existing buildings are included, not buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.";
+cBuildingCount.description = "Checks the computer player's building count. Only existing buildings are included, not buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.</p><p>To check for the building-count of other players, including buildings under construction, use " + cPlayersBuildingCount.getLink() + ".";
 cBuildingCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -6335,7 +6336,7 @@ cBuildingCount.complexity = "Low";
 
 //building-count-total
 cBuildingCountTotal.shortDescription = "Checks the computer player's total building count, either existing buildings or buildings under construction.";
-cBuildingCountTotal.description = "Checks the computer player's total building count, either existing buildings or buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.";
+cBuildingCountTotal.description = "Checks the computer player's total building count, either existing buildings or buildings under construction. Buildings that existed from the start of the game, such as the starting town center, are not included. Also, farms are included, but walls and gates are not included.</p><p>To check for the building-count of other players, including buildings under construction, use " + cPlayersBuildingCount.getLink() + ".";
 cBuildingCountTotal.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -6362,7 +6363,7 @@ cBuildingCountTotal.complexity = "Low";
 
 //building-type-count
 cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type are included.";
-cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
+cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCount.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6396,7 +6397,7 @@ cBuildingTypeCount.complexity = "Low";
 
 //building-type-count-total
 cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type, either existing or being constructed.";
-cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol>";
+cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCountTotal.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6787,7 +6788,7 @@ cCanSpyWithEscrow.complexity = "Low";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
-cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6808,6 +6809,9 @@ cCanTrain.example = [ {
 }, {
 	title: "Checks to see if the AI can train its unique unit. If so, train the unique unit.",
 	data: "(defrule\r\n\t(can-train my-unique-unit-line)\r\n=>\r\n\t(train my-unique-unit-line)\r\n)"
+}, {
+	title: "Checks to see if the AI can train condottieri. If so, train condottieri. Condottieri, genitours, and mercenary kipchaks require a placeholder version of the unit in can-train and train commands.",
+	data: "(defrule\r\n\t(can-train condottiero-placeholder)\r\n=>\r\n\t(train condottiero-placeholder)\r\n)"
 } ];
 cCanTrain.commandCategory = ["Can Do", "Units"];
 cCanTrain.relatedCommands = [cCanAffordUnit, cCanTrainWithEscrow, cTrain, cUnitAvailable, cUpCanTrain, cUpTrain];
@@ -6816,7 +6820,7 @@ cCanTrain.complexity = "Low";
 
 //can-train-with-escrow
 cCanTrainWithEscrow.shortDescription = "Checks that the training of a given unit can start, if escrow is used.";
-cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cCanTrain.getLink() + ", can-train-with-escrow, " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrainWithEscrow.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6837,6 +6841,9 @@ cCanTrainWithEscrow.example = [ {
 }, {
 	title: "Checks to see if the AI can train its unique unit with escrow. If so, release all escrowed resources and train the unique unit.",
 	data: "(defrule\r\n\t(can-train-with-escrow my-unique-unit-line)\r\n=>\r\n\t(up-release-escrow)\r\n\t(train my-unique-unit-line)\r\n)"
+}, {
+	title: "Checks to see if the AI can train condottieri with escrow. If so, release food and gold escrow and train condottieri. Condottieri, genitours, and mercenary kipchaks require a placeholder version of the unit in can-train and train commands.",
+	data: "(defrule\r\n\t(can-train-with-escrow condottiero-placeholder)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow gold)\r\n\t(train condottiero-placeholder)\r\n)"
 } ];
 cCanTrainWithEscrow.commandCategory = ["Can Do", "Units"];
 cCanTrainWithEscrow.relatedCommands = [cCanAffordUnit, cCanTrain, cTrain, cUnitAvailable, cUpCanTrain, cUpTrain];
@@ -7421,9 +7428,19 @@ cChatTrace.complexity = "Don't Use";
 
 //cheats-enabled
 cCheatsEnabled.shortDescription = "Checks whether the cheats have been enabled.";
+cCheatsEnabled.description = "Checks whether the cheats have been enabled. Cheating commands that start with \"cc-\" can be used by AI scripts even if cheats are disabled. This command specifically checks whether players can enter cheat codes in the chat.";
+cCheatsEnabled.example = [ {
+	title: "If cheats are enabled and gold-amount is less than 1000, cheat \"robin hood\".",
+	data: "(defrule\r\n\t(cheats-enabled)\r\n\t(gold-amount < 1000)\r\n=>\r\n\t(up-cc-send-cheat \"robin-hood\")\r\n)"
+} ];
+cCheatsEnabled.commandCategory = ["Cheat"];
+cCheatsEnabled.relatedCommands = [cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cUpCcAddResource, cUpCcSendCheat];
+cCheatsEnabled.relatedSNs = [];
+cCheatsEnabled.complexity = "Low";
 
 //civilian-population
-cCivilianPopulation.shortDescription = "Checks the computer player's civilian population. The civilian population is villagers, trade units and fishing ships.";
+cCivilianPopulation.shortDescription = "Checks the computer player's civilian population.";
+cCivilianPopulation.description = "Checks the computer player's civilian population. The civilian population is villagers, trade units and fishing ships.</p><p>To check for the civilian-population of other players, use " + cPlayersCivilianPopulation.getLink() + ".";
 cCivilianPopulation.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7439,9 +7456,18 @@ cCivilianPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCivilianPopulation.example = [ {
+	title: "Check if the AI has at least 100 civilian population.",
+	data: "(defrule\r\n\t(civilian-population >= 100)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCivilianPopulation.commandCategory = ["Counting", "Units"];
+cCivilianPopulation.relatedCommands = [cMilitaryPopulation, cPlayersCivilianPopulation, cPopulation];
+cCivilianPopulation.relatedSNs = [];
+cCivilianPopulation.complexity = "Low";
 
 //civ-selected
-cCivSelected.shortDescription = "Checks the computer player's civ.";
+cCivSelected.shortDescription = "Checks the computer player's civilization.";
+cCivSelected.description = "Checks the computer player's civilization. Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command. You can also enclose code in a #load-if-defined [CIV-NAME]-CIV block if it should only run when a particular civ is selected.</p><p>To check for the civilization of other players, use " + cPlayersCiv.getLink() + ".";
 cCivSelected.commandParameters = [ {
 	nameLink: pCiv.getLink(),
 	name: "Civ",
@@ -7450,10 +7476,18 @@ cCivSelected.commandParameters = [ {
 	range: "A valid Civ name or ID.",
 	note: "The player's civilization."
 } ];
+cCivSelected.example = [ {
+	title: "Check if the AI is playing the Franks.",
+	data: "(defrule\r\n\t(civ-selected frankish)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCivSelected.commandCategory = ["Player Self"];
+cCivSelected.relatedCommands = [cPlayersCiv];
+cCivSelected.relatedSNs = [];
+cCivSelected.complexity = "Low";
 
 //clear-tribute-memory
 cClearTributeMemory.shortDescription = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared.";
-cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cClearTributeMemory.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7469,9 +7503,18 @@ cClearTributeMemory.commandParameters = [ {
 	range: "food, wood, stone, or gold.",
 	note: "The resource to clear the tribute memory for."
 } ];
+cClearTributeMemory.example = [ {
+	title: "If the AI has received 500 food from a human player, clear the food tribute memory from this player and change diplomatic stance toward the human player to ally.",
+	data: "(defrule\r\n\t(players-tribute-memory any-human food >= 500)\r\n=>\r\n\t(clear-tribute-memory this-any-human food)\r\n\t(set-stance this-any-human ally)\r\n)"
+} ];
+cClearTributeMemory.commandCategory = ["Tribute"];
+cClearTributeMemory.relatedCommands = [cPlayersTribute, cPlayersTributeMemory];
+cClearTributeMemory.relatedSNs = [];
+cClearTributeMemory.complexity = "Low";
 
 //commodity-buying-price
 cCommodityBuyingPrice.shortDescription = "Checks the current buying price for the given commodity.";
+cCommodityBuyingPrice.description = "Checks the current buying price for the given commodity. The current buying price is the amount of gold that will be deducted from the gold stockpile to buy 100 of the specified commodity (wood, food, or stone). This price can range between 26 and infinity without Guilds, between 25 and infinity with Guilds, and between 25 and infinity when playing Saracens.";
 cCommodityBuyingPrice.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -7494,9 +7537,18 @@ cCommodityBuyingPrice.commandParameters = [ {
 	range: "26 to 32767.",
 	note: "A number for comparison."
 } ];
+cCommodityBuyingPrice.example = [ {
+	title: "Buy food if the current food buying price is below 200.",
+	data: "(defrule\r\n\t(can-buy-commodity food)\r\n\t(commodity-buying-price food < 200)\r\n=>\r\n\t(buy-commodity food)\r\n)"
+} ];
+cCommodityBuyingPrice.commandCategory = ["Economy", "Trading"];
+cCommodityBuyingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cCommodityBuyingPrice.relatedSNs = [];
+cCommodityBuyingPrice.complexity = "Low";
 
 //commodity-selling-price
 cCommoditySellingPrice.shortDescription = "Checks the current selling price for the given commodity.";
+cCommoditySellingPrice.description = "Checks the current selling price for the given commodity. The current selling price is the amount of gold that will be added to the gold stockpile when 100 of the specified commodity (wood, food, or stone) is sold. This price can range between 14 and infinity without Guilds, between 17 and infinity with Guilds, and between 19 and infinity when playing Saracens.";
 cCommoditySellingPrice.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -7519,9 +7571,18 @@ cCommoditySellingPrice.commandParameters = [ {
 	range: "14 to 32767.",
 	note: "A number for comparison."
 } ];
+cCommoditySellingPrice.example = [ {
+	title: "Sell wood if the current wood selling price is above 25.",
+	data: "(defrule\r\n\t(can-sell-commodity wood)\r\n\t(commodity-selling-price wood > 25)\r\n=>\r\n\t(sell-commodity wood)\r\n)"
+} ];
+cCommoditySellingPrice.commandCategory = ["Economy", "Trading"];
+cCommoditySellingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
+cCommoditySellingPrice.relatedSNs = [];
+cCommoditySellingPrice.complexity = "Low";
 
 //current-age
 cCurrentAge.shortDescription = "Checks computer player's current age.";
+cCurrentAge.description = "Checks computer player's current age. In Post-Imperial Age Start games, the current age is imperial-age, not post-imperial-age. To check for Post-Imperial Age Start, use #load-if-defined POST-IMPERIAL-AGE-START or " + cStartingAge.getLink() + ".</p><p>To check for the current-age of other players, use " + cPlayersCurrentAge.getLink() + ".";
 cCurrentAge.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7537,10 +7598,18 @@ cCurrentAge.commandParameters = [ {
 	range: "dark-age, feudal-age, castle-age, or imperial-age.",
 	note: "An age for comparison."
 } ];
-
+cCurrentAge.example = [ {
+	title: "Check if the AI is in the Castle Age or the Imperial Age.",
+	data: "(defrule\r\n\t(current-age >= castle-age)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCurrentAge.commandCategory = ["Player Self"];
+cCurrentAge.relatedCommands = [cCurrentAge, cCurrentAgeTime, cPlayersCurrentAge, cPlayersCurrentAgeTime, cStartingAge];
+cCurrentAge.relatedSNs = [];
+cCurrentAge.complexity = "Low";
 
 //current-age-time
 cCurrentAgeTime.shortDescription = "Checks the computer player's current age time (time spent in the current age).";
+cCurrentAgeTime.description = "Checks the computer player's current age time (time spent in the current age). This time is measured in seconds.</p><p>To check for the current-age-time of other players, use " + cPlayersCurrentAgeTime.getLink() + ".";
 cCurrentAgeTime.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7556,9 +7625,18 @@ cCurrentAgeTime.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCurrentAgeTime.example = [ {
+	title: "Check if the computer player has spent at least 5 minutes (300 seconds) in the current age.",
+	data: "(defrule\r\n\t(current-age-time >= 300)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCurrentAgeTime.commandCategory = ["Player Self"];
+cCurrentAgeTime.relatedCommands = [cCurrentAge, cPlayersCurrentAgeTime];
+cCurrentAgeTime.relatedSNs = [];
+cCurrentAgeTime.complexity = "Low";
 
 //current-score
 cCurrentScore.shortDescription = "Checks the computer player's current score.";
+cCurrentScore.description = "Checks the computer player's current score.</p><p>To check for the current-score of other players, use " + cPlayersScore.getLink() + ".";
 cCurrentScore.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7574,13 +7652,30 @@ cCurrentScore.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cCurrentScore.example = [ {
+	title: "Check if the computer player's current score is over 9000.",
+	data: "(defrule\r\n\t(current-score > 9000)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cCurrentScore.commandCategory = ["Player Self"];
+cCurrentScore.relatedCommands = [cPlayersScore, cVictoryCondition, cUpGetVictoryLimit];
+cCurrentScore.relatedSNs = [snAttackWinningPlayer, snAttackWinningPlayerFactor];
+cCurrentScore.complexity = "Low";
 
 //death-match-game
 cDeathMatchGame.shortDescription = "Checks if the game is a Death Match game.";
+cDeathMatchGame.description = "Checks if the game is a Death Match game. You can also enclose code in a #load-if-defined DEATH-MATCH-GAME block if it should only run in a death match game. In DE, ultra high and infinite resource random map games are considered death match games, and this command will be true in those games.";
+cDeathMatchGame.example = [ {
+	title: "Check if the game is a Death Match Game. If so, set sn-cap-civilian-builders to 200.",
+	data: "(defrule\r\n\t(death-match-game)\r\n=>\r\n\t(set-strategic-number sn-cap-civilian-builders 200)\r\n)"
+} ];
+cDeathMatchGame.commandCategory = ["Other"];
+cDeathMatchGame.relatedCommands = [cGameType, cRegicideGame, cStartingResources];
+cDeathMatchGame.relatedSNs = [];
+cDeathMatchGame.complexity = "Low";
 
 //defend-soldier-count
 cDefendSoldierCount.shortDescription = "Checks the computer player's defend soldier count.";
-cDefendSoldierCount.description = "Checks the computer player's defend soldier count. A defend soldier is a land-based military unit not assigned to attack groups. This includes soldiers attacking with TSA. Soldiers don't have to be actively defending the town against attacks to be considered defend soldiers.";
+cDefendSoldierCount.description = "Checks the computer player's defend soldier count. A defend soldier is a land-based military unit not assigned to attack groups. This includes soldiers attacking with attack-now, with sn-number-attack-groups set > 0, or with TSA. Soldiers don't have to be actively defending the town against attacks to be considered defend soldiers. In other words, the defend-soldier-count is calculated by subtracting the attack-soldier-count from the total soldier-count.";
 cDefendSoldierCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7596,6 +7691,14 @@ cDefendSoldierCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+cDefendSoldierCount.example = [ {
+	title: "Check if the computer player has at least 15 defend soldiers.",
+	data: "(defrule\r\n\t(defend-soldier-count >= 15)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cDefendSoldierCount.commandCategory = ["Attack", "Counting", "Defense", "Units"];
+cDefendSoldierCount.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cDefendWarboatCount, cMilitaryPopulation, cSoldierCount, cWarboatCount];
+cDefendSoldierCount.relatedSNs = [snConsecutiveIdleUnitLimit, snDisableAttackGroups, snDisableDefendGroups, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snMaximumTownSize, snNumberAttackGroups, snPercentAttackSoldiers, snSafeTownSize, snTaskUngroupedSoldiers];
+cDefendSoldierCount.complexity = "Low";
 
 //defend-warboat-count
 cDefendWarboatCount.shortDescription = "Checks the computer player's defend warboat count.";
@@ -7615,6 +7718,14 @@ cDefendWarboatCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //delete-building
 cDeleteBuilding.shortDescription = "Deletes exactly one building of a given type.";
@@ -7626,6 +7737,14 @@ cDeleteBuilding.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be deleted."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //delete-unit
 cDeleteUnit.shortDescription = "Deletes exactly one unit of a given type.";
@@ -7637,6 +7756,14 @@ cDeleteUnit.commandParameters = [ {
 	range: "A UnitId.",
 	note: "The unit to delete."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //difficulty
 cDifficulty.shortDescription = "Checks the difficulty setting.";
@@ -7656,6 +7783,14 @@ cDifficulty.commandParameters = [ {
 	range: "A valid Difficulty",
 	note: "The ordering of difficulty settings is the opposite of what one would expect! easiest > easy > moderate > hard > hardest."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //disable-rule
 cDisableRule.shortDescription = "Disables the given rule id. (Not Fully Implemented! Do Not Use!)";
@@ -7667,10 +7802,26 @@ cDisableRule.commandParameters = [ {
 	range: "0 to 32767",
 	note: "The rule id of the rule to disable."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //disable-self
 cDisableSelf.shortDescription = "Disables the rule that it is part of so that the rule is never run again.";
 cDisableSelf.description = "Disables the rule that it is part of so that the rule is never run again. Since disabling takes effect in the next execution pass, other actions in the same rule are still executed once.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //disable-timer
 cDisableTimer.shortDescription = "Disables the given timer.";
@@ -7682,6 +7833,14 @@ cDisableTimer.commandParameters = [ {
 	range: "A valid TimerId.",
 	note: "The timer to disable."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //doctrine
 cDoctrine.shortDescription = "Checks what the current doctrine is, similar to checking the value of a goal.";
@@ -7693,9 +7852,25 @@ cDoctrine.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A value for comparison with the doctrine."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //do-nothing
 cDoNothing.shortDescription = "Does nothing. Used as a placeholder action if you don't want a rule to have any actions.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //dropsite-min-distance
 cDropsiteMinDistance.shortDescription = "Checks computer player's minimum dropsite walking distance for a given resource type.";
@@ -7722,6 +7897,14 @@ cDropsiteMinDistance.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //enable-rule
 cEnableRule.shortDescription = "Enables the given rule id. (Not Fully Implemented! Do Not Use!)";
@@ -7733,6 +7916,14 @@ cEnableRule.commandParameters = [ {
 	range: "0 to 32767",
 	note: "The rule id of the rule to enable."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //enable-timer
 cEnableTimer.shortDescription = "Enables the given timer and sets it to the given time interval.";
@@ -7751,6 +7942,14 @@ cEnableTimer.commandParameters = [ {
 	range: "0 to 32767.",
 	note: "The length of the timer in seconds."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //enable-wall-placement
 cEnableWallPlacement.shortDescription = "Enables wall placement for the given perimeter.";
@@ -7763,14 +7962,38 @@ cEnableWallPlacement.commandParameters = [ {
 	range: "1 or 2.",
 	note: "The perimeter to keep clear for wall placement."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //enemy-buildings-in-town
 cEnemyBuildingsInTown.shortDescription = "Returns true if there are sighted enemy buildings less than sn-maximum-town-size tiles of the computer player's home TC.";
 cEnemyBuildingsInTown.description = "Returns true if there are sighted enemy buildings less than " + snMaximumTownSize.getLink() + " tiles of the computer player's home TC. For this fact, sn-maximum-town-size is a circle of sn-maximum-town-size tiles in a diagonal direction and sn-maximum-town-size * sqrt(2) tiles in any straight direction (it appears a perfect circle on the map rather than a square as for the building commands). Works with all buildings (including walls). Updates every few AOC seconds.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //enemy-captured-relics
 cEnemyCapturedRelics.shortDescription = "Checks if the enemy has captured all relics.";
 cEnemyCapturedRelics.description = "checks if the enemy has captured all relics. When this happens, tactical AI automatically starts targeting monasteries and monks. Use this fact to intensify attacks and combine it with the " + cAttackNow.getLink() + " action to force attacks.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //escrow-amount
 cEscrowAmount.shortDescription = "Checks a computer player's escrow amount for a given resource type.";
@@ -7796,6 +8019,14 @@ cEscrowAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //event-detected
 cEventDetected.shortDescription = "Checks if the given event has been detected.";
@@ -7815,9 +8046,25 @@ cEventDetected.commandParameters = [ {
 	range: "0 to 255.",
 	note: "The EventId to detect."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //false
 cFalse.shortDescription = "A Fact that is always false. A rule with this fact will never execute its actions.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //food-amount
 cFoodAmount.shortDescription = "Checks a computer player's food amount.";
@@ -7836,6 +8083,14 @@ cFoodAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //game-time
 cGameTime.shortDescription = "Checks the game time.";
@@ -7855,6 +8110,14 @@ cGameTime.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //game-type
 cGameType.shortDescription = "Undocumented command that checks the game type.";
@@ -7873,6 +8136,14 @@ cGameType.commandParameters = [ {
 	range: "",
 	note: "The type of game being played. Game types are not defined, so you must defconst them before using them."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //gate-count
 cGateCount.shortDescription = "Undocumented command that allows the script to check for the number of gates that are either being built or are completed.";
@@ -7898,6 +8169,14 @@ cGateCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //generate-random-number
 cGenerateRandomNumber.shortDescription = "Generates a player-specific integer random number within given range.";
@@ -7910,6 +8189,14 @@ cGenerateRandomNumber.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of values to randomly generate a number from."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //goal
 cGoal.shortDescription = "Checks the current value of the given goal.";
@@ -7928,6 +8215,14 @@ cGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //gold-amount
 cGoldAmount.shortDescription = "Checks a computer player's gold amount.";
@@ -7946,12 +8241,36 @@ cGoldAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //hold-koh-ruin
-cHoldKohRuin.shortDescription = "Undocumented command that tells the script whether or not it (or its team) currently holds the monument in monument games.";
+cHoldKohRuin.shortDescription = "Undocumented command that tells the script whether or not it (or its team) currently holds the monument in King of the Hill games.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //hold-relics
 cHoldRelics.shortDescription = "Undocumented command that tells the script whether or not it (or its team) has all of the relics.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //housing-headroom
 cHousingHeadroom.shortDescription = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity.";
@@ -7971,6 +8290,14 @@ cHousingHeadroom.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //idle-farm-count
 cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers.";
@@ -7990,6 +8317,14 @@ cIdleFarmCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //log
 cLog.shortDescription = "Writes the given string to a log file. Doesn't work.";
@@ -8002,6 +8337,14 @@ cLog.commandParameters = [ {
 	range: "A string (quoted text).",
 	note: "A quote of text that would be logged if this command actually worked."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //log-trace
 cLogTrace.shortDescription = "Writes the given value to a log file. Doesn't work.";
@@ -8014,6 +8357,14 @@ cLogTrace.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "The value that would be sent as a chat message if this command actually worked."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //map-size
 cMapSize.shortDescription = "Checks the map size.";
@@ -8025,6 +8376,14 @@ cMapSize.commandParameters = [ {
 	range: "tiny, small, medium, normal, large, or giant.",
 	note: "The size of the map."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //map-type
 cMapType.shortDescription = "Checks the map type.";
@@ -8036,9 +8395,18 @@ cMapType.commandParameters = [ {
 	range: "A valid MapType",
 	note: "The type of map, such as arabia."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //military-population
 cMilitaryPopulation.shortDescription = "Check's the player's military population.";
+cMilitaryPopulation.description = "Check's the player's military population.</p><p>To check for the military-population of other players, use " + cPlayersMilitaryPopulation.getLink() + ".";
 cMilitaryPopulation.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -8054,6 +8422,14 @@ cMilitaryPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
@@ -8066,6 +8442,14 @@ cPlayerComputer.commandParameters = [ {
 	range: "Any PlayerId.",
 	note: "The player(s) to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
@@ -8078,6 +8462,14 @@ cPlayerHuman.commandParameters = [ {
 	range: "Any PlayerId.",
 	note: "The player(s) to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
@@ -8091,6 +8483,14 @@ cPlayerInGame.commandParameters = [ {
 	range: "Any PlayerId.",
 	note: "The player(s) to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-number
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
@@ -8103,6 +8503,14 @@ cPlayerNumber.commandParameters = [ {
 	range: "1 to 8",
 	note: "The PlayerId to check for a match."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
@@ -8115,6 +8523,14 @@ cPlayerResigned.commandParameters = [ {
 	range: "Any PlayerId.",
 	note: "The player(s) to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
@@ -8127,6 +8543,14 @@ cPlayerValid.commandParameters = [ {
 	range: "Any PlayerId.",
 	note: "The player(s) to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
@@ -8153,6 +8577,14 @@ cPlayersBuildingCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
@@ -8186,10 +8618,18 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civ.";
-cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
 cPlayersCiv.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8205,6 +8645,14 @@ cPlayersCiv.commandParameters = [ {
 	range: "A Civ.",
 	note: "The civilization of the player."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-civilian-population
 cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
@@ -8231,6 +8679,14 @@ cPlayersCivilianPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-current-age
 cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
@@ -8257,6 +8713,14 @@ cPlayersCurrentAge.commandParameters = [ {
 	range: "dark-age, feudal-age, castle-age, or imperial-age.",
 	note: "The current age of the player."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
@@ -8283,6 +8747,14 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-military-population
 cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
@@ -8309,6 +8781,14 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-population
 cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
@@ -8335,6 +8815,14 @@ cPlayersPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
@@ -8361,6 +8849,14 @@ cPlayersScore.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-stance
 cPlayersStance.shortDescription = "Checks the given player's diplomatic stance toward the computer player.";
@@ -8380,6 +8876,14 @@ cPlayersStance.commandParameters = [ {
 	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
 	note: "The diplomacy stance of the player."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
@@ -8413,6 +8917,14 @@ cPlayersTribute.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
@@ -8446,6 +8958,14 @@ cPlayersTributeMemory.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
@@ -8472,6 +8992,14 @@ cPlayersUnitCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //players-unit-type-count
 cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating.";
@@ -8505,9 +9033,18 @@ cPlayersUnitTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //population
 cPopulation.shortDescription = "Checks the computer player's population.";
+cPopulation.description = "Checks the computer player's population.</p><p>To check for the population of other players, use " + cPlayersPopulation.getLink() + ".";
 cPopulation.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -8523,6 +9060,14 @@ cPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //population-cap
 cPopulationCap.shortDescription = "Checks the population cap setting.";
@@ -8541,6 +9086,14 @@ cPopulationCap.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //population-headroom
 cPopulationHeadroom.shortDescription = "Checks the computer player's population headroom.";
@@ -8560,6 +9113,14 @@ cPopulationHeadroom.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //random-number
 cRandomNumber.shortDescription = "Checks random number value generated by generate-random-number.";
@@ -8579,9 +9140,25 @@ cRandomNumber.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //regicide-game
 cRegicideGame.shortDescription = "Checks if the game is a regicide game.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //release-escrow
 cReleaseEscrow.shortDescription = "Releases the computer player's escrow for a given resource type (sets the amount to 0).";
@@ -8593,6 +9170,14 @@ cReleaseEscrow.commandParameters = [ {
 	range: "food, wood, stone, or gold.",
 	note: "The escrow resource stockpile."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //research
 cResearch.shortDescription = "Researches the given item.";
@@ -8605,6 +9190,14 @@ cResearch.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to research."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //research-available
 cResearchAvailable.shortDescription = "Checks that the given research is available to the computer player's civ, and that the research is available at this time.";
@@ -8617,6 +9210,14 @@ cResearchAvailable.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to check availability for."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //research-completed
 cResearchCompleted.shortDescription = "Checks that the given research is completed.";
@@ -8628,6 +9229,14 @@ cResearchCompleted.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to check the completion status for."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //resource-found
 cResourceFound.shortDescription = "Checks whether the computer player has found the given resource.";
@@ -8640,9 +9249,25 @@ cResourceFound.commandParameters = [ {
 	range: "food, wood, stone, or gold.",
 	note: "The resource that was found."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //resign
 cResign.shortDescription = "Causes the computer player to resign.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //sell-commodity
 cSellCommodity.shortDescription = "Sells one lot of a given commodity.";
@@ -8654,15 +9279,47 @@ cSellCommodity.commandParameters = [ {
 	range: "food, wood, or stone",
 	note: "The commodity to sell."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-author-email
 cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-author-name
 cSetAuthorName.shortDescription = "The game does not use it for anything.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-author-version
 cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-difficulty-parameter
 cSetDifficultyParameter.shortDescription = "Sets a given difficulty parameter to a given value.";
@@ -8681,6 +9338,14 @@ cSetDifficultyParameter.commandParameters = [ {
 	range: "0 to 100.",
 	note: "The value to set the difficulty parameter to."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-doctrine
 cSetDoctrine.shortDescription = "Sets the doctrine to the given value.";
@@ -8692,6 +9357,14 @@ cSetDoctrine.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the doctrine to."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-escrow-percentage
 cSetEscrowPercentage.shortDescription = "Sets the computer player's escrow percentage for a given resource type.";
@@ -8711,6 +9384,14 @@ cSetEscrowPercentage.commandParameters = [ {
 	range: "0 to 100.",
 	note: "The escrow percentage to set."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-goal
 cSetGoal.shortDescription = "Sets a given goal to a given value.";
@@ -8729,6 +9410,14 @@ cSetGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the goal to."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-shared-goal
 cSetSharedGoal.shortDescription = "Sets a given shared goal (a goal that is shared among computer players) to a given value.";
@@ -8748,6 +9437,14 @@ cSetSharedGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the shared goal to."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-signal
 cSetSignal.shortDescription = "Sets a given signal that can be checked by the AI Signal trigger condition in the scenario editor.";
@@ -8759,6 +9456,14 @@ cSetSignal.commandParameters = [ {
 	range: "A valid SignalId, from 0 to 255.",
 	note: "The signal to set."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-stance
 cSetStance.shortDescription = "Sets the stance toward a given player.";
@@ -8778,6 +9483,14 @@ cSetStance.commandParameters = [ {
 	range: "ally, neutral, or enemy.",
 	note: "The diplomacy stance to set toward the player(s)."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //set-strategic-number
 cSetStrategicNumber.shortDescription = "Sets a given strategic number to a given value.";
@@ -8797,6 +9510,14 @@ cSetStrategicNumber.commandParameters = [ {
 	range: "-32768 to 32767. Some strategic numbers have a smaller usable range.",
 	note: "The value to set the strategic number to."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //shared-goal
 cSharedGoal.shortDescription = "Checks a given shared goal -- a goal that is shared among computer players. It is to be used only when all computer players are on the same team.";
@@ -8815,9 +9536,25 @@ cSharedGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //sheep-and-forage-too-far
 cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center).";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //soldier-count
 cSoldierCount.shortDescription = "Checks the computer player's soldier count. A soldier is a land-based military unit.";
@@ -8836,14 +9573,30 @@ cSoldierCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //spy
 cSpy.shortDescription = "Executes a spy command. Only works in Regicide games.";
 cSpy.description = "Executes a spy command. Only works in Regicide games to research the Treason effect.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //stance-toward
-cStanceToward.shortDescription = "Checks the computer player's stance toward a given player.";
-cStanceToward.description = "Checks the computer player's stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cStanceToward.shortDescription = "Checks the computer player's diplomatic stance toward a given player.";
+cStanceToward.description = "Checks the computer player's diplomatic stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ".";
 cStanceToward.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8859,6 +9612,14 @@ cStanceToward.commandParameters = [ {
 	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
 	note: "The diplomacy stance toward the player."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //starting-age
 cStartingAge.shortDescription = "Checks the game's starting age.";
@@ -8878,6 +9639,14 @@ cStartingAge.commandParameters = [ {
 	range: "dark-age, feudal-age, castle-age, imperial-age, or post-imperial-age.",
 	note: "An age for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //starting-resources
 cStartingResources.shortDescription = "Checks the starting resources level (low, medium, or high).";
@@ -8896,6 +9665,14 @@ cStartingResources.commandParameters = [ {
 	range: "low, medium, or high.",
 	note: "The starting resource levels. Standard is low."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //stone-amount
 cStoneAmount.shortDescription = "Checks a computer player's stone amount.";
@@ -8914,6 +9691,14 @@ cStoneAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //strategic-number
 cStrategicNumber.shortDescription = "Checks a strategic number's value.";
@@ -8939,6 +9724,14 @@ cStrategicNumber.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //taunt
 cTaunt.shortDescription = "Triggers the taunt associated with the given value.";
@@ -8950,6 +9743,14 @@ cTaunt.commandParameters = [ {
 	range: "1 to 255",
 	note: "The taunt to send."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //taunt-detected
 cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
@@ -8969,6 +9770,14 @@ cTauntDetected.commandParameters = [ {
 	range: "1 to 255",
 	note: "The taunt to detect"
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //taunt-using-range
 cTauntUsingRange.shortDescription = "Triggers a random taunt that is picked from a given taunt range.";
@@ -8988,6 +9797,14 @@ cTauntUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible taunts to choose from, starting from the given TauntId."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //timer-triggered
 cTimerTriggered.shortDescription = "Checks whether a given timer has triggered (the time on the timer has run out).";
@@ -9000,6 +9817,14 @@ cTimerTriggered.commandParameters = [ {
 	range: "A valid TimerId.",
 	note: "The timer to check."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //town-under-attack
 cTownUnderAttack.shortDescription = "Set to true when a computer player's town is under attack.";
@@ -9007,6 +9832,14 @@ cTownUnderAttack.description = "town-under-attack is triggered (i.e. returns tru
 
 //trace-fact
 cTraceFact.shortDescription = "Undocumented action that doesn't work. Probably only for debugging purposes originally.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //train
 cTrain.shortDescription = "Trains the given unit.";
@@ -9019,6 +9852,14 @@ cTrain.commandParameters = [ {
 	range: "A UnitId. This action allows the use of unit line wildcard parameters for UnitId.",
 	note: "The unit to train."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
@@ -9045,10 +9886,26 @@ cTributeToPlayer.commandParameters = [ {
 	range: "0 to 32767.",
 	note: "The amount of the resource to tribute."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //true
 cTrue.shortDescription = "A Fact that is always true.";
 cTrue.description = "A Fact that is always true, often used as a placeholder for rules that should execute its actions without conditions.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //unit-available
 cUnitAvailable.shortDescription = "Checks that the unit is available to the computer player's civ, and that the tech tree prerequisites for training the unit are met.";
@@ -9061,9 +9918,18 @@ cUnitAvailable.commandParameters = [ {
 	range: "A UnitId.",
 	note: "The unit to check availability for."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //unit-count
 cUnitCount.shortDescription = "Checks the computer player's unit count. Only trained units are included.";
+cUnitCount.description = "Checks the computer player's unit count. Only trained units are included.</p><p>To check for the unit-count of other players, use " + cPlayersUnitCount.getLink() + ".";
 cUnitCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9079,9 +9945,18 @@ cUnitCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //unit-count-total
 cUnitCountTotal.shortDescription = "Checks the computer player's total unit count. The total includes trained and queued units.";
+cUnitCountTotal.description = "Checks the computer player's total unit count. The total includes trained and queued units.</p><p>To check for the unit-count of other players (not including queued units), use " + cPlayersUnitTypeCount.getLink() + ".";
 cUnitCountTotal.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9097,10 +9972,18 @@ cUnitCountTotal.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //unit-type-count
 cUnitTypeCount.shortDescription = "Checks the computer player's unit count of the given type.";
-cUnitTypeCount.description = "Checks the computer player's unit count of the given type. Only trained units of the given type are included. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cUnitTypeCount.description = "Checks the computer player's unit count of the given type. Only trained units of the given type are included. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>To check for the unit-type-count of other players, use " + cPlayersUnitTypeCount.getLink() + ".";
 cUnitTypeCount.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -9123,10 +10006,18 @@ cUnitTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //unit-type-count-total
 cUnitTypeCountTotal.shortDescription = "Checks the computer player's total unit count of the given type.";
-cUnitTypeCountTotal.description = "Checks the computer player's total unit count of the given type. The total includes trained and queued units of the given type. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cUnitTypeCountTotal.description = "Checks the computer player's total unit count of the given type. The total includes trained and queued units of the given type. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>To check for the unit-type-count of other players (not including queued units), use " + cPlayersUnitTypeCount.getLink() + ".";
 cUnitTypeCountTotal.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -9149,6 +10040,14 @@ cUnitTypeCountTotal.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //victory-condition
 cVictoryCondition.shortDescription = "Checks the game victory condition.";
@@ -9160,6 +10059,14 @@ cVictoryCondition.commandParameters = [ {
 	range: "standard, conquest, time-limit, score, or custom.",
 	note: "The victory condition."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //wall-completed-percentage
 cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given perimeter wall.";
@@ -9186,6 +10093,14 @@ cWallCompletedPercentage.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //wall-invisible-percentage
 cWallInvisiblePercentage.shortDescription = "Checks what percentage of the potential wall placement is covered with fog.";
@@ -9212,6 +10127,14 @@ cWallInvisiblePercentage.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //warboat-count
 cWarboatCount.shortDescription = "Checks the computer player's warboat count. A warboat is a boat capable of attacking.";
@@ -9230,6 +10153,14 @@ cWarboatCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //wood-amount
 cWoodAmount.shortDescription = "Checks the computer player's wood amount.";
@@ -9248,6 +10179,14 @@ cWoodAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+c.commandCategory = [];
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 
 
@@ -14288,7 +15227,7 @@ cUpSetSharedGoal.commandParameters = [ {
 	name: "Value",
 	type: "Op",
 	dir: "in",
-	range: "-2,147,483,648 to 2,147,483,647 (in UP). -32768 to 32767 (in DE).",
+	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The new value for the shared goal."
 } ];
 cUpSetSharedGoal.example = [ {
