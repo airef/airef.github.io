@@ -7424,7 +7424,7 @@ cChatTrace.example = [ {
 cChatTrace.commandCategory = ["Chat"];
 cChatTrace.relatedCommands = [cChatToAll];
 cChatTrace.relatedSNs = [];
-cChatTrace.complexity = "Don't Use";
+cChatTrace.complexity = "Low";
 
 //cheats-enabled
 cCheatsEnabled.shortDescription = "Checks whether the cheats have been enabled.";
@@ -7702,7 +7702,7 @@ cDefendSoldierCount.complexity = "Low";
 
 //defend-warboat-count
 cDefendWarboatCount.shortDescription = "Checks the computer player's defend warboat count.";
-cDefendWarboatCount.description = "Checks the computer player's defend warboat count. A defend warboat is a boat capable of attacking that is not assigned to boat attack groups. Warboats don't have to be actively defending against enemy warship attacks to be considered defend warboats.";
+cDefendWarboatCount.description = "Checks the computer player's defend warboat count. A defend warboat is a boat capable of attacking that is not assigned to boat attack groups. This includes warboats attacking with attack-now or with sn-number-boat-attack-groups set > 0. Warboats don't have to be actively defending against enemy warship attacks to be considered defend warboats. In other words, the defend-warboat-count is calculated by subtracting the attack-warboat-count from the total warboat-count.";
 cDefendWarboatCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7718,17 +7718,18 @@ cDefendWarboatCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDefendWarboatCount.example = [ {
+	title: "Check if the computer player has at least 5 defend warboats.",
+	data: "(defrule\r\n\t(defend-warboat-count >= 5)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDefendWarboatCount.commandCategory = ["Attack", "Counting", "Defense", "Units"];
+cDefendWarboatCount.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cDefendSoldierCount, cMilitaryPopulation, cSoldierCount, cWarboatCount];
+cDefendWarboatCount.relatedSNs = [snConsecutiveIdleUnitLimit, snDisableAttackGroups, snNumberAttackGroups, snPercentAttackBoats];
+cDefendWarboatCount.complexity = "Low";
 
 //delete-building
 cDeleteBuilding.shortDescription = "Deletes exactly one building of a given type.";
+cDeleteBuilding.description = "Deletes exactly one building of a given type.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteUnit.getLink() + ": delete exactly one unit of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the specified type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
 cDeleteBuilding.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7737,17 +7738,18 @@ cDeleteBuilding.commandParameters = [ {
 	range: "A BuildingId.",
 	note: "The building that will be deleted."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDeleteBuilding.example = [ {
+	title: "If no allies are left in the game and the AI has a market, delete one market.",
+	data: "(defrule\r\n\t(not\t(player-in-game any-ally))\r\n\t(building-type-count market > 0)\r\n=>\r\n\t(delete-building market)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDeleteBuilding.commandCategory = ["Buildings"];
+cDeleteBuilding.relatedCommands = [cDeleteUnit, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpTargetObjects, cUpTargetPoint];
+cDeleteBuilding.relatedSNs = [snPercentBuildingCancellation];
+cDeleteBuilding.complexity = "Low";
 
 //delete-unit
 cDeleteUnit.shortDescription = "Deletes exactly one unit of a given type.";
+cDeleteUnit.description = "Deletes exactly one unit of a given type.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteBuilding.getLink() + ": delete exactly one building of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the given type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
 cDeleteUnit.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -7756,18 +7758,18 @@ cDeleteUnit.commandParameters = [ {
 	range: "A UnitId.",
 	note: "The unit to delete."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDeleteUnit.example = [ {
+	title: "If no allies are left in the game and the AI has trade carts, delete one trade cart.",
+	data: "(defrule\r\n\t(not\t(player-in-game any-ally))\r\n\t(unit-type-count trade-cart > 0)\r\n=>\r\n\t(delete-unit trade-cart)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDeleteUnit.commandCategory = ["Units"];
+cDeleteUnit.relatedCommands = [cDeleteBuilding, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpTargetObjects, cUpTargetPoint];
+cDeleteUnit.relatedSNs = [];
+cDeleteUnit.complexity = "Low";
 
 //difficulty
 cDifficulty.shortDescription = "Checks the difficulty setting.";
-cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as 5 and hardest as 1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard or Hardest.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard or Hardest.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy: 133% (0:25 to 0:33)</li><li>moderate: 100%</li><li>hard: 100%</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>Hardest adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled! Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See " + snDoNotScaleForDifficultyLevel.getLink() + " for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
+cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as a difficulty value of 5, easy as 4, moderate as 3, hard as 2, and hardest as 1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard or Hardest.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard or Hardest.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><p>Because of the counter-intuitive ordering of difficulties, you may find it helpful to use the #load-if symbols to check difficulty settings instead, such as #load-if-defined DIFFICULTY-HARD or #load-if-not-defined DIFFICULTY-HARDEST.</p><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy: 133% (0:25 to 0:33)</li><li>moderate: 100%</li><li>hard: 100%</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>For non-DE game versions, Hardest difficulty adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled, but you can remove these resources with a negative " + cCcAddResource.getLink() + " or " + cUpCcAddResource.getLink() + " command. Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See " + snDoNotScaleForDifficultyLevel.getLink() + " for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
 cDifficulty.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -7783,14 +7785,14 @@ cDifficulty.commandParameters = [ {
 	range: "A valid Difficulty",
 	note: "The ordering of difficulty settings is the opposite of what one would expect! easiest > easy > moderate > hard > hardest."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDifficulty.example = [ {
+	title: "Checks if the difficulty is hard or hardest.",
+	data: "(defrule\r\n\t(difficulty <= hard)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDifficulty.commandCategory = ["Other"];
+cDifficulty.relatedCommands = [];
+cDifficulty.relatedSNs = [snDoNotScaleForDifficultyLevel, snEasiestReactionPercentage, snEasierReactionPercentage];
+cDifficulty.complexity = "Low";
 
 //disable-rule
 cDisableRule.shortDescription = "Disables the given rule id. (Not Fully Implemented! Do Not Use!)";
@@ -7802,29 +7804,26 @@ cDisableRule.commandParameters = [ {
 	range: "0 to 32767",
 	note: "The rule id of the rule to disable."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDisableRule.commandCategory = ["Don't Use"];
+cDisableRule.relatedCommands = [cEnableRule];
+cDisableRule.relatedSNs = [];
+cDisableRule.complexity = "Don't Use";
 
 //disable-self
 cDisableSelf.shortDescription = "Disables the rule that it is part of so that the rule is never run again.";
-cDisableSelf.description = "Disables the rule that it is part of so that the rule is never run again. Since disabling takes effect in the next execution pass, other actions in the same rule are still executed once.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDisableSelf.description = "Disables the rule that it is part of so that the rule is never run again. Since disabling takes effect in the next execution pass, other actions in the same rule are still executed once. Use this whenever you only want the rule to run once and never again. Rules disabled with a disable-self command are never read again, but they are still counted as rules by commands that jump over rules like " + cUpJumpRule.getLink() + " or " + cUpJumpDynamic.getLink() + ".";
+cDisableSelf.example = [ {
+	title: "Send a \"glhf\" message at the beginning of the game and disable the rule so that it won't send the message a second time.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-all \"glhf\")\r\n\t(disable-self)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDisableSelf.commandCategory = ["Other"];
+cDisableSelf.relatedCommands = [cDoNothing, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule];
+cDisableSelf.relatedSNs = [];
+cDisableSelf.complexity = "Low";
 
 //disable-timer
 cDisableTimer.shortDescription = "Disables the given timer.";
+cDisableTimer.description = "Disables the given timer. The given timer can be any valid timer number, which can range from 1 to 50. You can also substitute a defconst that is defined with a value between 1 and 50 if you want to give the timer a name.</p><p>Timers have three possible states and it cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. disable-timer or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. " + cEnableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
 cDisableTimer.commandParameters = [ {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -7833,17 +7832,18 @@ cDisableTimer.commandParameters = [ {
 	range: "A valid TimerId.",
 	note: "The timer to disable."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDisableTimer.example = [ {
+	title: "If timer #3 is in the timer-triggered state, disable timer #3.",
+	data: "(defrule\r\n\t(timer-triggered 3)\r\n=>\r\n\t(disable-timer 3)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDisableTimer.commandCategory = ["Timers"];
+cDisableTimer.relatedCommands = [cEnableTimer, cTimerTriggered, cUpGetTimer, cUpSetTimer, cUpTimerStatus];
+cDisableTimer.relatedSNs = [];
+cDisableTimer.complexity = "Low";
 
 //doctrine
 cDoctrine.shortDescription = "Checks what the current doctrine is, similar to checking the value of a goal.";
+cDoctrine.description = "Checks what the current doctrine is, similar to checking the value of a goal. The doctrine is always an integer value which is set with the " + cSetDoctrine.getLink() + " command, and the doctrine command simply checks if the doctrine is currently equal to the given value. Unlike goals, there is only one doctrine that you can set, and you can only use the doctrine command to check if the doctrine is currently equal to the given value, not less than, or greater than, or any other type of comparison. In all cases, using goals instead of the doctrine will give you more flexibility, but if you run out of available goals then you can use the doctrine like an extra goal if you need it.</p><p>The doctrine starts with the value of -1 at the beginning of the game, and it only changes if you use the set-doctrine command.";
 cDoctrine.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -7852,35 +7852,39 @@ cDoctrine.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A value for comparison with the doctrine."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDoctrine.example = [ {
+	title: "Check if the doctrine is equal to 99.",
+	data: "(defrule\r\n\t(doctrine 99)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDoctrine.commandCategory = ["Goals"];
+cDoctrine.relatedCommands = [cGoal, cSetDoctrine, cSetGoal, cUpCompareGoal, cUpModifyGoal];
+cDoctrine.relatedSNs = [];
+cDoctrine.complexity = "Low";
 
 //do-nothing
 cDoNothing.shortDescription = "Does nothing. Used as a placeholder action if you don't want a rule to have any actions.";
-/*c.example = [ {
-	title: ".",
+cDoNothing.description = "Does nothing. Used as a placeholder action if you don't want a rule to have any actions. Every rule must have at least one fact and one action. In rare cases where you don't want to include any actions in your rule, use do-nothing as a placeholder to fulfill the one action requirement. One of these rare cases is when you want to temporarily comment out all the actions in your rule for testing purposes but you want to keep the facts section of your rule. Unlike " + cDisableSelf.getLink() + " do-nothing will not stop the rule from being checked each pass.";
+cDoNothing.example = [ {
+	title: "The chat-to-all command has been commented out. Use do-nothing to fulfill the one action minimum per rule requirement.",
+	data: "(defrule\r\n\t(current-age == imperial-age)\r\n=>\r\n\t;(chat-to-all \"I have reached the Imperial Age.\")\r\n\t(do-nothing)\r\n)"
+}, {
+	title: "Technically this counts as a valid rule. Do you agree?",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDoNothing.commandCategory = ["Other"];
+cDoNothing.relatedCommands = [cDisableSelf];
+cDoNothing.relatedSNs = [];
+cDoNothing.complexity = "Low";
 
 //dropsite-min-distance
 cDropsiteMinDistance.shortDescription = "Checks computer player's minimum dropsite walking distance for a given resource type.";
-cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is number of tiles between the tile the resource is on and the center tile of the nearest dropsite. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.";
+cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is the tile distance between the tile the resource is on and the center tile of the nearest dropsite. For example, if the dropsite is adjacent to the given resource, then dropsite-min-distance will be 1. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.</p>If no resources of the given type have been found, then dropsite-min-distance will be -1 for that resource. If resources of the given type have been found but are unaccessible because they are on a different island, then dropsite-min-distance will be 255 for that resource.</p><p>There are eight different types of resource dropsite distances you can check for:</p><p><ul><li>food: all food sources, including farms, except boar and fish for fishing ships. Some specially generated objects, like the Incan starting llama, aren't counted.</li><li>wood: all trees.</li><li>stone: all stone mines.</li><li>gold: all gold mines.</li><li>Hunting: all boar and deer (and their geographical variants), both live and dead.</li><li>boar-hunting: all boar (and their geographical variants), both live and dead, excludes all types of deer.</li><li>deer-hunting: all deer (and their geographical variants), both live and dead, excludes all types of boar.</li><li>live-boar: all boar (and their geographical variants) that have not yet been killed.</li></ul>";
 cDropsiteMinDistance.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
 	type: "Const",
 	dir: "in",
-	range: "food, wood, stone, gold, boar-hunting, or live-boar.",
+	range: "food, wood, stone, gold, hunting, boar-hunting, deer-hunting, or live-boar.",
 	note: "The resource to check. Food includes all food sources except boar and fish for fishing ships."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -7897,14 +7901,14 @@ cDropsiteMinDistance.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cDropsiteMinDistance.example = [ {
+	title: "If we have at least one lumber camp and can build another one, build a new lumber camp if the drop distance is > 4 and < 255 (in case only available wood is on a different island).",
+	data: "(defrule\r\n\t(building-type-count lumber-camp > 0)\r\n\t(can-build lumber-camp)\r\n\t(dropsite-min-distance wood > 4)\r\n\t(dropsite-min-distance wood < 255)\r\n=>\r\n\t(build lumber-camp)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cDropsiteMinDistance.commandCategory = ["Economy"];
+cDropsiteMinDistance.relatedCommands = [cDropsiteMinDistance, cResourceFound, cSheepAndForageTooFar, cUpDeleteDistantFarms];
+cDropsiteMinDistance.relatedSNs = [];
+cDropsiteMinDistance.complexity = "Low";
 
 //enable-rule
 cEnableRule.shortDescription = "Enables the given rule id. (Not Fully Implemented! Do Not Use!)";
@@ -7916,17 +7920,14 @@ cEnableRule.commandParameters = [ {
 	range: "0 to 32767",
 	note: "The rule id of the rule to enable."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEnableRule.commandCategory = ["Don't Use"];
+cEnableRule.relatedCommands = [cDisableRule];
+cEnableRule.relatedSNs = [];
+cEnableRule.complexity = "Don't Use";
 
 //enable-timer
 cEnableTimer.shortDescription = "Enables the given timer and sets it to the given time interval.";
+cEnableTimer.description = "Enables the given timer and sets it to the given time interval. The given timer can be any valid timer number, which can range from 1 to 50. You can also substitute a defconst that is defined with a value between 1 and 50 if you want to give the timer a name.</p><p></p><p>Time intervals are measured in game time seconds, so enabling a timer for 240 seconds would start a 4 minute timer. If played on 2.0 speed (Fast speed), this 4 minute timer would last 2 minutes in real time.</p><p>Timers have three possible states and it cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. " + cDisableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. enable-timer or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
 cEnableTimer.commandParameters = [ {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -7942,18 +7943,18 @@ cEnableTimer.commandParameters = [ {
 	range: "0 to 32767.",
 	note: "The length of the timer in seconds."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cEnableTimer.example = [ {
+	title: "If we have 15 military population and timer #2 isn't running (either it is timer-triggered or timer-disabled), attack and enable the timer for 5 minutes.",
+	data: "(defrule\r\n\t(military-population >= 15)\r\n\t(up-timer-status 2 != timer-running)\r\n=>\r\n\t(attack-now)\r\n\t(enable-timer 2 300)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEnableTimer.commandCategory = ["Timers"];
+cEnableTimer.relatedCommands = [cDisableTimer, cEnableTimer, cTimerTriggered, cUpGetTimer, cUpSetTimer, cUpTimerStatus];
+cEnableTimer.relatedSNs = [];
+cEnableTimer.complexity = "Low";
 
 //enable-wall-placement
 cEnableWallPlacement.shortDescription = "Enables wall placement for the given perimeter.";
-cEnableWallPlacement.description = "Enables wall placement for the given perimeter. Enabled wall placement causes the rest of the placement code to do some planning and place all structures at least one tile away from the future wall lines. If you are planning to build a wall, you have to explicitly define which perimeter wall you plan to use when the game starts. This is a one-time action and should be used during the initial setup.";
+cEnableWallPlacement.description = "Enables wall placement for the given perimeter, either perimeter 1 or perimeter 2. Walls cannot be built with the " + cBuildWall.getLink() + " command at the given perimeter unless this command is used. Enabled wall placement causes the rest of the placement code to do some planning and place all structures at least one tile away from the future wall lines. If you are planning to build a wall, you have to explicitly define which perimeter wall you plan to use when the game starts. This is a one-time action and should be used during the initial setup.</p><p>Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
 cEnableWallPlacement.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -7962,38 +7963,38 @@ cEnableWallPlacement.commandParameters = [ {
 	range: "1 or 2.",
 	note: "The perimeter to keep clear for wall placement."
 } ];
-/*c.example = [ {
-	title: ".",
+cEnableWallPlacement.example = [ {
+	title: "Enable wall placement for perimeter 2.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEnableWallPlacement.commandCategory = ["Buildings", "Walls & Gates"];
+cEnableWallPlacement.relatedCommands = [cCanBuildWall, cCanBuildWallWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cBuildWall, cBuildGate];
+cEnableWallPlacement.relatedSNs = [];
+cEnableWallPlacement.complexity = "Low";
 
 //enemy-buildings-in-town
 cEnemyBuildingsInTown.shortDescription = "Returns true if there are sighted enemy buildings less than sn-maximum-town-size tiles of the computer player's home TC.";
 cEnemyBuildingsInTown.description = "Returns true if there are sighted enemy buildings less than " + snMaximumTownSize.getLink() + " tiles of the computer player's home TC. For this fact, sn-maximum-town-size is a circle of sn-maximum-town-size tiles in a diagonal direction and sn-maximum-town-size * sqrt(2) tiles in any straight direction (it appears a perfect circle on the map rather than a square as for the building commands). Works with all buildings (including walls). Updates every few AOC seconds.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cEnemyBuildingsInTown.example = [ {
+	title: "If there are enemy buildings in the computer player's town and it can train a battering ram, train a battering ram.",
+	data: "(defrule\r\n\t(enemy-buildings-in-town)\r\n\t(can-train battering-ram-line)\r\n=>\r\n\t(train battering-ram-line)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEnemyBuildingsInTown.commandCategory = ["Buildings", "Defense", "Town"];
+cEnemyBuildingsInTown.relatedCommands = [cEnemyBuildingsInTown, cTownUnderAttack, cUpBuildingTypeInTown, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpSetDefensePriority, cUpUnitTypeInTown, cUpVillagerTypeInTown];
+cEnemyBuildingsInTown.relatedSNs = [snAllowCivilianDefense, snAllowCivilianOffense, snDisableDefendGroups, snMaximumTownSize, snSafeTownSize];
+cEnemyBuildingsInTown.complexity = "Low";
 
 //enemy-captured-relics
 cEnemyCapturedRelics.shortDescription = "Checks if the enemy has captured all relics.";
-cEnemyCapturedRelics.description = "checks if the enemy has captured all relics. When this happens, tactical AI automatically starts targeting monasteries and monks. Use this fact to intensify attacks and combine it with the " + cAttackNow.getLink() + " action to force attacks.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cEnemyCapturedRelics.description = "Checks if the enemy team has captured all relics. When this happens, tactical AI automatically starts targeting monasteries and monks. Use this fact to intensify attacks and combine it with the " + cAttackNow.getLink() + " action to force attacks. You can also add " + snSpecialAttackType1.getLink() + " to 1, " + snSpecialAttackInfluence1.getLink() + " > 0, and " + cUpSetOffensePriority.getLink() + " for monasteries to a high number to increase the likelyhood to target monasteries.";
+cEnemyCapturedRelics.example = [ {
+	title: "If the enemy team has captured all relics, then set several settings to target monasteries.",
+	data: "(defrule\r\n\t(enemy-captured-relics)\r\n=>\r\n\t(set-strategic-number sn-special-attack-type1 1)\r\n\t(set-strategic-number sn-special-attack-influence1 32767)\r\n\t(up-set-offense-priority c: monastery c: 11)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEnemyCapturedRelics.commandCategory = ["Other"];
+cEnemyCapturedRelics.relatedCommands = [cGameType, cHoldRelics, cVictoryCondition, cUpGetVictoryData];
+cEnemyCapturedRelics.relatedSNs = [snSpecialAttackInfluence1, snSpecialAttackType1];
+cEnemyCapturedRelics.complexity = "Low";
 
 //escrow-amount
 cEscrowAmount.shortDescription = "Checks a computer player's escrow amount for a given resource type.";
