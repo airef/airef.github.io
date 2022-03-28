@@ -11534,7 +11534,7 @@ cUpDeleteObjects.commandParameters = [ {
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
 	nameLink: pHitpoints.getLink(),
-	name: "Hitpoints",
+	name: "HitPoints",
 	type: "Op",
 	dir: "in",
 	range: "0 to 32767",
