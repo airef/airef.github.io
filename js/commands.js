@@ -7684,7 +7684,7 @@ cCurrentAgeTime.example = [ {
 	data: "(defrule\r\n\t(current-age-time >= 300)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCurrentAgeTime.commandCategory = ["Player Self"];
-cCurrentAgeTime.relatedCommands = [cCurrentAge, cPlayersCurrentAgeTime];
+cCurrentAgeTime.relatedCommands = [cCurrentAge, cGameTime, cPlayersCurrentAgeTime];
 cCurrentAgeTime.relatedSNs = [];
 cCurrentAgeTime.complexity = "Low";
 
@@ -8085,7 +8085,7 @@ c.complexity = "Low";*/
 
 //event-detected
 cEventDetected.shortDescription = "Checks if the given event has been detected.";
-cEventDetected.description = "Checks if the given event has been detected. The fact stays true until the event is explicitly disabled by the " + cAcknowledgeEvent.getLink() + " action.";
+cEventDetected.description = "Checks if the given event has been detected. Scenario triggers that execute an AI Script Goal effect are the only events that AI scripts can detect. The event-detected fact stays true until the event is explicitly disabled by the " + cAcknowledgeEvent.getLink() + " action.</p><p>This command, along with " + cAcknowledgeEvent.getLink() + ", is used to detect an AI Script Goal effect from a scenario trigger, often with the intention of changing the AI behavior after the scenario trigger has fired. The scenario designer chooses an AI Trigger number for the AI Script Goal effect in the scenario editor. Then, the event-detected command in the AI script will detect when this trigger effect happens. The event-detected command will remain true after the AI Script Goal trigger effect fires, so acknowledge-event is used to reset the event-detected flag so that event-detected will no longer be true, similar to how the " + cDisableTimer.getLink() + " command clears a timer that has triggered or how the " + cAcknowledgeTaunt.getLink() + " command accepts the taunt message.";
 cEventDetected.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
@@ -8101,25 +8101,26 @@ cEventDetected.commandParameters = [ {
 	range: "0 to 255.",
 	note: "The EventId to detect."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cEventDetected.example = [ {
+	title: "If an AI Script Goal trigger effect has fired with AI trigger 36, detect it with event-detected and acknowledge it with acknowledge-event. gl-trigger-event-fired is set to 1 so that (goal gl-trigger-event-fired 1) can be used as a condition to change the AI behavior in the scenario after the AI Script Goal trigger effect has fired.",
+	data: "(defconst gl-trigger-effect-fired 101)\r\n(defrule\r\n\t(event-detected trigger 36)\r\n=&gt;\r\n\t(set-goal gl-trigger-effect-fired 1)\r\n\t(acknowledge-event trigger 36)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cEventDetected.commandCategory = ["Scenarios"];
+cEventDetected.relatedCommands = [cAcknowledgeEvent, cSetSignal, cUpGetEvent, cUpGetSignal, cUpSetEvent, cUpSetSignal];
+cEventDetected.relatedSNs = [];
+cEventDetected.complexity = "Medium";
 
 //false
 cFalse.shortDescription = "A Fact that is always false. A rule with this fact will never execute its actions.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cFalse.description = "A Fact that is always false. A rule with this fact will never execute its actions.</p><p>This command was likely added to the AI engine by Ensemble Studios early on to test logical operators, such as \"or,\" \"and,\" or \"not.\" This command's usefulness is pretty limited, but scripters might be able to use it creatively. If you want to stop a rule from running, a more effective strategy is to comment out each of the lines in the rule with a semi-colon (;).";
+cFalse.example = [ {
+	title: "The attack-now command in this rule will never execute, even if the AI has more than ten military pop.",
+	data: "(defrule\r\n\t(military-population > 10)\r\n\t(false)\r\n=>\r\n\t(attack-now)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cFalse.commandCategory = ["Other"];
+cFalse.relatedCommands = [cTrue];
+cFalse.relatedSNs = [];
+cFalse.complexity = "Low";
 
 //food-amount
 cFoodAmount.shortDescription = "Checks a computer player's food amount.";
@@ -8138,18 +8139,18 @@ cFoodAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cFoodAmount.example = [ {
+	title: "If we have at least 2000 food and can sell food, then sell food.",
+	data: "(defrule\r\n\t(food-amount >= 2000)\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(sell-commodity food)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cFoodAmount.commandCategory = ["Economy"];
+cFoodAmount.relatedCommands = [cFoodAmount, cGoldAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
+cFoodAmount.relatedSNs = [];
+cFoodAmount.complexity = "Low";
 
 //game-time
 cGameTime.shortDescription = "Checks the game time.";
-cGameTime.description = "Checks the game time. The game time is given in seconds. The fact can be used to make rules time-specific. For example, the computer can become more aggressive after 15 minutes of game time. Note: unlike other commands that have a " + pCompareOp.getLink() + " parameter, the game-time command has a slight bug where you cannot use goal comparison parameters like g:== or g:!=. Only constant or strategic number comparison parameters can be used for the compareOp parameter.";
+cGameTime.description = "Checks the game time, the amount of time elapsed since the start of the game, measured in game seconds. The fact can be used to make rules time-specific. For example, the computer can become more aggressive after 15 minutes of game time. Note: some scripters have reported that unlike other commands that have a " + pCompareOp.getLink() + " operator, the game-time command has a slight bug where you cannot use goal comparison operators like g:== or g:>, and only constant or strategic number comparison operators can be used for the compareOp operator. However, I, Leif Ericson, have used goal gomparison operators successfully. Test before using goal comparison operators with the game-time fact.</p><p>game-time measures the game time in game seconds. The current game time can be found by using F11. Unless the game is being played on Slow speed (1.0 speed), the game time moves faster that real time. Casual speed (Normal speed in single player games in UP) is 1.5 times faster than real time, Normal speed (Normal speed in multiplayer games in UP) is 1.7 times faster than real time, and Fast speed is 2.0 times faster than real time. Even faster speeds are possible with DE launch options (see this <a href=\"https://youtu.be/jGaaQ6FmxiU\">video</a> or with the speedhack option in Cheat Engine, though AI behavior can diminish at faster game speeds.";
 cGameTime.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -8165,14 +8166,14 @@ cGameTime.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cGameTime.example = [ {
+	title: "Send a one-time attack twenty minutes (1200 seconds) into the game.",
+	data: "(defrule\r\n\t(game-time > 1200)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cGameTime.commandCategory = ["Other"];
+cGameTime.relatedCommands = [cCurrentAgeTime, cPlayersCurrentAgeTime, cUpGetPreciseTime];
+cGameTime.relatedSNs = [snHomeExplorationTime];
+cGameTime.complexity = "Low";
 
 //game-type
 cGameType.shortDescription = "Undocumented command that checks the game type.";
@@ -22347,6 +22348,19 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
+	de: 0,
+	civ: "Mayans",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Hul'che Javelineers",
+	aiName: "",
+	weirdName: 0,
+	id: 485,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "Mayans",
 	notes: "can use my-second-unique-research (DE only)"
