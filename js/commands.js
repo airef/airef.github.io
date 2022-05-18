@@ -16969,9 +16969,13 @@ pCiv.valueList = [ {
 	id: 19,
 	description: "Italians. Must define with a defconst before it can be used."
 }, {
+	name: "hindustanis",
+	id: 20,
+	description: "Hindustanis (for DE only). Must define with a defconst before it can be used. Feel free to use \"indian\" as a defconst name instead."
+}, {
 	name: "indian",
 	id: 20,
-	description: "Indians. Must define with a defconst before it can be used."
+	description: "Indians (for HD or WK only). Must define with a defconst before it can be used. Feel free to use \"hindustanis\" as a defconst name instead."
 }, {
 	name: "incan",
 	id: 21,
@@ -17048,6 +17052,18 @@ pCiv.valueList = [ {
 	name: "bohemians",
 	id: 39,
 	description: "Bohemians. Must define with a defconst before it can be used."
+}, {
+	name: "dravidians",
+	id: 40,
+	description: "Dravidians. Must define with a defconst before it can be used."
+}, {
+	name: "bengalis",
+	id: 41,
+	description: "Bengalis. Must define with a defconst before it can be used."
+}, {
+	name: "gurjaras",
+	id: 42,
+	description: "Gurjaras. Must define with a defconst before it can be used."
 } ];
 
 //ClassId
@@ -20156,6 +20172,10 @@ pTargetAction.valueList = [ {
 	name: "action-attack-move",
 	id: 19,
 	description: "Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
+}, {
+	name: "action-transform",
+	id: 20,
+	description: "Only available in DE. Rathas in the local list will switch between melee and ranged mode."
 } ];
 
 //TargetClass
@@ -20735,6 +20755,41 @@ pUnitId.wildcardParam = [ {
 	id: "NA",
 	deId: -235,
 	description: "DE only. Includes bombard-cannon and houfnice."
+}, {
+	name: "urumi-swordsman-line",
+	id: "NA",
+	deId: -234,
+	description: "DE only. Includes urumi-swordsman and elite-urumi-swordsman."
+}, {
+	name: "ratha-melee-line",
+	id: "NA",
+	deId: -233,
+	description: "DE only. Includes ratha-melee and elite-ratha-melee. Does not include rathas in ranged mode."
+}, {
+	name: "chakram-thrower-line",
+	id: "NA",
+	deId: -232,
+	description: "DE only. Includes chakram-thrower and elite-chakram-thrower."
+}, {
+	name: "armored-elephant-line",
+	id: "NA",
+	deId: -231,
+	description: "DE only. Includes armored-elephant and siege-elephant."
+}, {
+	name: "ghulam-line",
+	id: "NA",
+	deId: -230,
+	description: "DE only. Includes ghulam and elite-ghulam."
+}, {
+	name: "shrivamsha-rider-line",
+	id: "NA",
+	deId: -229,
+	description: "DE only. Includes shrivamsha-rider and elite-shrivamsha-rider."
+}, {
+	name: "ranged-ratha-line",
+	id: "NA",
+	deId: -228,
+	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode."
 } ];
 
 //UpgradeId
@@ -20915,6 +20970,19 @@ rangeTechsArray = [ {
 	de: 1,
 	civ: "Berbers",
 	notes: "Available for Berber allies"
+}, {	
+	name: "Elite Elephant Archer",
+	aiName: "ri-elite-elephant-archer",
+	weirdName: 2,
+	id: 481,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "DE only, same tech ID is used for unique unit upgrade for Indians civ in HD/WK"
 }, {	
 	name: "Thumb Ring",
 	aiName: "ri-thumb-ring",
@@ -21390,6 +21458,45 @@ castleTechsArray = [ {
 	civ: "Aztecs",
 	notes: "can use my-unique-research"
 }, {	
+	name: "Elite Ratha",
+	aiName: "ri-elite-ratha",
+	weirdName: 2,
+	id: 828,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bengalis",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Paiks",
+	aiName: "",
+	weirdName: 0,
+	id: 833,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bengalis",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Mahayana",
+	aiName: "",
+	weirdName: 0,
+	id: 834,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Bengalis",
+	notes: "can use my-unique-research"
+}, {	
 	name: "Elite Camel Archer",
 	aiName: "ri-elite-camel-archer",
 	weirdName: 2,
@@ -21492,7 +21599,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Bohemians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Hussite Reforms",
 	aiName: "",
@@ -21531,7 +21638,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Bulgarians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Bagains",
 	aiName: "",
@@ -21570,7 +21677,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Burgundians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Flemish Revolution",
 	aiName: "",
@@ -21765,7 +21872,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Cumans",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Cuman Mercenaries",
 	aiName: "",
@@ -21778,6 +21885,45 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Cumans",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Urumi Swordsman",
+	aiName: "ri-elite-urumi-swordsman",
+	weirdName: 2,
+	id: 826,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Dravidians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Medical Corps",
+	aiName: "",
+	weirdName: 0,
+	id: 831,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Dravidians",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Wootz Steel",
+	aiName: "",
+	weirdName: 0,
+	id: 832,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Dravidians",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Shotel Warrior",
@@ -21843,7 +21989,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Franks",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "available only in Imperial Age in DE, can use my-second-unique-research (DE only)"
 }, {	
 	name: "Bearded Axe",
 	aiName: "",
@@ -21856,7 +22002,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Franks",
-	notes: "can use my-unique-research"
+	notes: "available in Castle Age in DE, can use my-unique-research"
 }, {	
 	name: "Elite Huskarl",
 	aiName: "ri-elite-huskarl",
@@ -21896,6 +22042,84 @@ castleTechsArray = [ {
 	de: 1,
 	civ: "Goths",
 	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Elite Chakram Thrower",
+	aiName: "ri-elite-chakram-thrower",
+	weirdName: 2,
+	id: 830,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Gurjaras",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Kshatriyas",
+	aiName: "",
+	weirdName: 0,
+	id: 835,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Gurjaras",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Frontier Guards",
+	aiName: "",
+	weirdName: 0,
+	id: 836,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Gurjaras",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Ghulam",
+	aiName: "ri-elite-ghulam",
+	weirdName: 2,
+	id: 840,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Hindustanis",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Grand Trunk Road",
+	aiName: "",
+	weirdName: 0,
+	id: 506,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Hindustanis",
+	notes: "DE only, called Sultans in HD/WK for Indians civ, can use my-second-unique-research"
+}, {	
+	name: "Shatagni",
+	aiName: "",
+	weirdName: 0,
+	id: 507,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Hindustanis",
+	notes: "can use my-unique-research, same tech ID is used for Indians tech in HD/WK"
 }, {	
 	name: "Elite Tarkan",
 	aiName: "ri-elite-tarkan",
@@ -21984,9 +22208,9 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Indians",
-	notes: "can use my-unique-unit-upgrade"
+	notes: "HD or WK only, can use my-unique-unit-upgrade, same tech ID is used for Archery Range upgrade in DE"
 }, {	
 	name: "Sultans",
 	aiName: "",
@@ -21997,9 +22221,9 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Indians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "HD or WK only, renamed to Grand Trunk Road in DE"
 }, {	
 	name: "Shatagni",
 	aiName: "",
@@ -22010,9 +22234,9 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Indians",
-	notes: "can use my-unique-research"
+	notes: "HD or WK only, same tech ID is used for Hindustanis Shatagni unique tech, can use my-unique-research"
 }, {	
 	name: "Elite Genoese Crossbowman",
 	aiName: "ri-elite-genoese-crossbowman",
@@ -22194,7 +22418,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Lithuanians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Tower Shields",
 	aiName: "",
@@ -22350,7 +22574,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 0,
 	civ: "Mayans",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "removed in DE"
 }, {	
 	name: "Hul'che Javelineers",
 	aiName: "",
@@ -22363,7 +22587,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Mayans",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "El Dorado",
 	aiName: "",
@@ -22441,7 +22665,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 0,
 	civ: "Persians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "removed in DE"
 }, {	
 	name: "Kamandaran",
 	aiName: "",
@@ -22454,7 +22678,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Persians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Mahouts",
 	aiName: "",
@@ -22493,7 +22717,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Poles",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Lechitic Legacy",
 	aiName: "",
@@ -22560,6 +22784,19 @@ castleTechsArray = [ {
 	civ: "Saracens",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
+	name: "Counterweights",
+	aiName: "",
+	weirdName: 0,
+	id: 454,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Saracens",
+	notes: "can use my-second-unique-research"
+}, {	
 	name: "Madrasah",
 	aiName: "",
 	weirdName: 0,
@@ -22569,9 +22806,9 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Saracens",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "Removed in DE"
 }, {	
 	name: "Zealotry",
 	aiName: "",
@@ -22584,7 +22821,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Saracens",
-	notes: "can use my-unique-research"
+	notes: "available in castle age in DE, can use my-unique-research"
 }, {	
 	name: "Elite Serjeant",
 	aiName: "ri-elite-serjeant",
@@ -22610,7 +22847,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Sicilians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Scutage",
 	aiName: "",
@@ -22638,6 +22875,19 @@ castleTechsArray = [ {
 	civ: "Slavs",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
+	name: "Detinets",
+	aiName: "",
+	weirdName: 0,
+	id: 455,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Slavs",
+	notes: "can use my-second-unique-research"
+}, {	
 	name: "Orthodoxy",
 	aiName: "",
 	weirdName: 0,
@@ -22647,9 +22897,9 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Slavs",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "Removed in DE"
 }, {	
 	name: "Druzhina",
 	aiName: "",
@@ -22727,7 +22977,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Tatars",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Timurid Siegecraft",
 	aiName: "",
@@ -23587,7 +23837,7 @@ stableTechsArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	civ: "Indians",
+	civ: "Hindustanis/Indians",
 	notes: "Renamed Imperial Camel Rider in DE"
 }, {	
 	name: "Elite Battle Elephant",
@@ -23614,6 +23864,19 @@ stableTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Shrivamsha Rider",
+	aiName: "ri-elite-shrivamsha-rider",
+	weirdName: 2,
+	id: 843,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Gurjaras",
 	notes: ""
 }, {	
 	name: "Bloodlines",
@@ -24180,7 +24443,45 @@ objectsRangeArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Used only for can-train and train rules"
-}];	
+}, {	
+	name: "Elephant Archer",
+	aiName: "elephant-archer",
+	line: "elephant-archer-line",
+	id: 873,
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 3,
+	deadUnit: "874",
+	projectile: "1781",
+	chemProjectile: "1782",
+	civ: "",
+	weirdName: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Was Indians unique unit in HD/WK"
+}, {	
+	name: "Elite Elephant Archer",
+	aiName: "elite-elephant-archer",
+	line: "elephant-archer-line",
+	id: 875,
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 4,
+	deadUnit: "1667",
+	projectile: "1781",
+	chemProjectile: "1782",
+	civ: "",
+	weirdName: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Was Indians unique unit in HD/WK"
+} ];	
 	
 objectsBarracksArray = [ {	
 	name: "Militia",
@@ -24564,6 +24865,82 @@ objectsCastleArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Ratha (Ranged)",
+	aiName: "ratha-ranged",
+	line: "ratha-ranged-line",
+	id: 1759,
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1760",
+	projectile: "364",
+	chemProjectile: "375",
+	civ: "Bengalis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Switches to unit ID 1738 when switching to melee mode"
+}, {	
+	name: "Ratha (Melee)",
+	aiName: "ratha-melee",
+	line: "ratha-melee-line",
+	id: 1738,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1739",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Bengalis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Train with unit ID 1759, switches to unit ID 1759 when switching to ranged mode"
+}, {	
+	name: "Elite Ratha (Ranged)",
+	aiName: "elite-ratha-ranged",
+	line: "ratha-ranged-line",
+	id: 1761,
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1760",
+	projectile: "364",
+	chemProjectile: "375",
+	civ: "Bengalis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Switches to unit ID 1740 when switching to melee mode"
+}, {	
+	name: "Elite Ratha (Melee)",
+	aiName: "elite-ratha-melee",
+	line: "ratha-melee-line",
+	id: 1740,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1739",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Bengalis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Train with unit ID 1740, switches to unit ID 1761 when switching to ranged mode"
 }, {
 	name: "Camel Archer",
 	aiName: "camel-archer",
@@ -25020,6 +25397,44 @@ objectsCastleArray = [ {
 	wk: 0,
 	de: 1,
 	notes: "Used only for can-train and train rules"
+}, {	
+	name: "Urumi Swordsman",
+	aiName: "urumi-swordsman",
+	line: "urumi-swordsman-line",
+	id: 1735,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1736",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Dravidians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Urumi Swordsman",
+	aiName: "elite-urumi-swordsman",
+	line: "urumi-swordsman-line",
+	id: 1737,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1736",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Dravidians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {
 	name: "Shotel Warrior",
 	aiName: "shotel-warrior",
@@ -25135,6 +25550,120 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Chakram Thrower",
+	aiName: "chakram-thrower",
+	line: "chakram-thrower-line",
+	id: 1741,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1742",
+	projectile: "1756",
+	chemProjectile: "",
+	civ: "Gurjaras",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Chakram Thrower",
+	aiName: "elite-chakram-thrower",
+	line: "chakram-thrower-line",
+	id: 1743,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1742",
+	projectile: "1756",
+	chemProjectile: "",
+	civ: "Gurjaras",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Huskarl",
+	aiName: "huskarl",
+	line: "huskarl-line",
+	id: 41,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "62",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Goths",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with huskarl-set"
+}, {	
+	name: "Elite Huskarl",
+	aiName: "elite-huskarl",
+	line: "huskarl-line",
+	id: 555,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "62",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Goths",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Ghulam",
+	aiName: "ghulam",
+	line: "ghulam-line",
+	id: 1747,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1748",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Hindustanis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Ghulam",
+	aiName: "elite-ghulam",
+	line: "ghulam-line",
+	id: 1749,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1748",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Hindustanis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Tarkan",
 	aiName: "tarkan",
 	line: "tarkan-line",
@@ -25227,8 +25756,8 @@ objectsCastleArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: ""
+	de: 0,
+	notes: "Moved to archery range in DE"
 }, {	
 	name: "Elite Elephant Archer",
 	aiName: "elite-elephant-archer",
@@ -25246,8 +25775,8 @@ objectsCastleArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: ""
+	de: 0,
+	notes: "Moved to archery range in DE"
 }, {	
 	name: "Genoese Crossbowman",
 	aiName: "genoese-crossbowman",
@@ -26410,6 +26939,25 @@ objectsDockArray = [ {
 	de: 1,
 	notes: "Requires Chemistry"
 }, {	
+	name: "Thirisadai",
+	aiName: "thirisadai",
+	line: "",
+	id: 1750,
+	class: "warship-class",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 4,
+	deadUnit: "",
+	projectile: "373, 1779",
+	chemProjectile: "471, 1780",
+	civ: "Dravidians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Turtle Ship",
 	aiName: "turtle-ship",
 	line: "turtle-ship-line",
@@ -26781,6 +27329,44 @@ objectsSiegeWorkshopArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Armored Elephant",
+	aiName: "armored-elephant",
+	line: "armored-elephant-line",
+	id: 1744,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 3,
+	deadUnit: "1745",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Siege Elephant",
+	aiName: "siege-elephant",
+	line: "armored-elephant-line",
+	id: 1746,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "1745",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Mangonel",
 	aiName: "mangonel",
 	line: "mangonel-line",
@@ -27087,7 +27673,26 @@ objectsStableArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Camel",
+	name: "Camel Scout",
+	aiName: "camel-scout",
+	line: "camel-line",
+	id: 1755,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 2,
+	deadUnit: "1668",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Gurjaras",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Camel [Rider]",
 	aiName: "camel",
 	line: "camel-line",
 	id: 329,
@@ -27106,7 +27711,7 @@ objectsStableArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Heavy Camel",
+	name: "Heavy Camel [Rider]",
 	aiName: "heavy-camel",
 	line: "camel-line",
 	id: 330,
@@ -27125,7 +27730,7 @@ objectsStableArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Imperial Camel",
+	name: "Imperial Camel [Rider]",
 	aiName: "imperial-camel",
 	line: "camel-line",
 	id: 207,
@@ -27136,7 +27741,7 @@ objectsStableArray = [ {
 	deadUnit: "300",
 	projectile: "",
 	chemProjectile: "",
-	civ: "Indians",
+	civ: "Hindustanis/Indians",
 	weirdName: 2,
 	aok: 0,
 	tc: 0,
@@ -27213,6 +27818,44 @@ objectsStableArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Shrivamsha Rider",
+	aiName: "shrivamsha-rider",
+	line: "shrivamsha-rider-line",
+	id: 1751,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 3,
+	deadUnit: "1752",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Gurjaras",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Shrivamsha Rider",
+	aiName: "elite-shrivamsha-rider",
+	line: "shrivamsha-rider-line",
+	id: 1753,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "1752",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Gurjaras",
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
@@ -28819,6 +29462,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1445"
+}, {	
+	name: "Caravanserai",
+	aiName: "caravanserai",
+	line: "",
+	id: 1754,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1529",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Hindustanis",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {
 	name: "Feitoria",
 	aiName: "feitoria",
@@ -31731,6 +32393,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "Dawn of the Dukes DLC only"
 }, {	
+	name: "Amoghavarsha",
+	aiName: "",
+	line: "",
+	id: "1763",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1736",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
+}, {	
 	name: "Archbishop",
 	aiName: "",
 	line: "",
@@ -32491,6 +33172,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "General Araiyan",
+	aiName: "",
+	line: "",
+	id: "1766",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1767",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
+}, {	
 	name: "Genghis Khan",
 	aiName: "",
 	line: "",
@@ -32794,6 +33494,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Ibrahim Lodi",
+	aiName: "",
+	line: "",
+	id: "1771",
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1277",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
 }, {	
 	name: "Imam",
 	aiName: "",
@@ -33498,6 +34217,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "Dawn of the Dukes DLC only"
 }, {	
+	name: "Mihiro Bhoja",
+	aiName: "",
+	line: "",
+	id: "1762",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "870",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
+}, {	
 	name: "Miklos Toldi",
 	aiName: "",
 	line: "",
@@ -33802,6 +34540,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1627"
 }, {	
+	name: "Qutlugh",
+	aiName: "",
+	line: "",
+	id: "1769",
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1770",
+	projectile: "477",
+	chemProjectile: "475",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
+}, {	
 	name: "Raden Wijaya",
 	aiName: "",
 	line: "",
@@ -33820,6 +34577,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Rajendra Chola",
+	aiName: "",
+	line: "",
+	id: "1764",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1765",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
 }, {	
 	name: "Reynald de Chatillon",
 	aiName: "",
@@ -34086,6 +34862,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1337"
+}, {	
+	name: "Shaybani Khan",
+	aiName: "",
+	line: "",
+	id: "1772",
+	class: "cavalry-archer-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1289",
+	projectile: "477",
+	chemProjectile: "475",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
 }, {	
 	name: "Sheriff of Nottingham",
 	aiName: "",
@@ -34732,6 +35527,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1625"
+}, {	
+	name: "Young Babur",
+	aiName: "",
+	line: "",
+	id: "1768",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "495",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Dynasties of India DLC only"
 }, {	
 	name: "Young Jagwiga",
 	aiName: "",
