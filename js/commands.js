@@ -20764,7 +20764,7 @@ pUnitId.wildcardParam = [ {
 	name: "ratha-melee-line",
 	id: "NA",
 	deId: -233,
-	description: "DE only. Includes ratha-melee and elite-ratha-melee. Does not include rathas in ranged mode."
+	description: "DE only. Includes ratha-melee and elite-ratha-melee. Does not include rathas in ranged mode. Use ratha-set to include ranged rathas."
 }, {
 	name: "chakram-thrower-line",
 	id: "NA",
@@ -20786,10 +20786,10 @@ pUnitId.wildcardParam = [ {
 	deId: -229,
 	description: "DE only. Includes shrivamsha-rider and elite-shrivamsha-rider."
 }, {
-	name: "ranged-ratha-line",
+	name: "ratha-ranged-line",
 	id: "NA",
 	deId: -228,
-	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode."
+	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode. Use ratha-set to include melee rathas."
 } ];
 
 //UpgradeId
@@ -24883,7 +24883,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Switches to unit ID 1738 when switching to melee mode"
+	notes: "Can be counted with ratha-set, switches to unit ID 1738 when switching to melee mode"
 }, {	
 	name: "Ratha (Melee)",
 	aiName: "ratha-melee",
@@ -24902,7 +24902,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Train with unit ID 1759, switches to unit ID 1759 when switching to ranged mode"
+	notes: "Train with unit ID 1759, can be counted with ratha-set, switches to unit ID 1759 when switching to ranged mode"
 }, {	
 	name: "Elite Ratha (Ranged)",
 	aiName: "elite-ratha-ranged",
@@ -24921,7 +24921,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Switches to unit ID 1740 when switching to melee mode"
+	notes: "Can be counted with ratha-set, switches to unit ID 1740 when switching to melee mode"
 }, {	
 	name: "Elite Ratha (Melee)",
 	aiName: "elite-ratha-melee",
@@ -24940,7 +24940,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Train with unit ID 1740, switches to unit ID 1761 when switching to ranged mode"
+	notes: "Train with unit ID 1740, can be counted with ratha-set, switches to unit ID 1761 when switching to ranged mode"
 }, {
 	name: "Camel Archer",
 	aiName: "camel-archer",

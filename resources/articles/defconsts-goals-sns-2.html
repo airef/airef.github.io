@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<title>Part 2: Defconsts</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Defconsts, Goals, and SNs - Part 2: Defconsts</h2>
+
+			<h3>What are Defconsts?</h3>
+
+			<p>The key point from the previous section is that everything in AI code is essentially a number, and if your AI code uses non-numeric stuff in its commands then the AI engine has to know how to translate them into numbers. This is why the AI engine will give your AI script an "Invalid Identifier" error if you ever make a spelling mistake, because it doesn't know how to translate the word into a number. There are many words and phrases, like "archer" and "any-enemy" that are internally defined in the AI engine, meaning they have been pre-assigned a number by the AI engine that it knows it can translate the words into.</p>
+
+			<p>So, does this mean you can only use words and symbols that have been defined internally in the AI engine? No, and that's where defconsts come in. Defconsts are like a way to add a word or phrase to the AI engine's dictionary, though it only applies for your AI script. "defconst" is short for "defined constant." The constant part of the word comes from the programming world, which refers to a constant variable, a variable assigned a name by the programmer whose value remains constant and can never change (yes, "constant variable" is an oxymoron, and don't ask me why programmers called it that). Just like how "archer" always means "4" to the AI engine, any defconsts you make will always be translated into the same value by the AI engine. Once you have created a defconst, you can use the name of that defconst anywhere you like later on in the script.</p>
+
+			<h3>Using Defconsts</h3>
+
+			<p>Time for an example. In conjunction with our earlier example, we could create a defconst like this to specify the number of enemy archers that our AI will consider a threat: <span class="inline-example">(defconst ARCHER-THREAT-AMOUNT 5)</span>. Defconsts are always defined outside of rules. The syntax starts with the word "defconst," followed by the name you want to call the defconst (the uppercase name is just an optional programming convention), followed by the value you want the AI script to translate the name into when the script is compiled. So, this defconst tells the AI compiler to always translate every instance of "ARCHER-THREAT-AMOUNT" in the AI script to the value 5 when the script is compiled. This means that <span class="inline-example">(players-unit-type-count any-enemy archer < 5)</span> and <span class="inline-example">(players-unit-type-count any-enemy archer < ARCHER-THREAT-AMOUNT)</span> are treated identically by the AI engine. You can even do something nonsensical like this following example, but the AI engine will still treat it as valid: <span class="inline-example">(players-unit-type-count ARCHER-THREAT-AMOUNT archer < ARCHER-THREAT-AMOUNT)</span>. Since the players-unit-type-count command expects the first parameter to be a player number, the command will treat the first instance of ARCHER-THREAT-AMOUNT in the command as the player number 5. So, this command will check if player 5 has less than five archers. The AI engine doesn't "know" that you want to use ARCHER-THREAT-AMOUNT as a value that represents the number of enemy archers that constitute a threat, it just knows that ARCHER-THREAT-AMOUNT == 5, so it will just blindly convert the defconst to 5 wherever it sees it used	.</p>
+				
+			<p>One advantage of using a defconst is that if you use <span class="inline-example">(players-unit-type-count any-enemy archer < ARCHER-THREAT-AMOUNT)</span> in several locations in your AI, but you want to increase the number of archers your AI considers to be a threat from 5 to 7, all you have to do is update your defconst command to <span class="inline-example">(defconst ARCHER-THREAT-AMOUNT 7)</span>. If you had instead used <span class="inline-example">(players-unit-type-count any-enemy archer < 5)</span> without the defconst, you'd have to update each instance of this command in your script (and who knows, you might even forget about one of the places you used the command and fail to update it, and now your AI's code is inconsistent).</p>
+
+			<p>So, defconsts have two main uses. First, it can make your AI code easier to update and modify. Second, it can also make your AI more readable. This readability aspect is the main reason why defconsts are often used with goals, and we'll get into goals next.</p>
+
+			<h3>Index</h3>
+			<ul><li><a href="./defconsts-goals-sns-1.html">Part 1: The Engine is a Numberphile</a></li>
+				<li>Part 2: Defconsts</li>
+				<li>Part 3: Goals (in progress)</li>
+				<li>Part 4: Strategic Numbers (in progress)</li>
+				<li>Part 5: The c:, g:, and s: Operators (in progress)</li></ul>
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
