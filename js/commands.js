@@ -23682,6 +23682,19 @@ siegeWorkshopTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Siege Elephant",
+	aiName: "ri-siege-elephant",
+	weirdName: 0,
+	id: 838,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Onager",
 	aiName: "ri-onager",
 	weirdName: 0,
