@@ -18679,6 +18679,26 @@ pObjectData.valueList = [ {
 	name: "object-data-capture-flag*",
 	id: 84,
 	description: "DE only. Must be defined with a defconst before use with (defconst object-data-capture-flag 84). The capture type of an object owned by gaia or another player. 0 = capture never, 1 = capture once, 2 = capture multiple times, 3 = capture livestock/artifact. Returns -2 on UP or WK."
+}, {
+	name: "object-data-charge-attack-type*",
+	id: 85,
+	description: "DE only. Must be defined with a defconst before use with (defconst object-data-charge-attack-type 85). Gets the charge attack type. Returns -2 on UP or WK."
+}, {
+	name: "object-data-charge-attack-max*",
+	id: 86,
+	description: "DE only. Gets the maximum charge attack value (x100). Returns -2 on UP or WK."
+}, {
+	name: "object-data-charge-attack-amount*",
+	id: 87,
+	description: "DE only. Must be defined with a defconst before use with (defconst object-data-charge-attack-amount 87). Gets the selected object current charge attack amount (x100). Returns -2 on UP or WK."
+}, {
+	name: "object-data-charge-attack-regeneration-rate*",
+	id: 88,
+	description: "DE only. Must be defined with a defconst before use with (defconst object-data-charge-attack-regeneration-rate 88). Gets the regeneration rate of a charge attack (x100). Returns -2 on UP or WK."
+}, {
+	name: "object-data-charge-attack-event-type*",
+	id: 89,
+	description: "DE only. Must be defined with a defconst before use with (defconst object-data-charge-attack-event-type 89). Gets the charge attack event type. Returns -2 on UP or WK."
 } ];
 
 //ObjectId

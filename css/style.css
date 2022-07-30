@@ -33,7 +33,7 @@ img.logo {
 
 ul.navbar {
 	list-style-type: none;
-	margin: 20px 0;
+	margin: 20px 0 0px 0;
 	padding: 0;
 	overflow: hidden;
 	background-color: #a28a65;
@@ -66,6 +66,39 @@ ul.navbar li a:hover, ul.footer li a:hover {
 
 #active {
 	background-color: #932;
+}
+
+.quick-links {
+	margin: 10px 0 0 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.quick-links-text-div, .quick-links-list-div {
+	display: inline-block;
+}
+
+p.quick-links-text {
+	display: inline-block;
+	vertical-align: top;
+	font: 9pt "Segoe UI", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+ul.quick-links-list {
+	display: inline-block;
+	vertical-align: top;
+	list-style-type: "|";
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+li.quick-links-list-item {
+	font: 9pt "Segoe UI", Arial, sans-serif;
+	float: left;
+	padding: 0 8px 0 4px;
 }
 
 .content {
