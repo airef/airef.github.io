@@ -27934,7 +27934,7 @@ objectsTownCenterArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "Can be counted with villager-base, which will only include idle or attacking villagers"
+	notes: "Can be counted with villager-base, which will only include attacking villagers or villagers never assigned to a task"
 }, {	
 	name: "Villager (Female)",
 	aiName: "",
@@ -27953,7 +27953,7 @@ objectsTownCenterArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: "Can be counted with villager-base, which will only include idle or attacking villagers"
+	notes: "Can be counted with villager-base, which will only include attacking villagers or villagers never assigned to a task"
 }, {	
 	name: "Builder (Female)",
 	aiName: "",

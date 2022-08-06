@@ -19,6 +19,7 @@ navContent += '<div class="header">';
 		navContent += '<div class="quick-links-text-div"><p class="quick-links-text"><strong>Quick Links: </strong></p></div>'
 		navContent += '<div class="quick-links-list-div"><ul class="quick-links-list">';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#ClassId">Classes</a></li>';
+			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#compareOp">Comparison Operations</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#TargetAction">DUC Actions</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#FactId">Fact IDs</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/load-if.html">#load-if Symbols</a></li>';
@@ -28,7 +29,6 @@ navContent += '<div class="header">';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#ResourceAmount">Resource Types</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/techs.html">Techs Table</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#UnitId">Unit Lines</a></li>';
-			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/up-patch-notes.html">UP Patch Notes</a></li>';
 		navContent += '</ul></div>';
 	navContent += '<hr></div>';
 document.getElementById("nav-placeholder").innerHTML = navContent;
