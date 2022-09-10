@@ -8019,7 +8019,7 @@ cEnableWallPlacement.commandParameters = [ {
 } ];
 cEnableWallPlacement.example = [ {
 	title: "Enable wall placement for perimeter 2.",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(enable-wall-placement 2)\r\n\t(disable-self)\r\n)"
 } ];
 cEnableWallPlacement.commandCategory = ["Buildings", "Walls & Gates"];
 cEnableWallPlacement.relatedCommands = [cCanBuildWall, cCanBuildWallWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cBuildWall, cBuildGate];
