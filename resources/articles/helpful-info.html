@@ -27,6 +27,7 @@
 				<li><a href="#sn-boar-hunting">Boar Hunting With Strategic Numbers</a></li>
 				<li><a href="#building-construction-distances">Building Construction Min/Max Distances</a></li>
 				<li><a href="#building-system">Explanation of Building System</a></li>
+				<li><a href="#gurjara-sheep-garrison">How to Garrison Sheep in Gurjara Mills</a></li>
 			</ul>
 			<hr>
 			<h3 id="local-targeting">How Local Targets Are Chosen</h3>
@@ -161,6 +162,12 @@
 				<li>building-type-count building + 1</li>
 				<li>building-specific block is disabled</li></ul>
 				<p>Now you can see what happens if the process is interrupted: the building-specific block is never removed. I changed the process to conditionally remove the block after the building foundation is placed, instead of after it has completed, if the user has opted in to the new system.</p>
+			</blockquote>
+			<hr>
+			<h3 id="gurjara-sheep-garrison">How to Garrison Sheep in Gurjara Mills</h3>
+			<p>The Dynasties of India DLC for DE added the Gurjaras civilization which allows them to garrison sheep in mills to generate food like relics stored in monasteries. offwo gave instructions on how to garrison sheep in mills and how to overcome the default behavior where buildings without a gather point placed on itself will immediately ungarrison units when not under attack.</p>
+			<blockquote>
+				<p>One other thing I should mention: to garrison sheep in mills as Gurjaras you should either use <a href="../../commands/commands-details.html#up-garrison">up-garrison</a> + <a href="../../commands/commands-details.html#up-gather-inside">up-gather-inside</a> or DUC. If you use DUC you will also need to use action-gather [with <a href="../../commands/commands-details.html#up-target-objects">up-target-objects</a>] to set the gather point of the mill to itself, otherwise the sheep get instantly ejected.</p>
 			</blockquote>
 			<hr>
 
