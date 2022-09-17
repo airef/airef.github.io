@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+	<title>The Twelve Strategic Number Settings You Must Change Immediately</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>The Twelve Strategic Number Settings You Must Change Immediately</h2>
+			<p>I hope you enjoy clickbaity titles. Each strategic number has a default setting that the developers decided was the best setting in most cases. However, some of these default settings actually make no sense and cause frustration for many new scripters. Here is a list of strategic numbers you should change in your AI if you haven't already.</p>
+			<h3>Example Code</h3>
+			<p>Here is some code you can quickly copy and paste into your AI to change the SN defaults to the values recommended in this article.</p>
+			<div class="example"><pre><code>(defrule
+	(true)
+=>
+	(set-strategic-number sn-cap-civilian-builders 200)
+	(set-strategic-number sn-consecutive-idle-unit-limit 0)
+	(set-strategic-number sn-do-not-scale-for-difficulty-level 1)
+	(set-strategic-number sn-enable-patrol-attack 1)
+	(set-strategic-number sn-initial-exploration-required 0)
+	(set-strategic-number sn-maximum-fish-boat-drop-distance 30)
+	(set-strategic-number sn-maximum-food-drop-distance 20)
+	(set-strategic-number sn-maximum-gold-drop-distance 20)
+	(set-strategic-number sn-maximum-hunt-drop-distance 30)
+	(set-strategic-number sn-maximum-stone-drop-distance 20)
+	(set-strategic-number sn-scale-minimum-attack-group-size 0)
+	(set-strategic-number sn-task-ungrouped-soldiers 0)
+	(disable-self)
+)</code></pre></div>
+			<h3>sn-cap-civilian-builders</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-cap-civilian-builders">sn-cap-civilian-builders</a> sets the maximum number of total villagers that the AI will use to construct buildings. I suggest 200, but really any reasonably high number is fine. -1 might also work. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.</p>
+			<h3>sn-consecutive-idle-unit-limit</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-consecutive-idle-unit-limit">sn-consecutive-idle-unit-limit</a> sets the number of seconds an attacking or exploring group will sit idle after finishing a task before it will be assigned a new one. The default is 15. Especially if you don't use <a href="../../commands/command-details.html#attack-now"></a> or attack groups to attack, the primary effect of this SN is that if an exploring unit is given a non-exploring task, such as claiming sheep with DUC, it will wait 15 seconds before going back to exploring once it finished its non-exploring task. To remove this delay, you want this SN to be 0. As far as I know, there is no downside to setting this SN to 0.</p>
+			<h3>sn-do-not-scale-for-difficulty-level</h3>
+			<p>If set to 0, <a href="../../strategic-numbers/sn-details.html#sn-do-not-scale-for-difficulty-level">sn-do-not-scale-for-difficulty level</a> automatically reduces the values of certain SNs depending on the difficulty level to make the AI weaker on lower difficulty levels. See the link to the SN page for which SNs are affected. The effects are more dramatic in scenarios. I recommend setting this SN to 1 so that you have direct control over how your AI gets weaker or stronger depending on the difficulty level and you aren't surprised when your AI doesn't send all of its soldiers to attack.</p>
+			<h3>sn-enable-patrol-attack</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-enable-patrol-attack">sn-enable-patrol-attack</a> allows attacking or defending soldiers that aren't in formation to attack enemy units along the way to their target. It doesn't cause your AI to put soldiers into formation and patrol a formed group toward the enemy, as the name might suggest. If you use one-soldier attack groups or TSA, you'll almost always want to set this SN to 1. This SN was added in the Userpatch, where the SN defaults were often set to whatever behavior caused no change in AI gameplay so that any non-UP AIs that were running in UP games would not have different behavior than they did before UP. There may be cases, such where you may want to keep this SN at zero, such as if your AI is trying to raid or if the enemy has a forward tower that you want to ignore, so that your soldiers will march all the way to their attack target without getting sidetracked.</p>
+			<h3>sn-initial-exploration-required</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-initial-exploration-required">sn-initial-exploration-required</a> sets a minimum percentage of the map that must be explored before the AI can construct any buildings. The default is 2%. On larger maps this can cause your AI to significantly delay the construction of its first houses. Just set this SN to 0 and forget about it. The default value is annoying and causes a lot of hair-pulling until the scripter realizes they didn't change this SN.</p>
+			<h3>sn-maximum-xxxx-drop-distance SNs</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-maximum-fish-boat-drop-distance">sn-maximum-fish-boat-drop-distance</a>, <a href="../../strategic-numbers/sn-details.html#sn-maximum-food-drop-distance">sn-maximum-food-drop-distance</a>, <a href="../../strategic-numbers/sn-details.html#sn-maximum-gold-drop-distance">sn-maximum-gold-drop-distance</a>, <a href="../../strategic-numbers/sn-details.html#sn-maximum-hunt-drop-distance">sn-maximum-hunt-drop-distance</a>, <a href="../../strategic-numbers/sn-details.html#sn-maximum-stone-drop-distance">sn-maximum-stone-drop-distance</a>, and <a href="../../strategic-numbers/sn-details.html#sn-maximum-wood-drop-distance">sn-maximum-wood-drop-distance</a> control the maximum distance that a villager will walk from a dropsite to gather the corresponding resources. If the resource is further than the SN distance, the resource will not be gathered. The default of each of these SNs is -1, meaning the SN is ignored by default. This can allow the AI's villager to walk all the way across the map to gather resources if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 20 or 30, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.</p>
+			<h3>sn-scale-minimum-attack-group-size</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-scale-minimum-attack-group-size">sn-scale-minimum-attack-group-size</a> affects the minimum size of attack groups. Specifically, it automatically increases <a href="../../strategic-numbers/sn-details.html#sn-minimum-attack-group-size">sn-minimum-attack-group-size</a> by the value of sn-scale-minimum-attack-group-size every X minutes, where X is the value of <a href="../../strategic-numbers/sn-details.html#sn-scaling-frequency">sn-scaling-frequency</a>. If kept at the default of 1 and sn-scaling-frequency is kept at the default value of 10, then sn-minimum-attack-group-size will increase by 1 every 10 minutes. This behavior on its own isn't a big deal, but the default value of the corresponding SN <a href="../../strategic-numbers/sn-details.html#sn-scale-maximum-attack-group-size">sn-scale-maximum-attack-group-size</a> is zero, meaning that sn-maximum-attack-group-size isn't automatically increased in the same manner, and eventually sn-minimum-attack-group-size can exceed sn-maximum-attack-group-size. My understanding is that this will prevent attack groups from being sent, since it is impossible for attack groups to have a valid size in this situation. Even if attack groups are still sent, it is more straightforward for scripters to set sn-scale-minimum-attack-group-size to zero and to increase sn-minimum-attack-group-size directly over time.</p>
+			<h3>sn-task-ungrouped-soldiers</h3>
+			<p>When set to the default value of 1, <a href="../../strategic-numbers/sn-details.html#sn-task-ungrouped-soldiers">sn-task-ungrouped-soldiers</a> requires all idle military units to keep a certain distance from each other, usually around 4-6 tiles. The AI will check every few seconds, and if it finds units that are too close together, it will order those units to spread out. In practice, it makes units look like the are slowly wandering around the town in a random pattern, and if the AI has a large army, these soldiers may spread out a far distance away from the center of the AI's town. In most cases the behavior of sn-task-ungrouped-soldiers is undesirable, and setting the SN to zero is better. However, some scripters will temporarily set this SN to 1 every minute or so to prevent soldiers from clumping around their training buildings after being trained.</p>
+			<hr>
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>

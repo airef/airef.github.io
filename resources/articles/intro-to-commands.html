@@ -52,7 +52,7 @@
 			<li><a href="../../parameters/parameters-details.html#typeOp">typeOp</a> - a type operator. This operator is either 'c:', 'g:', or 's:'. This operator determines whether the next parameter in the command should be treated as a constant, goal, or strategic number.</li></ul>
 			<p>Here is an example that uses a goal operator: 'g:>'. This code will only send the message if an enemy has more than 2 castles (the value stored in gl-castle-amount).</p>
 			<div class="example"><pre><code>(defconst gl-castle-amount 100)
-(defrule)
+(defrule
 	(true)
 =>
 	(set-goal gl-castle-amount 2)
