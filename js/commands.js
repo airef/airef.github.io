@@ -6250,7 +6250,7 @@ cAttackWarboatCount.example = [ {
 	title: "Check to see if we have at least 5 warboats attacking with attack-now.",
 	data: "(defrule\r\n\t(attack-warboat-count >= 5)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cAttackWarboatCount.commandCategory = ["Attack", "Counting", "Water"];
+cAttackWarboatCount.commandCategory = ["Attack", "Counting"];
 cAttackWarboatCount.relatedCommands = [cAttackSoldierCount, cDefendSoldierCount, cDefendWarboatCount, cSoldierCount, cWarboatCount];
 cAttackWarboatCount.relatedSNs = [snNumberBoatAttackGroups, snPercentAttackBoats];
 cAttackWarboatCount.complexity = "Low";
@@ -6499,7 +6499,7 @@ cBuyCommodity.example = [ {
 	title: "Buy 100 food if the AI has enough gold to do so.",
 	data: "(defrule\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
-cBuyCommodity.commandCategory = ["Economy", "Trade & Tribute"];
+cBuyCommodity.commandCategory = ["Economy", "Trading"];
 cBuyCommodity.relatedCommands = [cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
 cBuyCommodity.complexity = "Low";
@@ -6740,7 +6740,7 @@ cCanBuyCommodity.example = [ {
 	title: "Checks to see if the AI has a market and enough gold to buy 100 wood.",
 	data: "(defrule\r\n\t(can-buy-commodity wood)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trade & Tribute"];
+cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
 cCanBuyCommodity.relatedCommands = [cBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCanBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
 cCanBuyCommodity.complexity = "Low";
@@ -6812,7 +6812,7 @@ cCanSellCommodity.example = [ {
 	title: "Checks to see if the AI has a market and 100 food that it can sell.",
 	data: "(defrule\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trade & Tribute"];
+cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
 cCanSellCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCanSellCommodity.relatedSNs = [snMinimumAmountForTrading];
 cCanSellCommodity.complexity = "Low";
@@ -7562,7 +7562,7 @@ cClearTributeMemory.example = [ {
 	title: "If the AI has received 500 food from a human player, clear the food tribute memory from this player and change diplomatic stance toward the human player to ally.",
 	data: "(defrule\r\n\t(players-tribute-memory any-human food >= 500)\r\n=>\r\n\t(clear-tribute-memory this-any-human food)\r\n\t(set-stance this-any-human ally)\r\n)"
 } ];
-cClearTributeMemory.commandCategory = ["Trade & Tribute"];
+cClearTributeMemory.commandCategory = ["Diplomacy"];
 cClearTributeMemory.relatedCommands = [cPlayersTribute, cPlayersTributeMemory];
 cClearTributeMemory.relatedSNs = [];
 cClearTributeMemory.complexity = "Low";
@@ -7596,7 +7596,7 @@ cCommodityBuyingPrice.example = [ {
 	title: "Buy food if the current food buying price is below 200.",
 	data: "(defrule\r\n\t(can-buy-commodity food)\r\n\t(commodity-buying-price food < 200)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
-cCommodityBuyingPrice.commandCategory = ["Economy", "Trade & Tribute"];
+cCommodityBuyingPrice.commandCategory = ["Economy", "Trading"];
 cCommodityBuyingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCommodityBuyingPrice.relatedSNs = [];
 cCommodityBuyingPrice.complexity = "Low";
@@ -7630,7 +7630,7 @@ cCommoditySellingPrice.example = [ {
 	title: "Sell wood if the current wood selling price is above 25.",
 	data: "(defrule\r\n\t(can-sell-commodity wood)\r\n\t(commodity-selling-price wood > 25)\r\n=>\r\n\t(sell-commodity wood)\r\n)"
 } ];
-cCommoditySellingPrice.commandCategory = ["Economy", "Trade & Tribute"];
+cCommoditySellingPrice.commandCategory = ["Economy", "Trading"];
 cCommoditySellingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCommoditySellingPrice.relatedSNs = [];
 cCommoditySellingPrice.complexity = "Low";
@@ -8939,7 +8939,7 @@ cPlayersStance.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cPlayersStance.commandCategory = ["Other Player Info"];
+cPlayersStance.commandCategory = ["Diplomacy", "Other Player Info"];
 /*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -8980,7 +8980,7 @@ cPlayersTribute.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cPlayersTribute.commandCategory = ["Other Player Info"];/*
+cPlayersTribute.commandCategory = ["Diplomacy", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9021,7 +9021,7 @@ cPlayersTributeMemory.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cPlayersTributeMemory.commandCategory = ["Other Player Info"];/*
+cPlayersTributeMemory.commandCategory = ["Diplomacy", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9342,7 +9342,7 @@ cSellCommodity.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cSellCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
+cSellCommodity.commandCategory = ["Economy", "Trading"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9957,7 +9957,7 @@ cTributeToPlayer.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cTributeToPlayer.commandCategory = ["Trade & Tribute"];/*
+cTributeToPlayer.commandCategory = ["Diplomacy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9969,7 +9969,7 @@ cTrue.description = "A Fact that is always true, often used as a placeholder for
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cTrue.commandCategory = ["True"];/*
+cTrue.commandCategory = ["Other"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10921,7 +10921,7 @@ cUpBuyCommodity.example = [{
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-buy-commodity c: food c: 300)\r\n)"
 } ];
 cUpBuyCommodity.relatedCommands = [];
-cUpBuyCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
+cUpBuyCommodity.commandCategory = ["Economy", "Trading"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -15460,7 +15460,7 @@ cUpSellCommodity.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-sell-commodity c: wood c: 200)\r\n)"
 } ];
 cUpSellCommodity.relatedCommands = [];
-cUpSellCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
+cUpSellCommodity.commandCategory = ["Economy", "Trading"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -16055,7 +16055,7 @@ cUpStorePlayerName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-player-name focus-player)\r\n\t(up-chat-data-to-all &quot;Player: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStorePlayerName.relatedCommands = [];
-cUpStorePlayerName.commandCategory = ["Other PlayerInfo", "Text Data"];/*
+cUpStorePlayerName.commandCategory = ["Other Player Info", "Text Data"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -16359,7 +16359,7 @@ cUpTributeToPlayer.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-focus-player-number 2)\r\n\t(up-tribute-to-player focus-player food c: 100)\r\n)"
 } ];
 cUpTributeToPlayer.relatedCommands = [];
-cUpTributeToPlayer.commandCategory = ["Trade & Tribute"];/*
+cUpTributeToPlayer.commandCategory = ["Diplomacy"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
