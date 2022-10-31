@@ -18,31 +18,41 @@
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
 		<p>
-			<label for="commandsInput" class="input-label">Search</label>
+			<label for="commandsInput" class="commands-input-label">Search</label>
+			<label for="command-category" class="dropdown-label">Category</label>
 			<label for="command-type" class="dropdown-label">Type</label>
 			<label for="command-version" class="dropdown-label">Version</label>
 			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off" autofocus="autofocus">
-			<!--<select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off">
+			<select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off">
 				<option value="All" selected>All</option>
 				<option value="DUC">DUC</option>
-				<option value="Attack & Defense">Attack & Defense</option>
-				<option value="Build & Train">Build & Train</option>
+				<option value="DUC Groups">DUC Groups</option>
+				<option value="Attack">Attack</option>
+				<option value="Buildings">Buildings</option>
 				<option value="Can Do">Can Do</option>
 				<option value="Chat">Chat</option>
-				<option value="Costs">Costs</option>
+				<option value="Cheat">Cheats</option>
+				<option value="Cost Data">Cost Data</option>
 				<option value="Counting">Counting</option>
-				<option value="Data">Data</option>
+				<option value="Defense">Defense</option>
 				<option value="Economy">Economy</option>
-				<option value="Jumps">Jumps</option>
-				<option value="Map Info">Map Info</option>
-				<option value="Own Info">Own Info</option>
-				<option value="Player Info">Player Info</option>
+				<option value="Game Info">Game Info</option>
+				<option value="Goals">Goals</option>
+				<option value="Other Player Info">Other Player Info</option>
+				<option value="Own Player Info">Own Player Info</option>
+				<option value="Player Facts">Player Facts</option>
 				<option value="Points">Points</option>
-				<option value="Town">Town</option>
-				<option value="Walls">Walls</option>
-				<option value="Water">Water</option>
+				<option value="Rule Jumps">Rule Jumps</option>
+				<option value="Scenarios">Scenarios</option>
+				<option value="SNs">Strategic Numbers</option>
+				<option value="Techs">Technologies</option>
+				<option value="Text Data">Text Data</option>
+				<option value="Timers">Timers</option>
+				<option value="Trade & Tribute">Trade & Tribute</option>
+				<option value="Units">Units</option>
+				<option value="Walls & Gates">Walls & Gates</option>
 				<option value="Other">Other</option>
-			</select>-->
+			</select>
 			<select id="command-type" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Type">
 				<option value="All" selected>All</option>
 				<option value="Fact">Fact</option>
@@ -89,9 +99,10 @@
 	<script>
 		function commandsFilter() {
 			// Declare variables
-			var input, category, type, version, filter, table, tr, tdName, tdType, tdVersion, i, txtValue;
+			var input, category, type, version, filter, table, tr, tdName, tdCategory, tdType, tdVersion, i, j, txtValue;
 			input = document.getElementById("commandsInput");
-			category = document.getElementById("commandCategory");
+			category = document.getElementById("command-category");
+			category = category.value;
 			type = document.getElementById("command-type");
 			version = document.getElementById("command-version");
 			filter = input.value.toUpperCase();
@@ -108,19 +119,25 @@
 				if (tdName) {
 					txtValue = tdName.textContent || tdName.innerText;
 					if (txtValue.toUpperCase().indexOf(filter) > -1 && tdType) {
-						txtValue = tdType.textContent || tdType.innerText;
-						if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
-							txtValue = tdVersion.textContent || tdVersion.innerText;
-							if(version.value == "All" || txtValue == version.value) {
-								tr[i].style.display = "";
-								num = num + 1;
+						for (j = 0; j < commandsArray[i-1].commandCategory.length; j++) {
+							txtValue = commandsArray[i-1].commandCategory[j];
+							if(category == "All" || category == txtValue) {
+								txtValue = tdType.textContent || tdType.innerText;
+								if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
+									txtValue = tdVersion.textContent || tdVersion.innerText;
+									if(version.value == "All" || txtValue == version.value) {
+										tr[i].style.display = "";
+										num = num + 1;
+									}
+									else {
+										tr[i].style.display = "none";
+									}
+								}
+								break;
 							}
 							else {
 								tr[i].style.display = "none";
 							}
-						}
-						else {
-							tr[i].style.display = "none";
 						}
 					}
 					else {

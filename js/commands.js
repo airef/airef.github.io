@@ -6184,7 +6184,7 @@ cAcknowledgeTaunt.example = [ {
 	title: "Launch an attack when an ally taunts 31 (\"Attack an Enemy Now!\") if the AI has enough soldiers to attack. Acknowledge the taunt so that the attack command is only sent once.",
 	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt any-ally 31)\r\n)"
 } ];
-cAcknowledgeTaunt.commandCategory = ["Chat", "Player Any"];
+cAcknowledgeTaunt.commandCategory = ["Chat", "Other Player Info"];
 cAcknowledgeTaunt.relatedCommands = [cTaunt, cTauntDetected, cTauntUsingRange];
 cAcknowledgeTaunt.relatedSNs = [];
 cAcknowledgeTaunt.complexity = "Low";
@@ -6257,7 +6257,7 @@ cAttackWarboatCount.complexity = "Low";
 
 //build
 cBuild.shortDescription = "Builds the given building.";
-cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tiles away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tiles away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tiles away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that use sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
+cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tile away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tile away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tile away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that uses sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6418,7 +6418,7 @@ cBuildingCountTotal.complexity = "Low";
 
 //building-type-count
 cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type are included.";
-cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
+cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCount.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6446,13 +6446,13 @@ cBuildingTypeCount.example = [ {
 	data: "(defrule\r\n\t(building-type-count town-center < 3)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cBuildingTypeCount.commandCategory = ["Buildings", "Counting"];
-cBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCountTotal, cCcPlayersBuildingTypeCount];
+cBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCountTotal, cCcPlayersBuildingTypeCount, cGateCount];
 cBuildingTypeCount.relatedSNs = [];
 cBuildingTypeCount.complexity = "Low";
 
 //building-type-count-total
 cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type, either existing or being constructed.";
-cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
+cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count-total allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCountTotal.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6480,7 +6480,7 @@ cBuildingTypeCountTotal.example = [ {
 	data: "(defrule\r\n\t(building-type-count-total lumber-camp >= 1)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cBuildingTypeCountTotal.commandCategory = ["Buildings", "Counting"];
-cBuildingTypeCountTotal.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cCcPlayersBuildingTypeCount];
+cBuildingTypeCountTotal.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cCcPlayersBuildingTypeCount, cGateCount];
 cBuildingTypeCountTotal.relatedSNs = [];
 cBuildingTypeCountTotal.complexity = "Low";
 
@@ -6499,7 +6499,7 @@ cBuyCommodity.example = [ {
 	title: "Buy 100 food if the AI has enough gold to do so.",
 	data: "(defrule\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
-cBuyCommodity.commandCategory = ["Economy", "Trading"];
+cBuyCommodity.commandCategory = ["Economy", "Trade & Tribute"];
 cBuyCommodity.relatedCommands = [cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
 cBuyCommodity.complexity = "Low";
@@ -6740,7 +6740,7 @@ cCanBuyCommodity.example = [ {
 	title: "Checks to see if the AI has a market and enough gold to buy 100 wood.",
 	data: "(defrule\r\n\t(can-buy-commodity wood)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trade & Tribute"];
 cCanBuyCommodity.relatedCommands = [cBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCanBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
 cCanBuyCommodity.complexity = "Low";
@@ -6766,7 +6766,7 @@ cCanResearch.example = [ {
 	title: "Checks to see if the AI can research Wheelbarrow, but instead it checks by using the research ID (213). If so, research Wheelbarrow.",
 	data: "(defrule\r\n\t(can-research 213)\r\n=>\r\n\t(research 213)\r\n)"
 } ];
-cCanResearch.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanResearch.commandCategory = ["Can Do", "Techs"];
 cCanResearch.relatedCommands = [cCanAffordResearch, cCanResearchWithEscrow, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
 cCanResearch.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
 cCanResearch.complexity = "Low";
@@ -6792,7 +6792,7 @@ cCanResearchWithEscrow.example = [ {
 	title: "Checks to see if the AI can research Wheelbarrow if escrowed resources are included, but instead it checks by using the research ID (213). If so, release escrowed food and wood and research Wheelbarrow.",
 	data: "(defrule\r\n\t(can-research-with-escrow 213)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow wood)\r\n\t(research 213)\r\n)"
 } ];
-cCanResearchWithEscrow.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanResearchWithEscrow.commandCategory = ["Can Do", "Techs"];
 cCanResearchWithEscrow.relatedCommands = [cCanAffordResearch, cCanResearch, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
 cCanResearchWithEscrow.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
 cCanResearchWithEscrow.complexity = "Low";
@@ -6812,7 +6812,7 @@ cCanSellCommodity.example = [ {
 	title: "Checks to see if the AI has a market and 100 food that it can sell.",
 	data: "(defrule\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
+cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trade & Tribute"];
 cCanSellCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCanSellCommodity.relatedSNs = [snMinimumAmountForTrading];
 cCanSellCommodity.complexity = "Low";
@@ -6961,7 +6961,7 @@ cCcPlayersBuildingCount.example = [ {
 	title: "Cheat through the fog of war to check if the every enemy has at least three buildings, not including walls or gates.",
 	data: "(defrule\r\n\t(cc-players-building-count every-enemy >= 3)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCcPlayersBuildingCount.commandCategory = ["Buildings", "Cheat", "Counting", "Player Any"];
+cCcPlayersBuildingCount.commandCategory = ["Buildings", "Cheat", "Counting", "Other Player Info"];
 cCcPlayersBuildingCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cCcPlayersBuildingTypeCount, cCheatsEnabled, cPlayersBuildingCount];
 cCcPlayersBuildingCount.relatedSNs = [];
 cCcPlayersBuildingCount.complexity = "Low";
@@ -7002,7 +7002,7 @@ cCcPlayersBuildingTypeCount.example = [ {
 	title: "Cheat through the fog of war to check if at least one enemy has a castle.",
 	data: "(defrule\r\n\t(cc-players-building-type-count any-enemy castle > 0)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCcPlayersBuildingTypeCount.commandCategory = ["Buildings", "Cheat", "Counting", "Player Any"];
+cCcPlayersBuildingTypeCount.commandCategory = ["Buildings", "Cheat", "Counting", "Other Player Info"];
 cCcPlayersBuildingTypeCount.relatedCommands = [cBuildingTypeCount, cBuildingTypeCountTotal, cCcPlayersBuildingCount, cCheatsEnabled, cPlayersBuildingTypeCount];
 cCcPlayersBuildingTypeCount.relatedSNs = [];
 cCcPlayersBuildingTypeCount.complexity = "Low";
@@ -7036,7 +7036,7 @@ cCcPlayersUnitCount.example = [ {
 	title: "Cheat through the fog of war to check if an enemy has less than five units.",
 	data: "(defrule\r\n\t(cc-players-unit-count any-enemy < 5)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCcPlayersUnitCount.commandCategory = ["Cheat", "Counting", "Player Any", "Units"];
+cCcPlayersUnitCount.commandCategory = ["Cheat", "Counting", "Other Player Info", "Units"];
 cCcPlayersUnitCount.relatedCommands = [cCcPlayersUnitTypeCount, cCheatsEnabled, cPlayersUnitCount, cUnitCount, cUnitCountTotal];
 cCcPlayersUnitCount.relatedSNs = [];
 cCcPlayersUnitCount.complexity = "Low";
@@ -7077,7 +7077,7 @@ cCcPlayersUnitTypeCount.example = [ {
 	title: "Cheat through the fog of war to see if there are any fish on the map. Gaia is player number 0.",
 	data: "(defrule\r\n\t(cc-players-unit-type-count 0 shore-fish-class > 0)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCcPlayersUnitTypeCount.commandCategory = ["Cheat", "Counting", "Player Any", "Units"];
+cCcPlayersUnitTypeCount.commandCategory = ["Cheat", "Counting", "Other Player Info", "Units"];
 cCcPlayersUnitTypeCount.relatedCommands = [cCcPlayersUnitCount, cCheatsEnabled, cPlayersUnitTypeCount, cUnitTypeCount, cUnitTypeCountTotal];
 cCcPlayersUnitTypeCount.relatedSNs = [];
 cCcPlayersUnitTypeCount.complexity = "Low";
@@ -7535,7 +7535,7 @@ cCivSelected.example = [ {
 	title: "Check if the AI is playing the Franks.",
 	data: "(defrule\r\n\t(civ-selected frankish)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCivSelected.commandCategory = ["Player Self"];
+cCivSelected.commandCategory = ["Own Player Info"];
 cCivSelected.relatedCommands = [cPlayersCiv];
 cCivSelected.relatedSNs = [];
 cCivSelected.complexity = "Low";
@@ -7562,7 +7562,7 @@ cClearTributeMemory.example = [ {
 	title: "If the AI has received 500 food from a human player, clear the food tribute memory from this player and change diplomatic stance toward the human player to ally.",
 	data: "(defrule\r\n\t(players-tribute-memory any-human food >= 500)\r\n=>\r\n\t(clear-tribute-memory this-any-human food)\r\n\t(set-stance this-any-human ally)\r\n)"
 } ];
-cClearTributeMemory.commandCategory = ["Tribute"];
+cClearTributeMemory.commandCategory = ["Trade & Tribute"];
 cClearTributeMemory.relatedCommands = [cPlayersTribute, cPlayersTributeMemory];
 cClearTributeMemory.relatedSNs = [];
 cClearTributeMemory.complexity = "Low";
@@ -7596,7 +7596,7 @@ cCommodityBuyingPrice.example = [ {
 	title: "Buy food if the current food buying price is below 200.",
 	data: "(defrule\r\n\t(can-buy-commodity food)\r\n\t(commodity-buying-price food < 200)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
-cCommodityBuyingPrice.commandCategory = ["Economy", "Trading"];
+cCommodityBuyingPrice.commandCategory = ["Economy", "Trade & Tribute"];
 cCommodityBuyingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCommodityBuyingPrice.relatedSNs = [];
 cCommodityBuyingPrice.complexity = "Low";
@@ -7630,7 +7630,7 @@ cCommoditySellingPrice.example = [ {
 	title: "Sell wood if the current wood selling price is above 25.",
 	data: "(defrule\r\n\t(can-sell-commodity wood)\r\n\t(commodity-selling-price wood > 25)\r\n=>\r\n\t(sell-commodity wood)\r\n)"
 } ];
-cCommoditySellingPrice.commandCategory = ["Economy", "Trading"];
+cCommoditySellingPrice.commandCategory = ["Economy", "Trade & Tribute"];
 cCommoditySellingPrice.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
 cCommoditySellingPrice.relatedSNs = [];
 cCommoditySellingPrice.complexity = "Low";
@@ -7657,7 +7657,7 @@ cCurrentAge.example = [ {
 	title: "Check if the AI is in the Castle Age or the Imperial Age.",
 	data: "(defrule\r\n\t(current-age >= castle-age)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCurrentAge.commandCategory = ["Player Self"];
+cCurrentAge.commandCategory = ["Own Player Info"];
 cCurrentAge.relatedCommands = [cCurrentAge, cCurrentAgeTime, cPlayersCurrentAge, cPlayersCurrentAgeTime, cStartingAge];
 cCurrentAge.relatedSNs = [];
 cCurrentAge.complexity = "Low";
@@ -7684,7 +7684,7 @@ cCurrentAgeTime.example = [ {
 	title: "Check if the computer player has spent at least 5 minutes (300 seconds) in the current age.",
 	data: "(defrule\r\n\t(current-age-time >= 300)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCurrentAgeTime.commandCategory = ["Player Self"];
+cCurrentAgeTime.commandCategory = ["Own Player Info"];
 cCurrentAgeTime.relatedCommands = [cCurrentAge, cGameTime, cPlayersCurrentAgeTime];
 cCurrentAgeTime.relatedSNs = [];
 cCurrentAgeTime.complexity = "Low";
@@ -7711,7 +7711,7 @@ cCurrentScore.example = [ {
 	title: "Check if the computer player's current score is over 9000.",
 	data: "(defrule\r\n\t(current-score > 9000)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cCurrentScore.commandCategory = ["Player Self"];
+cCurrentScore.commandCategory = ["Own Player Info"];
 cCurrentScore.relatedCommands = [cPlayersScore, cVictoryCondition, cUpGetVictoryLimit];
 cCurrentScore.relatedSNs = [snAttackWinningPlayer, snAttackWinningPlayerFactor];
 cCurrentScore.complexity = "Low";
@@ -7723,7 +7723,7 @@ cDeathMatchGame.example = [ {
 	title: "Check if the game is a Death Match Game. If so, set sn-cap-civilian-builders to 200.",
 	data: "(defrule\r\n\t(death-match-game)\r\n=>\r\n\t(set-strategic-number sn-cap-civilian-builders 200)\r\n)"
 } ];
-cDeathMatchGame.commandCategory = ["Other"];
+cDeathMatchGame.commandCategory = ["Game Info"];
 cDeathMatchGame.relatedCommands = [cGameType, cRegicideGame, cStartingResources];
 cDeathMatchGame.relatedSNs = [];
 cDeathMatchGame.complexity = "Low";
@@ -7750,7 +7750,7 @@ cDefendSoldierCount.example = [ {
 	title: "Check if the computer player has at least 15 defend soldiers.",
 	data: "(defrule\r\n\t(defend-soldier-count >= 15)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cDefendSoldierCount.commandCategory = ["Attack", "Counting", "Defense", "Units"];
+cDefendSoldierCount.commandCategory = ["Counting", "Defense", "Units"];
 cDefendSoldierCount.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cDefendWarboatCount, cMilitaryPopulation, cSoldierCount, cWarboatCount];
 cDefendSoldierCount.relatedSNs = [snConsecutiveIdleUnitLimit, snDisableAttackGroups, snDisableDefendGroups, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snMaximumTownSize, snNumberAttackGroups, snPercentAttackSoldiers, snSafeTownSize, snTaskUngroupedSoldiers];
 cDefendSoldierCount.complexity = "Low";
@@ -7777,7 +7777,7 @@ cDefendWarboatCount.example = [ {
 	title: "Check if the computer player has at least 5 defend warboats.",
 	data: "(defrule\r\n\t(defend-warboat-count >= 5)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cDefendWarboatCount.commandCategory = ["Attack", "Counting", "Defense", "Units"];
+cDefendWarboatCount.commandCategory = ["Counting", "Defense", "Units"];
 cDefendWarboatCount.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cDefendSoldierCount, cMilitaryPopulation, cSoldierCount, cWarboatCount];
 cDefendWarboatCount.relatedSNs = [snConsecutiveIdleUnitLimit, snDisableAttackGroups, snNumberAttackGroups, snPercentAttackBoats];
 cDefendWarboatCount.complexity = "Low";
@@ -7844,7 +7844,7 @@ cDifficulty.example = [ {
 	title: "Checks if the difficulty is hard or hardest.",
 	data: "(defrule\r\n\t(difficulty <= hard)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
-cDifficulty.commandCategory = ["Other"];
+cDifficulty.commandCategory = ["Game Info"];
 cDifficulty.relatedCommands = [];
 cDifficulty.relatedSNs = [snDoNotScaleForDifficultyLevel, snEasiestReactionPercentage, snEasierReactionPercentage];
 cDifficulty.complexity = "Low";
@@ -8034,7 +8034,7 @@ cEnemyBuildingsInTown.example = [ {
 	title: "If there are enemy buildings in the computer player's town and it can train a battering ram, train a battering ram.",
 	data: "(defrule\r\n\t(enemy-buildings-in-town)\r\n\t(can-train battering-ram-line)\r\n=>\r\n\t(train battering-ram-line)\r\n)"
 } ];
-cEnemyBuildingsInTown.commandCategory = ["Buildings", "Defense", "Town"];
+cEnemyBuildingsInTown.commandCategory = ["Buildings", "Defense"];
 cEnemyBuildingsInTown.relatedCommands = [cEnemyBuildingsInTown, cTownUnderAttack, cUpBuildingTypeInTown, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpSetDefensePriority, cUpUnitTypeInTown, cUpVillagerTypeInTown];
 cEnemyBuildingsInTown.relatedSNs = [snAllowCivilianDefense, snAllowCivilianOffense, snDisableDefendGroups, snMaximumTownSize, snSafeTownSize];
 cEnemyBuildingsInTown.complexity = "Low";
@@ -8046,7 +8046,7 @@ cEnemyCapturedRelics.example = [ {
 	title: "If the enemy team has captured all relics, then set several settings to target monasteries.",
 	data: "(defrule\r\n\t(enemy-captured-relics)\r\n=>\r\n\t(set-strategic-number sn-special-attack-type1 1)\r\n\t(set-strategic-number sn-special-attack-influence1 32767)\r\n\t(up-set-offense-priority c: monastery c: 11)\r\n)"
 } ];
-cEnemyCapturedRelics.commandCategory = ["Other"];
+cEnemyCapturedRelics.commandCategory = ["Game Info"];
 cEnemyCapturedRelics.relatedCommands = [cGameType, cHoldRelics, cVictoryCondition, cUpGetVictoryData];
 cEnemyCapturedRelics.relatedSNs = [snSpecialAttackInfluence1, snSpecialAttackType1];
 cEnemyCapturedRelics.complexity = "Low";
@@ -8078,8 +8078,8 @@ cEscrowAmount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cEscrowAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -8171,13 +8171,14 @@ cGameTime.example = [ {
 	title: "Send a one-time attack twenty minutes (1200 seconds) into the game.",
 	data: "(defrule\r\n\t(game-time > 1200)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
 } ];
-cGameTime.commandCategory = ["Other"];
+cGameTime.commandCategory = ["Game Info"];
 cGameTime.relatedCommands = [cCurrentAgeTime, cPlayersCurrentAgeTime, cUpGetPreciseTime];
 cGameTime.relatedSNs = [snHomeExplorationTime];
 cGameTime.complexity = "Low";
 
 //game-type
-cGameType.shortDescription = "Undocumented command that checks the game type.";
+cGameType.shortDescription = "Checks the game type.";
+cGameType.description = "Checks the game type. Game types include settings like random-map, regicide, king-of-the-hill, or turbo-random-map. See " + pGameType.getLink() + " for the list of game types. Game types are not defined, so you must defconst them before using them.";
 cGameType.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -8193,17 +8194,18 @@ cGameType.commandParameters = [ {
 	range: "",
 	note: "The type of game being played. Game types are not defined, so you must defconst them before using them."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cGameType.example = [ {
+	title: "Check if a turbo random map game is being played.",
+	data: "(defconst turbo-random-map 8)\r\n(defrule\r\n\t(game-type == turbo-random-map)\r\n=>\r\n\t(disable-self)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cGameType.commandCategory = ["Game Info"];
+cGameType.relatedCommands = [cDeathMatchGame, cRegicideGame, cVictoryCondition];
+cGameType.relatedSNs = [];
+cGameType.complexity = "Low";
 
 //gate-count
-cGateCount.shortDescription = "Undocumented command that allows the script to check for the number of gates that are either being built or are completed.";
+cGateCount.shortDescription = "Checks for the number of gates that are either being built or are completed at the given perimeter.";
+cGateCount.description = "Checks for the number of gates that are either being built or are completed at the given perimeter. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.</p><p>This command likely only counts stone gates, but it is possible that you can count only palisade gates instead by setting " + snGateTypeForWall.getLink() + " to 1 before using gate-count.";
 cGateCount.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -8226,18 +8228,18 @@ cGateCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cGateCount.example = [ {
+	title: "If there are no stone gates at perimeter 2, build a stone gate at perimeter 2.",
+	data: "(defrule\r\n\t(gate-count 2 == 0)\r\n\t(can-build-gate 2)\r\n=>\r\n\t(build-gate 2)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cGateCount.commandCategory = ["Buildings", "Counting"];
+cGateCount.relatedCommands = [cBuildingTypeCount, cBuildingTypeCountTotal];
+cGateCount.relatedSNs = [];
+cGateCount.complexity = "Low";
 
 //generate-random-number
 cGenerateRandomNumber.shortDescription = "Generates a player-specific integer random number within given range.";
-cGenerateRandomNumber.description = "Generates a player-specific integer random number within given range (1 to " + pValue.getLink() + "). The number is stored and its value can be tested with " + cRandomNumber.getLink() + ". Subsequent executions of this action generate new random numbers that replace existing ones.";
+cGenerateRandomNumber.description = "Generates a player-specific integer random number within given range (1 to " + pValue.getLink() + "). The number is stored internally and its value can be tested with " + cRandomNumber.getLink() + ". Subsequent executions of this action generate new random numbers that replace existing ones.</p><p>If you want to store the random number in a goal, use " + cUpGetFact.getLink() + ".</p><p>Unfortunately, the numbers generated by this command are not truly random, and restarting the game can sometimes result in the same random numbers being generated. It's best to avoid generating random numbers in the first few seconds of the game since the results can be less reliable.</p><p>If you want to generate a number that is more random, consider using " + cUpGetPreciseTime.getLink() + " to get a timestamp into a goal (such as gl-random-number) and then use (up-modify-goal gl-random-number c:mod X) where X is the range of values you want your random number to use. The mod operator (c:mod) divides the goal by the given value (X) and stores the remainder left over from the division. Thus, if X is 100, gl-random-number will range somewhere between 0 and 99. In addition to using up-get-precise-time, you can also do the same c:mod calculation with another number that is fairly random, like a player's score. Unfortunately, these alternative methods can only generate one random number per pass because game state information like up-get-precise-time and player scores are only updated between passes.";
 cGenerateRandomNumber.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8246,14 +8248,14 @@ cGenerateRandomNumber.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of values to randomly generate a number from."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+cGenerateRandomNumber.example = [ {
+	title: "Generate a random number between 1 and 100 and store the value in a goal. This random number can be checked later with the random-number command or by using up-compare-goal to compare gl-random-number with something else, such as (up-compare-goal gl-random-number > 50).",
+	data: "(defconst gl-random-number 101)\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(generate-random-number 100)\r\n\t(up-get-fact random-number 0 gl-random-number)\r\n)"
 } ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+cGenerateRandomNumber.commandCategory = ["Other"];
+cGenerateRandomNumber.relatedCommands = [cRandomNumber];
+cGenerateRandomNumber.relatedSNs = [];
+cGenerateRandomNumber.complexity = "Low";
 
 //goal
 cGoal.shortDescription = "Checks the current value of the given goal.";
@@ -8275,9 +8277,9 @@ cGoal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cGoal.commandCategory = ["Goals"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8301,9 +8303,9 @@ cGoldAmount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cGoldAmount.commandCategory = ["Economy"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8312,9 +8314,9 @@ cHoldKohRuin.shortDescription = "Undocumented command that tells the script whet
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cHoldKohRuin.commandCategory = ["Own Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8323,9 +8325,9 @@ cHoldRelics.shortDescription = "Undocumented command that tells the script wheth
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cHoldRelics.commandCategory = ["Own Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8350,9 +8352,9 @@ cHousingHeadroom.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cHousingHeadroom.commandCategory = ["Own Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8377,9 +8379,9 @@ cIdleFarmCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cIdleFarmCount.commandCategory = ["Counting", "Economy"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8397,9 +8399,9 @@ cLog.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cLog.commandCategory = ["Other"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8417,9 +8419,9 @@ cLogTrace.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cLogTrace.commandCategory = ["Other"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8436,9 +8438,9 @@ cMapSize.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cMapSize.commandCategory = ["Game Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8455,9 +8457,9 @@ cMapType.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cMapType.commandCategory = ["Game Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8482,9 +8484,9 @@ cMilitaryPopulation.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cMilitaryPopulation.commandCategory = ["Counting", "Units"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8502,9 +8504,9 @@ cPlayerComputer.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerComputer.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8522,9 +8524,9 @@ cPlayerHuman.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerHuman.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8543,9 +8545,9 @@ cPlayerInGame.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerInGame.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8563,9 +8565,9 @@ cPlayerNumber.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerNumber.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8583,9 +8585,9 @@ cPlayerResigned.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerResigned.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8603,9 +8605,9 @@ cPlayerValid.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayerValid.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8637,9 +8639,9 @@ cPlayersBuildingCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersBuildingCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8678,9 +8680,9 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersBuildingTypeCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8705,9 +8707,9 @@ cPlayersCiv.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersCiv.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8739,9 +8741,9 @@ cPlayersCivilianPopulation.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersCivilianPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8773,9 +8775,9 @@ cPlayersCurrentAge.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersCurrentAge.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8807,9 +8809,9 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersCurrentAgeTime.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8841,9 +8843,9 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersMilitaryPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8875,9 +8877,9 @@ cPlayersPopulation.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersPopulation.commandCategory = ["Counting", "Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8909,9 +8911,9 @@ cPlayersScore.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersScore.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8936,9 +8938,9 @@ cPlayersStance.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
+} ];*/
+cPlayersStance.commandCategory = ["Other Player Info"];
+/*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -8977,8 +8979,8 @@ cPlayersTribute.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPlayersTribute.commandCategory = ["Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9018,8 +9020,8 @@ cPlayersTributeMemory.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPlayersTributeMemory.commandCategory = ["Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9052,8 +9054,8 @@ cPlayersUnitCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPlayersUnitCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9093,8 +9095,8 @@ cPlayersUnitTypeCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPlayersUnitTypeCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9120,8 +9122,8 @@ cPopulation.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPopulation.commandCategory = ["Counting", "Own Player Info", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9146,8 +9148,8 @@ cPopulationCap.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPopulationCap.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9173,8 +9175,8 @@ cPopulationHeadroom.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cPopulationHeadroom.commandCategory = ["Counting", "Own Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9200,8 +9202,8 @@ cRandomNumber.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cRandomNumber.commandCategory = ["Other"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9211,8 +9213,8 @@ cRegicideGame.shortDescription = "Checks if the game is a regicide game.";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cRegicideGame.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9230,8 +9232,8 @@ cReleaseEscrow.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cReleaseEscrow.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9250,8 +9252,8 @@ cResearch.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cResearch.commandCategory = ["Techs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9270,8 +9272,8 @@ cResearchAvailable.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cResearchAvailable.commandCategory = ["Can Do", "Techs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9289,8 +9291,19 @@ cResearchCompleted.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cResearchCompleted.commandCategory = ["Can Do", "Techs"];/*
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
+
+//resign
+cResign.shortDescription = "Causes the computer player to resign.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];*/
+cResign.commandCategory = ["Other"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9309,19 +9322,8 @@ cResourceFound.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
-c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
-
-//resign
-cResign.shortDescription = "Causes the computer player to resign.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cResourceFound.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9339,8 +9341,8 @@ cSellCommodity.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSellCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9350,8 +9352,8 @@ cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetAuthorEmail.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9361,8 +9363,8 @@ cSetAuthorName.shortDescription = "The game does not use it for anything.";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetAuthorName.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9372,8 +9374,8 @@ cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetAuthorVersion.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9398,8 +9400,8 @@ cSetDifficultyParameter.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetDifficultyParameter.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9417,8 +9419,8 @@ cSetDoctrine.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetDoctrine.commandCategory = ["Goals"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9444,8 +9446,8 @@ cSetEscrowPercentage.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetEscrowPercentage.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9470,8 +9472,8 @@ cSetGoal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetGoal.commandCategory = ["Goals"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9497,8 +9499,8 @@ cSetSharedGoal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9516,8 +9518,8 @@ cSetSignal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetSignal.commandCategory = ["Scenarios"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9543,8 +9545,8 @@ cSetStance.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetStance.commandCategory = ["Diplomacy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9570,8 +9572,8 @@ cSetStrategicNumber.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSetStrategicNumber.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9596,8 +9598,8 @@ cSharedGoal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9607,8 +9609,8 @@ cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSheepAndForageTooFar.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9633,8 +9635,8 @@ cSoldierCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSoldierCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9645,8 +9647,8 @@ cSpy.description = "Executes a spy command. Only works in Regicide games to rese
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cSpy.commandCategory = ["Techs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9672,8 +9674,8 @@ cStanceToward.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cStanceToward.commandCategory = ["Diplomacy", "Own Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9699,8 +9701,8 @@ cStartingAge.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cStartingAge.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9725,8 +9727,8 @@ cStartingResources.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cStartingResources.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9751,8 +9753,8 @@ cStoneAmount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cStoneAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9784,8 +9786,8 @@ cStrategicNumber.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cStrategicNumber.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9803,8 +9805,8 @@ cTaunt.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTaunt.commandCategory = ["Chat", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9830,8 +9832,8 @@ cTauntDetected.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTauntDetected.commandCategory = ["Chat", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9857,8 +9859,8 @@ cTauntUsingRange.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTauntUsingRange.commandCategory = ["Chat", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9877,8 +9879,8 @@ cTimerTriggered.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTimerTriggered.commandCategory = ["Timers"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9886,14 +9888,22 @@ c.complexity = "Low";*/
 //town-under-attack
 cTownUnderAttack.shortDescription = "Set to true when a computer player's town is under attack.";
 cTownUnderAttack.description = "town-under-attack is triggered (i.e. returns true) if any unit/building belonging to the computer player that is inside " + snMaximumTownSize.getLink() + " gets attacked. It lasts 1 to 10 AOC seconds after the attack. It is not triggered by attacks to buildings or villagers that are outside sn-maximum-town-size. This command detects ally attackers.";
+/*c.example = [ {
+	title: ".",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];*/
+cTownUnderAttack.commandCategory = ["Defense"];/*
+c.relatedCommands = [];
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //trace-fact
 cTraceFact.shortDescription = "Undocumented action that doesn't work. Probably only for debugging purposes originally.";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTraceFact.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9912,8 +9922,8 @@ cTrain.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTrain.commandCategory = ["Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9946,8 +9956,8 @@ cTributeToPlayer.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTributeToPlayer.commandCategory = ["Trade & Tribute"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9958,8 +9968,8 @@ cTrue.description = "A Fact that is always true, often used as a placeholder for
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cTrue.commandCategory = ["True"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9978,8 +9988,8 @@ cUnitAvailable.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cUnitAvailable.commandCategory = ["Can Do", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10005,8 +10015,8 @@ cUnitCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cUnitCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10032,8 +10042,8 @@ cUnitCountTotal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cUnitCountTotal.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10066,8 +10076,8 @@ cUnitTypeCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cUnitTypeCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10100,8 +10110,8 @@ cUnitTypeCountTotal.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cUnitTypeCountTotal.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10119,8 +10129,8 @@ cVictoryCondition.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cVictoryCondition.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10153,8 +10163,8 @@ cWallCompletedPercentage.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cWallCompletedPercentage.commandCategory = ["Buildings", "Walls & Gates"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10187,8 +10197,8 @@ cWallInvisiblePercentage.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cWallInvisiblePercentage.commandCategory = ["Buildings", "Walls & Gates"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10213,8 +10223,8 @@ cWarboatCount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cWarboatCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10239,8 +10249,8 @@ cWoodAmount.commandParameters = [ {
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];
-c.commandCategory = [];
+} ];*/
+cWoodAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -10280,6 +10290,9 @@ cUpAddCostData.example = [ {
 	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defconst gl-military-cost-food 111)\r\n(defconst gl-military-cost-wood 112)\r\n(defconst gl-military-cost-stone 113)\r\n(defconst gl-military-cost-gold 114)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 1 gl-military-cost-food)\r\n\t(up-add-object-cost c: knight-line c: 40)\r\n\t(up-setup-cost-data 1 gl-cost-food)\r\n\t(up-add-cost-data gl-military-cost-food c: 2)\r\n\t(disable-self)\r\n)"
 } ];
 cUpAddCostData.relatedCommands = [];
+cUpAddCostData.commandCategory = ["Cost Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-add-object-by-id
 cUpAddObjectById.shortDescription = "Add an object to the search results by id.";
@@ -10311,6 +10324,9 @@ cUpAddObjectById.example = [ {
 	data: "(defconst gl-stored-id 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-add-object-by-id search-local g: gl-stored-id)\r\n)"
 } ];
 cUpAddObjectById.relatedCommands = [];
+cUpAddObjectById.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-add-object-cost
 cUpAddObjectCost.shortDescription = "Add or subtract objects of a specific type to the current cost data.";
@@ -10352,6 +10368,9 @@ cUpAddObjectCost.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-add-object-cost c: town-center-foundation c: 1) ; town-center-foundation = 621\r\n\t;(up-add-object-cost c: town-center c: 1) ; error: this will not include the stone cost\r\n\t(disable-self)\r\n)"
 } ];
 cUpAddObjectCost.relatedCommands = [];
+cUpAddObjectCost.commandCategory = ["Cost Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-add-point
 cUpAddPoint.shortDescription = "Add or subtract two point goal pairs together.";
@@ -10390,6 +10409,9 @@ cUpAddPoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-other-x 200)\r\n(defconst gl-other-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-focus gl-point-x)\r\n\t(up-get-point position-target gl-other-x)\r\n\t(up-add-point gl-point-x gl-other-x c: 1)\r\n)"
 } ];
 cUpAddPoint.relatedCommands = [];
+cUpAddPoint.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-add-research-cost
 cUpAddResearchCost.shortDescription = "Add or subtract techs of a specific type to the current cost data.";
@@ -10427,6 +10449,9 @@ cUpAddResearchCost.example = [ {
 	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 0 gl-cost-food)\r\n\t(up-add-research-cost c: ri-loom c: -1)\r\n\t(disable-self)\r\n)"
 } ];
 cUpAddResearchCost.relatedCommands = [];
+cUpAddResearchCost.commandCategory = ["Cost Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-allied-goal
 cUpAlliedGoal.shortDescription = "Perform a comparison with an allied AI's goal variable.";
@@ -10464,6 +10489,9 @@ cUpAlliedGoal.example = [ {
 	data: "(defconst gl-sheep-total 101)\r\n(defrule\r\n\t(up-allied-goal any-ally gl-sheep-total &gt; 6)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpAlliedGoal.relatedCommands = [];
+cUpAlliedGoal.commandCategory = ["Goals", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-allied-resource-amount
 cUpAlliedResourceAmount.shortDescription = "Perform a comparison with an ally's internal resource value.";
@@ -10501,6 +10529,9 @@ cUpAlliedResourceAmount.example = [ {
 	data: "(defrule\r\n\t(up-allied-resource-amount any-ally food &lt; 50)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpAlliedResourceAmount.relatedCommands = [];
+cUpAlliedResourceAmount.commandCategory = ["Economy", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-allied-resource-percent
 cUpAlliedResourcePercent.shortDescription = "Perform a comparison with an ally's internal resource value * 100.";
@@ -10538,6 +10569,9 @@ cUpAlliedResourcePercent.example = [ {
 	data: "(defrule\r\n\t(up-allied-resource-percent any-ally amount-tribute-inefficiency &lt; 30)\r\n=&gt;\r\n\t(chat-to-all &quot;Coinage has been researched by an ally.&quot;)\r\n\t(disable-self)\r\n)"
 } ];
 cUpAlliedResourcePercent.relatedCommands = [];
+cUpAlliedResourcePercent.commandCategory = ["Economy", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-allied-sn
 cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number.";
@@ -10575,6 +10609,9 @@ cUpAlliedSn.example = [ {
 	data: "(defrule\r\n\t(up-allied-sn any-ally sn-maximum-town-size &gt;= 30)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpAlliedSn.relatedCommands = [];
+cUpAlliedSn.commandCategory = ["Other Player Info", "SNs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-assign-builders
 cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
@@ -10616,6 +10653,9 @@ cUpAssignBuilders.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-assign-builders c: town-center-foundation c: 4) ; town-center-foundation = 621\r\n\t;(up-assign-builders c: town-center c: 4) ; error: this will not work\r\n\t(disable-self)\r\n)"
 } ];
 cUpAssignBuilders.relatedCommands = [];
+cUpAssignBuilders.commandCategory = ["Buildings", "Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-attacker-class
 cUpAttackerClass.shortDescription = "Check the class of the last enemy object to trigger town-under-attack.";
@@ -10639,6 +10679,9 @@ cUpAttackerClass.example = [ {
 	data: "(defrule\r\n\t(up-attacker-class == warship-class) ; warship-class = 922\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpAttackerClass.relatedCommands = [];
+cUpAttackerClass.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-bound-precise-point
 cUpBoundPrecisePoint.shortDescription = "Bound a point goal pair inside the map with additional control.";
@@ -10677,6 +10720,9 @@ cUpBoundPrecisePoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-object gl-point-x)\r\n\t(up-bound-precise-point gl-point-x 0 c: 10)\r\n)"
 } ];
 cUpBoundPrecisePoint.relatedCommands = [];
+cUpBoundPrecisePoint.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-bound-point
 cUpBoundPoint.shortDescription = "Copy a point goal pair and shift it into the map bounds.";
@@ -10700,6 +10746,9 @@ cUpBoundPoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-store-x 200)\r\n(defconst gl-store-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-object gl-point-x)\r\n\t(up-bound-point gl-store-x gl-point-x)\r\n)"
 } ];
 cUpBoundPoint.relatedCommands = [];
+cUpBoundPoint.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-build
 cUpBuild.shortDescription = "Add a building to the construction queue with dynamic values.";
@@ -10750,6 +10799,9 @@ cUpBuild.example = [ {
 	data: "(defconst gl-market-point-x 102)\r\n(defconst gl-market-point-y 103)\r\n(defrule\r\n\t(cc-players-unit-type-count any-human-ally 274 >= 1) ;274 = flare\r\n\t(can-build market)\r\n\t(up-pending-objects c: market < 1)\r\n=&gt;\r\n\t(up-find-player-flare any-human-ally gl-market-point-x)\r\n\t(up-set-target-point gl-market-point-x)\r\n\t(up-build place-point 0 c: market)\r\n)"
 } ];
 cUpBuild.relatedCommands = [];
+cUpBuild.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-building-type-in-town
 cUpBuildingTypeInTown.shortDescription = "Check the number of a specific enemy building type in town.";
@@ -10787,6 +10839,9 @@ cUpBuildingTypeInTown.example = [ {
 	data: "(defrule\r\n\t(up-building-type-in-town c: barracks &gt; 0)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpBuildingTypeInTown.relatedCommands = [];
+cUpBuildingTypeInTown.commandCategory = ["Buildings", "Counting", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-build-line
 cUpBuildLine.shortDescription = "Place a line of buildings between two point goal pairs.";
@@ -10825,6 +10880,9 @@ cUpBuildLine.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-other-x 200)\r\n(defconst gl-other-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-build-line gl-point-x gl-other-x c: palisade-wall)\r\n)"
 } ];
 cUpBuildLine.relatedCommands = [];
+cUpBuildLine.commandCategory = ["Buildings", "Walls & Gates"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-buy-commodity
 cUpBuyCommodity.shortDescription = "Buy a variable amount of resources at the market.";
@@ -10863,6 +10921,9 @@ cUpBuyCommodity.example = [{
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-buy-commodity c: food c: 300)\r\n)"
 } ];
 cUpBuyCommodity.relatedCommands = [];
+cUpBuyCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-can-build
 cUpCanBuild.shortDescription = "Check if a building can be constructed with dynamic values.";
@@ -10893,6 +10954,9 @@ cUpCanBuild.example = [ {
 	data: "(defrule\r\n\t(up-can-build 0 c: outpost)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCanBuild.relatedCommands = [];
+cUpCanBuild.commandCategory = ["Buildings", "Can Do"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-can-build-line
 cUpCanBuildLine.shortDescription = "Check if a building can be constructed at a point goal pair.";
@@ -10931,6 +10995,9 @@ cUpCanBuildLine.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(up-can-build-line 0 gl-point-x c: palisade-wall)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCanBuildLine.relatedCommands = [];
+cUpCanBuildLine.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-can-research
 cUpCanResearch.shortDescription = "Check if a technology can be researched with dynamic values.";
@@ -10961,6 +11028,9 @@ cUpCanResearch.example = [ {
 	data: "(defrule\r\n\t(up-can-research 0 c: ri-fletching)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCanResearch.relatedCommands = [];
+cUpCanResearch.commandCategory = ["Can Do", "Techs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-can-search
 cUpCanSearch.shortDescription = "Check the status for either the local or remote search.";
@@ -10978,6 +11048,9 @@ cUpCanSearch.example = [ {
 	data: "(defrule\r\n\t(not(up-can-search search-local))\r\n=&gt;\r\n\t(up-reset-search 1 1 0 0)\r\n)"
 } ];
 cUpCanSearch.relatedCommands = [];
+cUpCanSearch.commandCategory = ["Can Do", "DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-can-train
 cUpCanTrain.shortDescription = "Check if a unit can be trained with dynamic values.";
@@ -11009,6 +11082,9 @@ cUpCanTrain.example = [ {
 	data: "(defconst gl-escrow-state 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-escrow-state with-escrow)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(up-can-train gl-escrow-state c: spearman-line)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCanTrain.relatedCommands = [];
+cUpCanTrain.commandCategory = ["Can Do", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-cc-add-resource
 cUpCcAddResource.shortDescription = "Add resources dynamically to the player stockpile.";
@@ -11047,6 +11123,9 @@ cUpCcAddResource.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-cc-add-resource c: food c: 100)\r\n)"
 } ];
 cUpCcAddResource.relatedCommands = [];
+cUpCcAddResource.commandCategory = ["Cheat", "Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-cc-send-cheat
 cUpCcSendCheat.shortDescription = "Send a message in order to execute a cheat code.";
@@ -11064,6 +11143,9 @@ cUpCcSendCheat.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-cc-send-cheat &quot;to smithereens&quot;)\r\n\t(disable-self)\r\n)"
 } ];
 cUpCcSendCheat.relatedCommands = [];
+cUpCcSendCheat.commandCategory = ["Chat", "Cheat"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-change-name
 cUpChangeName.shortDescription = "Change the name of the AI during gameplay.";
@@ -11084,6 +11166,9 @@ cUpChangeName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-change-name -1)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChangeName.relatedCommands = [];
+cUpChangeName.commandCategory = ["Other"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-chat-data-to-all
 cUpChatDataToAll.shortDescription = "Send a chat message with a formatted value to everyone.";
@@ -11114,6 +11199,9 @@ cUpChatDataToAll.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-all &quot;I am player %d.&quot; c: my-player-number)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToAll.relatedCommands = [];
+cUpChatDataToAll.commandCategory = ["Chat", "Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-chat-data-to-player
 cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
@@ -11151,6 +11239,9 @@ cUpChatDataToPlayer.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-player every-ally &quot;The target is player %d.&quot; s: sn-target-player-number)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToPlayer.relatedCommands = [];
+cUpChatDataToPlayer.commandCategory = ["Chat", "Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-chat-data-to-self
 cUpChatDataToSelf.shortDescription = "Send a chat message with a formatted value locally.";
@@ -11181,6 +11272,9 @@ cUpChatDataToSelf.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-self &quot;Food: %d.&quot; c: 5)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToSelf.relatedCommands = [];
+cUpChatDataToSelf.commandCategory = ["Chat", "Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-clean-search
 cUpCleanSearch.shortDescription = "Removes duplicate ids or sorts the search results.";
@@ -11212,6 +11306,9 @@ cUpCleanSearch.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-clean-search search-remote -1 search-order-asc)\r\n\t(up-clean-search search-remote object-data-hitpoints search-order-asc)\r\n)"
 } ];
 cUpCleanSearch.relatedCommands = [];
+cUpCleanSearch.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-compare-const
 cUpCompareConst.shortDescription = "Perform a comparison with a constant value.";
@@ -11243,6 +11340,9 @@ cUpCompareConst.example = [ {
 	data: "(defconst feudal-villagers 30)\r\n(defrule\r\n\t(up-compare-const feudal-villagers &gt;= 20)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCompareConst.relatedCommands = [];
+cUpCompareConst.commandCategory = ["Other"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-compare-flag
 cUpCompareFlag.shortDescription = "Perform a bitwise flag test with a goal variable.";
@@ -11274,6 +11374,9 @@ cUpCompareFlag.example = [ {
 	data: "(defconst gl-guard-flag 103)\r\n(defrule\r\n\t(up-compare-flag gl-guard-flag == guard-flag-resource)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCompareFlag.relatedCommands = [];
+cUpCompareFlag.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-compare-goal
 cUpCompareGoal.shortDescription = "Perform a comparison with a goal variable.";
@@ -11304,6 +11407,9 @@ cUpCompareGoal.example = [ {
 		data: "(defconst gl-sheep-total 101)\r\n(defrule\r\n\t(up-compare-goal gl-sheep-total &lt; 4)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCompareGoal.relatedCommands = [];
+cUpCompareGoal.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-compare-sn
 cUpCompareSn.shortDescription = "Perform a comparison with a strategic number.";
@@ -11334,6 +11440,9 @@ cUpCompareSn.example = [ {
 	data: "(defrule\r\n\t(up-compare-sn sn-maximum-town-size &gt; 40)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCompareSn.relatedCommands = [];
+cUpCompareSn.commandCategory = ["SNs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-compare-text
 cUpCompareText.shortDescription = "Perform a string comparison with the stored text.";
@@ -11372,6 +11481,9 @@ cUpCompareText.example = [{
 	data: "(defconst text-name-one &quot;one&quot;)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-player-name 1)\r\n)\r\n(defrule\r\n\t(up-compare-text c: text-name-one >= 0)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpCompareText.relatedCommands = [];
+cUpCompareText.commandCategory = ["Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-copy-point
 cUpCopyPoint.shortDescription = "Copy one point goal pair into another pair of extended goals.";
@@ -11395,6 +11507,9 @@ cUpCopyPoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-other-x 200)\r\n(defconst gl-other-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-copy-point gl-other-x gl-point-x)\r\n)"
 } ];
 cUpCopyPoint.relatedCommands = [];
+cUpCopyPoint.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-create-group
 cUpCreateGroup.shortDescription = "Create a search group from the local search results.";
@@ -11433,6 +11548,9 @@ cUpCreateGroup.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-search 1 1 1 1)\r\n\t(up-reset-filters)\r\n\t(up-find-local c: villager-class c: 10)\r\n\t(up-create-group 0 0 c: 0)\r\n)"
 } ];
 cUpCreateGroup.relatedCommands = [];
+cUpCreateGroup.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-cross-tiles
 cUpCrossTiles.shortDescription = "Get a point perpendicular to two point goal pairs.";
@@ -11471,6 +11589,9 @@ cUpCrossTiles.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-center-x 200)\r\n(defconst gl-center-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-self gl-point-x)\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-cross-tiles gl-point-x gl-center-x c: 10)\r\n)"
 } ];
 cUpCrossTiles.relatedCommands = [];
+cUpCrossTiles.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-delete-distant-farms
 cUpDeleteDistantFarms.shortDescription = "Delete all farms that exist outside the specified drop distance.";
@@ -11494,6 +11615,9 @@ cUpDeleteDistantFarms.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-delete-distant-farms c: 8)\r\n\t(disable-self)\r\n)"
 } ];
 cUpDeleteDistantFarms.relatedCommands = [];
+cUpDeleteDistantFarms.commandCategory = ["Buildings", "Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-delete-idle-units
 cUpDeleteIdleUnits.shortDescription = "Delete all idle units of the specified type.";
@@ -11510,6 +11634,9 @@ cUpDeleteIdleUnits.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-delete-idle-units idle-type-villager)\r\n\t(disable-self)\r\n)"
 } ];
 cUpDeleteIdleUnits.relatedCommands = [];
+cUpDeleteIdleUnits.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-delete-objects
 cUpDeleteObjects.shortDescription = "Delete all objects with less than the specified hitpoints.";
@@ -11547,6 +11674,9 @@ cUpDeleteObjects.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-delete-objects c: wall-class c: 32767) ; wall-class = 927\r\n\t(disable-self)\r\n)"
 } ];
 cUpDeleteObjects.relatedCommands = [];
+cUpDeleteObjects.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-defender-count
 cUpDefenderCount.shortDescription = "Check the number of units actively defending in town.";
@@ -11571,6 +11701,9 @@ cUpDefenderCount.example = [ {
 	data: "(defrule\r\n\t(up-defender-count &gt;= 10)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpDefenderCount.relatedCommands = [];
+cUpDefenderCount.commandCategory = ["Counting", "Defense", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-disband-group-type
 cUpDisbandGroupType.shortDescription = "Disband all internal groups of the specified type.";
@@ -11588,6 +11721,9 @@ cUpDisbandGroupType.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-number-explore-groups 0)\r\n\t(set-strategic-number sn-total-number-explorers 0)\r\n\t(up-disband-group-type group-type-land-explore)\r\n\t(up-reset-unit c: all-units-class)\r\n\t(disable-self)\r\n)"
 } ];
 cUpDisbandGroupType.relatedCommands = [];
+cUpDisbandGroupType.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-drop-resources
 cUpDropResources.shortDescription = "Request a drop by gatherers carrying a specific number of a resource.";
@@ -11622,6 +11758,9 @@ cUpDropResources.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-drop-resources farm-class c: 5) ; farm-class = 949\r\n\t(disable-self)\r\n)"
 } ];
 cUpDropResources.relatedCommands = [];
+cUpDropResources.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-enemy-buildings-in-town
 cUpEnemyBuildingsInTown.shortDescription = "Check the number of targetable enemy buildings in town.";
@@ -11645,6 +11784,9 @@ cUpEnemyBuildingsInTown.example = [ {
 	data: "(defrule\r\n\t(up-enemy-buildings-in-town &gt; 0)\r\n\t(enemy-buildings-in-town) ; this is equivalent\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpEnemyBuildingsInTown.relatedCommands = [];
+cUpEnemyBuildingsInTown.commandCategory = ["Buildings", "Counting", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-enemy-units-in-town
 cUpEnemyUnitsInTown.shortDescription = "Check the number of targetable enemy units in town.";
@@ -11668,6 +11810,9 @@ cUpEnemyUnitsInTown.example = [ {
 	data: "(defrule\r\n\t(up-enemy-units-in-town &gt; 5)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpEnemyUnitsInTown.relatedCommands = [];
+cUpEnemyUnitsInTown.commandCategory = ["Counting", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-enemy-villagers-in-town
 cUpEnemyVillagersInTown.shortDescription = "Check the number of targetable enemy villagers in town.";
@@ -11691,6 +11836,9 @@ cUpEnemyVillagersInTown.example = [ {
 	data: "(defrule\r\n\t(up-enemy-villagers-in-town &gt;= 2)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpEnemyVillagersInTown.relatedCommands = [];
+cUpEnemyVillagersInTown.commandCategory = ["Counting", "Defense", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-distance
 cUpFilterDistance.shortDescription = "Set distance parameters for the direct targeting system.";
@@ -11729,6 +11877,9 @@ cUpFilterDistance.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-distance c: -1 c: 10)\r\n)"
 } ];
 cUpFilterDistance.relatedCommands = [];
+cUpFilterDistance.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-exclude
 cUpFilterExclude.shortDescription = "Set exclude parameters for the direct targeting system.";
@@ -11767,6 +11918,9 @@ cUpFilterExclude.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-exclude 5 -1 -1 -1)\r\n)"
 } ];
 cUpFilterExclude.relatedCommands = [];
+cUpFilterExclude.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-garrison
 cUpFilterGarrison.shortDescription = "Set garrison parameters for the direct targeting system.";
@@ -11805,6 +11959,9 @@ cUpFilterGarrison.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-garrison c: 5 c: -1)\r\n)"
 } ];
 cUpFilterGarrison.relatedCommands = [];
+cUpFilterGarrison.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-include
 cUpFilterInclude.shortDescription = "Set include parameters for the direct targeting system.";
@@ -11844,6 +12001,9 @@ cUpFilterInclude.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-include 3 -1 -1 -1)\r\n)"
 } ];
 cUpFilterInclude.relatedCommands = [];
+cUpFilterInclude.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-range
 cUpFilterRange.shortDescription = "Set range parameters for the direct targeting system.";
@@ -11882,6 +12042,9 @@ cUpFilterRange.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-range -1 -1 -1 10)\r\n)"
 } ];
 cUpFilterRange.relatedCommands = [];
+cUpFilterRange.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-filter-status
 cUpFilterStatus.shortDescription = "Set the object status value for use with up-find-status.";
@@ -11920,6 +12083,9 @@ cUpFilterStatus.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-status c: status-pending c: list-active)\r\n\t(up-find-status-local c: castle c: 5)\r\n)"
 } ];
 cUpFilterStatus.relatedCommands = [];
+cUpFilterStatus.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-flare
 cUpFindFlare.shortDescription = "Read the (x,y) position of an allied flare into an extended goal pair.";
@@ -11937,6 +12103,9 @@ cUpFindFlare.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(unit-type-count flare > 0) ; flare = 274\r\n=&gt;\r\n\t(up-find-flare gl-point-x)\r\n)"
 } ];
 cUpFindFlare.relatedCommands = [];
+cUpFindFlare.commandCategory = ["Other Player Info", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-local
 cUpFindLocal.shortDescription = "Find objects owned by the local player for direct targeting.";
@@ -11975,6 +12144,9 @@ cUpFindLocal.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-find-local c: infantry-class c: 20) ; infantry-class = 906\r\n)"
 } ];
 cUpFindLocal.relatedCommands = [];
+cUpFindLocal.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-next-player
 cUpFindNextPlayer.shortDescription = "Find the next active player based on the provided information.";
@@ -12005,6 +12177,9 @@ cUpFindNextPlayer.example = [ {
 	data: "(defconst gl-player 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-find-player enemy find-closest gl-player)\r\n\t(up-find-next-player enemy find-closest gl-player)\r\n)"
 } ];
 cUpFindNextPlayer.relatedCommands = [];
+cUpFindNextPlayer.commandCategory = ["Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-player
 cUpFindPlayer.shortDescription = "Find the first active player based on the provided information.";
@@ -12035,6 +12210,9 @@ cUpFindPlayer.example = [ {
 	data: "(defconst gl-player 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-find-player enemy find-closest gl-player)\r\n)"
 } ];
 cUpFindPlayer.relatedCommands = [];
+cUpFindPlayer.commandCategory = ["Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
@@ -12065,6 +12243,9 @@ cUpFindPlayerFlare.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(unit-type-count flare == 0) ;no flares?\r\n=>\r\n\t(up-jump-rule 3) ;skip flare checks\r\n)\r\n\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-strategic-number sn-focus-player-number 1)	 ;check first player\r\n\t(up-find-player-flare 1 gl-point-x)\r\n)\r\n\r\n(defrule\r\n\t(up-compare-goal gl-point-x != -1) ;flare exists\r\n\t(strategic-number sn-focus-player-number != my-player-number) ;ignore self\r\n\t(stance-toward focus-player ally) ;player is allied\r\n=>\r\n\t(up-chat-data-to-all \"P#: %d\" s: sn-focus-player-number) ;display details\r\n\t(up-chat-data-to-all \"FX: %d\" g: gl-point-x)\r\n\t(up-chat-data-to-all \"FY: %d\" g: gl-point-y)\r\n\t(up-jump-rule 1) ;end loop or comment this to check all flares\r\n)\r\n\r\n(defrule\r\n\t(strategic-number sn-focus-player-number < 8)\r\n=>\r\n\t(up-modify-sn sn-focus-player-number c:+ 1) ;check next player\r\n\t(up-find-player-flare focus-player gl-point-x)\r\n\t(up-jump-rule -2) ;continue loop\r\n)"
 } ];
 cUpFindPlayerFlare.relatedCommands = [];
+cUpFindPlayerFlare.commandCategory = ["Other Player Info", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-remote
 cUpFindRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
@@ -12103,6 +12284,9 @@ cUpFindRemote.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-focus-player-number 2)\r\n\t(up-find-remote c: castle c: 4)\r\n)"
 } ];
 cUpFindRemote.relatedCommands = [];
+cUpFindRemote.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-resource
 cUpFindResource.shortDescription = "Find gatherable resource objects for direct targeting.";
@@ -12141,6 +12325,9 @@ cUpFindResource.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-full-reset-search)\r\n\t(up-filter-status c: status-resource c: list-active)\r\n\t(up-find-resource c: gold c: 2)\r\n)"
 } ];
 cUpFindResource.relatedCommands = [];
+cUpFindResource.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-status-local
 cUpFindStatusLocal.shortDescription = "Find objects owned by the local player filtered by status.";
@@ -12179,6 +12366,9 @@ cUpFindStatusLocal.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-filter-status c: status-ready c: list-active)\r\n\t(up-find-status-local c: infantry-class c: 20) ; infantry-class = 906\r\n)"
 } ];
 cUpFindStatusLocal.relatedCommands = [];
+cUpFindStatusLocal.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-find-status-remote
 cUpFindStatusRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
@@ -12217,6 +12407,9 @@ cUpFindStatusRemote.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-focus-player-number 2)\r\n\t(up-find-status-remote c: castle c: 4)\r\n)"
 } ];
 cUpFindStatusRemote.relatedCommands = [];
+cUpFindStatusRemote.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-full-reset-search
 cUpFullResetSearch.shortDescription = "Reset all search and filter states for direct unit targeting.";
@@ -12227,6 +12420,9 @@ cUpFullResetSearch.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-full-reset-search)\r\n)"
 }];
 cUpFullResetSearch.relatedCommands = [];
+cUpFullResetSearch.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-gaia-type-count
 cUpGaiaTypeCount.shortDescription = "Check the current sighted resource count from gaia.";
@@ -12268,6 +12464,9 @@ cUpGaiaTypeCount.example = [ {
 	data: "(defrule\r\n\t(up-gaia-type-count c: livestock-class &gt; 6) ; livestock-class = 958\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGaiaTypeCount.relatedCommands = [];
+cUpGaiaTypeCount.commandCategory = ["Counting", "Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-gaia-type-count-total
 cUpGaiaTypeCountTotal.shortDescription = "Check the total sighted resource count from gaia.";
@@ -12309,6 +12508,9 @@ cUpGaiaTypeCountTotal.example = [ {
 	data: "(defrule\r\n\t(up-gaia-type-count-total c: deer &lt; 2)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGaiaTypeCountTotal.relatedCommands = [];
+cUpGaiaTypeCountTotal.commandCategory = ["Counting", "Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-garrison
 cUpGarrison.shortDescription = "Garrison all units of the specified type into another object.";
@@ -12346,6 +12548,9 @@ cUpGarrison.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison watch-tower c: archer-line)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGarrison.relatedCommands = [];
+cUpGarrison.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-gather-inside
 cUpGatherInside.shortDescription = "Set all existing buildings of a specific type to hold units inside.";
@@ -12386,6 +12591,9 @@ cUpGatherInside.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-gather-inside c: town-center c: -1)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGatherInside.relatedCommands = [];
+cUpGatherInside.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-attacker-class
 cUpGetAttackerClass.shortDescription = "Get the class of the last enemy object to trigger town-under-attack.";
@@ -12402,6 +12610,9 @@ cUpGetAttackerClass.example = [ {
 	data: "(defconst gl-class 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-attacker-class gl-class)\r\n)"
 } ];
 cUpGetAttackerClass.relatedCommands = [];
+cUpGetAttackerClass.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-cost-delta
 cUpGetCostDelta.shortDescription = "Get the difference between player resources and the current cost data.";
@@ -12419,6 +12630,9 @@ cUpGetCostDelta.example = [ {
 	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defconst gl-delta-food 121)\r\n(defconst gl-delta-wood 122)\r\n(defconst gl-delta-stone 123)\r\n(defconst gl-delta-gold 124)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 1 gl-cost-food)\r\n\t(up-add-object-cost c: archer-line c: 10) ;stores 250 in gl-cost-wood, 450 in gl-cost-gold, and 0 in gl-cost-food and gl-cost-stone (smaller amounts for Mayans civ)\r\n\t(up-get-cost-delta gl-delta-food)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGetCostDelta.relatedCommands = [];
+cUpGetCostDelta.commandCategory = ["Cost Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-event
 cUpGetEvent.shortDescription = "Get the value of a scenario trigger event.";
@@ -12449,6 +12663,9 @@ cUpGetEvent.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-event c: 0 gl-value)\r\n)"
 } ];
 cUpGetEvent.relatedCommands = [];
+cUpGetEvent.commandCategory = ["Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-fact
 cUpGetFact.shortDescription = "Read a fact for my-player-number into a goal.";
@@ -12480,6 +12697,9 @@ cUpGetFact.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-fact military-population 0 gl-data)\r\n)"
 } ];
 cUpGetFact.relatedCommands = [];
+cUpGetFact.commandCategory = ["Player Facts", "Own Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
@@ -12518,6 +12738,9 @@ cUpGetFactMax.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-fact-max any-ally current-score 0 gl-data)\r\n)"
 } ];
 cUpGetFactMax.relatedCommands = [];
+cUpGetFactMax.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
@@ -12556,6 +12779,9 @@ cUpGetFactMin.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-fact-min any-enemy current-score 0 gl-data)\r\n)"
 } ];
 cUpGetFactMin.relatedCommands = [];
+cUpGetFactMin.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-fact-sum
 cUpGetFactSum.shortDescription = "Read the sum of facts for specific players into a goal.";
@@ -12594,6 +12820,9 @@ cUpGetFactSum.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-fact-sum any-enemy military-population 0 gl-data)\r\n)"
 } ];
 cUpGetFactSum.relatedCommands = [];
+cUpGetFactSum.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-focus-fact
 cUpGetFocusFact.shortDescription = "Read a fact for the focus-player into a goal.";
@@ -12625,6 +12854,9 @@ cUpGetFocusFact.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-focus-fact population 0 gl-data)\r\n)"
 } ];
 cUpGetFocusFact.relatedCommands = [];
+cUpGetFocusFact.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-group-size
 cUpGetGroupSize.shortDescription = "Get the current number of units in a search group.";
@@ -12655,6 +12887,9 @@ cUpGetGroupSize.example = [ {
 	data: "(defconst gl-size 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-group-size c: 0 gl-size)\r\n)"
 } ];
 cUpGetGroupSize.relatedCommands = [];
+cUpGetGroupSize.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-guard-state
 cUpGetGuardState.shortDescription = "Get the guard state into 4 consecutive extended goals.";
@@ -12675,6 +12910,9 @@ cUpGetGuardState.example = [ {
 	data: "(defconst gl-guard-type 100)\r\n(defconst gl-guard-resource 101)\r\n(defconst gl-guard-delta 102)\r\n(defconst gl-guard-flags 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-guard-state gl-guard-type)\r\n)\r\n(defrule\r\n\t(up-compare-goal gl-guard-delta > 0)\r\n\t(up-compare-flag gl-guard-flags == guard-flag-resource)\r\n\t(up-compare-flag gl-guard-flags != guard-flag-inverse)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGetGuardState.relatedCommands = [];
+cUpGetGuardState.commandCategory = ["Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-indirect-goal
 cUpGetIndirectGoal.shortDescription = "Get the value of a goal indirectly by reference.";
@@ -12705,6 +12943,9 @@ cUpGetIndirectGoal.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal 10 1)\r\n\t(up-get-indirect-goal g: 10 gl-value)\r\n)"
 } ];
 cUpGetIndirectGoal.relatedCommands = [];
+cUpGetIndirectGoal.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-object-data
 cUpGetObjectData.shortDescription = "Get specific information about the selected target object.";
@@ -12729,6 +12970,9 @@ cUpGetObjectData.example = [ {
 	data: "(defconst gl-data 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-object-data object-data-class gl-data)\r\n)"
 } ];
 cUpGetObjectData.relatedCommands = [];
+cUpGetObjectData.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-object-target-data
 cUpGetObjectTargetData.shortDescription = "Get specific information about the target object's target.";
@@ -12753,6 +12997,9 @@ cUpGetObjectTargetData.example = [{
 	data: "(defconst gl-data 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-object-target-data object-data-class gl-data)\r\n)"
 } ];
 cUpGetObjectTargetData.relatedCommands = [];
+cUpGetObjectTargetData.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-object-type-data
 cUpGetObjectTypeData.shortDescription = "Get generic information about an object type.";
@@ -12791,6 +13038,9 @@ cUpGetObjectTypeData.example = [ {
 	data: "(defconst gl-data 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-object-type-data c: skirmisher-line object-data-train-site gl-data)\r\n)"
 } ];
 cUpGetObjectTypeData.relatedCommands = [];
+cUpGetObjectTypeData.commandCategory = ["DUC", "Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-path-distance
 cUpGetPathDistance.shortDescription = "Get the distance from the target object to a specified point goal pair.";
@@ -12822,6 +13072,9 @@ cUpGetPathDistance.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-distance 200)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-get-path-distance gl-center-x 0 gl-distance)\r\n)"
 } ];
 cUpGetPathDistance.relatedCommands = [];
+cUpGetPathDistance.commandCategory = ["DUC", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
@@ -12846,6 +13099,9 @@ cUpGetPlayerColor.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-player-color target-player gl-value)\r\n\t(up-chat-data-to-all &quot;Target: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpGetPlayerColor.relatedCommands = [];
+cUpGetPlayerColor.commandCategory = ["Other Player Info", "Player Facts", "Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
@@ -12884,6 +13140,9 @@ cUpGetPlayerFact.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-player-fact 2 civilian-population 0 gl-data)\r\n)"
 } ];
 cUpGetPlayerFact.relatedCommands = [];
+cUpGetPlayerFact.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-precise-time
 cUpGetPreciseTime.shortDescription = "Get a system timestamp or the elapsed time into a goal.";
@@ -12910,6 +13169,9 @@ cUpGetPreciseTime.example = [ {
 	data: "(defconst gl-start-time 100)\r\n(defconst gl-elapsed-time 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-precise-time gl-start-time gl-elapsed-time)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGetPreciseTime.relatedCommands = [];
+cUpGetPreciseTime.commandCategory = ["Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point
 cUpGetPoint.shortDescription = "Read a specific (x,y) position into an extended goal pair.";
@@ -12937,6 +13199,9 @@ cUpGetPoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-target gl-point-x)\r\n)"
 } ];
 cUpGetPoint.relatedCommands = [];
+cUpGetPoint.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point-contains
 cUpGetPointContains.shortDescription = "Get the id if an object exists at a point goal pair position.";
@@ -12975,6 +13240,9 @@ cUpGetPointContains.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-tree-id 102)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x c: explored-yes)\r\n\t(up-get-point-contains gl-center-x gl-tree-id c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGetPointContains.relatedCommands = [];
+cUpGetPointContains.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point-distance
 cUpGetPointDistance.shortDescription = "Get the distance between two point goal pairs.";
@@ -13006,6 +13274,9 @@ cUpGetPointDistance.example = [ {
 	data: "(defconst gl-self-x 100)\r\n(defconst gl-self-y 101)\r\n(defconst gl-center-x 200)\r\n(defconst gl-center-y 201)\r\n(defconst gl-distance 300)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-self gl-self-x)\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-get-point-distance gl-self-x gl-center-x gl-distance)\r\n)"
 } ];
 cUpGetPointDistance.relatedCommands = [];
+cUpGetPointDistance.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point-elevation
 cUpGetPointElevation.shortDescription = "Get the elevation for a tile with a point goal pair.";
@@ -13029,6 +13300,9 @@ cUpGetPointElevation.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-center-z 200)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-get-point-elevation gl-center-x gl-center-z)\r\n)"
 } ];
 cUpGetPointElevation.relatedCommands = [];
+cUpGetPointElevation.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point-terrain
 cUpGetPointTerrain.shortDescription = "Get the terrain id at a specific point goal pair position.";
@@ -13053,6 +13327,9 @@ cUpGetPointTerrain.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-terrain 200)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-get-point-terrain gl-center-x gl-terrain)\r\n)"
 } ];
 cUpGetPointTerrain.relatedCommands = [];
+cUpGetPointTerrain.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-point-zone
 cUpGetPointZone.shortDescription = "Get the zone for a tile with a point goal pair.";
@@ -13077,6 +13354,9 @@ cUpGetPointZone.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-center-z 200)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-get-point-zone gl-center-x gl-center-z)\r\n)"
 } ];
 cUpGetPointZone.relatedCommands = [];
+cUpGetPointZone.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-projectile-player
 cUpGetProjectilePlayer.shortDescription = "Get the enemy player that last attacked with a specific type of projectile.";
@@ -13100,6 +13380,9 @@ cUpGetProjectilePlayer.example = [ {
 	data: "(defconst gl-player 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-projectile-player projectile-castle gl-player)\r\n)"
 } ];
 cUpGetProjectilePlayer.relatedCommands = [];
+cUpGetProjectilePlayer.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-rule-id
 cUpGetRuleId.shortDescription = "Get the zero-based id for the current rule within the rule set.";
@@ -13117,6 +13400,9 @@ cUpGetRuleId.example = [ {
 	data: "(defconst gl-current-rule-id 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-rule-id gl-current-rule-id)\r\n)"
 } ];
 cUpGetRuleId.relatedCommands = [];
+cUpGetRuleId.commandCategory = ["Rule Jumps"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-search-state
 cUpGetSearchState.shortDescription = "Get the search state into 4 consecutive extended goals.";
@@ -13134,6 +13420,9 @@ cUpGetSearchState.example = [ {
 	data: "(defconst gl-local-total 100)\r\n(defconst gl-local-last 101)\r\n(defconst gl-remote-total 102)\r\n(defconst gl-remote-last 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-search-state gl-local-total)\r\n)"
 } ];
 cUpGetSearchState.relatedCommands = [];
+cUpGetSearchState.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-shared-goal
 cUpGetSharedGoal.shortDescription = "Get the value of a shared goal.";
@@ -13164,6 +13453,9 @@ cUpGetSharedGoal.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-shared-goal c: 0 gl-value)\r\n)"
 } ];
 cUpGetSharedGoal.relatedCommands = [];
+cUpGetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-signal
 cUpGetSignal.shortDescription = "Get the value of a scenario trigger signal.";
@@ -13194,6 +13486,9 @@ cUpGetSignal.example = [{
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-signal c: 0 gl-value)\r\n)"
 } ];
 cUpGetSignal.relatedCommands = [];
+cUpGetSignal.commandCategory = ["Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-target-fact
 cUpGetTargetFact.shortDescription = "Read a fact for the target-player into a goal.";
@@ -13225,6 +13520,9 @@ cUpGetTargetFact.example = [ {
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-target-fact military-population 0 gl-data)\r\n)"
 } ];
 cUpGetTargetFact.relatedCommands = [];
+cUpGetTargetFact.commandCategory = ["Other Player Info", "Player Facts"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-threat-data
 cUpGetThreatData.shortDescription = "Get the elapsed time, player, source, and target of the last threat.";
@@ -13263,6 +13561,9 @@ cUpGetThreatData.example = [ {
 	data: "(defconst gl-threat-time 101)\r\n(defconst gl-threat-player 102)\r\n(defconst gl-threat-source 103)\r\n(defconst gl-threat-target 104)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-threat-data gl-threat-time gl-threat-player gl-threat-source gl-threat-target)\r\n)"
 } ];
 cUpGetThreatData.relatedCommands = [];
+cUpGetThreatData.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-timer
 cUpGetTimer.shortDescription = "Get the trigger time for a timer in milliseconds.";
@@ -13293,6 +13594,9 @@ cUpGetTimer.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-timer c: 20 gl-value)\r\n)"
 } ];
 cUpGetTimer.relatedCommands = [];
+cUpGetTimer.commandCategory = ["Timers"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
@@ -13331,6 +13635,9 @@ cUpGetUpgradeId.example = [ {
 	data: "(defconst gl-type 100)\r\n(defconst gl-upgrade 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-type militiaman-line)\r\n\t(up-get-upgrade-id my-player-number 0 gl-type gl-upgrade)\r\n\t(up-store-type-name g: gl-upgrade)\r\n\t(up-chat-data-to-all &quot;Upgrade: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpGetUpgradeId.relatedCommands = [];
+cUpGetUpgradeId.commandCategory = ["DUC", "Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-victory-data
 cUpGetVictoryData.shortDescription = "Get standard victory status information into the provided goals.";
@@ -13361,6 +13668,9 @@ cUpGetVictoryData.example = [{
 	data: "(defconst gl-victory-player 101)\r\n(defconst gl-victory-type 102)\r\n(defconst gl-victory-time 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-victory-data gl-victory-player gl-victory-type gl-victory-time)\r\n)"
 }];
 cUpGetVictoryData.relatedCommands = [];
+cUpGetVictoryData.commandCategory = ["Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-get-victory-limit
 cUpGetVictoryLimit.shortDescription = "Get the time or score victory limit into the provided goal.";
@@ -13377,6 +13687,9 @@ cUpGetVictoryLimit.example = [{
 	data: "(defconst gl-victory-limit 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-victory-limit gl-victory-limit)\r\n)"
 }];
 cUpGetVictoryLimit.relatedCommands = [];
+cUpGetVictoryLimit.commandCategory = ["Game Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-group-size
 cUpGroupSize.shortDescription = "Check the current number of units in a search group.";
@@ -13414,6 +13727,9 @@ cUpGroupSize.example = [ {
 	data: "(defrule\r\n\t(up-group-size c: 0 > 0)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGroupSize.relatedCommands = [];
+cUpGroupSize.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-guard-unit
 cUpGuardUnit.shortDescription = "Set a single unit of a specific type to protect a random instance of another.";
@@ -13445,6 +13761,9 @@ cUpGuardUnit.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-guard-unit monk c: spearman-line)\r\n)"
 } ];
 cUpGuardUnit.relatedCommands = [];
+cUpGuardUnit.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-idle-unit-count
 cUpIdleUnitCount.shortDescription = "Check the number of idle units for the specified type.";
@@ -13475,6 +13794,9 @@ cUpIdleUnitCount.example = [ {
 	data: "(defrule\r\n\t(up-idle-unit-count idle-type-villager > 5)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpIdleUnitCount.relatedCommands = [];
+cUpIdleUnitCount.commandCategory = ["Counting", "Economy", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-jump-direct
 cUpJumpDirect.shortDescription = "Jump directly within the current rule set.";
@@ -13499,6 +13821,9 @@ cUpJumpDirect.example = [{
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-jump-direct c: 2)\r\n)"
 } ];
 cUpJumpDirect.relatedCommands = [];
+cUpJumpDirect.commandCategory = ["Rule Jumps"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-jump-dynamic
 cUpJumpDynamic.shortDescription = "Jump dynamically within the current rule set.";
@@ -13523,6 +13848,9 @@ cUpJumpDynamic.example = [{
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-jump-dynamic c: 1)\r\n)\r\n(defrule ; this rule is skipped\r\n\t(true)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpJumpDynamic.relatedCommands = [];
+cUpJumpDynamic.commandCategory = ["Rule Jumps"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-jump-rule
 cUpJumpRule.shortDescription = "Jump forward or backward within the current rule set.";
@@ -13543,6 +13871,9 @@ cUpJumpRule.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n\t=>\r\n\t(chat-local-to-self &quot;Start&quot;)\r\n\t(set-goal gl-value 0)\r\n)\r\n(defrule\r\n\t(up-compare-goal gl-value < 3)\r\n\t=>\r\n\t(up-modify-goal gl-value c:+ 1)\r\n\t(up-jump-rule -1)\r\n)"
 } ];
 cUpJumpRule.relatedCommands = [];
+cUpJumpRule.commandCategory = ["Rule Jumps"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-lerp-percent
 cUpLerpPercent.shortDescription = "Interpolate a point by percentage between two point goal pairs.";
@@ -13581,6 +13912,9 @@ cUpLerpPercent.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-center-x 200)\r\n(defconst gl-center-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-self gl-point-x)\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-lerp-percent gl-point-x gl-center-x c: 25)\r\n)"
 } ];
 cUpLerpPercent.relatedCommands = [];
+cUpLerpPercent.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-lerp-tiles
 cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point goal pairs.";
@@ -13619,6 +13953,9 @@ cUpLerpTiles.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defconst gl-center-x 200)\r\n(defconst gl-center-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-self gl-point-x)\r\n\t(up-get-point position-center gl-center-x)\r\n\t(up-lerp-tiles gl-point-x gl-center-x c: 10)\r\n)"
 } ];
 cUpLerpTiles.relatedCommands = [];
+cUpLerpTiles.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
@@ -13660,6 +13997,9 @@ cUpLogData.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-log-data 0 &quot;A message has been logged without data.&quot; c: 0)\r\n\t(disable-self)\r\n)"
 } ];
 cUpLogData.relatedCommands = [];
+cUpLogData.commandCategory = ["Other"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-modify-escrow
 cUpModifyEscrow.shortDescription = "Perform math operations to adjust escrowed resources.";
@@ -13690,6 +14030,9 @@ cUpModifyEscrow.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-escrow food c:= 100)\r\n\t(disable-self)\r\n)"
 } ];
 cUpModifyEscrow.relatedCommands = [];
+cUpModifyEscrow.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-modify-flag
 cUpModifyFlag.shortDescription = "Modify a bitwise flag on the value stored in a goal variable.";
@@ -13721,6 +14064,9 @@ cUpModifyFlag.example = [ {
 	data: "(defconst gl-settings 101)\r\n(defconst first-state 1)\r\n(defconst second-state 2)\r\n(defconst third-state 4)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-flag gl-settings c:+ second-state)\r\n\t(disable-self)\r\n)"
 } ];
 cUpModifyFlag.relatedCommands = [];
+cUpModifyFlag.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-modify-goal
 cUpModifyGoal.shortDescription = "Perform math operations on the value stored in a goal variable.";
@@ -13752,6 +14098,9 @@ cUpModifyGoal.example = [ {
 	data: "(defconst gl-sheep-total 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-goal gl-sheep-total c:+ 1)\r\n\t(disable-self)\r\n)"
 } ];
 cUpModifyGoal.relatedCommands = [];
+cUpModifyGoal.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-modify-group-flag
 cUpModifyGroupFlag.shortDescription = "Modify the ctrl group flag for units in a search group.";
@@ -13783,6 +14132,9 @@ cUpModifyGroupFlag.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-group-flag 1 c: 2) ; object-data-group-flag will be 2\r\n)"
 } ];
 cUpModifyGroupFlag.relatedCommands = [];
+cUpModifyGroupFlag.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-modify-sn
 cUpModifySn.shortDescription = "Perform math operations on a strategic number.";
@@ -13813,6 +14165,9 @@ cUpModifySn.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-sn sn-maximum-town-size c:- 2)\r\n\t(disable-self)\r\n)"
 } ];
 cUpModifySn.relatedCommands = [];
+cUpModifySn.commandCategory = ["SNs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-object-data
 cUpObjectData.shortDescription = "Check specific information about the selected target object.";
@@ -13843,6 +14198,9 @@ cUpObjectData.example = [ {
 	data: "(defrule\r\n\t(up-object-data object-data-garrison-count &gt; 3)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpObjectData.relatedCommands = [];
+cUpObjectData.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-object-target-data
 cUpObjectTargetData.shortDescription = "Check specific information about the target object's target.";
@@ -13873,6 +14231,9 @@ cUpObjectTargetData.example = [{
 	data: "(defrule\r\n\t(up-object-target-data object-data-garrison-count &gt; 3)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpObjectTargetData.relatedCommands = [];
+cUpObjectTargetData.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-object-type-count
 cUpObjectTypeCount.shortDescription = "Combine unit-type-count and building-type-count checks.";
@@ -13910,6 +14271,9 @@ cUpObjectTypeCount.example = [ {
 	data: "(defrule\r\n\t(up-object-type-count c: villager &gt;= 10)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpObjectTypeCount.relatedCommands = [];
+cUpObjectTypeCount.commandCategory = ["Buildings", "Counting", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-object-type-count-total
 cUpObjectTypeCountTotal.shortDescription = "Combine unit-type-count-total and building-type-count-total checks.";
@@ -13947,6 +14311,9 @@ cUpObjectTypeCountTotal.example = [ {
 	data: "(defrule\r\n\t(up-object-type-count-total c: villager &gt; 20)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpObjectTypeCountTotal.relatedCommands = [];
+cUpObjectTypeCountTotal.commandCategory = ["Buildings", "Counting", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-path-distance
 cUpPathDistance.shortDescription = "Check the distance from the target object to a specified point goal pair.";
@@ -13985,6 +14352,9 @@ cUpPathDistance.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-path-distance gl-center-x 0 != 65535)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPathDistance.relatedCommands = [];
+cUpPathDistance.commandCategory = ["DUC", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-pending-objects
 cUpPendingObjects.shortDescription = "Perform a comparison with the pending count of an object.";
@@ -14022,6 +14392,9 @@ cUpPendingObjects.example = [ {
 	data: "(defrule\r\n\t(up-pending-objects c: house &gt;= 1)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPendingObjects.relatedCommands = [];
+cUpPendingObjects.commandCategory = ["Counting", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-pending-placement
 cUpPendingPlacement.shortDescription = "Check if a specific type of building is waiting for placement.";
@@ -14045,6 +14418,9 @@ cUpPendingPlacement.example = [ {
 	data: "(defrule\r\n\t(up-pending-placement c: barracks)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPendingPlacement.relatedCommands = [];
+cUpPendingPlacement.commandCategory = ["Buildings", "Can Do"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
@@ -14082,6 +14458,9 @@ cUpPlayerDistance.example = [ {
 	data: "(defrule\r\n\t(up-player-distance any-enemy &lt; 40)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPlayerDistance.relatedCommands = [];
+cUpPlayerDistance.commandCategory = ["Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-players-in-game
 cUpPlayersInGame.shortDescription = "Check the number of active players in the game of the specified stance.";
@@ -14113,6 +14492,9 @@ cUpPlayersInGame.example = [ {
 	data: "(defrule\r\n\t(up-players-in-game ally &gt;= 3)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPlayersInGame.relatedCommands = [];
+cUpPlayersInGame.commandCategory = ["Diplomacy", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-contains
 cUpPointContains.shortDescription = "Check if an object exists at a point goal pair position.";
@@ -14144,6 +14526,9 @@ cUpPointContains.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-contains gl-center-x c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointContains.relatedCommands = [];
+cUpPointContains.commandCategory = ["Buildings", "Points", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-distance
 cUpPointDistance.shortDescription = "Perform a distance check between two point goal pairs.";
@@ -14182,6 +14567,9 @@ cUpPointDistance.example = [ {
 	data: "(defconst gl-self-x 100)\r\n(defconst gl-self-y 101)\r\n(defconst gl-center-x 200)\r\n(defconst gl-center-y 201)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-self gl-self-x)\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-distance gl-self-x gl-center-x > 5)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointDistance.relatedCommands = [];
+cUpPointDistance.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-elevation
 cUpPointElevation.shortDescription = "Check the elevation for a tile with a point goal pair.";
@@ -14212,6 +14600,9 @@ cUpPointElevation.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-elevation gl-center-x > 1)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointElevation.relatedCommands = [];
+cUpPointElevation.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-explored
 cUpPointExplored.shortDescription = "Check if a point on the map has been explored.";
@@ -14243,6 +14634,9 @@ cUpPointExplored.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x != explored-no)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointExplored.relatedCommands = [];
+cUpPointExplored.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-terrain
 cUpPointTerrain.shortDescription = "Perform a terrain id check at a point goal pair position.";
@@ -14274,6 +14668,9 @@ cUpPointTerrain.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-terrain gl-center-x == terrain-grass)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointTerrain.relatedCommands = [];
+cUpPointTerrain.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-point-zone
 cUpPointZone.shortDescription = "Check the zone for a tile with a point goal pair.";
@@ -14305,6 +14702,9 @@ cUpPointZone.example = [ {
 	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-zone gl-center-x > 1)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointZone.relatedCommands = [];
+cUpPointZone.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-projectile-detected
 cUpProjectileDetected.shortDescription = "Check the elapsed time since a type of projectile was fired at the AI.";
@@ -14335,15 +14735,9 @@ cUpProjectileDetected.example = [ {
 	data: "(defrule\r\n\t(up-projectile-detected projectile-town-center &lt; 2000)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpProjectileDetected.relatedCommands = [];
-
-//up-release-escrow
-cUpReleaseEscrow.shortDescription = "Set all escrow amounts to 0 with a single command.";
-cUpReleaseEscrow.commandParameters = [];
-cUpReleaseEscrow.example = [ {
-	title: "Release all escrowed resources.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-release-escrow)\r\n\t(disable-self)\r\n)"
-} ];
-cUpReleaseEscrow.relatedCommands = [];
+cUpProjectileDetected.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-projectile-target
 cUpProjectileTarget.shortDescription = "Check the class of the target of a projectile that was fired at the AI.";
@@ -14374,6 +14768,21 @@ cUpProjectileTarget.example = [ {
 	data: "(defrule\r\n\t(up-projectile-detected projectile-town-center &lt; 2000)\r\n\t(up-projectile-target projectile-town-center == archery-class) ; archery-class = 900\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpProjectileTarget.relatedCommands = [];
+cUpProjectileTarget.commandCategory = ["Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
+
+//up-release-escrow
+cUpReleaseEscrow.shortDescription = "Set all escrow amounts to 0 with a single command.";
+cUpReleaseEscrow.commandParameters = [];
+cUpReleaseEscrow.example = [ {
+	title: "Release all escrowed resources.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-release-escrow)\r\n\t(disable-self)\r\n)"
+} ];
+cUpReleaseEscrow.relatedCommands = [];
+cUpReleaseEscrow.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-remaining-boar-amount
 cUpRemainingBoarAmount.shortDescription = "Check the amount of food remaining on the current boar.";
@@ -14398,6 +14807,9 @@ cUpRemainingBoarAmount.example = [ {
 	data: "(defrule\r\n\t(up-remaining-boar-amount &lt; 210) ; will be 65535 if invalid\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpRemainingBoarAmount.relatedCommands = [];
+cUpRemainingBoarAmount.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-remove-objects
 cUpRemoveObjects.shortDescription = "Removes objects from the search results based on specific data.";
@@ -14436,6 +14848,9 @@ cUpRemoveObjects.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-remove-objects search-local object-data-hitpoints < 20)\r\n)"
 } ];
 cUpRemoveObjects.relatedCommands = [];
+cUpRemoveObjects.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-request-hunters
 cUpRequestHunters.shortDescription = "Attempt to request support hunters for the active boar lure.";
@@ -14460,6 +14875,9 @@ cUpRequestHunters.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-request-hunters c: 4)\r\n\t(disable-self)\r\n)"
 } ];
 cUpRequestHunters.relatedCommands = [];
+cUpRequestHunters.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-research
 cUpResearch.shortDescription = "Add a technology to the research queue with dynamic values.";
@@ -14490,6 +14908,9 @@ cUpResearch.example = [ {
 	data: "(defrule\r\n\t(up-can-research 0 c: ri-fletching)\r\n=&gt;\r\n\t(up-research 0 c: ri-fletching)\r\n)"
 } ];
 cUpResearch.relatedCommands = [];
+cUpResearch.commandCategory = ["Techs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-research-status
 cUpResearchStatus.shortDescription = "Check the research status of a specific technology.";
@@ -14527,7 +14948,9 @@ cUpResearchStatus.example = [ {
 	data: "(defrule\r\n\t(up-research-status c: ri-loom &gt;= research-pending)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpResearchStatus.relatedCommands = [];
-cUpResetUnit.relatedCommands = [];
+cUpResearchStatus.commandCategory = ["Techs"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-attack-now
 cUpResetAttackNow.shortDescription = "Reset the infinite targeting loop flag set by attack-now.";
@@ -14537,6 +14960,9 @@ cUpResetAttackNow.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-attack-now)\r\n\t(up-reset-unit c: -1) ;-1 is the all-units-class\r\n\t(up-retreat-now)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResetAttackNow.relatedCommands = [cAttackNow];
+cUpResetAttackNow.commandCategory = ["Attack"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-building
 cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type.";
@@ -14567,6 +14993,9 @@ cUpResetBuilding.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-building 1 c: town-center)\r\n)"
 } ];
 cUpResetBuilding.relatedCommands = [];
+cUpResetBuilding.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-cost-data
 cUpResetCostData.shortDescription = "Reset 4 consecutive goals storing cost data to 0.";
@@ -14583,6 +15012,9 @@ cUpResetCostData.example = [ {
 	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-cost-data gl-cost-food)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResetCostData.relatedCommands = [];
+cUpResetCostData.commandCategory = ["Cost Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-filters
 cUpResetFilters.shortDescription = "Reset search indices and filter states for direct unit targeting.";
@@ -14593,6 +15025,9 @@ cUpResetFilters.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-filters)\r\n)"
 } ];
 cUpResetFilters.relatedCommands = [];
+cUpResetFilters.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-group
 cUpResetGroup.shortDescription = "Clear all units in a search group.";
@@ -14616,6 +15051,9 @@ cUpResetGroup.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-group c: 0)\r\n)"
 } ];
 cUpResetGroup.relatedCommands = [];
+cUpResetGroup.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-placement
 cUpResetPlacement.shortDescription = "Clear the placement list for the specified building type when blocked.";
@@ -14640,6 +15078,9 @@ cUpResetPlacement.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-placement c: barracks)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResetPlacement.relatedCommands = [];
+cUpResetPlacement.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-scouts
 cUpResetScouts.shortDescription = "Halt and disband all soldier explore groups on land.";
@@ -14649,6 +15090,9 @@ cUpResetScouts.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-number-explore-groups 0)\r\n\t(set-strategic-number sn-total-number-explorers 0)\r\n\t(up-reset-scouts)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResetScouts.relatedCommands = [];
+cUpResetScouts.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-search
 cUpResetSearch.shortDescription = "Reset the search state for the direct unit targeting system.";
@@ -14693,6 +15137,9 @@ cUpResetSearch.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-search 0 0 0 1)\r\n)"
 } ];
 cUpResetSearch.relatedCommands = [];
+cUpResetSearch.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-target-priorities
 cUpResetTargetPriorities.shortDescription = "Reset or clear offensive or defensive targeting priorities.";
@@ -14720,6 +15167,9 @@ cUpResetTargetPriorities.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-target-priorities priority-offense 1)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResetTargetPriorities.relatedCommands = [];
+cUpResetTargetPriorities.commandCategory = ["Attack", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-reset-unit
 cUpResetUnit.shortDescription = "Halt the activity of all units of a specific type.";
@@ -14743,6 +15193,10 @@ cUpResetUnit.example = [ {
 	title: "Stop all spearmen on the map.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-reset-unit c: spearman-line)\r\n)"
 } ];
+cUpResetUnit.relatedCommands = [];
+cUpResetUnit.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-resource-amount
 cUpResourceAmount.shortDescription = "Perform a comparison with an internal resource value.";
@@ -14773,6 +15227,9 @@ cUpResourceAmount.example = [ {
 	data: "(defrule\r\n\t(up-resource-amount amount-relics &gt;= 1)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpResourceAmount.relatedCommands = [];
+cUpResourceAmount.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-resource-percent
 cUpResourcePercent.shortDescription = "Perform a comparison with an internal resource value * 100.";
@@ -14803,6 +15260,9 @@ cUpResourcePercent.example = [ {
 	data: "(defrule\r\n\t(up-resource-percent amount-tribute-inefficiency &lt; 30)\r\n=&gt;\r\n\t(chat-to-all &quot;Coinage has been researched.&quot;)\r\n\t(disable-self)\r\n)"
 } ];
 cUpResourcePercent.relatedCommands = [];
+cUpResourcePercent.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-retask-gatherers
 cUpRetaskGatherers.shortDescription = "Retask a specific number of villagers gathering from a resource.";
@@ -14834,6 +15294,9 @@ cUpRetaskGatherers.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-retask-gatherers wood c: 3)\r\n\t(disable-self)\r\n)"
 } ];
 cUpRetaskGatherers.relatedCommands = [];
+cUpRetaskGatherers.commandCategory = ["Economy"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-retreat-now
 cUpRetreatNow.shortDescription = "Retreat all military units to the home town center.";
@@ -14844,6 +15307,9 @@ cUpRetreatNow.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-retreat-now)\r\n\t(disable-self)\r\n)"
 } ];
 cUpRetreatNow.relatedCommands = [];
+cUpRetreatNow.commandCategory = ["Attack"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-retreat-to
 cUpRetreatTo.shortDescription = "Retreat all units of a specific type to a random instance of another.";
@@ -14875,6 +15341,9 @@ cUpRetreatTo.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-retreat-to castle c: knight-line)\r\n\t(disable-self)\r\n)"
 } ];
 cUpRetreatTo.relatedCommands = [];
+cUpRetreatTo.commandCategory = ["Attack"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-send-flare
 cUpSendFlare.shortDescription = "Send a flare to allies from a point goal pair.";
@@ -14891,6 +15360,9 @@ cUpSendFlare.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-target gl-point-x)\r\n\t(up-send-flare gl-point-x)\r\n)"
 } ];
 cUpSendFlare.relatedCommands = [];
+cUpSendFlare.commandCategory = ["Other Player Info", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-send-scout
 cUpSendScout.shortDescription = "Send a land or water scout to a specific location.";
@@ -14914,6 +15386,9 @@ cUpSendScout.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-send-scout group-type-land-explore scout-opposite)\r\n\t(disable-self)\r\n)"
 } ];
 cUpSendScout.relatedCommands = [];
+cUpSendScout.commandCategory = ["Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-attack-stance
 cUpSetAttackStance.shortDescription = "Set the attack stance for all units of a specific type.";
@@ -14944,6 +15419,9 @@ cUpSetAttackStance.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-attack-stance spearman-line c: stance-stand-ground)\r\n\t(disable-self)\r\n)"
 } ];
 cUpSetAttackStance.relatedCommands = [];
+cUpSetAttackStance.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-sell-commodity
 cUpSellCommodity.shortDescription = "Sell a variable amount of resources at the market.";
@@ -14982,6 +15460,9 @@ cUpSellCommodity.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-sell-commodity c: wood c: 200)\r\n)"
 } ];
 cUpSellCommodity.relatedCommands = [];
+cUpSellCommodity.commandCategory = ["Economy", "Trade & Tribute"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-defense-priority
 cUpSetDefensePriority.shortDescription = "Set the defensive (TSA) targeting priority for a building.";
@@ -15040,6 +15521,9 @@ cUpSetDefensePriority.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-defense-priority c: lumber-camp c: 1000)\r\n\t(disable-self)\r\n)"
 } ];
 cUpSetDefensePriority.relatedCommands = [];
+cUpSetDefensePriority.commandCategory = ["Attack", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-event
 cUpSetEvent.shortDescription = "Set the value of a scenario trigger event.";
@@ -15077,6 +15561,9 @@ cUpSetEvent.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-event c: 1 c: 0)\r\n)"
 } ];
 cUpSetEvent.relatedCommands = [];
+cUpSetEvent.commandCategory = ["Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-group
 cUpSetGroup.shortDescription = "Set the local or remote search results to a search group.";
@@ -15107,6 +15594,9 @@ cUpSetGroup.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-group search-local c: 0)\r\n)"
 } ];
 cUpSetGroup.relatedCommands = [];
+cUpSetGroup.commandCategory = ["DUC", "DUC Groups"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-indirect-goal
 cUpSetIndirectGoal.shortDescription = "Set the value of a goal indirectly by reference.";
@@ -15144,6 +15634,9 @@ cUpSetIndirectGoal.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal 10 2)\r\n\t(up-set-indirect-goal g: 10 c: 128)\r\n)"
 } ];
 cUpSetIndirectGoal.relatedCommands = [];
+cUpSetIndirectGoal.commandCategory = ["Goals"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-offense-priority
 cUpSetOffensePriority.shortDescription = "Set the offensive targeting priority for an object.";
@@ -15197,6 +15690,9 @@ cUpSetOffensePriority.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-offense-priority c: mining-camp c: 11)\r\n\t(disable-self)\r\n)"
 } ];
 cUpSetOffensePriority.relatedCommands = [];
+cUpSetOffensePriority.commandCategory = ["Attack"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-placement-data
 cUpSetPlacementData.shortDescription = "Specify placement information for managed construction.";
@@ -15238,6 +15734,9 @@ cUpSetPlacementData.example = [ {
 	data: "(defrule\r\n\t(up-can-build 0 c: house)\r\n=&gt;\r\n\t(up-set-placement-data focus-player lumber-camp c: 2)\r\n\t(up-build place-control 0 c: house)\r\n)"
 } ];
 cUpSetPlacementData.relatedCommands = [];
+cUpSetPlacementData.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-precise-target-point
 cUpSetPreciseTargetPoint.shortDescription = "Set the target point with an unchecked extended goal pair.";
@@ -15255,6 +15754,9 @@ cUpSetPreciseTargetPoint.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-modify-goal gl-point-x c:* 100)\r\n\t(up-modify-goal gl-point-y c:* 100)\r\n\t(up-set-precise-target-point gl-point-x)\r\n)"
 } ];
 cUpSetPreciseTargetPoint.relatedCommands = [];
+cUpSetPreciseTargetPoint.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-shared-goal
 cUpSetSharedGoal.shortDescription = "Set the value of a shared goal.";
@@ -15292,6 +15794,9 @@ cUpSetSharedGoal.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-shared-goal c: 1 c: 0)\r\n)"
 } ];
 cUpSetSharedGoal.relatedCommands = [];
+cUpSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-signal
 cUpSetSignal.shortDescription = "Set the value of a scenario trigger signal.";
@@ -15329,6 +15834,9 @@ cUpSetSignal.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-signal c: 1 c: 0)\r\n)"
 } ];
 cUpSetSignal.relatedCommands = [];
+cUpSetSignal.commandCategory = ["Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-target-by-id
 cUpSetTargetById.shortDescription = "Set the target object for other commands by id.";
@@ -15353,6 +15861,9 @@ cUpSetTargetById.example = [ {
 	data: "(defconst gl-stored-id 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-object-data object-data-id gl-stored-id)\r\n\t(up-set-target-by-id g: gl-stored-id)\r\n)"
 } ];
 cUpSetTargetById.relatedCommands = [];
+cUpSetTargetById.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-target-object
 cUpSetTargetObject.shortDescription = "Set the target object for other commands from your search.";
@@ -15384,6 +15895,9 @@ cUpSetTargetObject.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-find-local c: villager-class c: 3)\r\n\t(up-set-target-object search-local c: 0)\r\n)"
 } ];
 cUpSetTargetObject.relatedCommands = [];
+cUpSetTargetObject.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-target-point
 cUpSetTargetPoint.shortDescription = "Set the target point for other commands with an extended goal pair.";
@@ -15401,6 +15915,9 @@ cUpSetTargetPoint.example = [{
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-set-target-point gl-point-x)\r\n)"
 } ];
 cUpSetTargetPoint.relatedCommands = [];
+cUpSetTargetPoint.commandCategory = ["DUC", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-set-timer
 cUpSetTimer.shortDescription = "Disable or enable a timer by interval.";
@@ -15439,6 +15956,9 @@ cUpSetTimer.example = [ {
 	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-timer c: 20 c: 10)\r\n)"
 } ];
 cUpSetTimer.relatedCommands = [];
+cUpSetTimer.commandCategory = ["Timers"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-setup-cost-data
 cUpSetupCostData.shortDescription = "Set the goals to store cost data for food, wood, stone, and gold.";
@@ -15462,6 +15982,9 @@ cUpSetupCostData.example = [ {
 	data: "(defconst gl-cost-food 101)\r\n(defconst gl-cost-wood 102)\r\n(defconst gl-cost-stone 103)\r\n(defconst gl-cost-gold 104)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-setup-cost-data 1 gl-cost-food)\r\n\t(disable-self)\r\n)"
 } ];
 cUpSetupCostData.relatedCommands = [];
+cUpSetupCostData.commandCategory = ["Cost data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-map-name
 cUpStoreMapName.shortDescription = "Store the current map name in the internal buffer.";
@@ -15479,6 +16002,22 @@ cUpStoreMapName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-map-name 0)\r\n\t(up-chat-data-to-all &quot;Map: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStoreMapName.relatedCommands = [];
+cUpStoreMapName.commandCategory = ["Game Info", "Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
+
+//up-store-object-name
+cUpStoreObjectName.shortDescription = "Store the target object's type name in the internal buffer.";
+cUpStoreObjectName.description = "Store the target object's type name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpStoreObjectName.commandParameters = [];
+cUpStoreObjectName.example = [ {
+	title: "Store the type name for object id 0 in the buffer.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-target-by-id c: 0)\r\n\t(up-store-object-name)\r\n\t(up-chat-data-to-all &quot;Object: %s&quot; c: 7031232)\r\n)"
+} ];
+cUpStoreObjectName.relatedCommands = [];
+cUpStoreObjectName.commandCategory = ["Buildings", "Text Data", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
@@ -15496,6 +16035,9 @@ cUpStorePlayerChat.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-player-chat focus-player)\r\n\t(up-chat-data-to-all &quot;Message: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStorePlayerChat.relatedCommands = [];
+cUpStorePlayerChat.commandCategory = ["Chat", "Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
@@ -15513,16 +16055,9 @@ cUpStorePlayerName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-player-name focus-player)\r\n\t(up-chat-data-to-all &quot;Player: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStorePlayerName.relatedCommands = [];
-
-//up-store-object-name
-cUpStoreObjectName.shortDescription = "Store the target object's type name in the internal buffer.";
-cUpStoreObjectName.description = "Store the target object's type name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
-cUpStoreObjectName.commandParameters = [];
-cUpStoreObjectName.example = [ {
-	title: "Store the type name for object id 0 in the buffer.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-set-target-by-id c: 0)\r\n\t(up-store-object-name)\r\n\t(up-chat-data-to-all &quot;Object: %s&quot; c: 7031232)\r\n)"
-} ];
-cUpStoreObjectName.relatedCommands = [];
+cUpStorePlayerName.commandCategory = ["Other PlayerInfo", "Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-tech-name
 cUpStoreTechName.shortDescription = "Store a research tech name in the internal buffer.";
@@ -15547,6 +16082,9 @@ cUpStoreTechName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-tech-name c: my-unique-research)\r\n\t(up-chat-data-to-all &quot;Tech: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStoreTechName.relatedCommands = [];
+cUpStoreTechName.commandCategory = ["Techs", "Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-text
 cUpStoreText.shortDescription = "Store a language string in the internal buffer.";
@@ -15571,6 +16109,9 @@ cUpStoreText.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-text c: 10230) ;10230 is the language id for Random\r\n\t(up-chat-data-to-all &quot;Text: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStoreText.relatedCommands = [];
+cUpStoreText.commandCategory = ["Text Data"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-store-type-name
 cUpStoreTypeName.shortDescription = "Store an object type name in the internal buffer.";
@@ -15595,6 +16136,9 @@ cUpStoreTypeName.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-store-type-name c: barracks)\r\n\t(up-chat-data-to-all &quot;Type: %s&quot; c: 7031232)\r\n)"
 } ];
 cUpStoreTypeName.relatedCommands = [];
+cUpStoreTypeName.commandCategory = ["Buildings", "Text Data", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-target-objects
 cUpTargetObjects.shortDescription = "Direct local search results against remote search results.";
@@ -15633,6 +16177,9 @@ cUpTargetObjects.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-target-objects 0 action-patrol -1 -1)\r\n)"
 } ];
 cUpTargetObjects.relatedCommands = [];
+cUpTargetObjects.commandCategory = ["DUC"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-target-point
 cUpTargetPoint.shortDescription = "Direct local search results to a specific point on the map.";
@@ -15674,6 +16221,9 @@ cUpTargetPoint.example = [ {
 	data: "(defrule\r\n\t(up-find-local c: barracks c: 1)\r\n=&gt;\r\n\t(up-target-point 0 action-train c: spearman)\r\n)"
 } ];
 cUpTargetPoint.relatedCommands = [];
+cUpTargetPoint.commandCategory = ["DUC", "Points"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-timer-status
 cUpTimerStatus.shortDescription = "Check whether a timer is disabled, triggered, running, or a combination.";
@@ -15707,6 +16257,9 @@ cUpTimerStatus.example = [ {
 	data: "(defconst tm-gathering 1)\r\n(defrule\r\n\t(up-timer-status tm-gathering == timer-running)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpTimerStatus.relatedCommands = [];
+cUpTimerStatus.commandCategory = ["Timers"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-train
 cUpTrain.shortDescription = "Add a unit to the training queue with dynamic values.";
@@ -15738,6 +16291,9 @@ cUpTrain.example = [ {
 	data: "(defconst gl-escrow-state 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-escrow-state with-escrow)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(up-can-train gl-escrow-state c: spearman-line)\r\n=&gt;\r\n\t(up-train gl-escrow-state c: spearman-line)\r\n)"
 } ];
 cUpTrain.relatedCommands = [];
+cUpTrain.commandCategory = ["Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-train-site-ready
 cUpTrainSiteReady.shortDescription = "Check if a unit's training site is ready and available.";
@@ -15762,6 +16318,9 @@ cUpTrainSiteReady.example = [ {
 	data: "(defrule\r\n\t(up-train-site-ready c: fishing-ship)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpTrainSiteReady.relatedCommands = [];
+cUpTrainSiteReady.commandCategory = ["Buildings", "Can Do"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-tribute-to-player
 cUpTributeToPlayer.shortDescription = "Tribute a variable amount of resources to other players.";
@@ -15800,16 +16359,9 @@ cUpTributeToPlayer.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-focus-player-number 2)\r\n\t(up-tribute-to-player focus-player food c: 100)\r\n)"
 } ];
 cUpTributeToPlayer.relatedCommands = [];
-
-//up-update-targets
-cUpUpdateTargets.shortDescription = "Perform an immediate update for objects in town size.";
-cUpUpdateTargets.description = "Perform an immediate update for objects in town size.</p><p>This command is important when using TSA. If you expand town size, new targets inside sn-maximum-town-size are quickly added into the target list (the list of enemy objects within sn-maximum-town-size). However, if you reduce sn-maximum-town-size, you have to wait until the target refresh for these objects to be removed from the target list, which happens every 15 seconds. This can cause issues with retreating, for example. Using up-update-targets will immediately update the target list, resolving the issue.";
-cUpUpdateTargets.commandParameters = [];
-cUpUpdateTargets.example = [ {
-	title: "Retreat to the home town center after reducing town size.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-maximum-town-size 15)\r\n\t(up-update-targets)\r\n\t(up-retreat-now)\r\n\t(disable-self)\r\n)"
-} ];
-cUpUpdateTargets.relatedCommands = [];
+cUpTributeToPlayer.commandCategory = ["Trade & Tribute"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-ungarrison
 cUpUngarrison.shortDescription = "Request all objects of the specified type to ungarrison units.";
@@ -15839,6 +16391,9 @@ cUpUngarrison.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram-line)\r\n\t(disable-self)\r\n)"
 } ];
 cUpUngarrison.relatedCommands = [];
+cUpUngarrison.commandCategory = ["Buildings"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-unit-type-in-town
 cUpUnitTypeInTown.shortDescription = "Check the number of a specific enemy unit type in town.";
@@ -15876,6 +16431,22 @@ cUpUnitTypeInTown.example = [ {
 	data: "(defrule\r\n\t(up-unit-type-in-town c: knight-line &gt; 0)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpUnitTypeInTown.relatedCommands = [];
+cUpUnitTypeInTown.commandCategory = ["Counting", "Defense", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
+
+//up-update-targets
+cUpUpdateTargets.shortDescription = "Perform an immediate update for objects in town size.";
+cUpUpdateTargets.description = "Perform an immediate update for objects in town size.</p><p>This command is important when using TSA. If you expand town size, new targets inside sn-maximum-town-size are quickly added into the target list (the list of enemy objects within sn-maximum-town-size). However, if you reduce sn-maximum-town-size, you have to wait until the target refresh for these objects to be removed from the target list, which happens every 15 seconds. This can cause issues with retreating, for example. Using up-update-targets will immediately update the target list, resolving the issue.";
+cUpUpdateTargets.commandParameters = [];
+cUpUpdateTargets.example = [ {
+	title: "Retreat to the home town center after reducing town size.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-strategic-number sn-maximum-town-size 15)\r\n\t(up-update-targets)\r\n\t(up-retreat-now)\r\n\t(disable-self)\r\n)"
+} ];
+cUpUpdateTargets.relatedCommands = [];
+cUpUpdateTargets.commandCategory = ["Attack", "Defense"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //up-villager-type-in-town
 cUpVillagerTypeInTown.shortDescription = "Check the number of a specific enemy villager type in town.";
@@ -15913,6 +16484,9 @@ cUpVillagerTypeInTown.example = [ {
 	data: "(defrule\r\n\t(or\r\n\t\t(up-villager-type-in-town c: gold-miner-m &gt; 0) ; gold-miner-m = 579\r\n\t\t(up-villager-type-in-town c: gold-miner-f &gt; 0) ; gold-miner-f = 581\r\n\t)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpVillagerTypeInTown.relatedCommands = [];
+cUpVillagerTypeInTown.commandCategory = ["Counting", "Defense", "Units"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //fe-cc-effect-amount
 cFeCcEffectAmount.shortDescription = "Apply a research-style effect with an integer value for the AI player.";
@@ -15951,6 +16525,9 @@ cFeCcEffectAmount.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-cc-effect-amount effect-add-attribute villager-class attribute-hp 10)\r\n)"
 } ];
 cFeCcEffectAmount.relatedCommands = [cFeCcEffectPercent];
+cFeCcEffectAmount.commandCategory = ["Cheat", "Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 //fe-cc-effect-percent
 cFeCcEffectPercent.shortDescription = "Apply a research-style effect with a percentage for the AI player.";
@@ -15986,6 +16563,9 @@ cFeCcEffectPercent.commandParameters = [ {
 } ];
 cFeCcEffectPercent.example = [];
 cFeCcEffectPercent.relatedCommands = [cFeCcEffectAmount];
+cFeCcEffectPercent.commandCategory = ["Cheat", "Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
 
 
 

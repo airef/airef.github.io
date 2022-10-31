@@ -279,7 +279,7 @@ code {
 	line-height: 1.5;
 }
 
-#commandsInput, #parametersInput, #valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
+#parametersInput, #valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
 	width: 78%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -302,7 +302,7 @@ code {
 	font-weight: bold;
 }
 
-.techs-input-label {
+.commands-input-label, .techs-input-label {
 	width: 68%;
 	padding-top: 10px;
 	display: inline-block;
@@ -336,7 +336,7 @@ label {
 	text-indent: 10px;
 }
 
-#techsInput {
+#commandsInput, #techsInput {
 	width: 68%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
