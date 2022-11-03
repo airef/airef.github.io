@@ -16605,7 +16605,7 @@ cFeBreakPoint.example = [ {
 	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the BreakState goal parameter is set to -1.",
 	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
 }, {
-	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger.",
+	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
 	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
 }];
 cFeBreakPoint.relatedCommands = [];
