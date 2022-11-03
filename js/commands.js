@@ -484,8 +484,9 @@ var cUpUpdateTargets = new Command("up-update-targets","Action","UP");
 var cUpVillagerTypeInTown = new Command("up-villager-type-in-town","Fact","UP");
 var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
 var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
+var cFeBreakPoint = new Command("fe-break-point","Action","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent];
+var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent, cFeBreakPoint];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","1.0c","&#60;rel-op&#62;");
@@ -498,6 +499,7 @@ var pAnyPlayer = new Parameter("AnyPlayer","1.0c","&#60;player-number&#62;");
 var pAttackStance = new Parameter("AttackStance","UP");
 var pAttrId = new Parameter("AttrId","DE");
 var pBorder = new Parameter("Border","UP");
+var pBreakState = new Parameter("BreakState","DE");
 var pBuildingId = new Parameter("BuildingId","1.0c","&#60;building&#62;");
 var pCiv = new Parameter("Civ","1.0c","&#60;civ&#62;");
 var pClassId = new Parameter("ClassId","UP");
@@ -608,7 +610,7 @@ var pValue = new Parameter("Value","1.0c","&#60;value&#62;");
 var pVictory = new Parameter("Victory","1.0c","&#60;victory-condition&#62;");
 var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pAttrId, pBorder, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pEffectId, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pItemId, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pAttrId, pBorder, pBreakState, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pEffectId, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pItemId, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber();
@@ -6184,7 +6186,7 @@ cAcknowledgeTaunt.example = [ {
 	title: "Launch an attack when an ally taunts 31 (\"Attack an Enemy Now!\") if the AI has enough soldiers to attack. Acknowledge the taunt so that the attack command is only sent once.",
 	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt any-ally 31)\r\n)"
 } ];
-cAcknowledgeTaunt.commandCategory = ["Chat", "Other Player Info"];
+cAcknowledgeTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];
 cAcknowledgeTaunt.relatedCommands = [cTaunt, cTauntDetected, cTauntUsingRange];
 cAcknowledgeTaunt.relatedSNs = [];
 cAcknowledgeTaunt.complexity = "Low";
@@ -7097,7 +7099,7 @@ cChatLocal.example = [ {
 	title: "Chat \"glhf\" to all players with a white text color.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local \"glhf\")\r\n)"
 } ];
-cChatLocal.commandCategory = ["Chat"];
+cChatLocal.commandCategory = ["Chat", "Debugging"];
 cChatLocal.relatedCommands = [cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll];
 cChatLocal.relatedSNs = [];
 cChatLocal.complexity = "Low";
@@ -7117,7 +7119,7 @@ cChatLocalToSelf.example = [ {
 	title: "Chat \"testing\" to self with a white text color.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-local-to-self \"testing\")\r\n)"
 } ];
-cChatLocalToSelf.commandCategory = ["Chat"];
+cChatLocalToSelf.commandCategory = ["Chat", "Debugging"];
 cChatLocalToSelf.relatedCommands = [cChatLocal, cChatLocalUsingId, cChatLocalUsingRange, cChatTrace];
 cChatLocalToSelf.relatedSNs = [];
 cChatLocalToSelf.complexity = "Low";
@@ -7184,7 +7186,7 @@ cChatToAll.example = [ {
 	title: "Chat \"glhf\" to all players with the AI's player color.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-all \"glhf\")\r\n)"
 } ];
-cChatToAll.commandCategory = ["Chat"];
+cChatToAll.commandCategory = ["Chat", "Debugging"];
 cChatToAll.relatedCommands = [cChatLocal, cChatToAllUsingId, cChatToAllUsingRange];
 cChatToAll.relatedSNs = [];
 cChatToAll.complexity = "Low";
@@ -7395,7 +7397,7 @@ cChatToPlayer.example = [ {
 	title: "Chat \"testing\" to self with the AI's player color.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player my-player-number \"testing\")\r\n)"
 } ];
-cChatToPlayer.commandCategory = ["Chat"];
+cChatToPlayer.commandCategory = ["Chat", "Debugging"];
 cChatToPlayer.relatedCommands = [cChatLocalToSelf, cChatToPlayerUsingId, cChatToPlayerUsingRange];
 cChatToPlayer.relatedSNs = [];
 cChatToPlayer.complexity = "Low";
@@ -7476,7 +7478,7 @@ cChatTrace.example = [ {
 	title: "Chat \"Trace 5\" to all players.",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-trace 5)\r\n)"
 } ];
-cChatTrace.commandCategory = ["Chat"];
+cChatTrace.commandCategory = ["Chat", "Debugging"];
 cChatTrace.relatedCommands = [cChatToAll];
 cChatTrace.relatedSNs = [];
 cChatTrace.complexity = "Low";
@@ -8400,7 +8402,7 @@ cLog.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cLog.commandCategory = ["Other"];
+cLog.commandCategory = ["Debugging"];
 /*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -8420,7 +8422,7 @@ cLogTrace.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cLogTrace.commandCategory = ["Other"];
+cLogTrace.commandCategory = ["Debugging"];
 /*c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9806,7 +9808,7 @@ cTaunt.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cTaunt.commandCategory = ["Chat", "Other Player Info"];/*
+cTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -9833,7 +9835,7 @@ cTauntDetected.commandParameters = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
-cTauntDetected.commandCategory = ["Chat", "Other Player Info"];/*
+cTauntDetected.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];
 c.complexity = "Low";*/
@@ -11199,7 +11201,7 @@ cUpChatDataToAll.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-all &quot;I am player %d.&quot; c: my-player-number)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToAll.relatedCommands = [];
-cUpChatDataToAll.commandCategory = ["Chat", "Goals"];/*
+cUpChatDataToAll.commandCategory = ["Chat", "Debugging", "Goals"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -11239,7 +11241,7 @@ cUpChatDataToPlayer.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-player every-ally &quot;The target is player %d.&quot; s: sn-target-player-number)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToPlayer.relatedCommands = [];
-cUpChatDataToPlayer.commandCategory = ["Chat", "Goals"];/*
+cUpChatDataToPlayer.commandCategory = ["Chat", "Debugging", "Goals"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -11272,7 +11274,7 @@ cUpChatDataToSelf.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-chat-data-to-self &quot;Food: %d.&quot; c: 5)\r\n\t(disable-self)\r\n)"
 } ];
 cUpChatDataToSelf.relatedCommands = [];
-cUpChatDataToSelf.commandCategory = ["Chat", "Goals"];/*
+cUpChatDataToSelf.commandCategory = ["Chat", "Debugging", "Goals"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -13997,7 +13999,7 @@ cUpLogData.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-log-data 0 &quot;A message has been logged without data.&quot; c: 0)\r\n\t(disable-self)\r\n)"
 } ];
 cUpLogData.relatedCommands = [];
-cUpLogData.commandCategory = ["Other"];/*
+cUpLogData.commandCategory = ["Debugging"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -15360,7 +15362,7 @@ cUpSendFlare.example = [ {
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-target gl-point-x)\r\n\t(up-send-flare gl-point-x)\r\n)"
 } ];
 cUpSendFlare.relatedCommands = [];
-cUpSendFlare.commandCategory = ["Other Player Info", "Points"];/*
+cUpSendFlare.commandCategory = ["Debugging", "Other Player Info", "Points"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -16489,8 +16491,8 @@ c.relatedSNs = [];
 c.complexity = "Low";*/
 
 //fe-cc-effect-amount
-cFeCcEffectAmount.shortDescription = "Apply a research-style effect with an integer value for the AI player.";
-cFeCcEffectAmount.description = "Apply a research-style effect with an integer value for the AI player. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values. If you need to make an effect with a decimal value, use " + cFeCcEffectPercent.getLink() + ".";
+cFeCcEffectAmount.shortDescription = "DE only. Apply a research-style effect with an integer value for the AI player.";
+cFeCcEffectAmount.description = "DE only. Apply a research-style effect with an integer value for the AI player. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values. If you need to make an effect with a decimal value, use " + cFeCcEffectPercent.getLink() + ".";
 cFeCcEffectAmount.commandParameters = [ {
 	nameLink: pEffectId.getLink(),
 	name: "EffectId",
@@ -16530,8 +16532,8 @@ c.relatedSNs = [];
 c.complexity = "Low";*/
 
 //fe-cc-effect-percent
-cFeCcEffectPercent.shortDescription = "Apply a research-style effect with a percentage for the AI player.";
-cFeCcEffectPercent.description = "Apply a research-style effect with a percentage for the AI player. This command is identical to " + cFeCcEffectAmount.getLink() + ", except the value is divided by 100 to provide decimal precision. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values.";
+cFeCcEffectPercent.shortDescription = "DE only. Apply a research-style effect with a percentage for the AI player.";
+cFeCcEffectPercent.description = "DE only. Apply a research-style effect with a percentage for the AI player. This command is identical to " + cFeCcEffectAmount.getLink() + ", except the value is divided by 100 to provide decimal precision. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values.";
 cFeCcEffectPercent.commandParameters = [ {
 	nameLink: pEffectId.getLink(),
 	name: "EffectId",
@@ -16564,6 +16566,50 @@ cFeCcEffectPercent.commandParameters = [ {
 cFeCcEffectPercent.example = [];
 cFeCcEffectPercent.relatedCommands = [cFeCcEffectAmount];
 cFeCcEffectPercent.commandCategory = ["Cheat", "Scenarios"];/*
+c.relatedSNs = [];
+c.complexity = "Low";*/
+
+//fe-break-point
+cFeBreakPoint.shortDescription = "DE only. Add a break point to force the AI debugger interface to display.";
+cFeBreakPoint.description = "DE only. Add a break point to force the AI debugger interface to display if the break point conditions are met. The break point conditions are met if the comparison between the first and second values is true and either the last parameter is -1 or the goal specified in the last parameter is set to a value >= 1. The debugger shows you various information about the AI's current state, such as the current value of each goal and the object IDs stored in the local and remote lists. Once the debugger is opened, you'll be able to step through your rules.</p><p>To enable the debugger you must first enable AI debugging for the game in the Steam launch options. Before launching the game, go to Steam => Right click game => Properties => in bottom box type AIDEBUGGING.";
+cFeBreakPoint.commandParameters = [ {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "A value to be compared with."
+}, {
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
+	type: "",
+	dir: "",
+	range: "",
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "A value you want to compare against."
+}, {
+	nameLink: pBreakState.getLink(),
+	name: "BreakState",
+	type: "Goal",
+	dir: "in",
+	range: "a goal ID to control whether the debugger is used or -1 to always allow the debugger to be used",
+	note: "Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger."
+} ];
+cFeBreakPoint.example = [ {
+	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the BreakState goal parameter is set to -1.",
+	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
+}, {
+	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger.",
+	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
+}];
+cFeBreakPoint.relatedCommands = [];
+cFeBreakPoint.commandCategory = ["Debugging"];/*
 c.relatedSNs = [];
 c.complexity = "Low";*/
 
@@ -17454,6 +17500,12 @@ pBorder.shortDescription = "The border width for bounding the point.";
 pBorder.range = "0 to 32767.";
 pBorder.relatedParams = [pPoint, pPositionType, pPrecise, pTiles];
 
+//BreakState
+pBreakState.description = "A goal ID that controls whether the debugger is enabled. Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger. To always allow the debugger, use -1 instead of using a goal.";
+pBreakState.shortDescription = "A goal ID that controls whether the debugger is enabled.";
+pBreakState.range = "a goal ID to control whether the debugger is used or -1 to always allow the debugger to be used";
+pBreakState.relatedParams = [pEscrowState];
+
 //BuildingId
 pBuildingId.description = "A building object, either the defined building type name, the object ID assigned to it, or the building's class. Sometimes can also be a building line. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for reference.";
 pBuildingId.shortDescription = "A building object, either the defined building type name, the object ID assigned to it, or the building's class.";
@@ -18043,7 +18095,7 @@ pElapsedTime.relatedParams = [pStart, pTime, pTimerId, pTimerState];
 pEscrowState.description = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;. Note that using the constants &quot;with-escrow&quot; or &quot;without-escrow&quot; themselves for EscrowState is not valid. If you don't want to check for escrow at all, use 0 for EscrowState instead of a goal ID.";
 pEscrowState.shortDescription = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;.";
 pEscrowState.range = "0 or a valid GoalId, ranging from 1 to 512.";
-pEscrowState.relatedParams = [];
+pEscrowState.relatedParams = [pBreakState];
 
 //ESPlayerStance
 pESPlayerStance.description = "A player's diplomatic stance. Note that the UP option &quot;any&quot; is not available with this parameter. This option is only available with the UP-only " + pPlayerStance.getLink() + " parameter.";
