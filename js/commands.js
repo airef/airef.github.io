@@ -6631,7 +6631,7 @@ cCanBuildWithEscrow.example = [ {
 cCanBuildWithEscrow.commandCategory = ["Buildings", "Can Do"];
 cCanBuildWithEscrow.relatedCommands = [cCanBuild, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cBuild, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
 cCanBuildWithEscrow.relatedSNs = [snEnableNewBuildingSystem, snInitialExplorationRequired];
-cCanBuildWithEscrow.complexity = "Low";
+cCanBuildWithEscrow.complexity = "Medium";
 
 //can-build-gate
 cCanBuildGate.shortDescription = "Checks whether construction of a gate as part of the given perimeter wall can start.";
@@ -6671,7 +6671,7 @@ cCanBuildGateWithEscrow.example = [ {
 cCanBuildGateWithEscrow.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
 cCanBuildGateWithEscrow.relatedCommands = [cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildWall, cCanBuildWallWithEscrow, cBuildGate, cEnableWallPlacement, cGateCount];
 cCanBuildGateWithEscrow.relatedSNs = [];
-cCanBuildGateWithEscrow.complexity = "Low";
+cCanBuildGateWithEscrow.complexity = "Medium";
 
 //can-build-wall
 cCanBuildWall.shortDescription = "Checks whether a given wall type can be built at the given perimeter.";
@@ -6725,7 +6725,7 @@ cCanBuildWallWithEscrow.example = [ {
 cCanBuildWallWithEscrow.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];
 cCanBuildWallWithEscrow.relatedCommands = [cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cBuildWall, cEnableWallPlacement, cUpBuildLine, cUpCanBuildLine];
 cCanBuildWallWithEscrow.relatedSNs = [];
-cCanBuildWallWithEscrow.complexity = "Low";
+cCanBuildWallWithEscrow.complexity = "Medium";
 
 //can-buy-commodity
 cCanBuyCommodity.shortDescription = "Checks whether the computer player can buy one lot of the given commodity.";
@@ -6797,7 +6797,7 @@ cCanResearchWithEscrow.example = [ {
 cCanResearchWithEscrow.commandCategory = ["Can Do", "Techs"];
 cCanResearchWithEscrow.relatedCommands = [cCanAffordResearch, cCanResearch, cResearch, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
 cCanResearchWithEscrow.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
-cCanResearchWithEscrow.complexity = "Low";
+cCanResearchWithEscrow.complexity = "Medium";
 
 //can-sell-commodity
 cCanSellCommodity.shortDescription = "Checks whether the computer player can sell one lot of the given commodity.";
@@ -6841,7 +6841,7 @@ cCanSpyWithEscrow.example = [ {
 cCanSpyWithEscrow.commandCategory = ["Can Do", "Techs"];
 cCanSpyWithEscrow.relatedCommands = [cCanSpy, cSpy];
 cCanSpyWithEscrow.relatedSNs = [];
-cCanSpyWithEscrow.complexity = "Low";
+cCanSpyWithEscrow.complexity = "Medium";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
@@ -6905,7 +6905,7 @@ cCanTrainWithEscrow.example = [ {
 cCanTrainWithEscrow.commandCategory = ["Can Do", "Units"];
 cCanTrainWithEscrow.relatedCommands = [cCanAffordUnit, cCanTrain, cTrain, cUnitAvailable, cUpCanTrain, cUpTrain];
 cCanTrainWithEscrow.relatedSNs = [snDockTrainingFilter, snEnableTrainingQueue];
-cCanTrainWithEscrow.complexity = "Low";
+cCanTrainWithEscrow.complexity = "Medium";
 
 //cc-add-resource
 cCcAddResource.shortDescription = "A cheating action that adds the given resource amount to the computer player.";
@@ -8083,8 +8083,8 @@ cEscrowAmount.commandParameters = [ {
 } ];*/
 cEscrowAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cEscrowAmount.complexity = "Medium";
 
 //event-detected
 cEventDetected.shortDescription = "Checks if the given event has been detected.";
@@ -8282,8 +8282,8 @@ cGoal.commandParameters = [ {
 } ];*/
 cGoal.commandCategory = ["Goals"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cGoal.complexity = "Low";
 
 //gold-amount
 cGoldAmount.shortDescription = "Checks a computer player's gold amount.";
@@ -8308,8 +8308,8 @@ cGoldAmount.commandParameters = [ {
 } ];*/
 cGoldAmount.commandCategory = ["Economy"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cGoldAmount.complexity = "Low";
 
 //hold-koh-ruin
 cHoldKohRuin.shortDescription = "Undocumented command that tells the script whether or not it (or its team) currently holds the monument in King of the Hill games.";
@@ -8319,8 +8319,8 @@ cHoldKohRuin.shortDescription = "Undocumented command that tells the script whet
 } ];*/
 cHoldKohRuin.commandCategory = ["Own Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cHoldKohRuin.complexity = "Low";
 
 //hold-relics
 cHoldRelics.shortDescription = "Undocumented command that tells the script whether or not it (or its team) has all of the relics.";
@@ -8330,8 +8330,8 @@ cHoldRelics.shortDescription = "Undocumented command that tells the script wheth
 } ];*/
 cHoldRelics.commandCategory = ["Own Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cHoldRelics.complexity = "Low";
 
 //housing-headroom
 cHousingHeadroom.shortDescription = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity.";
@@ -8357,8 +8357,8 @@ cHousingHeadroom.commandParameters = [ {
 } ];*/
 cHousingHeadroom.commandCategory = ["Own Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cHousingHeadroom.complexity = "Low";
 
 //idle-farm-count
 cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers.";
@@ -8384,8 +8384,8 @@ cIdleFarmCount.commandParameters = [ {
 } ];*/
 cIdleFarmCount.commandCategory = ["Counting", "Economy"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cIdleFarmCount.complexity = "Low";
 
 //log
 cLog.shortDescription = "Writes the given string to a log file. Only works in DE.";
@@ -8404,8 +8404,8 @@ cLog.commandParameters = [ {
 } ];*/
 cLog.commandCategory = ["Debugging"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cLog.complexity = "Medium";
 
 //log-trace
 cLogTrace.shortDescription = "Writes the given value to a log file. Doesn't work.";
@@ -8424,8 +8424,8 @@ cLogTrace.commandParameters = [ {
 } ];*/
 cLogTrace.commandCategory = ["Debugging"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cLogTrace.complexity = "Medium";
 
 //map-size
 cMapSize.shortDescription = "Checks the map size.";
@@ -8443,8 +8443,8 @@ cMapSize.commandParameters = [ {
 } ];*/
 cMapSize.commandCategory = ["Game Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cMapSize.complexity = "Low";
 
 //map-type
 cMapType.shortDescription = "Checks the map type.";
@@ -8462,8 +8462,8 @@ cMapType.commandParameters = [ {
 } ];*/
 cMapType.commandCategory = ["Game Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cMapType.complexity = "Low";
 
 //military-population
 cMilitaryPopulation.shortDescription = "Check's the player's military population.";
@@ -8489,8 +8489,8 @@ cMilitaryPopulation.commandParameters = [ {
 } ];*/
 cMilitaryPopulation.commandCategory = ["Counting", "Units"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cMilitaryPopulation.complexity = "Low";
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
@@ -8509,8 +8509,8 @@ cPlayerComputer.commandParameters = [ {
 } ];*/
 cPlayerComputer.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerComputer.complexity = "Low";
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
@@ -8529,8 +8529,8 @@ cPlayerHuman.commandParameters = [ {
 } ];*/
 cPlayerHuman.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerHuman.complexity = "Low";
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
@@ -8550,8 +8550,8 @@ cPlayerInGame.commandParameters = [ {
 } ];*/
 cPlayerInGame.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerInGame.complexity = "Low";
 
 //player-number
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
@@ -8570,8 +8570,8 @@ cPlayerNumber.commandParameters = [ {
 } ];*/
 cPlayerNumber.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerNumber.complexity = "Low";
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
@@ -8590,8 +8590,8 @@ cPlayerResigned.commandParameters = [ {
 } ];*/
 cPlayerResigned.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerResigned.complexity = "Low";
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
@@ -8610,8 +8610,8 @@ cPlayerValid.commandParameters = [ {
 } ];*/
 cPlayerValid.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayerValid.complexity = "Low";
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
@@ -8644,8 +8644,8 @@ cPlayersBuildingCount.commandParameters = [ {
 } ];*/
 cPlayersBuildingCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersBuildingCount.complexity = "Low";
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
@@ -8685,8 +8685,8 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 } ];*/
 cPlayersBuildingTypeCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersBuildingTypeCount.complexity = "Low";
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civ.";
@@ -8712,8 +8712,8 @@ cPlayersCiv.commandParameters = [ {
 } ];*/
 cPlayersCiv.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersCiv.complexity = "Low";
 
 //players-civilian-population
 cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
@@ -8746,8 +8746,8 @@ cPlayersCivilianPopulation.commandParameters = [ {
 } ];*/
 cPlayersCivilianPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersCivilianPopulation.complexity = "Low";
 
 //players-current-age
 cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
@@ -8780,8 +8780,8 @@ cPlayersCurrentAge.commandParameters = [ {
 } ];*/
 cPlayersCurrentAge.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersCurrentAge.complexity = "Low";
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
@@ -8814,8 +8814,8 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 } ];*/
 cPlayersCurrentAgeTime.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersCurrentAgeTime.complexity = "Low";
 
 //players-military-population
 cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
@@ -8848,8 +8848,8 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 } ];*/
 cPlayersMilitaryPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersMilitaryPopulation.complexity = "Low";
 
 //players-population
 cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
@@ -8882,8 +8882,8 @@ cPlayersPopulation.commandParameters = [ {
 } ];*/
 cPlayersPopulation.commandCategory = ["Counting", "Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersPopulation.complexity = "Low";
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
@@ -8916,8 +8916,8 @@ cPlayersScore.commandParameters = [ {
 } ];*/
 cPlayersScore.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersScore.complexity = "Low";
 
 //players-stance
 cPlayersStance.shortDescription = "Checks the given player's diplomatic stance toward the computer player.";
@@ -8943,8 +8943,8 @@ cPlayersStance.commandParameters = [ {
 } ];*/
 cPlayersStance.commandCategory = ["Diplomacy", "Other Player Info"];
 /*c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersStance.complexity = "Low";
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
@@ -8984,8 +8984,8 @@ cPlayersTribute.commandParameters = [ {
 } ];*/
 cPlayersTribute.commandCategory = ["Diplomacy", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersTribute.complexity = "Low";
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
@@ -9025,8 +9025,8 @@ cPlayersTributeMemory.commandParameters = [ {
 } ];*/
 cPlayersTributeMemory.commandCategory = ["Diplomacy", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersTributeMemory.complexity = "Low";
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
@@ -9059,8 +9059,8 @@ cPlayersUnitCount.commandParameters = [ {
 } ];*/
 cPlayersUnitCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersUnitCount.complexity = "Low";
 
 //players-unit-type-count
 cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating.";
@@ -9100,8 +9100,8 @@ cPlayersUnitTypeCount.commandParameters = [ {
 } ];*/
 cPlayersUnitTypeCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPlayersUnitTypeCount.complexity = "Low";
 
 //population
 cPopulation.shortDescription = "Checks the computer player's population.";
@@ -9127,8 +9127,8 @@ cPopulation.commandParameters = [ {
 } ];*/
 cPopulation.commandCategory = ["Counting", "Own Player Info", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPopulation.complexity = "Low";
 
 //population-cap
 cPopulationCap.shortDescription = "Checks the population cap setting.";
@@ -9153,8 +9153,8 @@ cPopulationCap.commandParameters = [ {
 } ];*/
 cPopulationCap.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPopulationCap.complexity = "Low";
 
 //population-headroom
 cPopulationHeadroom.shortDescription = "Checks the computer player's population headroom.";
@@ -9180,8 +9180,8 @@ cPopulationHeadroom.commandParameters = [ {
 } ];*/
 cPopulationHeadroom.commandCategory = ["Counting", "Own Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cPopulationHeadroom.complexity = "Low";
 
 //random-number
 cRandomNumber.shortDescription = "Checks random number value generated by generate-random-number.";
@@ -9207,8 +9207,8 @@ cRandomNumber.commandParameters = [ {
 } ];*/
 cRandomNumber.commandCategory = ["Other"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cRandomNumber.complexity = "Low";
 
 //regicide-game
 cRegicideGame.shortDescription = "Checks if the game is a regicide game.";
@@ -9218,8 +9218,8 @@ cRegicideGame.shortDescription = "Checks if the game is a regicide game.";
 } ];*/
 cRegicideGame.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cRegicideGame.complexity = "Low";
 
 //release-escrow
 cReleaseEscrow.shortDescription = "Releases the computer player's escrow for a given resource type (sets the amount to 0).";
@@ -9237,8 +9237,8 @@ cReleaseEscrow.commandParameters = [ {
 } ];*/
 cReleaseEscrow.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cReleaseEscrow.complexity = "Medium";
 
 //research
 cResearch.shortDescription = "Researches the given item.";
@@ -9257,8 +9257,8 @@ cResearch.commandParameters = [ {
 } ];*/
 cResearch.commandCategory = ["Techs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cResearch.complexity = "Low";
 
 //research-available
 cResearchAvailable.shortDescription = "Checks that the given research is available to the computer player's civ, and that the research is available at this time.";
@@ -9277,8 +9277,8 @@ cResearchAvailable.commandParameters = [ {
 } ];*/
 cResearchAvailable.commandCategory = ["Can Do", "Techs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cResearchAvailable.complexity = "Low";
 
 //research-completed
 cResearchCompleted.shortDescription = "Checks that the given research is completed.";
@@ -9296,8 +9296,8 @@ cResearchCompleted.commandParameters = [ {
 } ];*/
 cResearchCompleted.commandCategory = ["Can Do", "Techs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cResearchCompleted.complexity = "Low";
 
 //resign
 cResign.shortDescription = "Causes the computer player to resign.";
@@ -9307,8 +9307,8 @@ cResign.shortDescription = "Causes the computer player to resign.";
 } ];*/
 cResign.commandCategory = ["Other"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cResign.complexity = "Low";
 
 //resource-found
 cResourceFound.shortDescription = "Checks whether the computer player has found the given resource.";
@@ -9327,8 +9327,8 @@ cResourceFound.commandParameters = [ {
 } ];*/
 cResourceFound.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cResourceFound.complexity = "Low";
 
 //sell-commodity
 cSellCommodity.shortDescription = "Sells one lot of a given commodity.";
@@ -9346,8 +9346,8 @@ cSellCommodity.commandParameters = [ {
 } ];*/
 cSellCommodity.commandCategory = ["Economy", "Trading"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSellCommodity.complexity = "Low";
 
 //set-author-email
 cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
@@ -9357,8 +9357,8 @@ cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
 } ];*/
 cSetAuthorEmail.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetAuthorEmail.complexity = "Don't Use";
 
 //set-author-name
 cSetAuthorName.shortDescription = "The game does not use it for anything.";
@@ -9368,8 +9368,8 @@ cSetAuthorName.shortDescription = "The game does not use it for anything.";
 } ];*/
 cSetAuthorName.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetAuthorName.complexity = "Don't Use";
 
 //set-author-version
 cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
@@ -9379,8 +9379,8 @@ cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
 } ];*/
 cSetAuthorVersion.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetAuthorVersion.complexity = "Don't Use";
 
 //set-difficulty-parameter
 cSetDifficultyParameter.shortDescription = "Sets a given difficulty parameter to a given value.";
@@ -9405,8 +9405,8 @@ cSetDifficultyParameter.commandParameters = [ {
 } ];*/
 cSetDifficultyParameter.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetDifficultyParameter.complexity = "Low";
 
 //set-doctrine
 cSetDoctrine.shortDescription = "Sets the doctrine to the given value.";
@@ -9424,8 +9424,8 @@ cSetDoctrine.commandParameters = [ {
 } ];*/
 cSetDoctrine.commandCategory = ["Goals"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetDoctrine.complexity = "Low";
 
 //set-escrow-percentage
 cSetEscrowPercentage.shortDescription = "Sets the computer player's escrow percentage for a given resource type.";
@@ -9451,8 +9451,8 @@ cSetEscrowPercentage.commandParameters = [ {
 } ];*/
 cSetEscrowPercentage.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetEscrowPercentage.complexity = "Medium";
 
 //set-goal
 cSetGoal.shortDescription = "Sets a given goal to a given value.";
@@ -9477,8 +9477,8 @@ cSetGoal.commandParameters = [ {
 } ];*/
 cSetGoal.commandCategory = ["Goals"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetGoal.complexity = "Low";
 
 //set-shared-goal
 cSetSharedGoal.shortDescription = "Sets a given shared goal (a goal that is shared among computer players) to a given value.";
@@ -9504,8 +9504,8 @@ cSetSharedGoal.commandParameters = [ {
 } ];*/
 cSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetSharedGoal.complexity = "Medium";
 
 //set-signal
 cSetSignal.shortDescription = "Sets a given signal that can be checked by the AI Signal trigger condition in the scenario editor.";
@@ -9523,8 +9523,8 @@ cSetSignal.commandParameters = [ {
 } ];*/
 cSetSignal.commandCategory = ["Scenarios"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetSignal.complexity = "Medium";
 
 //set-stance
 cSetStance.shortDescription = "Sets the stance toward a given player.";
@@ -9550,8 +9550,8 @@ cSetStance.commandParameters = [ {
 } ];*/
 cSetStance.commandCategory = ["Diplomacy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetStance.complexity = "Low";
 
 //set-strategic-number
 cSetStrategicNumber.shortDescription = "Sets a given strategic number to a given value.";
@@ -9577,8 +9577,8 @@ cSetStrategicNumber.commandParameters = [ {
 } ];*/
 cSetStrategicNumber.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSetStrategicNumber.complexity = "Low";
 
 //shared-goal
 cSharedGoal.shortDescription = "Checks a given shared goal -- a goal that is shared among computer players. It is to be used only when all computer players are on the same team.";
@@ -9603,8 +9603,8 @@ cSharedGoal.commandParameters = [ {
 } ];*/
 cSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSharedGoal.complexity = "Medium";
 
 //sheep-and-forage-too-far
 cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center).";
@@ -9614,8 +9614,8 @@ cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has
 } ];*/
 cSheepAndForageTooFar.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSheepAndForageTooFar.complexity = "Low";
 
 //soldier-count
 cSoldierCount.shortDescription = "Checks the computer player's soldier count. A soldier is a land-based military unit.";
@@ -9640,8 +9640,8 @@ cSoldierCount.commandParameters = [ {
 } ];*/
 cSoldierCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSoldierCount.complexity = "Low";
 
 //spy
 cSpy.shortDescription = "Executes a spy command. Only works in Regicide games.";
@@ -9652,8 +9652,8 @@ cSpy.description = "Executes a spy command. Only works in Regicide games to rese
 } ];*/
 cSpy.commandCategory = ["Techs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cSpy.complexity = "Low";
 
 //stance-toward
 cStanceToward.shortDescription = "Checks the computer player's diplomatic stance toward a given player.";
@@ -9679,8 +9679,8 @@ cStanceToward.commandParameters = [ {
 } ];*/
 cStanceToward.commandCategory = ["Diplomacy", "Own Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cStanceToward.complexity = "Low";
 
 //starting-age
 cStartingAge.shortDescription = "Checks the game's starting age.";
@@ -9706,8 +9706,8 @@ cStartingAge.commandParameters = [ {
 } ];*/
 cStartingAge.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cStartingAge.complexity = "Low";
 
 //starting-resources
 cStartingResources.shortDescription = "Checks the starting resources level (low, medium, or high).";
@@ -9732,8 +9732,8 @@ cStartingResources.commandParameters = [ {
 } ];*/
 cStartingResources.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cStartingResources.complexity = "Low";
 
 //stone-amount
 cStoneAmount.shortDescription = "Checks a computer player's stone amount.";
@@ -9758,8 +9758,8 @@ cStoneAmount.commandParameters = [ {
 } ];*/
 cStoneAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cStoneAmount.complexity = "Low";
 
 //strategic-number
 cStrategicNumber.shortDescription = "Checks a strategic number's value.";
@@ -9791,8 +9791,8 @@ cStrategicNumber.commandParameters = [ {
 } ];*/
 cStrategicNumber.commandCategory = ["SNs"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cStrategicNumber.complexity = "Low";
 
 //taunt
 cTaunt.shortDescription = "Triggers the taunt associated with the given value.";
@@ -9810,8 +9810,8 @@ cTaunt.commandParameters = [ {
 } ];*/
 cTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTaunt.complexity = "Low";
 
 //taunt-detected
 cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
@@ -9837,8 +9837,8 @@ cTauntDetected.commandParameters = [ {
 } ];*/
 cTauntDetected.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTauntDetected.complexity = "Low";
 
 //taunt-using-range
 cTauntUsingRange.shortDescription = "Triggers a random taunt that is picked from a given taunt range.";
@@ -9864,8 +9864,8 @@ cTauntUsingRange.commandParameters = [ {
 } ];*/
 cTauntUsingRange.commandCategory = ["Chat", "Other Player Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTauntUsingRange.complexity = "Low";
 
 //timer-triggered
 cTimerTriggered.shortDescription = "Checks whether a given timer has triggered (the time on the timer has run out).";
@@ -9884,8 +9884,8 @@ cTimerTriggered.commandParameters = [ {
 } ];*/
 cTimerTriggered.commandCategory = ["Timers"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTimerTriggered.complexity = "Low";
 
 //town-under-attack
 cTownUnderAttack.shortDescription = "Set to true when a computer player's town is under attack.";
@@ -9896,8 +9896,8 @@ cTownUnderAttack.description = "town-under-attack is triggered (i.e. returns tru
 } ];*/
 cTownUnderAttack.commandCategory = ["Defense"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTownUnderAttack.complexity = "Low";
 
 //trace-fact
 cTraceFact.shortDescription = "Undocumented action that doesn't work. Probably only for debugging purposes originally.";
@@ -9907,8 +9907,8 @@ cTraceFact.shortDescription = "Undocumented action that doesn't work. Probably o
 } ];*/
 cTraceFact.commandCategory = ["Don't Use"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTraceFact.complexity = "Don't Use";
 
 //train
 cTrain.shortDescription = "Trains the given unit.";
@@ -9927,8 +9927,8 @@ cTrain.commandParameters = [ {
 } ];*/
 cTrain.commandCategory = ["Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTrain.complexity = "Low";
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
@@ -9961,8 +9961,8 @@ cTributeToPlayer.commandParameters = [ {
 } ];*/
 cTributeToPlayer.commandCategory = ["Diplomacy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTributeToPlayer.complexity = "Low";
 
 //true
 cTrue.shortDescription = "A Fact that is always true.";
@@ -9973,8 +9973,8 @@ cTrue.description = "A Fact that is always true, often used as a placeholder for
 } ];*/
 cTrue.commandCategory = ["Other"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cTrue.complexity = "Low";
 
 //unit-available
 cUnitAvailable.shortDescription = "Checks that the unit is available to the computer player's civ, and that the tech tree prerequisites for training the unit are met.";
@@ -9993,8 +9993,8 @@ cUnitAvailable.commandParameters = [ {
 } ];*/
 cUnitAvailable.commandCategory = ["Can Do", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUnitAvailable.complexity = "Low";
 
 //unit-count
 cUnitCount.shortDescription = "Checks the computer player's unit count. Only trained units are included.";
@@ -10020,8 +10020,8 @@ cUnitCount.commandParameters = [ {
 } ];*/
 cUnitCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUnitCount.complexity = "Low";
 
 //unit-count-total
 cUnitCountTotal.shortDescription = "Checks the computer player's total unit count. The total includes trained and queued units.";
@@ -10047,8 +10047,8 @@ cUnitCountTotal.commandParameters = [ {
 } ];*/
 cUnitCountTotal.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUnitCountTotal.complexity = "Low";
 
 //unit-type-count
 cUnitTypeCount.shortDescription = "Checks the computer player's unit count of the given type.";
@@ -10081,8 +10081,8 @@ cUnitTypeCount.commandParameters = [ {
 } ];*/
 cUnitTypeCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUnitTypeCount.complexity = "Low";
 
 //unit-type-count-total
 cUnitTypeCountTotal.shortDescription = "Checks the computer player's total unit count of the given type.";
@@ -10115,8 +10115,8 @@ cUnitTypeCountTotal.commandParameters = [ {
 } ];*/
 cUnitTypeCountTotal.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUnitTypeCountTotal.complexity = "Low";
 
 //victory-condition
 cVictoryCondition.shortDescription = "Checks the game victory condition.";
@@ -10134,8 +10134,8 @@ cVictoryCondition.commandParameters = [ {
 } ];*/
 cVictoryCondition.commandCategory = ["Game Info"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cVictoryCondition.complexity = "Low";
 
 //wall-completed-percentage
 cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given perimeter wall.";
@@ -10168,8 +10168,8 @@ cWallCompletedPercentage.commandParameters = [ {
 } ];*/
 cWallCompletedPercentage.commandCategory = ["Buildings", "Walls & Gates"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cWallCompletedPercentage.complexity = "Low";
 
 //wall-invisible-percentage
 cWallInvisiblePercentage.shortDescription = "Checks what percentage of the potential wall placement is covered with fog.";
@@ -10202,8 +10202,8 @@ cWallInvisiblePercentage.commandParameters = [ {
 } ];*/
 cWallInvisiblePercentage.commandCategory = ["Buildings", "Walls & Gates"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cWallInvisiblePercentage.complexity = "Low";
 
 //warboat-count
 cWarboatCount.shortDescription = "Checks the computer player's warboat count. A warboat is a boat capable of attacking.";
@@ -10228,8 +10228,8 @@ cWarboatCount.commandParameters = [ {
 } ];*/
 cWarboatCount.commandCategory = ["Counting", "Units"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cWarboatCount.complexity = "Low";
 
 //wood-amount
 cWoodAmount.shortDescription = "Checks the computer player's wood amount.";
@@ -10254,8 +10254,8 @@ cWoodAmount.commandParameters = [ {
 } ];*/
 cWoodAmount.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cWoodAmount.complexity = "Low";
 
 
 
@@ -10293,8 +10293,8 @@ cUpAddCostData.example = [ {
 } ];
 cUpAddCostData.relatedCommands = [];
 cUpAddCostData.commandCategory = ["Cost Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAddCostData.complexity = "High";
 
 //up-add-object-by-id
 cUpAddObjectById.shortDescription = "Add an object to the search results by id.";
@@ -10327,8 +10327,8 @@ cUpAddObjectById.example = [ {
 } ];
 cUpAddObjectById.relatedCommands = [];
 cUpAddObjectById.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAddObjectById.complexity = "Very High";
 
 //up-add-object-cost
 cUpAddObjectCost.shortDescription = "Add or subtract objects of a specific type to the current cost data.";
@@ -10371,8 +10371,8 @@ cUpAddObjectCost.example = [ {
 } ];
 cUpAddObjectCost.relatedCommands = [];
 cUpAddObjectCost.commandCategory = ["Cost Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAddObjectCost.complexity = "High";
 
 //up-add-point
 cUpAddPoint.shortDescription = "Add or subtract two point goal pairs together.";
@@ -10412,8 +10412,8 @@ cUpAddPoint.example = [ {
 } ];
 cUpAddPoint.relatedCommands = [];
 cUpAddPoint.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAddPoint.complexity = "High";
 
 //up-add-research-cost
 cUpAddResearchCost.shortDescription = "Add or subtract techs of a specific type to the current cost data.";
@@ -10452,8 +10452,8 @@ cUpAddResearchCost.example = [ {
 } ];
 cUpAddResearchCost.relatedCommands = [];
 cUpAddResearchCost.commandCategory = ["Cost Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAddResearchCost.complexity = "High";
 
 //up-allied-goal
 cUpAlliedGoal.shortDescription = "Perform a comparison with an allied AI's goal variable.";
@@ -10492,8 +10492,8 @@ cUpAlliedGoal.example = [ {
 } ];
 cUpAlliedGoal.relatedCommands = [];
 cUpAlliedGoal.commandCategory = ["Goals", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAlliedGoal.complexity = "Medium";
 
 //up-allied-resource-amount
 cUpAlliedResourceAmount.shortDescription = "Perform a comparison with an ally's internal resource value.";
@@ -10532,8 +10532,8 @@ cUpAlliedResourceAmount.example = [ {
 } ];
 cUpAlliedResourceAmount.relatedCommands = [];
 cUpAlliedResourceAmount.commandCategory = ["Economy", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAlliedResourceAmount.complexity = "Medium";
 
 //up-allied-resource-percent
 cUpAlliedResourcePercent.shortDescription = "Perform a comparison with an ally's internal resource value * 100.";
@@ -10572,8 +10572,8 @@ cUpAlliedResourcePercent.example = [ {
 } ];
 cUpAlliedResourcePercent.relatedCommands = [];
 cUpAlliedResourcePercent.commandCategory = ["Economy", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAlliedResourcePercent.complexity = "Medium";
 
 //up-allied-sn
 cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number.";
@@ -10612,8 +10612,8 @@ cUpAlliedSn.example = [ {
 } ];
 cUpAlliedSn.relatedCommands = [];
 cUpAlliedSn.commandCategory = ["Other Player Info", "SNs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAlliedSn.complexity = "Medium";
 
 //up-assign-builders
 cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
@@ -10656,8 +10656,8 @@ cUpAssignBuilders.example = [ {
 } ];
 cUpAssignBuilders.relatedCommands = [];
 cUpAssignBuilders.commandCategory = ["Buildings", "Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAssignBuilders.complexity = "Medium";
 
 //up-attacker-class
 cUpAttackerClass.shortDescription = "Check the class of the last enemy object to trigger town-under-attack.";
@@ -10682,8 +10682,8 @@ cUpAttackerClass.example = [ {
 } ];
 cUpAttackerClass.relatedCommands = [];
 cUpAttackerClass.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpAttackerClass.complexity = "Medium";
 
 //up-bound-precise-point
 cUpBoundPrecisePoint.shortDescription = "Bound a point goal pair inside the map with additional control.";
@@ -10723,8 +10723,8 @@ cUpBoundPrecisePoint.example = [ {
 } ];
 cUpBoundPrecisePoint.relatedCommands = [];
 cUpBoundPrecisePoint.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBoundPrecisePoint.complexity = "High";
 
 //up-bound-point
 cUpBoundPoint.shortDescription = "Copy a point goal pair and shift it into the map bounds.";
@@ -10749,8 +10749,8 @@ cUpBoundPoint.example = [ {
 } ];
 cUpBoundPoint.relatedCommands = [];
 cUpBoundPoint.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBoundPoint.complexity = "Medium";
 
 //up-build
 cUpBuild.shortDescription = "Add a building to the construction queue with dynamic values.";
@@ -10802,8 +10802,8 @@ cUpBuild.example = [ {
 } ];
 cUpBuild.relatedCommands = [];
 cUpBuild.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBuild.complexity = "High";
 
 //up-building-type-in-town
 cUpBuildingTypeInTown.shortDescription = "Check the number of a specific enemy building type in town.";
@@ -10842,8 +10842,8 @@ cUpBuildingTypeInTown.example = [ {
 } ];
 cUpBuildingTypeInTown.relatedCommands = [];
 cUpBuildingTypeInTown.commandCategory = ["Buildings", "Counting", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBuildingTypeInTown.complexity = "Medium";
 
 //up-build-line
 cUpBuildLine.shortDescription = "Place a line of buildings between two point goal pairs.";
@@ -10883,8 +10883,8 @@ cUpBuildLine.example = [ {
 } ];
 cUpBuildLine.relatedCommands = [];
 cUpBuildLine.commandCategory = ["Buildings", "Walls & Gates"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBuildLine.complexity = "Very High";
 
 //up-buy-commodity
 cUpBuyCommodity.shortDescription = "Buy a variable amount of resources at the market.";
@@ -10924,8 +10924,8 @@ cUpBuyCommodity.example = [{
 } ];
 cUpBuyCommodity.relatedCommands = [];
 cUpBuyCommodity.commandCategory = ["Economy", "Trading"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpBuyCommodity.complexity = "Medium";
 
 //up-can-build
 cUpCanBuild.shortDescription = "Check if a building can be constructed with dynamic values.";
@@ -10957,8 +10957,8 @@ cUpCanBuild.example = [ {
 } ];
 cUpCanBuild.relatedCommands = [];
 cUpCanBuild.commandCategory = ["Buildings", "Can Do"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCanBuild.complexity = "Medium";
 
 //up-can-build-line
 cUpCanBuildLine.shortDescription = "Check if a building can be constructed at a point goal pair.";
@@ -10998,8 +10998,8 @@ cUpCanBuildLine.example = [ {
 } ];
 cUpCanBuildLine.relatedCommands = [];
 cUpCanBuildLine.commandCategory = ["Buildings", "Can Do", "Walls & Gates"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCanBuildLine.complexity = "Very High";
 
 //up-can-research
 cUpCanResearch.shortDescription = "Check if a technology can be researched with dynamic values.";
@@ -11031,8 +11031,8 @@ cUpCanResearch.example = [ {
 } ];
 cUpCanResearch.relatedCommands = [];
 cUpCanResearch.commandCategory = ["Can Do", "Techs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCanResearch.complexity = "Medium";
 
 //up-can-search
 cUpCanSearch.shortDescription = "Check the status for either the local or remote search.";
@@ -11051,8 +11051,8 @@ cUpCanSearch.example = [ {
 } ];
 cUpCanSearch.relatedCommands = [];
 cUpCanSearch.commandCategory = ["Can Do", "DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCanSearch.complexity = "Very High";
 
 //up-can-train
 cUpCanTrain.shortDescription = "Check if a unit can be trained with dynamic values.";
@@ -11085,8 +11085,8 @@ cUpCanTrain.example = [ {
 } ];
 cUpCanTrain.relatedCommands = [];
 cUpCanTrain.commandCategory = ["Can Do", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCanTrain.complexity = "Medium";
 
 //up-cc-add-resource
 cUpCcAddResource.shortDescription = "Add resources dynamically to the player stockpile.";
@@ -11126,8 +11126,8 @@ cUpCcAddResource.example = [ {
 } ];
 cUpCcAddResource.relatedCommands = [];
 cUpCcAddResource.commandCategory = ["Cheat", "Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCcAddResource.complexity = "Medium";
 
 //up-cc-send-cheat
 cUpCcSendCheat.shortDescription = "Send a message in order to execute a cheat code.";
@@ -11146,8 +11146,8 @@ cUpCcSendCheat.example = [ {
 } ];
 cUpCcSendCheat.relatedCommands = [];
 cUpCcSendCheat.commandCategory = ["Chat", "Cheat"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCcSendCheat.complexity = "Medium";
 
 //up-change-name
 cUpChangeName.shortDescription = "Change the name of the AI during gameplay.";
@@ -11169,8 +11169,8 @@ cUpChangeName.example = [ {
 } ];
 cUpChangeName.relatedCommands = [];
 cUpChangeName.commandCategory = ["Other"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpChangeName.complexity = "Low";
 
 //up-chat-data-to-all
 cUpChatDataToAll.shortDescription = "Send a chat message with a formatted value to everyone.";
@@ -11202,8 +11202,8 @@ cUpChatDataToAll.example = [ {
 } ];
 cUpChatDataToAll.relatedCommands = [];
 cUpChatDataToAll.commandCategory = ["Chat", "Debugging", "Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpChatDataToAll.complexity = "Medium";
 
 //up-chat-data-to-player
 cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
@@ -11242,8 +11242,8 @@ cUpChatDataToPlayer.example = [ {
 } ];
 cUpChatDataToPlayer.relatedCommands = [];
 cUpChatDataToPlayer.commandCategory = ["Chat", "Debugging", "Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpChatDataToPlayer.complexity = "Medium";
 
 //up-chat-data-to-self
 cUpChatDataToSelf.shortDescription = "Send a chat message with a formatted value locally.";
@@ -11275,8 +11275,8 @@ cUpChatDataToSelf.example = [ {
 } ];
 cUpChatDataToSelf.relatedCommands = [];
 cUpChatDataToSelf.commandCategory = ["Chat", "Debugging", "Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpChatDataToSelf.complexity = "Medium";
 
 //up-clean-search
 cUpCleanSearch.shortDescription = "Removes duplicate ids or sorts the search results.";
@@ -11309,8 +11309,8 @@ cUpCleanSearch.example = [ {
 } ];
 cUpCleanSearch.relatedCommands = [];
 cUpCleanSearch.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCleanSearch.complexity = "Very High";
 
 //up-compare-const
 cUpCompareConst.shortDescription = "Perform a comparison with a constant value.";
@@ -11343,8 +11343,8 @@ cUpCompareConst.example = [ {
 } ];
 cUpCompareConst.relatedCommands = [];
 cUpCompareConst.commandCategory = ["Other"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCompareConst.complexity = "Medium";
 
 //up-compare-flag
 cUpCompareFlag.shortDescription = "Perform a bitwise flag test with a goal variable.";
@@ -11377,8 +11377,8 @@ cUpCompareFlag.example = [ {
 } ];
 cUpCompareFlag.relatedCommands = [];
 cUpCompareFlag.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCompareFlag.complexity = "High";
 
 //up-compare-goal
 cUpCompareGoal.shortDescription = "Perform a comparison with a goal variable.";
@@ -11410,8 +11410,8 @@ cUpCompareGoal.example = [ {
 } ];
 cUpCompareGoal.relatedCommands = [];
 cUpCompareGoal.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCompareGoal.complexity = "Medium";
 
 //up-compare-sn
 cUpCompareSn.shortDescription = "Perform a comparison with a strategic number.";
@@ -11443,8 +11443,8 @@ cUpCompareSn.example = [ {
 } ];
 cUpCompareSn.relatedCommands = [];
 cUpCompareSn.commandCategory = ["SNs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCompareSn.complexity = "Medium";
 
 //up-compare-text
 cUpCompareText.shortDescription = "Perform a string comparison with the stored text.";
@@ -11484,8 +11484,8 @@ cUpCompareText.example = [{
 } ];
 cUpCompareText.relatedCommands = [];
 cUpCompareText.commandCategory = ["Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCompareText.complexity = "High";
 
 //up-copy-point
 cUpCopyPoint.shortDescription = "Copy one point goal pair into another pair of extended goals.";
@@ -11510,8 +11510,8 @@ cUpCopyPoint.example = [ {
 } ];
 cUpCopyPoint.relatedCommands = [];
 cUpCopyPoint.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCopyPoint.complexity = "High";
 
 //up-create-group
 cUpCreateGroup.shortDescription = "Create a search group from the local search results.";
@@ -11551,8 +11551,8 @@ cUpCreateGroup.example = [ {
 } ];
 cUpCreateGroup.relatedCommands = [];
 cUpCreateGroup.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCreateGroup.complexity = "Very High";
 
 //up-cross-tiles
 cUpCrossTiles.shortDescription = "Get a point perpendicular to two point goal pairs.";
@@ -11592,8 +11592,35 @@ cUpCrossTiles.example = [ {
 } ];
 cUpCrossTiles.relatedCommands = [];
 cUpCrossTiles.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpCrossTiles.complexity = "High";
+
+//up-defender-count
+cUpDefenderCount.shortDescription = "Check the number of units actively defending in town.";
+cUpDefenderCount.description = "Check the number of units actively defending in town. With this command you can check to see if your TSA attack is actually actively targeting anything or if it's just idling. If, after expecting your new town-size to initiate a defensive attack, the response from this command is far less than expected for several consecutive turns, your target may be unreachable by the defensive targeting system (target has been walled for protection by one of their allies, etc.) and you may need to switch targets.";
+cUpDefenderCount.commandParameters = [ {
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
+	type: "",
+	dir: "",
+	range: "",
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "A number for comparison."
+} ];
+cUpDefenderCount.example = [ {
+	title: "Check if the AI is actively defending its town with at least 10 units.",
+	data: "(defrule\r\n\t(up-defender-count &gt;= 10)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
+} ];
+cUpDefenderCount.relatedCommands = [];
+cUpDefenderCount.commandCategory = ["Counting", "Defense", "Units"];/*
+c.relatedSNs = [];*/
+cUpDefenderCount.complexity = "Low";
 
 //up-delete-distant-farms
 cUpDeleteDistantFarms.shortDescription = "Delete all farms that exist outside the specified drop distance.";
@@ -11618,8 +11645,8 @@ cUpDeleteDistantFarms.example = [ {
 } ];
 cUpDeleteDistantFarms.relatedCommands = [];
 cUpDeleteDistantFarms.commandCategory = ["Buildings", "Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpDeleteDistantFarms.complexity = "Medium";
 
 //up-delete-idle-units
 cUpDeleteIdleUnits.shortDescription = "Delete all idle units of the specified type.";
@@ -11637,8 +11664,8 @@ cUpDeleteIdleUnits.example = [ {
 } ];
 cUpDeleteIdleUnits.relatedCommands = [];
 cUpDeleteIdleUnits.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpDeleteIdleUnits.complexity = "Medium";
 
 //up-delete-objects
 cUpDeleteObjects.shortDescription = "Delete all objects with less than the specified hitpoints.";
@@ -11677,35 +11704,8 @@ cUpDeleteObjects.example = [ {
 } ];
 cUpDeleteObjects.relatedCommands = [];
 cUpDeleteObjects.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
-
-//up-defender-count
-cUpDefenderCount.shortDescription = "Check the number of units actively defending in town.";
-cUpDefenderCount.description = "Check the number of units actively defending in town. With this command you can check to see if your TSA attack is actually actively targeting anything or if it's just idling. If, after expecting your new town-size to initiate a defensive attack, the response from this command is far less than expected for several consecutive turns, your target may be unreachable by the defensive targeting system (target has been walled for protection by one of their allies, etc.) and you may need to switch targets.";
-cUpDefenderCount.commandParameters = [ {
-	nameLink: pCompareOp.getLink(),
-	name: "compareOp",
-	type: "",
-	dir: "",
-	range: "",
-	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
-}, {
-	nameLink: pValue.getLink(),
-	name: "Value",
-	type: "Op",
-	dir: "in",
-	range: "-32768 to 32767",
-	note: "A number for comparison."
-} ];
-cUpDefenderCount.example = [ {
-	title: "Check if the AI is actively defending its town with at least 10 units.",
-	data: "(defrule\r\n\t(up-defender-count &gt;= 10)\r\n=&gt;\r\n\t(do-nothing)\r\n)"
-} ];
-cUpDefenderCount.relatedCommands = [];
-cUpDefenderCount.commandCategory = ["Counting", "Defense", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpDeleteObjects.complexity = "Medium";
 
 //up-disband-group-type
 cUpDisbandGroupType.shortDescription = "Disband all internal groups of the specified type.";
@@ -11724,8 +11724,8 @@ cUpDisbandGroupType.example = [ {
 } ];
 cUpDisbandGroupType.relatedCommands = [];
 cUpDisbandGroupType.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpDisbandGroupType.complexity = "Medium";
 
 //up-drop-resources
 cUpDropResources.shortDescription = "Request a drop by gatherers carrying a specific number of a resource.";
@@ -11761,8 +11761,8 @@ cUpDropResources.example = [ {
 } ];
 cUpDropResources.relatedCommands = [];
 cUpDropResources.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpDropResources.complexity = "Medium";
 
 //up-enemy-buildings-in-town
 cUpEnemyBuildingsInTown.shortDescription = "Check the number of targetable enemy buildings in town.";
@@ -11787,8 +11787,8 @@ cUpEnemyBuildingsInTown.example = [ {
 } ];
 cUpEnemyBuildingsInTown.relatedCommands = [];
 cUpEnemyBuildingsInTown.commandCategory = ["Buildings", "Counting", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpEnemyBuildingsInTown.complexity = "Medium";
 
 //up-enemy-units-in-town
 cUpEnemyUnitsInTown.shortDescription = "Check the number of targetable enemy units in town.";
@@ -11813,8 +11813,8 @@ cUpEnemyUnitsInTown.example = [ {
 } ];
 cUpEnemyUnitsInTown.relatedCommands = [];
 cUpEnemyUnitsInTown.commandCategory = ["Counting", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpEnemyUnitsInTown.complexity = "Medium";
 
 //up-enemy-villagers-in-town
 cUpEnemyVillagersInTown.shortDescription = "Check the number of targetable enemy villagers in town.";
@@ -11839,8 +11839,8 @@ cUpEnemyVillagersInTown.example = [ {
 } ];
 cUpEnemyVillagersInTown.relatedCommands = [];
 cUpEnemyVillagersInTown.commandCategory = ["Counting", "Defense", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpEnemyVillagersInTown.complexity = "Medium";
 
 //up-filter-distance
 cUpFilterDistance.shortDescription = "Set distance parameters for the direct targeting system.";
@@ -11880,8 +11880,8 @@ cUpFilterDistance.example = [ {
 } ];
 cUpFilterDistance.relatedCommands = [];
 cUpFilterDistance.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterDistance.complexity = "Very High";
 
 //up-filter-exclude
 cUpFilterExclude.shortDescription = "Set exclude parameters for the direct targeting system.";
@@ -11921,8 +11921,8 @@ cUpFilterExclude.example = [ {
 } ];
 cUpFilterExclude.relatedCommands = [];
 cUpFilterExclude.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterExclude.complexity = "Very High";
 
 //up-filter-garrison
 cUpFilterGarrison.shortDescription = "Set garrison parameters for the direct targeting system.";
@@ -11962,8 +11962,8 @@ cUpFilterGarrison.example = [ {
 } ];
 cUpFilterGarrison.relatedCommands = [];
 cUpFilterGarrison.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterGarrison.complexity = "Very High";
 
 //up-filter-include
 cUpFilterInclude.shortDescription = "Set include parameters for the direct targeting system.";
@@ -12004,8 +12004,8 @@ cUpFilterInclude.example = [ {
 } ];
 cUpFilterInclude.relatedCommands = [];
 cUpFilterInclude.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterInclude.complexity = "Very High";
 
 //up-filter-range
 cUpFilterRange.shortDescription = "Set range parameters for the direct targeting system.";
@@ -12045,8 +12045,8 @@ cUpFilterRange.example = [ {
 } ];
 cUpFilterRange.relatedCommands = [];
 cUpFilterRange.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterRange.complexity = "Very High";
 
 //up-filter-status
 cUpFilterStatus.shortDescription = "Set the object status value for use with up-find-status.";
@@ -12086,8 +12086,8 @@ cUpFilterStatus.example = [ {
 } ];
 cUpFilterStatus.relatedCommands = [];
 cUpFilterStatus.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFilterStatus.complexity = "Very High";
 
 //up-find-flare
 cUpFindFlare.shortDescription = "Read the (x,y) position of an allied flare into an extended goal pair.";
@@ -12106,8 +12106,8 @@ cUpFindFlare.example = [ {
 } ];
 cUpFindFlare.relatedCommands = [];
 cUpFindFlare.commandCategory = ["Other Player Info", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindFlare.complexity = "High";
 
 //up-find-local
 cUpFindLocal.shortDescription = "Find objects owned by the local player for direct targeting.";
@@ -12147,8 +12147,8 @@ cUpFindLocal.example = [ {
 } ];
 cUpFindLocal.relatedCommands = [];
 cUpFindLocal.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindLocal.complexity = "Very High";
 
 //up-find-next-player
 cUpFindNextPlayer.shortDescription = "Find the next active player based on the provided information.";
@@ -12180,8 +12180,8 @@ cUpFindNextPlayer.example = [ {
 } ];
 cUpFindNextPlayer.relatedCommands = [];
 cUpFindNextPlayer.commandCategory = ["Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindNextPlayer.complexity = "Medium";
 
 //up-find-player
 cUpFindPlayer.shortDescription = "Find the first active player based on the provided information.";
@@ -12213,8 +12213,8 @@ cUpFindPlayer.example = [ {
 } ];
 cUpFindPlayer.relatedCommands = [];
 cUpFindPlayer.commandCategory = ["Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindPlayer.complexity = "Medium";
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
@@ -12246,8 +12246,8 @@ cUpFindPlayerFlare.example = [ {
 } ];
 cUpFindPlayerFlare.relatedCommands = [];
 cUpFindPlayerFlare.commandCategory = ["Other Player Info", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindPlayerFlare.complexity = "High";
 
 //up-find-remote
 cUpFindRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
@@ -12287,8 +12287,8 @@ cUpFindRemote.example = [ {
 } ];
 cUpFindRemote.relatedCommands = [];
 cUpFindRemote.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindRemote.complexity = "Very High";
 
 //up-find-resource
 cUpFindResource.shortDescription = "Find gatherable resource objects for direct targeting.";
@@ -12328,8 +12328,8 @@ cUpFindResource.example = [ {
 } ];
 cUpFindResource.relatedCommands = [];
 cUpFindResource.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindResource.complexity = "Very High";
 
 //up-find-status-local
 cUpFindStatusLocal.shortDescription = "Find objects owned by the local player filtered by status.";
@@ -12369,8 +12369,8 @@ cUpFindStatusLocal.example = [ {
 } ];
 cUpFindStatusLocal.relatedCommands = [];
 cUpFindStatusLocal.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindStatusLocal.complexity = "Very High";
 
 //up-find-status-remote
 cUpFindStatusRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
@@ -12410,8 +12410,8 @@ cUpFindStatusRemote.example = [ {
 } ];
 cUpFindStatusRemote.relatedCommands = [];
 cUpFindStatusRemote.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFindStatusRemote.complexity = "Very High";
 
 //up-full-reset-search
 cUpFullResetSearch.shortDescription = "Reset all search and filter states for direct unit targeting.";
@@ -12423,8 +12423,8 @@ cUpFullResetSearch.example = [ {
 }];
 cUpFullResetSearch.relatedCommands = [];
 cUpFullResetSearch.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpFullResetSearch.complexity = "Very High";
 
 //up-gaia-type-count
 cUpGaiaTypeCount.shortDescription = "Check the current sighted resource count from gaia.";
@@ -12467,8 +12467,8 @@ cUpGaiaTypeCount.example = [ {
 } ];
 cUpGaiaTypeCount.relatedCommands = [];
 cUpGaiaTypeCount.commandCategory = ["Counting", "Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGaiaTypeCount.complexity = "Medium";
 
 //up-gaia-type-count-total
 cUpGaiaTypeCountTotal.shortDescription = "Check the total sighted resource count from gaia.";
@@ -12511,8 +12511,8 @@ cUpGaiaTypeCountTotal.example = [ {
 } ];
 cUpGaiaTypeCountTotal.relatedCommands = [];
 cUpGaiaTypeCountTotal.commandCategory = ["Counting", "Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGaiaTypeCountTotal.complexity = "Medium";
 
 //up-garrison
 cUpGarrison.shortDescription = "Garrison all units of the specified type into another object.";
@@ -12551,8 +12551,8 @@ cUpGarrison.example = [ {
 } ];
 cUpGarrison.relatedCommands = [];
 cUpGarrison.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGarrison.complexity = "Medium";
 
 //up-gather-inside
 cUpGatherInside.shortDescription = "Set all existing buildings of a specific type to hold units inside.";
@@ -12594,8 +12594,8 @@ cUpGatherInside.example = [ {
 } ];
 cUpGatherInside.relatedCommands = [];
 cUpGatherInside.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGatherInside.complexity = "Medium";
 
 //up-get-attacker-class
 cUpGetAttackerClass.shortDescription = "Get the class of the last enemy object to trigger town-under-attack.";
@@ -12613,8 +12613,8 @@ cUpGetAttackerClass.example = [ {
 } ];
 cUpGetAttackerClass.relatedCommands = [];
 cUpGetAttackerClass.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetAttackerClass.complexity = "Medium";
 
 //up-get-cost-delta
 cUpGetCostDelta.shortDescription = "Get the difference between player resources and the current cost data.";
@@ -12633,8 +12633,8 @@ cUpGetCostDelta.example = [ {
 } ];
 cUpGetCostDelta.relatedCommands = [];
 cUpGetCostDelta.commandCategory = ["Cost Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetCostDelta.complexity = "High";
 
 //up-get-event
 cUpGetEvent.shortDescription = "Get the value of a scenario trigger event.";
@@ -12666,8 +12666,8 @@ cUpGetEvent.example = [ {
 } ];
 cUpGetEvent.relatedCommands = [];
 cUpGetEvent.commandCategory = ["Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetEvent.complexity = "Medium";
 
 //up-get-fact
 cUpGetFact.shortDescription = "Read a fact for my-player-number into a goal.";
@@ -12700,8 +12700,8 @@ cUpGetFact.example = [ {
 } ];
 cUpGetFact.relatedCommands = [];
 cUpGetFact.commandCategory = ["Player Facts", "Own Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetFact.complexity = "High";
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
@@ -12741,8 +12741,8 @@ cUpGetFactMax.example = [ {
 } ];
 cUpGetFactMax.relatedCommands = [];
 cUpGetFactMax.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetFactMax.complexity = "High";
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
@@ -12782,8 +12782,8 @@ cUpGetFactMin.example = [ {
 } ];
 cUpGetFactMin.relatedCommands = [];
 cUpGetFactMin.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetFactMin.complexity = "High";
 
 //up-get-fact-sum
 cUpGetFactSum.shortDescription = "Read the sum of facts for specific players into a goal.";
@@ -12823,8 +12823,8 @@ cUpGetFactSum.example = [ {
 } ];
 cUpGetFactSum.relatedCommands = [];
 cUpGetFactSum.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetFactSum.complexity = "High";
 
 //up-get-focus-fact
 cUpGetFocusFact.shortDescription = "Read a fact for the focus-player into a goal.";
@@ -12857,8 +12857,8 @@ cUpGetFocusFact.example = [ {
 } ];
 cUpGetFocusFact.relatedCommands = [];
 cUpGetFocusFact.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetFocusFact.complexity = "High";
 
 //up-get-group-size
 cUpGetGroupSize.shortDescription = "Get the current number of units in a search group.";
@@ -12890,8 +12890,8 @@ cUpGetGroupSize.example = [ {
 } ];
 cUpGetGroupSize.relatedCommands = [];
 cUpGetGroupSize.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetGroupSize.complexity = "Very High";
 
 //up-get-guard-state
 cUpGetGuardState.shortDescription = "Get the guard state into 4 consecutive extended goals.";
@@ -12913,8 +12913,8 @@ cUpGetGuardState.example = [ {
 } ];
 cUpGetGuardState.relatedCommands = [];
 cUpGetGuardState.commandCategory = ["Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetGuardState.complexity = "High";
 
 //up-get-indirect-goal
 cUpGetIndirectGoal.shortDescription = "Get the value of a goal indirectly by reference.";
@@ -12946,8 +12946,8 @@ cUpGetIndirectGoal.example = [ {
 } ];
 cUpGetIndirectGoal.relatedCommands = [];
 cUpGetIndirectGoal.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetIndirectGoal.complexity = "High";
 
 //up-get-object-data
 cUpGetObjectData.shortDescription = "Get specific information about the selected target object.";
@@ -12973,8 +12973,8 @@ cUpGetObjectData.example = [ {
 } ];
 cUpGetObjectData.relatedCommands = [];
 cUpGetObjectData.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetObjectData.complexity = "Very High";
 
 //up-get-object-target-data
 cUpGetObjectTargetData.shortDescription = "Get specific information about the target object's target.";
@@ -13000,8 +13000,8 @@ cUpGetObjectTargetData.example = [{
 } ];
 cUpGetObjectTargetData.relatedCommands = [];
 cUpGetObjectTargetData.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetObjectTargetData.complexity = "Very High";
 
 //up-get-object-type-data
 cUpGetObjectTypeData.shortDescription = "Get generic information about an object type.";
@@ -13041,8 +13041,8 @@ cUpGetObjectTypeData.example = [ {
 } ];
 cUpGetObjectTypeData.relatedCommands = [];
 cUpGetObjectTypeData.commandCategory = ["DUC", "Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetObjectTypeData.complexity = "Very High";
 
 //up-get-path-distance
 cUpGetPathDistance.shortDescription = "Get the distance from the target object to a specified point goal pair.";
@@ -13075,8 +13075,8 @@ cUpGetPathDistance.example = [ {
 } ];
 cUpGetPathDistance.relatedCommands = [];
 cUpGetPathDistance.commandCategory = ["DUC", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPathDistance.complexity = "Very High";
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
@@ -13102,8 +13102,8 @@ cUpGetPlayerColor.example = [ {
 } ];
 cUpGetPlayerColor.relatedCommands = [];
 cUpGetPlayerColor.commandCategory = ["Other Player Info", "Player Facts", "Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPlayerColor.complexity = "High";
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
@@ -13143,8 +13143,8 @@ cUpGetPlayerFact.example = [ {
 } ];
 cUpGetPlayerFact.relatedCommands = [];
 cUpGetPlayerFact.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPlayerFact.complexity = "High";
 
 //up-get-precise-time
 cUpGetPreciseTime.shortDescription = "Get a system timestamp or the elapsed time into a goal.";
@@ -13172,8 +13172,8 @@ cUpGetPreciseTime.example = [ {
 } ];
 cUpGetPreciseTime.relatedCommands = [];
 cUpGetPreciseTime.commandCategory = ["Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPreciseTime.complexity = "High";
 
 //up-get-point
 cUpGetPoint.shortDescription = "Read a specific (x,y) position into an extended goal pair.";
@@ -13202,8 +13202,8 @@ cUpGetPoint.example = [ {
 } ];
 cUpGetPoint.relatedCommands = [];
 cUpGetPoint.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPoint.complexity = "High";
 
 //up-get-point-contains
 cUpGetPointContains.shortDescription = "Get the id if an object exists at a point goal pair position.";
@@ -13243,8 +13243,8 @@ cUpGetPointContains.example = [ {
 } ];
 cUpGetPointContains.relatedCommands = [];
 cUpGetPointContains.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPointContains.complexity = "High";
 
 //up-get-point-distance
 cUpGetPointDistance.shortDescription = "Get the distance between two point goal pairs.";
@@ -13277,8 +13277,8 @@ cUpGetPointDistance.example = [ {
 } ];
 cUpGetPointDistance.relatedCommands = [];
 cUpGetPointDistance.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPointDistance.complexity = "High";
 
 //up-get-point-elevation
 cUpGetPointElevation.shortDescription = "Get the elevation for a tile with a point goal pair.";
@@ -13303,8 +13303,8 @@ cUpGetPointElevation.example = [ {
 } ];
 cUpGetPointElevation.relatedCommands = [];
 cUpGetPointElevation.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPointElevation.complexity = "High";
 
 //up-get-point-terrain
 cUpGetPointTerrain.shortDescription = "Get the terrain id at a specific point goal pair position.";
@@ -13330,8 +13330,8 @@ cUpGetPointTerrain.example = [ {
 } ];
 cUpGetPointTerrain.relatedCommands = [];
 cUpGetPointTerrain.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPointTerrain.complexity = "High";
 
 //up-get-point-zone
 cUpGetPointZone.shortDescription = "Get the zone for a tile with a point goal pair.";
@@ -13357,8 +13357,8 @@ cUpGetPointZone.example = [ {
 } ];
 cUpGetPointZone.relatedCommands = [];
 cUpGetPointZone.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetPointZone.complexity = "High";
 
 //up-get-projectile-player
 cUpGetProjectilePlayer.shortDescription = "Get the enemy player that last attacked with a specific type of projectile.";
@@ -13383,8 +13383,8 @@ cUpGetProjectilePlayer.example = [ {
 } ];
 cUpGetProjectilePlayer.relatedCommands = [];
 cUpGetProjectilePlayer.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetProjectilePlayer.complexity = "Medium";
 
 //up-get-rule-id
 cUpGetRuleId.shortDescription = "Get the zero-based id for the current rule within the rule set.";
@@ -13403,8 +13403,8 @@ cUpGetRuleId.example = [ {
 } ];
 cUpGetRuleId.relatedCommands = [];
 cUpGetRuleId.commandCategory = ["Rule Jumps"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetRuleId.complexity = "Very High";
 
 //up-get-search-state
 cUpGetSearchState.shortDescription = "Get the search state into 4 consecutive extended goals.";
@@ -13423,8 +13423,8 @@ cUpGetSearchState.example = [ {
 } ];
 cUpGetSearchState.relatedCommands = [];
 cUpGetSearchState.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetSearchState.complexity = "Very High";
 
 //up-get-shared-goal
 cUpGetSharedGoal.shortDescription = "Get the value of a shared goal.";
@@ -13456,8 +13456,8 @@ cUpGetSharedGoal.example = [ {
 } ];
 cUpGetSharedGoal.relatedCommands = [];
 cUpGetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetSharedGoal.complexity = "Medium";
 
 //up-get-signal
 cUpGetSignal.shortDescription = "Get the value of a scenario trigger signal.";
@@ -13489,8 +13489,8 @@ cUpGetSignal.example = [{
 } ];
 cUpGetSignal.relatedCommands = [];
 cUpGetSignal.commandCategory = ["Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetSignal.complexity = "Medium";
 
 //up-get-target-fact
 cUpGetTargetFact.shortDescription = "Read a fact for the target-player into a goal.";
@@ -13523,8 +13523,8 @@ cUpGetTargetFact.example = [ {
 } ];
 cUpGetTargetFact.relatedCommands = [];
 cUpGetTargetFact.commandCategory = ["Other Player Info", "Player Facts"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetTargetFact.complexity = "High";
 
 //up-get-threat-data
 cUpGetThreatData.shortDescription = "Get the elapsed time, player, source, and target of the last threat.";
@@ -13564,8 +13564,8 @@ cUpGetThreatData.example = [ {
 } ];
 cUpGetThreatData.relatedCommands = [];
 cUpGetThreatData.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetThreatData.complexity = "High";
 
 //up-get-timer
 cUpGetTimer.shortDescription = "Get the trigger time for a timer in milliseconds.";
@@ -13597,8 +13597,8 @@ cUpGetTimer.example = [ {
 } ];
 cUpGetTimer.relatedCommands = [];
 cUpGetTimer.commandCategory = ["Timers"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetTimer.complexity = "Medium";
 
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
@@ -13638,8 +13638,8 @@ cUpGetUpgradeId.example = [ {
 } ];
 cUpGetUpgradeId.relatedCommands = [];
 cUpGetUpgradeId.commandCategory = ["DUC", "Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetUpgradeId.complexity = "High";
 
 //up-get-victory-data
 cUpGetVictoryData.shortDescription = "Get standard victory status information into the provided goals.";
@@ -13671,8 +13671,8 @@ cUpGetVictoryData.example = [{
 }];
 cUpGetVictoryData.relatedCommands = [];
 cUpGetVictoryData.commandCategory = ["Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetVictoryData.complexity = "High";
 
 //up-get-victory-limit
 cUpGetVictoryLimit.shortDescription = "Get the time or score victory limit into the provided goal.";
@@ -13690,8 +13690,8 @@ cUpGetVictoryLimit.example = [{
 }];
 cUpGetVictoryLimit.relatedCommands = [];
 cUpGetVictoryLimit.commandCategory = ["Game Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGetVictoryLimit.complexity = "High";
 
 //up-group-size
 cUpGroupSize.shortDescription = "Check the current number of units in a search group.";
@@ -13730,8 +13730,8 @@ cUpGroupSize.example = [ {
 } ];
 cUpGroupSize.relatedCommands = [];
 cUpGroupSize.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGroupSize.complexity = "Very High";
 
 //up-guard-unit
 cUpGuardUnit.shortDescription = "Set a single unit of a specific type to protect a random instance of another.";
@@ -13764,8 +13764,8 @@ cUpGuardUnit.example = [ {
 } ];
 cUpGuardUnit.relatedCommands = [];
 cUpGuardUnit.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpGuardUnit.complexity = "Medium";
 
 //up-idle-unit-count
 cUpIdleUnitCount.shortDescription = "Check the number of idle units for the specified type.";
@@ -13797,8 +13797,8 @@ cUpIdleUnitCount.example = [ {
 } ];
 cUpIdleUnitCount.relatedCommands = [];
 cUpIdleUnitCount.commandCategory = ["Counting", "Economy", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpIdleUnitCount.complexity = "Medium";
 
 //up-jump-direct
 cUpJumpDirect.shortDescription = "Jump directly within the current rule set.";
@@ -13824,8 +13824,8 @@ cUpJumpDirect.example = [{
 } ];
 cUpJumpDirect.relatedCommands = [];
 cUpJumpDirect.commandCategory = ["Rule Jumps"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpJumpDirect.complexity = "High";
 
 //up-jump-dynamic
 cUpJumpDynamic.shortDescription = "Jump dynamically within the current rule set.";
@@ -13851,8 +13851,8 @@ cUpJumpDynamic.example = [{
 } ];
 cUpJumpDynamic.relatedCommands = [];
 cUpJumpDynamic.commandCategory = ["Rule Jumps"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpJumpDynamic.complexity = "High";
 
 //up-jump-rule
 cUpJumpRule.shortDescription = "Jump forward or backward within the current rule set.";
@@ -13874,8 +13874,8 @@ cUpJumpRule.example = [ {
 } ];
 cUpJumpRule.relatedCommands = [];
 cUpJumpRule.commandCategory = ["Rule Jumps"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpJumpRule.complexity = "High";
 
 //up-lerp-percent
 cUpLerpPercent.shortDescription = "Interpolate a point by percentage between two point goal pairs.";
@@ -13915,8 +13915,8 @@ cUpLerpPercent.example = [ {
 } ];
 cUpLerpPercent.relatedCommands = [];
 cUpLerpPercent.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpLerpPercent.complexity = "High";
 
 //up-lerp-tiles
 cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point goal pairs.";
@@ -13956,8 +13956,8 @@ cUpLerpTiles.example = [ {
 } ];
 cUpLerpTiles.relatedCommands = [];
 cUpLerpTiles.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpLerpTiles.complexity = "High";
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
@@ -14000,8 +14000,8 @@ cUpLogData.example = [ {
 } ];
 cUpLogData.relatedCommands = [];
 cUpLogData.commandCategory = ["Debugging"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpLogData.complexity = "Medium";
 
 //up-modify-escrow
 cUpModifyEscrow.shortDescription = "Perform math operations to adjust escrowed resources.";
@@ -14033,8 +14033,8 @@ cUpModifyEscrow.example = [ {
 } ];
 cUpModifyEscrow.relatedCommands = [];
 cUpModifyEscrow.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpModifyEscrow.complexity = "Medium";
 
 //up-modify-flag
 cUpModifyFlag.shortDescription = "Modify a bitwise flag on the value stored in a goal variable.";
@@ -14067,8 +14067,8 @@ cUpModifyFlag.example = [ {
 } ];
 cUpModifyFlag.relatedCommands = [];
 cUpModifyFlag.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpModifyFlag.complexity = "High";
 
 //up-modify-goal
 cUpModifyGoal.shortDescription = "Perform math operations on the value stored in a goal variable.";
@@ -14101,8 +14101,8 @@ cUpModifyGoal.example = [ {
 } ];
 cUpModifyGoal.relatedCommands = [];
 cUpModifyGoal.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpModifyGoal.complexity = "Medium";
 
 //up-modify-group-flag
 cUpModifyGroupFlag.shortDescription = "Modify the ctrl group flag for units in a search group.";
@@ -14135,8 +14135,8 @@ cUpModifyGroupFlag.example = [ {
 } ];
 cUpModifyGroupFlag.relatedCommands = [];
 cUpModifyGroupFlag.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpModifyGroupFlag.complexity = "Very High";
 
 //up-modify-sn
 cUpModifySn.shortDescription = "Perform math operations on a strategic number.";
@@ -14168,8 +14168,8 @@ cUpModifySn.example = [ {
 } ];
 cUpModifySn.relatedCommands = [];
 cUpModifySn.commandCategory = ["SNs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpModifySn.complexity = "Medium";
 
 //up-object-data
 cUpObjectData.shortDescription = "Check specific information about the selected target object.";
@@ -14201,8 +14201,8 @@ cUpObjectData.example = [ {
 } ];
 cUpObjectData.relatedCommands = [];
 cUpObjectData.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpObjectData.complexity = "Very High";
 
 //up-object-target-data
 cUpObjectTargetData.shortDescription = "Check specific information about the target object's target.";
@@ -14234,8 +14234,8 @@ cUpObjectTargetData.example = [{
 } ];
 cUpObjectTargetData.relatedCommands = [];
 cUpObjectTargetData.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpObjectTargetData.complexity = "Very High";
 
 //up-object-type-count
 cUpObjectTypeCount.shortDescription = "Combine unit-type-count and building-type-count checks.";
@@ -14274,8 +14274,8 @@ cUpObjectTypeCount.example = [ {
 } ];
 cUpObjectTypeCount.relatedCommands = [];
 cUpObjectTypeCount.commandCategory = ["Buildings", "Counting", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpObjectTypeCount.complexity = "Medium";
 
 //up-object-type-count-total
 cUpObjectTypeCountTotal.shortDescription = "Combine unit-type-count-total and building-type-count-total checks.";
@@ -14314,8 +14314,8 @@ cUpObjectTypeCountTotal.example = [ {
 } ];
 cUpObjectTypeCountTotal.relatedCommands = [];
 cUpObjectTypeCountTotal.commandCategory = ["Buildings", "Counting", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpObjectTypeCountTotal.complexity = "Medium";
 
 //up-path-distance
 cUpPathDistance.shortDescription = "Check the distance from the target object to a specified point goal pair.";
@@ -14355,8 +14355,8 @@ cUpPathDistance.example = [ {
 } ];
 cUpPathDistance.relatedCommands = [];
 cUpPathDistance.commandCategory = ["DUC", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPathDistance.complexity = "Very High";
 
 //up-pending-objects
 cUpPendingObjects.shortDescription = "Perform a comparison with the pending count of an object.";
@@ -14395,8 +14395,8 @@ cUpPendingObjects.example = [ {
 } ];
 cUpPendingObjects.relatedCommands = [];
 cUpPendingObjects.commandCategory = ["Counting", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPendingObjects.complexity = "Medium";
 
 //up-pending-placement
 cUpPendingPlacement.shortDescription = "Check if a specific type of building is waiting for placement.";
@@ -14421,8 +14421,8 @@ cUpPendingPlacement.example = [ {
 } ];
 cUpPendingPlacement.relatedCommands = [];
 cUpPendingPlacement.commandCategory = ["Buildings", "Can Do"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPendingPlacement.complexity = "Medium";
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
@@ -14461,8 +14461,8 @@ cUpPlayerDistance.example = [ {
 } ];
 cUpPlayerDistance.relatedCommands = [];
 cUpPlayerDistance.commandCategory = ["Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPlayerDistance.complexity = "Medium";
 
 //up-players-in-game
 cUpPlayersInGame.shortDescription = "Check the number of active players in the game of the specified stance.";
@@ -14495,8 +14495,8 @@ cUpPlayersInGame.example = [ {
 } ];
 cUpPlayersInGame.relatedCommands = [];
 cUpPlayersInGame.commandCategory = ["Diplomacy", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPlayersInGame.complexity = "Medium";
 
 //up-point-contains
 cUpPointContains.shortDescription = "Check if an object exists at a point goal pair position.";
@@ -14529,8 +14529,8 @@ cUpPointContains.example = [ {
 } ];
 cUpPointContains.relatedCommands = [];
 cUpPointContains.commandCategory = ["Buildings", "Points", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointContains.complexity = "High";
 
 //up-point-distance
 cUpPointDistance.shortDescription = "Perform a distance check between two point goal pairs.";
@@ -14570,8 +14570,8 @@ cUpPointDistance.example = [ {
 } ];
 cUpPointDistance.relatedCommands = [];
 cUpPointDistance.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointDistance.complexity = "High";
 
 //up-point-elevation
 cUpPointElevation.shortDescription = "Check the elevation for a tile with a point goal pair.";
@@ -14603,8 +14603,8 @@ cUpPointElevation.example = [ {
 } ];
 cUpPointElevation.relatedCommands = [];
 cUpPointElevation.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointElevation.complexity = "High";
 
 //up-point-explored
 cUpPointExplored.shortDescription = "Check if a point on the map has been explored.";
@@ -14637,8 +14637,8 @@ cUpPointExplored.example = [ {
 } ];
 cUpPointExplored.relatedCommands = [];
 cUpPointExplored.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointExplored.complexity = "High";
 
 //up-point-terrain
 cUpPointTerrain.shortDescription = "Perform a terrain id check at a point goal pair position.";
@@ -14671,8 +14671,8 @@ cUpPointTerrain.example = [ {
 } ];
 cUpPointTerrain.relatedCommands = [];
 cUpPointTerrain.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointTerrain.complexity = "High";
 
 //up-point-zone
 cUpPointZone.shortDescription = "Check the zone for a tile with a point goal pair.";
@@ -14705,8 +14705,8 @@ cUpPointZone.example = [ {
 } ];
 cUpPointZone.relatedCommands = [];
 cUpPointZone.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpPointZone.complexity = "High";
 
 //up-projectile-detected
 cUpProjectileDetected.shortDescription = "Check the elapsed time since a type of projectile was fired at the AI.";
@@ -14738,8 +14738,8 @@ cUpProjectileDetected.example = [ {
 } ];
 cUpProjectileDetected.relatedCommands = [];
 cUpProjectileDetected.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpProjectileDetected.complexity = "Medium";
 
 //up-projectile-target
 cUpProjectileTarget.shortDescription = "Check the class of the target of a projectile that was fired at the AI.";
@@ -14771,8 +14771,8 @@ cUpProjectileTarget.example = [ {
 } ];
 cUpProjectileTarget.relatedCommands = [];
 cUpProjectileTarget.commandCategory = ["Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpProjectileTarget.complexity = "Medium";
 
 //up-release-escrow
 cUpReleaseEscrow.shortDescription = "Set all escrow amounts to 0 with a single command.";
@@ -14783,8 +14783,8 @@ cUpReleaseEscrow.example = [ {
 } ];
 cUpReleaseEscrow.relatedCommands = [];
 cUpReleaseEscrow.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpReleaseEscrow.complexity = "Medium";
 
 //up-remaining-boar-amount
 cUpRemainingBoarAmount.shortDescription = "Check the amount of food remaining on the current boar.";
@@ -14810,8 +14810,8 @@ cUpRemainingBoarAmount.example = [ {
 } ];
 cUpRemainingBoarAmount.relatedCommands = [];
 cUpRemainingBoarAmount.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRemainingBoarAmount.complexity = "Low";
 
 //up-remove-objects
 cUpRemoveObjects.shortDescription = "Removes objects from the search results based on specific data.";
@@ -14851,8 +14851,8 @@ cUpRemoveObjects.example = [ {
 } ];
 cUpRemoveObjects.relatedCommands = [];
 cUpRemoveObjects.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRemoveObjects.complexity = "Very High";
 
 //up-request-hunters
 cUpRequestHunters.shortDescription = "Attempt to request support hunters for the active boar lure.";
@@ -14878,8 +14878,8 @@ cUpRequestHunters.example = [ {
 } ];
 cUpRequestHunters.relatedCommands = [];
 cUpRequestHunters.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRequestHunters.complexity = "Medium";
 
 //up-research
 cUpResearch.shortDescription = "Add a technology to the research queue with dynamic values.";
@@ -14911,8 +14911,8 @@ cUpResearch.example = [ {
 } ];
 cUpResearch.relatedCommands = [];
 cUpResearch.commandCategory = ["Techs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResearch.complexity = "Medium";
 
 //up-research-status
 cUpResearchStatus.shortDescription = "Check the research status of a specific technology.";
@@ -14951,8 +14951,8 @@ cUpResearchStatus.example = [ {
 } ];
 cUpResearchStatus.relatedCommands = [];
 cUpResearchStatus.commandCategory = ["Techs"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResearchStatus.complexity = "Medium";
 
 //up-reset-attack-now
 cUpResetAttackNow.shortDescription = "Reset the infinite targeting loop flag set by attack-now.";
@@ -14963,8 +14963,8 @@ cUpResetAttackNow.example = [ {
 } ];
 cUpResetAttackNow.relatedCommands = [cAttackNow];
 cUpResetAttackNow.commandCategory = ["Attack"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetAttackNow.complexity = "Low";
 
 //up-reset-building
 cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type.";
@@ -14996,8 +14996,8 @@ cUpResetBuilding.example = [ {
 } ];
 cUpResetBuilding.relatedCommands = [];
 cUpResetBuilding.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetBuilding.complexity = "Medium";
 
 //up-reset-cost-data
 cUpResetCostData.shortDescription = "Reset 4 consecutive goals storing cost data to 0.";
@@ -15015,8 +15015,8 @@ cUpResetCostData.example = [ {
 } ];
 cUpResetCostData.relatedCommands = [];
 cUpResetCostData.commandCategory = ["Cost Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetCostData.complexity = "High";
 
 //up-reset-filters
 cUpResetFilters.shortDescription = "Reset search indices and filter states for direct unit targeting.";
@@ -15028,8 +15028,8 @@ cUpResetFilters.example = [ {
 } ];
 cUpResetFilters.relatedCommands = [];
 cUpResetFilters.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetFilters.complexity = "Very High";
 
 //up-reset-group
 cUpResetGroup.shortDescription = "Clear all units in a search group.";
@@ -15054,8 +15054,8 @@ cUpResetGroup.example = [ {
 } ];
 cUpResetGroup.relatedCommands = [];
 cUpResetGroup.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetGroup.complexity = "Very High";
 
 //up-reset-placement
 cUpResetPlacement.shortDescription = "Clear the placement list for the specified building type when blocked.";
@@ -15081,8 +15081,8 @@ cUpResetPlacement.example = [ {
 } ];
 cUpResetPlacement.relatedCommands = [];
 cUpResetPlacement.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetPlacement.complexity = "Medium";
 
 //up-reset-scouts
 cUpResetScouts.shortDescription = "Halt and disband all soldier explore groups on land.";
@@ -15093,8 +15093,8 @@ cUpResetScouts.example = [ {
 } ];
 cUpResetScouts.relatedCommands = [];
 cUpResetScouts.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetScouts.complexity = "Medium";
 
 //up-reset-search
 cUpResetSearch.shortDescription = "Reset the search state for the direct unit targeting system.";
@@ -15140,8 +15140,8 @@ cUpResetSearch.example = [ {
 } ];
 cUpResetSearch.relatedCommands = [];
 cUpResetSearch.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetSearch.complexity = "Very High";
 
 //up-reset-target-priorities
 cUpResetTargetPriorities.shortDescription = "Reset or clear offensive or defensive targeting priorities.";
@@ -15170,8 +15170,8 @@ cUpResetTargetPriorities.example = [ {
 } ];
 cUpResetTargetPriorities.relatedCommands = [];
 cUpResetTargetPriorities.commandCategory = ["Attack", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetTargetPriorities.complexity = "Medium";
 
 //up-reset-unit
 cUpResetUnit.shortDescription = "Halt the activity of all units of a specific type.";
@@ -15197,8 +15197,8 @@ cUpResetUnit.example = [ {
 } ];
 cUpResetUnit.relatedCommands = [];
 cUpResetUnit.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResetUnit.complexity = "Medium";
 
 //up-resource-amount
 cUpResourceAmount.shortDescription = "Perform a comparison with an internal resource value.";
@@ -15230,8 +15230,8 @@ cUpResourceAmount.example = [ {
 } ];
 cUpResourceAmount.relatedCommands = [];
 cUpResourceAmount.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResourceAmount.complexity = "Medium";
 
 //up-resource-percent
 cUpResourcePercent.shortDescription = "Perform a comparison with an internal resource value * 100.";
@@ -15263,8 +15263,8 @@ cUpResourcePercent.example = [ {
 } ];
 cUpResourcePercent.relatedCommands = [];
 cUpResourcePercent.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpResourcePercent.complexity = "Medium";
 
 //up-retask-gatherers
 cUpRetaskGatherers.shortDescription = "Retask a specific number of villagers gathering from a resource.";
@@ -15297,8 +15297,8 @@ cUpRetaskGatherers.example = [ {
 } ];
 cUpRetaskGatherers.relatedCommands = [];
 cUpRetaskGatherers.commandCategory = ["Economy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRetaskGatherers.complexity = "Medium";
 
 //up-retreat-now
 cUpRetreatNow.shortDescription = "Retreat all military units to the home town center.";
@@ -15310,8 +15310,8 @@ cUpRetreatNow.example = [ {
 } ];
 cUpRetreatNow.relatedCommands = [];
 cUpRetreatNow.commandCategory = ["Attack"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRetreatNow.complexity = "Low";
 
 //up-retreat-to
 cUpRetreatTo.shortDescription = "Retreat all units of a specific type to a random instance of another.";
@@ -15344,8 +15344,8 @@ cUpRetreatTo.example = [ {
 } ];
 cUpRetreatTo.relatedCommands = [];
 cUpRetreatTo.commandCategory = ["Attack"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpRetreatTo.complexity = "Medium";
 
 //up-send-flare
 cUpSendFlare.shortDescription = "Send a flare to allies from a point goal pair.";
@@ -15363,8 +15363,8 @@ cUpSendFlare.example = [ {
 } ];
 cUpSendFlare.relatedCommands = [];
 cUpSendFlare.commandCategory = ["Debugging", "Other Player Info", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSendFlare.complexity = "High";
 
 //up-send-scout
 cUpSendScout.shortDescription = "Send a land or water scout to a specific location.";
@@ -15389,8 +15389,8 @@ cUpSendScout.example = [ {
 } ];
 cUpSendScout.relatedCommands = [];
 cUpSendScout.commandCategory = ["Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSendScout.complexity = "Medium";
 
 //up-set-attack-stance
 cUpSetAttackStance.shortDescription = "Set the attack stance for all units of a specific type.";
@@ -15422,8 +15422,8 @@ cUpSetAttackStance.example = [ {
 } ];
 cUpSetAttackStance.relatedCommands = [];
 cUpSetAttackStance.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetAttackStance.complexity = "Medium";
 
 //up-sell-commodity
 cUpSellCommodity.shortDescription = "Sell a variable amount of resources at the market.";
@@ -15463,8 +15463,8 @@ cUpSellCommodity.example = [ {
 } ];
 cUpSellCommodity.relatedCommands = [];
 cUpSellCommodity.commandCategory = ["Economy", "Trading"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSellCommodity.complexity = "Medium";
 
 //up-set-defense-priority
 cUpSetDefensePriority.shortDescription = "Set the defensive (TSA) targeting priority for a building.";
@@ -15524,8 +15524,8 @@ cUpSetDefensePriority.example = [ {
 } ];
 cUpSetDefensePriority.relatedCommands = [];
 cUpSetDefensePriority.commandCategory = ["Attack", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetDefensePriority.complexity = "Medium";
 
 //up-set-event
 cUpSetEvent.shortDescription = "Set the value of a scenario trigger event.";
@@ -15564,8 +15564,8 @@ cUpSetEvent.example = [ {
 } ];
 cUpSetEvent.relatedCommands = [];
 cUpSetEvent.commandCategory = ["Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetEvent.complexity = "Medium";
 
 //up-set-group
 cUpSetGroup.shortDescription = "Set the local or remote search results to a search group.";
@@ -15597,8 +15597,8 @@ cUpSetGroup.example = [ {
 } ];
 cUpSetGroup.relatedCommands = [];
 cUpSetGroup.commandCategory = ["DUC", "DUC Groups"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetGroup.complexity = "Very High";
 
 //up-set-indirect-goal
 cUpSetIndirectGoal.shortDescription = "Set the value of a goal indirectly by reference.";
@@ -15637,8 +15637,8 @@ cUpSetIndirectGoal.example = [ {
 } ];
 cUpSetIndirectGoal.relatedCommands = [];
 cUpSetIndirectGoal.commandCategory = ["Goals"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetIndirectGoal.complexity = "High";
 
 //up-set-offense-priority
 cUpSetOffensePriority.shortDescription = "Set the offensive targeting priority for an object.";
@@ -15693,8 +15693,8 @@ cUpSetOffensePriority.example = [ {
 } ];
 cUpSetOffensePriority.relatedCommands = [];
 cUpSetOffensePriority.commandCategory = ["Attack"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetOffensePriority.complexity = "Medium";
 
 //up-set-placement-data
 cUpSetPlacementData.shortDescription = "Specify placement information for managed construction.";
@@ -15737,8 +15737,8 @@ cUpSetPlacementData.example = [ {
 } ];
 cUpSetPlacementData.relatedCommands = [];
 cUpSetPlacementData.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetPlacementData.complexity = "High";
 
 //up-set-precise-target-point
 cUpSetPreciseTargetPoint.shortDescription = "Set the target point with an unchecked extended goal pair.";
@@ -15757,8 +15757,8 @@ cUpSetPreciseTargetPoint.example = [ {
 } ];
 cUpSetPreciseTargetPoint.relatedCommands = [];
 cUpSetPreciseTargetPoint.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetPreciseTargetPoint.complexity = "Very High";
 
 //up-set-shared-goal
 cUpSetSharedGoal.shortDescription = "Set the value of a shared goal.";
@@ -15797,8 +15797,8 @@ cUpSetSharedGoal.example = [ {
 } ];
 cUpSetSharedGoal.relatedCommands = [];
 cUpSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetSharedGoal.complexity = "Medium";
 
 //up-set-signal
 cUpSetSignal.shortDescription = "Set the value of a scenario trigger signal.";
@@ -15837,8 +15837,8 @@ cUpSetSignal.example = [ {
 } ];
 cUpSetSignal.relatedCommands = [];
 cUpSetSignal.commandCategory = ["Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetSignal.complexity = "Medium";
 
 //up-set-target-by-id
 cUpSetTargetById.shortDescription = "Set the target object for other commands by id.";
@@ -15864,8 +15864,8 @@ cUpSetTargetById.example = [ {
 } ];
 cUpSetTargetById.relatedCommands = [];
 cUpSetTargetById.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetTargetById.complexity = "Very High";
 
 //up-set-target-object
 cUpSetTargetObject.shortDescription = "Set the target object for other commands from your search.";
@@ -15898,8 +15898,8 @@ cUpSetTargetObject.example = [ {
 } ];
 cUpSetTargetObject.relatedCommands = [];
 cUpSetTargetObject.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetTargetObject.complexity = "Very High";
 
 //up-set-target-point
 cUpSetTargetPoint.shortDescription = "Set the target point for other commands with an extended goal pair.";
@@ -15918,8 +15918,8 @@ cUpSetTargetPoint.example = [{
 } ];
 cUpSetTargetPoint.relatedCommands = [];
 cUpSetTargetPoint.commandCategory = ["DUC", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetTargetPoint.complexity = "High";
 
 //up-set-timer
 cUpSetTimer.shortDescription = "Disable or enable a timer by interval.";
@@ -15959,8 +15959,8 @@ cUpSetTimer.example = [ {
 } ];
 cUpSetTimer.relatedCommands = [];
 cUpSetTimer.commandCategory = ["Timers"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetTimer.complexity = "Medium";
 
 //up-setup-cost-data
 cUpSetupCostData.shortDescription = "Set the goals to store cost data for food, wood, stone, and gold.";
@@ -15985,8 +15985,8 @@ cUpSetupCostData.example = [ {
 } ];
 cUpSetupCostData.relatedCommands = [];
 cUpSetupCostData.commandCategory = ["Cost data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpSetupCostData.complexity = "High";
 
 //up-store-map-name
 cUpStoreMapName.shortDescription = "Store the current map name in the internal buffer.";
@@ -16005,8 +16005,8 @@ cUpStoreMapName.example = [ {
 } ];
 cUpStoreMapName.relatedCommands = [];
 cUpStoreMapName.commandCategory = ["Game Info", "Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStoreMapName.complexity = "High";
 
 //up-store-object-name
 cUpStoreObjectName.shortDescription = "Store the target object's type name in the internal buffer.";
@@ -16018,8 +16018,8 @@ cUpStoreObjectName.example = [ {
 } ];
 cUpStoreObjectName.relatedCommands = [];
 cUpStoreObjectName.commandCategory = ["Buildings", "Text Data", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStoreObjectName.complexity = "High";
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
@@ -16038,8 +16038,8 @@ cUpStorePlayerChat.example = [ {
 } ];
 cUpStorePlayerChat.relatedCommands = [];
 cUpStorePlayerChat.commandCategory = ["Chat", "Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStorePlayerChat.complexity = "High";
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
@@ -16058,8 +16058,8 @@ cUpStorePlayerName.example = [ {
 } ];
 cUpStorePlayerName.relatedCommands = [];
 cUpStorePlayerName.commandCategory = ["Other Player Info", "Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStorePlayerName.complexity = "High";
 
 //up-store-tech-name
 cUpStoreTechName.shortDescription = "Store a research tech name in the internal buffer.";
@@ -16085,8 +16085,8 @@ cUpStoreTechName.example = [ {
 } ];
 cUpStoreTechName.relatedCommands = [];
 cUpStoreTechName.commandCategory = ["Techs", "Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStoreTechName.complexity = "High";
 
 //up-store-text
 cUpStoreText.shortDescription = "Store a language string in the internal buffer.";
@@ -16112,8 +16112,8 @@ cUpStoreText.example = [ {
 } ];
 cUpStoreText.relatedCommands = [];
 cUpStoreText.commandCategory = ["Text Data"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStoreText.complexity = "High";
 
 //up-store-type-name
 cUpStoreTypeName.shortDescription = "Store an object type name in the internal buffer.";
@@ -16139,8 +16139,8 @@ cUpStoreTypeName.example = [ {
 } ];
 cUpStoreTypeName.relatedCommands = [];
 cUpStoreTypeName.commandCategory = ["Buildings", "Text Data", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpStoreTypeName.complexity = "High";
 
 //up-target-objects
 cUpTargetObjects.shortDescription = "Direct local search results against remote search results.";
@@ -16180,8 +16180,8 @@ cUpTargetObjects.example = [ {
 } ];
 cUpTargetObjects.relatedCommands = [];
 cUpTargetObjects.commandCategory = ["DUC"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTargetObjects.complexity = "Very High";
 
 //up-target-point
 cUpTargetPoint.shortDescription = "Direct local search results to a specific point on the map.";
@@ -16224,8 +16224,8 @@ cUpTargetPoint.example = [ {
 } ];
 cUpTargetPoint.relatedCommands = [];
 cUpTargetPoint.commandCategory = ["DUC", "Points"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTargetPoint.complexity = "Very High";
 
 //up-timer-status
 cUpTimerStatus.shortDescription = "Check whether a timer is disabled, triggered, running, or a combination.";
@@ -16260,8 +16260,8 @@ cUpTimerStatus.example = [ {
 } ];
 cUpTimerStatus.relatedCommands = [];
 cUpTimerStatus.commandCategory = ["Timers"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTimerStatus.complexity = "Medium";
 
 //up-train
 cUpTrain.shortDescription = "Add a unit to the training queue with dynamic values.";
@@ -16294,8 +16294,8 @@ cUpTrain.example = [ {
 } ];
 cUpTrain.relatedCommands = [];
 cUpTrain.commandCategory = ["Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTrain.complexity = "Medium";
 
 //up-train-site-ready
 cUpTrainSiteReady.shortDescription = "Check if a unit's training site is ready and available.";
@@ -16321,8 +16321,8 @@ cUpTrainSiteReady.example = [ {
 } ];
 cUpTrainSiteReady.relatedCommands = [];
 cUpTrainSiteReady.commandCategory = ["Buildings", "Can Do"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTrainSiteReady.complexity = "Medium";
 
 //up-tribute-to-player
 cUpTributeToPlayer.shortDescription = "Tribute a variable amount of resources to other players.";
@@ -16362,8 +16362,8 @@ cUpTributeToPlayer.example = [ {
 } ];
 cUpTributeToPlayer.relatedCommands = [];
 cUpTributeToPlayer.commandCategory = ["Diplomacy"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpTributeToPlayer.complexity = "Medium";
 
 //up-ungarrison
 cUpUngarrison.shortDescription = "Request all objects of the specified type to ungarrison units.";
@@ -16394,8 +16394,8 @@ cUpUngarrison.example = [ {
 } ];
 cUpUngarrison.relatedCommands = [];
 cUpUngarrison.commandCategory = ["Buildings"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpUngarrison.complexity = "Medium";
 
 //up-unit-type-in-town
 cUpUnitTypeInTown.shortDescription = "Check the number of a specific enemy unit type in town.";
@@ -16434,8 +16434,8 @@ cUpUnitTypeInTown.example = [ {
 } ];
 cUpUnitTypeInTown.relatedCommands = [];
 cUpUnitTypeInTown.commandCategory = ["Counting", "Defense", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpUnitTypeInTown.complexity = "Medium";
 
 //up-update-targets
 cUpUpdateTargets.shortDescription = "Perform an immediate update for objects in town size.";
@@ -16447,8 +16447,8 @@ cUpUpdateTargets.example = [ {
 } ];
 cUpUpdateTargets.relatedCommands = [];
 cUpUpdateTargets.commandCategory = ["Attack", "Defense"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpUpdateTargets.complexity = "Low";
 
 //up-villager-type-in-town
 cUpVillagerTypeInTown.shortDescription = "Check the number of a specific enemy villager type in town.";
@@ -16487,8 +16487,8 @@ cUpVillagerTypeInTown.example = [ {
 } ];
 cUpVillagerTypeInTown.relatedCommands = [];
 cUpVillagerTypeInTown.commandCategory = ["Counting", "Defense", "Units"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cUpVillagerTypeInTown.complexity = "Medium";
 
 //fe-cc-effect-amount
 cFeCcEffectAmount.shortDescription = "DE only. Apply a research-style effect with an integer value for the AI player.";
@@ -16528,8 +16528,8 @@ cFeCcEffectAmount.example = [ {
 } ];
 cFeCcEffectAmount.relatedCommands = [cFeCcEffectPercent];
 cFeCcEffectAmount.commandCategory = ["Cheat", "Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cFeCcEffectAmount.complexity = "Very High";
 
 //fe-cc-effect-percent
 cFeCcEffectPercent.shortDescription = "DE only. Apply a research-style effect with a percentage for the AI player.";
@@ -16566,8 +16566,8 @@ cFeCcEffectPercent.commandParameters = [ {
 cFeCcEffectPercent.example = [];
 cFeCcEffectPercent.relatedCommands = [cFeCcEffectAmount];
 cFeCcEffectPercent.commandCategory = ["Cheat", "Scenarios"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cFeCcEffectPercent.complexity = "Very High";
 
 //fe-break-point
 cFeBreakPoint.shortDescription = "DE only. Add a break point to force the AI debugger interface to display.";
@@ -16610,8 +16610,8 @@ cFeBreakPoint.example = [ {
 }];
 cFeBreakPoint.relatedCommands = [];
 cFeBreakPoint.commandCategory = ["Debugging"];/*
-c.relatedSNs = [];
-c.complexity = "Low";*/
+c.relatedSNs = [];*/
+cFeBreakPoint.complexity = "Very High";
 
 
 

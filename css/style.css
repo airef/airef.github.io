@@ -302,14 +302,14 @@ code {
 	font-weight: bold;
 }
 
-.commands-input-label, .techs-input-label {
+.techs-input-label {
 	width: 68%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
-.objects-input-label, .patch-notes-input-label {
+.commands-input-label, .objects-input-label, .patch-notes-input-label {
 	width: 58%;
 	padding-top: 10px;
 	display: inline-block;
@@ -336,7 +336,7 @@ label {
 	text-indent: 10px;
 }
 
-#commandsInput, #techsInput {
+#techsInput {
 	width: 68%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -345,7 +345,7 @@ label {
 	text-indent: 10px;
 }
 
-#objectsInput, #patchNotesInput {
+#commandsInput, #objectsInput, #patchNotesInput {
 	width: 58%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
