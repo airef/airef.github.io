@@ -6184,7 +6184,7 @@ cAcknowledgeTaunt.commandParameters = [ {
 } ];
 cAcknowledgeTaunt.example = [ {
 	title: "Launch an attack when an ally taunts 31 (\"Attack an Enemy Now!\") if the AI has enough soldiers to attack. Acknowledge the taunt so that the attack command is only sent once.",
-	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt any-ally 31)\r\n)"
+	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt this-any-ally 31)\r\n)"
 } ];
 cAcknowledgeTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];
 cAcknowledgeTaunt.relatedCommands = [cTaunt, cTauntDetected, cTauntUsingRange];
@@ -8276,13 +8276,16 @@ cGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cGoal.example = [ {
+	title: "Check if goal ID 50 is set to the value 1. If so, attack once.",
+	data: "(defrule\r\n\t(goal 50 1)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Use a defconst to refer to goal ID 50 and check if the goal is set to the value 1. If so, attack once.",
+	data: "(defconst gl-attack-now 50)\r\n(defrule\r\n\t(goal gl-attack-now 1)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
+}];
 cGoal.commandCategory = ["Goals"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cGoal.relatedCommands = [cDoctrine, cGoal, cSetDoctrine, cSetGoal, cSetSharedGoal, cSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpCompareFlag, cUpGetSharedGoal, cUpGetIndirectGoal, cUpModifyFlag, cUpModifyGoal, cUpSetIndirectGoal];
+cGoal.relatedSNs = [];
 cGoal.complexity = "Low";
 
 //gold-amount
@@ -10617,7 +10620,7 @@ cUpAlliedSn.complexity = "Medium";
 
 //up-assign-builders
 cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
-cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed.</p><p>Assigning the number of builders by class is best for walls and gates. By default, like v1.0c, wonders have 250 (max) builders, and the wall class has 2.";
+cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If the current number of builders for the building type or class is less than the amount of villagers specified by up-assign-builders, the additional builders are immediately sent to help construct the building.</p><p>If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed. Additionally, if you want to stop sending any builders to construct a building type or class, you must set up-assign-builders to -1, not 0.</p><p>When using any build command besides " + cUpBuildLine.getLink() + ", the game will automatically assign one builder to construct the building, regardless of what you have up-assign-builders set to. However, if the original builder is killed or restasked and up-assign-builders is set to -1 for the building, the AI will not send a replacement builder to finish the building.</p><p>Assigning the number of builders by class is best for walls and gates. By default, like v1.0c, wonders have 250 (max) builders, and the wall class has 2.";
 cUpAssignBuilders.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -18720,6 +18723,12 @@ pIndex.description = "The zero-based index of an object in the search-local or s
 pIndex.shortDescription = "The zero-based index of an object in the search-local or search-remote lists.";
 pIndex.range = "0 to 239 for the search-local list. 0 to 39 for the search-remote list.";
 pIndex.relatedParams = [pLocalIndex, pLocalList, pRemoteIndex, pRemoteList, pSearchOrder, pSearchSource];
+
+//ItemId
+pItemId.description = "The type of object that will be affected, such as villager-class, or the research name or ID.";
+pItemId.shortDescription = "The type of object or research name that will be affected.";
+pItemId.range = "an Object ID or Tech ID";
+pItemId.relatedParams = [pBuildingId, pObjectId, pTechId, pUnitId]
 
 //LanguageId
 pLanguageId.description = "The ID assigned to a string (quoted text) stored in one of the language.dll files or in a string text file. All words and phrases used by the game are stored in these files. If you have the DE version, you can easily find a list of all language IDs in your Steam installation, usually at \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\en\\strings\\key-value\\key-value-strings-utf8.txt\". For example, language ID 22322 is \"No wonder thou wert victorious! I shalt abdicate.\"";

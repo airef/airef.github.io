@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+	<title>Data Limits</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Data Limits</h2>
+			<p>An AI script is not a complete blank slate where you have boundless options for what you can script. The AI scripting engine, for data computation and storage reasons, puts limitations on the various things you can do in AI scripting, and it's useful to know these limitations when you are scripting. Here's a list of all the limitations you'll need to keep in mind when scripting for the UP or DE versions.</p>
+			<p>Tangentially related, but if you are interested in performance limitations of various commands, check out this thread in the AI Scripter's forums (account required) where TheMaximalBeing posts the results from lag tests: <a href="https://forums.aiscripters.com/viewtopic.php?f=3&t=3992">Link</a></p>
+			<h3>Data Limits Summary</h3>
+			<ul>
+				<li>Rules: 10,000</li>
+				<li>Elements per rule: 16 in UP, 32 in DE</li>
+				<li>Goals: 1 to 512</li>
+				<li>Strategic Numbers: 0 to 511</li>
+				<li>Timers: 1 to 50</li>
+				<li>Defconst values: -32768 to 32767 or a text string</li>
+				<li>Goal and SN values: 2,147,483,648 to 2,147,483,647</li>
+				<li>DUC Local Search list length: 240</li>
+				<li>DUC Remote Search list length: 40</li>
+				<li>Taunts: 255</li>
+				<li>Characters per line: 255</li>
+				<li>Nested File Load Commands: 10 files deep</li>
+				<li>Nested #load-if Commands: 50 (might be lower, somewhere in the 30s)</li>
+				<li>Doctrine: 1</li>
+			</ul>
+			<h3>Rules</h3>
+			<p>In AI scripting every bit of code that changes behavior must be inside a rule, which is started with a defrule command and ended with a closing parenthesis. AI scripts have a maximum of 10,000 rules, which sounds like a lot but some scripts have started running up against this limit.</p>
+			<h3>Elements Per Rule</h3>
+			<p>Each rule is limited to 32 elements in DE and 16 elements in UP. If you want to maintain compatibility with both versions it is a good idea to stick to 16 elements per rule from the start. "Elements" include all commands in the rule as well as any use of logical operators (or, and, not, nor, etc.). The defrule command and the "=>" that separates the facts and actions sections of the rule do not count toward your rule element count.</p>
+			<h3>Goals</h3>
+			<p>Goals are essentially an integer variable which the AI scripter can modify in the AI script. AI scripts has 512 different goals they can use to store different values, which are numbered from 1 to 512.</p>
+			<h3>Strategic Numbers</h3>
+			<p>Strategic numbers modify various built-in behaviors and settings that can modify the automatic behaviors of your AI. See the <a href="../../strategic-numbers/sn-index.html">SN Index</a> for details on what each strategic number does. Each SN is given an ID between 0 and 511. Currently, the SNs in the 310-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 511 and work your way backwards toward SNs in the 300 range.</p>
+			<h3>Timers</h3>
+			<p>There are 50 different timers an AI script can use at any time, numbered from 1 to 50.</p>
+			<h3>Defconst Values</h3>
+			<p>Defconsts allow you to train your AI to treat a word or phrase in place of an integer value. See this article series that explains what defconsts do: <a href="../../resources/articles/defconsts-goals-sns-1.html">Link</a>. The value you can use with a defconst can range from -32,768 to 32,767 (a 16-bit signed integer). You can also defconst a text string such as (defconst chat-gg "gg").</p>
+			<h3>Goal and SN Values</h3>
+			<p>Each goal and strategic number can be set to any integer value between 2,147,483,648 to 2,147,483,647 (a 32-bit signed integer). However, there are many strategic numbers which have a much more limited usable range. Look at the Req. Min and Req. Max columns in the SN index for the true usable limits of each SN.</p>
+			<h3>DUC Local Search List</h3>
+			<p>The local search list used in DUC searches can only hold up to 240 objects at once.</p>
+			<h3>DUC Remote Search List</h3>
+			<p>The remote search list used in DUC searches can only hold up to 40 objects at once.</p>
+			<h3>Taunts</h3>
+			<p>AIs can respond to any numeric taunt from 1 to 255, even if the taunt doesn't have a corresponding audio message. Any chat message that starts with a number in this range can be detected as a taunt with the taunt-detected command.</p>
+			<h3>Characters Per Line</h3>
+			<p>AI scripts can only read up to 255 characters per line in your AI script, including any characters in a comment. Otherwise your script will likely generate an error.</p>
+			<h3>Nested File Load Commands</h3>
+			<p>Load commands, such as (load "AI Name/Attack"), can be nested (a script that loads another script) up to 10 levels deep.</p>
+			<h3>Nested #load-if Commands</h3>
+			<p>The CPSB (the original ES AI scripting documentation) says that conditional loading directives (#load-if commands like #load-if-defined AZTEC-CIV) can be nested 50 levels deep. Nested means having a #load-if inside of a #load-if, where the inner #load-if is only read if the outer #load-if is true. However, some testing in UP a couple years ago found that the nesting limit is much lower, somewhere in the upper 30s, so be careful when using a bunch of nested #load-if-not-defined commands.</p>
+			<h3>Doctrine</h3>
+			<p>The often forgotten doctrine. There is only one because there can only be one true doctrine...Anyway, the doctrine is simply an extra goal that you can't use with UP commands. All you can do is set it exactly to a given value with the set-doctrine command and then check if the doctrine is set exactly to a certain value with the doctrine command. But in dire need, you can use it if you run out of goals.</p>			
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
