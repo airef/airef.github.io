@@ -280,7 +280,7 @@ code {
 }
 
 #parametersInput, #valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
-	width: 78%; 
+	width: 76%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -289,28 +289,28 @@ code {
 }
 
 .input-label { 
-	width: 78%;
+	width: 76%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .sn-input-label{
-	width: 38%;
+	width: 36%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .techs-input-label {
-	width: 68%;
+	width: 66%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .commands-input-label, .objects-input-label, .patch-notes-input-label {
-	width: 58%;
+	width: 56%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
@@ -328,7 +328,7 @@ label {
 }
 
 #snInput {
-	width: 38%; 
+	width: 36%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -337,7 +337,7 @@ label {
 }
 
 #techsInput {
-	width: 68%; 
+	width: 66%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -346,7 +346,7 @@ label {
 }
 
 #commandsInput, #objectsInput, #patchNotesInput {
-	width: 58%; 
+	width: 56%; 
 	font-size: 14px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -535,4 +535,33 @@ blockquote {
 
 .highlight { 
 	background-color: red; 
+}
+
+
+
+
+/*Keep at end*/
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+	.container {
+		background-color: #fff;
+		margin: 10px auto;
+		max-width: 85%;
+		padding: 8px;
+		border: 1px solid #000;
+		box-shadow: 0 0 15px #fff;
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+	.container {
+		background-color: #fff;
+		margin: 0px auto;
+		max-width: 100%;
+		padding: 5px;
+		border: none;
+		box-shadow: none;
+	}
 }

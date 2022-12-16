@@ -392,6 +392,7 @@ var cUpGetSignal = new Command("up-get-signal","Action","UP");
 var cUpGetTargetFact = new Command("up-get-target-fact","Both","UP");
 var cUpGetThreatData = new Command("up-get-threat-data","Action","UP");
 var cUpGetTimer = new Command("up-get-timer","Action","UP");
+var cUpGetTreatyData = new Command("up-get-treaty-data","Action","DE");
 var cUpGetUpgradeId = new Command("up-get-upgrade-id","Action","UP");
 var cUpGetVictoryData = new Command("up-get-victory-data","Action","UP");
 var cUpGetVictoryLimit = new Command("up-get-victory-limit","Action","UP");
@@ -486,7 +487,7 @@ var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
 var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
 var cFeBreakPoint = new Command("fe-break-point","Action","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent, cFeBreakPoint];
+var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent, cFeBreakPoint];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","1.0c","&#60;rel-op&#62;");
@@ -6167,7 +6168,7 @@ cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
-cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
+cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
 cAcknowledgeTaunt.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6259,7 +6260,7 @@ cAttackWarboatCount.complexity = "Low";
 
 //build
 cBuild.shortDescription = "Builds the given building.";
-cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tile away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tile away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tile away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that uses sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
+cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tile away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tile away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tile away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that uses sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6279,7 +6280,7 @@ cBuild.complexity = "Low";
 
 //build-forward
 cBuildForward.shortDescription = "Builds the given building close to an enemy.";
-cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ".</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build-forward command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build-forward command, the AI will place the building near the enemy player specified by " + snTargetPlayerNumber.getLink() + " or the player specified by " + snAttackWinningPlayer.getLink() + " if sn-target-player-number is set to 0. build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.";
+cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build-forward command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build-forward command, the AI will place the building near the enemy player specified by " + snTargetPlayerNumber.getLink() + " or the player specified by " + snAttackWinningPlayer.getLink() + " if sn-target-player-number is set to 0. build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.";
 cBuildForward.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6346,7 +6347,7 @@ cBuildWall.complexity = "Low";
 
 //building-available
 cBuildingAvailable.shortDescription = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met.";
-cBuildingAvailable.description = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met. It does not check that there are enough resources to build the building. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-available watch-tower) will work regardless of tower upgrades.</p><p>When the AI checks the tech tree prerequisites, this includes checking whether the prerequisite age has been researched. There isn't a way at the beginning of the game to check if the building will be available for the civilization in future ages.";
+cBuildingAvailable.description = "Checks that the building is available to the computer player's civ and that the tech tree prerequisites are met. It does not check that there are enough resources to build the building. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-available watch-tower) will work regardless of tower upgrades. You cannot use building classes with this command.</p><p>When the AI checks the tech tree prerequisites, this includes checking whether the prerequisite age has been researched. There isn't a way at the beginning of the game to check if the building will be available for the civilization in future ages.";
 cBuildingAvailable.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6419,8 +6420,8 @@ cBuildingCountTotal.relatedSNs = [];
 cBuildingCountTotal.complexity = "Low";
 
 //building-type-count
-cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type are included.";
-cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type are included, not buildings under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
+cBuildingTypeCount.shortDescription = "Checks the computer player's building count. Only existing buildings of the given type or class are included.";
+cBuildingTypeCount.description = "Checks the computer player's building count. Only existing buildings of the given type or class are included, not buildings under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCount.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6453,8 +6454,8 @@ cBuildingTypeCount.relatedSNs = [];
 cBuildingTypeCount.complexity = "Low";
 
 //building-type-count-total
-cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type, either existing or being constructed.";
-cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type, both existing buildings and those under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count-total allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
+cBuildingTypeCountTotal.shortDescription = "Checks the computer player's total building count of the given type or class, either existing or being constructed.";
+cBuildingTypeCountTotal.description = "Checks the computer player's total building count. The total includes buildings of the given type class, both existing buildings and those under construction. To check the number of gates, use " + cGateCount.getLink() + " instead. building-type-count-total allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (building-type-count-total watch-tower) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class.</li></ol></p><p>To check for the building-type-count of other players, including buildings under construction, use " + cPlayersBuildingTypeCount.getLink() + ".";
 cBuildingTypeCountTotal.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6508,7 +6509,7 @@ cBuyCommodity.complexity = "Low";
 
 //can-afford-building
 cCanAffordBuilding.shortDescription = "Checks whether the computer player has enough resources to build the given building.";
-cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-afford-building watch-tower) will work regardless of tower upgrades.";
+cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-afford-building watch-tower) will work regardless of tower upgrades. You cannot use building classes with this command.";
 cCanAffordBuilding.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6555,7 +6556,7 @@ cCanAffordCompleteWall.complexity = "Low";
 
 //can-afford-research
 cCanAffordResearch.shortDescription = "Checks whether the computer player has enough resources to perform the given research.";
-cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. Also checks that the research is available for the civ, that its not already researched and that the computer player has reached the required age. Does not check if the required building is built. The fact does not take into account escrowed resources.";
+cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. Also checks that the research is available for the civ, that its not already researched and that the computer player has reached the required age. Does not check if the required building is built. The fact does not take into account escrowed resources. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cCanAffordResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6575,7 +6576,7 @@ cCanAffordResearch.complexity = "Low";
 
 //can-afford-unit
 cCanAffordUnit.shortDescription = "Checks whether the computer player has enough resources to train the given unit.";
-cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". These wildcard parameters allow you to specify a unit line rather than an individual unit in the unit line.";
+cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". These wildcard parameters allow you to specify a unit line rather than an individual unit in the unit line. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cCanAffordUnit.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6595,7 +6596,7 @@ cCanAffordUnit.complexity = "Low";
 
 //can-build
 cCanBuild.shortDescription = "This fact checks whether the computer player can build the given building, not counting escrow stockpiles.";
-cCanBuild.description = "This fact checks whether the computer player can build the given building. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWall.getLink() + ", " + cCanBuildGate.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available, <strong>not counting escrow stockpiles</strong>.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a can-build, " + cCanBuildWithEscrow.getLink() + ", or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
+cCanBuild.description = "This fact checks whether the computer player can build the given building. You cannot use building classes with this command. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWall.getLink() + ", " + cCanBuildGate.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available, <strong>not counting escrow stockpiles</strong>.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a can-build, " + cCanBuildWithEscrow.getLink() + ", or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
 cCanBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6615,7 +6616,7 @@ cCanBuild.complexity = "Low";
 
 //can-build-with-escrow
 cCanBuildWithEscrow.shortDescription = "This fact checks whether the computer player can build the given building if escrowed resources are included.";
-cCanBuildWithEscrow.description = "This fact checks whether the computer player can build the given building if escrowed resources are included. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWallWithEscrow.getLink() + ", " + cCanBuildGateWithEscrow.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available including escrow stockpiles.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build-with-escrow watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + ",  can-build-with-escrow, or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
+cCanBuildWithEscrow.description = "This fact checks whether the computer player can build the given building if escrowed resources are included. You cannot use building classes with this command. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWallWithEscrow.getLink() + ", " + cCanBuildGateWithEscrow.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available including escrow stockpiles.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building. The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build-with-escrow watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + ",  can-build-with-escrow, or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
 cCanBuildWithEscrow.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -6749,7 +6750,7 @@ cCanBuyCommodity.complexity = "Low";
 
 //can-research
 cCanResearch.shortDescription = "Checks if the given research can start.";
-cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>.";
+cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cCanResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6775,7 +6776,7 @@ cCanResearch.complexity = "Low";
 
 //can-research-with-escrow
 cCanResearchWithEscrow.shortDescription = "Checks if the given research can start, if escrow is used.";
-cCanResearchWithEscrow.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available, including escrow stockpiles.</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>.";
+cCanResearchWithEscrow.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available, including escrow stockpiles.</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cCanResearchWithEscrow.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -6821,7 +6822,7 @@ cCanSellCommodity.complexity = "Low";
 
 //can-spy
 cCanSpy.shortDescription = "Checks if the AI can research Treason without escrowed resources. Only works in Regicide games.";
-cCanSpy.description = "Checks if the AI can research Treason without escrowed resources. Only works in Regicide games. The computer player does see the revealed area around the enemy kings as expected.";
+cCanSpy.description = "Checks if the AI can research Treason without escrowed resources. Only works in Regicide games. The computer player does see the revealed area around the enemy kings as expected. This command does not check if the AI can research Spies like you might expect.";
 cCanSpy.example = [ {
 	title: "Checks to see if the AI can research Treason without escrowed resources. If so, research Treason.",
 	data: "(defrule\r\n\t(can-spy)\r\n=>\r\n\t(spy)\r\n)"
@@ -6833,7 +6834,7 @@ cCanSpy.complexity = "Low";
 
 //can-spy-with-escrow
 cCanSpyWithEscrow.shortDescription = "Checks if the AI can research Treason, including escrowed resources. Only works in Regicide games.";
-cCanSpyWithEscrow.description = "Checks if the AI can research Treason, including escrowed resources. The computer player does see the revealed area around the enemy kings as expected.";
+cCanSpyWithEscrow.description = "Checks if the AI can research Treason, including escrowed resources. The computer player does see the revealed area around the enemy kings as expected. This command does not check if the AI can research Spies with escrow like you might expect.";
 cCanSpyWithEscrow.example = [ {
 	title: "Checks to see if the AI can research Treason with escrowed resources. If so, release escrowed gold and research Treason.",
 	data: "(defrule\r\n\t(can-spy-with-escrow)\r\n=>\r\n\t(release-escrow gold)\r\n\t(spy)\r\n)"
@@ -6845,7 +6846,7 @@ cCanSpyWithEscrow.complexity = "Medium";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
-cCanTrain.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrain.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6877,7 +6878,7 @@ cCanTrain.complexity = "Low";
 
 //can-train-with-escrow
 cCanTrainWithEscrow.shortDescription = "Checks that the training of a given unit can start, if escrow is used.";
-cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cCanTrain.getLink() + ", can-train-with-escrow, " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cCanTrain.getLink() + ", can-train-with-escrow, " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrainWithEscrow.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -6936,7 +6937,7 @@ cCcAddResource.complexity = "Low";
 
 //cc-players-building-count
 cCcPlayersBuildingCount.shortDescription = "A cheating version of players-building-count.";
-cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen - fog is ignored. Unlike building-count, buildings that existed from the start of the game, such as the starting town center, are included. Also, farms are included, but walls and gates are not included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen - fog is ignored. Unlike building-count, buildings that existed from the start of the game, such as the starting town center, are included. Also, farms are included, but walls and gates are not included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cCcPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -6970,7 +6971,7 @@ cCcPlayersBuildingCount.complexity = "Low";
 
 //cc-players-building-type-count
 cCcPlayersBuildingTypeCount.shortDescription = "A cheating version of players-building-type-count.";
-cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen - fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>It also allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (cc-players-building-type-count any-enemy watch-tower > 0) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class. Classes don't work for enemy players with players-building-type-count, but they do work with cc-players-building-type-count.</li></ol>";
+cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen - fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>It also allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (cc-players-building-type-count any-enemy watch-tower > 0) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class. Classes don't work for enemy players with players-building-type-count, but they do work with cc-players-building-type-count.</li></ol>";
 cCcPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7011,7 +7012,7 @@ cCcPlayersBuildingTypeCount.complexity = "Low";
 
 //cc-players-unit-count
 cCcPlayersUnitCount.shortDescription = "A cheating version of players-unit-count.";
-cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cCcPlayersUnitCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7045,7 +7046,7 @@ cCcPlayersUnitCount.complexity = "Low";
 
 //cc-players-unit-type-count
 cCcPlayersUnitTypeCount.shortDescription = "A cheating version of players-unit-type-count.";
-cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only, though most AI tournaments allows its use to see if particular Gaia objects are on the map at the beginning of the game, for custom map detection purposes. For example, some scripts will check to see if fish are on the map to detect if the map is a water map.</p><p>This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". Counting Gaia units (player number 0) is not considered cheating.</p><p>There are four ways you can specify the unit \"type\":<ol><li><strong>Unit Name:</strong> the name of an individual unit, such as villager, spearman, or monk.</li><li><strong>Unit Id:</strong> the numerical ID assigned to each unit, such as 4 (the archer) or 74 (militiaman). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Unit Line:</strong> the unit line for the unit. This includes all units in a unit line. For example, archer-line includes archers, crossbowmen, and arbalests.</li><li><strong>Unit Class:</strong> the class of a unit, such as infantry-class, cavalry-archer-class, or monastery-class. Classes group several unit types together into a single category. Using a unit class will count all units of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each unit's class. Classes don't work for enemy players with players-unit-type-count, but they do work with cc-players-unit-type-count.</li></ol>";
+cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only, though most AI tournaments allows its use to see if particular Gaia objects are on the map at the beginning of the game, for custom map detection purposes. For example, some scripts will check to see if fish are on the map to detect if the map is a water map.</p><p>This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. Counting Gaia units (player number 0) is not considered cheating.</p><p>There are four ways you can specify the unit \"type\":<ol><li><strong>Unit Name:</strong> the name of an individual unit, such as villager, spearman, or monk.</li><li><strong>Unit Id:</strong> the numerical ID assigned to each unit, such as 4 (the archer) or 74 (militiaman). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Unit Line:</strong> the unit line for the unit. This includes all units in a unit line. For example, archer-line includes archers, crossbowmen, and arbalests.</li><li><strong>Unit Class:</strong> the class of a unit, such as infantry-class, cavalry-archer-class, or monastery-class. Classes group several unit types together into a single category. Using a unit class will count all units of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each unit's class. Classes don't work for enemy players with players-unit-type-count, but they do work with cc-players-unit-type-count.</li></ol>";
 cCcPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7374,7 +7375,7 @@ cChatToEnemiesUsingRange.complexity = "Medium";
 
 //chat-to-player
 cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player.";
-cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
+cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
 cChatToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7404,7 +7405,7 @@ cChatToPlayer.complexity = "Low";
 
 //chat-to-player-using-id
 cChatToPlayerUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to a given player.";
-cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7431,7 +7432,7 @@ cChatToPlayerUsingId.complexity = "Medium";
 
 //chat-to-player-using-range
 cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cChatToPlayerUsingRange.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7524,7 +7525,7 @@ cCivilianPopulation.complexity = "Low";
 
 //civ-selected
 cCivSelected.shortDescription = "Checks the computer player's civilization.";
-cCivSelected.description = "Checks the computer player's civilization. Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command. You can also enclose code in a #load-if-defined [CIV-NAME]-CIV block if it should only run when a particular civ is selected.</p><p>To check for the civilization of other players, use " + cPlayersCiv.getLink() + ".";
+cCivSelected.description = "Checks the computer player's civilization. You can use \"my-civ,\" which will automatically detect the civilization the AI is playing as. Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command. You can also enclose code in a #load-if-defined [CIV-NAME]-CIV block if it should only run when a particular civ is selected.</p><p>To check for the civilization of other players, use " + cPlayersCiv.getLink() + ".";
 cCivSelected.commandParameters = [ {
 	nameLink: pCiv.getLink(),
 	name: "Civ",
@@ -7544,7 +7545,7 @@ cCivSelected.complexity = "Low";
 
 //clear-tribute-memory
 cClearTributeMemory.shortDescription = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared.";
-cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cClearTributeMemory.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -7786,7 +7787,7 @@ cDefendWarboatCount.complexity = "Low";
 
 //delete-building
 cDeleteBuilding.shortDescription = "Deletes exactly one building of a given type.";
-cDeleteBuilding.description = "Deletes exactly one building of a given type.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteUnit.getLink() + ": delete exactly one unit of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the specified type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
+cDeleteBuilding.description = "Deletes exactly one building of a given type. You cannot use building classes with this command.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteUnit.getLink() + ": delete exactly one unit of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the specified type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
 cDeleteBuilding.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7806,7 +7807,7 @@ cDeleteBuilding.complexity = "Low";
 
 //delete-unit
 cDeleteUnit.shortDescription = "Deletes exactly one unit of a given type.";
-cDeleteUnit.description = "Deletes exactly one unit of a given type.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteBuilding.getLink() + ": delete exactly one building of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the given type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
+cDeleteUnit.description = "Deletes exactly one unit of a given type. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>There are several other commands available to delete objects:</p><p><ul><li>" + cDeleteBuilding.getLink() + ": delete exactly one building of a given type</li><li>" + cUpDeleteDistantFarms.getLink() + ": delete farms that are beyond a specified distance from a dropsite</li><li>" + cUpDeleteIdleUnits.getLink() + ": delete all idle units of the specified type</li><li>" + cUpDeleteObjects.getLink() + ": delete all objects of the given type that have less than the specified hitpoints</li><li>" + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ": when used with the action-delete action, this command will delete all objects in the local search list</li></ul>";
 cDeleteUnit.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8305,35 +8306,36 @@ cGoldAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cGoldAmount.example = [ {
+	title: "If we have at least 1000 gold and less than 200 food, then buy food.",
+	data: "(defrule\r\n\t(gold-amount >= 1000)\r\n\t(food-amount < 200)\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
+} ];
 cGoldAmount.commandCategory = ["Economy"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cGoldAmount.relatedCommands = [cFoodAmount, cGoldAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
+cGoldAmount.relatedSNs = [];
 cGoldAmount.complexity = "Low";
 
 //hold-koh-ruin
-cHoldKohRuin.shortDescription = "Undocumented command that tells the script whether or not it (or its team) currently holds the monument in King of the Hill games.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cHoldKohRuin.commandCategory = ["Own Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cHoldKohRuin.description = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games.";
+cHoldKohRuin.shortDescription = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games. Koh stands for King of the Kill.";
+cHoldKohRuin.example = [ {
+	title: "If we (or our team) have captured the monument, set " + snGatherIdleSoldiersAtCenter.getLink() + " to 1.",
+	data: "(defrule\r\n\t(hold-koh-run)\r\n=>\r\n\t(set-strategic-number sn-gather-idle-soldiers-at-center 1)\r\n)"
+} ];
+cHoldKohRuin.commandCategory = ["Game Info", "Own Player Info"];
+cHoldKohRuin.relatedCommands = [cEnemyCapturedRelics, cHoldRelics, cUpGetVictoryData];
+cHoldKohRuin.relatedSNs = [];
 cHoldKohRuin.complexity = "Low";
 
 //hold-relics
-cHoldRelics.shortDescription = "Undocumented command that tells the script whether or not it (or its team) has all of the relics.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cHoldRelics.commandCategory = ["Own Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cHoldRelics.shortDescription = "Undocumented command that checks whether or not it (or its team) has all of the relics.";
+cHoldRelics.example = [ {
+	title: "Check whether we (or our team) has captured all the relics.",
+	data: "(defrule\r\n\t(hold-relics)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cHoldRelics.commandCategory = ["Game Info", "Own Player Info"];
+cHoldRelics.relatedCommands = [cEnemyCapturedRelics, cHoldKohRuin, cUpGetVictoryData];
+cHoldRelics.relatedSNs = [];
 cHoldRelics.complexity = "Low";
 
 //housing-headroom
@@ -8354,18 +8356,18 @@ cHousingHeadroom.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cHousingHeadroom.example = [ {
+	title: "If our housing headroom is less than 2 and the population headroom is > 0, build a house if we can.",
+	data: "(defrule\r\n\t(housing-headroom < 2)\r\n\t(population-headroom > 0)\r\n\t(can-build house)\r\n=>\r\n\t(build house)\r\n)"
+} ];
 cHousingHeadroom.commandCategory = ["Own Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cHousingHeadroom.relatedCommands = [cPopulationHeadroom, cPopulation, cUpResourceAmount];
+cHousingHeadroom.relatedSNs = [];
 cHousingHeadroom.complexity = "Low";
 
 //idle-farm-count
-cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers.";
-cIdleFarmCount.description = "Checks a computer player's idle farm count - the number of farms with no farmers. It should be used before a new farm is built to make sure it is needed.";
+cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers assigned to gather from it.";
+cIdleFarmCount.description = "Checks a computer player's idle farm count - the number of farms with no farmers assigned to gather from it. It can be used before a new farm is built to make sure it is needed.";
 cIdleFarmCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -8381,13 +8383,13 @@ cIdleFarmCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cIdleFarmCount.example = [ {
+	title: "If we have no idle farms, build a new farm if we can.",
+	data: "(defrule\r\n\t(idle-farm-count == 0)\r\n\t(can-build farm)\r\n=>\r\n\t(build farm)\r\n)"
+} ];
 cIdleFarmCount.commandCategory = ["Counting", "Economy"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cIdleFarmCount.relatedCommands = [cUpDeleteDistantFarms, cUpIdleUnitCount];
+cIdleFarmCount.relatedSNs = [snMaximumFoodDropDistance];
 cIdleFarmCount.complexity = "Low";
 
 //log
@@ -8399,20 +8401,20 @@ cLog.commandParameters = [ {
 	type: "Text",
 	dir: "in",
 	range: "A string (quoted text).",
-	note: "A quote of text that would be logged if this command actually worked."
+	note: "A quote of text that should be logged."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cLog.example = [ {
+	title: "Every time the AI attacks, write the string \"Attack Launched\" to the log file.",
+	data: "(defconst t-attack-timer 1)\r\n(defrule\r\n\t(defend-soldier-count >= 12)\r\n\t(timer-triggered t-attack-timer)\r\n=>\r\n\t(enable-timer t-attack-timer 300)\r\n\t(attack-now)\r\n\t(log \"Attack Launched\")\r\n)"
+} ];
 cLog.commandCategory = ["Debugging"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cLog.relatedCommands = [cUpLogData];
+cLog.relatedSNs = [];
 cLog.complexity = "Medium";
 
 //log-trace
 cLogTrace.shortDescription = "Writes the given value to a log file. Doesn't work.";
-cLogTrace.description = "Writes the given value to a log file. Used purely for testing to check when a rule gets executed. Works only if logging is enabled (which it isn't). Use " + cUpLogData.getLink() + " instead.";
+cLogTrace.description = "Writes the given value to a log file. Used purely for testing to check when a rule gets executed. Works only if logging is enabled (which it isn't). Use " + cUpLogData.getLink() + " instead. You can also use " + cLog.getLink() + " to log a text string if you are scripting for DE.";
 cLogTrace.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -8421,32 +8423,33 @@ cLogTrace.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "The value that would be sent as a chat message if this command actually worked."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cLogTrace.example = [ {
+	title: "Log the value 99. Note: this command currently doesn't work. This example is purely for documentation purposes.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(log-trace 99)\r\n\t(disable-self)\r\n)"
+} ];
 cLogTrace.commandCategory = ["Debugging"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cLogTrace.relatedCommands = [cLog, cUpLogData];
+cLogTrace.relatedSNs = [];
 cLogTrace.complexity = "Medium";
 
 //map-size
 cMapSize.shortDescription = "Checks the map size.";
+cMapSize.shortDescription = "Checks the map size. The map sizes can be tiny, small, medium, normal, large, giant, or ludikris (DE only). To get the actual dimensions of the map, you can use " + cUpGetPoint.getLink() + " with position-map-size, which will store the coordinates of the rightmost point on the map.";
 cMapSize.commandParameters = [ {
 	nameLink: pMapSize.getLink(),
 	name: "MapSize",
 	type: "Const",
 	dir: "in",
-	range: "tiny, small, medium, normal, large, or giant.",
-	note: "The size of the map."
+	range: "tiny, small, medium, normal, large, giant, or ludikris.",
+	note: "The name of the size of the map."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cMapSize.example = [ {
+	title: "If the map is a large map, get the coordinates of the rightmost point on the map.",
+	data: "(defconst gl-map-size-x 200)\r\n(defconst gl-map-size-y 201)\r\n(defrule\r\n\t(map-size large)\r\n=>\r\n\t(up-get-point position-map-size gl-map-size-x)\r\n)"
+} ];
 cMapSize.commandCategory = ["Game Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cMapSize.relatedCommands = [cMapType, cUpGetPoint];
+cMapSize.relatedSNs = [snInitialExplorationRequired, snPercentHalfExploration];
 cMapSize.complexity = "Low";
 
 //map-type
@@ -8497,7 +8500,7 @@ cMilitaryPopulation.complexity = "Low";
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
-cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerComputer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8517,7 +8520,7 @@ cPlayerComputer.complexity = "Low";
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
-cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerHuman.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8537,8 +8540,7 @@ cPlayerHuman.complexity = "Low";
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
-cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
-+ pAnyPlayer.getLink() + ".";
+cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerInGame.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8558,7 +8560,7 @@ cPlayerInGame.complexity = "Low";
 
 //player-number
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
-cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the AI's player color. Only a number between 1 to 8 can be used.";
+cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the AI's player color. Only a number between 1 to 8 can be used. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerNumber.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8578,7 +8580,7 @@ cPlayerNumber.complexity = "Low";
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
-cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game AnyPlayer))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game AnyPlayer))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerResigned.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8598,7 +8600,7 @@ cPlayerResigned.complexity = "Low";
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
-cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerValid.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8618,7 +8620,7 @@ cPlayerValid.complexity = "Low";
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
-cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8652,7 +8654,7 @@ cPlayersBuildingCount.complexity = "Low";
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
-cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ".";
+cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8693,7 +8695,7 @@ cPlayersBuildingTypeCount.complexity = "Low";
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civ.";
-cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
+cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
 cPlayersCiv.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8710,8 +8712,11 @@ cPlayersCiv.commandParameters = [ {
 	note: "The civilization of the player."
 } ];
 /*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+	title: "Check if any ally players are playing as the Spanish.",
+	data: "(defrule\r\n\t(players-civ any-ally spanish)\r\n=>\r\n\t(do-nothing)\r\n)"
+}, {
+	title: "Check if any enemy players are playing as the same civilization.",
+	data: "(defrule\r\n\t(players-civ any-enemy my-civ)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];*/
 cPlayersCiv.commandCategory = ["Other Player Info"];
 /*c.relatedCommands = [];
@@ -8720,7 +8725,7 @@ cPlayersCiv.complexity = "Low";
 
 //players-civilian-population
 cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
-cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCivilianPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8754,7 +8759,7 @@ cPlayersCivilianPopulation.complexity = "Low";
 
 //players-current-age
 cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
-cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAge.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8788,7 +8793,7 @@ cPlayersCurrentAge.complexity = "Low";
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
-cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAgeTime.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8822,7 +8827,7 @@ cPlayersCurrentAgeTime.complexity = "Low";
 
 //players-military-population
 cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
-cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersMilitaryPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8856,7 +8861,7 @@ cPlayersMilitaryPopulation.complexity = "Low";
 
 //players-population
 cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
-cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersPopulation.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8890,7 +8895,7 @@ cPlayersPopulation.complexity = "Low";
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
-cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersScore.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8924,7 +8929,7 @@ cPlayersScore.complexity = "Low";
 
 //players-stance
 cPlayersStance.shortDescription = "Checks the given player's diplomatic stance toward the computer player.";
-cPlayersStance.description = "Checks the given player's diplomatic stance. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersStance.description = "Checks the given player's diplomatic stance. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersStance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8951,7 +8956,7 @@ cPlayersStance.complexity = "Low";
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
-cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTribute.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -8992,7 +8997,7 @@ cPlayersTribute.complexity = "Low";
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
-cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTributeMemory.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9033,7 +9038,7 @@ cPlayersTributeMemory.complexity = "Low";
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9066,8 +9071,8 @@ c.relatedSNs = [];*/
 cPlayersUnitCount.complexity = "Low";
 
 //players-unit-type-count
-cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitTypeCount.description = "Checks the given player's unit count of the give ntype. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the given type. The computer player relies only on what it has seen - no cheating.";
+cPlayersUnitTypeCount.description = "Checks the given player's unit count of the given type. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9245,7 +9250,7 @@ cReleaseEscrow.complexity = "Medium";
 
 //research
 cResearch.shortDescription = "Researches the given item.";
-cResearch.description = "Researches the given item. To prevent cheating, this action will fail if the item currently cannot be researched (i.e. the tech prerequisites are not met, there is no available building, or the player cannot afford the item).";
+cResearch.description = "Researches the given item. To prevent cheating, this action will fail if the item currently cannot be researched (i.e. the tech prerequisites are not met, there is no available building, or the player cannot afford the item). You can also use my-unique-research, which will usually research the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually research the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -9265,7 +9270,7 @@ cResearch.complexity = "Low";
 
 //research-available
 cResearchAvailable.shortDescription = "Checks that the given research is available to the computer player's civ, and that the research is available at this time.";
-cResearchAvailable.description = "Checks that the given research is available to the computer player's civ, and that the research is available at this time (tech tree prerequisites are met). The fact does not check that there are enough resources to start researching.";
+cResearchAvailable.description = "Checks that the given research is available to the computer player's civ, and that the research is available at this time (tech tree prerequisites are met). The fact does not check that there are enough resources to start researching. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cResearchAvailable.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -9531,7 +9536,7 @@ cSetSignal.complexity = "Medium";
 
 //set-stance
 cSetStance.shortDescription = "Sets the stance toward a given player.";
-cSetStance.description = "Sets the stance toward a given player. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
+cSetStance.description = "Sets the stance toward a given player. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cSetStance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9660,7 +9665,7 @@ cSpy.complexity = "Low";
 
 //stance-toward
 cStanceToward.shortDescription = "Checks the computer player's diplomatic stance toward a given player.";
-cStanceToward.description = "Checks the computer player's diplomatic stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ".";
+cStanceToward.description = "Checks the computer player's diplomatic stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cStanceToward.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9818,7 +9823,7 @@ cTaunt.complexity = "Low";
 
 //taunt-detected
 cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
-cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cTauntDetected.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9915,7 +9920,7 @@ cTraceFact.complexity = "Don't Use";
 
 //train
 cTrain.shortDescription = "Trains the given unit.";
-cTrain.description = "Trains the given unit. To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
+cTrain.description = "Trains the given unit. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
 cTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -9935,7 +9940,7 @@ cTrain.complexity = "Low";
 
 //tribute-to-player
 cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
-cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
+cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -9981,7 +9986,7 @@ cTrue.complexity = "Low";
 
 //unit-available
 cUnitAvailable.shortDescription = "Checks that the unit is available to the computer player's civ, and that the tech tree prerequisites for training the unit are met.";
-cUnitAvailable.description = "Checks that the unit is available to the computer player's civ, and that the tech tree prerequisites for training the unit are met. The fact does not check whether the unit training can start. This depends on resource availability, housing headroom, and whether the building needed for training is currently used for research/training of another unit. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cUnitAvailable.description = "Checks that the unit is available to the computer player's civ, and that the tech tree prerequisites for training the unit are met. The fact does not check whether the unit training can start. This depends on resource availability, housing headroom, and whether the building needed for training is currently used for research/training of another unit. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cUnitAvailable.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -10055,7 +10060,7 @@ cUnitCountTotal.complexity = "Low";
 
 //unit-type-count
 cUnitTypeCount.shortDescription = "Checks the computer player's unit count of the given type.";
-cUnitTypeCount.description = "Checks the computer player's unit count of the given type. Only trained units of the given type are included. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>To check for the unit-type-count of other players, use " + cPlayersUnitTypeCount.getLink() + ".";
+cUnitTypeCount.description = "Checks the computer player's unit count of the given type. Only trained units of the given type are included. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>To check for the unit-type-count of other players, use " + cPlayersUnitTypeCount.getLink() + ".";
 cUnitTypeCount.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -10089,7 +10094,7 @@ cUnitTypeCount.complexity = "Low";
 
 //unit-type-count-total
 cUnitTypeCountTotal.shortDescription = "Checks the computer player's total unit count of the given type.";
-cUnitTypeCountTotal.description = "Checks the computer player's total unit count of the given type. The total includes trained and queued units of the given type. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".</p><p>To check for the unit-type-count of other players (not including queued units), use " + cPlayersUnitTypeCount.getLink() + ".";
+cUnitTypeCountTotal.description = "Checks the computer player's total unit count of the given type. The total includes trained and queued units of the given type. The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>To check for the unit-type-count of other players (not including queued units), use " + cPlayersUnitTypeCount.getLink() + ".";
 cUnitTypeCountTotal.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -11059,7 +11064,7 @@ cUpCanSearch.complexity = "Very High";
 
 //up-can-train
 cUpCanTrain.shortDescription = "Check if a unit can be trained with dynamic values.";
-cUpCanTrain.description = "Check if a unit can be trained with dynamic values.</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cUpCanTrain.description = "Check if a unit can be trained with dynamic values. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used for the Unit ID to check, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cUpCanTrain.commandParameters = [ {
 	nameLink: pEscrowState.getLink(),
 	name: "EscrowState",
@@ -11209,7 +11214,8 @@ c.relatedSNs = [];*/
 cUpChatDataToAll.complexity = "Medium";
 
 //up-chat-data-to-player
-cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player.";
+cUpChatDataToPlayer.description = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpChatDataToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12221,7 +12227,7 @@ cUpFindPlayer.complexity = "Medium";
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
-cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".";
+cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpFindPlayerFlare.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12519,7 +12525,7 @@ cUpGaiaTypeCountTotal.complexity = "Medium";
 
 //up-garrison
 cUpGarrison.shortDescription = "Garrison all units of the specified type into another object.";
-cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line). DE requires \"feudal-battering-ram\" (ID 1258) instead of battering-ram.</p><p>Objects tasked to garrison are prioritized in the order from newest to oldest trained/built.";
+cUpGarrison.description = "Garrison all units of the specified type into another object. The first parameter cannot be a class or a unit-line. my-unique-unit and my-elite-unique-unit can be used though, which will automatically get the UnitId of the unique unit or elite unique unit that the AI's civ can train from the castle. It must be a valid root object type id that can accept a garrison (battering-ram instead of battering-ram-line). DE requires \"feudal-battering-ram\" (ID 1258) instead of battering-ram.</p><p>Objects tasked to garrison are prioritized in the order from newest to oldest trained/built.";
 cUpGarrison.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -12543,14 +12549,14 @@ cUpGarrison.commandParameters = [ {
 	note: "The type of unit that will be garrisoned."
 } ];
 cUpGarrison.example = [ {
-	title: "Garrison all available infantry into battering rams. Non-DE example only.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison battering-ram c: infantry-class) ; infantry-class = 906\r\n\t(disable-self)\r\n)"
+	title: "Garrison all available swordsmen into battering rams. Non-DE example only.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison battering-ram c: militiaman)\r\n\t(disable-self)\r\n)"
 }, {
-	title: "Garrison all available infantry into battering rams. DE requires you to use \"feudal-battering-ram\" (ID 1258) for all civs because the base battering ram unit was changed when they implemented the Cuman civ bonus.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison feudal-battering-ram c: infantry-class) ; infantry-class = 906\r\n\t(disable-self)\r\n)"
+	title: "Garrison all available swordsmen into battering rams. DE requires you to use \"feudal-battering-ram\" (ID 1258) for all civs because the base battering ram unit was changed when they implemented the Cuman civ bonus.",
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison feudal-battering-ram c: militiaman)\r\n\t(disable-self)\r\n)"
 }, {
 	title: "Garrison all available archers into towers.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison watch-tower c: archer-line)\r\n\t(disable-self)\r\n)"
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-garrison watch-tower c: archer)\r\n\t(disable-self)\r\n)"
 } ];
 cUpGarrison.relatedCommands = [];
 cUpGarrison.commandCategory = ["Buildings"];/*
@@ -12708,7 +12714,7 @@ cUpGetFact.complexity = "High";
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
-cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.",
+cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.",
 cUpGetFactMax.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12749,7 +12755,7 @@ cUpGetFactMax.complexity = "High";
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
-cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.";
+cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetFactMin.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -12790,7 +12796,7 @@ cUpGetFactMin.complexity = "High";
 
 //up-get-fact-sum
 cUpGetFactSum.shortDescription = "Read the sum of facts for specific players into a goal.";
-cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action. The action only allows the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy.";
+cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action. The action only allows the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetFactSum.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -13083,7 +13089,7 @@ cUpGetPathDistance.complexity = "Very High";
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
-cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
+cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerColor.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -13110,7 +13116,7 @@ cUpGetPlayerColor.complexity = "High";
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
-cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
+cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerFact.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -13603,9 +13609,29 @@ cUpGetTimer.commandCategory = ["Timers"];/*
 c.relatedSNs = [];*/
 cUpGetTimer.complexity = "Medium";
 
+//up-get-treaty-data
+cUpGetTreatyData.shortDescription = "DE only. Stores the remaining treaty time in seconds into a goal.";
+cUpGetTreatyData.description = "DE only. Stores the remaining treaty time in seconds into a goal. Treaty time is the amount of time left in treaty games where players cannot attack each other.";
+cUpGetTreatyData.commandParameters = [ {
+	nameLink: pData.getLink(),
+	name: "Data",
+	type: "Goal",
+	dir: "out",
+	range: "a valid GoalId",
+	note: "Stores the remaining treaty time, in seconds."
+} ];
+cUpGetTreatyData.example = [ {
+	title: "Store the remaining treaty time in gl-treaty-time-left.",
+	data: "(defconst gl-treaty-time-left 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-treaty-time gl-gl-treaty-time-left)\r\n)"
+} ];
+cUpGetTreatyData.relatedCommands = [];
+cUpGetTreatyData.commandCategory = ["Diplomacy", "Game Info"];
+cUpGetTreatyData.relatedSNs = [snInitialAttackDelay, snInitialAttackDelayType];
+cUpGetTreatyData.complexity = "Medium";
+
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
-cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy.";
+cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetUpgradeId.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -13738,7 +13764,7 @@ cUpGroupSize.complexity = "Very High";
 
 //up-guard-unit
 cUpGuardUnit.shortDescription = "Set a single unit of a specific type to protect a random instance of another.";
-cUpGuardUnit.description = "Set a single unit of a specific type to protect a random instance of another, as long as they are on the same continent.";
+cUpGuardUnit.description = "Set a single unit of a specific type to protect a random instance of another, as long as they are on the same continent. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can be used for the UnitId, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cUpGuardUnit.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -14429,7 +14455,7 @@ cUpPendingPlacement.complexity = "Medium";
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
-cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpPlayerDistance.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "Any",
@@ -15178,7 +15204,7 @@ cUpResetTargetPriorities.complexity = "Medium";
 
 //up-reset-unit
 cUpResetUnit.shortDescription = "Halt the activity of all units of a specific type.";
-cUpResetUnit.description = "Halt the activity of all units of a specific type. This is equivalent to clicking the &quot;stop&quot; button.";
+cUpResetUnit.description = "Halt the activity of all units of a specific type. This is equivalent to clicking the &quot;stop&quot; button. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can be used for the UnitId, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cUpResetUnit.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -15318,7 +15344,7 @@ cUpRetreatNow.complexity = "Low";
 
 //up-retreat-to
 cUpRetreatTo.shortDescription = "Retreat all units of a specific type to a random instance of another.";
-cUpRetreatTo.description = "Retreat all units of a specific type to a random instance of another. Military units within 6 range of the retreat target object (the object in the first parameter) will not be told to retreat, to allow better defense of the retreat object, such as an offensive trebuchet or a castle.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command.";
+cUpRetreatTo.description = "Retreat all units of a specific type to a random instance of another. Military units within 6 range of the retreat target object (the object in the first parameter) will not be told to retreat, to allow better defense of the retreat object, such as an offensive trebuchet or a castle.</p><p>Active explorers will not retreat. If explorers need to retreat, use " + cUpResetScouts.getLink() + " before using this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can be used for the UnitId, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cUpRetreatTo.commandParameters = [ {
 	nameLink: pObjectId.getLink(),
 	name: "ObjectId",
@@ -16026,7 +16052,7 @@ cUpStoreObjectName.complexity = "High";
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
-cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerChat.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -16046,7 +16072,7 @@ cUpStorePlayerChat.complexity = "High";
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
-cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerName.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -16066,7 +16092,7 @@ cUpStorePlayerName.complexity = "High";
 
 //up-store-tech-name
 cUpStoreTechName.shortDescription = "Store a research tech name in the internal buffer.";
-cUpStoreTechName.description = "Store a research tech name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpStoreTechName.description = "Store a research tech name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. You can also use my-unique-research, which will usually get the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually get the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
 cUpStoreTechName.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16268,7 +16294,7 @@ cUpTimerStatus.complexity = "Medium";
 
 //up-train
 cUpTrain.shortDescription = "Add a unit to the training queue with dynamic values.";
-cUpTrain.description = "Add a unit to the training queue with dynamic values.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
+cUpTrain.description = "Add a unit to the training queue with dynamic values. You can also train unique units by using my-unique-unit, my-elite-unique-unit, and my-unique-unit-line, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
 cUpTrain.commandParameters = [ {
 	nameLink: pEscrowState.getLink(),
 	name: "EscrowState",
@@ -16302,7 +16328,7 @@ cUpTrain.complexity = "Medium";
 
 //up-train-site-ready
 cUpTrainSiteReady.shortDescription = "Check if a unit's training site is ready and available.";
-cUpTrainSiteReady.description = "Check if a unit's training site is ready and available.</p><p><strong>Important Note:</strong> Unit lines, negative unit IDs, or invalid unit Ids may result in a crash. Do not use unit lines or unit classes with this command. Please use the root unit type instead, such as using archer instead of archer-line, even if Crossbowman has been researched.</p><p>In most cases, the unit you use to test whether a train site is ready doesn't matter. However, for docks, the unit you choose to test is important. Trade cogs may be rejected by the dock if you use " + snDockTrainingFilter.getLink() + " and it hasn't found an allied dock. On the other hand, a military ship (galley works to test all of these) uses enemy ships/docks to determine if it is acceptable when that sn is in use. Fishing ships may also provide a different result sooner or later.</p><p>An alternative to this command is finding a building you want to check, setting it as the target object with " + cUpSetTargetObject.getLink() + " or " + cUpSetTargetById.getLink() + " and using " + cUpGetObjectData.getLink() + " like this:</p><div class=\"example\"><pre><code>(up-get-object-data object-data-progress-type gl-data)</pre></code></div><p> If 0 is stored in gl-data, then the building is not training or researching, and it is ready to train units.";
+cUpTrainSiteReady.description = "Check if a unit's training site is ready and available. You can also check the train site of my-unique-unit, which will automatically check the train site of the UnitId of the unique unit that the AI's civ can train from the castle.</p><p><strong>Important Note:</strong> Unit lines, negative unit IDs, or invalid unit Ids may result in a crash. Do not use unit lines or unit classes with this command. Please use the root unit type instead, such as using archer instead of archer-line, even if Crossbowman has been researched.</p><p>In most cases, the unit you use to test whether a train site is ready doesn't matter. However, for docks, the unit you choose to test is important. Trade cogs may be rejected by the dock if you use " + snDockTrainingFilter.getLink() + " and it hasn't found an allied dock. On the other hand, a military ship (galley works to test all of these) uses enemy ships/docks to determine if it is acceptable when that sn is in use. Fishing ships may also provide a different result sooner or later.</p><p>An alternative to this command is finding a building you want to check, setting it as the target object with " + cUpSetTargetObject.getLink() + " or " + cUpSetTargetById.getLink() + " and using " + cUpGetObjectData.getLink() + " like this:</p><div class=\"example\"><pre><code>(up-get-object-data object-data-progress-type gl-data)</pre></code></div><p> If 0 is stored in gl-data, then the building is not training or researching, and it is ready to train units.";
 cUpTrainSiteReady.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16329,7 +16355,7 @@ cUpTrainSiteReady.complexity = "Medium";
 
 //up-tribute-to-player
 cUpTributeToPlayer.shortDescription = "Tribute a variable amount of resources to other players.";
-cUpTributeToPlayer.description = "Tribute a variable amount of resources to other players. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\".";
+cUpTributeToPlayer.description = "Tribute a variable amount of resources to other players. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpTributeToPlayer.commandParameters = [ {
 	nameLink: pAnyPlayer.getLink(),
 	name: "AnyPlayer",
@@ -17521,9 +17547,9 @@ pBuildingId.wildcardParam = [ {
 } ];
 
 //Civ
-pCiv.description = "The player's civilization. You may need to define some civilizations with a defconst.";
+pCiv.description = "The player's civilization. You may need to define some civilizations with a defconst. \"my-civ\" is also an option, which will detect the civilization that the AI is playing as.";
 pCiv.shortDescription = "The player's civilization.";
-pCiv.range = "0 to 18 for The Conquerors game version. 0 to 31 for AoK:HD and Wololo Kingdoms versions. 0 to 39 for AoE2:DE.";
+pCiv.range = "0 to 18 for The Conquerors game version. 0 to 31 for AoK:HD and Wololo Kingdoms versions. 0 to 42 for AoE2:DE.";
 pCiv.valueList = [ {
 	name: "gaia",
 	id: 0,
@@ -18493,7 +18519,7 @@ pFactId.valueList = [ {
 }, {
 	name: "treaty-time",
 	id: 54,
-	description: "DE only. The amount of treaty time left, in seconds. This FactId does not have a corresponding Fact.",
+	description: "DE only. The amount of treaty time left, in seconds. You can also get the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
 	parameter: "0",
 	players: "any"
 } ];
@@ -18597,6 +18623,22 @@ pGameType.valueList = [ {
 	name: "turbo-random-map",
 	id: 8,
 	description: "Turbo Random Map game."
+}, {
+	name: "capture-the-relic",
+	id: 10,
+	description: "Capture the Relic game."
+}, {
+	name: "sudden-death",
+	id: 11,
+	description: "Sudden Death game."
+}, {
+	name: "battle-royale",
+	id: 12,
+	description: "Battle Royale game."
+}, {
+	name: "empire-wars",
+	id: 13,
+	description: "Empire Wars game."
 } ];
 
 //GoalId
@@ -18783,6 +18825,10 @@ pMapSize.valueList = [ {
 	name: "giant",
 	id: 5,
 	description: "Giant map size. 240x240 tiles for most maps."
+}, {
+	name: "ludikris",
+	id: 6,
+	description: "DE only. Ludicrous map size (notice the spelling of the map in the AI engine). 480x480 tiles for most maps. It's possible some AI features won't work on this map if they were originally coded with the assumption that the map dimensions would never exceed 255 tiles. The map itself can often cause a lot of lag, so only script for this map with care."
 } ];
 
 //MapType
@@ -20723,6 +20769,18 @@ pStartingResources.valueList = [ {
 	name: "high-resources",
 	id: 3,
 	description: "Start with 1000W, 1000F, 700G, and 800S in random map games. Other game modes may have different starting resources."
+}, {
+	name: "ultra-high-resources",
+	id: 4,
+	description: "Start with 20000W, 20000F, 10000G, and 5000S in random map games, the same as a Death match game. Other game modes may have different starting resources. DE only."
+}, {
+	name: "infinite-resources",
+	id: 5,
+	description: "All resources are infinite. DE only."
+}, {
+	name: "random-resources",
+	id: 6,
+	description: "Start with random amounts of each resource. DE only."
 } ];
 
 //State
@@ -21088,7 +21146,7 @@ pTypeId.range = "A valid " + pObjectId.getLink() + " or one of the object line w
 pTypeId.relatedParams = [pBuildingId, pClassId, pObjectId, pUnitId, pUpgradeId];
 
 //UnitId
-pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
+pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. Some commands cannot use unit lines or classes. Please see the command page for each individual command to confirm what type of UnitId can be used. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
 pUnitId.shortDescription = "The object ID of a unit, the unit type name, or a unit's class.";
 pUnitId.range = "A valid UnitId.";
 pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId, pUpgradeId];
