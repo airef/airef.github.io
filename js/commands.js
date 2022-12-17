@@ -69,7 +69,12 @@ class Parameter {
 	}
 
 	getLink () {
-		var link = '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + this.upParamName + '">' + this.upParamName + '</a>';
+		if (arguments[0]) {
+			var link = '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + this.upParamName + '">' + arguments[0] + '</a>';
+		}
+		else {
+			var link = '<a href="' + urlPrefix + '/parameters/parameters-details.html#' + this.upParamName + '">' + this.upParamName + '</a>';
+		}
 		return link;
 	}
 }
@@ -495,51 +500,50 @@ var pMathOp = new Parameter("mathOp","UP");
 var pTypeOp = new Parameter("typeOp","UP");
 var pActionId = new Parameter("ActionId","UP");
 var pAge = new Parameter("Age","1.0c","&#60;age&#62;");
-var pAllyPlayer = new Parameter("AllyPlayer","UP");
-var pAnyPlayer = new Parameter("AnyPlayer","1.0c","&#60;player-number&#62;");
+// var pAllyPlayer = new Parameter("AllyPlayer","UP");
 var pAttackStance = new Parameter("AttackStance","UP");
 var pAttrId = new Parameter("AttrId","DE");
-var pBorder = new Parameter("Border","UP");
-var pBreakState = new Parameter("BreakState","DE");
+// var pBorder = new Parameter("Border","UP");
 var pBuildingId = new Parameter("BuildingId","1.0c","&#60;building&#62;");
 var pCiv = new Parameter("Civ","1.0c","&#60;civ&#62;");
 var pClassId = new Parameter("ClassId","UP");
 var pCmdId = new Parameter("CmdId","UP");
-var pCode = new Parameter("Code","UP");
+// var pCode = new Parameter("Code","UP");
 var pColorId = new Parameter("ColorId","UP");
 var pCommodity = new Parameter("Commodity","1.0c","&#60;commodity&#62;");
-var pComputerAllyPlayer = new Parameter("ComputerAllyPlayer","UP");
-var pCount = new Parameter("Count","UP");
-var pData = new Parameter("Data","UP");
+// var pComputerAllyPlayer = new Parameter("ComputerAllyPlayer","UP");
+// var pCount = new Parameter("Count","UP");
+// var pData = new Parameter("Data","UP");
+var pDefconst = new Parameter("Defconst","UP");
 var pDifficulty = new Parameter("Difficulty","1.0c","&#60;difficulty&#62;");
 var pDiffParameterId = new Parameter("DiffParameterId","1.0c","&#60;difficulty-parameter&#62;");
-var pDistance = new Parameter("Distance","UP");
-var pElapsedTime = new Parameter("ElapsedTime","UP");
+// var pDistance = new Parameter("Distance","UP");
+var pDUCAction = new Parameter("DUCAction","UP");
 var pEffectId = new Parameter("EffectId","DE");
-var pEscrowState = new Parameter("EscrowState","UP");
-var pESPlayerStance = new Parameter("ESPlayerStance","1.0c","&#60;diplomacy-stance&#62;");
+var pEscrowGoalId = new Parameter("EscrowGoalId","UP");
+// var pESPlayerStance = new Parameter("ESPlayerStance","1.0c","&#60;diplomacy-stance&#62;");
 var pEventId = new Parameter("EventId","1.0c","&#60;event-id&#62;");
 var pEventType = new Parameter("EventType","1.0c","&#60;event-type&#62;");
 var pExploredState = new Parameter("ExploredState","UP");
-var pExtension = new Parameter("Extension","UP");
+// var pExtension = new Parameter("Extension","UP");
 var pFactId = new Parameter("FactId","UP");
 var pFindPlayerMethod = new Parameter("FindPlayerMethod","UP");
 var pFlag = new Parameter("Flag","UP");
 var pFormation = new Parameter("Formation","UP");
-var pFormattedString = new Parameter("FormattedString","UP");
+// var pFormattedString = new Parameter("FormattedString","UP");
 var pGameType = new Parameter("GameType","1.0c");
 var pGoalId = new Parameter("GoalId","1.0c","&#60;goal-id&#62;");
 var pGroupId = new Parameter("GroupId","UP");
 var pGroupType = new Parameter("GroupType","UP");
 var pGuardFlag = new Parameter("GuardFlag","UP");
-var pGuardState = new Parameter("GuardState","UP");
-var pHitpoints = new Parameter("HitPoints","UP");
+// var pGuardState = new Parameter("GuardState","UP");
+// var pHitpoints = new Parameter("HitPoints","UP");
 var pId = new Parameter("Id","UP");
 var pIdleType = new Parameter("IdleType","UP");
 var pIndex = new Parameter("Index","UP");
 var pItemId = new Parameter("ItemId","DE");
 var pLanguageId = new Parameter("LanguageId","1.0c","&#60;string-id&#62;","&#60;string-id-start&#62;");
-var pLimit = new Parameter("Limit","UP");
+// var pLimit = new Parameter("Limit","UP");
 var pLocalIndex = new Parameter("LocalIndex","UP");
 var pLocalList = new Parameter("LocalList","UP");
 var pMapSize = new Parameter("MapSize","1.0c","&#60;map-size&#62;");
@@ -548,35 +552,38 @@ var pMaxDistance = new Parameter("MaxDistance","UP");
 var pMaxGarrison = new Parameter("MaxGarrison","UP");
 var pMinDistance = new Parameter("MinDistance","UP");
 var pMinGarrison = new Parameter("MinGarrison","UP");
-var pMode = new Parameter("Mode","UP");
-var pNewName = new Parameter("NewName","UP");
+// var pMode = new Parameter("Mode","UP");
+// var pNewName = new Parameter("NewName","UP");
 var pObjectData = new Parameter("ObjectData","UP");
 var pObjectId = new Parameter("ObjectId","UP");
 var pObjectList = new Parameter("ObjectList","UP");
 var pObjectStatus = new Parameter("ObjectStatus","UP");
-var pOn = new Parameter("On","UP");
+// var pOn = new Parameter("On","UP");
 var pOnMainland = new Parameter("OnMainland","UP");
+var pOption = new Parameter("Option", "UP");
+var pOptionGoalId = new Parameter("OptionGoalId","UP");
 var pOrderId = new Parameter("OrderId","UP");
-var pParam = new Parameter("Param","UP");
+var pOutputGoalId = new Parameter("OutputGoalId","UP");
+var pFactParameter = new Parameter("FactParameter","UP");
 var pPercent = new Parameter("Percent","UP");
 var pPerimeter = new Parameter("Perimeter","1.0c","&#60;perimeter&#62;");
 var pPlacementType = new Parameter("PlacementType","UP");
-var pPlain = new Parameter("Plain","UP");
-var pPlayerId = new Parameter("PlayerId","UP");
+// var pPlain = new Parameter("Plain","UP");
+var pPlayerNumber = new Parameter("PlayerNumber","1.0c","&#60;player-number&#62;");
 var pPlayerStance = new Parameter("PlayerStance","UP");
 var pPoint = new Parameter("Point","UP");
 var pPositionType = new Parameter("PositionType","UP");
-var pPrecise = new Parameter("Precise","UP");
-var pPreserveResearch = new Parameter("PreserveResearch","UP");
+// var pPrecise = new Parameter("Precise","UP");
+// var pPreserveResearch = new Parameter("PreserveResearch","UP");
 var pProgressType = new Parameter("ProgressType", "UP");
 var pProjectileType = new Parameter("ProjectileType","UP");
 var pPriorityType = new Parameter("PriorityType","UP");
 var pRemoteIndex = new Parameter("RemoteIndex","UP");
 var pRemoteList = new Parameter("RemoteList","UP");
 var pResearchState = new Parameter("ResearchState","UP");
-var pResetCost = new Parameter("ResetCost","UP");
+// var pResetCost = new Parameter("ResetCost","UP");
 var pResource = new Parameter("Resource","1.0c","&#60;resource-type&#62;");
-var pResourceAmount = new Parameter("ResourceAmount","UP");
+var pResourceType = new Parameter("ResourceType","UP");
 var pRuleDelta = new Parameter("RuleDelta","UP");
 var pRuleId = new Parameter("RuleId","UP");
 var pScoutMethod = new Parameter("ScoutMethod","UP");
@@ -584,34 +591,35 @@ var pSearchOrder = new Parameter("SearchOrder","UP");
 var pSearchSource = new Parameter("SearchSource","UP");
 var pSharedGoalId = new Parameter("SharedGoalId","1.0c","&#60;shared-goal-id&#62;");
 var pSignalId = new Parameter("SignalId","1.0c","&#60;signal-id&#62;");
-var pSize = new Parameter("Size","UP");
+// var pSize = new Parameter("Size","UP");
 var pSnId = new Parameter("SnId","1.0c","&#60;strategic-number&#62;");
-var pSourceClass = new Parameter("SourceClass","UP");
-var pStart = new Parameter("Start","UP");
+// var pStart = new Parameter("Start","UP");
 var pStartingResources = new Parameter("StartingResources","1.0c","&#60;starting-resources&#62;");
-var pState = new Parameter("State","UP");
-var pStrict = new Parameter("Strict","UP");
+// var pState = new Parameter("State","UP");
+// var pStrict = new Parameter("Strict","UP");
 var pString = new Parameter("String","1.0c","&#60;string&#62;");
-var pTarget = new Parameter("Target","UP");
-var pTargetAction = new Parameter("TargetAction","UP");
-var pTargetClass = new Parameter("TargetClass","UP");
+// var pTarget = new Parameter("Target","UP");
+var pThreatPlayer = new Parameter("ThreatPlayer","UP");
+var pThreatSource = new Parameter("ThreatSource","UP");
+var pThreatTarget = new Parameter("ThreatTarget","UP");
+var pThreatTime = new Parameter("ThreatTime","UP");
 var pTauntId = new Parameter("TauntId","1.0c","&#60;taunt-id&#62;");
 var pTechId = new Parameter("TechId","1.0c","&#60;research-item&#62;");
 var pTerrain = new Parameter("Terrain","UP");
-var pText = new Parameter("Text","UP");
-var pTiles = new Parameter("Tiles","UP");
-var pTime = new Parameter("Time","UP");
+// var pTiles = new Parameter("Tiles","UP");
 var pTimerId = new Parameter("TimerId","1.0c","&#60;timer-id&#62;");
 var pTimerState = new Parameter("TimerState","UP");
-var pType = new Parameter("Type","UP");
 var pTypeId = new Parameter("TypeId","UP");
 var pUnitId = new Parameter("UnitId","1.0c","&#60;unit&#62;");
 var pUpgradeId = new Parameter("UpgradeId","UP");
 var pValue = new Parameter("Value","1.0c","&#60;value&#62;");
-var pVictory = new Parameter("Victory","1.0c","&#60;victory-condition&#62;");
+var pVictoryCondition = new Parameter("VictoryCondition","1.0c","&#60;victory-condition&#62;");
+var pVictoryPlayer = new Parameter("VictoryPlayer","UP");
+var pVictoryTime = new Parameter("VictoryTime","UP");
+var pVictoryType = new Parameter("VictoryType","UP");
 var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, pAllyPlayer, pAnyPlayer, pAttackStance, pAttrId, pBorder, pBreakState, pBuildingId, pCiv, pClassId, pCmdId, pCode, pColorId, pCommodity, pComputerAllyPlayer, pCount, pData, pDifficulty, pDiffParameterId, pDistance, pEffectId, pElapsedTime, pEscrowState, pESPlayerStance, pEventId, pEventType, pExploredState, pExtension, pFactId, pFindPlayerMethod, pFlag, pFormation, pFormattedString, pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, pGuardState, pHitpoints, pId, pIdleType, pIndex, pItemId, pLanguageId, pLimit, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, pMode, pNewName, pObjectData, pObjectId, pObjectList, pObjectStatus, pOn, pOnMainland, pOrderId, pParam, pPercent, pPerimeter, pPlacementType, pPlain, pPlayerId, pPlayerStance, pPoint, pPositionType, pPrecise, pPreserveResearch, pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, pResetCost, pResource, pResourceAmount, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, pSize, pSnId, pSourceClass, pStart, pStartingResources, pState, pStrict, pString, pTarget, pTargetAction, pTargetClass, pTauntId, pTechId, pTerrain, pText, pTiles, pTime, pTimerId, pTimerState, pType, pTypeId, pUnitId, pUpgradeId, pValue, pVictory, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, pUpgradeId, pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber();
@@ -6168,13 +6176,13 @@ cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
-cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
+cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
 cAcknowledgeTaunt.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId",
+	range: "Any player number",
 	note: "The player(s) to check."
 }, {
 	nameLink: pTauntId.getLink(),
@@ -6937,13 +6945,13 @@ cCcAddResource.complexity = "Low";
 
 //cc-players-building-count
 cCcPlayersBuildingCount.shortDescription = "A cheating version of players-building-count.";
-cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen - fog is ignored. Unlike building-count, buildings that existed from the start of the game, such as the starting town center, are included. Also, farms are included, but walls and gates are not included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cCcPlayersBuildingCount.description = "A cheating version of " + cPlayersBuildingCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. The fact checks the given player's building count. Both existing buildings and buildings under construction are included regardless of whether they have been seen - fog is ignored. Unlike building-count, buildings that existed from the start of the game, such as the starting town center, are included. Also, farms are included, but walls and gates are not included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cCcPlayersBuildingCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -6971,13 +6979,13 @@ cCcPlayersBuildingCount.complexity = "Low";
 
 //cc-players-building-type-count
 cCcPlayersBuildingTypeCount.shortDescription = "A cheating version of players-building-type-count.";
-cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen - fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>It also allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (cc-players-building-type-count any-enemy watch-tower > 0) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class. Classes don't work for enemy players with players-building-type-count, but they do work with cc-players-building-type-count.</li></ol>";
+cCcPlayersBuildingTypeCount.description = "A cheating version of " + cPlayersBuildingTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's building count for the given building. Both existing buildings and buildings under construction of the given type are included regardless of whether they have been seen - fog is ignored. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>It also allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (cc-players-building-type-count any-enemy watch-tower > 0) will work regardless of tower upgrades.</p><p>There are four ways you can specify the building \"type\":<ol><li><strong>Building Name:</strong> the name of an individual building, such as house, watch-tower, or town-center.</li><li><strong>Building Id:</strong> the numerical ID assigned to each building, such as 12 (the barracks) or 70 (the house). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Building Line:</strong> the building line for the building. The only option here is watch-tower-line, and avoid using it as there are various bugs with it. Simply use watch-tower instead.</li><li><strong>Building Class:</strong> the class of a building, such as building-class, tower-class, or farm-class. Classes group several building types together into a single category. Using a building class will count all buildings of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each building's class. Classes don't work for enemy players with players-building-type-count, but they do work with cc-players-building-type-count.</li></ol>";
 cCcPlayersBuildingTypeCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pBuildingId.getLink(),
@@ -7012,13 +7020,13 @@ cCcPlayersBuildingTypeCount.complexity = "Low";
 
 //cc-players-unit-count
 cCcPlayersUnitCount.shortDescription = "A cheating version of players-unit-count.";
-cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cCcPlayersUnitCount.description = "A cheating version of " + cPlayersUnitCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only. This fact checks the given player's unit count. Only trained units are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cCcPlayersUnitCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -7046,13 +7054,13 @@ cCcPlayersUnitCount.complexity = "Low";
 
 //cc-players-unit-type-count
 cCcPlayersUnitTypeCount.shortDescription = "A cheating version of players-unit-type-count.";
-cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only, though most AI tournaments allows its use to see if particular Gaia objects are on the map at the beginning of the game, for custom map detection purposes. For example, some scripts will check to see if fish are on the map to detect if the map is a water map.</p><p>This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. Counting Gaia units (player number 0) is not considered cheating.</p><p>There are four ways you can specify the unit \"type\":<ol><li><strong>Unit Name:</strong> the name of an individual unit, such as villager, spearman, or monk.</li><li><strong>Unit Id:</strong> the numerical ID assigned to each unit, such as 4 (the archer) or 74 (militiaman). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Unit Line:</strong> the unit line for the unit. This includes all units in a unit line. For example, archer-line includes archers, crossbowmen, and arbalests.</li><li><strong>Unit Class:</strong> the class of a unit, such as infantry-class, cavalry-archer-class, or monastery-class. Classes group several unit types together into a single category. Using a unit class will count all units of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each unit's class. Classes don't work for enemy players with players-unit-type-count, but they do work with cc-players-unit-type-count.</li></ol>";
+cCcPlayersUnitTypeCount.description = "A cheating version of " + cPlayersUnitTypeCount.getLink() + ". This command works even if cheats are disabled. For use in scenarios only, though most AI tournaments allows its use to see if particular Gaia objects are on the map at the beginning of the game, for custom map detection purposes. For example, some scripts will check to see if fish are on the map to detect if the map is a water map.</p><p>This fact checks the given player's unit count. Only trained units of the given type are included and fog is ignored. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. Counting Gaia units (player number 0) is not considered cheating.</p><p>There are four ways you can specify the unit \"type\":<ol><li><strong>Unit Name:</strong> the name of an individual unit, such as villager, spearman, or monk.</li><li><strong>Unit Id:</strong> the numerical ID assigned to each unit, such as 4 (the archer) or 74 (militiaman). See the ID column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> for a list.</li><li><strong>Unit Line:</strong> the unit line for the unit. This includes all units in a unit line. For example, archer-line includes archers, crossbowmen, and arbalests.</li><li><strong>Unit Class:</strong> the class of a unit, such as infantry-class, cavalry-archer-class, or monastery-class. Classes group several unit types together into a single category. Using a unit class will count all units of this class. See the Class column in the <a href=\"https://airef.github.io/tables/objects.html\">Objects Table</a> to see each unit's class. Classes don't work for enemy players with players-unit-type-count, but they do work with cc-players-unit-type-count.</li></ol>";
 cCcPlayersUnitTypeCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pUnitId.getLink(),
@@ -7375,14 +7383,14 @@ cChatToEnemiesUsingRange.complexity = "Medium";
 
 //chat-to-player
 cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player.";
-cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
+cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
 cChatToPlayer.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
+	range: "Any player number.",
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for Player."
 }, {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -7405,14 +7413,14 @@ cChatToPlayer.complexity = "Low";
 
 //chat-to-player-using-id
 cChatToPlayerUsingId.shortDescription = "sends a string, defined by a string id, as a chat message to a given player.";
-cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
+cChatToPlayerUsingId.description = "sends a string, defined by a string id, as a chat message to a given player. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string id 22322 in English is \"No wonder thou wert victorious! I shalt abdicate.\"</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayerUsingId.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
+	range: "Any player number.",
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for Player."
 }, {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7432,14 +7440,14 @@ cChatToPlayerUsingId.complexity = "Medium";
 
 //chat-to-player-using-range
 cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cChatToPlayerUsingRange.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer."
+	range: "Any player number.",
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for Player."
 }, {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -7545,14 +7553,14 @@ cCivSelected.complexity = "Low";
 
 //clear-tribute-memory
 cClearTributeMemory.shortDescription = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared.";
-cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cClearTributeMemory.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
-	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for AnyPlayer. It also allows for rule variables for AnyPlayer."
+	range: "Any player number.",
+	note: "The player(s) to send the chat message to. The action allows the any/every wildcard parameters for Player. It also allows for rule variables for Player."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -8500,13 +8508,13 @@ cMilitaryPopulation.complexity = "Low";
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
-cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerComputer.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
 /*c.example = [ {
@@ -8520,13 +8528,13 @@ cPlayerComputer.complexity = "Low";
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
-cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerHuman.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
 /*c.example = [ {
@@ -8540,13 +8548,13 @@ cPlayerHuman.complexity = "Low";
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
-cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerInGame.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
 /*c.example = [ {
@@ -8562,12 +8570,12 @@ cPlayerInGame.complexity = "Low";
 cPlayerNumber.shortDescription = "Checks computer player's player number.";
 cPlayerNumber.description = "Checks computer player's player number. The player number is the player's slot order, not the number associated with the AI's player color. Only a number between 1 to 8 can be used. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerNumber.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
 	range: "1 to 8",
-	note: "The PlayerId to check for a match."
+	note: "The player number to check for a match."
 } ];
 /*c.example = [ {
 	title: ".",
@@ -8580,13 +8588,13 @@ cPlayerNumber.complexity = "Low";
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
-cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game AnyPlayer))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game Player))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerResigned.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
 /*c.example = [ {
@@ -8600,13 +8608,13 @@ cPlayerResigned.complexity = "Low";
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
-cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerValid.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
 /*c.example = [ {
@@ -8620,13 +8628,13 @@ cPlayerValid.complexity = "Low";
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
-cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8654,13 +8662,13 @@ cPlayersBuildingCount.complexity = "Low";
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
-cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingTypeCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pBuildingId.getLink(),
@@ -8695,13 +8703,13 @@ cPlayersBuildingTypeCount.complexity = "Low";
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civ.";
-cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
+cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
 cPlayersCiv.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCiv.getLink(),
@@ -8725,13 +8733,13 @@ cPlayersCiv.complexity = "Low";
 
 //players-civilian-population
 cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
-cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCivilianPopulation.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8759,13 +8767,13 @@ cPlayersCivilianPopulation.complexity = "Low";
 
 //players-current-age
 cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
-cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAge.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8793,13 +8801,13 @@ cPlayersCurrentAge.complexity = "Low";
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
-cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAgeTime.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8827,13 +8835,13 @@ cPlayersCurrentAgeTime.complexity = "Low";
 
 //players-military-population
 cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
-cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersMilitaryPopulation.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8861,13 +8869,13 @@ cPlayersMilitaryPopulation.complexity = "Low";
 
 //players-population
 cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
-cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersPopulation.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8895,13 +8903,13 @@ cPlayersPopulation.complexity = "Low";
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
-cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersScore.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -8928,21 +8936,21 @@ c.relatedSNs = [];*/
 cPlayersScore.complexity = "Low";
 
 //players-stance
-cPlayersStance.shortDescription = "Checks the given player's diplomatic stance toward the computer player.";
-cPlayersStance.description = "Checks the given player's diplomatic stance. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersStance.shortDescription = "Checks if the given player's diplomatic stance toward the computer player matches the given stance.";
+cPlayersStance.description = "Checks if the given player's diplomatic stance toward the computer player matches the give stance, either ally, neutral, or enemy. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersStance.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
-	nameLink: pESPlayerStance.getLink(),
-	name: "ESPlayerStance",
+	nameLink: pPlayerStance.getLink(),
+	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
+	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance of the player."
 } ];
 /*c.example = [ {
@@ -8956,13 +8964,13 @@ cPlayersStance.complexity = "Low";
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
-cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTribute.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pResource.getLink(),
@@ -8997,13 +9005,13 @@ cPlayersTribute.complexity = "Low";
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
-cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTributeMemory.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pResource.getLink(),
@@ -9038,13 +9046,13 @@ cPlayersTributeMemory.complexity = "Low";
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -9072,13 +9080,13 @@ cPlayersUnitCount.complexity = "Low";
 
 //players-unit-type-count
 cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the given type. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitTypeCount.description = "Checks the given player's unit count of the given type. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersUnitTypeCount.description = "Checks the given player's unit count of the given type. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitTypeCount.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
 	nameLink: pUnitId.getLink(),
@@ -9535,18 +9543,18 @@ c.relatedSNs = [];*/
 cSetSignal.complexity = "Medium";
 
 //set-stance
-cSetStance.shortDescription = "Sets the stance toward a given player.";
-cSetStance.description = "Sets the stance toward a given player. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cSetStance.shortDescription = "Sets the diplomatic stance toward a given player to the specified stance.";
+cSetStance.description = "Sets the diplomatic stance toward a given player to the specified stance, either ally, neutral, or enemy. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for Player, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cSetStance.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to change diplomacy stance toward."
 }, {
-	nameLink: pESPlayerStance.getLink(),
-	name: "ESPlayerStance",
+	nameLink: pPlayerStance.getLink(),
+	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
 	range: "ally, neutral, or enemy.",
@@ -9664,21 +9672,21 @@ c.relatedSNs = [];*/
 cSpy.complexity = "Low";
 
 //stance-toward
-cStanceToward.shortDescription = "Checks the computer player's diplomatic stance toward a given player.";
-cStanceToward.description = "Checks the computer player's diplomatic stance toward a given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cStanceToward.shortDescription = "Checks if the computer player's diplomatic stance toward a given player matches the given stance.";
+cStanceToward.description = "Checks if the computer player's diplomatic stance toward a given player matches the given stance, either ally, neutral, or enemy. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cStanceToward.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
+	range: "Any player number.",
 	note: "The player(s) to check."
 }, {
-	nameLink: pESPlayerStance.getLink(),
-	name: "ESPlayerStance",
+	nameLink: pPlayerStance.getLink(),
+	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pESPlayerStance.",
+	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance toward the player."
 } ];
 /*c.example = [ {
@@ -9823,13 +9831,13 @@ cTaunt.complexity = "Low";
 
 //taunt-detected
 cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
-cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cTauntDetected.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId",
+	range: "Any player number",
 	note: "The player(s) to check."
 }, {
 	nameLink: pTauntId.getLink(),
@@ -9939,15 +9947,15 @@ c.relatedSNs = [];*/
 cTrain.complexity = "Low";
 
 //tribute-to-player
-cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter.";
-cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the AnyPlayer parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cTributeToPlayer.shortDescription = "Tributes the given amount of the given resource type to the player defined by the Player parameter.";
+cTributeToPlayer.description = "Tributes the given amount of the given resource type to the player defined by the Player parameter. Implementation specifics: If the computer player does not have a Market, no tribute is given. In the case when the value parameter specifies an amount larger than available, only the available resources of the given type are tributed. If, for example, there is only 60 food and the tribute action specifies 100 food, only 60 food will be tributed. The tribute action is ignored when there are no resources of the given type. Tribute fees are paid and deducted from the tribute amount (if applicable). The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for Player, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cTributeToPlayer.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "Any PlayerId.",
-	note: "The player(s) to tribute. The action allows the any/every wildcard parameters for AnyPlayer."
+	range: "Any player number.",
+	note: "The player(s) to tribute. The action allows the any/every wildcard parameters for Player."
 }, {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -10129,8 +10137,8 @@ cUnitTypeCountTotal.complexity = "Low";
 //victory-condition
 cVictoryCondition.shortDescription = "Checks the game victory condition.";
 cVictoryCondition.commandParameters = [ {
-	nameLink: pVictory.getLink(),
-	name: "Victory",
+	nameLink: pVictoryCondition.getLink(),
+	name: "VictoryCondition",
 	type: "Const",
 	dir: "in",
 	range: "standard, conquest, time-limit, score, or custom.",
@@ -10274,8 +10282,8 @@ cWoodAmount.complexity = "Low";
 //up-add-cost-data
 cUpAddCostData.shortDescription = "Add or subtract another set of cost data to the current cost data.";
 cUpAddCostData.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 508",
@@ -10384,7 +10392,7 @@ cUpAddObjectCost.complexity = "High";
 
 //up-add-point
 cUpAddPoint.shortDescription = "Add or subtract two point goal pairs together.";
-cUpAddPoint.description = "Add or subtract two point goal pairs together. A negative value for Count will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpAddPoint.description = "Add or subtract two point goal pairs together. The Value parameter indicates how many instances of Point2 to add to Point1. A negative Value will result in subtracting this number of instances of Point2 from Point1. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpAddPoint.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point1",
@@ -10407,8 +10415,8 @@ cUpAddPoint.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
@@ -10465,16 +10473,17 @@ cUpAddResearchCost.complexity = "High";
 
 //up-allied-goal
 cUpAlliedGoal.shortDescription = "Perform a comparison with an allied AI's goal variable.";
+cUpAlliedGoal.description = "Perform a comparison with an allied AI's goal variable. The command cannot be used to check human players or computer players who are not allies.";
 cUpAlliedGoal.commandParameters = [ {
-	nameLink: pComputerAllyPlayer.getLink(),
-	name: "ComputerAllyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: self, computer-ally",
+	range: "a player number for: self, computer-ally",
 	note: "The player(s) to check."
 }, {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a GoalId",
@@ -10505,19 +10514,20 @@ cUpAlliedGoal.complexity = "Medium";
 
 //up-allied-resource-amount
 cUpAlliedResourceAmount.shortDescription = "Perform a comparison with an ally's internal resource value.";
+cUpAlliedResourceAmount.description = "Perform a comparison with an ally's internal resource value. The command cannot be used to check the resources of players who are not allies.";
 cUpAlliedResourceAmount.commandParameters = [ {
-	nameLink: pAllyPlayer.getLink(),
-	name: "AllyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: self, ally",
+	range: "a player number for: self, ally",
 	note: "The player(s) to check."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be compared."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -10545,19 +10555,20 @@ cUpAlliedResourceAmount.complexity = "Medium";
 
 //up-allied-resource-percent
 cUpAlliedResourcePercent.shortDescription = "Perform a comparison with an ally's internal resource value * 100.";
+cUpAlliedResourcePercent.description = "Perform a comparison with an ally's internal resource value * 100. This command cannot be used with players who are not allies.";
 cUpAlliedResourcePercent.commandParameters = [ {
-	nameLink: pAllyPlayer.getLink(),
-	name: "AllyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: self, ally",
+	range: "a player number for: self, ally",
 	note: "The player(s) to check."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be compared."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -10585,16 +10596,17 @@ cUpAlliedResourcePercent.complexity = "Medium";
 
 //up-allied-sn
 cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number.";
+cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number. This command cannot be used on human players or players who aren't allies.";
 cUpAlliedSn.commandParameters = [ {
-	nameLink: pComputerAllyPlayer.getLink(),
-	name: "ComputerAllyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: self, computer-ally",
+	range: "a player number for: self, computer-ally",
 	note: "The player(s) to check."
 }, {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pSnId.getLink(),
+	name: "SnId",
 	type: "Sn",
 	dir: "in",
 	range: "an SnId",
@@ -10695,7 +10707,7 @@ cUpAttackerClass.complexity = "Medium";
 
 //up-bound-precise-point
 cUpBoundPrecisePoint.shortDescription = "Bound a point goal pair inside the map with additional control.";
-cUpBoundPrecisePoint.description = "Bound a point goal pair inside the map with additional control. Please ensure that Border is a valid value and will not cause an overflow for the map size. If Precise is used, the map size will be multiplied by 100 before bounding, so the border should be adjusted accordingly.";
+cUpBoundPrecisePoint.description = "Bound a point goal pair, either a normal point or a precise point, inside the map according to the number of tiles specified by the Value parameter, effectively acting as if the map has been shrunk on all sides by the number of tiles specified by the Value parameter. For example, the point (0,3) will be bounded to the point (5,5) if the Value parameter is 5. Please ensure that Value is a valid value and will not cause an overflow for the map size. If Option is set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.";
 cUpBoundPrecisePoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -10704,8 +10716,8 @@ cUpBoundPrecisePoint.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to read and store the (x,y) pair."
 }, {
-	nameLink: pPrecise.getLink(),
-	name: "Precise",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -10718,8 +10730,8 @@ cUpBoundPrecisePoint.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pBorder.getLink(),
-	name: "Border",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 32767",
@@ -10771,8 +10783,8 @@ cUpBuild.commandParameters = [ {
 	range: "place-normal, place-forward, place-control, place-point",
 	note: "The type of placement. Execute up-set-placement-data before using place-control."
 }, {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -10905,11 +10917,11 @@ cUpBuyCommodity.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Op",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be modified."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -10938,8 +10950,8 @@ cUpBuyCommodity.complexity = "Medium";
 //up-can-build
 cUpCanBuild.shortDescription = "Check if a building can be constructed with dynamic values.";
 cUpCanBuild.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -10972,8 +10984,8 @@ cUpCanBuild.complexity = "Medium";
 cUpCanBuildLine.shortDescription = "Check if a building can be constructed at a point goal pair.";
 cUpCanBuildLine.description = "Check if a building can be constructed at a point goal pair. For town centers and gates, please use a FoundationId, such as town-center-foundation or gate-ascending. Do not use town-center or gate with this command.";
 cUpCanBuildLine.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -11012,8 +11024,8 @@ cUpCanBuildLine.complexity = "Very High";
 //up-can-research
 cUpCanResearch.shortDescription = "Check if a technology can be researched with dynamic values.";
 cUpCanResearch.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -11066,8 +11078,8 @@ cUpCanSearch.complexity = "Very High";
 cUpCanTrain.shortDescription = "Check if a unit can be trained with dynamic values.";
 cUpCanTrain.description = "Check if a unit can be trained with dynamic values. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used for the Unit ID to check, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>This fact will return false if nhe setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cUpCanTrain.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -11107,11 +11119,11 @@ cUpCcAddResource.commandParameters = [{
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Op",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be modified."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -11141,8 +11153,8 @@ cUpCcAddResource.complexity = "Medium";
 cUpCcSendCheat.shortDescription = "Send a message in order to execute a cheat code.";
 cUpCcSendCheat.description = "Send a message in order to execute a cheat code. Cheats must be enabled for this to take effect.";
 cUpCcSendCheat.commandParameters = [ {
-	nameLink: pCode.getLink(),
-	name: "Code",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
 	range: "quoted text",
@@ -11161,8 +11173,8 @@ cUpCcSendCheat.complexity = "Medium";
 cUpChangeName.shortDescription = "Change the name of the AI during gameplay.";
 cUpChangeName.description = "Change the name of the AI during gameplay. When you use (up-change-name -1), the AI's name will be set to one of that civilization's first 8 built-in historical names in an semi-random manner, same as the names used in the default AI. The name is guaranteed to be unique among other AIs that use this command, but not necessarily with Petersen's selection.";
 cUpChangeName.commandParameters = [ {
-	nameLink: pNewName.getLink(),
-	name: "NewName",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
 	range: "quoted text, no longer than 24 characters",
@@ -11183,11 +11195,11 @@ cUpChangeName.complexity = "Low";
 //up-chat-data-to-all
 cUpChatDataToAll.shortDescription = "Send a chat message with a formatted value to everyone.";
 cUpChatDataToAll.commandParameters = [ {
-	nameLink: pFormattedString.getLink(),
-	name: "FormattedString",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
-	range: "quoted text, where %d is replaced by the provided value",
+	range: "quoted text, where %d or %s is replaced by the provided value",
 	note: "A formatted quote of text that will be sent as a chat message."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -11202,7 +11214,7 @@ cUpChatDataToAll.commandParameters = [ {
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
-	note: "The value that will replace %d in the format string of text."
+	note: "The value that will replace %d or %s in the format string of text."
 } ];
 cUpChatDataToAll.example = [ {
 	title: "Tell everyone what your player number is.",
@@ -11215,20 +11227,20 @@ cUpChatDataToAll.complexity = "Medium";
 
 //up-chat-data-to-player
 cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player.";
-cUpChatDataToPlayer.description = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpChatDataToPlayer.description = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpChatDataToPlayer.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: self, any, every",
+	range: "a player number for: self, any, every",
 	note: "The player(s) that will receive the message."
 }, {
-	nameLink: pFormattedString.getLink(),
-	name: "FormattedString",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
-	range: "quoted text, where %d is replaced by the provided value",
+	range: "quoted text, where %d or %s is replaced by the provided value",
 	note: "A formatted quote of text that will be sent as a chat message."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -11243,7 +11255,7 @@ cUpChatDataToPlayer.commandParameters = [ {
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
-	note: "The value that will replace %d in the format string of text."
+	note: "The value that will replace %d or %s in the format string of text."
 } ];
 cUpChatDataToPlayer.example = [ {
 	title: "Tell every ally know who the current target player is.",
@@ -11257,11 +11269,11 @@ cUpChatDataToPlayer.complexity = "Medium";
 //up-chat-data-to-self
 cUpChatDataToSelf.shortDescription = "Send a chat message with a formatted value locally.";
 cUpChatDataToSelf.commandParameters = [ {
-	nameLink: pFormattedString.getLink(),
-	name: "FormattedString",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
-	range: "quoted text, where %d is replaced by the provided value",
+	range: "quoted text, where %d or %s is replaced by the provided value",
 	note: "A formatted quote of text that will be sent as a chat message."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -11276,7 +11288,7 @@ cUpChatDataToSelf.commandParameters = [ {
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
-	note: "The value that will replace %d in the format string of text."
+	note: "The value that will replace %d or %s in the format string of text."
 } ];
 cUpChatDataToSelf.example = [ {
 	title: "Chat &quot;Food: 5.&quot; to self.",
@@ -11302,14 +11314,14 @@ cUpCleanSearch.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve or -1 to enable duplicate removal."
 }, {
 	nameLink: pSearchOrder.getLink(),
 	name: "SearchOrder",
 	type: "Const",
 	dir: "in",
-	range: "a const from the SearchOrder enumeration",
+	range: "a const from the SearchOrder list",
 	note: "The sort order."
 } ];
 cUpCleanSearch.example = [ {
@@ -11325,8 +11337,8 @@ cUpCleanSearch.complexity = "Very High";
 cUpCompareConst.shortDescription = "Perform a comparison with a constant value.";
 cUpCompareConst.description = "Perform a comparison with a constant value. A defconst that defines a string (quoted text) stores a string table index where the string is stored. Therefore, up-compare-const will compare against the string index of such a defconst, rather than the text itself.";
 cUpCompareConst.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pDefconst.getLink(),
+	name: "Defconst",
 	type: "Const",
 	dir: "in",
 	range: "-32768 to 32767",
@@ -11359,8 +11371,8 @@ cUpCompareConst.complexity = "Medium";
 cUpCompareFlag.shortDescription = "Perform a bitwise flag test with a goal variable.";
 cUpCompareFlag.description = "Perform a bitwise flag test with a goal variable. Flags allow multiple states to be stored in a single value by using powers of 2 (1, 2, 4, 8, 16, etc.). You can use [cgs]:== to see if a flag is stored or [cgs]:!= to see if it isn't stored.";
 cUpCompareFlag.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a GoalId",
@@ -11392,8 +11404,8 @@ cUpCompareFlag.complexity = "High";
 //up-compare-goal
 cUpCompareGoal.shortDescription = "Perform a comparison with a goal variable.";
 cUpCompareGoal.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a GoalId",
@@ -11425,8 +11437,8 @@ cUpCompareGoal.complexity = "Medium";
 //up-compare-sn
 cUpCompareSn.shortDescription = "Perform a comparison with a strategic number.";
 cUpCompareSn.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Sn",
 	dir: "in",
 	range: "an SnId",
@@ -11457,7 +11469,7 @@ cUpCompareSn.complexity = "Medium";
 
 //up-compare-text
 cUpCompareText.shortDescription = "Perform a string comparison with the stored text.";
-cUpCompareText.description = "Perform a string comparison with the stored text. You must store text before using this command and the provided string parameter must be a text defconst. If the provided string cannot be found anywhere in the stored text, the value will be -1. Otherwise, the value will be the index of the match.";
+cUpCompareText.description = "Perform a string comparison with the stored text. You must store text before using this command and the provided Defconst must be a text defconst. If the provided string cannot be found anywhere in the stored text, the value will be -1. Otherwise, the value will be the index of the match.";
 cUpCompareText.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -11466,8 +11478,8 @@ cUpCompareText.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pText.getLink(),
-	name: "Text",
+	nameLink: pDefconst.getLink(),
+	name: "Defconst",
 	type: "Op",
 	dir: "in",
 	range: "a text defconst",
@@ -11523,8 +11535,8 @@ c.relatedSNs = [];*/
 cUpCopyPoint.complexity = "High";
 
 //up-create-group
-cUpCreateGroup.shortDescription = "Create a search group from the local search results.";
-cUpCreateGroup.description = "Create a search group from the local search results. If there are no units available in the results list to create the specified group, the group will be cleared in the same way as up-reset-group.";
+cUpCreateGroup.shortDescription = "Reset the group and create a search group from the local search results.";
+cUpCreateGroup.description = "Reset the group and create a search group from the local search results. The number of units put into the group will be capped by the number stored in GoalId. If 0 is used for the GoalId parameter, up to 40 objects will be put into the group instead (the highest amount). If there are no units available in the results list to create the specified group, the group will be cleared in the same way as " + cUpResetGroup.getLink() + ".";
 cUpCreateGroup.commandParameters = [ {
 	nameLink: pIndex.getLink(),
 	name: "Index",
@@ -11533,11 +11545,11 @@ cUpCreateGroup.commandParameters = [ {
 	range: "a valid GoalId, or 0 for index 0",
 	note: "The zero-based index of the first local search result."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
-	range: "a valid GoalId, or 0 for count 40",
+	range: "a valid GoalId, or 0 for 40 objects",
 	note: "The maximum number of objects."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -11565,7 +11577,7 @@ cUpCreateGroup.complexity = "Very High";
 
 //up-cross-tiles
 cUpCrossTiles.shortDescription = "Get a point perpendicular to two point goal pairs.";
-cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. A negative value for Tiles will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. The Value parameter specifies how many tiles away the new point will be from Point1, perpendicularly away in reference to Point2. A negative Value will result in the new point being located perpendicularly away in opposite direction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpCrossTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point1",
@@ -11588,8 +11600,8 @@ cUpCrossTiles.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pTiles.getLink(),
-	name: "Tiles",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
@@ -11664,7 +11676,7 @@ cUpDeleteIdleUnits.commandParameters = [ {
 	name: "IdleType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the IdleType enumeration",
+	range: "a const from the IdleType list",
 	note: "The type of units that will be deleted."
 } ];
 cUpDeleteIdleUnits.example = [ {
@@ -11677,7 +11689,7 @@ c.relatedSNs = [];*/
 cUpDeleteIdleUnits.complexity = "Medium";
 
 //up-delete-objects
-cUpDeleteObjects.shortDescription = "Delete all objects with less than the specified hitpoints.";
+cUpDeleteObjects.shortDescription = "Delete all objects with less hitpoints than the specified Value.";
 cUpDeleteObjects.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -11700,15 +11712,15 @@ cUpDeleteObjects.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pHitpoints.getLink(),
-	name: "HitPoints",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 32767",
 	note: "Units with less than this number of HP will be deleted."
 } ];
 cUpDeleteObjects.example = [ {
-	title: "Delete all walls owned by the player.",
+	title: "Delete all walls owned by the player (because they have less than 32767 HP).",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-delete-objects c: wall-class c: 32767) ; wall-class = 927\r\n\t(disable-self)\r\n)"
 } ];
 cUpDeleteObjects.relatedCommands = [];
@@ -11724,7 +11736,7 @@ cUpDisbandGroupType.commandParameters = [ {
 	name: "GroupType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the GroupType enumeration",
+	range: "a const from the GroupType list",
 	note: "The type of groups that will be disbanded."
 } ];
 cUpDisbandGroupType.example = [ {
@@ -12072,7 +12084,7 @@ cUpFilterStatus.commandParameters = [ {
 	name: "ObjectStatus",
 	type: "Op",
 	dir: "in",
-	range: "a value from the ObjectStatus enumeration",
+	range: "a value from the ObjectStatus list",
 	note: "The status value for matching."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -12086,7 +12098,7 @@ cUpFilterStatus.commandParameters = [ {
 	name: "ObjectList",
 	type: "Op",
 	dir: "in",
-	range: "a value from the ObjectList enumeration",
+	range: "a value from the ObjectList list",
 	note: "The list to search for local or allied objects (remote objects are handled separately)."
 } ];
 cUpFilterStatus.example = [ {
@@ -12143,8 +12155,8 @@ cUpFindLocal.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 240",
@@ -12176,12 +12188,12 @@ cUpFindNextPlayer.commandParameters = [ {
 	range: "find-attacker, find-random, find-closest, find-ordered",
 	note: "The search method."
 }, {
-	nameLink: pPlayerId.getLink(),
-	name: "PlayerId",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "io",
 	range: "a GoalId",
-	note: "Stores the PlayerId of the match, while providing the basis to begin the search."
+	note: "Stores the player number of the match, while providing the basis to begin the search."
 } ];
 cUpFindNextPlayer.example = [ {
 	title: "Store the second closest enemy player into gl-player.",
@@ -12209,12 +12221,12 @@ cUpFindPlayer.commandParameters = [ {
 	range: "find-attacker, find-random, find-closest, find-ordered",
 	note: "The search method."
 }, {
-	nameLink: pPlayerId.getLink(),
-	name: "PlayerId",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
-	note: "Stores the PlayerId of the match."
+	note: "Stores the player number of the match."
 } ];
 cUpFindPlayer.example = [ {
 	title: "Store the closest enemy player into gl-player.",
@@ -12227,13 +12239,13 @@ cUpFindPlayer.complexity = "Medium";
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
-cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpFindPlayerFlare.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: any",
+	range: "any player number",
 	note: "The player(s) to check."
 }, {
 	nameLink: pPoint.getLink(),
@@ -12283,8 +12295,8 @@ cUpFindRemote.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 40",
@@ -12324,8 +12336,8 @@ cUpFindResource.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 240",
@@ -12365,8 +12377,8 @@ cUpFindStatusLocal.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 240",
@@ -12406,8 +12418,8 @@ cUpFindStatusRemote.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "0 to 240",
@@ -12565,6 +12577,7 @@ cUpGarrison.complexity = "Medium";
 
 //up-gather-inside
 cUpGatherInside.shortDescription = "Set all existing buildings of a specific type to hold units inside.";
+cUpGatherInside.description = "Set all existing buildings of a specific type to hold units inside.</p><p>If the Option parameter is set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0, all units will be released as usual.";
 cUpGatherInside.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -12587,12 +12600,12 @@ cUpGatherInside.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pState.getLink(),
-	name: "State",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Op",
 	dir: "in",
 	range: "0, 1, or -1",
-	note: "If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, all units will be released as usual."
+	note: "If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0, all units will be released as usual."
 } ];
 cUpGatherInside.example = [ {
 	title: "Set existing docks to keep ships inside while training, then release them once the AI has 10 warships.",
@@ -12609,8 +12622,8 @@ cUpGatherInside.complexity = "Medium";
 //up-get-attacker-class
 cUpGetAttackerClass.shortDescription = "Get the class of the last enemy object to trigger town-under-attack.";
 cUpGetAttackerClass.commandParameters = [ {
-	nameLink: pSourceClass.getLink(),
-	name: "SourceClass",
+	nameLink: pThreatSource.getLink(),
+	name: "ThreatSource",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12629,8 +12642,8 @@ cUpGetAttackerClass.complexity = "Medium";
 cUpGetCostDelta.shortDescription = "Get the difference between player resources and the current cost data.";
 cUpGetCostDelta.description = "Get the difference between player resources and the current cost data, and store this difference in four consecutive goals in the order of food, wood, stone, and gold.</p><p>The calculation is the current stockpile minus the current amount stored in the four cost goals from the most recent " + cUpSetupCostData.getLink() + " command.";
 cUpGetCostDelta.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 508",
@@ -12686,18 +12699,18 @@ cUpGetFact.commandParameters = [ {
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12714,31 +12727,31 @@ cUpGetFact.complexity = "High";
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
-cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.",
+cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.",
 cUpGetFactMax.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "only an any-* wildcard PlayerId",
+	range: "only an any-* wildcard player number",
 	note: "The player to check."
 }, {
 	nameLink: pFactId.getLink(),
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12755,31 +12768,31 @@ cUpGetFactMax.complexity = "High";
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
-cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetFactMin.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "only an any-* wildcard PlayerId",
+	range: "only an any-* wildcard player number",
 	note: "The player to check."
 }, {
 	nameLink: pFactId.getLink(),
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12796,31 +12809,31 @@ cUpGetFactMin.complexity = "High";
 
 //up-get-fact-sum
 cUpGetFactSum.shortDescription = "Read the sum of facts for specific players into a goal.";
-cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action. The action only allows the \"any\" wildcard parameters for " + pAnyPlayer.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetFactSum.description = "Read the sum of facts for specific players into a goal. This command can be used as either a fact or an action. The action only allows the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetFactSum.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "only an any-* wildcard PlayerId",
+	range: "only an any-* wildcard player number",
 	note: "The player to check."
 }, {
 	nameLink: pFactId.getLink(),
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12843,18 +12856,18 @@ cUpGetFocusFact.commandParameters = [ {
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12886,8 +12899,8 @@ cUpGetGroupSize.commandParameters = [ {
 	range: "0 to 9",
 	note: "The group id."
 }, {
-	nameLink: pSize.getLink(),
-	name: "Size",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -12906,12 +12919,12 @@ cUpGetGroupSize.complexity = "Very High";
 cUpGetGuardState.shortDescription = "Get the guard state into 4 consecutive extended goals.";
 cUpGetGuardState.description = "Get the guard state into 4 consecutive extended goals. The guard state is defined in custom random maps using the guard_state command, which enables a resource trickle and/or a defeat condition depending on whether a certain unit type is killed. The goals will be filled with data in the following order: TypeId, ResourceAmount, ResourceDelta, GuardFlags. Please use up-compare-flag to check the guard flags (see " + pGuardFlag.getLink() + " for a list of guard flags). If guard-flag-resource is set in GuardFlags, then ResourceDelta/100 will slowly be added to ResourceAmount as long as TypeId objects remain. If both guard-flag-resource and guard-flag-inverse are set, then the resources will be added only when there are no TypeId objects left. If the guard-flag-victory condition is set, the AI will be defeated if no TypeId objects remain.";
 cUpGetGuardState.commandParameters = [ {
-	nameLink: pState.getLink(),
-	name: "State",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 508",
-	note: "The first of 4 consecutive goals to read the state."
+	note: "The first of 4 consecutive goals to read the guard state."
 } ];
 cUpGetGuardState.example = [ {
 	title: "Check if the AI will be defeated if the guard type is lost.",
@@ -12966,11 +12979,11 @@ cUpGetObjectData.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -12993,11 +13006,11 @@ cUpGetObjectTargetData.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13034,11 +13047,11 @@ cUpGetObjectTypeData.commandParameters = [{
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13055,7 +13068,7 @@ cUpGetObjectTypeData.complexity = "Very High";
 
 //up-get-path-distance
 cUpGetPathDistance.shortDescription = "Get the distance from the target object to a specified point goal pair.";
-cUpGetPathDistance.description = "Get the distance from the target object to a specified point goal pair. This will return 65535 if the point is unreachable.";
+cUpGetPathDistance.description = "Get the distance from the target object to a specified point goal pair. This will return 65535 if the point is unreachable. Set the Option parameter to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.";
 cUpGetPathDistance.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -13064,15 +13077,15 @@ cUpGetPathDistance.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pStrict.getLink(),
-	name: "Strict",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
 	note: "Set to 1 to require an open destination tile or 0 to allow for a few tiles of separation."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13089,13 +13102,13 @@ cUpGetPathDistance.complexity = "Very High";
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
-cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerColor.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any",
+	range: "a single player number for: self, this-any",
 	note: "The player to get."
 }, {
 	nameLink: pColorId.getLink(),
@@ -13116,31 +13129,31 @@ cUpGetPlayerColor.complexity = "High";
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
-cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerFact.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any",
+	range: "a single player number for: self, this-any",
 	note: "The player to check."
 }, {
 	nameLink: pFactId.getLink(),
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13157,19 +13170,20 @@ cUpGetPlayerFact.complexity = "High";
 
 //up-get-precise-time
 cUpGetPreciseTime.shortDescription = "Get a system timestamp or the elapsed time into a goal.";
+cUpGetPreciseTime.description = "Get a system timestamp or the elapsed time into a goal. The OptionGoalId parameter determines whether a system timestamp is retrieved or the elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0 for the OptionGoalId parameter. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp for the OptionGoalId parameter. The system timestamp or elapsed time will be stored in the OutputGoal.";
 cUpGetPreciseTime.commandParameters = [ {
-	nameLink: pStart.getLink(),
-	name: "Start",
+	nameLink: pOptionGoalId.getLink(),
+	name: "OptionGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a valid GoalId to get elapsed time, or 0 to get a timestamp",
 	note: "Determines whether a timestamp or elapsed time is retrieved."
 }, {
-	nameLink: pTime.getLink(),
-	name: "Time",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
-	range: "a valid GoalId",
+	range: "a valid GoalId to store a timestamp or store the elapsed time since the timestamp stored in the OptionGoalId parameter",
 	note: "Stores the time data."
 } ];
 cUpGetPreciseTime.example = [ {
@@ -13192,7 +13206,7 @@ cUpGetPoint.commandParameters = [ {
 	name: "PositionType",
 	type: "Const",
 	dir: "in",
-	range: "a member of the PositionType enumeration",
+	range: "a member of the PositionType list",
 	note: "The position to read."
 }, {
 	nameLink: pPoint.getLink(),
@@ -13225,8 +13239,8 @@ cUpGetPointContains.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pGoalId.getLink(),
-	name: "Id",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13273,8 +13287,8 @@ cUpGetPointDistance.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pDistance.getLink(),
-	name: "Distance",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13299,8 +13313,8 @@ cUpGetPointElevation.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13353,8 +13367,8 @@ cUpGetPointZone.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13376,15 +13390,15 @@ cUpGetProjectilePlayer.commandParameters = [ {
 	name: "ProjectileType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ProjectileType enumeration",
+	range: "a const from the ProjectileType list",
 	note: "The source of the projectile."
 }, {
-	nameLink: pPlayerId.getLink(),
-	name: "PlayerId",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
-	note: "Stores the PlayerId of the attacker."
+	note: "Stores the player number of the attacker."
 } ];
 cUpGetProjectilePlayer.example = [ {
 	title: "Store the last player to attack with castle arrows in gl-player.",
@@ -13419,12 +13433,12 @@ cUpGetRuleId.complexity = "Very High";
 cUpGetSearchState.shortDescription = "Get the search state into 4 consecutive extended goals.";
 cUpGetSearchState.description = "Get the search state into 4 consecutive extended goals. The goals will be filled with data in the following order: current local search total, last local search count, current remote search total, last remote search count.";
 cUpGetSearchState.commandParameters = [ {
-	nameLink: pState.getLink(),
-	name: "State",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 508",
-	note: "The first of 4 consecutive goals to read the state."
+	note: "The first of 4 consecutive goals to read the search state."
 } ];
 cUpGetSearchState.example = [ {
 	title: "Get the search state.",
@@ -13509,18 +13523,18 @@ cUpGetTargetFact.commandParameters = [ {
 	name: "FactId",
 	type: "Const",
 	dir: "in",
-	range: "a const from the FactId enumeration",
+	range: "a const from the FactId list",
 	note: "The fact to query."
 }, {
-	nameLink: pParam.getLink(),
-	name: "Param",
+	nameLink: pFactParameter.getLink(),
+	name: "FactParameter",
 	type: "Const",
 	dir: "in",
 	range: "an appropriate parameter for the fact, or 0 if not required",
 	note: "A parameter for the fact."
 }, {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13537,31 +13551,31 @@ cUpGetTargetFact.complexity = "High";
 
 //up-get-threat-data
 cUpGetThreatData.shortDescription = "Get the elapsed time, player, source, and target of the last threat.";
-cUpGetThreatData.description = "Get the elapsed time, player, source, and target of the last threat. This command returns the absolute, most recent attack information before the rule pass begins. If the last attack event was from a p2 archer against one of your villagers, you'll get \"time, 2, 900, 904\" in return (900 = archery-class, 904 = villager-class). In an epic battle, it would become relatively useless in determining what is going on.";
+cUpGetThreatData.description = "Get the elapsed time, player, source, and target of the last threat and store them in the four specified goals. This command returns the absolute, most recent attack information before the rule pass begins. If the last attack event was from a p2 archer against one of your villagers, you'll get \"time, 2, 900, 904\" in return (900 = archery-class, 904 = villager-class). In an epic battle, it would become relatively useless in determining what is going on.";
 cUpGetThreatData.commandParameters = [ {
-	nameLink: pElapsedTime.getLink(),
-	name: "ElapsedTime",
+	nameLink: pThreatTime.getLink(),
+	name: "ThreatTime",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
 	note: "Stores the elapsed time."
 }, {
-	nameLink: pPlayerId.getLink(),
-	name: "PlayerId",
+	nameLink: pThreatPlayer.getLink(),
+	name: "ThreatPlayer",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
-	note: "Stores the PlayerId of the attacker."
+	note: "Stores the player number of the attacker."
 }, {
-	nameLink: pSourceClass.getLink(),
-	name: "SourceClass",
+	nameLink: pThreatSource.getLink(),
+	name: "ThreatSource",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
 	note: "Stores the class of the attacking object."
 }, {
-	nameLink: pTargetClass.getLink(),
-	name: "TargetClass",
+	nameLink: pThreatTarget.getLink(),
+	name: "pThreatTarget",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13613,8 +13627,8 @@ cUpGetTimer.complexity = "Medium";
 cUpGetTreatyData.shortDescription = "DE only. Stores the remaining treaty time in seconds into a goal.";
 cUpGetTreatyData.description = "DE only. Stores the remaining treaty time in seconds into a goal. Treaty time is the amount of time left in treaty games where players cannot attack each other.";
 cUpGetTreatyData.commandParameters = [ {
-	nameLink: pData.getLink(),
-	name: "Data",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13631,17 +13645,17 @@ cUpGetTreatyData.complexity = "Medium";
 
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
-cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. Set the Option parameter to 1 to get the current type id for counting, otherwise 0. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetUpgradeId.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any",
+	range: "a single player number for: self, this-any",
 	note: "The player to get."
 }, {
-	nameLink: pCount.getLink(),
-	name: "Count",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -13673,22 +13687,22 @@ cUpGetUpgradeId.complexity = "High";
 //up-get-victory-data
 cUpGetVictoryData.shortDescription = "Get standard victory status information into the provided goals.";
 cUpGetVictoryData.commandParameters = [{
-	nameLink: pPlayerId.getLink(),
-	name: "PlayerId",
+	nameLink: pVictoryPlayer.getLink(),
+	name: "VictoryPlayer",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
-	note: "Stores the PlayerId of the player approaching victory, or 0 if invalid."
+	note: "Stores the player number of the player approaching victory, or 0 if invalid."
 }, {
-	nameLink: pType.getLink(),
-	name: "Type",
+	nameLink: pVictoryType.getLink(),
+	name: "VictoryType",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
 	note: "Stores one of the following: relic, wonder, monument, or 0 if invalid."
 }, {
-	nameLink: pTime.getLink(),
-	name: "Time",
+	nameLink: pVictoryTime.getLink(),
+	name: "VictoryTime",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13706,8 +13720,8 @@ cUpGetVictoryData.complexity = "High";
 //up-get-victory-limit
 cUpGetVictoryLimit.shortDescription = "Get the time or score victory limit into the provided goal.";
 cUpGetVictoryLimit.commandParameters = [{
-	nameLink: pLimit.getLink(),
-	name: "Limit",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a GoalId",
@@ -13803,7 +13817,7 @@ cUpIdleUnitCount.commandParameters = [ {
 	name: "IdleType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the IdleType enumeration",
+	range: "a const from the IdleType list",
 	note: "The type of units that will be checked."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -13908,7 +13922,7 @@ cUpJumpRule.complexity = "High";
 
 //up-lerp-percent
 cUpLerpPercent.shortDescription = "Interpolate a point by percentage between two point goal pairs.";
-cUpLerpPercent.description = "Interpolate a point by percentage between two point goal pairs. A negative value for Percent will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpLerpPercent.description = "Interpolate a point by percentage between two point goal pairs and store the new point in Point1. The Percent parameter specifies the percentage of the distance between the two points that the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpLerpPercent.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point1",
@@ -13949,7 +13963,7 @@ cUpLerpPercent.complexity = "High";
 
 //up-lerp-tiles
 cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point goal pairs.";
-cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs. A negative value for Tiles will result in subtraction. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
+cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs and store the new point in Point1. The Value parameter specifies how many tiles the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
 cUpLerpTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point1",
@@ -13972,8 +13986,8 @@ cUpLerpTiles.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pTiles.getLink(),
-	name: "Tiles",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
@@ -13990,20 +14004,20 @@ cUpLerpTiles.complexity = "High";
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
-cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Plain to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive). To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
+cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Option to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive). To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
 cUpLogData.commandParameters = [ {
-	nameLink: pPlain.getLink(),
-	name: "Plain",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
 	note: "A value to determine whether the data is formatted or plain text."
 }, {
-	nameLink: pFormattedString.getLink(),
-	name: "FormattedString",
+	nameLink: pString.getLink(),
+	name: "String",
 	type: "Text",
 	dir: "in",
-	range: "quoted text, where %d is replaced by the provided value",
+	range: "quoted text, where %d or %s is replaced by the provided value",
 	note: "A formatted quote of text that will be logged."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -14018,7 +14032,7 @@ cUpLogData.commandParameters = [ {
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
-	note: "The value that will replace %d in the format string of text."
+	note: "The value that will replace %d or %s in the format string of text."
 } ];
 cUpLogData.example = [ {
 	title: "Log the player number.",
@@ -14069,8 +14083,8 @@ cUpModifyEscrow.complexity = "Medium";
 cUpModifyFlag.shortDescription = "Modify a bitwise flag on the value stored in a goal variable.";
 cUpModifyFlag.description = "Modify a bitwise flag on the value stored in a goal variable. Flags allow multiple states to be stored in a single value by using powers of 2 (1, 2, 4, 8, 16, etc.). The only ops allowed are [cgs]:+ to append a flag and [cgs]:- to remove a flag.";
 cUpModifyFlag.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "io",
 	range: "a GoalId",
@@ -14103,8 +14117,8 @@ cUpModifyFlag.complexity = "High";
 cUpModifyGoal.shortDescription = "Perform math operations on the value stored in a goal variable.";
 cUpModifyGoal.description = "Perform math operations on the value stored in a goal variable. This command can be used as either a Fact or an Action, meaning the command can appear before the \"=>\" in the rule or after it. The behavior of the command is identical, regardless of whether it is used as a Fact or as an Action.</p><p>This command is a much more flexible version of the " + cSetGoal.getLink() + " command, which only allows you to set a goal to a specific value. up-modify-goal allows you to add, subtract, multiply, divide, find remainders, find percentages, find min and max values, and do other mathematical operations, either with specific numbers or with the values currently stored in a goal or strategic number.</p><p>See the " + pMathOp.getLink() + " page for a full list of all the operations available, along with in-depth examples of each operation.";
 cUpModifyGoal.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "io",
 	range: "a GoalId",
@@ -14137,8 +14151,8 @@ cUpModifyGoal.complexity = "Medium";
 cUpModifyGroupFlag.shortDescription = "Modify the ctrl group flag for units in a search group.";
 cUpModifyGroupFlag.description = "Modify the ctrl group flag for units in a search group. You must manage the group flag carefully in order to avoid unexpected situations. Please remove the group flag before modifying a flagged search group. You can find units from a flagged search group using object-data-group-flag, which is set to the group id.</p><p>Do not modify the group flag of control groups owned by another player, because this will clear any control group settings that player has set, because up-modify-group-flag changes the object-data-group-flag data for that unit. When managing search groups that contain objects from other players, only use " + cUpCreateGroup.getLink() + " or " + cUpSetGroup.getLink() + ".";
 cUpModifyGroupFlag.commandParameters = [ {
-	nameLink: pOn.getLink(),
-	name: "On",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -14170,8 +14184,8 @@ cUpModifyGroupFlag.complexity = "Very High";
 //up-modify-sn
 cUpModifySn.shortDescription = "Perform math operations on a strategic number.";
 cUpModifySn.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pSnId.getLink(),
+	name: "SnId",
 	type: "Sn",
 	dir: "io",
 	range: "an SnId",
@@ -14207,7 +14221,7 @@ cUpObjectData.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14240,7 +14254,7 @@ cUpObjectTargetData.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14348,7 +14362,7 @@ cUpObjectTypeCountTotal.complexity = "Medium";
 
 //up-path-distance
 cUpPathDistance.shortDescription = "Check the distance from the target object to a specified point goal pair.";
-cUpPathDistance.description = "Check the distance from the target object to a specified point goal pair. The distance will be 65535 if the point is unreachable.";
+cUpPathDistance.description = "Check the distance from the target object to a specified point goal pair. The distance will be 65535 if the point is unreachable. Set the Option parameter to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.";
 cUpPathDistance.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -14357,8 +14371,8 @@ cUpPathDistance.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pStrict.getLink(),
-	name: "Strict",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -14455,13 +14469,13 @@ cUpPendingPlacement.complexity = "Medium";
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
-cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpPlayerDistance.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "Any",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: any",
+	range: "a player number for: any",
 	note: "The player(s) to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14738,13 +14752,14 @@ c.relatedSNs = [];*/
 cUpPointZone.complexity = "High";
 
 //up-projectile-detected
-cUpProjectileDetected.shortDescription = "Check the elapsed time since a type of projectile was fired at the AI.";
+cUpProjectileDetected.shortDescription = "Check the elapsed time in milliseconds since a type of projectile was fired at the AI.";
+cUpProjectileDetected.description = "Check the elapsed time in milliseconds since a type of projectile was fired at the AI.";
 cUpProjectileDetected.commandParameters = [ {
 	nameLink: pProjectileType.getLink(),
 	name: "ProjectileType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ProjectileType enumeration",
+	range: "a const from the ProjectileType list",
 	note: "The source of the projectile to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14754,8 +14769,8 @@ cUpProjectileDetected.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
-	nameLink: pElapsedTime.getLink(),
-	name: "ElapsedTime",
+	nameLink: pValue.getLink(),
+	name: "Value",
 	type: "Op",
 	dir: "in",
 	range: "a valid integer",
@@ -14777,7 +14792,7 @@ cUpProjectileTarget.commandParameters = [ {
 	name: "ProjectileType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ProjectileType enumeration",
+	range: "a const from the ProjectileType list",
 	note: "The source of the projectile to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14857,7 +14872,7 @@ cUpRemoveObjects.commandParameters = [ {
 	name: "ObjectData",
 	type: "Const",
 	dir: "in",
-	range: "a value from the ObjectData enumeration",
+	range: "a value from the ObjectData list",
 	note: "The type of data to retrieve or -1 to use the object index."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -14913,8 +14928,8 @@ cUpRequestHunters.complexity = "Medium";
 //up-research
 cUpResearch.shortDescription = "Add a technology to the research queue with dynamic values.";
 cUpResearch.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -14996,10 +15011,10 @@ c.relatedSNs = [];*/
 cUpResetAttackNow.complexity = "Low";
 
 //up-reset-building
-cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type.";
+cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type. If the Option parameter is set to 1, buildings performing research will not be reset.";
 cUpResetBuilding.commandParameters = [ {
-	nameLink: pPreserveResearch.getLink(),
-	name: "PreserveResearch",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -15031,8 +15046,8 @@ cUpResetBuilding.complexity = "Medium";
 //up-reset-cost-data
 cUpResetCostData.shortDescription = "Reset 4 consecutive goals storing cost data to 0.";
 cUpResetCostData.commandParameters = [ {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 508",
@@ -15174,7 +15189,7 @@ cUpResetSearch.complexity = "Very High";
 
 //up-reset-target-priorities
 cUpResetTargetPriorities.shortDescription = "Reset or clear offensive or defensive targeting priorities.";
-cUpResetTargetPriorities.description = "Reset or clear offensive or defensive targeting priorities. Restore default priorities with 0. For defensive priorities, setting Mode to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</p><p>Target units on -1 offensive priority will not hold the attention of attackers if a higher priority unit appears, and you may notice attack behavior that is a bit similar to how patrol selects its targets. If the target unit is not -1 priority, the attacker may retarget, but primarily to other units with the same offensive priority. Battering rams and cannon galleons prefer to attack non-moving targets, while all other units prefer moving targets.";
+cUpResetTargetPriorities.description = "Reset or clear offensive or defensive targeting priorities. Restore default priorities with 0. For defensive priorities, setting the Option parameter to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</p><p>Target units on -1 offensive priority will not hold the attention of attackers if a higher priority unit appears, and you may notice attack behavior that is a bit similar to how patrol selects its targets. If the target unit is not -1 priority, the attacker may retarget, but primarily to other units with the same offensive priority. Battering rams and cannon galleons prefer to attack non-moving targets, while all other units prefer moving targets.";
 cUpResetTargetPriorities.commandParameters = [ {
 	nameLink: pPriorityType.getLink(),
 	name: "PriorityType",
@@ -15183,8 +15198,8 @@ cUpResetTargetPriorities.commandParameters = [ {
 	range: "priority-offense, priority-defense",
 	note: "The targeting priority type to modify."
 }, {
-	nameLink: pMode.getLink(),
-	name: "Mode",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 to 1",
@@ -15232,11 +15247,11 @@ cUpResetUnit.complexity = "Medium";
 //up-resource-amount
 cUpResourceAmount.shortDescription = "Perform a comparison with an internal resource value.";
 cUpResourceAmount.commandParameters = [ {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be compared."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -15265,11 +15280,11 @@ cUpResourceAmount.complexity = "Medium";
 //up-resource-percent
 cUpResourcePercent.shortDescription = "Perform a comparison with an internal resource value * 100.";
 cUpResourcePercent.commandParameters = [ {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be compared."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -15402,14 +15417,14 @@ cUpSendScout.commandParameters = [ {
 	name: "GroupType",
 	type: "Const",
 	dir: "in",
-	range: "a const from the GroupType enumeration",
+	range: "a const from the GroupType list",
 	note: "The type of explore group that will be tasked."
 }, {
 	nameLink: pScoutMethod.getLink(),
 	name: "ScoutMethod",
 	type: "Const",
 	dir: "in",
-	range: "a member of the ScoutMethod enumeration",
+	range: "a member of the ScoutMethod list",
 	note: "The scouting method."
 } ];
 cUpSendScout.example = [ {
@@ -15465,11 +15480,11 @@ cUpSellCommodity.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Op",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be modified."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -15727,13 +15742,13 @@ cUpSetOffensePriority.complexity = "Medium";
 
 //up-set-placement-data
 cUpSetPlacementData.shortDescription = "Specify placement information for managed construction.";
-cUpSetPlacementData.description = "Specify placement information for managed construction. Please ensure Player has at least a town-center to use for reference, if they don't have ObjectId. If Player has no objects left, placement will not work as expected.</p><p>The properties assigned by up-set-placement-data that are in effect when a build command is executed are stored with them, so you can change properties immediately afterward and it won't break your previous settings.";
+cUpSetPlacementData.description = "Specify placement information for managed construction. Please ensure Player has at least a town-center to use for reference, if they don't have ObjectId. If Player has no objects left, placement will not work as expected.</p><p>The properties assigned by up-set-placement-data that are in effect when a build command is executed are stored with them, so you can change properties immediately afterward and it won't break your previous settings. The action only allows exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpSetPlacementData.commandParameters = [ {
-	nameLink: pAllyPlayer.getLink(),
-	name: "AllyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any-ally",
+	range: "a single player number for: self, this-any-ally",
 	note: "The player to focus upon."
 }, {
 	nameLink: pObjectId.getLink(),
@@ -15993,16 +16008,17 @@ cUpSetTimer.complexity = "Medium";
 
 //up-setup-cost-data
 cUpSetupCostData.shortDescription = "Set the goals to store cost data for food, wood, stone, and gold.";
+cUpSetupCostData.description = "Set the goals to store cost data for food, wood, stone, and gold. If the Option parameter is set to 1 the values of the provided cost goal set will be reset to 0.";
 cUpSetupCostData.commandParameters = [ {
-	nameLink: pResetCost.getLink(),
-	name: "ResetCost",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
 	note: "If set to 1, the values of the provided goal set will be reset to 0."
 }, {
-	nameLink: pId.getLink(),
-	name: "Id",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "io",
 	range: "an extended GoalId from 41 to 508",
@@ -16019,10 +16035,10 @@ cUpSetupCostData.complexity = "High";
 
 //up-store-map-name
 cUpStoreMapName.shortDescription = "Store the current map name in the internal buffer.";
-cUpStoreMapName.description = "Store the current map name in the internal buffer. For rms, this is the filename of the map. However, if the map is a dynamic loader, such as Full Random, Random Land Map, or Blind Random, this will be the loader name instead of the actual map name. For scenarios, this will be the original save filename instead of the current filename. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.";
+cUpStoreMapName.description = "Store the current map name in the internal buffer. For rms, this is the filename of the map. However, if the map is a dynamic loader, such as Full Random, Random Land Map, or Blind Random, this will be the loader name instead of the actual map name. For scenarios, this will be the original save filename instead of the current filename. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass.</p><p>If the Option parameter is set to 1, the map name will be stored with the file extension in the name. If the Option parameter is set to 0, the map name will be stored without the file extension in the name.";
 cUpStoreMapName.commandParameters = [ {
-	nameLink: pExtension.getLink(),
-	name: "Extension",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
@@ -16052,13 +16068,13 @@ cUpStoreObjectName.complexity = "High";
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
-cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerChat.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any",
+	range: "a single player number for: self, this-any",
 	note: "The player to get."
 } ];
 cUpStorePlayerChat.example = [ {
@@ -16072,13 +16088,13 @@ cUpStorePlayerChat.complexity = "High";
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
-cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows \"my-player-number\" or \"this-any\" rule variables for " + pAnyPlayer.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerName.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a single PlayerId for: self, this-any",
+	range: "a single player number for: self, this-any",
 	note: "The player to get."
 } ];
 cUpStorePlayerName.example = [ {
@@ -16173,17 +16189,17 @@ cUpStoreTypeName.complexity = "High";
 
 //up-target-objects
 cUpTargetObjects.shortDescription = "Direct local search results against remote search results.";
-cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none. The other " + pTargetAction.getLink() + " options available for " + cUpTargetPoint.getLink() + " will not work.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
+cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none. The other " + pDUCAction.getLink() + " options available for " + cUpTargetPoint.getLink() + " will not work. Set the Option parameter to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s).</p><p>Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetObjects.commandParameters = [ {
-	nameLink: pTarget.getLink(),
-	name: "Target",
+	nameLink: pOption.getLink(),
+	name: "Option",
 	type: "Const",
 	dir: "in",
 	range: "0 or 1",
 	note: "Set to 1 to target only the object set by up-set-target-object."
 }, {
-	nameLink: pTargetAction.getLink(),
-	name: "TargetAction",
+	nameLink: pDUCAction.getLink(),
+	name: "DUCAction",
 	type: "Const",
 	dir: "in",
 	range: "action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, action-none",
@@ -16214,7 +16230,7 @@ cUpTargetObjects.complexity = "Very High";
 
 //up-target-point
 cUpTargetPoint.shortDescription = "Direct local search results to a specific point on the map.";
-cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the TargetAction enumeration. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to the point (-1,-1) first to reset distance.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
+cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the DUCAction list. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to the point (-1,-1) first to reset distance.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetPoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -16223,11 +16239,11 @@ cUpTargetPoint.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pTargetAction.getLink(),
-	name: "TargetAction",
+	nameLink: pDUCAction.getLink(),
+	name: "DUCAction",
 	type: "Const",
 	dir: "in",
-	range: "a value from the TargetAction enumeration",
+	range: "a value from the DUCAction list",
 	note: "The action to perform with the selected units."
 }, {
 	nameLink: pFormation.getLink(),
@@ -16248,7 +16264,7 @@ cUpTargetPoint.example = [ {
 	title: "Send selected units from up-find-local to the map center.",
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-target-point gl-point-x action-default -1 -1)\r\n)"
 }, {
-	title: "Train a spearman with action-train: (up-target-point inGoalEscrowState action-train typeOp inOpTypeId). Note: A goal ID is expected for inGoalEscrowState. However, if you never want this command to use escrow, you can put 0 instead.",
+	title: "Train a spearman with action-train: (up-target-point EscrowGoalId action-train typeOp TypeId). Note: A goal ID is expected for EscrowGoalId to specify whether escrow should be used. However, if you never want this command to use escrow, you can put 0 instead.",
 	data: "(defrule\r\n\t(up-find-local c: barracks c: 1)\r\n=&gt;\r\n\t(up-target-point 0 action-train c: spearman)\r\n)"
 } ];
 cUpTargetPoint.relatedCommands = [];
@@ -16296,8 +16312,8 @@ cUpTimerStatus.complexity = "Medium";
 cUpTrain.shortDescription = "Add a unit to the training queue with dynamic values.";
 cUpTrain.description = "Add a unit to the training queue with dynamic values. You can also train unique units by using my-unique-unit, my-elite-unique-unit, and my-unique-unit-line, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.";
 cUpTrain.commandParameters = [ {
-	nameLink: pEscrowState.getLink(),
-	name: "EscrowState",
+	nameLink: pEscrowGoalId.getLink(),
+	name: "EscrowGoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a goal set to with-escrow or without-escrow, or 0 for without-escrow",
@@ -16355,20 +16371,20 @@ cUpTrainSiteReady.complexity = "Medium";
 
 //up-tribute-to-player
 cUpTributeToPlayer.shortDescription = "Tribute a variable amount of resources to other players.";
-cUpTributeToPlayer.description = "Tribute a variable amount of resources to other players. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pAnyPlayer.getLink() + ". It also allows the use of rule variables for AnyPlayer, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpTributeToPlayer.description = "Tribute a variable amount of resources to other players. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for PlayerNumber, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpTributeToPlayer.commandParameters = [ {
-	nameLink: pAnyPlayer.getLink(),
-	name: "AnyPlayer",
+	nameLink: pPlayerNumber.getLink(),
+	name: "PlayerNumber",
 	type: "Player",
 	dir: "in",
-	range: "a PlayerId for: any",
+	range: "any player number",
 	note: "The player(s) to tribute."
 }, {
-	nameLink: pResourceAmount.getLink(),
+	nameLink: pResourceType.getLink(),
 	name: "ResourceAmount",
 	type: "Const",
 	dir: "in",
-	range: "a const from the ResourceAmount enumeration",
+	range: "a const from the ResourceType list",
 	note: "The resource that will be modified."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -16562,7 +16578,7 @@ cFeCcEffectAmount.complexity = "Very High";
 
 //fe-cc-effect-percent
 cFeCcEffectPercent.shortDescription = "DE only. Apply a research-style effect with a percentage for the AI player.";
-cFeCcEffectPercent.description = "DE only. Apply a research-style effect with a percentage for the AI player. This command is identical to " + cFeCcEffectAmount.getLink() + ", except the value is divided by 100 to provide decimal precision. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values.";
+cFeCcEffectPercent.description = "DE only. Apply a research-style effect as a percentage for the AI player. This command is identical to " + cFeCcEffectAmount.getLink() + ", except the value is divided by 100 to provide decimal precision. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values.";
 cFeCcEffectPercent.commandParameters = [ {
 	nameLink: pEffectId.getLink(),
 	name: "EffectId",
@@ -16586,7 +16602,7 @@ cFeCcEffectPercent.commandParameters = [ {
 	note: "Sets the Id of the attribute the effect will change, such as attribute-hp."
 }, {
 	nameLink: pPercent.getLink(),
-	name: "Value",
+	name: "Percent",
 	type: "Op",
 	dir: "in",
 	range: "-32768 to 32767",
@@ -16623,15 +16639,15 @@ cFeBreakPoint.commandParameters = [ {
 	range: "-32768 to 32767",
 	note: "A value you want to compare against."
 }, {
-	nameLink: pBreakState.getLink(),
-	name: "BreakState",
+	nameLink: pOptionGoalId.getLink(),
+	name: "OptionGoalId",
 	type: "Goal",
 	dir: "in",
-	range: "a goal ID to control whether the debugger is used or -1 to always allow the debugger to be used",
+	range: "a goal ID to control whether the debugger is used, or -1 to always allow the debugger to be used",
 	note: "Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger."
 } ];
 cFeBreakPoint.example = [ {
-	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the BreakState goal parameter is set to -1.",
+	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the OptionGoalId parameter is set to -1.",
 	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
 }, {
 	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
@@ -17015,7 +17031,7 @@ pTypeOp.operatorTypes = [ {
 pActionId.description = "The current action(s) of an object. Sometimes an object can have more than one current action, such as a villager having the actions actionid-hunt and actionid-gather. It's also often wise to check an object's " + pOrderId.getLink() + " since orders last longer.";
 pActionId.shortDescription = "The current action(s) of an object.";
 pActionId.range = "-1, 600 to 699.";
-pActionId.relatedParams = [pGroupType, pIdleType, pObjectData, pOrderId, pTargetAction];
+pActionId.relatedParams = [pGroupType, pIdleType, pObjectData, pOrderId, pDUCAction];
 pActionId.valueList = [ {
 	name: "-1",
 	id: -1,
@@ -17140,170 +17156,47 @@ pAge.valueList = [ {
 	description: "Post-Imperial Age. Can only be used with " + cStartingAge.getLink() + " facts."
 } ];
 
-//AllyPlayer
-pAllyPlayer.description = "A " + pPlayerId.getLink() + ". The command will fail if that player's stance toward the AI player is not ally. Can be used with self.";
-pAllyPlayer.shortDescription = "An allied PlayerId.";
-pAllyPlayer.range = "Valid player IDs can be the following:</p>" +
-	"<ul><li>1-8: The player's " + pPlayerId.getLink() + ", if allied.</li>" +
-	"<li>my-player-number: retrieves the player number for self.</li>" +
-	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ", if allied." +
-	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ", if allied." +
-	"<li>Any wildcard parameter below:</li>" +
-	"<li>Any rule variable below, if the command supports it:</li></ul>";
-pAllyPlayer.relatedParams = [pAnyPlayer, pColorId, pComputerAllyPlayer, pPlayerId];
-pAllyPlayer.wildcardParam = [ {
-	name: "any-ally",
-	id: -101,
-	description: "Any allied player. Can't be used with " + cUpSetPlacementData.getLink() + "."
-}, {
-	name: "any-computer-ally",
-	id: -103,
-	description: "Any computer ally. Can't be used with " + cUpSetPlacementData.getLink() + "."
-}, {
-	name: "any-human-ally",
-	id: -108,
-	description: "Any human ally. Can't be used with " + cUpSetPlacementData.getLink() + "."
-}, {
-	name: "every-ally",
-	id: -201,
-	description: "Every allied player. Can't be used with " + cUpSetPlacementData.getLink() + "."
-} ];
-pAllyPlayer.ruleVariables = [ {
-	name: "this-any-ally",
-	id: 101,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-ally earlier in the rule."
-}, {
-	name: "this-any-computer-ally",
-	id: 103,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer-ally earlier in the rule."
-}, {
-	name: "this-any-human-ally",
-	id: 108,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-human-ally earlier in the rule."
-} ];
-
-//AnyPlayer
-pAnyPlayer.description = "Any " + pPlayerId.getLink() + ".";
-pAnyPlayer.shortDescription = "Any PlayerId.";
-pAnyPlayer.range = "Valid player IDs can be the following:</p>" +
-	"<ul><li>0: Gaia.</li>" +
-	"<li>1-8: The player's " + pPlayerId.getLink() + ".</li>" +
-	"<li>my-player-number: retrieves the player number for self.</li>" +
-	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + "." +
-	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + "." +
-	"<li>Any wildcard parameter below:</li>" +
-	"<li>Any rule variable below, if the command supports it:</li></ul>";
-pAnyPlayer.relatedParams = [pAllyPlayer, pColorId, pComputerAllyPlayer, pPlayerId];
-pAnyPlayer.wildcardParam = [ {
-	name: "any-ally",
-	id: -101,
-	description: "Any allied player."
-}, {
-	name: "any-computer",
-	id: -102,
-	description: "Any computer player."
-}, {
-	name: "any-computer-ally",
-	id: -103,
-	description: "Any computer ally."
-}, {
-	name: "any-computer-enemy",
-	id: -104,
-	description: "Any computer enemy."
-}, {
-	name: "any-computer-neutral",
-	id: -105,
-	description: "Any neutral computer player."
-}, {
-	name: "any-enemy",
-	id: -106,
-	description: "Any enemy player."
-}, {
-	name: "any-human",
-	id: -107,
-	description: "Any human player."
-}, {
-	name: "any-human-ally",
-	id: -108,
-	description: "Any human ally."
-}, {
-	name: "any-human-enemy",
-	id: -109,
-	description: "Any human enemy."
-}, {
-	name: "any-human-neutral",
-	id: -110,
-	description: "Any neutral human player."
-}, {
-	name: "any-neutral",
-	id: -111,
-	description: "Any neutral player."
-}, {
-	name: "every-ally",
-	id: -201,
-	description: "Every allied player."
-}, {
-	name: "every-computer",
-	id: -202,
-	description: "Every computer player."
-}, {
-	name: "every-enemy",
-	id: -203,
-	description: "Every enemy player."
-}, {
-	name: "every-human",
-	id: -204,
-	description: "Every human player."
-}, {
-	name: "every-neutral",
-	id: -205,
-	description: "Every neutral player."
-} ];
-pAnyPlayer.ruleVariables = [ {
-	name: "this-any-ally",
-	id: 101,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-ally earlier in the rule."
-}, {
-	name: "this-any-computer",
-	id: 102,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer earlier in the rule."
-}, {
-	name: "this-any-computer-ally",
-	id: 103,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer-ally earlier in the rule."
-}, {
-	name: "this-any-computer-enemy",
-	id: 104,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer-enemy earlier in the rule."
-}, {
-	name: "this-any-computer-neutral",
-	id: 105,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer-neutral earlier in the rule."
-}, {
-	name: "this-any-enemy",
-	id: 106,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-enemy earlier in the rule."
-}, {
-	name: "this-any-human",
-	id: 107,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-human earlier in the rule."
-}, {
-	name: "this-any-human-ally",
-	id: 108,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-human-ally earlier in the rule."
-}, {
-	name: "this-any-human-enemy",
-	id: 109,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-human-enemy earlier in the rule."
-}, {
-	name: "this-any-human-neutral",
-	id: 110,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-human-neutral earlier in the rule."
-}, {
-	name: "this-any-neutral",
-	id: 111,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-any-neutral earlier in the rule."
-} ];
+// //AllyPlayer
+// pAllyPlayer.description = "A player number. The command will fail if that player's stance toward the AI player is not ally. Can be used with self.";
+// pAllyPlayer.shortDescription = "An allied PlayerId.";
+// pAllyPlayer.range = "Valid player IDs can be the following:</p>" +
+// 	"<ul><li>1-8: The player's player number, if allied.</li>" +
+// 	"<li>my-player-number: retrieves the player number for self.</li>" +
+// 	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ", if allied." +
+// 	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ", if allied." +
+// 	"<li>Any wildcard parameter below:</li>" +
+// 	"<li>Any rule variable below, if the command supports it:</li></ul>";
+// pAllyPlayer.relatedParams = [pAnyPlayer, pColorId, pComputerAllyPlayer, pPlayerId];
+// pAllyPlayer.wildcardParam = [ {
+// 	name: "any-ally",
+// 	id: -101,
+// 	description: "Any allied player. Can't be used with " + cUpSetPlacementData.getLink() + "."
+// }, {
+// 	name: "any-computer-ally",
+// 	id: -103,
+// 	description: "Any computer ally. Can't be used with " + cUpSetPlacementData.getLink() + "."
+// }, {
+// 	name: "any-human-ally",
+// 	id: -108,
+// 	description: "Any human ally. Can't be used with " + cUpSetPlacementData.getLink() + "."
+// }, {
+// 	name: "every-ally",
+// 	id: -201,
+// 	description: "Every allied player. Can't be used with " + cUpSetPlacementData.getLink() + "."
+// } ];
+// pAllyPlayer.ruleVariables = [ {
+// 	name: "this-any-ally",
+// 	id: 101,
+// 	description: "The player number successfully found during a search for any-ally earlier in the rule."
+// }, {
+// 	name: "this-any-computer-ally",
+// 	id: 103,
+// 	description: "The player number successfully found during a search for any-computer-ally earlier in the rule."
+// }, {
+// 	name: "this-any-human-ally",
+// 	id: 108,
+// 	description: "The player number successfully found during a search for any-human-ally earlier in the rule."
+// } ];
 
 //AttackStance
 pAttackStance.description = "Controls the attack stance of military units.";
@@ -17484,7 +17377,7 @@ pAttrId.valueList = [ {
 }, {
 	name: "attribute-resource-cost",
 	id: 100,
-	description: "Likely let's you change the " + pResourceAmount.getLink() + " cost for a resource besides food, wood, gold, or stone."
+	description: "Likely let's you change the " + pResourceType.getLink() + " cost for a resource besides food, wood, gold, or stone."
 }, {
 	name: "attribute-creation-time",
 	id: 101,
@@ -17523,17 +17416,11 @@ pAttrId.valueList = [ {
 	description: "Note the [incorrect] spelling. The speed the object will heal at. Likely multiplied by 100 or 1000 (not sure which, sorry)."
 } ];
 
-//Border
-pBorder.description = "The border width for bounding the point.</p><p>Please ensure that Border is a valid value and will not cause an overflow for the map size. If Precise is set to 1 in the " + cUpBoundPrecisePoint.getLink() + " command, the map size will be multiplied by 100 before bounding, so the border should be adjusted accordingly.";
-pBorder.shortDescription = "The border width for bounding the point.";
-pBorder.range = "0 to 32767.";
-pBorder.relatedParams = [pPoint, pPositionType, pPrecise, pTiles];
-
-//BreakState
-pBreakState.description = "A goal ID that controls whether the debugger is enabled. Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger. To always allow the debugger, use -1 instead of using a goal.";
-pBreakState.shortDescription = "A goal ID that controls whether the debugger is enabled.";
-pBreakState.range = "a goal ID to control whether the debugger is used or -1 to always allow the debugger to be used";
-pBreakState.relatedParams = [pEscrowState];
+// //Border
+// pBorder.description = "The border width for bounding the point.</p><p>Please ensure that Border is a valid value and will not cause an overflow for the map size. If Option is set to 1 in the " + cUpBoundPrecisePoint.getLink() + " command, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Border parameter should be adjusted accordingly by multiplying by 100.";
+// pBorder.shortDescription = "The border width for bounding the point.";
+// pBorder.range = "0 to 32767.";
+// pBorder.relatedParams = [pPoint, pPositionType];
 
 //BuildingId
 pBuildingId.description = "A building object, either the defined building type name, the object ID assigned to it, or the building's class. Sometimes can also be a building line. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for reference.";
@@ -17732,7 +17619,7 @@ pCiv.valueList = [ {
 pClassId.description = "A class ID. Each object in the game is assigned a class that contains other similar objects. Class IDs can often be used in place of a unit ID. Classes with an asterisk (*) in the name must be defined with a defconst. All other classes are defined in the UserPatchConst.per file that comes with a UserPatch installation.</p><p>See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> to see which units belong to each class.";
 pClassId.shortDescription = "A class ID.";
 pClassId.range = "-1, 900 to 999.";
-pClassId.relatedParams = [pBuildingId, pCmdId, pObjectId, pSourceClass, pTargetClass, pTypeId, pUnitId];
+pClassId.relatedParams = [pBuildingId, pCmdId, pObjectId, pThreatSource, pThreatTarget, pTypeId, pUnitId];
 pClassId.valueList = [ {
 	name: "all-units-class",
 	id: -1,
@@ -17950,23 +17837,23 @@ pCmdId.valueList = [ {
 	description: "Military Buildings command ID."
 } ];
 
-//Code
-pCode.description = "A string (quoted text) containing only a valid cheat code.";
-pCode.shortDescription = "A string (quoted text) containing only a valid cheat code.";
-pCode.range = "A string (quoted text).";
-pCode.relatedParams = [pFormattedString, pLanguageId, pNewName, pString, pText];
+// //Code
+// pCode.description = "A string (quoted text) containing only a valid cheat code.";
+// pCode.shortDescription = "A string (quoted text) containing only a valid cheat code.";
+// pCode.range = "A string (quoted text).";
+// pCode.relatedParams = [pFormattedString, pLanguageId, pNewName, pString, pDefconst];
 
 //ColorId
 pColorId.description = "A color number ID. These colors correspond with the player number color where 1 = Blue, 2 = Red, etc. Each color will always return the same color ID, even if it doesn't match the player number. If player 4 is Blue, player 4's ColorId will still be 1.";
 pColorId.shortDescription = "A color number ID.";
 pColorId.range = "1 to 8.";
-pColorId.relatedParams = [pAllyPlayer, pAnyPlayer, pComputerAllyPlayer, pPlayerId];
+pColorId.relatedParams = [pPlayerNumber];
 
 //Commodity
 pCommodity.description = "A resource that can be bought or sold. Gold is not a commodity.";
 pCommodity.shortDescription = "A resource that can be bought or sold. Gold is not a commodity.";
 pCommodity.range = "0 to 2.";
-pCommodity.relatedParams = [pResource, pResourceAmount];
+pCommodity.relatedParams = [pResource, pResourceType];
 pCommodity.valueList = [ {
 	name: "food",
 	id: 0,
@@ -17981,39 +17868,39 @@ pCommodity.valueList = [ {
 	description: "Stone"
 } ];
 
-//ComputerAllyPlayer
-pComputerAllyPlayer.description = "A " + pPlayerId.getLink() + ". The command will fail if that player's stance toward the AI player is not ally or if the player is a human. Can be used with self.";
-pComputerAllyPlayer.shortDescription = "An allied computer player PlayerId.";
-pComputerAllyPlayer.range = "Valid player IDs can be the following:</p>" +
-	"<ul><li>1-8: The player's " + pPlayerId.getLink() + ".</li>" +
-	"<li>my-player-number: retrieves the player number for self.</li>" +
-	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ", if a computer ally." +
-	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ", if a computer ally." +
-	"<li>Any wildcard parameter below:</li>" +
-	"<li>Any rule variable below, if the command supports it:</li></ul>";
-pComputerAllyPlayer.relatedParams = [pAllyPlayer, pAnyPlayer, pColorId, pPlayerId];
-pComputerAllyPlayer.wildcardParam = [ {
-	name: "any-computer-ally",
-	id: -103,
-	description: "Any computer ally."
-} ];
-pComputerAllyPlayer.ruleVariables = [ {
-	name: "this-any-computer-ally",
-	id: 103,
-	description: "The " + pPlayerId.getLink() + " successfully found during a search for any-computer-ally earlier in the rule."
-} ];
+// //ComputerAllyPlayer
+// pComputerAllyPlayer.description = "A player number. The command will fail if that player's stance toward the AI player is not ally or if the player is a human. Can be used with self.";
+// pComputerAllyPlayer.shortDescription = "An allied computer player PlayerId.";
+// pComputerAllyPlayer.range = "Valid player IDs can be the following:</p>" +
+// 	"<ul><li>1-8: The player's player number.</li>" +
+// 	"<li>my-player-number: retrieves the player number for self.</li>" +
+// 	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ", if a computer ally." +
+// 	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ", if a computer ally." +
+// 	"<li>Any wildcard parameter below:</li>" +
+// 	"<li>Any rule variable below, if the command supports it:</li></ul>";
+// pComputerAllyPlayer.relatedParams = [pAllyPlayer, pAnyPlayer, pColorId, pPlayerId];
+// pComputerAllyPlayer.wildcardParam = [ {
+// 	name: "any-computer-ally",
+// 	id: -103,
+// 	description: "Any computer ally."
+// } ];
+// pComputerAllyPlayer.ruleVariables = [ {
+// 	name: "this-any-computer-ally",
+// 	id: 103,
+// 	description: "The player number successfully found during a search for any-computer-ally earlier in the rule."
+// } ];
 
-//Count
-pCount.description = "Can mean multiple things depending on the command, but it generally means a value that represents a counted amount.";
-pCount.shortDescription = "Can mean multiple things depending on the command, but it generally means a value that represents a counted amount.";
-pCount.range = "-32768 to 32767, although some commands have a much smaller usable range. Please view a command that uses the Count parameter to see the usable range for that particular command.";
-pCount.relatedParams = [pSize, pValue];
+// //Count
+// pCount.description = "Can mean multiple things depending on the command, but it generally means a value that represents a counted amount.";
+// pCount.shortDescription = "Can mean multiple things depending on the command, but it generally means a value that represents a counted amount.";
+// pCount.range = "-32768 to 32767, although some commands have a much smaller usable range. Please view a command that uses the Count parameter to see the usable range for that particular command.";
+// pCount.relatedParams = [pValue];
 
-//Data
-pData.description = "A goal to store the data output of a command.";
-pData.shortDescription = "A goal to store the data output of a command.";
-pData.range = "a valid GoalId, max range of GoalId is 1 to 512.";
-pData.relatedParams = [pObjectData];
+//Defconst
+pDefconst.description = "A defconst. " + cUpCompareConst.getLink() + " requires a defconst defined with an integer value. " + cUpCompareText.getLink() + " requires a defconst defined with a text string.";
+pDefconst.shortDescription = "A defconst.";
+pDefconst.range = "A defconst.";
+pDefconst.relatedParams = [pLanguageId, pString];
 
 //Difficulty
 pDifficulty.description = "The current difficulty level. The ordering of difficulty settings is the opposite of what one would expect!: easiest > easy > moderate > hard > hardest. Make sure that this is taken in account when using facts to compare difficulties.";
@@ -18061,11 +17948,102 @@ pDiffParameterId.valueList = [ {
 	description: "Chance of a computer player's unit dodging a missile. When set to 0, units will try to dodge immediately upon seeing a projectile in the air. When set to 100, they have to hit first to react. Projectiles from siege-weapon-class and unpacked-trebuchet-class (913 and 954, not including scorpions) are always dodged, no matter what this parameter is set to."
 } ];
 
-//Distance
-pDistance.description = "The distance between two points. Always stored in a goal.";
-pDistance.shortDescription = "The distance between two points. Always stored in a goal.";
-pDistance.range = "A valid GoalId. Max range for a GoalId is 1 to 512.";
-pDistance.relatedParams = [pMaxDistance, pMinDistance, pPercent, pPerimeter, pPoint, pPrecise, pStrict, pTiles];
+// //Distance
+// pDistance.description = "The distance between two points. Always stored in a goal.";
+// pDistance.shortDescription = "The distance between two points. Always stored in a goal.";
+// pDistance.range = "A valid GoalId. Max range for a GoalId is 1 to 512.";
+// pDistance.relatedParams = [pMaxDistance, pMinDistance, pPercent, pPerimeter, pPoint, pTiles];
+
+//DUCAction
+pDUCAction.description = "The action to perform with the selected units. Some DUC Actions cannot be taken with " + cUpTargetObjects.getLink() + ".";
+pDUCAction.shortDescription = "The action to perform with the selected units."
+pDUCAction.range = "0 to 18.";
+pDUCAction.relatedParams = [pActionId, pOrderId];
+pDUCAction.valueList = [ {
+	name: "action-default",
+	id: 0,
+	description: "Equivalent of a right-click for all objects in the local list on the point or target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
+}, {
+	name: "action-move",
+	id: 1,
+	description: "Units in the local list will move to the point or the location of the target object(s)."
+}, {
+	name: "action-patrol",
+	id: 2,
+	description: "Units in the local list will patrol to the point or the location of the target object(s)."
+}, {
+	name: "action-guard",
+	id: 3,
+	description: "Units in the local list will guard the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
+}, {
+	name: "action-follow",
+	id: 4,
+	description: "Units in the local list will follow the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
+}, {
+	name: "action-stop",
+	id: 5,
+	description: "Objects in the local list will stop their current action."
+}, {
+	name: "action-ground",
+	id: 6,
+	description: "Units in the local list will attack ground at the point or against the target object(s)."
+}, {
+	name: "action-garrison",
+	id: 7,
+	description: "Units in the local list will garrison inside the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
+}, {
+	name: "action-delete",
+	id: 8,
+	description: "Deletable objects in the local list will be deleted."
+}, {
+	name: "action-unload",
+	id: 9,
+	description: "Buildings in the local list will ungarrison to the target point. Siege (class 913) in the local list will eject in place. Transport ships in the local list will unload at the target point. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-train",
+	id: 10,
+	description: "Buildings in the local list will train units. To train units, use this syntax: (" + cUpTargetPoint.getLink() + " inGoal" + pEscrowGoalId.getLink() + " action-train " + pTypeOp.getLink() + " inOp" + pTypeId.getLink() + "). Example: (up-target-point 0 action-train c: spearman-line). For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-gather",
+	id: 11,
+	description: "Buildings in the local list will set their gathering point at the target point or at the location of the target object(s)."
+}, {
+	name: "action-lock",
+	id: 12,
+	description: "Gates in the local list will toggle their locked state. If they are locked, they will unlock. If they are unlocked, they will lock. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-work",
+	id: 13,
+	description: "Buildings in the local list will send garrisoned villagers back to work. Same as clicking the Send Back to Work button. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-ungarrison",
+	id: 14,
+	description: "Units in the local list will be ungarrisoned from the building they are garrisoned inside. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-drop-relic",
+	id: 15,
+	description: "Monastery units in the local list will drop any relics they are carrying. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-pack",
+	id: 16,
+	description: "Trebuchets in the local list will pack. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-unpack",
+	id: 17,
+	description: "Trebuchets in the local list will unpack. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+}, {
+	name: "action-none",
+	id: 18,
+	description: "The current actions of the objects in the local list will not change."
+}, {
+	name: "action-attack-move",
+	id: 19,
+	description: "Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
+}, {
+	name: "action-transform",
+	id: 20,
+	description: "Only available in DE. Rathas in the local list will switch between melee and ranged mode."
+} ];
 
 //EffectId
 pEffectId.description = "The id of an Effect such as effect_set_attribute. This parameter determines how the " + pAttrId.getLink() + " should be affected. Since the " + cFeCcEffectAmount.getLink() + " and " + cFeCcEffectPercent.getLink() + " are similar to researching a custom technology for free, you can think of the EffectId as specifying the type of technology the command will execute, such as upgrading a new unit or adding hit points to a building. The available EffectIds are very similar to the Command Types dropdown on the Effects tab of the Advanced Genie Editor when a tech effect is selected.</p><p>Please note that I (Leif Ericson) have not tested the effects below, and they are just educated guesses at the moment.";
@@ -18079,7 +18057,7 @@ pEffectId.valueList = [ {
 }, {
 	name: "effect-mod-resource",
 	id: 1,
-	description: "Add or subtract the specified value to/from a given " + pResourceAmount.getLink() + " stockpile."
+	description: "Add or subtract the specified value to/from a given " + pResourceType.getLink() + " stockpile."
 }, {
 	name: "effect-enable-object",
 	id: 2,
@@ -18099,7 +18077,7 @@ pEffectId.valueList = [ {
 }, {
 	name: "effect-mul-resource",
 	id: 6,
-	description: "Multiply the player's specified " + pResourceAmount.getLink() + " by a given value."
+	description: "Multiply the player's specified " + pResourceType.getLink() + " by a given value."
 }, {
 	name: "effect-enable-tech",
 	id: 7,
@@ -18114,36 +18092,30 @@ pEffectId.valueList = [ {
 	description: "Untested. Set the player's specified player data to the given value. Uncertain what this different player data could be. Perhaps this sets the data for another player?"
 } ];
 
-//ElapsedTime
-pElapsedTime.description = "The elapsed time in milliseconds, usually the elapsed time after an event like an attack threat or a projectile firing.";
-pElapsedTime.shortDescription = "The elapsed time in milliseconds.";
-pElapsedTime.range = "A valid integer.";
-pElapsedTime.relatedParams = [pStart, pTime, pTimerId, pTimerState];
+//EscrowGoalId
+pEscrowGoalId.description = "A goal ID that controls whether escrow should be used. It can be set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;. Alternatively, you can use 0 instead of a goal ID to specify that escrow should never be used for this item. Note that using the constants &quot;with-escrow&quot; or &quot;without-escrow&quot; themselves for EscrowGoalId is not valid because 0 or a valid goal ID is expected.";
+pEscrowGoalId.shortDescription = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;.";
+pEscrowGoalId.range = "0 or a valid GoalId, ranging from 1 to 512.";
+pEscrowGoalId.relatedParams = [pOption, pOptionGoalId];
 
-//EscrowState
-pEscrowState.description = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;. Note that using the constants &quot;with-escrow&quot; or &quot;without-escrow&quot; themselves for EscrowState is not valid. If you don't want to check for escrow at all, use 0 for EscrowState instead of a goal ID.";
-pEscrowState.shortDescription = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;.";
-pEscrowState.range = "0 or a valid GoalId, ranging from 1 to 512.";
-pEscrowState.relatedParams = [pBreakState];
-
-//ESPlayerStance
-pESPlayerStance.description = "A player's diplomatic stance. Note that the UP option &quot;any&quot; is not available with this parameter. This option is only available with the UP-only " + pPlayerStance.getLink() + " parameter.";
-pESPlayerStance.shortDescription = "A player's diplomatic stance, not including the \"any\" option.";
-pESPlayerStance.range = "0, 1, or 3.";
-pESPlayerStance.relatedParams = [pPlayerStance];
-pESPlayerStance.valueList = [ {
-	name: "ally",
-	id: 0,
-	description: "Ally."
-}, {
-	name: "neutral",
-	id: 1,
-	description: "Neutral."
-}, {
-	name: "enemy",
-	id: 3,
-	description: "Enemy."
-} ];
+// ESPlayerStance
+// pESPlayerStance.description = "A player's diplomatic stance. Note that the UP option &quot;any&quot; is not available with this parameter. This option is only available with the UP-only " + pPlayerStance.getLink() + " parameter.";
+// pESPlayerStance.shortDescription = "A player's diplomatic stance, not including the \"any\" option.";
+// pESPlayerStance.range = "0, 1, or 3.";
+// pESPlayerStance.relatedParams = [pPlayerStance];
+// pESPlayerStance.valueList = [ {
+// 	name: "ally",
+// 	id: 0,
+// 	description: "Ally."
+// }, {
+// 	name: "neutral",
+// 	id: 1,
+// 	description: "Neutral."
+// }, {
+// 	name: "enemy",
+// 	id: 3,
+// 	description: "Enemy."
+// } ];
 
 //EventId
 pEventId.description = "The event ID. The only valid events are AI Script Goal effects and AI Signal conditions in scenario triggers. The ID matches the number of the chosen option from the trigger condition/effect. Note: the &quot;AI Trigger 256&quot; option in the AI Script Goal effect cannot be detected by AIs.";
@@ -18162,7 +18134,7 @@ pEventType.valueList = [ {
 	description: "Trigger"
 } ];
 
-//ExploredState
+//ExploredOption
 pExploredState.description = "The exploration state of the point.";
 pExploredState.shortDescription = "The exploration state of the point.";
 pExploredState.range = "0, 15, 128 (see Defined Values List).";
@@ -18181,17 +18153,17 @@ pExploredState.valueList = [ {
 	description: "Point has been seen in the past."
 } ];
 
-//Extension
-pExtension.description = "Set to 1 to include the map file extension. If set to 0, the map file extension will not be included.";
-pExtension.shortDescription = "Set to 1 to include the map file extension.";
-pExtension.range = "0 or 1.";
-pExtension.relatedParams = [pMapType, pFormattedString, pString, pText];
+// //Extension
+// pExtension.description = "Set to 1 to include the map file extension. If set to 0, the map file extension will not be included.";
+// pExtension.shortDescription = "Set to 1 to include the map file extension.";
+// pExtension.range = "0 or 1.";
+// pExtension.relatedParams = [pMapType, pString, pDefconst];
 
 //FactId
-pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.</p><p>Several FactIds can only be used with " + cUpGetFact.getLink() + " or with my-player-number as the player number in commands like " + cUpGetPlayerFact.getLink() + ". See the values list below for information.</p><p>Also, all commands that use FactId also include " + pParam.getLink() + ". See the values list below for the expected type of parameter.";
+pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.</p><p>Several FactIds can only be used with " + cUpGetFact.getLink() + " or with my-player-number as the player number in commands like " + cUpGetPlayerFact.getLink() + ". See the values list below for information.</p><p>Also, all commands that use FactId also include " + pFactParameter.getLink() + ". See the values list below for the expected type of parameter.";
 pFactId.shortDescription = "Selects the fact type to be checked and stored in a goal.";
 pFactId.range = "0 to 54.";
-pFactId.relatedParams = [pFindPlayerMethod, pGuardState, pLimit, pObjectData, pParam, pResourceAmount, pType];
+pFactId.relatedParams = [pFindPlayerMethod, pObjectData, pFactParameter, pResourceType, pVictoryType];
 pFactId.valueList = [ {
 	name: "game-time",
 	id: 0,
@@ -18400,7 +18372,7 @@ pFactId.valueList = [ {
 	name: "resource-amount",
 	id: 34,
 	description: "The current stockpile amount of the given resource.",
-	parameter: pResourceAmount.getLink(),
+	parameter: pResourceType.getLink(),
 	players: "any"
 }, {
 	name: "player-distance",
@@ -18424,7 +18396,7 @@ pFactId.valueList = [ {
 	name: "resource-percent",
 	id: 38,
 	description: "The current amount of the given resource * 100.",
-	parameter: pResourceAmount.getLink(),
+	parameter: pResourceType.getLink(),
 	players: "any"
 }, {
 	name: "enemy-buildings-in-town",
@@ -18524,11 +18496,17 @@ pFactId.valueList = [ {
 	players: "any"
 } ];
 
+//FactParameter
+pFactParameter.description = "A parameter for the fact to be used in up-get-fact-* commands. This often matches the first parameter in a fact command, but if the " + pFactId.getLink() + "can be used with any player number, then this is usually a valid " + pFactParameter.getLink() + " instead. If no extra parameter is needed, this is usually 0. See the FactId page to determine what should be used for the FactParameter.";
+pFactParameter.shortDescription = "A parameter for the fact.";
+pFactParameter.range = "An appropriate parameter for the fact, or 0 if not required.";
+pFactParameter.relatedParams = [pFactId];
+
 //FindPlayerMethod
 pFindPlayerMethod.description = "The method used to find a player.";
 pFindPlayerMethod.shortDescription = "The method used to find a player.";
 pFindPlayerMethod.range = "0 to 3.";
-pFindPlayerMethod.relatedParams = [pFactId, pPlayerId, pSourceClass]
+pFindPlayerMethod.relatedParams = [pFactId, pThreatPlayer]
 pFindPlayerMethod.valueList = [ {
 	name: "find-attacker",
 	id: 0,
@@ -18551,7 +18529,7 @@ pFindPlayerMethod.valueList = [ {
 pFlag.description = "A flag that belongs to the given goal. A flag has two states: appended or removed. See the list of commands that use this parameter for more info.";
 pFlag.shortDescription = "A flag that belongs to the given goal.";
 pFlag.range = "A valid flag.";
-pFlag.relatedParams = [pGoalId, pOn];
+pFlag.relatedParams = [pGoalId];
 
 //Formation
 pFormation.description = "The formation that the units will be set to.";
@@ -18580,17 +18558,17 @@ pFormation.valueList = [ {
 	description: "Flank formation. The group of units will split into two smaller groups spaced a few tiles apart."
 } ];
 
-//FormattedString
-pFormattedString.description = "A string (quoted text) that includes &quot;%d&quot;. When the message is sent, &quot;%d&quot; will be replaced with the provided data value.";
-pFormattedString.shortDescription = "A string (quoted text) that includes &quot;%d&quot;.";
-pFormattedString.range = "A string (quoted text) that includes &quot;%d&quot;.";
-pFormattedString.relatedParams = [pCode, pExtension, pPlain, pString, pText];
+// //FormattedString
+// pFormattedString.description = "A string (quoted text) that includes &quot;%d&quot;. When the message is sent, &quot;%d&quot; will be replaced with the provided data value.";
+// pFormattedString.shortDescription = "A string (quoted text) that includes &quot;%d&quot;.";
+// pFormattedString.range = "A string (quoted text) that includes &quot;%d&quot;.";
+// pFormattedString.relatedParams = [pCode, pExtension, pPlain, pString, pDefconst];
 
 //GameType
 pGameType.description = "The type of game being played. Each of the values in the value list must be defined with a defconst. Note that custom will be from 0 to 8 depending on what the source of the map / game was.";
 pGameType.shortDescription = "The type of game being played.";
 pGameType.range = "0 to 3, 5 to 8."
-pGameType.relatedParams = [pMapType, pType, pVictory];
+pGameType.relatedParams = [pMapType, pVictoryCondition, pVictoryType];
 pGameType.valueList = [ {
 	name: "random-map",
 	id: 0,
@@ -18651,13 +18629,13 @@ pGoalId.relatedParams = [pFlag, pId, pSharedGoalId, pSnId];
 pGroupId.description = "An ID assigned to a group of objects, similar to Ctrl groups human players can use.";
 pGroupId.shortDescription = "An ID assigned to a group of objects.";
 pGroupId.range = "0 to 9.";
-pGroupId.relatedParams = [pGroupType, pSize];
+pGroupId.relatedParams = [pGroupType];
 
 //GroupType
 pGroupType.description = "The type of group.";
 pGroupType.shortDescription = "The type of group.";
 pGroupType.range = "100 to 109.";
-pGroupType.relatedParams = [pActionId, pGroupId, pSize, pOrderId];
+pGroupType.relatedParams = [pActionId, pGroupId, pOrderId];
 pGroupType.valueList = [ {
 	name: "group-type-land-attack",
 	id: 100,
@@ -18704,7 +18682,7 @@ pGroupType.valueList = [ {
 pGuardFlag.description = "Bitwise flags to store the guard state. This parameter only defines the flags returned from the goal that stores the guard flags from a " + cUpGetGuardState.getLink() + " command. This parameter is not used in any command.";
 pGuardFlag.shortDescription = "Bitwise flags to store the guard state.";
 pGuardFlag.range = "1, 2, 4.";
-pGuardFlag.relatedParams = [pGuardState];
+pGuardFlag.relatedParams = [];
 pGuardFlag.valueList = [ {
 	name: "guard-flag-victory",
 	id: 1,
@@ -18719,29 +18697,29 @@ pGuardFlag.valueList = [ {
 	description: "If guard-flag-resource flag is set, resources will be added only when there are no TypeId objects left. This will not invert guard-flag-victory, only guard-flag-resource."
 } ];
 
-//GuardState
-pGuardState.description = "The first of four consecutive goals to read the guard state.";
-pGuardState.shortDescription = "The first of four consecutive goals to read the guard state.";
-pGuardState.range = "An extended goal ID, from 41 to 509.";
-pGuardState.relatedParams = [pFactId, pGuardFlag, pLimit, pType, pVictory];
+// //GuardState
+// pGuardState.description = "The first of four consecutive goals to read the guard state.";
+// pGuardState.shortDescription = "The first of four consecutive goals to read the guard state.";
+// pGuardState.range = "An extended goal ID, from 41 to 509.";
+// pGuardState.relatedParams = [pFactId, pGuardFlag, pType, pVictoryCondition];
 
-//Hitpoints
-pHitpoints.description = "The amount of hit points for the objects that are being compared.";
-pHitpoints.shortDescription = "The amount of hit points for the objects that are being compared.";
-pHitpoints.range = "0 to 32767.";
-pHitpoints.relatedParams = [pIdleType];
+// //Hitpoints
+// pHitpoints.description = "The amount of hit points for the objects that are being compared.";
+// pHitpoints.shortDescription = "The amount of hit points for the objects that are being compared.";
+// pHitpoints.range = "0 to 32767.";
+// pHitpoints.relatedParams = [pIdleType];
 
 //Id
-pId.description = "Can mean multiple things depending on the command. For the " + cUpSetTargetById.getLink() + " command, this refers to the map object ID. All objects on the map will have a different map object ID in the order that the object appeared on the map.</p><p>For all other commands, this parameter refers to a goal ID, strategic number ID, or a constant ID.";
-pId.shortDescription = "A value or the object's map ID, depending on the command.";
-pId.range = "Depends on the type of ID. Check each command that uses this parameter to find the available range.";
-pId.relatedParams = [pBuildingId, pGoalId, pObjectId, pSnId, pUnitId];
+pId.description = "The object's ID on the map. All objects on the map will have a different map object ID in the order that the object appeared on the map.";
+pId.shortDescription = "The object's ID on the map.";
+pId.range = "An ID of an object that is currently on the map.";
+pId.relatedParams = [pBuildingId, pObjectId, pUnitId];
 
 //IdleType
 pIdleType.description = "The type of idle unit.";
 pIdleType.shortDescription = "The type of idle unit.";
 pIdleType.range = "0 to 3."
-pIdleType.relatedParams = [pActionId, pHitpoints, pOrderId];
+pIdleType.relatedParams = [pActionId, pOrderId];
 pIdleType.valueList = [ {
 	name: "idle-type-villager",
 	id: 0,
@@ -18776,13 +18754,13 @@ pItemId.relatedParams = [pBuildingId, pObjectId, pTechId, pUnitId]
 pLanguageId.description = "The ID assigned to a string (quoted text) stored in one of the language.dll files or in a string text file. All words and phrases used by the game are stored in these files. If you have the DE version, you can easily find a list of all language IDs in your Steam installation, usually at \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\en\\strings\\key-value\\key-value-strings-utf8.txt\". For example, language ID 22322 is \"No wonder thou wert victorious! I shalt abdicate.\"";
 pLanguageId.shortDescription = "The ID assigned to a string (quoted text) stored in one of the language.dll files or string text file.";
 pLanguageId.range = "a valid LanguageId.";
-pLanguageId.relatedParams = [pCode, pNewName, pString, pText];
+pLanguageId.relatedParams = [pString, pDefconst];
 
-//Limit
-pLimit.description = "A GoalId to store the victory limit. Stores 10 * the remaining game years for time victory, the target amount for score victory, or -1 if invalid.";
-pLimit.shortDescription = "A GoalId to store the victory limit.";
-pLimit.range = "A valid GoalId, which can range from 1 to 512.";
-pLimit.relatedParams = [pFactId, pGuardState, pType, pVictory];
+// //Limit
+// pLimit.description = "A GoalId to store the victory limit. Stores 10 * the remaining game years for time victory, the target amount for score victory, or -1 if invalid.";
+// pLimit.shortDescription = "A GoalId to store the victory limit.";
+// pLimit.range = "A valid GoalId, which can range from 1 to 512.";
+// pLimit.relatedParams = [pFactId, pGuardState, pType, pVictoryCondition];
 
 //LocalIndex
 pLocalIndex.description = "Set to 1 to clear the offset into the list of local objects to search. Explanation: The local list only contains units found for the current player. Whenever you find something with search-local, it'll be removed from searchable local object list and added to found local object list. Setting LocalIndex to 1 would clear searchable local object list and allow finding same objects again.";
@@ -18835,7 +18813,7 @@ pMapSize.valueList = [ {
 pMapType.description = "The map the game is being played on.";
 pMapType.shortDescription = "The map the game is being played on.";
 pMapType.range = "-1, 9 to 23, or 25 to 44.";
-pMapType.relatedParams = [pExtension, pGameType, pMapSize, pOnMainland, pTerrain];
+pMapType.relatedParams = [pGameType, pMapSize, pOnMainland, pTerrain];
 pMapType.valueList = [ {
 	name: "scenario-map",
 	id: -1,
@@ -18986,43 +18964,37 @@ pMapType.valueList = [ {
 pMaxDistance.description = "The maximum acceptable distance from the point specified by " + cUpSetTargetPoint.getLink() + ". If set to -1, no maximum distance for the filter is set.";
 pMaxDistance.shortDescription = "The maximum acceptable distance from the target-point.";
 pMaxDistance.range = "-1 to 32767.";
-pMaxDistance.relatedParams = [pDistance, pMinDistance];
+pMaxDistance.relatedParams = [pMinDistance];
 
 //MaxGarrison
 pMaxGarrison.description = "The maximum acceptable value for objects garrisoned. If set to -1, no maximum garrison amount is set.";
 pMaxGarrison.shortDescription = "The maximum acceptable value for objects garrisoned.";
 pMaxGarrison.range = "-1 to 32767.";
-pMaxGarrison.relatedParams = [pMinGarrison, pState];
+pMaxGarrison.relatedParams = [pMinGarrison];
 
 //MinDistance
 pMinDistance.description = "The minimum acceptable distance from the point specified by " + cUpSetTargetPoint.getLink() + ". If set to -1, no minimum distance for the filter is set.";
 pMinDistance.shortDescription = "The minimum acceptable distance from the target-point.";
 pMinDistance.range = "-1 to 32767.";
-pMinDistance.relatedParams = [pDistance, pMaxDistance];
+pMinDistance.relatedParams = [pMaxDistance];
 
 //MinGarrison
 pMinGarrison.description = "The minimum acceptable value for objects garrisoned. If set to -1, no minimum garrison amount is set.";
 pMinGarrison.shortDescription = "The minimum acceptable value for objects garrisoned.";
 pMinGarrison.range = "-1 to 32767.";
-pMinGarrison.relatedParams = [pMaxGarrison, pState];
+pMinGarrison.relatedParams = [pMaxGarrison];
 
-//Mode
-pMode.description = "The reset method. Restore default priorities with 0. For defensive priorities, setting Mode to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.";
-pMode.shortDescription = "The reset method for offensive or defensive prioirities.";
-pMode.range = "0 or 1.";
-pMode.relatedParams = [pPriorityType];
-
-//NewName
-pNewName.description = "A string (quoted text) containing the new name for the AI.";
-pNewName.shortDescription = "A string (quoted text) containing the new name for the AI.";
-pNewName.range = "A string (quoted text), no longer than 24 characters.";
-pNewName.relatedParams = [pCode, pLanguageId, pString, pText];
+// //NewName
+// pNewName.description = "A string (quoted text) containing the new name for the AI.";
+// pNewName.shortDescription = "A string (quoted text) containing the new name for the AI.";
+// pNewName.range = "A string (quoted text), no longer than 24 characters.";
+// pNewName.relatedParams = [pCode, pLanguageId, pString, pDefconst];
 
 //ObjectData
 pObjectData.description = "Data information about an object.</p><p><strong>Important Note:</strong> some object data is not available for units marching in formation when using " + cUpGetObjectData.getLink() + " or " + cUpObjectData.getLink() + ": object-data-action, object-data-order, object-data-target, and object-data-target-id.";
 pObjectData.shortDescription = "Data information about an object.";
 pObjectData.range = "-1 to 84.";
-pObjectData.relatedParams = [pActionId, pData, pFactId, pOrderId, pProgressType];
+pObjectData.relatedParams = [pActionId, pFactId, pOrderId, pProgressType];
 pObjectData.valueList = [ {
 	name: "object-data-index",
 	id: -1,
@@ -19437,11 +19409,11 @@ pObjectStatus.valueList = [ {
 	description: "Dead animals carrying food, fish."
 } ];
 
-//On
-pOn.description = "Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.";
-pOn.shortDescription = "Controls whether the flag is set.";
-pOn.range = "0 or 1.";
-pOn.relatedParams = [pFlag];
+// //On
+// pOn.description = "Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.";
+// pOn.shortDescription = "Controls whether the flag is set.";
+// pOn.range = "0 or 1.";
+// pOn.relatedParams = [pFlag];
 
 //OnMainland
 pOnMainland.description = "If set to 1, select only objects on the mainland, the land that the AI started on. If set to 0, select those not on the mainland. If set to -1, this parameter will be ignored.";
@@ -19449,11 +19421,23 @@ pOnMainland.shortDescription = "If set to 1, select only objects on the mainland
 pOnMainland.range = " -1, 0, or 1.";
 pOnMainland.relatedParams = [pMapType];
 
+//Option
+pOption.description = "A value that determines different ways the command will work. Here is a list:</p><ul><li>" + cUpBoundPrecisePoint.getLink() + ": If set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.</li><li>" + cUpGatherInside.getLink() + ": If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0 all units will be released as usual.</li><li>" + cUpGetPathDistance.getLink() + " and " + cUpPathDistance.getLink() + ": Set to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.</li><li>" + cUpGetPreciseTime.getLink() + ": Determines whether a system timestamp or elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp.</li><li>" + cUpGetUpgradeId.getLink() + ": Set to 1 to get the current type id for counting, otherwise 0.</li><li>" + cUpLogData.getLink() + ": Set to 1 in order to write plain text to the log.</li><li>" + cUpModifyGroupFlag.getLink() + ": Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.</li><li>" + cUpResetBuilding.getLink() + ": If set to 1, buildings performing research will not be affected when the building is reset.</li><li>" + cUpResetTargetPriorities.getLink() + ": The reset method. Restore default priorities with 0. For defensive priorities, setting Option to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</li><li>" + cUpSetupCostData.getLink() + ": If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.</li><li>" + cUpStoreMapName.getLink() + ": If set to 1, the map name will be stored with the file extension in the name. If set to 0, the map name will be stored without the file extension in the name.</li><li>" + cUpTargetObjects.getLink() + ": Set to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.</li></ul>";
+pOption.shortDescription = "A value that determines different ways the command will work.";
+pOption.range = "varies";
+pOption.relatedParams = [pOptionGoalId];
+
+//OptionGoalId
+pOptionGoalId.description = "A goal ID, whose values controls how a command works. Here's how it affects each command:</p><ul><li>" + cUpGetPreciseTime.getLink() + ": The OptionGoalId parameter determines whether a system timestamp is retrieved or the elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0 for the OptionGoalId parameter. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp.</li><li>" + cFeBreakPoint.getLink() + ": a goal ID to control whether the debugger is used, or -1 to always allow the debugger to be used. If the goal <= 0 the debugger is disabled. If the goal >= 1 the debugger is enabled.</li></ul>";
+pOptionGoalId.shortDescription = "A goal ID that controls how a command works.";
+pOptionGoalId.range = "a goal ID to control how the command works";
+pOptionGoalId.relatedParams = [pEscrowGoalId, pGoalId, pOption];
+
 //OrderId
 pOrderId.description = "The current order for the object. Sometimes an object can have more than one current order, such as a villager having the actions orderid-hunt and orderid-gather.";
 pOrderId.shortDescription = "The current order for the object.";
 pOrderId.range = "-1, 700 to 799.";
-pOrderId.relatedParams = [pActionId, pGroupType, pIdleType, pObjectData, pTargetAction];
+pOrderId.relatedParams = [pActionId, pGroupType, pIdleType, pObjectData, pDUCAction];
 pOrderId.valueList = [ {
 	name: "-1",
 	id: -1,
@@ -19552,23 +19536,23 @@ pOrderId.valueList = [ {
 	description: "The object is ordered with picking up a relic."
 } ];
 
-//Param
-pParam.description = "A parameter for the fact. This often matches the first parameter in a fact command, but if the " + pFactId.getLink() + "can be used with any player number, then this is usually a valid " + pParam.getLink() + " instead.";
-pParam.shortDescription = "A parameter for the fact.";
-pParam.range = "An appropriate parameter for the fact, or 0 if not required.";
-pParam.relatedParams = [pFactId];
+//OutputGoalId
+pOutputGoalId.shortDescription = "A goal to store the data output of a command.";
+pOutputGoalId.description = "A goal to store the data output of a command. For " + cUpGetCostDelta.getLink() + ", " + cUpGetGuardState.getLink() + ", and " + cUpGetSearchState.getLink() + " only, this goal is the first of four consecutive goals that will store the data output, and only goal IDs 41 through 508 can be used with the OutputGoalId parameter.";
+pOutputGoalId.range = "a valid GoalId, max range of GoalId is 1 to 512.";
+pOutputGoalId.relatedParams = [pGoalId];
 
 //Percent
-pPercent.description = "The percent between the two points to select.";
-pPercent.shortDescription = "The percent between the two points to select.";
+pPercent.description = "A percentage, i.e. a decimal multiplied by 100";
+pPercent.shortDescription = "A percentage, i.e. a decimal multiplied by 100";
 pPercent.range = "-32768 to 32767.";
-pPercent.relatedParams = [pDistance, pPoint, pTiles];
+pPercent.relatedParams = [pPoint, pValue];
 
 //Perimeter
 pPerimeter.description = "The distance to build a wall around the town. Allowed values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
 pPerimeter.shortDescription = "The distance to build a wall around the town.";
 pPerimeter.range = "1 or 2.";
-pPerimeter.relatedParams = [pDistance, pWallId];
+pPerimeter.relatedParams = [pWallId];
 
 //PlacementType
 pPlacementType.description = "The type of building placement. Execute " + cUpSetPlacementData.getLink() + " before using place-control.";
@@ -19592,23 +19576,148 @@ pPlacementType.valueList = [ {
 	description: "Allows placement for a building at the point specified by " + cUpSetTargetPoint.getLink() + ". Building placement with place-point is affected by " + snPlacementZoneSize.getLink() + ", but it is not affected by " + cUpSetPlacementData.getLink() + ", " + snPlacementFailDelta.getLink() + ", or " + snPlacementToCenter.getLink() + "."
 } ];
 
-//Plain
-pPlain.description = "Set Plain to 1 in order to write plain text to the log. Otherwise, text will be formatted. You must close the game in order to open aoelog.txt, which is located in the game folder. Please consider game performance when writing data.";
-pPlain.shortDescription = "Set Plain to 1 in order to write plain text to the log."
-pPlain.range = "0 or 1."
-pPlain.relatedParams = [pFormattedString, pString];
+// //Plain
+// pPlain.description = "Set Plain to 1 in order to write plain text to the log. Otherwise, text will be formatted. You must close the game in order to open aoelog.txt, which is located in the game folder. Please consider game performance when writing data.";
+// pPlain.shortDescription = "Set Plain to 1 in order to write plain text to the log."
+// pPlain.range = "0 or 1."
+// pPlain.relatedParams = [pString];
 
-//PlayerId
-pPlayerId.description = "A goal to store the returned player number.";
-pPlayerId.shortDescription = "A goal to store the returned player number.";
-pPlayerId.range = "0 to 8.";
-pPlayerId.relatedParams = [pAllyPlayer, pAnyPlayer, pColorId, pComputerAllyPlayer, pFindPlayerMethod];
+// //PlayerId
+// pPlayerId.description = "A goal to store the returned player number.";
+// pPlayerId.shortDescription = "A goal to store the returned player number.";
+// pPlayerId.range = "0 to 8.";
+// pPlayerId.relatedParams = [pColorId, pFindPlayerMethod, pPlayerNumber];
+
+//PlayerNumber
+pPlayerNumber.description = "A valid player number. Not all commands can use every single option listed in the Range section below. Look at the command's details page to confirm which options are available."
+pPlayerNumber.shortDescription = "A valid player number.";
+pPlayerNumber.range = "Valid player IDs can be the following:</p>" +
+	"<ul><li>0: Gaia.</li>" +
+	"<li>1-8: The player's player number slot (not player color number).</li>" +
+	"<li>my-player-number: retrieves the player number for self.</li>" +
+	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ".</li>" +
+	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ".</li>" +
+	"<li>lobby-player-#: where # is the player number according to the number assigned to the player's color (1 = blue, 2 = red, etc.)</li>" +
+	"<li>scenario-player-#: where # is the player number according to the player slot</li>" +
+	"<li>Any wildcard parameter below:</li>" +
+	"<li>Any rule variable below, if the command supports it:</li></ul>";
+pPlayerNumber.relatedParams = [pColorId, pThreatPlayer, pVictoryPlayer];
+pPlayerNumber.wildcardParam = [ {
+	name: "any-ally",
+	id: -101,
+	description: "Any allied player."
+}, {
+	name: "any-computer",
+	id: -102,
+	description: "Any computer player."
+}, {
+	name: "any-computer-ally",
+	id: -103,
+	description: "Any computer ally."
+}, {
+	name: "any-computer-enemy",
+	id: -104,
+	description: "Any computer enemy."
+}, {
+	name: "any-computer-neutral",
+	id: -105,
+	description: "Any neutral computer player."
+}, {
+	name: "any-enemy",
+	id: -106,
+	description: "Any enemy player."
+}, {
+	name: "any-human",
+	id: -107,
+	description: "Any human player."
+}, {
+	name: "any-human-ally",
+	id: -108,
+	description: "Any human ally."
+}, {
+	name: "any-human-enemy",
+	id: -109,
+	description: "Any human enemy."
+}, {
+	name: "any-human-neutral",
+	id: -110,
+	description: "Any neutral human player."
+}, {
+	name: "any-neutral",
+	id: -111,
+	description: "Any neutral player."
+}, {
+	name: "every-ally",
+	id: -201,
+	description: "Every allied player."
+}, {
+	name: "every-computer",
+	id: -202,
+	description: "Every computer player."
+}, {
+	name: "every-enemy",
+	id: -203,
+	description: "Every enemy player."
+}, {
+	name: "every-human",
+	id: -204,
+	description: "Every human player."
+}, {
+	name: "every-neutral",
+	id: -205,
+	description: "Every neutral player."
+} ];
+pPlayerNumber.ruleVariables = [ {
+	name: "this-any-ally",
+	id: 101,
+	description: "The player number successfully found during a search for any-ally earlier in the rule."
+}, {
+	name: "this-any-computer",
+	id: 102,
+	description: "The player number successfully found during a search for any-computer earlier in the rule."
+}, {
+	name: "this-any-computer-ally",
+	id: 103,
+	description: "The player number successfully found during a search for any-computer-ally earlier in the rule."
+}, {
+	name: "this-any-computer-enemy",
+	id: 104,
+	description: "The player number successfully found during a search for any-computer-enemy earlier in the rule."
+}, {
+	name: "this-any-computer-neutral",
+	id: 105,
+	description: "The player number successfully found during a search for any-computer-neutral earlier in the rule."
+}, {
+	name: "this-any-enemy",
+	id: 106,
+	description: "The player number successfully found during a search for any-enemy earlier in the rule."
+}, {
+	name: "this-any-human",
+	id: 107,
+	description: "The player number successfully found during a search for any-human earlier in the rule."
+}, {
+	name: "this-any-human-ally",
+	id: 108,
+	description: "The player number successfully found during a search for any-human-ally earlier in the rule."
+}, {
+	name: "this-any-human-enemy",
+	id: 109,
+	description: "The player number successfully found during a search for any-human-enemy earlier in the rule."
+}, {
+	name: "this-any-human-neutral",
+	id: 110,
+	description: "The player number successfully found during a search for any-human-neutral earlier in the rule."
+}, {
+	name: "this-any-neutral",
+	id: 111,
+	description: "The player number successfully found during a search for any-any-neutral earlier in the rule."
+} ];
 
 //PlayerStance
-pPlayerStance.description = "A player's diplomatic stance. This parameter is different from " + pESPlayerStance.getLink() + " because it includes the option for \"Any\" stance.";
+pPlayerStance.description = "A diplomatic stance, including ally, neutral, and enemy. Some UP commands also allow you to specify \"any\" stance instead of one of the three particular stances.";
 pPlayerStance.shortDescription = "A player's diplomatic stance.";
 pPlayerStance.range = "0 to 3.";
-pPlayerStance.relatedParams = [pESPlayerStance];
+pPlayerStance.relatedParams = [pPlayerStance];
 pPlayerStance.valueList = [ {
 	name: "ally",
 	id: 0,
@@ -19631,13 +19740,13 @@ pPlayerStance.valueList = [ {
 pPoint.description = "The first of 2 consecutive goals to store the x and y coordinates of the point. These goals must be extended goals (goal IDs 41-510), which have a signed 32-bit range (-2,147,483,648 to 2,147,483,647).";
 pPoint.shortDescription = "The first of 2 consecutive goals to store the x and y coordinates of the point.";
 pPoint.range = "41 to 510.";
-pPoint.relatedParams = [pBorder, pDistance, pExploredState, pPercent, pPositionType, pPrecise, pScoutMethod, pStrict, pTiles];
+pPoint.relatedParams = [pPositionType, pScoutMethod];
 
 //PositionType
 pPositionType.description = "The position type, a predefined position that can be stored in a point.";
 pPositionType.shortDescription = "The position type, a predefined position that can be stored in a point.";
 pPositionType.range = "0 to 13.";
-pPositionType.relatedParams = [pBorder, pExploredState, pMapSize, pPoint, pScoutMethod];
+pPositionType.relatedParams = [pMapSize, pPoint, pScoutMethod];
 pPositionType.valueList = [ {
 	name: "position-center",
 	id: 0,
@@ -19696,16 +19805,16 @@ pPositionType.valueList = [ {
 	description: "The location of the target point."
 } ];
 
-//Precise
-pPrecise.description = "Set to 1 to bound as a precise point (x100). Precise locations are accurate to 1/100 of a tile. If Precise is used, the map size will be multiplied by 100 before bounding, so the border should be adjusted accordingly.";
-pPrecise.shortDescription = "Set to 1 to bound as a precise point (x100).";
-pPrecise.range = "0 or 1.";
-pPrecise.relatedParams = [pBorder, pDistance, pPoint];
+// //Precise
+// pPrecise.description = "Set to 1 to bound as a precise point (x100). Precise locations are accurate to 1/100 of a tile. If Precise is used, the map size will be multiplied by 100 before bounding, so the border should be adjusted accordingly.";
+// pPrecise.shortDescription = "Set to 1 to bound as a precise point (x100).";
+// pPrecise.range = "0 or 1.";
+// pPrecise.relatedParams = [pBorder, pDistance, pPoint];
 
-//PreserveResearch
-pPreserveResearch.description = "If set to 1, buildings performing research will not be affected when the building is reset.";
-pPreserveResearch.shortDescription = "If set to 1, buildings performing research will not be affected when the building is reset.";
-pPreserveResearch.range = "0 or 1.";
+// //PreserveResearch
+// pPreserveResearch.description = "If set to 1, buildings performing research will not be affected when the building is reset.";
+// pPreserveResearch.shortDescription = "If set to 1, buildings performing research will not be affected when the building is reset.";
+// pPreserveResearch.range = "0 or 1.";
 
 //ProgressType
 pProgressType.description = "The type of progress being made by a building. This is only used to define values returned by object-data-progress-type. It is not a parameter for any commands.";
@@ -19726,7 +19835,7 @@ pProgressType.valueList = [ {
 pProjectileType.description = "The source of the projectile to check. Note that the actual " + pObjectId.getLink() + " of the projectile does not work.";
 pProjectileType.shortDescription = "The source of the projectile to check.";
 pProjectileType.range = "0 to 7.";
-pProjectileType.relatedParams = [pSourceClass, pTargetClass];
+pProjectileType.relatedParams = [pThreatSource];
 pProjectileType.valueList = [ {
 	name: "projectile-town-center",
 	id: 0,
@@ -19765,7 +19874,7 @@ pProjectileType.valueList = [ {
 pPriorityType.description = "The targeting priority type to modify.";
 pPriorityType.shortDescription = "The targeting priority type to modify.";
 pPriorityType.range = "0 or 1.";
-pPriorityType.relatedParams = [pMode];
+pPriorityType.relatedParams = [];
 pPriorityType.valueList = [ {
 	name: "priority-offense",
 	id: 0,
@@ -19819,16 +19928,16 @@ pResearchState.valueList = [ {
 	description: "DE only. The research has been queued."
 } ];
 
-//ResetCost
-pResetCost.description = "If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.";
-pResetCost.shortDescription = "If set to 1, the values of the provided set of four cost goals will be reset to 0.";
-pResetCost.range = "0 or 1.";
+// //ResetCost
+// pResetCost.description = "If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.";
+// pResetCost.shortDescription = "If set to 1, the values of the provided set of four cost goals will be reset to 0.";
+// pResetCost.range = "0 or 1.";
 
 //Resource
 pResource.description = "A gatherable resource type. Note: using the ClassId is not valid for most (all?) of the 1.0c commands that use this parameter.";
 pResource.shortDescription = "A gatherable resource type.";
 pResource.range = "0 to 3, or the " + pClassId.getLink() + " of the resource.";
-pResource.relatedParams = [pCommodity, pResourceAmount, pStartingResources];
+pResource.relatedParams = [pCommodity, pResourceType, pStartingResources];
 pResource.valueList = [ {
 	name: "food",
 	id: 0,
@@ -19865,11 +19974,11 @@ pResource.valueList = [ {
 
 
 //ResourceAmount
-pResourceAmount.description = "A resource type (not an amount). Some resource types check the resource amount of a specified player number instead of the current player. Note: most of these are not thoroughly tested (by Leif Ericson). Please report your findings. Resources 205 through 210 are used by the post-Conquerors expansions, so they can be used with this parameter, but they aren't defined with UserPatch.";
-pResourceAmount.shortDescription = "A resource type (not an amount). Much more extensive than Resource.";
-pResourceAmount.range = "0 to 224 (with some gaps for unused resources).";
-pResourceAmount.relatedParams = [pCommodity, pFactId, pResource, pStartingResources];
-pResourceAmount.valueList = [ {
+pResourceType.description = "A resource type (not an amount). Some resource types check the resource amount of a specified player number instead of the current player. Note: most of these are not thoroughly tested (by Leif Ericson). Please report your findings. Resources 205 through 210 are used by the post-Conquerors expansions, so they can be used with this parameter, but they aren't defined with UserPatch.";
+pResourceType.shortDescription = "A resource type (not an amount). Much more extensive than Resource.";
+pResourceType.range = "0 to 224 (with some gaps for unused resources).";
+pResourceType.relatedParams = [pCommodity, pFactId, pResource, pStartingResources];
+pResourceType.valueList = [ {
 	name: "amount-food",
 	id: 0,
 	description: "The food stockpile. \"food\" can also be used instead."
@@ -20728,11 +20837,11 @@ pSignalId.shortDescription = "The Id of a scenario trigger signal.";
 pSignalId.range = "0 to 255.";
 pSignalId.relatedParams = [pEventId, pEventType];
 
-//Size
-pSize.description = "A " + pGoalId.getLink() + " that will be used to store the size of the group.";
-pSize.shortDescription = "A GoalId that will be used to store the size of the group.";
-pSize.range = "1 to 512.";
-pSize.relatedParams = [pCount, pGroupId, pGroupType];
+// //Size
+// pSize.description = "A " + pGoalId.getLink() + " that will be used to store the size of the group.";
+// pSize.shortDescription = "A GoalId that will be used to store the size of the group.";
+// pSize.range = "1 to 512.";
+// pSize.relatedParams = [pCount, pGroupId, pGroupType];
 
 //SnId
 pSnId.description = "A strategic number. See <a href=\"" + urlPrefix + "/strategic-numbers/sn-index.html\">Strategic Numbers</a> for a list of usable strategic numbers and their descriptions.";
@@ -20740,23 +20849,23 @@ pSnId.shortDescription = "A valid strategic number.";
 pSnId.range = "0 to 511.";
 pSnId.relatedParams = [pDiffParameterId, pGoalId, pId];
 
-//SourceClass
-pSourceClass.description = "A " + pGoalId.getLink() + " that will be used to store the " + pClassId.getLink() + " of the attacking object.";
-pSourceClass.shortDescription = "A GoalId that will store the ClassId of the attacking object.";
-pSourceClass.range = "1 to 512.";
-pSourceClass.relatedParams = [pClassId, pFindPlayerMethod, pProjectileType, pTargetClass];
+// //SourceClass
+// pSourceClass.description = "A " + pGoalId.getLink() + " that will be used to store the " + pClassId.getLink() + " of the attacking object.";
+// pSourceClass.shortDescription = "A GoalId that will store the ClassId of the attacking object.";
+// pSourceClass.range = "1 to 512.";
+// pSourceClass.relatedParams = [pClassId, pFindPlayerMethod, pProjectileType, pTargetClass];
 
-//Start
-pStart.description = "Determines whether a timestamp or elapsed time is retrieved. To get a timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a timestamp.";
-pStart.shortDescription = "Determines whether a timestamp or elapsed time is retrieved.";
-pStart.range = "0 or a valid goal with range between 1 and 512.";
-pStart.relatedParams = [pElapsedTime, pTime];
+// //Start
+// pStart.description = "Determines whether a timestamp or elapsed time is retrieved. To get a timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a timestamp.";
+// pStart.shortDescription = "Determines whether a timestamp or elapsed time is retrieved.";
+// pStart.range = "0 or a valid goal with range between 1 and 512.";
+// pStart.relatedParams = [pElapsedTime, pTime];
 
 //StartingResources
 pStartingResources.description = "The starting resources level of the game.";
 pStartingResources.shortDescription = "The starting resources level of the game.";
 pStartingResources.range = "1 to 3.";
-pStartingResources.relatedParams = [pResource, pResourceAmount];
+pStartingResources.relatedParams = [pResource, pResourceType];
 pStartingResources.valueList = [ {
 	name: "low-resources",
 	id: 1,
@@ -20783,126 +20892,35 @@ pStartingResources.valueList = [ {
 	description: "Start with random amounts of each resource. DE only."
 } ];
 
-//State
-pState.description = "If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, all units will be released as usual.";
-pState.shortDescription = "If set to 1, both trained and garrisoned units will be held inside the building.";
-pState.range = "-1, 0, or 1.";
-pState.relatedParams = [pMaxGarrison, pMinGarrison];
+// //State
+// pState.description = "If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, all units will be released as usual.";
+// pState.shortDescription = "If set to 1, both trained and garrisoned units will be held inside the building.";
+// pState.range = "-1, 0, or 1.";
+// pState.relatedParams = [pMaxGarrison, pMinGarrison];
 
-//Strict
-pStrict.description = "Set to 1 to require an open destination tile or 0 to allow for a few tiles of separation.";
-pStrict.shortDescription = "Set to 1 to require an open destination tile or 0 to allow for a few tiles of separation.";
-pStrict.range = "0 or 1.";
-pStrict.relatedParams = [pDistance, pPoint];
+// //Strict
+// pStrict.description = "Set to 1 to require an open destination tile or 0 to allow for a few tiles of separation.";
+// pStrict.shortDescription = "Set to 1 to require an open destination tile or 0 to allow for a few tiles of separation.";
+// pStrict.range = "0 or 1.";
+// pStrict.relatedParams = [pDistance, pPoint];
 
 //String
-pString.description = "Text inside double quotes. Used in chat messages.";
+pString.description = "Text inside double quotes. Used in chat messages. With some UP commands you can use %d or %s once in the message as a placeholder for a part of the chat message that should be replaced by a specified piece of data.";
 pString.shortDescription = "Text inside double quotes. Used in chat messages.";
 pString.range = "A string (quoted text).";
-pString.relatedParams = [pCode, pExtension, pFormattedString, pLanguageId, pNewName, pPlain, pText];
+pString.relatedParams = [pDefconst, pLanguageId];
 
-//Target
-pTarget.description = "Set to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.";
-pTarget.shortDescription = "Set to 1 to target only the object set by up-set-target-object.";
-pTarget.range = "0 or 1.";
-pTarget.relatedParams = [pTargetAction];
+// //Target
+// pTarget.description = "Set to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.";
+// pTarget.shortDescription = "Set to 1 to target only the object set by up-set-target-object.";
+// pTarget.range = "0 or 1.";
+// pTarget.relatedParams = [pDUCAction];
 
-//TargetAction
-pTargetAction.description = "The action to perform with the selected units. Some TargetActions cannot be taken with " + cUpTargetObjects.getLink() + ".";
-pTargetAction.shortDescription = "The action to perform with the selected units."
-pTargetAction.range = "0 to 18.";
-pTargetAction.relatedParams = [pActionId, pOrderId, pTarget];
-pTargetAction.valueList = [ {
-	name: "action-default",
-	id: 0,
-	description: "Equivalent of a right-click for all objects in the local list on the point or target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
-}, {
-	name: "action-move",
-	id: 1,
-	description: "Units in the local list will move to the point or the location of the target object(s)."
-}, {
-	name: "action-patrol",
-	id: 2,
-	description: "Units in the local list will patrol to the point or the location of the target object(s)."
-}, {
-	name: "action-guard",
-	id: 3,
-	description: "Units in the local list will guard the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
-}, {
-	name: "action-follow",
-	id: 4,
-	description: "Units in the local list will follow the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
-}, {
-	name: "action-stop",
-	id: 5,
-	description: "Objects in the local list will stop their current action."
-}, {
-	name: "action-ground",
-	id: 6,
-	description: "Units in the local list will attack ground at the point or against the target object(s)."
-}, {
-	name: "action-garrison",
-	id: 7,
-	description: "Units in the local list will garrison inside the target object(s). For " + cUpTargetPoint.getLink() + " this is the same as action-move."
-}, {
-	name: "action-delete",
-	id: 8,
-	description: "Deletable objects in the local list will be deleted."
-}, {
-	name: "action-unload",
-	id: 9,
-	description: "Buildings in the local list will ungarrison to the target point. Siege (class 913) in the local list will eject in place. Transport ships in the local list will unload at the target point. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-train",
-	id: 10,
-	description: "Buildings in the local list will train units. To train units, use this syntax: (" + cUpTargetPoint.getLink() + " inGoal" + pEscrowState.getLink() + " action-train " + pTypeOp.getLink() + " inOp" + pTypeId.getLink() + "). Example: (up-target-point 0 action-train c: spearman-line). For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-gather",
-	id: 11,
-	description: "Buildings in the local list will set their gathering point at the target point or at the location of the target object(s)."
-}, {
-	name: "action-lock",
-	id: 12,
-	description: "Gates in the local list will toggle their locked state. If they are locked, they will unlock. If they are unlocked, they will lock. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-work",
-	id: 13,
-	description: "Buildings in the local list will send garrisoned villagers back to work. Same as clicking the Send Back to Work button. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-ungarrison",
-	id: 14,
-	description: "Units in the local list will be ungarrisoned from the building they are garrisoned inside. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-drop-relic",
-	id: 15,
-	description: "Monastery units in the local list will drop any relics they are carrying. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-pack",
-	id: 16,
-	description: "Trebuchets in the local list will pack. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-unpack",
-	id: 17,
-	description: "Trebuchets in the local list will unpack. For " + cUpTargetObjects.getLink() + " this is the same as action-none."
-}, {
-	name: "action-none",
-	id: 18,
-	description: "The current actions of the objects in the local list will not change."
-}, {
-	name: "action-attack-move",
-	id: 19,
-	description: "Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
-}, {
-	name: "action-transform",
-	id: 20,
-	description: "Only available in DE. Rathas in the local list will switch between melee and ranged mode."
-} ];
-
-//TargetClass
-pTargetClass.description = "A goal that stores the " + pClassId.getLink() + " of the target of the attack.";
-pTargetClass.shortDescription = "A goal that stores the ClassId of the target of the attack.";
-pTargetClass.range = "A " + pGoalId.getLink() + ". This can range from 1 to 512.";
-pTargetClass.relatedParams = [pClassId, pProjectileType, pSourceClass];
+// //TargetClass
+// pTargetClass.description = "A goal that stores the " + pClassId.getLink() + " of the target of the attack.";
+// pTargetClass.shortDescription = "A goal that stores the ClassId of the target of the attack.";
+// pTargetClass.range = "A " + pGoalId.getLink() + ". This can range from 1 to 512.";
+// pTargetClass.relatedParams = [pClassId, pProjectileType, pSourceClass];
 
 //TauntId
 pTauntId.description = "A valid taunt ID. Only taunts 1-42 will send an audio version of the taunt, but all taunts within the range below can be sent and detected by AIs.";
@@ -21090,35 +21108,47 @@ pTerrain.valueList = [ {
 	description: "Unknown terrain. Replaced with Acacia Forest."
 } ];
 
-//Text
-pText.description = "The defconst ID where a string (quoted text) is stored. You cannot input a string directly.";
-pText.shortDescription = "The defconst ID where a string (quoted text) is stored.";
-pText.range = "A text defconst.";
-pText.relatedParams = [pCode, pExtension, pFormattedString, pLanguageId, pNewName, pString];
+//ThreatPlayer
+pThreatPlayer.shortDescription = "Stores the enemy player who triggered the most recent attack threat event.";
+pThreatPlayer.description = "Stores the enemy player who triggered the most recent attack threat event.";
+pThreatPlayer.range = "A goal ID between 1 and 512 to store the player number.";
+pThreatPlayer.relatedParams = [pThreatSource, pThreatTarget, pThreatTime];
 
-//Tiles
-pTiles.description = "The number of tiles to move along the vector.";
-pTiles.shortDescription = "The number of tiles to move along the vector.";
-pTiles.range = "-32768 to 32767.";
-pTiles.relatedParams = [pBorder, pDistance, pPercent, pPoint];
+//ThreatSource
+pThreatSource.shortDescription = "Stores the class of the enemy object that triggered the most recent attack threat event.";
+pThreatSource.description = "Stores the class of the enemy object that triggered the most recent attack threat event.";
+pThreatSource.range = "A goal ID between 1 and 512 to store the source class.";
+pThreatSource.relatedParams = [pThreatPlayer, pThreatTarget, pThreatTime];
 
-//Time
-pTime.description = "A " + pGoalId.getLink() + " to store the time information.";
-pTime.shortDescription = "A GoalId to store the time information.";
-pTime.range = "A " + pGoalId.getLink() + ".";
-pTime.relatedParams = [pElapsedTime, pStart];
+//ThreatTarget
+pThreatTarget.shortDescription = "Stores the class of the object that the enemy attacked in the most recent attack threat event.";
+pThreatTarget.description = "Stores the class of the object that the enemy attacked in the most recent attack threat event.";
+pThreatTarget.range = "A goal ID between 1 and 512 to store the elapsed time.";
+pThreatTarget.relatedParams = [pThreatPlayer, pThreatSource, pThreatTime];
+
+//ThreatTime
+pThreatTime.shortDescription = "Stores the elapsed time in milliseconds since the most recent attack threat event.";
+pThreatTime.description = "Stores the elapsed time in milliseconds since the most recent attack threat event.";
+pThreatTime.range = "A goal ID between 1 and 512 to store the elapsed time.";
+pThreatTime.relatedParams = [pThreatPlayer, pThreatSource, pThreatTarget];
+
+// //Tiles
+// pTiles.description = "The number of tiles to move along the vector.";
+// pTiles.shortDescription = "The number of tiles to move along the vector.";
+// pTiles.range = "-32768 to 32767.";
+// pTiles.relatedParams = [pBorder, pPercent, pPoint];
 
 //TimerId
 pTimerId.description = "The ID of a timer or a defconst representing a timer.";
 pTimerId.shortDescription = "The ID of a timer or a defconst representing a timer.";
 pTimerId.range = "1 to 50.";
-pTimerId.relatedParams = [pElapsedTime, pTimerState];
+pTimerId.relatedParams = [pTimerState];
 
 //TimerState
 pTimerState.description = "The current state of a timer.";
 pTimerState.shortDescription = "The current state of a timer.";
 pTimerState.range = "0 to 2.";
-pTimerState.relatedParams = [pElapsedTime, pTimerId]
+pTimerState.relatedParams = [pTimerId]
 pTimerState.valueList = [ {
 	name: "timer-disabled",
 	id: 0,
@@ -21132,12 +21162,6 @@ pTimerState.valueList = [ {
 	id: 2,
 	description: "The timer has been set, but it hasn't been triggered yet."
 } ];
-
-//Type
-pType.description = "A " + pGoalId.getLink() + " that stores the type of victory approaching. Stores one of the following: relic, wonder, monument, or 0 if invalid.";
-pType.shortDescription = "A GoalId that stores the type of victory approaching.";
-pType.range = "A " + pGoalId.getLink() + ". These range from 1 to 512.";
-pType.relatedParams = [pGameType, pGuardState, pLimit, pVictory];
 
 //TypeId
 pTypeId.description = "The type of object. This can be either the object name or an object line ID. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of object names and object line wildcard parameters.";
@@ -21522,14 +21546,14 @@ pUpgradeId.relatedParams = [pBuildingId, pObjectId, pTypeId, pUpgradeId];
 pValue.description = "An integer value. Used for many different purposes.";
 pValue.shortDescription = "An integer value. Used for many different purposes.";
 pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for goals and extended strategic numbers (SNs 242-511) have a 32-bit signed integer range instead (-2,147,483,648 to 2,147,483,647).";
-pValue.relatedParams = [pCount];
+pValue.relatedParams = [pPercent];
 
-//Victory
-pVictory.description = "A victory condition.";
-pVictory.shortDescription = "A victory condition.";
-pVictory.range = "0 to 4.";
-pVictory.relatedParams = [pGameType, pGuardState, pLimit, pType];
-pVictory.valueList = [ {
+//VictoryCondition
+pVictoryCondition.description = "A victory condition.";
+pVictoryCondition.shortDescription = "A victory condition.";
+pVictoryCondition.range = "0 to 4.";
+pVictoryCondition.relatedParams = [pGameType, pVictoryPlayer, pVictoryTime, pVictoryType];
+pVictoryCondition.valueList = [ {
 	name: "standard",
 	id: 0,
 	description: "Standard victory. Team wins by defeating all enemies, capturing all relics, or defending a wonder."
@@ -21550,6 +21574,24 @@ pVictory.valueList = [ {
 	id: 4,
 	description: "Custom victory. Either Relic victory from random map game menu (like Standard but without wonder victory) or a scenario is being played that has the Custom option selected in the scenario's Global Victory section."
 } ];
+
+//VictoryPlayer
+pVictoryPlayer.description = "A " + pGoalId.getLink() + " to store the player number of the player approaching victory, or 0 if invalid.";
+pVictoryPlayer.shortDescription = "A GoalId to store the player number of the player approaching victory, or 0 if invalid.";
+pVictoryPlayer.range = "A " + pGoalId.getLink() + ".";
+pVictoryPlayer.relatedParams = [pVictoryCondition, pVictoryTime, pVictoryType];
+
+//VictoryTime
+pVictoryTime.description = "A " + pGoalId.getLink() + " to store the time remaining until victory. The stored value is 10 * the number of game years remaining until victory from relics, wonders, or captured monuments.";
+pVictoryTime.shortDescription = "A GoalId to store the time remaining until victory.";
+pVictoryTime.range = "A " + pGoalId.getLink() + ".";
+pVictoryTime.relatedParams = [pVictoryCondition, pVictoryPlayer, pVictoryType];
+
+//VictoryType
+pVictoryType.description = "A " + pGoalId.getLink() + " that stores the type of victory approaching. Stores one of the following: relic, wonder, monument, or 0 if invalid.";
+pVictoryType.shortDescription = "A GoalId that stores the type of victory approaching.";
+pVictoryType.range = "A " + pGoalId.getLink() + ". These range from 1 to 512.";
+pVictoryType.relatedParams = [pGameType, pVictoryCondition, pVictoryPlayer, pVictoryTime];
 
 //WallId
 pWallId.description = "The " + pBuildingId.getLink() + " of a wall type."

@@ -23,15 +23,8 @@
 			<strong>Active:</strong> indicates whether the strategic number has an impact on AI behavior and/or is modifiable by other SNs. Obsolete means that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. Conditional means that the strategic number can be considered available to be used like an obsolete SN in certain settings.
 		</p>
 		<p>
-			<label for="snInput" class="sn-input-label">Search</label>
-			<label for="sn-category" class="dropdown-label">Category</label>
-			<label for="sn-effective" class="dropdown-label">Effective</label>
-			<label for="sn-network" class="dropdown-label">Network</label>
-			<label for="sn-defined" class="dropdown-label">Defined</label>
-			<label for="sn-active" class="dropdown-label">Active</label>
-			<label for="sn-version" class="dropdown-label">Version Introduced</label>
-			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off" autofocus="autofocus">
-			<select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
+			<label for="snInput" class="sn-input-label">Search</label><label for="sn-category" class="dropdown-label">Category</label><label for="sn-effective" class="dropdown-label">Effective</label><label for="sn-network" class="dropdown-label">Network</label><label for="sn-defined" class="dropdown-label">Defined</label><label for="sn-active" class="dropdown-label">Active</label><label for="sn-version" class="dropdown-label">Version Introduced</label>
+			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off" autofocus="autofocus"><select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
 				<option value="All" selected>All</option>
 				<option value="AoE 1">AoE 1</option>
 				<option value="Attack">Attack</option>
@@ -41,29 +34,24 @@
 				<option value="Water">Water</option>
 				<option value="Other">Other</option>
 				<option value="None">None</option>
-			</select>
-			<select id="sn-effective" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Effective">
+			</select><select id="sn-effective" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Effective">
 				<option value="All" selected>All</option>
 				<option value="1">Yes</option>
 				<option value="0">No</option>
-			</select>
-			<select id="sn-network" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Network">
+			</select><select id="sn-network" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Network">
 				<option value="All" selected>All</option>
 				<option value="Network">Network</option>
 				<option value="Standard">Standard</option>
-			</select>
-			<select id="sn-defined" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Defined">
+			</select><select id="sn-defined" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Defined">
 				<option value="All" selected>All</option>
 				<option value="Defined">Defined</option>
 				<option value="Undefined">Undefined</option>
-			</select>
-			<select id="sn-active" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Active">
+			</select><select id="sn-active" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Active">
 				<option value="All" selected>All</option>
 				<option value="Active">Active</option>
 				<option value="Conditional">Conditional</option>
 				<option value="Obsolete">Obsolete</option>
-			</select>
-			<select id="sn-version" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Game Version">
+			</select><select id="sn-version" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="1.0c">1.0c</option>
 				<option value="UP">UP</option>

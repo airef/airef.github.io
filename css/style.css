@@ -279,9 +279,18 @@ code {
 	line-height: 1.5;
 }
 
-#parametersInput, #valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
-	width: 76%; 
-	font-size: 14px; /* Increase font-size */
+#parametersInput {
+	width: 88%; 
+	font-size: 13px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#valueListInput, #wildcardParamInput, #searchInput, #patchNotesInput {
+	width: 78%; 
+	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
 	margin-bottom: 12px; /* Add some space below the input */
@@ -289,28 +298,35 @@ code {
 }
 
 .input-label { 
-	width: 76%;
+	width: 78%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.parameters-input-label { 
+	width: 88%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .sn-input-label{
-	width: 36%;
+	width: 38%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .techs-input-label {
-	width: 66%;
+	width: 68%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
 }
 
 .commands-input-label, .objects-input-label, .patch-notes-input-label {
-	width: 56%;
+	width: 58%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
@@ -324,12 +340,17 @@ code {
 }
 
 label {
-	text-indent: 5px;
+	font-size: 8pt;
+}
+
+label, input, select {
+	text-indent: 1px;
+	margin-right: 0.2%;
 }
 
 #snInput {
-	width: 36%; 
-	font-size: 14px; /* Increase font-size */
+	width: 38%; 
+	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
 	margin-bottom: 12px; /* Add some space below the input */
@@ -337,8 +358,8 @@ label {
 }
 
 #techsInput {
-	width: 66%; 
-	font-size: 14px; /* Increase font-size */
+	width: 68%; 
+	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
 	margin-bottom: 12px; /* Add some space below the input */
@@ -346,8 +367,8 @@ label {
 }
 
 #commandsInput, #objectsInput, #patchNotesInput {
-	width: 56%; 
-	font-size: 14px; /* Increase font-size */
+	width: 58%; 
+	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
 	margin-bottom: 12px; /* Add some space below the input */
@@ -356,7 +377,7 @@ label {
 
 .drop-filter {
 	width: 10%;
-	font-size: 14px;
+	font-size: 13px;
 	padding: 10px 0;
 	border: 1px solid #ddd;
 	margin-bottom: 12px;

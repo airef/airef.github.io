@@ -18,12 +18,8 @@
 		<h2>Technologies</h2>
 		<p><strong>Legend:</strong> Technologies with unexpected AI names are marked in <span class="weird-tech-name">yellow</span>. Technologies only defined in DE are marked in <span class="de-tech-name">green</span>.</p>
 		<p>
-			<label for="techsInput" class="techs-input-label">Search</label>
-			<label for="techs-building" class="dropdown-label">Building</label>
-			<label for="techs-age" class="dropdown-label">Age</label>
-			<label for="techs-versions" class="dropdown-label">Version</label>
-			<input type="text" id="techsInput" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off" autofocus="autofocus">
-			<select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
+			<label for="techsInput" class="techs-input-label">Search</label><label for="techs-building" class="dropdown-label">Building</label><label for="techs-age" class="dropdown-label">Age</label><label for="techs-versions" class="dropdown-label">Version</label>
+			<input type="text" id="techsInput" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off" autofocus="autofocus"><select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
 				<option value="All" selected>All</option>
 				<option value="Archery Range">Archery Range</option>
 				<option value="Barracks">Barracks</option>
@@ -39,15 +35,13 @@
 				<option value="Stable">Stable</option>
 				<option value="Town Center">Town Center</option>
 				<option value="University">University</option>
-			</select>
-			<select id="techs-age" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Age">
+			</select><select id="techs-age" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Age">
 				<option value="All" selected>All</option>
 				<option value="Dark">Dark</option>
 				<option value="Feudal">Feudal</option>
 				<option value="Castle">Castle</option>
 				<option value="Imperial">Imperial</option>
-			</select>
-			<select id="techs-version" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Game Version">
+			</select><select id="techs-version" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="AoK">AoK</option>
 				<option value="TC">TC</option>

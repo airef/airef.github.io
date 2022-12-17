@@ -35,6 +35,7 @@
 		var item = window.location.href;
 		var index = item.indexOf("#");
 		item = item.slice(index + 1,item.length + 1);
+		document.title = item;
 		document.getElementById("item-name").innerHTML = item;
 		
 		var info = "";

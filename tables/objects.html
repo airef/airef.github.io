@@ -19,13 +19,8 @@
 		<p>Objects that have different IDs depending on the game version are marked in <span class="multiple-id-object">red</span>. Objects with unexpected AI names are marked in <span class="weird-object-name">yellow</span>. Objects only defined in DE are marked in <span class="de-object-name">green</span>.</p>
 		<p>For more info on what dead units, projectiles, lines, and classes are, click <a href="#info">here</a>.</p>
 		<p>
-			<label for="objectsInput" class="objects-input-label">Search</label>
-			<label for="objects-class" class="dropdown-label">Class</label>
-			<label for="objects-building" class="dropdown-label">Bldg/Category</label>
-			<label for="objects-age" class="dropdown-label">Age</label>
-			<label for="objects-versions" class="dropdown-label">Version</label>
-			<input type="text" id="objectsInput" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus">
-			<select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
+			<label for="objectsInput" class="objects-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><label for="objects-versions" class="dropdown-label">Version</label>
+			<input type="text" id="objectsInput" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
 				<option value="All" selected>All</option>
 				<option value="Archery">Archery</option>
 				<option value="Buildings">Buildings</option>
@@ -66,8 +61,7 @@
 				<option value="Villagers">Villagers</option>
 				<option value="Walls">Walls</option>
 				<option value="Warships">Warships</option>
-			</select>
-			<select id="objects-building" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Building/Category">
+			</select><select id="objects-building" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Building/Category">
 				<option value="All" selected>All</option>
 				<option value="Archery Range">Archery Range</option>
 				<option value="Barracks">Barracks</option>
@@ -84,15 +78,13 @@
 				<option value="Gaia">Gaia</option>
 				<option value="Heroes">Heroes</option>
 				<option value="Other">Other</option>
-			</select>
-			<select id="objects-age" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Age">
+			</select><select id="objects-age" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Age">
 				<option value="All" selected>All</option>
 				<option value="Dark">Dark</option>
 				<option value="Feudal">Feudal</option>
 				<option value="Castle">Castle</option>
 				<option value="Imperial">Imperial</option>
-			</select>
-			<select id="objects-version" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Game Version">
+			</select><select id="objects-version" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="AoK">AoK</option>
 				<option value="TC">TC</option>

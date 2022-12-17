@@ -18,13 +18,8 @@
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
 		<p>
-			<label for="commandsInput" class="commands-input-label">Search</label>
-			<label for="command-category" class="dropdown-label">Category</label>
-			<label for="command-complexity" class="dropdown-label">Complexity</label>
-			<label for="command-type" class="dropdown-label">Type</label>
-			<label for="command-version" class="dropdown-label">Version</label>
-			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off" autofocus="autofocus">
-			<select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Category">
+			<label for="commandsInput" class="commands-input-label">Search</label><label for="command-category" class="dropdown-label">Category</label><label for="command-complexity" class="dropdown-label">Complexity</label><label for="command-type" class="dropdown-label">Type</label><label for="command-version" class="dropdown-label">Version</label>
+			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off" autofocus="autofocus"><select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Category">
 				<option value="All" selected>All</option>
 				<option value="DUC">DUC</option>
 				<option value="DUC Groups">DUC Groups</option>
@@ -55,8 +50,7 @@
 				<option value="Units">Units</option>
 				<option value="Walls & Gates">Walls & Gates</option>
 				<option value="Other">Other</option>
-			</select>
-			<select id="command-complexity" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Complexity">
+			</select><select id="command-complexity" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Complexity">
 				<option value="All" selected>All</option>
 				<option value="Low">Low</option>
 				<option value="Medium">Medium</option>
@@ -67,14 +61,12 @@
 				<option value="Medium to High">Medium to High</option>
 				<option value="Medium to Very High">Medium to Very High</option>
 				<option value="High to Very High">High to Very High</option>
-			</select>
-			<select id="command-type" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Type">
+			</select><select id="command-type" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Type">
 				<option value="All" selected>All</option>
 				<option value="Fact">Fact</option>
 				<option value="Action">Action</option>
 				<option value="Both">Both</option>
-			</select>
-			<select id="command-version" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Game Version">
+			</select><select id="command-version" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="1.0c">1.0c</option>
 				<option value="UP">UP</option>
