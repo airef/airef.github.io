@@ -488,11 +488,12 @@ var cUpUngarrison = new Command("up-ungarrison","Action","UP");
 var cUpUnitTypeInTown = new Command("up-unit-type-in-town","Fact","UP");
 var cUpUpdateTargets = new Command("up-update-targets","Action","UP");
 var cUpVillagerTypeInTown = new Command("up-villager-type-in-town","Fact","UP");
+var cFeBreakPoint = new Command("fe-break-point","Action","DE");
 var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
 var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
-var cFeBreakPoint = new Command("fe-break-point","Action","DE");
+var cFeSubGameType = new Command("fe-sub-game-type","Fact","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeCcEffectAmount, cFeCcEffectPercent, cFeBreakPoint];
+var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeSubGameType];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","1.0c","&#60;rel-op&#62;");
@@ -598,6 +599,7 @@ var pStartingResources = new Parameter("StartingResources","1.0c","&#60;starting
 // var pState = new Parameter("State","UP");
 // var pStrict = new Parameter("Strict","UP");
 var pString = new Parameter("String","1.0c","&#60;string&#62;");
+var pSubGameType = new Parameter("SubGameType","DE");
 // var pTarget = new Parameter("Target","UP");
 var pThreatPlayer = new Parameter("ThreatPlayer","UP");
 var pThreatSource = new Parameter("ThreatSource","UP");
@@ -619,7 +621,7 @@ var pVictoryTime = new Parameter("VictoryTime","UP");
 var pVictoryType = new Parameter("VictoryType","UP");
 var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, pUpgradeId, pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, pUpgradeId, pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber();
@@ -8210,7 +8212,7 @@ cGameType.example = [ {
 	data: "(defconst turbo-random-map 8)\r\n(defrule\r\n\t(game-type == turbo-random-map)\r\n=>\r\n\t(disable-self)\r\n)"
 } ];
 cGameType.commandCategory = ["Game Info"];
-cGameType.relatedCommands = [cDeathMatchGame, cRegicideGame, cVictoryCondition];
+cGameType.relatedCommands = [cDeathMatchGame, cRegicideGame, cVictoryCondition, cFeSubGameType];
 cGameType.relatedSNs = [];
 cGameType.complexity = "Low";
 
@@ -16535,6 +16537,50 @@ cUpVillagerTypeInTown.commandCategory = ["Counting", "Defense", "Units"];/*
 c.relatedSNs = [];*/
 cUpVillagerTypeInTown.complexity = "Medium";
 
+//fe-break-point
+cFeBreakPoint.shortDescription = "DE only. Add a break point to force the AI debugger interface to display.";
+cFeBreakPoint.description = "DE only. Add a break point to force the AI debugger interface to display if the break point conditions are met. The break point conditions are met if the comparison between the first and second values is true and either the last parameter is -1 or the goal specified in the last parameter is set to a value >= 1. The debugger shows you various information about the AI's current state, such as the current value of each goal and the object IDs stored in the local and remote lists. Once the debugger is opened, you'll be able to step through your rules.</p><p>To enable the debugger you must first enable AI debugging for the game in the Steam launch options. Before launching the game, go to Steam => Right click game => Properties => in bottom box type AIDEBUGGING.";
+cFeBreakPoint.commandParameters = [ {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "A value to be compared with."
+}, {
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
+	type: "",
+	dir: "",
+	range: "",
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767",
+	note: "A value you want to compare against."
+}, {
+	nameLink: pOptionGoalId.getLink(),
+	name: "OptionGoalId",
+	type: "Goal",
+	dir: "in",
+	range: "a goal ID to control whether the debugger is used, or -1 to always allow the debugger to be used",
+	note: "Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger."
+} ];
+cFeBreakPoint.example = [ {
+	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the OptionGoalId parameter is set to -1.",
+	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
+}, {
+	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
+	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
+}];
+cFeBreakPoint.relatedCommands = [];
+cFeBreakPoint.commandCategory = ["Debugging"];/*
+c.relatedSNs = [];*/
+cFeBreakPoint.complexity = "Very High";
+
 //fe-cc-effect-amount
 cFeCcEffectAmount.shortDescription = "DE only. Apply a research-style effect with an integer value for the AI player.";
 cFeCcEffectAmount.description = "DE only. Apply a research-style effect with an integer value for the AI player. This is considered a cheat command, but cheats do not have to be enabled. When modifying objects, you may need to target ALL hidden variations, one-by-one, as well. Please consider in-game object upgrades, so that an upgrade will not push a unit's max hitpoints over 32768 or the object will be destroyed. If you disable an object with this command, in-game techs/ages (unless disabled) may re-enable them. The civ tech tree may also override changes.</p><p>This command can only use integer values. If you need to make an effect with a decimal value, use " + cFeCcEffectPercent.getLink() + ".";
@@ -16614,17 +16660,10 @@ cFeCcEffectPercent.commandCategory = ["Cheat", "Scenarios"];/*
 c.relatedSNs = [];*/
 cFeCcEffectPercent.complexity = "Very High";
 
-//fe-break-point
-cFeBreakPoint.shortDescription = "DE only. Add a break point to force the AI debugger interface to display.";
-cFeBreakPoint.description = "DE only. Add a break point to force the AI debugger interface to display if the break point conditions are met. The break point conditions are met if the comparison between the first and second values is true and either the last parameter is -1 or the goal specified in the last parameter is set to a value >= 1. The debugger shows you various information about the AI's current state, such as the current value of each goal and the object IDs stored in the local and remote lists. Once the debugger is opened, you'll be able to step through your rules.</p><p>To enable the debugger you must first enable AI debugging for the game in the Steam launch options. Before launching the game, go to Steam => Right click game => Properties => in bottom box type AIDEBUGGING.";
-cFeBreakPoint.commandParameters = [ {
-	nameLink: pValue.getLink(),
-	name: "Value",
-	type: "Op",
-	dir: "in",
-	range: "-32768 to 32767",
-	note: "A value to be compared with."
-}, {
+//fe-sub-game-type
+cFeSubGameType.shortDescription = "DE only. Checks if game matches the specified sub-game type.";
+cFeSubGameType.description = "DE only. Checks if game matches the specified sub-game type. There are four sub-game types: sub-game-type-empire-wars, sub-game-type-sudden-death, sub-game-type-regicide, and sub-game-type-king-of-the-hill. Sub-games are loaded whenever the checkbox for these sub-game modes are checked in the lobby screen, rather than being selected from the game type dropdown. Multiple sub-games modes can be true at once in a game.";
+cFeSubGameType.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
 	type: "",
@@ -16632,31 +16671,21 @@ cFeBreakPoint.commandParameters = [ {
 	range: "",
 	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
-	nameLink: pValue.getLink(),
-	name: "Value",
+	nameLink: pSubGameType.getLink(),
+	name: "SubGameType",
 	type: "Op",
 	dir: "in",
-	range: "-32768 to 32767",
-	note: "A value you want to compare against."
-}, {
-	nameLink: pOptionGoalId.getLink(),
-	name: "OptionGoalId",
-	type: "Goal",
-	dir: "in",
-	range: "a goal ID to control whether the debugger is used, or -1 to always allow the debugger to be used",
-	note: "Set the goal <= 0 to disable the debugger. Set the goal >= 1 to enable the debugger."
+	range: "a value from the SubGameType list",
+	note: "The sub-game type that you want to check."
 } ];
-cFeBreakPoint.example = [ {
-	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the OptionGoalId parameter is set to -1.",
-	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
-}, {
-	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
-	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
+cFeSubGameType.example = [ {
+	title: "Check if players can win by being the last player with a king still alive. If so, set castles as highest priority.",
+	data: "(defrule\r\n\t(fe-sub-game-type == sub-game-type-regicide)\r\n=&gt;\r\n\t(set-strategic-number sn-enable-offensive-priority 1)\r\n\t(up-set-offense-priority c: castle c: 11)\r\n\t(up-set-defense-priority c: castle c: 32767)\r\n)"
 }];
-cFeBreakPoint.relatedCommands = [];
-cFeBreakPoint.commandCategory = ["Debugging"];/*
-c.relatedSNs = [];*/
-cFeBreakPoint.complexity = "Very High";
+cFeSubGameType.relatedCommands = [cGameType, cRegicideGame, cVictoryCondition];
+cFeSubGameType.commandCategory = ["Game Info"];
+cFeSubGameType.relatedSNs = [];
+cFeSubGameType.complexity = "Medium";
 
 
 
@@ -18568,7 +18597,7 @@ pFormation.valueList = [ {
 pGameType.description = "The type of game being played. Each of the values in the value list must be defined with a defconst. Note that custom will be from 0 to 8 depending on what the source of the map / game was.";
 pGameType.shortDescription = "The type of game being played.";
 pGameType.range = "0 to 3, 5 to 8."
-pGameType.relatedParams = [pMapType, pVictoryCondition, pVictoryType];
+pGameType.relatedParams = [pMapType, pSubGameType, pVictoryCondition, pVictoryType];
 pGameType.valueList = [ {
 	name: "random-map",
 	id: 0,
@@ -20910,6 +20939,29 @@ pString.shortDescription = "Text inside double quotes. Used in chat messages.";
 pString.range = "A string (quoted text).";
 pString.relatedParams = [pDefconst, pLanguageId];
 
+//SubGameType
+pSubGameType.description = "A sub-game type. Sub-games are loaded whenever the checkbox for these sub-game modes are checked in the lobby screen, rather than being selected from the game type dropdown. Multiple sub-games modes can be true at once in a game.";
+pSubGameType.shortDescription = "A sub-game type.";
+pSubGameType.range = "1, 2, 4, 8";
+pSubGameType.relatedParams = [pGameType, pVictoryCondition];
+pSubGameType.valueList = [ {
+	name: "sub-game-type-empire-wars",
+	id: 1,
+	description: "Empire Wars sub-game type. Players start in Feudal Age with a pre-established town."
+}, {
+	name: "sub-game-type-sudden-death",
+	id: 1,
+	description: "Sudden Death sub-game type. Players are defeated if they lose all of their town centers."
+}, {
+	name: "sub-game-type-regicide",
+	id: 1,
+	description: "Regicide sub-game type. Players start with a king, castle, and extra villagers and lose if their king is killed."
+}, {
+	name: "sub-game-type-king-of-the-hill",
+	id: 1,
+	description: "King of the Hill sub-game type. There is a monument in the middle of the map that can grant victory if it is controlled by one player for a long enough time."
+}];
+
 // //Target
 // pTarget.description = "Set to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.";
 // pTarget.shortDescription = "Set to 1 to target only the object set by up-set-target-object.";
@@ -21552,7 +21604,7 @@ pValue.relatedParams = [pPercent];
 pVictoryCondition.description = "A victory condition.";
 pVictoryCondition.shortDescription = "A victory condition.";
 pVictoryCondition.range = "0 to 4.";
-pVictoryCondition.relatedParams = [pGameType, pVictoryPlayer, pVictoryTime, pVictoryType];
+pVictoryCondition.relatedParams = [pGameType, pSubGameType, pVictoryPlayer, pVictoryTime, pVictoryType];
 pVictoryCondition.valueList = [ {
 	name: "standard",
 	id: 0,
