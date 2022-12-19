@@ -80,8 +80,8 @@ class Parameter {
 }
 
 class StrategicNumber {
-	constructor() {
-		this.snName = "";
+	constructor(a) {
+		this.snName = a;
 		this.id = -1;
 		this.category = "";
 		this.min = -1;
@@ -100,6 +100,7 @@ class StrategicNumber {
 
 	getLink () {
 		var link = '<a href="' + urlPrefix + '/strategic-numbers/sn-details.html#' + this.snName + '">' + this.snName + '</a>';
+		console.log(this);
 		return link;
 	}
 }
@@ -624,312 +625,312 @@ var pWallId = new Parameter("WallId","1.0c","&#60;wall-id&#62;");
 var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, pUpgradeId, pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
 
 //Strategic Numbers
-var snAddStartingResourceFood = new StrategicNumber();
-var snAddStartingResourceGold = new StrategicNumber();
-var snAddStartingResourceStone = new StrategicNumber();
-var snAddStartingResourceWood = new StrategicNumber();
-var snAllowAdjacentDropsites = new StrategicNumber();
-var snAllowCapturingGaiaUnits = new StrategicNumber();
-var snAllowCivilianDefense = new StrategicNumber();
-var snAllowCivilianOffense = new StrategicNumber();
-var snAllowDiplomacyChangeOnAllyAttack = new StrategicNumber();
-var snAllowDiplomacyChangeOnTribute = new StrategicNumber();
-var snAllowGatheringSeaFishWithVillagers = new StrategicNumber();
-var snAllowSerjeantBuilding = new StrategicNumber();
-var snAttackCoordination = new StrategicNumber();
-var snAttackDiplomacyImpact = new StrategicNumber();
-var snAttackGroupGatherSpacing = new StrategicNumber();
-var snAttackGroupMakeup = new StrategicNumber();
-var snAttackGroupSizeRandomness = new StrategicNumber();
-var snAttackIntelligence = new StrategicNumber();
-var snAttackResponseSeparationTime = new StrategicNumber();
-var snAttackSeparationTime = new StrategicNumber();
-var snAttackSeparationTimeRandomness = new StrategicNumber();
-var snAttackWinningPlayer = new StrategicNumber();
-var snAttackWinningPlayerFactor = new StrategicNumber();
-var snAutoBuildDocks = new StrategicNumber();
-var snAutoBuildDropsites = new StrategicNumber();
-var snAutoBuildFarms = new StrategicNumber();
-var snAutoBuildFishingBoats = new StrategicNumber();
-var snAutoBuildHouses = new StrategicNumber();
-var snAutoBuildTowers = new StrategicNumber();
-var snAutoBuildTransports = new StrategicNumber();
-var snAutoBuildWarships = new StrategicNumber();
-var snBlotExplorationMap = new StrategicNumber();
-var snBlotSize = new StrategicNumber();
-var snBoarLureDestination = new StrategicNumber();
-var snBuildFrequency = new StrategicNumber();
-var snBuildPlanDivisions = new StrategicNumber();
-var snBuildingTargetingMode = new StrategicNumber();
-var snCampMaxDistance = new StrategicNumber();
-var snCapCivilianBuilders = new StrategicNumber();
-var snCapCivilianExplorers = new StrategicNumber();
-var snCapCivilianGatherers = new StrategicNumber();
-var snChokePointDefendPriority = new StrategicNumber();
-var snConsecutiveIdleUnitLimit = new StrategicNumber();
-var snCoopDemandTributeInterval = new StrategicNumber();
-var snCoopDemandTributeMaximum = new StrategicNumber();
-var snCoopShareAttacking = new StrategicNumber();
-var snCoopShareAttackingInterval = new StrategicNumber();
-var snCoopShareInformation = new StrategicNumber();
-var snDefendGroupMakeup = new StrategicNumber();
-var snDefendImportantGroupLeaders = new StrategicNumber();
-var snDefendOverlapDistance = new StrategicNumber();
-var snDefenseDistance = new StrategicNumber();
-var snDeferDropsiteUpdate = new StrategicNumber();
-var snDesiredNumberDocks = new StrategicNumber();
-var snDesiredNumberFishEscorts = new StrategicNumber();
-var snDesiredNumberFishingBoats = new StrategicNumber();
-var snDesiredNumberTradeEscorts = new StrategicNumber();
-var snDesiredNumberTransportEscorts = new StrategicNumber();
-var snDesiredNumberTransports = new StrategicNumber();
-var snDesiredNumberWarships = new StrategicNumber();
-var snDisableAttackGroups = new StrategicNumber();
-var snDisableBuilderAssistance = new StrategicNumber();
-var snDisableDefendGroups = new StrategicNumber();
-var snDisableSightedResponseCap = new StrategicNumber();
-var snDisableTowerPriority = new StrategicNumber();
-var snDisableTradeEvasion = new StrategicNumber();
-var snDisableVillagerGarrison = new StrategicNumber();
-var snDoNotScaleForDifficultyLevel = new StrategicNumber();
-var snDoNotTransportFromSameZone = new StrategicNumber();
-var snDockAvoidanceFactor = new StrategicNumber();
-var snDockDefendPriority = new StrategicNumber();
-var snDockPlacementMode = new StrategicNumber();
-var snDockProximityFactor = new StrategicNumber();
-var snDockTrainingFilter = new StrategicNumber();
-var snDropsiteSeparationDistance = new StrategicNumber();
-var snEasierReactionPercentage = new StrategicNumber();
-var snEasiestReactionPercentage = new StrategicNumber();
-var snEnableBoarHunting = new StrategicNumber();
-var snEnableNewBuildingSystem = new StrategicNumber();
-var snEnableOffensivePriority = new StrategicNumber();
-var snEnablePatrolAttack = new StrategicNumber();
-var snEnableResearchQueue = new StrategicNumber();
-var snEnableTrainingQueue = new StrategicNumber();
-var snEnemySightedResponseDistance = new StrategicNumber();
-var snExploreGroupMakeup = new StrategicNumber();
-var snFilterUnderAttack = new StrategicNumber();
-var snFocusPlayerNumber = new StrategicNumber();
-var snFoodDropsiteDistance = new StrategicNumber();
-var snFoodGathererPercentage = new StrategicNumber();
-var snFoodModifierPercentage = new StrategicNumber();
-var snForageDefendPriority = new StrategicNumber();
-var snFreeSiegeTargeting = new StrategicNumber();
-var snGarrisonRams = new StrategicNumber();
-var snGateTypeForWall = new StrategicNumber();
-var snGatherDefenseUnits = new StrategicNumber();
-var snGatherIdleSoldiersAtCenter = new StrategicNumber();
-var snGoldDefendPriority = new StrategicNumber();
-var snGoldDropsiteDistance = new StrategicNumber();
-var snGoldGathererPercentage = new StrategicNumber();
-var snGoldModifierPercentage = new StrategicNumber();
-var snGroupCommanderSelectionMethod = new StrategicNumber();
-var snGroupFillMethod = new StrategicNumber();
-var snGroupFormDistance = new StrategicNumber();
-var snGroupLeaderDefenseDistance = new StrategicNumber();
-var snHitsBeforeAllianceChange = new StrategicNumber();
-var snHomeExplorationTime = new StrategicNumber();
-var snHouseOverage = new StrategicNumber();
-var snIgnoreAttackGroupUnderAttack = new StrategicNumber();
-var snIgnoreTowerElevation = new StrategicNumber();
-var snInitialAttackDelay = new StrategicNumber();
-var snInitialAttackDelayType = new StrategicNumber();
-var snInitialExplorationRequired = new StrategicNumber();
-var snIntelligentGathering = new StrategicNumber();
-var snLivestockDefendPriority = new StrategicNumber();
-var snLivestockToTownCenter = new StrategicNumber();
-var snLocalTargetingMode = new StrategicNumber();
-var snLockAndAttackResponse = new StrategicNumber();
-var snLumberCampMaxDistance = new StrategicNumber();
-var snMaxBuildPlanGathererPercentage = new StrategicNumber();
-var snMaxFarms = new StrategicNumber();
-var snMaxGranaries = new StrategicNumber();
-var snMaxRetaskGatherAmount = new StrategicNumber();
-var snMaxSkipsPerAttempt = new StrategicNumber();
-var snMaxStoragePits = new StrategicNumber();
-var snMaxTowers = new StrategicNumber();
-var snMaximumAttackGroupSize = new StrategicNumber();
-var snMaximumBoatAttackGroupSize = new StrategicNumber();
-var snMaximumBoatDefendGroupSize = new StrategicNumber();
-var snMaximumBoatExploreGroupSize = new StrategicNumber();
-var snMaximumDefendGroupSize = new StrategicNumber();
-var snMaximumExploreGroupSize = new StrategicNumber();
-var snMaximumFishBoatDropDistance = new StrategicNumber();
-var snMaximumFood = new StrategicNumber();
-var snMaximumFoodDropDistance = new StrategicNumber();
-var snMaximumGaiaAttackResponse = new StrategicNumber();
-var snMaximumGarrisonFill = new StrategicNumber();
-var snMaximumGold = new StrategicNumber();
-var snMaximumGoldDropDistance = new StrategicNumber();
-var snMaximumHousesBeforeDropsites = new StrategicNumber();
-var snMaximumHuntDropDistance = new StrategicNumber();
-var snMaximumPatrolDistance = new StrategicNumber();
-var snMaximumStone = new StrategicNumber();
-var snMaximumStoneDropDistance = new StrategicNumber();
-var snMaximumTownSize = new StrategicNumber();
-var snMaximumWood = new StrategicNumber();
-var snMaximumWoodDropDistance = new StrategicNumber();
-var snMillMaxDistance = new StrategicNumber();
-var snMinimumAmountForTrading = new StrategicNumber();
-var snMinimumAttackGroupSize = new StrategicNumber();
-var snMinimumBoarHuntGroupSize = new StrategicNumber();
-var snMinimumBoarLureGroupSize = new StrategicNumber();
-var snMinimumBoatAttackGroupSize = new StrategicNumber();
-var snMinimumBoatDefendGroupSize = new StrategicNumber();
-var snMinimumBoatExploreGroupSize = new StrategicNumber();
-var snMinimumCivilianExplorers = new StrategicNumber();
-var snMinimumDefendGroupSize = new StrategicNumber();
-var snMinimumDropsiteBuffer = new StrategicNumber();
-var snMinimumExploreGroupSize = new StrategicNumber();
-var snMinimumFood = new StrategicNumber();
-var snMinimumGold = new StrategicNumber();
-var snMinimumNumberHunters = new StrategicNumber();
-var snMinimumPeaceLikeLevel = new StrategicNumber();
-var snMinimumStone = new StrategicNumber();
-var snMinimumTownSize = new StrategicNumber();
-var snMinimumWaterBodySizeForDock = new StrategicNumber();
-var snMinimumWood = new StrategicNumber();
-var snMiningCampMaxDistance = new StrategicNumber();
-var snMostNeededResourceLookAhead = new StrategicNumber();
-var snNumberAttackGroups = new StrategicNumber();
-var snNumberBoatAttackGroups = new StrategicNumber();
-var snNumberBoatDefendGroups = new StrategicNumber();
-var snNumberBoatExploreGroups = new StrategicNumber();
-var snNumberBuildAttemptsBeforeSkip = new StrategicNumber();
-var snNumberCivilianMilitia = new StrategicNumber();
-var snNumberDefendGroups = new StrategicNumber();
-var snNumberEnemyObjectsRequired = new StrategicNumber();
-var snNumberExploreGroups = new StrategicNumber();
-var snNumberForwardBuilders = new StrategicNumber();
-var snNumberGarrisonUnits = new StrategicNumber();
-var snNumberMaxSkipCycles = new StrategicNumber();
-var snNumberTaskedUnits = new StrategicNumber();
-var snNumberWallGates = new StrategicNumber();
-var snObjectRepairLevel = new StrategicNumber();
-var snPercentAttackBoats = new StrategicNumber();
-var snPercentAttackSoldiers = new StrategicNumber();
-var snPercentBuildingCancellation = new StrategicNumber();
-var snPercentCivilianBuilders = new StrategicNumber();
-var snPercentCivilianExplorers = new StrategicNumber();
-var snPercentCivilianGatherers = new StrategicNumber();
-var snPercentDeathRetreat = new StrategicNumber();
-var snPercentEnemySightedResponse = new StrategicNumber();
-var snPercentExplorationRequired = new StrategicNumber();
-var snPercentHalfExploration = new StrategicNumber();
-var snPercentHealthRetreat = new StrategicNumber();
-var snPercentUnitHealthRetreat = new StrategicNumber();
-var snPercentVictoryClamp = new StrategicNumber();
-var snPercentageExploreExterminators = new StrategicNumber();
-var snPlacementFailDelta = new StrategicNumber();
-var snPlacementToCenter = new StrategicNumber();
-var snPlacementZoneSize = new StrategicNumber();
-var snPreferredMillPlacement = new StrategicNumber();
-var snPreferredTradeDistance = new StrategicNumber();
-var snProfilingThreshold = new StrategicNumber();
-var snRandomPlacementFactor = new StrategicNumber();
-var snRelicDefendPriority = new StrategicNumber();
-var snRelicReturnDistance = new StrategicNumber();
-var snRequiredFirstBuilding = new StrategicNumber();
-var snRequiredForestTiles = new StrategicNumber();
-var snRetaskGatherAmount = new StrategicNumber();
-var snRetreatAfterTargetDestroyed = new StrategicNumber();
-var snRuinsDefendPriority = new StrategicNumber();
-var snSafeTownSize = new StrategicNumber();
-var snSaveScenarioInformation = new StrategicNumber();
-var snScaleMaximumAttackGroupSize = new StrategicNumber();
-var snScaleMinimumAttackGroupSize = new StrategicNumber();
-var snScalePercentDeathRetreat = new StrategicNumber();
-var snScalePercentHealthRetreat = new StrategicNumber();
-var snScalePercentUnitHealthRetreat = new StrategicNumber();
-var snScalingFrequency = new StrategicNumber();
-var snSentryDistance = new StrategicNumber();
-var snSentryDistanceVariation = new StrategicNumber();
-var snSizeWallGates = new StrategicNumber();
-var snSpecialAttackInfluence1 = new StrategicNumber();
-var snSpecialAttackInfluence2 = new StrategicNumber();
-var snSpecialAttackInfluence3 = new StrategicNumber();
-var snSpecialAttackType1 = new StrategicNumber();
-var snSpecialAttackType2 = new StrategicNumber();
-var snSpecialAttackType3 = new StrategicNumber();
-var snSpecificBuildItemTime = new StrategicNumber();
-var snSpecificBuildItemToBuild = new StrategicNumber();
-var snStoneDefendPriority = new StrategicNumber();
-var snStoneDropsiteDistance = new StrategicNumber();
-var snStoneGathererPercentage = new StrategicNumber();
-var snStoneModifierPercentage = new StrategicNumber();
-var snTacticalUpdateFrequency = new StrategicNumber();
-var snTargetEvaluationAllyProximity = new StrategicNumber();
-var snTargetEvaluationAttackAttempts = new StrategicNumber();
-var snTargetEvaluationBoat = new StrategicNumber();
-var snTargetEvaluationContinent = new StrategicNumber();
-var snTargetEvaluationDamageCapability = new StrategicNumber();
-var snTargetEvaluationDistance = new StrategicNumber();
-var snTargetEvaluationHitpoints = new StrategicNumber();
-var snTargetEvaluationInProgress = new StrategicNumber();
-var snTargetEvaluationKills = new StrategicNumber();
-var snTargetEvaluationRandomness = new StrategicNumber();
-var snTargetEvaluationRange = new StrategicNumber();
-var snTargetEvaluationRof = new StrategicNumber();
-var snTargetEvaluationSiegeWeapon = new StrategicNumber();
-var snTargetEvaluationTimeKillRatio = new StrategicNumber();
-var snTargetPlayerNumber = new StrategicNumber();
-var snTargetPointAdjustment = new StrategicNumber();
-var snTaskUngroupedSoldiers = new StrategicNumber();
-var snTotalNumberExplorers = new StrategicNumber();
-var snTownCenterPlacement = new StrategicNumber();
-var snTownDefendPriority = new StrategicNumber();
-var snTrackPlayerHistory = new StrategicNumber();
-var snTributeAmount = new StrategicNumber();
-var snTributeChatFrequency = new StrategicNumber();
-var snTributeChatRandomness = new StrategicNumber();
-var snTributeFailureOutcome = new StrategicNumber();
-var snTributePersistence = new StrategicNumber();
-var snTributePlayer = new StrategicNumber();
-var snTributeRevokeOnAttack = new StrategicNumber();
-var snTributeSuccessOutcome = new StrategicNumber();
-var snTributeTimeout = new StrategicNumber();
-var snTtkfactorScalar = new StrategicNumber();
-var snUnexploredConstruction = new StrategicNumber();
-var snUnskippableItemType = new StrategicNumber();
-var snUpgradeToBronzeAgeAsap = new StrategicNumber();
-var snUpgradeToIronAgeAsap = new StrategicNumber();
-var snUpgradeToToolAgeAsap = new StrategicNumber();
-var snUseByTypeMaxGathering = new StrategicNumber();
-var snVillagerAttackReset = new StrategicNumber();
-var snWallTargetingMode = new StrategicNumber();
-var snWarshipTargetingMode = new StrategicNumber();
-var snWildAnimalExploration = new StrategicNumber();
-var snWoodDropsiteDistance = new StrategicNumber();
-var snWoodGathererPercentage = new StrategicNumber();
-var snWoodModifierPercentage = new StrategicNumber();
-var snZeroPriorityDistance = new StrategicNumber();
-var snUnknownData006 = new StrategicNumber();
-var snUnknownData007 = new StrategicNumber();
-var snUnknownData008 = new StrategicNumber();
-var snUnknownData009 = new StrategicNumber();
-var snUnknownData010 = new StrategicNumber();
-var snUnknownData011 = new StrategicNumber();
-var snUnknownData012 = new StrategicNumber();
-var snUnknownData013 = new StrategicNumber();
-var snUnknownData014 = new StrategicNumber();
-var snUnknownData015 = new StrategicNumber();
-var snUnknownData017 = new StrategicNumber();
-var snUnknownData021 = new StrategicNumber();
-var snUnknownData027 = new StrategicNumber();
-var snUnknownData033 = new StrategicNumber();
-var snUnknownData113 = new StrategicNumber();
-var snUnknownData116 = new StrategicNumber();
-var snUnknownData137 = new StrategicNumber();
-var snUnknownData153 = new StrategicNumber();
-var snUnknownData154 = new StrategicNumber();
-var snUnknownData162 = new StrategicNumber();
-var snUnknownData189 = new StrategicNumber();
-var snUnknownData199 = new StrategicNumber();
-var snUnknownData200 = new StrategicNumber();
-var snUnknownData211 = new StrategicNumber();
+var snAddStartingResourceFood = new StrategicNumber("sn-add-starting-resource-food");
+var snAddStartingResourceGold = new StrategicNumber("sn-add-starting-resource-gold");
+var snAddStartingResourceStone = new StrategicNumber("sn-add-starting-resource-stone");
+var snAddStartingResourceWood = new StrategicNumber("sn-add-starting-resource-wood");
+var snAllowAdjacentDropsites = new StrategicNumber("sn-allow-adjacent-dropsites");
+var snAllowCapturingGaiaUnits = new StrategicNumber("sn-allow-capturing-gaia-units");
+var snAllowCivilianDefense = new StrategicNumber("sn-allow-civilian-defense");
+var snAllowCivilianOffense = new StrategicNumber("sn-allow-civilian-offense");
+var snAllowDiplomacyChangeOnAllyAttack = new StrategicNumber("sn-allow-diplomacy-change-on-ally-attack");
+var snAllowDiplomacyChangeOnTribute = new StrategicNumber("sn-allow-diplomacy-change-on-tribute");
+var snAllowGatheringSeaFishWithVillagers = new StrategicNumber("sn-allow-gathering-sea-fish-with-villagers");
+var snAllowSerjeantBuilding = new StrategicNumber("sn-allow-serjeant-building");
+var snAttackCoordination = new StrategicNumber("sn-attack-coordination");
+var snAttackDiplomacyImpact = new StrategicNumber("sn-attack-diplomacy-impact");
+var snAttackGroupGatherSpacing = new StrategicNumber("sn-attack-group-gather-spacing");
+var snAttackGroupMakeup = new StrategicNumber("sn-attack-group-makeup");
+var snAttackGroupSizeRandomness = new StrategicNumber("sn-attack-group-size-randomness");
+var snAttackIntelligence = new StrategicNumber("sn-attack-intelligence");
+var snAttackResponseSeparationTime = new StrategicNumber("sn-attack-response-separation-time");
+var snAttackSeparationTime = new StrategicNumber("sn-attack-separation-time");
+var snAttackSeparationTimeRandomness = new StrategicNumber("sn-attack-separation-time-randomness");
+var snAttackWinningPlayer = new StrategicNumber("sn-attack-winning-player");
+var snAttackWinningPlayerFactor = new StrategicNumber("sn-attack-winning-player-factor");
+var snAutoBuildDocks = new StrategicNumber("sn-auto-build-docks");
+var snAutoBuildDropsites = new StrategicNumber("sn-auto-build-dropsites");
+var snAutoBuildFarms = new StrategicNumber("sn-auto-build-farms");
+var snAutoBuildFishingBoats = new StrategicNumber("sn-auto-build-fishing-boats");
+var snAutoBuildHouses = new StrategicNumber("sn-auto-build-houses");
+var snAutoBuildTowers = new StrategicNumber("sn-auto-build-towers");
+var snAutoBuildTransports = new StrategicNumber("sn-auto-build-transports");
+var snAutoBuildWarships = new StrategicNumber("sn-auto-build-warships");
+var snBlotExplorationMap = new StrategicNumber("sn-blot-exploration-map");
+var snBlotSize = new StrategicNumber("sn-blot-size");
+var snBoarLureDestination = new StrategicNumber("sn-boar-lure-destination");
+var snBuildFrequency = new StrategicNumber("sn-build-frequency");
+var snBuildPlanDivisions = new StrategicNumber("sn-build-plan-divisions");
+var snBuildingTargetingMode = new StrategicNumber("sn-building-targeting-mode");
+var snCampMaxDistance = new StrategicNumber("sn-camp-max-distance");
+var snCapCivilianBuilders = new StrategicNumber("sn-cap-civilian-builders");
+var snCapCivilianExplorers = new StrategicNumber("sn-cap-civilian-explorers");
+var snCapCivilianGatherers = new StrategicNumber("sn-cap-civilian-gatherers");
+var snChokePointDefendPriority = new StrategicNumber("sn-choke-point-defend-priority");
+var snConsecutiveIdleUnitLimit = new StrategicNumber("sn-consecutive-idle-unit-limit");
+var snCoopDemandTributeInterval = new StrategicNumber("sn-coop-demand-tribute-interval");
+var snCoopDemandTributeMaximum = new StrategicNumber("sn-coop-demand-tribute-maximum");
+var snCoopShareAttacking = new StrategicNumber("sn-coop-share-attacking");
+var snCoopShareAttackingInterval = new StrategicNumber("sn-coop-share-attacking-interval");
+var snCoopShareInformation = new StrategicNumber("sn-coop-share-information");
+var snDefendGroupMakeup = new StrategicNumber("sn-defend-group-makeup");
+var snDefendImportantGroupLeaders = new StrategicNumber("sn-defend-important-group-leaders");
+var snDefendOverlapDistance = new StrategicNumber("sn-defend-overlap-distance");
+var snDefenseDistance = new StrategicNumber("sn-defense-distance");
+var snDeferDropsiteUpdate = new StrategicNumber("sn-defer-dropsite-update");
+var snDesiredNumberDocks = new StrategicNumber("sn-desired-number-docks");
+var snDesiredNumberFishEscorts = new StrategicNumber("sn-desired-number-fish-escorts");
+var snDesiredNumberFishingBoats = new StrategicNumber("sn-desired-number-fishing-boats");
+var snDesiredNumberTradeEscorts = new StrategicNumber("sn-desired-number-trade-escorts");
+var snDesiredNumberTransportEscorts = new StrategicNumber("sn-desired-number-transport-escorts");
+var snDesiredNumberTransports = new StrategicNumber("sn-desired-number-transports");
+var snDesiredNumberWarships = new StrategicNumber("sn-desired-number-warships");
+var snDisableAttackGroups = new StrategicNumber("sn-disable-attack-groups");
+var snDisableBuilderAssistance = new StrategicNumber("sn-disable-builder-assistance");
+var snDisableDefendGroups = new StrategicNumber("sn-disable-defend-groups");
+var snDisableSightedResponseCap = new StrategicNumber("sn-disable-sighted-response-cap");
+var snDisableTowerPriority = new StrategicNumber("sn-disable-tower-priority");
+var snDisableTradeEvasion = new StrategicNumber("sn-disable-trade-evasion");
+var snDisableVillagerGarrison = new StrategicNumber("sn-disable-villager-garrison");
+var snDoNotScaleForDifficultyLevel = new StrategicNumber("sn-do-not-scale-for-difficulty-level");
+var snDoNotTransportFromSameZone = new StrategicNumber("sn-do-not-transport-from-same-zone");
+var snDockAvoidanceFactor = new StrategicNumber("sn-dock-avoidance-factor");
+var snDockDefendPriority = new StrategicNumber("sn-dock-defend-priority");
+var snDockPlacementMode = new StrategicNumber("sn-dock-placement-mode");
+var snDockProximityFactor = new StrategicNumber("sn-dock-proximity-factor");
+var snDockTrainingFilter = new StrategicNumber("sn-dock-training-filter");
+var snDropsiteSeparationDistance = new StrategicNumber("sn-dropsite-separation-distance");
+var snEasierReactionPercentage = new StrategicNumber("sn-easier-reaction-percentage");
+var snEasiestReactionPercentage = new StrategicNumber("sn-easiest-reaction-percentage");
+var snEnableBoarHunting = new StrategicNumber("sn-enable-boar-hunting");
+var snEnableNewBuildingSystem = new StrategicNumber("sn-enable-new-building-system");
+var snEnableOffensivePriority = new StrategicNumber("sn-enable-offensive-priority");
+var snEnablePatrolAttack = new StrategicNumber("sn-enable-patrol-attack");
+var snEnableResearchQueue = new StrategicNumber("sn-enable-research-queue");
+var snEnableTrainingQueue = new StrategicNumber("sn-enable-training-queue");
+var snEnemySightedResponseDistance = new StrategicNumber("sn-enemy-sighted-response-distance");
+var snExploreGroupMakeup = new StrategicNumber("sn-explore-group-makeup");
+var snFilterUnderAttack = new StrategicNumber("sn-filter-under-attack");
+var snFocusPlayerNumber = new StrategicNumber("sn-focus-player-number");
+var snFoodDropsiteDistance = new StrategicNumber("sn-food-dropsite-distance");
+var snFoodGathererPercentage = new StrategicNumber("sn-food-gatherer-percentage");
+var snFoodModifierPercentage = new StrategicNumber("sn-food-modifier-percentage");
+var snForageDefendPriority = new StrategicNumber("sn-forage-defend-priority");
+var snFreeSiegeTargeting = new StrategicNumber("sn-free-siege-targeting");
+var snGarrisonRams = new StrategicNumber("sn-garrison-rams");
+var snGateTypeForWall = new StrategicNumber("sn-gate-type-for-wall");
+var snGatherDefenseUnits = new StrategicNumber("sn-gather-defense-units");
+var snGatherIdleSoldiersAtCenter = new StrategicNumber("sn-gather-idle-soldiers-at-center");
+var snGoldDefendPriority = new StrategicNumber("sn-gold-defend-priority");
+var snGoldDropsiteDistance = new StrategicNumber("sn-gold-dropsite-distance");
+var snGoldGathererPercentage = new StrategicNumber("sn-gold-gatherer-percentage");
+var snGoldModifierPercentage = new StrategicNumber("sn-gold-modifier-percentage");
+var snGroupCommanderSelectionMethod = new StrategicNumber("sn-group-commander-selection-method");
+var snGroupFillMethod = new StrategicNumber("sn-group-fill-method");
+var snGroupFormDistance = new StrategicNumber("sn-group-form-distance");
+var snGroupLeaderDefenseDistance = new StrategicNumber("sn-group-leader-defense-distance");
+var snHitsBeforeAllianceChange = new StrategicNumber("sn-hits-before-alliance-change");
+var snHomeExplorationTime = new StrategicNumber("sn-home-exploration-time");
+var snHouseOverage = new StrategicNumber("sn-house-overage");
+var snIgnoreAttackGroupUnderAttack = new StrategicNumber("sn-ignore-attack-group-under-attack");
+var snIgnoreTowerElevation = new StrategicNumber("sn-ignore-tower-elevation");
+var snInitialAttackDelay = new StrategicNumber("sn-initial-attack-delay");
+var snInitialAttackDelayType = new StrategicNumber("sn-initial-attack-delay-type");
+var snInitialExplorationRequired = new StrategicNumber("sn-initial-exploration-required");
+var snIntelligentGathering = new StrategicNumber("sn-intelligent-gathering");
+var snLivestockDefendPriority = new StrategicNumber("sn-livestock-defend-priority");
+var snLivestockToTownCenter = new StrategicNumber("sn-livestock-to-town-center");
+var snLocalTargetingMode = new StrategicNumber("sn-local-targeting-mode");
+var snLockAttackAndAttackResponse = new StrategicNumber("sn-lock-attack-and-attack-response");
+var snLumberCampMaxDistance = new StrategicNumber("sn-lumber-camp-max-distance");
+var snMaxBuildPlanGathererPercentage = new StrategicNumber("sn-max-build-plan-gatherer-percentage");
+var snMaxFarms = new StrategicNumber("sn-max-farms");
+var snMaxGranaries = new StrategicNumber("sn-max-granaries");
+var snMaxRetaskGatherAmount = new StrategicNumber("sn-max-retask-gather-amount");
+var snMaxSkipsPerAttempt = new StrategicNumber("sn-max-skips-per-attempt");
+var snMaxStoragePits = new StrategicNumber("sn-max-storage-pits");
+var snMaxTowers = new StrategicNumber("sn-max-towers");
+var snMaximumAttackGroupSize = new StrategicNumber("sn-maximum-attack-group-size");
+var snMaximumBoatAttackGroupSize = new StrategicNumber("sn-maximum-boat-attack-group-size");
+var snMaximumBoatDefendGroupSize = new StrategicNumber("sn-maximum-boat-defend-group-size");
+var snMaximumBoatExploreGroupSize = new StrategicNumber("sn-maximum-boat-explore-group-size");
+var snMaximumDefendGroupSize = new StrategicNumber("sn-maximum-defend-group-size");
+var snMaximumExploreGroupSize = new StrategicNumber("sn-maximum-explore-group-size");
+var snMaximumFishBoatDropDistance = new StrategicNumber("sn-maximum-fish-boat-drop-distance");
+var snMaximumFood = new StrategicNumber("sn-maximum-food");
+var snMaximumFoodDropDistance = new StrategicNumber("sn-maximum-food-drop-distance");
+var snMaximumGaiaAttackResponse = new StrategicNumber("sn-maximum-gaia-attack-response");
+var snMaximumGarrisonFill = new StrategicNumber("sn-maximum-garrison-fill");
+var snMaximumGold = new StrategicNumber("sn-maximum-gold");
+var snMaximumGoldDropDistance = new StrategicNumber("sn-maximum-gold-drop-distance");
+var snMaximumHousesBeforeDropsites = new StrategicNumber("sn-maximum-houses-before-dropsites");
+var snMaximumHuntDropDistance = new StrategicNumber("sn-maximum-hunt-drop-distance");
+var snMaximumPatrolDistance = new StrategicNumber("sn-maximum-patrol-distance");
+var snMaximumStone = new StrategicNumber("sn-maximum-stone");
+var snMaximumStoneDropDistance = new StrategicNumber("sn-maximum-stone-drop-distance");
+var snMaximumTownSize = new StrategicNumber("sn-maximum-town-size");
+var snMaximumWood = new StrategicNumber("sn-maximum-wood");
+var snMaximumWoodDropDistance = new StrategicNumber("sn-maximum-wood-drop-distance");
+var snMillMaxDistance = new StrategicNumber("sn-mill-max-distance");
+var snMinimumAmountForTrading = new StrategicNumber("sn-minimum-amount-for-trading");
+var snMinimumAttackGroupSize = new StrategicNumber("sn-minimum-attack-group-size");
+var snMinimumBoarHuntGroupSize = new StrategicNumber("sn-minimum-boar-hunt-group-size");
+var snMinimumBoarLureGroupSize = new StrategicNumber("sn-minimum-boar-lure-group-size");
+var snMinimumBoatAttackGroupSize = new StrategicNumber("sn-minimum-boat-attack-group-size");
+var snMinimumBoatDefendGroupSize = new StrategicNumber("sn-minimum-boat-defend-group-size");
+var snMinimumBoatExploreGroupSize = new StrategicNumber("sn-minimum-boat-explore-group-size");
+var snMinimumCivilianExplorers = new StrategicNumber("sn-minimum-civilian-explorers");
+var snMinimumDefendGroupSize = new StrategicNumber("sn-minimum-defend-group-size");
+var snMinimumDropsiteBuffer = new StrategicNumber("sn-minimum-dropsite-buffer");
+var snMinimumExploreGroupSize = new StrategicNumber("sn-minimum-explore-group-size");
+var snMinimumFood = new StrategicNumber("sn-minimum-food");
+var snMinimumGold = new StrategicNumber("sn-minimum-gold");
+var snMinimumNumberHunters = new StrategicNumber("sn-minimum-number-hunters");
+var snMinimumPeaceLikeLevel = new StrategicNumber("sn-minimum-peace-like-level");
+var snMinimumStone = new StrategicNumber("sn-minimum-stone");
+var snMinimumTownSize = new StrategicNumber("sn-minimum-town-size");
+var snMinimumWaterBodySizeForDock = new StrategicNumber("sn-minimum-water-body-size-for-dock");
+var snMinimumWood = new StrategicNumber("sn-minimum-wood");
+var snMiningCampMaxDistance = new StrategicNumber("sn-mining-camp-max-distance");
+var snMostNeededResourceLookAhead = new StrategicNumber("sn-most-needed-resource-look-ahead");
+var snNumberAttackGroups = new StrategicNumber("sn-number-attack-groups");
+var snNumberBoatAttackGroups = new StrategicNumber("sn-number-boat-attack-groups");
+var snNumberBoatDefendGroups = new StrategicNumber("sn-number-boat-defend-groups");
+var snNumberBoatExploreGroups = new StrategicNumber("sn-number-boat-explore-groups");
+var snNumberBuildAttemptsBeforeSkip = new StrategicNumber("sn-number-build-attempts-before-skip");
+var snNumberCivilianMilitia = new StrategicNumber("sn-number-civilian-militia");
+var snNumberDefendGroups = new StrategicNumber("sn-number-defend-groups");
+var snNumberEnemyObjectsRequired = new StrategicNumber("sn-number-enemy-objects-required");
+var snNumberExploreGroups = new StrategicNumber("sn-number-explore-groups");
+var snNumberForwardBuilders = new StrategicNumber("sn-number-forward-builders");
+var snNumberGarrisonUnits = new StrategicNumber("sn-number-garrison-units");
+var snNumberMaxSkipCycles = new StrategicNumber("sn-number-max-skip-cycles");
+var snNumberTaskedUnits = new StrategicNumber("sn-number-tasked-units");
+var snNumberWallGates = new StrategicNumber("sn-number-wall-gates");
+var snObjectRepairLevel = new StrategicNumber("sn-object-repair-level");
+var snPercentAttackBoats = new StrategicNumber("sn-percent-attack-boats");
+var snPercentAttackSoldiers = new StrategicNumber("sn-percent-attack-soldiers");
+var snPercentBuildingCancellation = new StrategicNumber("sn-percent-building-cancellation");
+var snPercentCivilianBuilders = new StrategicNumber("sn-percent-civilian-builders");
+var snPercentCivilianExplorers = new StrategicNumber("sn-percent-civilian-explorers");
+var snPercentCivilianGatherers = new StrategicNumber("sn-percent-civilian-gatherers");
+var snPercentDeathRetreat = new StrategicNumber("sn-percent-death-retreat");
+var snPercentEnemySightedResponse = new StrategicNumber("sn-percent-enemy-sighted-response");
+var snPercentExplorationRequired = new StrategicNumber("sn-percent-exploration-required");
+var snPercentHalfExploration = new StrategicNumber("sn-percent-half-exploration");
+var snPercentHealthRetreat = new StrategicNumber("sn-percent-health-retreat");
+var snPercentUnitHealthRetreat = new StrategicNumber("sn-percent-unit-health-retreat");
+var snPercentVictoryClamp = new StrategicNumber("sn-percent-victory-clamp");
+var snPercentageExploreExterminators = new StrategicNumber("sn-percentage-explore-exterminators");
+var snPlacementFailDelta = new StrategicNumber("sn-placement-fail-delta");
+var snPlacementToCenter = new StrategicNumber("sn-placement-to-center");
+var snPlacementZoneSize = new StrategicNumber("sn-placement-zone-size");
+var snPreferredMillPlacement = new StrategicNumber("sn-preferred-mill-placement");
+var snPreferredTradeDistance = new StrategicNumber("sn-preferred-trade-distance");
+var snProfilingThreshold = new StrategicNumber("sn-profiling-threshold");
+var snRandomPlacementFactor = new StrategicNumber("sn-random-placement-factor");
+var snRelicDefendPriority = new StrategicNumber("sn-relic-defend-priority");
+var snRelicReturnDistance = new StrategicNumber("sn-relic-return-distance");
+var snRequiredFirstBuilding = new StrategicNumber("sn-required-first-building");
+var snRequiredForestTiles = new StrategicNumber("sn-required-forest-tiles");
+var snRetaskGatherAmount = new StrategicNumber("sn-retask-gather-amount");
+var snRetreatAfterTargetDestroyed = new StrategicNumber("sn-retreat-after-target-destroyed");
+var snRuinsDefendPriority = new StrategicNumber("sn-ruins-defend-priority");
+var snSafeTownSize = new StrategicNumber("sn-safe-town-size");
+var snSaveScenarioInformation = new StrategicNumber("sn-save-scenario-information");
+var snScaleMaximumAttackGroupSize = new StrategicNumber("sn-scale-maximum-attack-group-size");
+var snScaleMinimumAttackGroupSize = new StrategicNumber("sn-scale-minimum-attack-group-size");
+var snScalePercentDeathRetreat = new StrategicNumber("sn-scale-percent-death-retreat");
+var snScalePercentHealthRetreat = new StrategicNumber("sn-scale-percent-health-retreat");
+var snScalePercentUnitHealthRetreat = new StrategicNumber("sn-scale-percent-unit-health-retreat");
+var snScalingFrequency = new StrategicNumber("sn-scaling-frequency");
+var snSentryDistance = new StrategicNumber("sn-sentry-distance");
+var snSentryDistanceVariation = new StrategicNumber("sn-sentry-distance-variation");
+var snSizeWallGates = new StrategicNumber("sn-size-wall-gates");
+var snSpecialAttackInfluence1 = new StrategicNumber("sn-special-attack-influence1");
+var snSpecialAttackInfluence2 = new StrategicNumber("sn-special-attack-influence2");
+var snSpecialAttackInfluence3 = new StrategicNumber("sn-special-attack-influence3");
+var snSpecialAttackType1 = new StrategicNumber("sn-special-attack-type1");
+var snSpecialAttackType2 = new StrategicNumber("sn-special-attack-type2");
+var snSpecialAttackType3 = new StrategicNumber("sn-special-attack-type3");
+var snSpecificBuildItemTime = new StrategicNumber("sn-specific-build-item-time");
+var snSpecificBuildItemToBuild = new StrategicNumber("sn-specific-build-item-to-build");
+var snStoneDefendPriority = new StrategicNumber("sn-stone-defend-priority");
+var snStoneDropsiteDistance = new StrategicNumber("sn-stone-dropsite-distance");
+var snStoneGathererPercentage = new StrategicNumber("sn-stone-gatherer-percentage");
+var snStoneModifierPercentage = new StrategicNumber("sn-stone-modifier-percentage");
+var snTacticalUpdateFrequency = new StrategicNumber("sn-tactical-update-frequency");
+var snTargetEvaluationAllyProximity = new StrategicNumber("sn-target-evaluation-ally-proximity");
+var snTargetEvaluationAttackAttempts = new StrategicNumber("sn-target-evaluation-attack-attempts");
+var snTargetEvaluationBoat = new StrategicNumber("sn-target-evaluation-boat");
+var snTargetEvaluationContinent = new StrategicNumber("sn-target-evaluation-continent");
+var snTargetEvaluationDamageCapability = new StrategicNumber("sn-target-evaluation-damage-capability");
+var snTargetEvaluationDistance = new StrategicNumber("sn-target-evaluation-distance");
+var snTargetEvaluationHitpoints = new StrategicNumber("sn-target-evaluation-hitpoints");
+var snTargetEvaluationInProgress = new StrategicNumber("sn-target-evaluation-in-progress");
+var snTargetEvaluationKills = new StrategicNumber("sn-target-evaluation-kills");
+var snTargetEvaluationRandomness = new StrategicNumber("sn-target-evaluation-randomness");
+var snTargetEvaluationRange = new StrategicNumber("sn-target-evaluation-range");
+var snTargetEvaluationRof = new StrategicNumber("sn-target-evaluation-rof");
+var snTargetEvaluationSiegeWeapon = new StrategicNumber("sn-target-evaluation-siege-weapon");
+var snTargetEvaluationTimeKillRatio = new StrategicNumber("sn-target-evaluation-time-kill-ratio");
+var snTargetPlayerNumber = new StrategicNumber("sn-target-player-number");
+var snTargetPointAdjustment = new StrategicNumber("sn-target-point-adjustment");
+var snTaskUngroupedSoldiers = new StrategicNumber("sn-task-ungrouped-soldiers");
+var snTotalNumberExplorers = new StrategicNumber("sn-total-number-explorers");
+var snTownCenterPlacement = new StrategicNumber("sn-town-center-placement");
+var snTownDefendPriority = new StrategicNumber("sn-town-defend-priority");
+var snTrackPlayerHistory = new StrategicNumber("sn-track-player-history");
+var snTributeAmount = new StrategicNumber("sn-tribute-amount");
+var snTributeChatFrequency = new StrategicNumber("sn-tribute-chat-frequency");
+var snTributeChatRandomness = new StrategicNumber("sn-tribute-chat-randomness");
+var snTributeFailureOutcome = new StrategicNumber("sn-tribute-failure-outcome");
+var snTributePersistence = new StrategicNumber("sn-tribute-persistence");
+var snTributePlayer = new StrategicNumber("sn-tribute-player");
+var snTributeRevokeOnAttack = new StrategicNumber("sn-tribute-revoke-on-attack");
+var snTributeSuccessOutcome = new StrategicNumber("sn-tribute-success-outcome");
+var snTributeTimeout = new StrategicNumber("sn-tribute-timeout");
+var snTtkfactorScalar = new StrategicNumber("sn-ttkfactor-scalar");
+var snUnexploredConstruction = new StrategicNumber("sn-unexplored-construction");
+var snUnskippableItemType = new StrategicNumber("sn-unskippable-item-type");
+var snUpgradeToBronzeAgeAsap = new StrategicNumber("sn-upgrade-to-bronze-age-asap");
+var snUpgradeToIronAgeAsap = new StrategicNumber("sn-upgrade-to-iron-age-asap");
+var snUpgradeToToolAgeAsap = new StrategicNumber("sn-upgrade-to-tool-age-asap");
+var snUseByTypeMaxGathering = new StrategicNumber("sn-use-by-type-max-gathering");
+var snVillagerAttackReset = new StrategicNumber("sn-villager-attack-reset");
+var snWallTargetingMode = new StrategicNumber("sn-wall-targeting-mode");
+var snWarshipTargetingMode = new StrategicNumber("sn-warship-targeting-mode");
+var snWildAnimalExploration = new StrategicNumber("sn-wild-animal-exploration");
+var snWoodDropsiteDistance = new StrategicNumber("sn-wood-dropsite-distance");
+var snWoodGathererPercentage = new StrategicNumber("sn-wood-gatherer-percentage");
+var snWoodModifierPercentage = new StrategicNumber("sn-wood-modifier-percentage");
+var snZeroPriorityDistance = new StrategicNumber("sn-zero-priority-distance");
+var snUnknownData006 = new StrategicNumber("unknown-data-006");
+var snUnknownData007 = new StrategicNumber("unknown-data-007");
+var snUnknownData008 = new StrategicNumber("unknown-data-008");
+var snUnknownData009 = new StrategicNumber("unknown-data-009");
+var snUnknownData010 = new StrategicNumber("unknown-data-010");
+var snUnknownData011 = new StrategicNumber("unknown-data-011");
+var snUnknownData012 = new StrategicNumber("unknown-data-012");
+var snUnknownData013 = new StrategicNumber("unknown-data-013");
+var snUnknownData014 = new StrategicNumber("unknown-data-014");
+var snUnknownData015 = new StrategicNumber("unknown-data-015");
+var snUnknownData017 = new StrategicNumber("unknown-data-017");
+var snUnknownData021 = new StrategicNumber("unknown-data-021");
+var snUnknownData027 = new StrategicNumber("unknown-data-027");
+var snUnknownData033 = new StrategicNumber("unknown-data-033");
+var snUnknownData113 = new StrategicNumber("unknown-data-113");
+var snUnknownData116 = new StrategicNumber("unknown-data-116");
+var snUnknownData137 = new StrategicNumber("unknown-data-137");
+var snUnknownData153 = new StrategicNumber("unknown-data-153");
+var snUnknownData154 = new StrategicNumber("unknown-data-154");
+var snUnknownData162 = new StrategicNumber("unknown-data-162");
+var snUnknownData189 = new StrategicNumber("unknown-data-189");
+var snUnknownData199 = new StrategicNumber("unknown-data-199");
+var snUnknownData200 = new StrategicNumber("unknown-data-200");
+var snUnknownData211 = new StrategicNumber("unknown-data-211");
 
-var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTrackPlayerHistory, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownData006, snUnknownData007, snUnknownData008, snUnknownData009, snUnknownData010, snUnknownData011, snUnknownData012, snUnknownData013, snUnknownData014, snUnknownData015, snUnknownData017, snUnknownData021, snUnknownData027, snUnknownData033, snUnknownData113, snUnknownData116, snUnknownData137, snUnknownData153, snUnknownData154, snUnknownData162, snUnknownData189, snUnknownData199, snUnknownData200, snUnknownData211];
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTrackPlayerHistory, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownData006, snUnknownData007, snUnknownData008, snUnknownData009, snUnknownData010, snUnknownData011, snUnknownData012, snUnknownData013, snUnknownData014, snUnknownData015, snUnknownData017, snUnknownData021, snUnknownData027, snUnknownData033, snUnknownData113, snUnknownData116, snUnknownData137, snUnknownData153, snUnknownData154, snUnknownData162, snUnknownData189, snUnknownData199, snUnknownData200, snUnknownData211];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -1024,6 +1025,7 @@ snCapCivilianBuilders.version = "1.0c";
 snCapCivilianBuilders.linked = [ 1, 253 ];
 snCapCivilianBuilders.related = [ 3, 5 ];
 snCapCivilianBuilders.shortDescription = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.";
+snCapCivilianBuilders.description = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.</p><p>This is an SN that you should change from its default value. Set it high, like 200, but really any reasonably high number is fine. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.";
 
 snCapCivilianGatherers.id = 5;
 snCapCivilianGatherers.snName = "sn-cap-civilian-gatherers";
@@ -2154,22 +2156,22 @@ snDockDefendPriority.related = [ 56, 52, 51, 50, 55, 54, 53, 287 ];
 snDockDefendPriority.shortDescription = "Allows docks to be added to the targetable sighted objects list.";
 snDockDefendPriority.description = "Allows docks to be added to the targetable sighted objects list. However, docks have always been targetable by default, so this SN is not necessary.</p><p>Note: the original CPSB description was incorrect. It stated this: Sets the priority of defending the dock.";
 
-snLockAndAttackResponse.id = 71;
-snLockAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
-snLockAndAttackResponse.default = -1;
-snLockAndAttackResponse.category = "AoE 1";
-snLockAndAttackResponse.min = -32768;
-snLockAndAttackResponse.max = 32767;
-snLockAndAttackResponse.rmin = 0;
-snLockAndAttackResponse.rmax = 1;
-snLockAndAttackResponse.network = 0;
-snLockAndAttackResponse.defined = 0;
-snLockAndAttackResponse.available = "seems available";
-snLockAndAttackResponse.effective = 0;
-snLockAndAttackResponse.version = "1.0c";
-snLockAndAttackResponse.linked = [];
-snLockAndAttackResponse.related = [ 46, 48 ];
-snLockAndAttackResponse.shortDescription = "AoE 1 only. This treats the sn-attack-separation-time and sn-attack-response-separation-time as the same numbers. Must be either 0 or 1.";
+snLockAttackAndAttackResponse.id = 71;
+snLockAttackAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
+snLockAttackAndAttackResponse.default = -1;
+snLockAttackAndAttackResponse.category = "AoE 1";
+snLockAttackAndAttackResponse.min = -32768;
+snLockAttackAndAttackResponse.max = 32767;
+snLockAttackAndAttackResponse.rmin = 0;
+snLockAttackAndAttackResponse.rmax = 1;
+snLockAttackAndAttackResponse.network = 0;
+snLockAttackAndAttackResponse.defined = 0;
+snLockAttackAndAttackResponse.available = "seems available";
+snLockAttackAndAttackResponse.effective = 0;
+snLockAttackAndAttackResponse.version = "1.0c";
+snLockAttackAndAttackResponse.linked = [];
+snLockAttackAndAttackResponse.related = [ 46, 48 ];
+snLockAttackAndAttackResponse.shortDescription = "AoE 1 only. This treats the sn-attack-separation-time and sn-attack-response-separation-time as the same numbers. Must be either 0 or 1.";
 
 snSentryDistanceVariation.id = 72;
 snSentryDistanceVariation.snName = "sn-sentry-distance-variation";
@@ -2255,6 +2257,7 @@ snConsecutiveIdleUnitLimit.version = "1.0c";
 snConsecutiveIdleUnitLimit.linked = [];
 snConsecutiveIdleUnitLimit.related = [];
 snConsecutiveIdleUnitLimit.shortDescription = "Sets the number of consecutive seconds that pass before a group is set to idle if all of its units are idle. This is only used during attack and retreat phases.";
+snConsecutiveIdleUnitLimit.description = "Sets the number of consecutive seconds that pass before a group is set to idle if all of its units are idle. The original documentation says this is only used during attack and retreat phases, but it applies to scouting units as well.</p><p>This SN should be changed from its default value, which is 15. If you leave the SN unchanged and an exploring unit is given a non-exploring task, such as claiming sheep with DUC, it will wait 15 seconds before going back to exploring once it finished its non-exploring task. To remove this delay, you'll want this SN to be 0. There is likely no downside to setting this to 0.";
 
 snTargetEvaluationDistance.id = 77;
 snTargetEvaluationDistance.snName = "sn-target-evaluation-distance";
@@ -2541,9 +2544,10 @@ snScaleMinimumAttackGroupSize.defined = 1;
 snScaleMinimumAttackGroupSize.available = 0;
 snScaleMinimumAttackGroupSize.effective = 1;
 snScaleMinimumAttackGroupSize.version = "1.0c";
-snScaleMinimumAttackGroupSize.linked = [ 94, 16, 59 ];
+snScaleMinimumAttackGroupSize.linked = [ 94, 99, 16, 59 ];
 snScaleMinimumAttackGroupSize.related = [ 36, 26, 58, 60 ];
 snScaleMinimumAttackGroupSize.shortDescription = "The scaling factor for the minimum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
+snScaleMinimumAttackGroupSize.description = "The scaling factor for the minimum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling. The SN automatically increases " + snMinimumAttackGroupSize.getLink() + " by the value of sn-scale-minimum-attack-group-size every X minutes, where X is the value of " + snScalingFrequency.getLink() + ". If sn-scale-minimum-attack-group-size is kept at the default of 1 and sn-scaling-frequency is kept at the default value of 10, then sn-minimum-attack-group-size will increase by 1 every 10 minutes.</p><p>It's best to set sn-scale-minimum-attack-group-size to 0 and modify sn-minimum-attack-group-size directly. The automatic scaling behavior from this SN on its own isn't a big deal, but the default value of the corresponding SN " + snScaleMaximumAttackGroupSize.getLink() + " is zero, meaning that " + snMaximumAttackGroupSize.getLink() + " isn't automatically increased in the same manner, and eventually sn-minimum-attack-group-size can exceed sn-maximum-attack-group-size. My understanding is that this will prevent attack groups from being sent, since it is impossible for attack groups to have a valid size in this situation. Even if attack groups are still sent, it is more straightforward for scripters to set sn-scale-minimum-attack-group-size to zero and to increase sn-minimum-attack-group-size directly over time.";
 
 snScaleMaximumAttackGroupSize.id = 94;
 snScaleMaximumAttackGroupSize.snName = "sn-scale-maximum-attack-group-size";
@@ -2558,7 +2562,7 @@ snScaleMaximumAttackGroupSize.defined = 1;
 snScaleMaximumAttackGroupSize.available = 0;
 snScaleMaximumAttackGroupSize.effective = 1;
 snScaleMaximumAttackGroupSize.version = "1.0c";
-snScaleMaximumAttackGroupSize.linked = [ 93, 26, 60 ];
+snScaleMaximumAttackGroupSize.linked = [ 93, 99, 26, 60 ];
 snScaleMaximumAttackGroupSize.related = [ 36, 16, 58, 59 ];
 snScaleMaximumAttackGroupSize.shortDescription = "The scaling factor for the maximum attack group size. Added to sn-minimum-attack-group-size when the tactical AI does its scaling.";
 
@@ -2646,6 +2650,7 @@ snScalingFrequency.version = "1.0c";
 snScalingFrequency.linked = [];
 snScalingFrequency.related = [];
 snScalingFrequency.shortDescription = "Sets the number of minutes that pass between each scaling inside the tactical AI.";
+snScalingFrequency.description = "Sets the number of minutes that pass between each scaling inside the tactical AI.";
 
 snMaximumGaiaAttackResponse.id = 100;
 snMaximumGaiaAttackResponse.snName = "sn-maximum-gaia-attack-response";
@@ -3310,6 +3315,7 @@ snAddStartingResourceFood.version = "1.0c";
 snAddStartingResourceFood.linked = [];
 snAddStartingResourceFood.related = [ 139, 140, 141 ];
 snAddStartingResourceFood.shortDescription = "Cheat - adds extra food to starting resources.";
+snAddStartingResourceFood.description = "Cheat - adds extra food to starting resources.";
 
 snAddStartingResourceGold.id = 139;
 snAddStartingResourceGold.snName = "sn-add-starting-resource-gold";
@@ -3395,6 +3401,7 @@ snTaskUngroupedSoldiers.version = "1.0c";
 snTaskUngroupedSoldiers.linked = [];
 snTaskUngroupedSoldiers.related = [ 232 ];
 snTaskUngroupedSoldiers.shortDescription = "Controls whether or not ungrouped computer player soldiers get tasked to spread out and guard the computer player's general town area.";
+snTaskUngroupedSoldiers.description = "Controls whether or not ungrouped computer player soldiers get tasked to spread out and guard the computer player's general town area. When set to the default value of 1, this SN requires all idle military units to keep a certain distance from each other, usually around 4-6 tiles. The AI will check every few seconds, and if it finds units that are too close together, it will order those units to spread out. In practice, it makes units look like the are slowly wandering around the town in a random pattern, and if the AI has a large army, these soldiers may spread out a far distance away from the center of the AI's town.</p><p>In most cases the behavior of sn-task-ungrouped-soldiers is undesirable, and setting the SN to zero is better. Town defense is usually most effective when defensive soldiers aren't separated. However, some scripters will temporarily set this SN to 1 for a couple seconds every minute or so to prevent soldiers from clumping around their training buildings after being trained.";
 
 snTargetEvaluationBoat.id = 144;
 snTargetEvaluationBoat.snName = "sn-target-evaluation-boat";
@@ -3803,6 +3810,7 @@ snInitialExplorationRequired.version = "1.0c";
 snInitialExplorationRequired.linked = [ 32, 179, 256 ];
 snInitialExplorationRequired.related = [ 135, 136 ];
 snInitialExplorationRequired.shortDescription = "The percentage of the map that must be explored by a computer player before any building is allowed.";
+snInitialExplorationRequired.description = "The percentage of the map that must be explored by a computer player before any building is allowed.</p><p>Please change this SN in your AI. The default is 2%. On larger maps this can cause your AI to significantly delay the construction of its first houses. Just set this SN to 0 and forget about it. The default value is annoying and causes a lot of hair-pulling until the scripter realizes they didn't change this SN.";
 
 snRandomPlacementFactor.id = 168;
 snRandomPlacementFactor.snName = "sn-random-placement-factor";
@@ -4928,7 +4936,7 @@ snMaximumWoodDropDistance.version = "1.0c";
 snMaximumWoodDropDistance.linked = [ 164 ];
 snMaximumWoodDropDistance.related = [ 234, 235, 236, 237, 238 ];
 snMaximumWoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumWoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables wood gathering.";
+snMaximumWoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables wood gathering.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to gather wood if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 30, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snMaximumFoodDropDistance.id = 234;
 snMaximumFoodDropDistance.snName = "sn-maximum-food-drop-distance";
@@ -4946,7 +4954,7 @@ snMaximumFoodDropDistance.version = "1.0c";
 snMaximumFoodDropDistance.linked = [ 163, 235, 236 ];
 snMaximumFoodDropDistance.related = [ 233, 237, 238 ];
 snMaximumFoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumFoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables all food gathering, except for hunting.";
+snMaximumFoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables all food gathering, except for hunting.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to gather food if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 20, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snMaximumHuntDropDistance.id = 235;
 snMaximumHuntDropDistance.snName = "sn-maximum-hunt-drop-distance";
@@ -4964,7 +4972,7 @@ snMaximumHuntDropDistance.version = "1.0c";
 snMaximumHuntDropDistance.linked = [ 234, 236 ];
 snMaximumHuntDropDistance.related = [ 204, 252, 244, 245, 233, 237, 238 ];
 snMaximumHuntDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumHuntDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables hunting gathering.";
+snMaximumHuntDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables hunting gathering.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to hunt if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 30, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snMaximumFishBoatDropDistance.id = 236;
 snMaximumFishBoatDropDistance.snName = "sn-maximum-fish-boat-drop-distance";
@@ -4982,7 +4990,7 @@ snMaximumFishBoatDropDistance.version = "1.0c";
 snMaximumFishBoatDropDistance.linked = [ 234, 235 ];
 snMaximumFishBoatDropDistance.related = [ 233, 237, 238 ];
 snMaximumFishBoatDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumFishBoatDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water. -2 disables fish gathering for fishing ships.";
+snMaximumFishBoatDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). If set to 0, all fishing ships will explore the water. -2 disables fish gathering for fishing ships.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's fishing ships to go all the across the map to gather fish if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 30, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snMaximumGoldDropDistance.id = 237;
 snMaximumGoldDropDistance.snName = "sn-maximum-gold-drop-distance";
@@ -5000,7 +5008,7 @@ snMaximumGoldDropDistance.version = "1.0c";
 snMaximumGoldDropDistance.linked = [ 166 ];
 snMaximumGoldDropDistance.related = [ 233, 234, 235, 236, 238 ];
 snMaximumGoldDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumGoldDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables gold gathering.";
+snMaximumGoldDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables gold gathering.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to gather gold if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 20, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snMaximumStoneDropDistance.id = 238;
 snMaximumStoneDropDistance.snName = "sn-maximum-stone-drop-distance";
@@ -5018,7 +5026,7 @@ snMaximumStoneDropDistance.version = "1.0c";
 snMaximumStoneDropDistance.linked = [ 165 ];
 snMaximumStoneDropDistance.related = [ 233, 234, 235, 236, 237 ];
 snMaximumStoneDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
-snMaximumStoneDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).  -2 disables stone gathering.";
+snMaximumStoneDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be).  -2 disables stone gathering.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to gather stone if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 20, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
 snGatherIdleSoldiersAtCenter.id = 239;
 snGatherIdleSoldiersAtCenter.snName = "sn-gather-idle-soldiers-at-center";
@@ -5122,7 +5130,7 @@ snEnableBoarHunting.version = "1.1";
 snEnableBoarHunting.linked = [ 204, 252 ];
 snEnableBoarHunting.related = [ 235, 245 ];
 snEnableBoarHunting.shortDescription = "Set to 1 to target deer and boar; if it's set to 2, deer will be ignored.";
-snEnableBoarHunting.description = "Set to 1 to target deer and boar; if it's set to 2, deer will be ignored. Keep sn-enable-boar-hunting at the default setting of 0 to target deer and ignore boar. To ignore both deer and boar, set " + snMinimumNumberHunters.getLink() + " to 0, and set " + snMaximumHuntDropDistance.getLink() + " to -2. ";
+snEnableBoarHunting.description = "Set to 1 to target deer and boar; if it's set to 2, deer will be ignored. Keep sn-enable-boar-hunting at the default setting of 0 to target deer and ignore boar. To ignore both deer and boar, set " + snMinimumNumberHunters.getLink() + " to 0, and set " + snMaximumHuntDropDistance.getLink() + " to -2.</p><p>This SN's default value is 0, which is usually not the value you want. Make sure to change the setting of this SN if you want your AI to hunt boar. The recommended setting is 1 when you are just starting to script so that your AI doesn't ignore free and valuable food resources. Hunting is one of the fastest sources of food. See this <a href=\"../resources/articles/helpful-info.html#sn-boar-hunting\">page</a> for examples on how different SN hunting values affects your hunting.";
 
 snMinimumNumberHunters.id = 245;
 snMinimumNumberHunters.snName = "sn-minimum-number-hunters";
@@ -5175,6 +5183,7 @@ snEnablePatrolAttack.version = "1.1";
 snEnablePatrolAttack.linked = [];
 snEnablePatrolAttack.related = [ 227, 228, 36, 58 ];
 snEnablePatrolAttack.shortDescription = "Set to 1 to enable the patrol-style local targeting system. When attacking a distant target, this causes units to retarget against nearby sighted units immediately instead of waiting until they are in proximity to the original target.";
+snEnablePatrolAttack.description = "Set to 1 to enable the patrol-style local targeting system. When attacking a distant target, this causes units to retarget against nearby sighted units immediately instead of waiting until they are in proximity to the original target. Note: this SN does not work on units that are information, so it will not work on grouped soldiers attacking with " + cAttackNow.getLink() + " or " + snNumberAttackGroups.getLink() + ". It doesn't cause your AI to put soldiers into formation and patrol a formed group toward the enemy, as the name might suggest. Instead ungrouped units sent to attack will patrol toward their target.</p><p>If you use one-soldier attack groups or TSA, you'll almost always want to set this SN to 1. There may be cases where you may want to keep this SN at zero, such as if your AI is trying to raid or if the enemy has a forward tower that you want to ignore, so that your soldiers will march all the way to their attack target without getting sidetracked.";
 
 snDropsiteSeparationDistance.id = 248;
 snDropsiteSeparationDistance.snName = "sn-dropsite-separation-distance";
@@ -5296,6 +5305,7 @@ snEnableOffensivePriority.version = "1.1";
 snEnableOffensivePriority.linked = [];
 snEnableOffensivePriority.related = [ 267 ];
 snEnableOffensivePriority.shortDescription = "Set to 1 to enable attack-now and attack groups to target using the priorities set by up-set-offense-priority.";
+snEnableOffensivePriority.description = "Set to 1 to enable " + cAttackNow.getLink() + " and attack groups to target using the priorities set by " + cUpSetOffensePriority.getLink() + ".</p><p>This SN is turned off by default, so the SN should be changed to 1. Using up-set-offense-priority allows you to control which buildings and units have lower and higher priority when the AI is selecting an attack target. If you don't set sn-enable-offensive-priority to 1, up-set-offense-priority will have no effect. " + cUpSetDefensePriority.getLink() + " does not have a corresponding strategic number that you need to set to 1 for the command to work, just up-set-offense-priority.";
 
 snBuildingTargetingMode.id = 255;
 snBuildingTargetingMode.snName = "sn-building-targeting-mode";
@@ -8444,7 +8454,7 @@ cLogTrace.complexity = "Medium";
 
 //map-size
 cMapSize.shortDescription = "Checks the map size.";
-cMapSize.shortDescription = "Checks the map size. The map sizes can be tiny, small, medium, normal, large, giant, or ludikris (DE only). To get the actual dimensions of the map, you can use " + cUpGetPoint.getLink() + " with position-map-size, which will store the coordinates of the rightmost point on the map.";
+cMapSize.description = "Checks the map size. The map sizes can be tiny, small, medium, normal, large, giant, or ludikris (DE only). To get the actual dimensions of the map, you can use " + cUpGetPoint.getLink() + " with position-map-size, which will store the coordinates of the rightmost point on the map.";
 cMapSize.commandParameters = [ {
 	nameLink: pMapSize.getLink(),
 	name: "MapSize",
@@ -18987,6 +18997,334 @@ pMapType.valueList = [ {
 	name: "custom_map",
 	id: 44,
 	description: "A custom random map. Notice the underscore."
+}, {
+	name: "acropolis",
+	id: 67,
+	description: "Acropolis map."
+}, {
+	name: "budapest",
+	id: 68,
+	description: "Budapest map."
+}, {
+	name: "cenotes",
+	id: 69,
+	description: "Cenotes map."
+}, {
+	name: "cityoflakes",
+	id: 70,
+	description: "City of Lakes map. Notice the lack of dashes in the name."
+}, {
+	name: "goldenpit",
+	id: 71,
+	description: "Golden Pit map. Notice the lack of dashes in the name."
+}, {
+	name: "hideout",
+	id: 72,
+	description: "Hideout map."
+}, {
+	name: "hillfort",
+	id: 73,
+	description: "Hill Fort map. Notice the lack of dashes in the name."
+}, {
+	name: "lombardia",
+	id: 74,
+	description: "Lombardia map."
+}, {
+	name: "steppe",
+	id: 75,
+	description: "Steppe map."
+}, {
+	name: "valley",
+	id: 76,
+	description: "Valley map."
+}, {
+	name: "megarandom",
+	id: 77,
+	description: "Megarandom map."
+}, {
+	name: "hamburger",
+	id: 78,
+	description: "Hamburger map."
+}, {
+	name: "ctr-random",
+	id: 79,
+	description: "Capture the Relic random map."
+}, {
+	name: "ctr-monsoon",
+	id: 80,
+	description: "Capture the Relic Monsoon map."
+}, {
+	name: "ctr-pyramid-descent",
+	id: 81,
+	description: "Capture the Relic Pyramid Descent map."
+}, {
+	name: "ctr-spiral",
+	id: 82,
+	description: "Capture the Relic Spiral map."
+}, {
+	name: "kilimanjaro",
+	id: 83,
+	description: "Kilimanjaro map."
+}, {
+	name: "mountain-pass",
+	id: 84,
+	description: "Mountain Pass map."
+}, {
+	name: "nile-delta",
+	id: 85,
+	description: "Nile Delta map."
+}, {
+	name: "serengeti",
+	id: 86,
+	description: "Serengeti map."
+}, {
+	name: "socotra",
+	id: 87,
+	description: "Socotra map."
+}, {
+	name: "real-world-amazon",
+	id: 88,
+	description: "Amazon real world map."
+}, {
+	name: "real-world-china",
+	id: 89,
+	description: "China real world map."
+}, {
+	name: "real-world-india",
+	id: 91,
+	description: "India real world map."
+}, {
+	name: "real-world-madagascar",
+	id: 92,
+	description: "Madagascar real world map."
+}, {
+	name: "real-world-west-africa",
+	id: 93,
+	description: "West Africa real world map."
+}, {
+	name: "real-world-bohemia",
+	id: 94,
+	description: "Bohemia real world map."
+}, {
+	name: "real-world-earth",
+	id: 95,
+	description: "Earth real world map."
+}, {
+	name: "special-map-canyons",
+	id: 96,
+	description: "Canyons special map."
+}, {
+	name: "special-map-archipelago",
+	id: 97,
+	description: "Archipelago special map."
+}, {
+	name: "special-map-enemy-islands",
+	id: 98,
+	description: "Islands special map."
+}, {
+	name: "special-map-far-out",
+	id: 99,
+	description: "Far Out special map."
+}, {
+	name: "special-map-front-line",
+	id: 100,
+	description: "Front Line special map."
+}, {
+	name: "special-map-inner-circle",
+	id: 101,
+	description: "Inner Circle special map."
+}, {
+	name: "special-map-motherland",
+	id: 102,
+	description: "Motherland special map."
+}, {
+	name: "special-map-open-plains",
+	id: 103,
+	description: "Open Plains special map."
+}, {
+	name: "special-map-ring-of-water",
+	id: 104,
+	description: "Ring of Water special map."
+}, {
+	name: "special-map-snake-pit",
+	id: 105,
+	description: "Snake Pit special map."
+}, {
+	name: "special-map-the-eye",
+	id: 106,
+	description: "The Eye special map."
+}, {
+	name: "bog-islands",
+	id: 112,
+	description: "Bog Islands map."
+}, {
+	name: "mangrove-jungle",
+	id: 113,
+	description: "Mangrove Jungle map."
+}, {
+	name: "pacific-islands",
+	id: 114,
+	description: "Pacific Islands map."
+}, {
+	name: "sandbank",
+	id: 115,
+	description: "Sandbank map."
+}, {
+	name: "water-nomad",
+	id: 116,
+	description: "Water Nomad map."
+}, {
+	name: "special-map-jungle-islands",
+	id: 117,
+	description: "Jungle Islands special map."
+}, {
+	name: "special-map-holy-line",
+	id: 118,
+	description: "Holy Line special map."
+}, {
+	name: "special-map-border-stones",
+	id: 119,
+	description: "Border Stones special map."
+}, {
+	name: "special-map-yin-yang",
+	id: 120,
+	description: "Yin Yang special map."
+}, {
+	name: "special-map-jungle-lanes",
+	id: 121,
+	description: "Jungle Lanes special map."
+}, {
+	name: "golden-swamp",
+	id: 139,
+	description: "Golden Swamp map."
+}, {
+	name: "four-lakes",
+	id: 140,
+	description: "Four Lakes map."
+}, {
+	name: "land-nomad",
+	id: 141,
+	description: "Land Nomad map."
+}, {
+	name: "battle-on-the-ice",
+	id: 142,
+	description: "Battle on the Ice battle royale map."
+}, {
+	name: "el-dorado",
+	id: 143,
+	description: "El Dorado battle royale map."
+}, {
+	name: "fall-of-axum",
+	id: 144,
+	description: "Fall of Axum battle royale map."
+}, {
+	name: "fall-of-rome",
+	id: 145,
+	description: "Fall of Rome battle royale map."
+}, {
+	name: "the-majapahit-empire",
+	id: 146,
+	description: "The Majapahit Empire battle royale map."
+}, {
+	name: "amazon-tunnel",
+	id: 147,
+	description: "Amazon Tunnel map."
+}, {
+	name: "coastal-forest",
+	id: 148,
+	description: "Coastal Forest map."
+}, {
+	name: "african-clearing",
+	id: 149,
+	description: "African Clearing map."
+}, {
+	name: "atacama",
+	id: 150,
+	description: "Atacama map."
+}, {
+	name: "seize-the-mountain",
+	id: 151,
+	description: "Seize the Mountain map."
+}, {
+	name: "crater",
+	id: 152,
+	description: "Crater map."
+}, {
+	name: "crossroads",
+	id: 153,
+	description: "Crossroads map."
+}, {
+	name: "volcanic-island",
+	id: 156,
+	description: "Volcanic Island map."
+}, {
+	name: "acclivity",
+	id: 157,
+	description: "Acclivity map."
+}, {
+	name: "eruption",
+	id: 158,
+	description: "Eruption map."
+}, {
+	name: "frigid-lake",
+	id: 159,
+	description: "Frigid Lake map."
+}, {
+	name: "greenland",
+	id: 160,
+	description: "Greenland map."
+}, {
+	name: "lowland",
+	id: 161,
+	description: "Lowland map."
+}, {
+	name: "marketplace",
+	id: 162,
+	description: "Marketplace map."
+}, {
+	name: "meadow",
+	id: 163,
+	description: "Meadow map."
+}, {
+	name: "mountain-range",
+	id: 164,
+	description: "Mountain Range map."
+}, {
+	name: "northern-isles",
+	id: 165,
+	description: "Northern Isles map."
+}, {
+	name: "ring-fortress",
+	id: 166,
+	description: "Ring Fortress map."
+}, {
+	name: "runestones",
+	id: 167,
+	description: "Runestones map."
+}, {
+	name: "aftermath",
+	id: 168,
+	description: "Aftermath map."
+}, {
+	name: "enclosed",
+	id: 169,
+	description: "Enclosed map."
+}, {
+	name: "haboob",
+	id: 170,
+	description: "Haboob map."
+}, {
+	name: "kawasan",
+	id: 171,
+	description: "Kawasan map."
+}, {
+	name: "land-madness",
+	id: 172,
+	description: "Land Madness map."
+}, {
+	name: "sacred-springs",
+	id: 173,
+	description: "Sacred Springs map."
 } ];
 
 //MaxDistance
