@@ -51,6 +51,7 @@ class Parameter {
 				if (commandsArray[i].commandParameters[j].name == this.upParamName) {
 					usedCommands += commandsArray[i].getLink();
 					usedCommands += ", &nbsp;";
+					break;
 				}
 				j++;
 			}
@@ -10404,17 +10405,17 @@ cUpAddObjectCost.complexity = "High";
 
 //up-add-point
 cUpAddPoint.shortDescription = "Add or subtract two point goal pairs together.";
-cUpAddPoint.description = "Add or subtract two point goal pairs together. The Value parameter indicates how many instances of Point2 to add to Point1. A negative Value will result in subtracting this number of instances of Point2 from Point1. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpAddPoint.description = "Add or subtract two point goal pairs together and store the result in Point1. The Value parameter indicates how many instances of Point2 to add to Point1. A negative Value will result in subtracting this number of instances of Point2 from Point1. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpAddPoint.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "io",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -10719,7 +10720,7 @@ cUpAttackerClass.complexity = "Medium";
 
 //up-bound-precise-point
 cUpBoundPrecisePoint.shortDescription = "Bound a point goal pair inside the map with additional control.";
-cUpBoundPrecisePoint.description = "Bound a point goal pair, either a normal point or a precise point, inside the map according to the number of tiles specified by the Value parameter, effectively acting as if the map has been shrunk on all sides by the number of tiles specified by the Value parameter. For example, the point (0,3) will be bounded to the point (5,5) if the Value parameter is 5. Please ensure that Value is a valid value and will not cause an overflow for the map size. If Option is set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.";
+cUpBoundPrecisePoint.description = "Bound a point goal pair, either a normal point or a precise point, inside the map according to the number of tiles specified by the Value parameter, effectively acting as if the map has been shrunk on all sides by the number of tiles specified by the Value parameter. For example, the point (0,3) will be bounded to the point (5,5) if the Value parameter is 5. Please ensure that Value is a valid value and will not cause an overflow for the map size. If Option is set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100. The bounded point will be stored back into the original point goal pair.";
 cUpBoundPrecisePoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -10760,16 +10761,17 @@ cUpBoundPrecisePoint.complexity = "High";
 
 //up-bound-point
 cUpBoundPoint.shortDescription = "Copy a point goal pair and shift it into the map bounds.";
+cUpBoundPoint.description = "Copy a point goal pair (Point2), shift it into the map bounds, and store the bounded point in Point1. ";
 cUpBoundPoint.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510",
@@ -10882,14 +10884,14 @@ cUpBuildLine.shortDescription = "Place a line of buildings between two point goa
 cUpBuildLine.description = "Place a line of buildings between two point goal pairs. For town centers and gates, please use a FoundationId, such as town-center-foundation or gate-ascending. Do not use town-center or gate with this command.";
 cUpBuildLine.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -11522,16 +11524,17 @@ cUpCompareText.complexity = "High";
 
 //up-copy-point
 cUpCopyPoint.shortDescription = "Copy one point goal pair into another pair of extended goals.";
+cUpCopyPoint.description = "Copy one point goal pair (Point2) into another pair of extended goals (Point1).";
 cUpCopyPoint.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "out",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510",
@@ -11589,17 +11592,17 @@ cUpCreateGroup.complexity = "Very High";
 
 //up-cross-tiles
 cUpCrossTiles.shortDescription = "Get a point perpendicular to two point goal pairs.";
-cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. The Value parameter specifies how many tiles away the new point will be from Point1, perpendicularly away in reference to Point2. A negative Value will result in the new point being located perpendicularly away in opposite direction. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. The Value parameter specifies how many tiles away the new point will be from Point1, perpendicularly away in reference to Point2. A negative Value will result in the new point being located perpendicularly away in opposite direction. Set Point2 to 0 to use the point that is stored by up-set-target-point. The new point will be stored in Point1.";
 cUpCrossTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "io",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -13286,14 +13289,14 @@ cUpGetPointDistance.shortDescription = "Get the distance between two point goal 
 cUpGetPointDistance.description = "Get the distance between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpGetPointDistance.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -13425,8 +13428,8 @@ cUpGetProjectilePlayer.complexity = "Medium";
 cUpGetRuleId.shortDescription = "Get the zero-based id for the current rule within the rule set.";
 cUpGetRuleId.description = "Get the zero-based id for the current rule within the rule set. This id can be used with up-jump-direct to precisely control jump destinations.";
 cUpGetRuleId.commandParameters = [ {
-	nameLink: pRuleId.getLink(),
-	name: "RuleId",
+	nameLink: pGoalId.getLink(),
+	name: "GoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13673,15 +13676,15 @@ cUpGetUpgradeId.commandParameters = [ {
 	range: "0 or 1",
 	note: "Set to 1 to get the current type id for counting."
 }, {
-	nameLink: pTypeId.getLink(),
-	name: "TypeId",
+	nameLink: pTypeId.getLink("TypeGoalId"),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a valid GoalId",
 	note: "Set to a valid type or line id."
 }, {
-	nameLink: pUpgradeId.getLink(),
-	name: "UpgradeId",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
@@ -13937,14 +13940,14 @@ cUpLerpPercent.shortDescription = "Interpolate a point by percentage between two
 cUpLerpPercent.description = "Interpolate a point by percentage between two point goal pairs and store the new point in Point1. The Percent parameter specifies the percentage of the distance between the two points that the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpLerpPercent.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "io",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -13978,14 +13981,14 @@ cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point 
 cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs and store the new point in Point1. The Value parameter specifies how many tiles the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
 cUpLerpTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "io",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
@@ -14592,14 +14595,14 @@ cUpPointDistance.shortDescription = "Perform a distance check between two point 
 cUpPointDistance.description = "Perform a distance check between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
 cUpPointDistance.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
-	name: "Point1",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
-	name: "Point2",
+	name: "Point",
 	type: "Goal",
 	dir: "in",
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
