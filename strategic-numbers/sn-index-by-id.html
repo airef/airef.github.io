@@ -15,8 +15,8 @@
 
 	<div class="container">
 		<div id="nav-placeholder"></div>
-		<h2>Strategic Numbers</h2>
-		<p>To view this list with the strategic numbers in order by ID number, not name, click <a href="../strategic-numbers/sn-index-by-id.html">here</a>.</p>
+		<h2>Strategic Numbers by ID Number</h2>
+		<p>To view this list with the strategic numbers in order by name, not ID number, click <a href="../strategic-numbers/sn-index.html">here</a>.</p>
 		<p>There are a total of 512 strategic numbers that the game has made available, but currently there are only about 300 of them being used. The other 200 or so strategic numbers are not listed in the table below, and they can be used like extra goals. It's recommended to start with strategic number ID 512 and work your way descending in ID until you reach the active strategic numbers, because DE can continue to add strategic numbers to the game and you don't want your custom strategic number to conflict with it.</p>
 		<p>
 			<strong>Flag Descriptions:</strong> (the Flags column indicates the settings of the following four types of info about each strategic number)<br>
@@ -83,85 +83,85 @@
 		text += "<tr><th>ID</th><th>Strategic Number</th>"
 		// text += "<th>Category</th>";
 		text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoK,<br>UP, DE)</th></tr>";
-		for(var i = 0; i < snArray.length; i++) {
+		for(var i = 0; i < snArrayById.length; i++) {
 			text += "<tr>";
-			text += "<td>" + snArray[i].id + "</td>";
-			text += "<td class=\"sn-name\" title=\"" + snArray[i].shortDescription;
-			text += "\">" + snArray[i].getLink();
-			if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			text += "<td>" + snArrayById[i].id + "</td>";
+			text += "<td class=\"sn-name\" title=\"" + snArrayById[i].shortDescription;
+			text += "\">" + snArrayById[i].getLink();
+			if (snArrayById[i].aoe == 1 && snArrayById[i].aok == 0 && snArrayById[i].up == 0 && snArrayById[i].de == 0) {
 				text += "<span class=\"sn-aoe1\"> (only works in AoE1)</span>";
 			}
-			else if (snArray[i].aoe == 0 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			else if (snArrayById[i].aoe == 0 && snArrayById[i].aok == 0 && snArrayById[i].up == 0 && snArrayById[i].de == 0) {
 				text += "<span class=\"sn-aoe1\"> (doesn't work)</span>";
 			}
 			text += "</td>";
-			// text += "<td>" + snArray[i].category + "</td>";
-			text += "<td>" + snArray[i].min + "</td>";
-			text += "<td>" + snArray[i].max + "</td>";
-			text += "<td>" + snArray[i].rmin + "</td>";
-			text += "<td>" + snArray[i].rmax + "</td>";
-			text += "<td>" + snArray[i].default + "</td><td>";
-			if(snArray[i].effective == 0) {
+			// text += "<td>" + snArrayById[i].category + "</td>";
+			text += "<td>" + snArrayById[i].min + "</td>";
+			text += "<td>" + snArrayById[i].max + "</td>";
+			text += "<td>" + snArrayById[i].rmin + "</td>";
+			text += "<td>" + snArrayById[i].rmax + "</td>";
+			text += "<td>" + snArrayById[i].default + "</td><td>";
+			if(snArrayById[i].effective == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Doesn't Work\">&#10007&nbsp;</span>";
 			}
-			else if(snArray[i].effective == 1) {
+			else if(snArrayById[i].effective == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"Works\">&#10003&nbsp;</span>";
 			}
-			if(snArray[i].network == 0) {
+			if(snArrayById[i].network == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Standard\">&#10007&nbsp;</span>";
 			}
-			else if(snArray[i].network == 1) {
+			else if(snArrayById[i].network == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"Network Sync\">&#10003&nbsp;</span>";
 			}
-			if(snArray[i].defined == 0) {
+			if(snArrayById[i].defined == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Undefined\"> &#10007&nbsp;</span>";
 			}
-			else if(snArray[i].defined == 1) {
+			else if(snArrayById[i].defined == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"Defined\"> &#10003&nbsp;</span>";
 			}
-			if(snArray[i].available == 0) {
+			if(snArrayById[i].available == 0) {
 				text += "<span class=\"sn-check-flag\" title=\"Active\"> &#10003</span></td>";
 			}
-			else if(snArray[i].available == 1) {
+			else if(snArrayById[i].available == 1) {
 				text += "<span class=\"sn-x-flag\" title=\"Obsolete\"> &#10007</span></td>";
 			}
 			else {
-				text += "<span class=\"sn-question-flag\" title=\"" + snArray[i].available;
+				text += "<span class=\"sn-question-flag\" title=\"" + snArrayById[i].available;
 				text += "\"> ?</td>";
 			}
 			text += "<td>";
-			if(snArray[i].aoe == 0) {
+			if(snArrayById[i].aoe == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Not in AoE1\">&#10007&nbsp;</span>";
 			}
-			else if(snArray[i].aoe == 1) {
+			else if(snArrayById[i].aoe == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"In AoE1\">&#10003&nbsp;</span>";
 			}
-			if(snArray[i].aok == 0) {
+			if(snArrayById[i].aok == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Not in AoK\">&#10007&nbsp;</span>";
 			}
-			else if(snArray[i].aok == 1) {
+			else if(snArrayById[i].aok == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"In AoK\">&#10003&nbsp;</span>";
 			}
-			if(snArray[i].up == 0) {
+			if(snArrayById[i].up == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Not in UP\"> &#10007&nbsp;</span>";
 			}
-			else if(snArray[i].up == 1) {
+			else if(snArrayById[i].up == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"In UP\"> &#10003&nbsp;</span>";
 			}
-			if(snArray[i].de == 0) {
+			if(snArrayById[i].de == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Not in DE\"> &#10007</span></td>";
 			}
-			else if(snArray[i].de == 1) {
+			else if(snArrayById[i].de == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"In DE\"> &#10003</span></td>";
 			}
-			/*text += "<td>" + snArray[i].version + "</td>";*/
+			/*text += "<td>" + snArrayById[i].version + "</td>";*/
 			text += "</tr>";
 		}
 		text += "</table>"
 		document.getElementById("snTable").innerHTML = text;
 
 		var num = 300;
-		document.getElementById("num-results").innerHTML = "Num Results: " + snArray.length;
+		document.getElementById("num-results").innerHTML = "Num Results: " + snArrayById.length;
 	</script>
 	<script>
 		function snFilter() {
@@ -236,14 +236,14 @@
 			//Loop through all table rows, and hide those who don't match the search query
 			for (i = 0; i < tr.length - 1; i++) {
 			//for (i = 0; i < 1; i++) {
-				tdId = snArray[i].id;
-				tdName = snArray[i].snName;
-				tdCategory = snArray[i].category;
-				tdEffective = snArray[i].effective;
-				tdNetwork = snArray[i].network;
-				tdDefined = snArray[i].defined;
-				tdActive = snArray[i].available;
-				if(typeof snArray[i].available === "string") {
+				tdId = snArrayById[i].id;
+				tdName = snArrayById[i].snName;
+				tdCategory = snArrayById[i].category;
+				tdEffective = snArrayById[i].effective;
+				tdNetwork = snArrayById[i].network;
+				tdDefined = snArrayById[i].defined;
+				tdActive = snArrayById[i].available;
+				if(typeof snArrayById[i].available === "string") {
 					tdActive = 2;
 				}
 
@@ -254,7 +254,7 @@
 								if(network == -1 || tdNetwork == network) {
 									if(defined == -1 || tdDefined == defined) {
 										if(active == -1 || tdActive == active) {
-											if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoK" && snArray[i].aok == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
+											if(version == "All" || (version == "AoE1" && snArrayById[i].aoe == 1) || (version == "AoK" && snArrayById[i].aok == 1) || (version == "UP" && snArrayById[i].up == 1) || (version == "DE" && snArrayById[i].de == 1)) {
 												tr[i + 1].style.display = "";
 												num = num + 1;
 											}
