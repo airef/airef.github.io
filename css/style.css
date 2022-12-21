@@ -419,6 +419,10 @@ blockquote {
 	text-shadow: 1px 1px 0.5px #999;
 }
 
+.sn-aoe1 {
+	color: #666;
+}
+
 .patch-table {
 	table-layout: fixed;
 	width: 96%;
