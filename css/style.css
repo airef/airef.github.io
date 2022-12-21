@@ -429,7 +429,7 @@ blockquote {
 	table-layout: fixed;
 }
 
-.techs-table th, .objects-table th {
+th {
 	vertical-align: bottom;
 }
 
