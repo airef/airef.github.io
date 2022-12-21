@@ -17,20 +17,23 @@
 		<div id="nav-placeholder"></div>
 		<h2>Strategic Numbers</h2>
 		<p>
+			<strong>Flag Descriptions:</strong> (the Flags column indicates the settings of the following four types of info about each strategic number)<br>
 			<strong>Effective:</strong> indicates whether the strategic number has an impact on AI behavior. Several strategic numbers do not work because they are holdovers from AoE1 or were never implemented properly.<br>
 			<strong>Network:</strong> indicates whether the strategic number is sent along the network to clients to prevent out of sync issues.<br>
 			<strong>Defined:</strong> indicates whether the name of the strategic number is predefined in the AI engine and doesn't require a defconst to be used.<br>
-			<strong>Active:</strong> indicates whether the strategic number has an impact on AI behavior and/or is modifiable by other SNs. Obsolete means that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. Conditional means that the strategic number can be considered available to be used like an obsolete SN in certain settings.
+			<strong>Active:</strong> indicates that the strategic number cannot be used like an extra goal because it's value impacts the game or can be changed automatically by other strategic numbers. Conditional indicates that the strategic number can be considered available to be used like an extra goal in certain settings (hover over the question mark to see the conditions in which it is available). Obsolete indicates that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. This column may not be entirely accurate. Some strategic numbers marked as Active have no impact on the game, but these Active/Conditional/Obsolete indications were carried over from the original Userpatch SN reference without changes. Use the Effective column for a more accurate list.
 		</p>
 		<p>
-			<label for="snInput" class="sn-input-label">Search</label><label for="sn-category" class="dropdown-label">Category</label><label for="sn-effective" class="dropdown-label">Effective</label><label for="sn-network" class="dropdown-label">Network</label><label for="sn-defined" class="dropdown-label">Defined</label><label for="sn-active" class="dropdown-label">Active</label><label for="sn-version" class="dropdown-label">Version Introduced</label>
+			<label for="snInput" class="sn-input-label">Search</label><label for="sn-category" class="dropdown-label">Category</label><label for="sn-effective" class="dropdown-label">Effective</label><label for="sn-network" class="dropdown-label">Network</label><label for="sn-defined" class="dropdown-label">Defined</label><label for="sn-active" class="dropdown-label">Active</label><label for="sn-version" class="dropdown-label">Version</label>
 			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off" autofocus="autofocus"><select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
 				<option value="All" selected>All</option>
-				<option value="AoE 1">AoE 1</option>
 				<option value="Attack">Attack</option>
+				<option value="Buildings">Buildings</option>
+				<option value="Build Plan">Build Plan</option>
 				<option value="Defense">Defense</option>
+				<option value="Diplomacy">Diplomacy</option>
 				<option value="Economy">Economy</option>
-				<option value="Explore">Explore</option>
+				<option value="Exploring">Exploring</option>
 				<option value="Water">Water</option>
 				<option value="Other">Other</option>
 				<option value="None">None</option>
@@ -53,11 +56,9 @@
 				<option value="Obsolete">Obsolete</option>
 			</select><select id="sn-version" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
-				<option value="1.0c">1.0c</option>
+				<option value="AoE1">AoE1</option>
+				<option value="AoK">AoK</option>
 				<option value="UP">UP</option>
-				<option value="1.1 Only">1.1 Only</option>
-				<option value="1.5 Only">1.5 Only</option>
-				<option value="HD">HD</option>
 				<option value="DE">DE</option>
 			</select>
 		</p>
@@ -77,12 +78,19 @@
 	
 	<script>
 		var text = "<table id=\"index-table\">";
-		text += "<tr><th>ID</th><th>Strategic Number</th><th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Version</th></tr>";
+		text += "<tr><th>ID</th><th>Strategic Number</th>"
+		// text += "<th>Category</th>";
+		text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoK,<br>UP, DE)</th></tr>";
 		for(var i = 0; i < snArray.length; i++) {
 			text += "<tr>";
 			text += "<td>" + snArray[i].id + "</td>";
 			text += "<td class=\"sn-name\" title=\"" + snArray[i].shortDescription;
-			text += "\">" + snArray[i].getLink() + "</td>";
+			text += "\">" + snArray[i].getLink();
+			if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+				text += " (only works in AoE1)";
+			}
+			text += "</td>";
+			// text += "<td>" + snArray[i].category + "</td>";
 			text += "<td>" + snArray[i].min + "</td>";
 			text += "<td>" + snArray[i].max + "</td>";
 			text += "<td>" + snArray[i].rmin + "</td>";
@@ -116,7 +124,32 @@
 				text += "<span class=\"sn-question-flag\" title=\"" + snArray[i].available;
 				text += "\"> ?</td>";
 			}
-			text += "<td>" + snArray[i].version + "</td>";
+			text += "<td>";
+			if(snArray[i].aoe == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Not in AoE1\">&#10007&nbsp;</span>";
+			}
+			else if(snArray[i].aoe == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"In AoE1\">&#10003&nbsp;</span>";
+			}
+			if(snArray[i].aok == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Not in AoK\">&#10007&nbsp;</span>";
+			}
+			else if(snArray[i].aok == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"In AoK\">&#10003&nbsp;</span>";
+			}
+			if(snArray[i].up == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Not in UP\"> &#10007&nbsp;</span>";
+			}
+			else if(snArray[i].up == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"In UP\"> &#10003&nbsp;</span>";
+			}
+			if(snArray[i].de == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Not in DE\"> &#10007</span></td>";
+			}
+			else if(snArray[i].de == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"In DE\"> &#10003</span></td>";
+			}
+			/*text += "<td>" + snArray[i].version + "</td>";*/
 			text += "</tr>";
 		}
 		text += "</table>"
@@ -128,7 +161,7 @@
 	<script>
 		function snFilter() {
 			// Declare variables
-			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num;
+			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aok, up, de;
 			input = document.getElementById("snInput");
 			category = document.getElementById("sn-category");
 			category = category.value;
@@ -167,12 +200,13 @@
 			else {
 				active = -1;
 			}
-			version = document.getElementById("sn-version");
-			if (version.value == "All") {
+			version = document.getElementById("sn-version").value;
+			console.log(version);
+			/*if (version.value == "All") {
 				version = "All";
 			}
-			else if (version.value == "1.0c") {
-				version = "1.0c";
+			else if (version.value == "AoE1") {
+				version = "AoE1";
 			}
 			else if (version.value == "UP") {
 				version = "UP";
@@ -188,7 +222,7 @@
 			}
 			else if (version.value == "DE") {
 				version = "DE";
-			}
+			}*/
 			filter = input.value.toUpperCase();
 			table = document.getElementById("index-table");
 			tr = table.getElementsByTagName("tr");
@@ -207,7 +241,6 @@
 				if(typeof snArray[i].available === "string") {
 					tdActive = 2;
 				}
-				tdVersion = snArray[i].version;
 
 				if (tdName != "" && tdId.toString().length > 0) {
 					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
@@ -216,7 +249,7 @@
 								if(network == -1 || tdNetwork == network) {
 									if(defined == -1 || tdDefined == defined) {
 										if(active == -1 || tdActive == active) {
-											if(version == "All" || tdVersion == version || (tdVersion != "1.0c" && version == "UP")) {
+											if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoK" && snArray[i].aok == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
 												tr[i + 1].style.display = "";
 												num = num + 1;
 											}

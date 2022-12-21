@@ -89,12 +89,22 @@
 	
 	<script>
 		var text = "<table id=\"index-table\">";
-		text += "<tr><th>Command Name</th><th>Description</th><th>Type</th><th>Version</th></tr>";
+		text += "<tr><th>Command Name</th><th>Description</th>";
+		// text += "<th>Category</th>";
+		text += "<th>Type</th><th>Version</th></tr>";
 		for(var i = 0; i < commandsArray.length; i++) {
 			text += "<tr>";
 			text += "<td class=\"command-name\" title=\"" + commandsArray[i].commandName;
 			text += "\">" + commandsArray[i].getLink() + "</td>";
 			text += "<td>" + commandsArray[i].shortDescription + "</td>";
+			// text += "<td>";
+			// for (var j = 0; j < commandsArray[i].commandCategory.length; j++) {
+			// 	text += commandsArray[i].commandCategory[j] + ", ";
+			// }
+			// if (commandsArray[i].commandCategory.length > 0) {
+			// 	text = text.slice(0, -2);
+			// }
+			// text += "</td>";
 			text += "<td>" + commandsArray[i].commandType + "</td>";
 			text += "<td>" + commandsArray[i].commandVersion + "</td>";
 			text += "</tr>";

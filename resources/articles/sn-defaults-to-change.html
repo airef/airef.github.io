@@ -38,6 +38,12 @@
 	(set-strategic-number sn-scale-minimum-attack-group-size 0)
 	(set-strategic-number sn-task-ungrouped-soldiers 0)
 	(disable-self)
+)
+(defrule
+	(true)
+=>
+	(set-strategic-number sn-zero-priority-distance 255)
+	(disable-self)
 )</code></pre></div>
 			<h3>sn-cap-civilian-builders</h3>
 			<p><a href="../../strategic-numbers/sn-details.html#sn-cap-civilian-builders">sn-cap-civilian-builders</a> sets the maximum number of total villagers that the AI will use to construct buildings. I suggest 200, but really any reasonably high number is fine. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.</p>
@@ -59,6 +65,8 @@
 			<p><a href="../../strategic-numbers/sn-details.html#sn-scale-minimum-attack-group-size">sn-scale-minimum-attack-group-size</a> affects the minimum size of attack groups. Specifically, it automatically increases <a href="../../strategic-numbers/sn-details.html#sn-minimum-attack-group-size">sn-minimum-attack-group-size</a> by the value of sn-scale-minimum-attack-group-size every X minutes, where X is the value of <a href="../../strategic-numbers/sn-details.html#sn-scaling-frequency">sn-scaling-frequency</a>. If kept at the default of 1 and sn-scaling-frequency is kept at the default value of 10, then sn-minimum-attack-group-size will increase by 1 every 10 minutes. This behavior on its own isn't a big deal, but the default value of the corresponding SN <a href="../../strategic-numbers/sn-details.html#sn-scale-maximum-attack-group-size">sn-scale-maximum-attack-group-size</a> is zero, meaning that sn-maximum-attack-group-size isn't automatically increased in the same manner, and eventually sn-minimum-attack-group-size can exceed sn-maximum-attack-group-size. My understanding is that this will prevent attack groups from being sent, since it is impossible for attack groups to have a valid size in this situation. Even if attack groups are still sent, it is more straightforward for scripters to set sn-scale-minimum-attack-group-size to zero and to increase sn-minimum-attack-group-size directly over time.</p>
 			<h3>sn-task-ungrouped-soldiers</h3>
 			<p>When set to the default value of 1, <a href="../../strategic-numbers/sn-details.html#sn-task-ungrouped-soldiers">sn-task-ungrouped-soldiers</a> requires all idle military units to keep a certain distance from each other, usually around 4-6 tiles. The AI will check every few seconds, and if it finds units that are too close together, it will order those units to spread out. In practice, it makes units look like the are slowly wandering around the town in a random pattern, and if the AI has a large army, these soldiers may spread out a far distance away from the center of the AI's town. In most cases the behavior of sn-task-ungrouped-soldiers is undesirable, and setting the SN to zero is better. However, some scripters will temporarily set this SN to 1 every minute or so to prevent soldiers from clumping around their training buildings after being trained.</p>
+			<h3>sn-zero-priority-distance</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-zero-priority-distance">sn-zero-priority-distance</a> either will cause units beyond this distance from the main town center to become idle, or it makes enemy targets beyond this to have zero priority, meaning the AI won't attack them. Neither outcome is desirable, so set this to the max value of 255 so you don't have to worry about it. The default value is 50.</p>
 			<hr>
 
 		</div>
