@@ -9714,11 +9714,12 @@ cMapSize.example = [ {
 } ];
 cMapSize.commandCategory = ["Game Info"];
 cMapSize.relatedCommands = [cMapType, cUpGetPoint];
-cMapSize.relatedSNs = [snInitialExplorationRequired, snPercentHalfExploration];
+cMapSize.relatedSNs = [snInitialExplorationRequired, snPercentExplorationRequired, snPercentHalfExploration];
 cMapSize.complexity = "Low";
 
 //map-type
 cMapType.shortDescription = "Checks the map type.";
+cMapType.description = "Checks the map type. The map type is the map's name. See " + pMapType.getLink() + " for a complete list of maps.</><p>For custom random maps, the map type is \"custom_map\" (yes, with the underscore). The exception is if the custom random map script uses ai_info_map_type. For example, if the random map script has <code>ai_info_map_type ARABIA 0 0 0</code>, then (map-type arabia) will be true instead of (map-type custom_map).";
 cMapType.commandParameters = [ {
 	nameLink: pMapType.getLink(),
 	name: "MapType",
@@ -9727,18 +9728,18 @@ cMapType.commandParameters = [ {
 	range: "A valid MapType",
 	note: "The type of map, such as arabia."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cMapType.example = [ {
+	title: "Check if the map type is Arena.",
+	data: "(defrule\r\n\t(map-type arena)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cMapType.commandCategory = ["Game Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cMapType.relatedCommands = [cMapSize, cUpStoreMapName];
+cMapType.relatedSNs = [];
 cMapType.complexity = "Low";
 
 //military-population
 cMilitaryPopulation.shortDescription = "Check's the player's military population.";
-cMilitaryPopulation.description = "Check's the player's military population.</p><p>To check for the military-population of other players, use " + cPlayersMilitaryPopulation.getLink() + ".";
+cMilitaryPopulation.description = "Check's the player's military population. Military population includes any units that aren't civilian population (not villagers, trade units and fishing ships). It includes transport ships, but it does not count kings.</p><p>To check for the military-population of other players, use " + cPlayersMilitaryPopulation.getLink() + ". ";
 cMilitaryPopulation.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9754,13 +9755,13 @@ cMilitaryPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cMilitaryPopulation.example = [ {
+	title: "If military population is < 10 and we can build a castle, build a castle.",
+	data: "(defrule\r\n\t(military-population < 10)\r\n\t(can-build castle)\r\n=>\r\n\t(build castle)\r\n)"
+} ];
 cMilitaryPopulation.commandCategory = ["Counting", "Units"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cMilitaryPopulation.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cCivilianPopulation, cDefendSoldierCount, cDefendWarboatCount, cPlayersMilitaryPopulation, cPopulation, cSoldierCount, cWarboatCount];
+cMilitaryPopulation.relatedSNs = [snPercentAttackBoats, snPercentAttackSoldiers];
 cMilitaryPopulation.complexity = "Low";
 
 //player-computer
@@ -9774,13 +9775,13 @@ cPlayerComputer.commandParameters = [ {
 	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerComputer.example = [ {
+	title: "Check if the target player is a computer player instead of a human player.",
+	data: "(defrule\r\n\t(player-computer target-player)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayerComputer.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerComputer.relatedCommands = [cPlayerHuman];
+cPlayerComputer.relatedSNs = [];
 cPlayerComputer.complexity = "Low";
 
 //player-human
@@ -9794,13 +9795,13 @@ cPlayerHuman.commandParameters = [ {
 	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerHuman.example = [ {
+	title: "Check if the focus player is a human player instead of a computer player.",
+	data: "(defrule\r\n\t(player-human focus-player)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayerHuman.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerHuman.relatedCommands = [cPlayerComputer];
+cPlayerHuman.relatedSNs = [];
 cPlayerHuman.complexity = "Low";
 
 //player-in-game
