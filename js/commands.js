@@ -12798,14 +12798,14 @@ cUpCopyPoint.complexity = "High";
 cUpCreateGroup.shortDescription = "Reset the group and create a search group from the local search results.";
 cUpCreateGroup.description = "Reset the group and create a search group from the local search results. The number of units put into the group will be capped by the number stored in GoalId. If 0 is used for the GoalId parameter, up to 40 objects will be put into the group instead (the highest amount). If there are no units available in the results list to create the specified group, the group will be cleared in the same way as " + cUpResetGroup.getLink() + ".";
 cUpCreateGroup.commandParameters = [ {
-	nameLink: pIndex.getLink(),
-	name: "Index",
+	nameLink: pGoalId.getLink("IndexGoalId"),
+	name: "GoalId",
 	type: "Goal",
 	dir: "in",
 	range: "a valid GoalId, or 0 for index 0",
 	note: "The zero-based index of the first local search result."
 }, {
-	nameLink: pGoalId.getLink(),
+	nameLink: pGoalId.getLink("CountGoalId"),
 	name: "GoalId",
 	type: "Goal",
 	dir: "in",
