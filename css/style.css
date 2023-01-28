@@ -21,8 +21,8 @@ body {
 
 img.logo {
 	padding-right: 20px;
-	width: 150px;
-	height: 150px;
+	width: 110px;
+	height: 110px;
 }
 
 .header h1 {
@@ -118,6 +118,26 @@ table#index-table, table.index-table {
 
 tr:nth-child(even) {
 	background-color: #f2f2f2;
+}
+
+tr.row-complexity-Dont-Use {
+	background-color: #ffffff;
+}
+
+tr.row-complexity-Low {
+	background-color: #e9f0ff;
+}
+
+tr.row-complexity-Medium {
+	background-color: #e9ffe9;
+}
+
+tr.row-complexity-High {
+	background-color: #ffffe9;
+}
+
+tr.row-complexity-Very-High {
+	background-color: #ffe9e9;
 }
 
 th {

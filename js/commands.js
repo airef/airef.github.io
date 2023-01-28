@@ -8411,8 +8411,8 @@ cChatLocalUsingId.relatedSNs = [];
 cChatLocalUsingId.complexity = "Medium";
 
 //chat-local-using-range
-cChatLocalUsingRange.shortDescription = "Displays a random string as a local chat message to all players. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatLocalUsingRange.description = "Displays a random string as a local chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.</p><p>Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToAllUsingRange.getLink() + ".";
+cChatLocalUsingRange.shortDescription = "Displays a random string from a given range as a local chat message to all players.";
+cChatLocalUsingRange.description = "Displays a random string from a given range as a local chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.</p><p>Local chat messages display chat messages in white rather than with the AI's player color, making this command strictly inferior to " + cChatToAllUsingRange.getLink() + ".";
 cChatLocalUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -8478,8 +8478,8 @@ cChatToAllUsingId.relatedSNs = [];
 cChatToAllUsingId.complexity = "Medium";
 
 //chat-to-all-using-range
-cChatToAllUsingRange.shortDescription = "Sends a random string as chat message to all players. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToAllUsingRange.description = "Sends a random string as chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
+cChatToAllUsingRange.shortDescription = "Sends a random string from a given range as a chat message to all players.";
+cChatToAllUsingRange.description = "Sends a random string from a given range as a chat message to all players. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToAllUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -8545,8 +8545,8 @@ cChatToAlliesUsingId.relatedSNs = [];
 cChatToAlliesUsingId.complexity = "Medium";
 
 //chat-to-allies-using-range
-cChatToAlliesUsingRange.shortDescription = "Sends a random string as chat message to allies. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToAlliesUsingRange.description = "Sends a random string as chat message to allies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
+cChatToAlliesUsingRange.shortDescription = "Sends a random string from a given range as a chat message to allies.";
+cChatToAlliesUsingRange.description = "Sends a random string from a given range as a chat message to allies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToAlliesUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -8612,8 +8612,8 @@ cChatToEnemiesUsingId.relatedSNs = [];
 cChatToEnemiesUsingId.complexity = "Medium";
 
 //chat-to-enemies-using-range
-cChatToEnemiesUsingRange.shortDescription = "Sends a random string as chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToEnemiesUsingRange.description = "Sends a random string as chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
+cChatToEnemiesUsingRange.shortDescription = "Sends a random string from a given range as a chat message to enemies.";
+cChatToEnemiesUsingRange.description = "Sends a random string from a given range as a chat message to enemies. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game.";
 cChatToEnemiesUsingRange.commandParameters = [ {
 	nameLink: pLanguageId.getLink(),
 	name: "LanguageId",
@@ -8696,8 +8696,8 @@ cChatToPlayerUsingId.relatedSNs = [];
 cChatToPlayerUsingId.complexity = "Medium";
 
 //chat-to-player-using-range
-cChatToPlayerUsingRange.shortDescription = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range.";
-cChatToPlayerUsingRange.description = "Sends a random string as chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cChatToPlayerUsingRange.shortDescription = "Sends a random string from a given range as a chat message to a given player.";
+cChatToPlayerUsingRange.description = "Sends a random string from a given range as a chat message to a given player. The random string is defined by a string id randomly picked out of a given string id range. For more info on String ids, see the description of the " + pLanguageId.getLink() + " parameter. For example, string ids from 22300 through 22321 include all of the possible random excuses the default AI can give for why it lost the game. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cChatToPlayerUsingRange.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -8809,7 +8809,7 @@ cCivSelected.relatedSNs = [];
 cCivSelected.complexity = "Low";
 
 //clear-tribute-memory
-cClearTributeMemory.shortDescription = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared.";
+cClearTributeMemory.shortDescription = "Clears the given player's tribute memory.";
 cClearTributeMemory.description = "Clears the given player's tribute memory, the amount of a given resource received in tribute from the given player since the tribute memory was cleared. Only tribute memory for the given resource type is cleared. This command is used in conjunction with " + cPlayersTributeMemory.getLink() + ", which allows you to check the amount of tribute received from the specified player since clear-tribute-memory was issued.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cClearTributeMemory.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
@@ -9581,8 +9581,8 @@ cGoldAmount.relatedSNs = [];
 cGoldAmount.complexity = "Low";
 
 //hold-koh-ruin
-cHoldKohRuin.description = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games.";
-cHoldKohRuin.shortDescription = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games. Koh stands for King of the Kill.";
+cHoldKohRuin.shortDescription = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games.";
+cHoldKohRuin.description = "Undocumented command that checks whether or not it (or its team) currently holds the monument in King of the Hill games. Koh stands for King of the Kill.";
 cHoldKohRuin.example = [ {
 	title: "If we (or our team) have captured the monument, set " + snGatherIdleSoldiersAtCenter.getLink() + " to 1.",
 	data: "(defrule\r\n\t(hold-koh-run)\r\n=>\r\n\t(set-strategic-number sn-gather-idle-soldiers-at-center 1)\r\n)"
@@ -9604,7 +9604,7 @@ cHoldRelics.relatedSNs = [];
 cHoldRelics.complexity = "Low";
 
 //housing-headroom
-cHousingHeadroom.shortDescription = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity.";
+cHousingHeadroom.shortDescription = "Checks computer player's housing headroom, the difference between current housing capacity and trained unit capacity.";
 cHousingHeadroom.description = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity. For example, a computer player has a Town Center (capacity 5), a House (capacity 5) and 6 villagers. In this case, housing headroom is 4.";
 cHousingHeadroom.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
@@ -9919,7 +9919,7 @@ c.relatedSNs = [];*/
 cPlayersBuildingCount.complexity = "Low";
 
 //players-building-type-count
-cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included.";
+cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type.";
 cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
@@ -10855,7 +10855,8 @@ c.relatedSNs = [];*/
 cSetStrategicNumber.complexity = "Low";
 
 //shared-goal
-cSharedGoal.shortDescription = "Checks a given shared goal -- a goal that is shared among computer players. It is to be used only when all computer players are on the same team.";
+cSharedGoal.shortDescription = "Checks a given shared goal (a goal that is shared among computer players).";
+cSharedGoal.description = "Checks a given shared goal (a goal that is shared among computer players). It is to be used only when all computer players are on the same team.";
 cSharedGoal.commandParameters = [ {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -10881,7 +10882,8 @@ c.relatedSNs = [];*/
 cSharedGoal.complexity = "Medium";
 
 //sheep-and-forage-too-far
-cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center).";
+cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has any forage site(s) and/or sheep nearby.";
+cSheepAndForageTooFar.description = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center).";
 /*c.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
@@ -11854,7 +11856,7 @@ cUpAlliedResourcePercent.complexity = "Medium";
 
 //up-allied-sn
 cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number.";
-cUpAlliedSn.shortDescription = "Perform a comparison with an allied AI's strategic number. This command cannot be used on human players or players who aren't allies.";
+cUpAlliedSn.description = "Perform a comparison with an allied AI's strategic number. This command cannot be used on human players or players who aren't allies.";
 cUpAlliedSn.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -16271,7 +16273,8 @@ c.relatedSNs = [];*/
 cUpResetAttackNow.complexity = "Low";
 
 //up-reset-building
-cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type. If the Option parameter is set to 1, buildings performing research will not be reset.";
+cUpResetBuilding.shortDescription = "Halt the activity and research of all buildings of a specific type.";
+cUpResetBuilding.description = "Halt the activity and research of all buildings of a specific type. If the Option parameter is set to 1, buildings performing research will not be reset.";
 cUpResetBuilding.commandParameters = [ {
 	nameLink: pOption.getLink(),
 	name: "Option",

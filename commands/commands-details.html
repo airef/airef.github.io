@@ -82,7 +82,7 @@
 					info += "<td>Both. This command can be used as a fact or an action. When used as a fact, it will attempt to execute as an action even though it's in the fact section of the rule. If the action cannot be executed, then it will return false, and all following commands in the rule will not execute.</td>";
 					break;
 				}
-				info += "</tr><tr><td>Version Introduced</td><td>" + commandsArray[i].commandVersion; + "</td></tr>";
+				info += "</tr><tr><td>Version Introduced</td><td>" + commandsArray[i].commandVersion + "</td></tr>";
 				if (commandsArray[i].commandCategory.length > 0) {
 					info += "<tr><td>Category</td><td>";
 					for (var m = 0; m < commandsArray[i].commandCategory.length; m++) {
@@ -93,6 +93,7 @@
 					info = info.slice(0, pos);
 					info += "</td></tr>";
 				}
+				info += "<tr><td>Complexity</td><td>" + commandsArray[i].complexity + "</td></tr>";
 				if (commandsArray[i].relatedCommands.length > 0) {
 					info += "<tr><td>Related Commands</td><td>";
 					for (var k = 0; k < commandsArray[i].relatedCommands.length; k++) {

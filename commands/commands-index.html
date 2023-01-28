@@ -17,6 +17,7 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
+		<p>Each command is color coded by complexity (blue = low, green = medium, yellow = high, red = very high).</p>
 		<p>
 			<label for="commandsInput" class="commands-input-label">Search</label><label for="command-category" class="dropdown-label">Category</label><label for="command-complexity" class="dropdown-label">Complexity</label><label for="command-type" class="dropdown-label">Type</label><label for="command-version" class="dropdown-label">Version</label>
 			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off" autofocus="autofocus"><select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Category">
@@ -90,13 +91,22 @@
 	<script>
 		var text = "<table id=\"index-table\">";
 		text += "<tr><th>Command Name</th><th>Description</th>";
-		// text += "<th>Category</th>";
+		text += "<th>Complexity</th>";
 		text += "<th>Type</th><th>Version</th></tr>";
 		for(var i = 0; i < commandsArray.length; i++) {
-			text += "<tr>";
+			if(commandsArray[i].complexity == "Don't Use") {
+				text += "<tr class=\"row-complexity-Dont-Use\">";
+			}
+			else if(commandsArray[i].complexity == "Very High") {
+				text += "<tr class=\"row-complexity-Very-High\">";
+			}
+			else {
+				text += "<tr class=\"row-complexity-" + commandsArray[i].complexity + "\">";
+			}
 			text += "<td class=\"command-name\" title=\"" + commandsArray[i].commandName;
 			text += "\">" + commandsArray[i].getLink() + "</td>";
 			text += "<td>" + commandsArray[i].shortDescription + "</td>";
+			text += "<td>" + commandsArray[i].complexity + "</td>";
 			// text += "<td>";
 			// for (var j = 0; j < commandsArray[i].commandCategory.length; j++) {
 			// 	text += commandsArray[i].commandCategory[j] + ", ";
