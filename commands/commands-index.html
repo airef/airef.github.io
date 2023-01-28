@@ -69,7 +69,7 @@
 				<option value="Both">Both</option>
 			</select><select id="command-version" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
-				<option value="1.0c">1.0c</option>
+				<option value="AoK">AoK</option>
 				<option value="UP">UP</option>
 				<option value="DE">DE</option>
 			</select>
@@ -181,8 +181,8 @@
 			// Loop through all table rows, and hide those who don't match the search query
 			for (i = 0; i < tr.length; i++) {
 				tdName = tr[i].getElementsByTagName("td")[0];
-				tdType = tr[i].getElementsByTagName("td")[2];
-				tdVersion = tr[i].getElementsByTagName("td")[3];
+				tdType = tr[i].getElementsByTagName("td")[3];
+				tdVersion = tr[i].getElementsByTagName("td")[4];
 	
 				if (tdName) {
 					txtValue = tdName.textContent || tdName.innerText;
@@ -215,7 +215,9 @@
 											tr[i].style.display = "none";
 										}
 									}
-									break;
+									else {
+										tr[i].style.display = "none";
+									}
 								}
 								else {
 									tr[i].style.display = "none";
