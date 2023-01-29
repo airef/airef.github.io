@@ -103,8 +103,13 @@ class StrategicNumber {
 		this.description = "";
 	}
 
-	getLink () {
+	getLink (a) {
+		if (a == false) {
+			var link = '<a class=\"ineffective\" href="' + urlPrefix + '/strategic-numbers/sn-details.html#' + this.snName + '">' + this.snName + '</a>';
+		}
+		else {
 		var link = '<a href="' + urlPrefix + '/strategic-numbers/sn-details.html#' + this.snName + '">' + this.snName + '</a>';
+		}
 		return link;
 	}
 }

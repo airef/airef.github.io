@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
-    <link rel="icon" type="image/png" href="../../favicon.png">
+    <link rel="icon" type="image/png" href="../favicon.png">
 </head>
 <html>
 <body>
@@ -81,20 +81,26 @@
 	
 	<script>
 		var text = "<table id=\"index-table\">";
-		text += "<tr><th>ID</th><th>Strategic Number</th>"
-		// text += "<th>Category</th>";
+		var effective = true;
+		text += "<tr><th>ID</th><th>Strategic Number</th>";
 		text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoK,<br>UP, DE)</th></tr>";
 		for(var i = 0; i < snArray.length; i++) {
 			text += "<tr>";
 			text += "<td>" + snArray[i].id + "</td>";
 			text += "<td class=\"sn-name\" title=\"" + snArray[i].shortDescription;
-			text += "\">" + snArray[i].getLink();
-			if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
-				text += "<span class=\"sn-aoe1\"> (only works in AoE1)</span>";
+			if (snArray[i].effective == 0) {
+				effective = false;
+				text += "\">" + snArray[i].getLink(effective);
 			}
-			else if (snArray[i].aoe == 0 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
-				text += "<span class=\"sn-aoe1\"> (doesn't work)</span>";
+			else {
+				text += "\">" + snArray[i].getLink();
 			}
+			// if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			// 	text += "<span class=\"sn-aoe1\"> (AoE1 only)</span>";
+			// }
+			// else if (snArray[i].aoe == 0 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			// 	text += "<span class=\"sn-aoe1\"> (doesn't work)</span>";
+			// }
 			text += "</td>";
 			// text += "<td>" + snArray[i].category + "</td>";
 			text += "<td>" + snArray[i].min + "</td>";
@@ -207,7 +213,6 @@
 				active = -1;
 			}
 			version = document.getElementById("sn-version").value;
-			console.log(version);
 			/*if (version.value == "All") {
 				version = "All";
 			}

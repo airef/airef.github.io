@@ -259,6 +259,10 @@ a {
 	text-decoration: none;
 }
 
+a.ineffective {
+	color: #777;
+}
+
 a:hover {
 	text-decoration: underline;
 }
