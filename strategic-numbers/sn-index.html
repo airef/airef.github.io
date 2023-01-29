@@ -16,15 +16,8 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Strategic Numbers</h2>
-		<p>To view this list with the strategic numbers in order by ID number, not name, click <a href="../strategic-numbers/sn-index-by-id.html">here</a>.</p>
+		<p>To view this list with the strategic numbers in order by ID number, not name, click <a href="../strategic-numbers/sn-index-by-id.html">here</a>. For more info on descriptions of the filters and what the Flags column is for, click <a href="#info">here</a>.</p>
 		<p>There are a total of 512 strategic numbers that the game has made available, but currently there are only about 300 of them being used. The other 200 or so strategic numbers are not listed in the table below, and they can be used like extra goals. It's recommended to start with strategic number ID 512 and work your way descending in ID until you reach the active strategic numbers, because DE can continue to add strategic numbers to the game and you don't want your custom strategic number to conflict with it.</p>
-		<p>
-			<strong>Flag Descriptions:</strong> (the Flags column indicates the settings of the following four types of info about each strategic number)<br>
-			<strong>Effective:</strong> indicates whether the strategic number has an impact on AI behavior. Several strategic numbers do not work because they are holdovers from AoE1 or were never implemented properly.<br>
-			<strong>Network:</strong> indicates whether the strategic number is sent along the network to clients to prevent out of sync issues.<br>
-			<strong>Defined:</strong> indicates whether the name of the strategic number is predefined in the AI engine and doesn't require a defconst to be used.<br>
-			<strong>Active:</strong> indicates that the strategic number cannot be used like an extra goal because it's value impacts the game or can be changed automatically by other strategic numbers. Conditional indicates that the strategic number can be considered available to be used like an extra goal in certain settings (hover over the question mark to see the conditions in which it is available). Obsolete indicates that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. This column may not be entirely accurate. Some strategic numbers marked as Active have no impact on the game, but these Active/Conditional/Obsolete indications were carried over from the original Userpatch SN reference without changes. Use the Effective column for a more accurate list.
-		</p>
 		<p>
 			<label for="snInput" class="sn-input-label">Search</label><label for="sn-category" class="dropdown-label">Category</label><label for="sn-effective" class="dropdown-label">Effective</label><label for="sn-network" class="dropdown-label">Network</label><label for="sn-defined" class="dropdown-label">Defined</label><label for="sn-active" class="dropdown-label">Active</label><label for="sn-version" class="dropdown-label">Version</label>
 			<input type="text" id="snInput" onkeyup="snFilter()" placeholder="Search by SN name or ID..." autocomplete="off" autofocus="autofocus"><select id="sn-category" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Category">
@@ -66,6 +59,14 @@
 		</p>
 		<p id="num-results"></p>
 		<p id="snTable"></p>
+		<h3 id="info">Info</h3>
+		<p>
+			<strong>Flag Descriptions:</strong> (the Flags column indicates the settings of the following four types of info about each strategic number)<br>
+			<strong>Effective:</strong> indicates whether the strategic number has an impact on AI behavior. Several strategic numbers do not work because they are holdovers from AoE1 or were never implemented properly.<br>
+			<strong>Network:</strong> indicates whether the strategic number is sent along the network to clients to prevent out of sync issues.<br>
+			<strong>Defined:</strong> indicates whether the name of the strategic number is predefined in the AI engine and doesn't require a defconst to be used.<br>
+			<strong>Active:</strong> indicates that the strategic number cannot be used like an extra goal because it's value impacts the game or can be changed automatically by other strategic numbers. Conditional indicates that the strategic number can be considered available to be used like an extra goal in certain settings (hover over the question mark to see the conditions in which it is available). Obsolete indicates that the strategic number has no impact and is never modified, so it is available to be used like an extra goal if needed. This column may not be entirely accurate. Some strategic numbers marked as Active have no impact on the game, but these Active/Conditional/Obsolete indications were carried over from the original Userpatch SN reference without changes. Use the Effective column for a more accurate list.
+		</p>
 		<div id="footer-placeholder"></div>
 	</div>
 	

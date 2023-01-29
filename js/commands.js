@@ -12031,7 +12031,7 @@ cUpBoundPoint.example = [ {
 cUpBoundPoint.relatedCommands = [];
 cUpBoundPoint.commandCategory = ["Points"];/*
 c.relatedSNs = [];*/
-cUpBoundPoint.complexity = "Medium";
+cUpBoundPoint.complexity = "High";
 
 //up-build
 cUpBuild.shortDescription = "Add a building to the construction queue with dynamic values.";
@@ -14689,7 +14689,7 @@ cUpGetRuleId.example = [ {
 cUpGetRuleId.relatedCommands = [];
 cUpGetRuleId.commandCategory = ["Rule Jumps"];/*
 c.relatedSNs = [];*/
-cUpGetRuleId.complexity = "Very High";
+cUpGetRuleId.complexity = "High";
 
 //up-get-search-state
 cUpGetSearchState.shortDescription = "Get the search state into 4 consecutive extended goals.";

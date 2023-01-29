@@ -17,7 +17,7 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<h2>Commands</h2>
-		<p>Each command is color coded by complexity (blue = low, green = medium, yellow = high, red = very high).</p>
+		<p>Each command is color coded by complexity (green = low, yellow = medium, orange = high, red = very high).</p>
 		<p>
 			<label for="commandsInput" class="commands-input-label">Search</label><label for="command-category" class="dropdown-label">Category</label><label for="command-complexity" class="dropdown-label">Complexity</label><label for="command-type" class="dropdown-label">Type</label><label for="command-version" class="dropdown-label">Version</label>
 			<input type="text" id="commandsInput" onkeyup="commandsFilter()" placeholder="Search for commands..." autocomplete="off" autofocus="autofocus"><select id="command-category" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Command Category">
@@ -222,6 +222,7 @@
 								else {
 									tr[i].style.display = "none";
 								}
+								break;
 							}
 							else {
 								tr[i].style.display = "none";
