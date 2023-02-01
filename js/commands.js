@@ -22220,19 +22220,19 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-food-total",
 	id: 166,
-	description: "The total amount of food gathered, including food from feitorias and food bought at the market. Food from tribute is not included."
+	description: "The total amount of food gathered, including food from feitorias and food bought at the market. Food from tribute is not included. Food sold at the market is not subtracted from this total."
 }, {
 	name: "amount-wood-total",
 	id: 167,
-	description: "The total amount of wood gathered, including wood from feitorias and wood bought at the market. Wood from tribute is not included."
+	description: "The total amount of wood gathered, including wood from feitorias and wood bought at the market. Wood from tribute is not included. Wood sold at the market is not subtracted from this total."
 }, {
 	name: "amount-stone-total",
 	id: 168,
-	description: "The total amount of stone gathered, including stone from feitorias and stone bought at the market. Stone from tribute is not included."
+	description: "The total amount of stone gathered, including stone from feitorias and stone bought at the market. Stone from tribute is not included. Gold lost from buying resources at the market is not subtracted from this total."
 }, {
 	name: "amount-gold-total",
 	id: 169,
-	description: "The total amount of gold gathered, including gold from trade carts, trade cogs, relics, feitorias, and gold from selling resources at the market."
+	description: "The total amount of gold gathered, including gold from trade carts, trade cogs, relics, feitorias, and gold from selling resources at the market. Stone sold at the market is not subtracted from this total."
 }, {
 	name: "amount-total-value-of-kills",
 	id: 170,
