@@ -14874,12 +14874,12 @@ cUpGetTimer.commandParameters = [ {
 	range: "1 to 50",
 	note: "The timer to get."
 }, {
-	nameLink: pValue.getLink(),
-	name: "Value",
+	nameLink: pOutputGoal.getLink(),
+	name: "OutputGoal",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
-	note: "Stores the shared goal value."
+	note: "Stores the trigger timer for the timer in milliseconds."
 } ];
 cUpGetTimer.example = [ {
 	title: "Get the trigger time for timer id 20.",
