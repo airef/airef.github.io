@@ -20,7 +20,7 @@ navContent += '<div class="header">';
 		navContent += '<div class="quick-links-list-div"><ul class="quick-links-list">';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#ClassId">Classes</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#compareOp">Comparison Operations</a></li>';
-			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#TargetAction">DUC Actions</a></li>';
+			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#DUCAction">DUC Actions</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#FactId">Fact IDs</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/load-if.html">#load-if Symbols</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#mathOp">Math Operations</a></li>';

@@ -16653,6 +16653,9 @@ cUpRetreatTo.commandParameters = [ {
 cUpRetreatTo.example = [ {
 	title: "Retreat all knights to a random castle, if possible.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-retreat-to castle c: knight-line)\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Retreat all infantry and cavalry to a random unpacked trebuchet that has recently fired projectiles, if possible (credit to The Horde).",
+	data: "(defconst unpacked-trebuchet 42)\r\n(defrule\r\n\t(unit-type-count unpacked-trebuchet > 0)\r\n\t(or\r\n\t\t(unit-type-count 469 > 0); normal trebuchet projectile\r\n\t\t(unit-type-count 371 > 0); chemistry trebuchet projectile\r\n\t)\r\n=>\r\n\t(up-reset-unit c: -1)\r\n\t(up-reset-attack-now)\r\n\t(up-retreat-to unpacked-trebuchet c: infantry-class)\r\n\t(up-retreat-to unpacked-trebuchet c: cavalry-class)\r\n)"
 } ];
 cUpRetreatTo.relatedCommands = [];
 cUpRetreatTo.commandCategory = ["Attack"];/*
