@@ -14874,8 +14874,8 @@ cUpGetTimer.commandParameters = [ {
 	range: "1 to 50",
 	note: "The timer to get."
 }, {
-	nameLink: pOutputGoal.getLink(),
-	name: "OutputGoal",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
