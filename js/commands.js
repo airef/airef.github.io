@@ -6466,6 +6466,7 @@ snPreferredTradeDistance.de = 1;
 snPreferredTradeDistance.linked = [];
 snPreferredTradeDistance.related = [];
 snPreferredTradeDistance.shortDescription = "Set to the preferred distance between local and remote trade buildings.";
+snPreferredTradeDistance.description = "Set to the preferred distance between local and remote trade buildings. Every 4 gold drops, trade units will check if a new trade building is better and retarget if necessary.";
 
 snLumberCampMaxDistance.id = 260;
 snLumberCampMaxDistance.snName = "sn-lumber-camp-max-distance";
@@ -14369,7 +14370,7 @@ cUpGetPathDistance.complexity = "Very High";
 
 //up-get-player-color
 cUpGetPlayerColor.shortDescription = "Get the color id and store the name in the internal buffer.";
-cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetPlayerColor.description = "Get the color id and store the name in the internal butter. ColorId will range from 1 to 8. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerColor.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14396,7 +14397,7 @@ cUpGetPlayerColor.complexity = "High";
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
-cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetPlayerFact.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14912,7 +14913,7 @@ cUpGetTreatyData.complexity = "Medium";
 
 //up-get-upgrade-id
 cUpGetUpgradeId.shortDescription = "Get the upgrade type id for an object into a goal.";
-cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. Set the Option parameter to 1 to get the current type id for counting, otherwise 0. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetUpgradeId.description = "Get the upgrade type id for an object into a goal. Set the Option parameter to 1 to get the current type id for counting, otherwise 0. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetUpgradeId.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -15736,7 +15737,7 @@ cUpPendingPlacement.complexity = "Medium";
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
-cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpPlayerDistance.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -17013,7 +17014,7 @@ cUpSetOffensePriority.complexity = "Medium";
 
 //up-set-placement-data
 cUpSetPlacementData.shortDescription = "Specify placement information for managed construction.";
-cUpSetPlacementData.description = "Specify placement information for managed construction. Please ensure Player has at least a town-center to use for reference, if they don't have ObjectId. If Player has no objects left, placement will not work as expected.</p><p>The properties assigned by up-set-placement-data that are in effect when a build command is executed are stored with them, so you can change properties immediately afterward and it won't break your previous settings. The action only allows exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpSetPlacementData.description = "Specify placement information for managed construction. Please ensure Player has at least a town-center to use for reference, if they don't have ObjectId. If Player has no objects left, placement will not work as expected.</p><p>The properties assigned by up-set-placement-data that are in effect when a build command is executed are stored with them, so you can change properties immediately afterward and it won't break your previous settings. The action only allows exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpSetPlacementData.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -17339,7 +17340,7 @@ cUpStoreObjectName.complexity = "High";
 
 //up-store-player-chat
 cUpStorePlayerChat.shortDescription = "Store a player chat message in the internal buffer.";
-cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpStorePlayerChat.description = "Store a player chat message in the internal buffer. Note that only the last word of a chat message will be stored in the buffer and the message must be present in the host's chat history log (the PageUp key can find it). The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerChat.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -17359,7 +17360,7 @@ cUpStorePlayerChat.complexity = "High";
 
 //up-store-player-name
 cUpStorePlayerName.shortDescription = "Store a player name in the internal buffer.";
-cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpStorePlayerName.description = "Store a player name in the internal buffer. The buffer can be referenced by the chat-data commands using %s instead of %d with c: 7031232 (7031232 cannot be stored in a defconst). This buffer is shared by all AIs, so please store data before using it in a rule pass. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpStorePlayerName.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
