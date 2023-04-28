@@ -24,7 +24,7 @@
 				<li>Rules: 10,000</li>
 				<li>Elements per rule: 16 in UP, 32 in DE</li>
 				<li>Goals: 1 to 512</li>
-				<li>Strategic Numbers: 0 to 511</li>
+				<li>Strategic Numbers: 0 to 511 [UP] / 0-510 [DE - Bugged in Build 82587]</li>
 				<li>Timers: 1 to 50</li>
 				<li>Defconst values: -32768 to 32767 or a text string</li>
 				<li>Goal and SN values: -2,147,483,648 to 2,147,483,647</li>
@@ -34,7 +34,7 @@
 				<li>Taunts: 255</li>
 				<li>Characters per line: 255</li>
 				<li>Nested File Load Commands: 10 files deep</li>
-				<li>Nested #load-if Commands: 50 (might be lower, somewhere in the 30s)</li>
+				<li>Nested #load-if Commands: 50</li>
 				<li>Doctrine: 1</li>
 			</ul>
 			<h3>Rules</h3>
@@ -44,13 +44,13 @@
 			<h3>Goals</h3>
 			<p>Goals are essentially an integer variable which the AI scripter can modify in the AI script. AI scripts has 512 different goals they can use to store different values, which are numbered from 1 to 512. One important note is that goals 1-40 cannot be used with some commands. These commands include any of the Point or Cost Data commands, up-get-search-state, or up-get-guard-state. Filter on the Category dropdown on the Commands index to find out which commands use points or cost data. These commands don't work because they modify multiple consecutively numbered goals at once, and the original goals from 1-40 aren't designed to allow this automatic behavior for these commands. Additionally, be careful about using goal 512 in point commands (which modify two goals) or goals 510-512 with cost data commands or up-get-search-state or up-get-guard-state (which all modify four goals) because they will try to automatically modify goals 513 or beyond which don't exist. However, the original Userpatch documentation says to avoid goals 511 and 512 for point goals and goals 509-512 for the commands that automatically modify four goals. To be safe, use goals 509-512 only for simple tasks, like for goals 1-40.</p>
 			<h3>Strategic Numbers</h3>
-			<p>Strategic numbers modify various built-in behaviors and settings that can modify the automatic behaviors of your AI. See the <a href="../../strategic-numbers/sn-index.html">SN Index</a> for details on what each strategic number does. Each SN is given an ID between 0 and 511. Currently, the SNs in the 310-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 511 and work your way backwards toward SNs in the 300 range.</p>
+			<p>Strategic numbers modify various built-in behaviors and settings that can modify the automatic behaviors of your AI. See the <a href="../../strategic-numbers/sn-index.html">SN Index</a> for details on what each strategic number does. Each SN is given an ID between 0 and 511. Currently, the SNs in the 311-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 511 and work your way backwards toward SNs in the 300 range.</p>
 			<h3>Timers</h3>
 			<p>There are 50 different timers an AI script can use at any time, numbered from 1 to 50.</p>
 			<h3>Defconst Values</h3>
 			<p>Defconsts allow you to train your AI to treat a word or phrase in place of an integer value. See this article series that explains what defconsts do: <a href="../../resources/articles/defconsts-goals-sns-1.html">Link</a>. The value you can use with a defconst can range from -32,768 to 32,767 (a 16-bit signed integer). You can also defconst a text string such as (defconst chat-gg "gg").</p>
 			<h3>Goal and SN Values</h3>
-			<p>Each goal and strategic number can be set to any integer value between 2,147,483,648 to 2,147,483,647 (a 32-bit signed integer). However, there are many strategic numbers which have a much more limited usable range. Look at the Req. Min and Req. Max columns in the SN index for the true usable limits of each SN.</p>
+			<p>Each goal and strategic number can be set to any integer value between -2,147,483,648 to 2,147,483,647 (a 32-bit signed integer). However, there are many strategic numbers which have a much more limited usable range. Look at the Req. Min and Req. Max columns in the SN index for the true usable limits of each SN.</p>
 			<h3>Flag values</h3>
 			<p>Flag values must be powers of 2 between 1 (2^0) and 2,147,483,648 (2^31). In other words: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, etc. This is due to the binary arithmetic that flags use. Scripts will often defconst the values of the flags for ease of reading, but unfortunately you can only defconst the flags up to 16,384 because of the defconst limit of 32,767.</p>
 			<h3>DUC Local Search List</h3>
