@@ -30465,7 +30465,7 @@ objectsSiegeWorkshopArrayROR = [ {
 	ror: 1,
 	de: 1,
 	deror: 1,
-	notes: "Onager"
+	notes: ""
 }, {	
 	name: "Heavy Catapult",
 	aiName: "siege-onager",
@@ -34752,6 +34752,7 @@ objectsBuildingsArrayROR = [ {
 	ror: 1,
 	de: 1,
 	deror: 1,
+	notes: ""
 }, {	
 	name: "Granary (Iron Age)",
 	aiName: "",
@@ -34767,6 +34768,7 @@ objectsBuildingsArrayROR = [ {
 	ror: 1,
 	de: 1,
 	deror: 1,
+	notes: ""
 }, {	
 	name: "Storage Pit (Stone Age)",
 	aiName: "lumber-camp",
