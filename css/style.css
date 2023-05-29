@@ -346,7 +346,7 @@ code {
 	font-weight: bold;
 }
 
-.techs-input-label {
+.techs-input-label, .objects-ror-input-label {
 	width: 68%;
 	padding-top: 10px;
 	display: inline-block;
@@ -385,7 +385,7 @@ label, input, select {
 	text-indent: 10px;
 }
 
-#techsInput {
+#techsInput, #objectsInputROR {
 	width: 68%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -558,8 +558,60 @@ th {
 	width: 15%;
 }
 
+.objects-ror-id-col {
+	width: 3%;
+}
+
+.objects-ror-name-col {
+	width: 12%;
+}
+
+.objects-ror-ainame-col {
+	width: 12%;
+}
+
+.objects-ror-line-col {
+	width: 6%;
+}
+
+.objects-ror-class-col {
+	width: 12%;
+}
+
+.objects-ror-cmdId-col {
+	width: 9%;
+}
+
+.objects-ror-building-col {
+	width: 9%;
+}
+
+.objects-ror-age-col {
+	width: 3%;
+}
+
+.objects-ror-dead-unit-col {
+	width: 6%;
+}
+
+.objects-ror-projectile-col {
+	width: 6%;
+}
+
+/* .objects-ror-versions-col {
+	width: 9%;
+} */
+
+.objects-ror-notes-col {
+	width: 18%;
+}
+
+.ror-image {
+	filter: drop-shadow(0 0 2px #999);
+}
+
 .patch-notes-version-col {
-	width: 4%
+	width: 8%
 }
 
 .patch-notes-release-col {

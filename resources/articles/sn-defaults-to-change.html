@@ -24,7 +24,7 @@
 	(true)
 =>
 	(set-strategic-number sn-cap-civilian-builders 200)
-	(set-strategic-number sn-consecutive-idle-unit-limit 0)
+	(set-strategic-number sn-consecutive-idle-unit-limit 1)
 	(set-strategic-number sn-do-not-scale-for-difficulty-level 1)
 	(set-strategic-number sn-enable-boar-hunting 1)
 	(set-strategic-number sn-enable-offensive-priority 1)
@@ -48,7 +48,7 @@
 			<h3>sn-cap-civilian-builders</h3>
 			<p><a href="../../strategic-numbers/sn-details.html#sn-cap-civilian-builders">sn-cap-civilian-builders</a> sets the maximum number of total villagers that the AI will use to construct buildings. I suggest 200, but really any reasonably high number is fine. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.</p>
 			<h3>sn-consecutive-idle-unit-limit</h3>
-			<p><a href="../../strategic-numbers/sn-details.html#sn-consecutive-idle-unit-limit">sn-consecutive-idle-unit-limit</a> sets the number of seconds an attacking or exploring group will sit idle after finishing a task before it will be assigned a new one. The default is 15. Especially if you don't use <a href="../../commands/command-details.html#attack-now">attack-now</a> or attack groups to attack, the primary effect of this SN is that if an exploring unit is given a non-exploring task, such as claiming sheep with DUC, it will wait 15 seconds before going back to exploring once it finished its non-exploring task. To remove this delay, you'll want this SN to be 0. As far as I know, there is no downside to setting this SN to 0.</p>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-consecutive-idle-unit-limit">sn-consecutive-idle-unit-limit</a> sets the number of seconds an attacking or exploring group will sit idle after finishing a task before it will be assigned a new one. The default is 15. Especially if you don't use <a href="../../commands/command-details.html#attack-now">attack-now</a> or attack groups to attack, the primary effect of this SN is that if an exploring unit is given a non-exploring task, such as claiming sheep with DUC, it will wait 15 seconds before going back to exploring once it finished its non-exploring task. To remove this delay without issues, you'll want this SN to be 1. You could set this SN to 0, but setting this SN to 0 allows the scouting unit to be reassigned to a new task if it is resting momentarily between scouting waypoints.</p>
 			<h3>sn-do-not-scale-for-difficulty-level</h3>
 			<p>If set to the default value of 0, <a href="../../strategic-numbers/sn-details.html#sn-do-not-scale-for-difficulty-level">sn-do-not-scale-for-difficulty level</a> automatically reduces the values of certain SNs depending on the difficulty level to make the AI weaker on lower difficulty levels. See the link to the sn-do-not-scale-for-difficulty-level page for which SNs are affected. The effects are more dramatic in scenarios. I recommend setting this SN to 1 so that you have direct control over how your AI gets weaker or stronger depending on the difficulty level and you aren't surprised when your AI doesn't send all of its soldiers to attack.</p>
 			<h3>sn-enable-boar-hunting</h3>
