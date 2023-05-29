@@ -18,6 +18,7 @@
 		<h2>Objects</h2>
 		<p>This list of objects in the Return of Rome DLC doesn't include any Gaia objects because they are exactly the same as in AoE2 DE.</p>
 		<p>For more info on what dead units, projectiles, lines, and classes are, click <a href="#info">here</a>.</p>
+		<p>For a list of objects in AoE2, see the <a href="./objects.html">AoE2 Objects Table</a>.</p>
 		<p>
 			<label for="objectsInputROR" class="objects-ror-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
 			<input type="text" id="objectsInputROR" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
@@ -100,7 +101,7 @@
 		for(var i = 0; i < objectsArrayROR.length; i++) {
 			numobjects = 0;
 			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArrayROR[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-ror-id-col\">ID</th><th class=\"objects-ror-name-col\">Name</th><th class=\"objects-ror-ainame-col\">AoE2 AI Name</th><th class=\"objects-ror-line-col\">Line ID</th><th class=\"objects-ror-class-col\">Class</th><th class=\"objects-ror-cmdid-col\">Cmd ID</th><th class=\"objects-ror-building-col\">Building/<br>Category</th><th \"objects-ror-age-col\">Age</th><th class=\"objects-ror-dead-unit-col\">Dead Object ID</th><th class=\"objects-ror-projectie-col\">Proj. ID</th>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-ror-id-col\">ID</th><th class=\"objects-ror-name-col\">Name</th><th class=\"objects-ror-ainame-col\">AoE2 AI Name</th><th class=\"objects-ror-line-col\">Line ID</th><th class=\"objects-ror-class-col\">Class</th><th class=\"objects-ror-cmdId-col\">Cmd ID</th><th class=\"objects-ror-building-col\">Building/<br>Category</th><th class=\"objects-ror-age-col\">Age</th><th class=\"objects-ror-dead-unit-col\">Dead Object ID</th><th class=\"objects-ror-projectile-col\">Proj. ID</th>";
 			// text += "<th class=\"objects-ror-versions-col\">Versions</th>";
 			text += "<th class=\"objects-ror-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArrayROR[i].length; j++) {

@@ -18,6 +18,7 @@
 		<h2>Objects</h2>
 		<p>Objects that have different IDs depending on the game version are marked in <span class="multiple-id-object">red</span>. Objects with unexpected AI names are marked in <span class="weird-object-name">yellow</span>. Objects only defined in DE are marked in <span class="de-object-name">green</span>.</p>
 		<p>For more info on what dead units, projectiles, lines, and classes are, click <a href="#info">here</a>.</p>
+		<p>For a list of objects in the Return of Rome DLC, see the <a href="./objects-ror.html">Return of Rome Objects Table</a>.</p>
 		<p>
 			<label for="objectsInput" class="objects-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><label for="objects-versions" class="dropdown-label">Version</label>
 			<input type="text" id="objectsInput" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
@@ -121,7 +122,7 @@
 		for(var i = 0; i < objectsArray.length; i++) {
 			numobjects = 0;
 			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArray[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdid-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th \"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectie-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdId-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th class=\"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectile-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArray[i].length; j++) {
 				objectID = objectsArray[i][j].id.toString();
 				text += "<tr>";

@@ -325,7 +325,7 @@ code {
 	text-indent: 10px;
 }
 
-.input-label { 
+.input-label, .techs-input-label-ror { 
 	width: 78%;
 	padding-top: 10px;
 	display: inline-block;
@@ -378,6 +378,15 @@ label, input, select {
 
 #snInput {
 	width: 38%; 
+	font-size: 13px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#techsInputROR {
+	width: 78%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -459,6 +468,7 @@ blockquote {
 
 .techs-table, .objects-table{
 	table-layout: fixed;
+	width: 100%;
 }
 
 th {
@@ -487,23 +497,55 @@ th {
 }
 
 .techs-building-col {
-	width: 12%;
+	width: 13%;
 }
 
 .techs-age-col {
-	width: 4%;
+	width: 3%;
 }
 
 .techs-civ-col {
-	width: 8%;
+	width: 10%;
 }
 
 .techs-versions-col {
-	width: 7%;
+	width: 5%;
 }
 
 .techs-notes-col {
 	width: 30%;
+}
+
+.techs-id-col-ror {
+	width: 5%;
+}
+
+.techs-name-col-ror {
+	width: 20%;
+}
+
+.techs-building-col-ror {
+	width: 16%;
+}
+
+.techs-age-col-ror {
+	width: 5%;
+}
+
+.techs-cost-col-ror {
+	width: 10%;
+}
+
+.techs-time-col-ror {
+	width: 5%;
+}
+
+.techs-description-col-ror {
+	width: 25%;
+}
+
+.techs-notes-col-ror {
+	width: 14%;
 }
 
 .objects-id-col {

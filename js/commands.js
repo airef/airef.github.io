@@ -23280,16 +23280,135 @@ pWallId.wildcardParam = [ {
 
 
 
-
-
-
-
-
-
-
-
-
-
+rangeTechsArray = [ {	
+	name: "Improved Bow",
+	id: 100,
+	building: "Archery Range",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Skirmisher",
+	aiName: "ri-elite-skirmisher",
+	weirdName: 0,
+	id: 98,
+	building: "Archery Range",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Arbalest",
+	aiName: "ri-arbalest",
+	weirdName: 0,
+	id: 237,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Cavalry Archer",
+	aiName: "ri-heavy-cavalry-archer",
+	weirdName: 0,
+	id: 218,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hand Cannon",
+	aiName: "ri-hand-cannon",
+	weirdName: 0,
+	id: 85,
+	building: "Archery Range",
+	age: 4,
+	aok: 1,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Imperial Skirmisher",
+	aiName: "ri-imperial-skirmisher",
+	weirdName: 2,
+	id: 655,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Vietnamese",
+	notes: "Available for Vietnamese allies"
+}, {	
+	name: "Elite Genitour",
+	aiName: "ri-elite-genitour",
+	weirdName: 2,
+	id: 599,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Berbers",
+	notes: "Available for Berber allies"
+}, {	
+	name: "Elite Elephant Archer",
+	aiName: "ri-elite-elephant-archer",
+	weirdName: 2,
+	id: 481,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "DE only, same tech ID is used for unique unit upgrade for Indians civ in HD/WK"
+}, {	
+	name: "Thumb Ring",
+	aiName: "ri-thumb-ring",
+	weirdName: 0,
+	id: 437,
+	building: "Archery Range",
+	age: 3,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Parthian Tactics",
+	aiName: "ri-parthian-tactics",
+	weirdName: 0,
+	id: 436,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];
 
 rangeTechsArray = [ {	
 	name: "Crossbowman",
@@ -26608,10 +26727,748 @@ universityTechsArray = [ {
 	notes: ""
 } ];	
 
+
+
+academyTechsArrayROR = [ {	
+	name: "Phalangite",
+	id: 73,
+	building: "Academy",
+	age: 4,
+	cost: "300F, 100G",
+	time: 90,
+	description: "Upgrade",
+	notes: "Called Phalanx before Return of Rome"
+}, {	
+	name: "Centurion",
+	id: 79,
+	building: "Academy",
+	age: 4,
+	cost: "1800F, 700G",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}];
+
+rangeTechsArrayROR = [ {
+	name: "Improved Bow",
+	id: 56,
+	building: "Archery Range",
+	age: 3,
+	cost: "140F, 80W",
+	time: 45,
+	description: "Enables Improved Bowman",
+	notes: ""
+}, {
+	name: "Composite Bow",
+	id: 57,
+	building: "Archery Range",
+	age: 3,
+	cost: "180F, 100W",
+	time: 100,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Heavy Horse Archer",
+	id: 38,
+	building: "Archery Range",
+	age: 4,
+	cost: "1750F, 800G",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}];
+
+barracksTechsArrayROR = [ {
+	name: "Battle Axe",
+	id: 63,
+	building: "Barracks",
+	age: 2,
+	cost: "100F",
+	time: 40,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Broad Sword",
+	id: 65,
+	building: "Barracks",
+	age: 3,
+	cost: "140F, 50G",
+	time: 90,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Long Sword",
+	id: 66,
+	building: "Barracks",
+	age: 4,
+	cost: "160F, 50G",
+	time: 90,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Legionary",
+	id: 77,
+	building: "Barracks",
+	age: 4,
+	cost: "1400F, 600G",
+	time: 150,
+	description: "Upgrade",
+	notes: "Called Legion before DE"
+}];
+
+dockTechsArrayROR = [ {
+	name: "Fishing Ship",
+	id: 4,
+	building: "Dock",
+	age: 3,
+	cost: "50F, 100W",
+	time: 51,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Merchant Ship",
+	id: 6,
+	building: "Dock",
+	age: 3,
+	cost: "200F, 75W",
+	time: 102,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "War Galley",
+	id: 5,
+	building: "Dock",
+	age: 3,
+	cost: "150F, 75W",
+	time: 128,
+	description: "Upgrade",
+	notes: "Required for Fire Galley"
+}, {
+	name: "Heavy Transport",
+	id: 8,
+	building: "Dock",
+	age: 4,
+	cost: "150F, 125W",
+	time: 180,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Trireme",
+	id: 7,
+	building: "Dock",
+	age: 4,
+	cost: "250F, 100W",
+	time: 200,
+	description: "Upgrade",
+	notes: "Required for Catapult Trireme"
+}, {
+	name: "Catapult Trireme",
+	id: 9,
+	building: "Dock",
+	age: 4,
+	cost: "300F, 100W",
+	time: 100,
+	description: "Upgrade",
+	notes: "Requires Trireme"
+}, {
+	name: "Juggernaut",
+	id: 25,
+	building: "Dock",
+	age: 4,
+	cost: "1300F, 700W",
+	time: 200,
+	description: "Upgrade",
+	notes: ""
+}];
+
+governmentCenterTechsArrayROR = [ {
+	name: "Nobility",
+	id: 34,
+	building: "Government Center",
+	age: 3,
+	cost: "175F, 120G",
+	time: 70,
+	description: "Horse units and Camel Riders +15% hit points",
+	notes: ""
+}, {
+	name: "Writing",
+	id: 19,
+	building: "Government Center",
+	age: 3,
+	cost: "200F, 75G",
+	time: 30,
+	description: "Shared exploration with allies",
+	notes: ""
+}, {
+	name: "Architecture",
+	id: 112,
+	building: "Government Center",
+	age: 3,
+	cost: "150F, 175W",
+	time: 50,
+	description: "Buildings -33% build time; +20% building hit points",
+	notes: ""
+}, {
+	name: "Logistics",
+	id: 121,
+	building: "Government Center",
+	age: 3,
+	cost: "180F, 100G",
+	time: 60,
+	description: "Barracks units take 1/2 population",
+	notes: ""
+}, {
+	name: "City Watch",
+	id: 128,
+	building: "Government Center",
+	age: 3,
+	cost: "200F",
+	time: 45,
+	description: "Buildings +3 LOS",
+	notes: "Added in Return to Rome"
+}, {
+	name: "Aristocracy",
+	id: 113,
+	building: "Government Center",
+	age: 4,
+	cost: "175F, 150G",
+	time: 60,
+	description: "Academy units move 25% faster",
+	notes: ""
+}, {
+	name: "Ballistics",
+	id: 106,
+	building: "Government Center",
+	age: 4,
+	cost: "200F, 50G",
+	time: 60,
+	description: "Towers and ranged units have increased accuracy vs. moving targets",
+	notes: "Required for Ballista Tower"
+}, {
+	name: "Alchemy",
+	id: 37,
+	building: "Government Center",
+	age: 4,
+	cost: "250F, 200G",
+	time: 100,
+	description: "Ranged units and Fire Galleys +1 attack",
+	notes: ""
+}, {
+	name: "Engineering",
+	id: 35,
+	building: "Government Center",
+	age: 4,
+	cost: "200F, 100W",
+	time: 70,
+	description: "+2 siege weapon/siege ship range",
+	notes: ""
+}, {
+	name: "Conscription",
+	id: 129,
+	building: "Government Center",
+	age: 4,
+	cost: "450F, 250G",
+	time: 60,
+	description: "Land military units are trained 25% faster",
+	notes: "Added in Return of Rome"
+}, {
+	name: "Urbanization",
+	id: 150,
+	building: "Government Center",
+	age: 4,
+	cost: "350W, 150S",
+	time: 45,
+	description: "Houses provide double population space",
+	notes: "Added in Return of Rome"
+}];
+
+granaryTechsArrayROR = [ {
+	name: "Small Wall",
+	id: 11,
+	building: "Granary",
+	age: 2,
+	cost: "50F",
+	time: 10,
+	description: "Enables Small Wall",
+	notes: ""
+}, {
+	name: "Watch Tower",
+	id: 16,
+	building: "Granary",
+	age: 2,
+	cost: "50F",
+	time: 10,
+	description: "Enables Watch Tower",
+	notes: ""
+}, {
+	name: "Medium Wall",
+	id: 13,
+	building: "Granary",
+	age: 3,
+	cost: "180F, 100S",
+	time: 60,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Sentry Tower",
+	id: 12,
+	building: "Granary",
+	age: 3,
+	cost: "120F, 50S",
+	time: 30,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Fortified Wall",
+	id: 14,
+	building: "Granary",
+	age: 4,
+	cost: "300F, 175S",
+	time: 75,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Guard Tower",
+	id: 15,
+	building: "Granary",
+	age: 4,
+	cost: "300F, 100S",
+	time: 75,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Ballista Tower",
+	id: 2,
+	building: "Granary",
+	age: 4,
+	cost: "1800F, 750S",
+	time: 150,
+	description: "Upgrade",
+	notes: "Requires Ballistics"
+}];
+
+marketTechsArrayROR = [ {
+	name: "Woodworking",
+	id: 107,
+	building: "Market",
+	age: 2,
+	cost: "120F, 75W",
+	time: 60,
+	description: "Woodcutters work 20% faster, carry +2 wood; +1 missile weapon range",
+	notes: ""
+}, {
+	name: "Domestication",
+	id: 40,
+	building: "Market",
+	age: 2,
+	cost: "150F, 50W",
+	time: 40,
+	description: "Farms carry +75 food",
+	notes: ""
+}, {
+	name: "Stone Mining",
+	id: 109,
+	building: "Market",
+	age: 2,
+	cost: "100F, 50S",
+	time: 30,
+	description: "Stone miners work 30% faster, carry +3 stone; Slingers +1 attack/range",
+	notes: ""
+}, {
+	name: "Gold Mining",
+	id: 108,
+	building: "Market",
+	age: 2,
+	cost: "120F, 100W",
+	time: 50,
+	description: "Gold miners work 30% faster, carry +3 gold",
+	notes: ""
+}, {
+	name: "Artisanship",
+	id: 32,
+	building: "Market",
+	age: 3,
+	cost: "170F, 150W",
+	time: 80,
+	description: "Woodcutters work 20% faster, carry +2 wood; +1 missile weapon range",
+	notes: ""
+}, {
+	name: "Plow",
+	id: 31,
+	building: "Market",
+	age: 3,
+	cost: "250F, 75W",
+	time: 75,
+	description: "Farms carry +100 food",
+	notes: ""
+}, {
+	name: "Wheel",
+	id: 28,
+	building: "Market",
+	age: 3,
+	cost: "175F 75W",
+	time: 90,
+	description: "Villagers move 50% faster",
+	notes: "Required for chariots and trade carts"
+}, {
+	name: "Craftsmanship",
+	id: 110,
+	building: "Market",
+	age: 4,
+	cost: "240F, 200W",
+	time: 100,
+	description: "Woodcutters work 20% faster, carry +2 wood; +1 missile weapon range",
+	notes: ""
+}, {
+	name: "Irrigation",
+	id: 110,
+	building: "Market",
+	age: 4,
+	cost: "300F, 100W",
+	time: 100,
+	description: "Farms carry +125 food",
+	notes: ""
+}, {
+	name: "Siegecraft",
+	id: 111,
+	building: "Market",
+	age: 4,
+	cost: "190F, 100S",
+	time: 60,
+	description: "Stone miners work 30% faster, carry +3 stone; slingers +1 attack/range; villagers +10 attack vs. buildings",
+	notes: ""
+}, {
+	name: "Coinage",
+	id: 30,
+	building: "Market",
+	age: 4,
+	cost: "200F, 100G",
+	time: 60,
+	description: "Gold mines last 25% longer; Gold miners gather 33% faster, carry +3 gold; free tribute",
+	notes: ""
+}];
+
+siegeWorkshopTechsArrayROR = [ {
+	name: "Catapult",
+	id: 54,
+	building: "Siege Workshop",
+	age: 4,
+	cost: "300F, 250W",
+	time: 100,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Heavy Catapult",
+	id: 36,
+	building: "Siege Workshop",
+	age: 4,
+	cost: "1800F, 900W",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Helepolis",
+	id: 27,
+	building: "Siege Workshop",
+	age: 4,
+	cost: "1500F, 1000W",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}];
+
+stableTechsArrayROR = [ {
+	name: "Heavy Cavalry",
+	id: 71,
+	building: "Stable",
+	age: 4,
+	cost: "350F, 125G",
+	time: 100,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Cataphract",
+	id: 78,
+	building: "Stable",
+	age: 4,
+	cost: "1600F, 600G",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Scythe Chariot",
+	id: 126,
+	building: "Stable",
+	age: 4,
+	cost: "1400W, 1000G",
+	time: 200,
+	description: "Upgrade",
+	notes: ""
+}, {
+	name: "Armored Elephant",
+	id: 125,
+	building: "Stable",
+	age: 4,
+	cost: "1200F, 1000W",
+	time: 150,
+	description: "Upgrade",
+	notes: ""
+}];
+
+storagePitTechsArrayROR = [ {
+	name: "Toolworking",
+	id: 46,
+	building: "Storage Pit",
+	age: 2,
+	cost: "100F",
+	time: 40,
+	description: "+2 melee unit attack",
+	notes: ""
+}, {
+	name: "Infantry Leather Armor",
+	id: 40,
+	building: "Storage Pit",
+	age: 2,
+	cost: "75F",
+	time: 30,
+	description: "+2 infantry melee armor",
+	notes: ""
+}, {
+	name: "Archer Leather Armor",
+	id: 41,
+	building: "Storage Pit",
+	age: 2,
+	cost: "100F",
+	time: 30,
+	description: "+2 archer melee armor",
+	notes: ""
+}, {
+	name: "Cavalry Leather Armor",
+	id: 42,
+	building: "Storage Pit",
+	age: 2,
+	cost: "125F",
+	time: 30,
+	description: "+2 cavalry melee armor",
+	notes: ""
+}, {
+	name: "Metalworking",
+	id: 51,
+	building: "Storage Pit",
+	age: 3,
+	cost: "200F, 120G",
+	time: 75,
+	description: "+2 melee unit attack",
+	notes: ""
+}, {
+	name: "Infantry Scale Armor",
+	id: 43,
+	building: "Storage Pit",
+	age: 3,
+	cost: "100F, 50G",
+	time: 60,
+	description: "+2 infantry melee armor",
+	notes: ""
+}, {
+	name: "Archer Scale Armor",
+	id: 44,
+	building: "Storage Pit",
+	age: 3,
+	cost: "125F, 50G",
+	time: 60,
+	description: "+2 archer melee armor",
+	notes: ""
+}, {
+	name: "Cavalry Scale Armor",
+	id: 45,
+	building: "Storage Pit",
+	age: 3,
+	cost: "150F, 50G",
+	time: 45,
+	description: "+2 cavalry melee armor",
+	notes: ""
+}, {
+	name: "Bronze Shield",
+	id: 47,
+	building: "Storage Pit",
+	age: 3,
+	cost: "150F, 180G",
+	time: 50,
+	description: "+1 infantry armor vs. missile weapons",
+	notes: ""
+}, {
+	name: "Metallurgy",
+	id: 52,
+	building: "Storage Pit",
+	age: 4,
+	cost: "300F, 180G",
+	time: 100,
+	description: "+3 melee unit attack",
+	notes: ""
+}, {
+	name: "Infantry Chain Mail",
+	id: 48,
+	building: "Storage Pit",
+	age: 4,
+	cost: "125F, 100G",
+	time: 75,
+	description: "+2 infantry melee armor",
+	notes: ""
+}, {
+	name: "Archer Chain Mail",
+	id: 49,
+	building: "Storage Pit",
+	age: 4,
+	cost: "150F, 100G",
+	time: 75,
+	description: "+2 archer melee armor",
+	notes: ""
+}, {
+	name: "Cavalry Chain Mail",
+	id: 50,
+	building: "Storage Pit",
+	age: 4,
+	cost: "175F, 100G",
+	time: 75,
+	description: "+2 cavalry melee armor",
+	notes: ""
+}, {
+	name: "Iron Shield",
+	id: 117,
+	building: "Storage Pit",
+	age: 4,
+	cost: "320F, 200G",
+	time: 75,
+	description: "+1 infantry armor vs. missile weapons",
+	notes: ""
+}, {
+	name: "Tower Shield",
+	id: 122,
+	building: "Storage Pit",
+	age: 4,
+	cost: "400F, 250G",
+	time: 100,
+	description: "+1 infantry armor vs. missile weapons",
+	notes: ""
+}];
+
+templeTechsArrayROR = [ {
+	name: "Astrology",
+	id: 22,
+	building: "Temple",
+	age: 3,
+	cost: "150G",
+	time: 50,
+	description: "Conversion and healing 30% more effective",
+	notes: ""
+}, {
+	name: "Polytheism",
+	id: 24,
+	building: "Temple",
+	age: 3,
+	cost: "120G",
+	time: 50,
+	description: "Priests move 40% faster",
+	notes: ""
+}, {
+	name: "Mysticism",
+	id: 21,
+	building: "Temple",
+	age: 3,
+	cost: "120G",
+	time: 50,
+	description: "Double Priest hit points",
+	notes: ""
+}, {
+	name: "Medicine",
+	id: 119,
+	building: "Temple",
+	age: 4,
+	cost: "150G",
+	time: 50,
+	description: "Increases Priest healing rate",
+	notes: ""
+}, {
+	name: "Afterlife",
+	id: 18,
+	building: "Temple",
+	age: 4,
+	cost: "275G",
+	time: 75,
+	description: "Priests +3 conversion range",
+	notes: ""
+}, {
+	name: "Monotheism",
+	id: 114,
+	building: "Temple",
+	age: 4,
+	cost: "350G",
+	time: 75,
+	description: "Priests can convert enemy Priests and buildings",
+	notes: ""
+}, {
+	name: "Fanaticism",
+	id: 20,
+	building: "Temple",
+	age: 4,
+	cost: "150G",
+	time: 60,
+	description: "Priests restore faith 50% faster",
+	notes: ""
+}, {
+	name: "Zealotry",
+	id: 23,
+	building: "Temple",
+	age: 4,
+	cost: "120G",
+	time: 60,
+	description: "Villagers move faster, are much stronger in combat, but carry less resources",
+	notes: ""
+}, {
+	name: "Theocracy",
+	id: 120,
+	building: "Temple",
+	age: 4,
+	cost: "400G",
+	time: 100,
+	description: "Only one Priest in a group must rest after a conversion",
+	notes: "Added in Return to Rome"
+}];
+
+townCenterTechsArrayROR = [ {
+	name: "Tool Age",
+	id: 101,
+	building: "Town Center",
+	age: 1,
+	cost: "500F",
+	time: 120,
+	description: "Advance to Tool Age",
+	notes: ""
+}, {
+	name: "Bronze Age",
+	id: 102,
+	building: "Town Center",
+	age: 2,
+	cost: "800F",
+	time: 140,
+	description: "Advance to Bronze Age",
+	notes: ""
+}, {
+	name: "Iron Age",
+	id: 103,
+	building: "Town Center",
+	age: 3,
+	cost: "1000F, 800G",
+	time: 160,
+	description: "Advance to Imperial Age",
+	notes: ""
+}];
+
+
 techsArray = [rangeTechsArray, barracksTechsArray, blacksmithTechsArray, castleTechsArray, dockTechsArray, lcTechsArray, marketTechsArray, millTechsArray, mcTechsArray, monasteryTechsArray, siegeWorkshopTechsArray, stableTechsArray, tcTechsArray, universityTechsArray];
-
+techsArrayROR = [academyTechsArrayROR, rangeTechsArrayROR, barracksTechsArrayROR, dockTechsArrayROR, governmentCenterTechsArrayROR, granaryTechsArrayROR, marketTechsArrayROR, siegeWorkshopTechsArrayROR, stableTechsArrayROR, storagePitTechsArrayROR, templeTechsArrayROR, townCenterTechsArrayROR];
 techsBuildingsArray = ["Archery Range", "Barracks", "Blacksmith", "Castle", "Dock", "Lumber Camp", "Market", "Mill", "Mining Camp", "Monastery", "Siege Workshop", "Stable", "Town Center", "University"];
-
+techsBuildingsArrayROR = ["Academy", "Archery Range", "Barracks", "Dock", "Government Center", "Granary", "Market", "Siege Workshop", "Stable", "Storage Pit", "Temple", "Town Center"]
 
 
 
@@ -27398,7 +28255,7 @@ objectsBarracksArrayROR = [ {
 	aiName: "skirmisher",
 	line: "",
 	id: 7,
-	class: "archery-class",
+	class: "archery-cannon-class",
 	cmdId: "cmdid-military",
 	building: "Barracks",
 	age: 2,
