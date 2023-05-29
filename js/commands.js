@@ -18729,7 +18729,7 @@ pBuildingId.relatedParams = [pClassId, pObjectId, pId, pTypeId, pUnitId, pWallId
 pBuildingId.wildcardParam = [ {
 	name: "watch-tower-line",
 	id: -398,
-	description: "Watch Tower line. Bugged. Won't include Guard Tower or Keep in counting commands. \"watch-tower\" by itself usually works in non-counting commands."
+	description: "Watch Tower line. Bugged. Won't include Guard Tower or Keep in counting commands. \"watch-tower\" by itself usually works in non-counting commands. In Return of Rome, it includes Watch Tower, Sentry Tower, Guard Tower, but not Ballista Tower."
 } ];
 
 //Civ
@@ -22828,12 +22828,12 @@ pUnitId.wildcardParam = [ {
 	name: "archer-line",
 	id: -299,
 	deId: -299,
-	description: "Includes archer, crossbowman, and arbalest."
+	description: "Includes archer, crossbowman, and arbalest. In Return of Rome, it includes Bowman."
 }, {
 	name: "cavalry-archer-line",
 	id: -298,
 	deId: -298,
-	description: "Includes cavalry-archer and heavy-cavalry-archer."
+	description: "Includes cavalry-archer and heavy-cavalry-archer. In Return of Rome, -298 is the improved bowman line, including Improved Bowman and Composite Bowman."
 }, {
 	name: "skirmisher-line",
 	id: -297,
@@ -22848,67 +22848,67 @@ pUnitId.wildcardParam = [ {
 	name: "spearman-line",
 	id: -295,
 	deId: -295,
-	description: "Includes spearman, pikeman, and halberdier."
+	description: "Includes spearman, pikeman, and halberdier. In Return of Rome, -295 is the cavalry line, including Cavalry, Heavy Cavalry, and Cataphract."
 }, {
 	name: "demolition-ship-line",
 	id: -294,
 	deId: -294,
-	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship."
+	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship. In Return of Rome, -294 is the swordsmen line, including Short Swordsman, Broad Swordsman, Long Swordsman, and Legionary."
 }, {
 	name: "fire-ship-line",
 	id: -293,
 	deId: -293,
-	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship."
+	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship. In Return of Rome, -293 is the horse archer line, including Horse Archer and Heavy Horse Archer."
 }, {
 	name: "galley-line",
 	id: -292,
 	deId: -292,
-	description: "Includes galley, war-galley, and galleon."
+	description: "Includes galley, war-galley, and galleon. In Return of Rome, -292 is the war elephant line, including War Elephant and Armored Elephant."
 }, {
 	name: "battering-ram-line",
 	id: -291,
 	deId: -291,
-	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE."
+	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE. In Return of Rome, -291 is the chariot line, including Chariot and Scythe Chariot."
 }, {
 	name: "mangonel-line",
 	id: -290,
 	deId: -290,
-	description: "Includes mangonel, onager (not WK), and siege-onager."
+	description: "Includes mangonel, onager (not WK), and siege-onager. In Return of Rome, -290 is the hoplite line, including Hoplite, Phalangite, and Centurion."
 }, {
 	name: "scorpion-line",
 	id: -289,
 	deId: -289,
-	description: "Includes scorpion and heavy-scorpion."
+	description: "Includes scorpion and heavy-scorpion. In Return of Rome, -289 is the ballista line, including Ballista and Helepolis."
 }, {
 	name: "camel-line",
 	id: -288,
 	deId: -288,
-	description: "Includes camel and heavy-camel. DE also includes imperial-camel."
+	description: "Includes camel and heavy-camel. DE also includes imperial-camel. In Return of Rome, -288 is the stone thrower line, including Stone Thrower, Catapult, and Heavy Catapult."
 }, {
 	name: "knight-line",
 	id: -287,
 	deId: -287,
-	description: "Includes knight, cavalier, and paladin."
+	description: "Includes knight, cavalier, and paladin. In Return of Rome, -287 is the fishing boat line, including Fishing Boat and Fishing Ship."
 }, {
 	name: "scout-cavalry-line",
 	id: -286,
 	deId: -286,
-	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar."
+	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar. In Return of Rome, -286 is the transport line, including Light Transport and Heavy Transport."
 }, {
 	name: "cannon-galleon-line",
 	id: -285,
 	deId: -284,
-	description: "Includes cannon-galleon and elite-cannon-galleon."
+	description: "Includes cannon-galleon and elite-cannon-galleon. In Return of Rome, -285 is the scout ship line, including Scout Ship, War Galley, and Trireme."
 }, {
 	name: "longboat-line",
 	id: -284,
 	deId: -283,
-	description: "Includes longboat and elite-longboat."
+	description: "Includes longboat and elite-longboat. In Return of Rome, -284 is the catapult trireme line, including Catapult Trireme and Juggernaut."
 }, {
 	name: "turtle-ship-line",
 	id: -283,
 	deId: -282,
-	description: "Includes turtle-ship and elite-turtle-ship."
+	description: "Includes turtle-ship and elite-turtle-ship. In Return of Rome, -283 is the trade boat line, including Trade Boat and Merchant Ship."
 }, {
 	name: "berserk-line",
 	id: -282,
@@ -22993,7 +22993,7 @@ pUnitId.wildcardParam = [ {
 	name: "plumed-archer-line",
 	id: -266,
 	deId: -265,
-	description: "Includes plumed-archer and elite-plumed-archer."
+	description: "Includes plumed-archer and elite-plumed-archer. In Return of Rome, -266 is the clubman line, including Clubman and Axeman."
 }, {
 	name: "tarkan-line",
 	id: -265,
@@ -23264,7 +23264,7 @@ pWallId.valueList = [ {
 pWallId.wildcardParam = [ {
 	name: "stone-wall-line",
 	id: -399,
-	description: "Stone Wall line."
+	description: "Stone Wall line. In Return of Rome, it includes Medium Wall and Fortified Wall, but not Small Wall."
 } ];
 
 
