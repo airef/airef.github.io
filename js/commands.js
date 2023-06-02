@@ -18912,6 +18912,10 @@ pCiv.valueList = [ {
 	name: "gurjaras",
 	id: 42,
 	description: "Gurjaras. Must define with a defconst before it can be used."
+}, {
+	name: "romans",
+	id: 43,
+	description: "Romans. Must define with a defconst before it can be used."
 } ];
 
 //ClassId
@@ -23184,6 +23188,16 @@ pUnitId.wildcardParam = [ {
 	id: "NA",
 	deId: -228,
 	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode. Use ratha-set to include melee rathas."
+}, {
+	name: "donjon-spearman-line",
+	id: "NA",
+	deId: -227,
+	description: "DE only. Includes donjon-spearman, donjon-pikeman, and donjon-halberdier."
+}, {
+	name: "centurion-line",
+	id: "NA",
+	deId: -226,
+	description: "DE only. Includes centurion and elite-centurion."
 } ];
 
 // //UpgradeId
@@ -23621,6 +23635,19 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Legionary",
+	aiName: "ri-legionary",
+	weirdName: 0,
+	id: 885,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Romans",
+	notes: ""
+}, {	
 	name: "Halberdier",
 	aiName: "ri-halberdier",
 	weirdName: 0,
@@ -23653,6 +23680,19 @@ barracksTechsArray = [ {
 	id: 716,
 	building: "Barracks",
 	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Gambesons",
+	aiName: "ri-gambesons",
+	weirdName: 2,
+	id: 875,
+	building: "Barracks",
+	age: 3,
 	aok: 0,
 	tc: 0,
 	wk: 0,
@@ -25300,6 +25340,45 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Portuguese",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Centurion",
+	aiName: "ri-elite-centurion",
+	weirdName: 2,
+	id: 882,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Romans",
+	notes: "can use my-unique-unit-upgrade (Return of Rome DLC only)"
+}, {	
+	name: "Ballistas",
+	aiName: "",
+	weirdName: 0,
+	id: 883,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Romans",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Comitatenses",
+	aiName: "",
+	weirdName: 0,
+	id: 884,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Romans",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Mameluke",
@@ -28025,6 +28104,25 @@ objectsBarracksArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Legionary",
+	aiName: "legionary",
+	line: "militiaman-line",
+	id: 1793,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "1794",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Romans",
+	weirdName: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Spearman",
 	aiName: "spearman",
 	line: "spearman-line",
@@ -29796,6 +29894,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Centurion",
+	aiName: "centurion",
+	line: "centurion-line",
+	id: 1790,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1791",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Romans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Centurion",
+	aiName: "elite-centurion",
+	line: "centurion-line",
+	id: 1792,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1791",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Romans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Mameluke",
 	aiName: "mameluke",
 	line: "mameluke-line",
@@ -30463,6 +30599,25 @@ objectsDockArray = [ {
 	de: 1,
 	notes: "Requires Chemistry"
 }, {	
+	name: "Dromon",
+	aiName: "dromon",
+	line: "",
+	id: 1795,
+	class: "warship-class",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 4,
+	deadUnit: "",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Thirisadai",
 	aiName: "thirisadai",
 	line: "",
@@ -30829,6 +30984,63 @@ objectsDonjonArray = [ {
 	wk: 0,
 	de: 1,
 	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+}, {	
+	name: "Spearman (Donjon)",
+	aiName: "donjon-spearman",
+	line: "donjon-spearman-line",
+	id: 1786,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Donjon",
+	age: 2,
+	deadUnit: "140",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Pikeman (Donjon)",
+	aiName: "donjon-pikeman",
+	line: "donjon-spearman-line",
+	id: 1787,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Donjon",
+	age: 3,
+	deadUnit: "501",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Halberdier (Donjon)",
+	aiName: "donjon-halberdier",
+	line: "donjon-spearman-line",
+	id: 1788,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Donjon",
+	age: 4,
+	deadUnit: "502",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Sicilians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }];
 	
 objectsKrepostArray = [ {	
@@ -37316,6 +37528,25 @@ objectsGaiaArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Gazelle",
+	aiName: "",
+	line: "",
+	id: 1796,
+	class: "prey-animal-class",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "1797",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
