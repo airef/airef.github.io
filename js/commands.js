@@ -24900,19 +24900,6 @@ castleTechsArray = [ {
 	civ: "Khmer",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
-	name: "Double Crossbow",
-	aiName: "",
-	weirdName: 0,
-	id: 623,
-	building: "Castle",
-	age: 4,
-	aok: 0,
-	tc: 0,
-	wk: 1,
-	de: 1,
-	civ: "Khmer",
-	notes: "can use my-unique-research"
-}, {	
 	name: "Tusk Swords",
 	aiName: "",
 	weirdName: 0,
@@ -24925,6 +24912,19 @@ castleTechsArray = [ {
 	de: 1,
 	civ: "Khmer",
 	notes: "can use my-second-unique-research"
+}, {	
+	name: "Double Crossbow",
+	aiName: "",
+	weirdName: 0,
+	id: 623,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Khmer",
+	notes: "can use my-unique-research"
 }, {	
 	name: "Elite War Wagon",
 	aiName: "ri-elite-war-wagon",
