@@ -12804,7 +12804,7 @@ cUpCopyPoint.complexity = "High";
 
 //up-create-group
 cUpCreateGroup.shortDescription = "Reset the group and create a search group from the local search results.";
-cUpCreateGroup.description = "Reset the group and create a search group from the local search results. The number of units put into the group will be capped by the number stored in GoalId. If 0 is used for the GoalId parameter, up to 40 objects will be put into the group instead (the highest amount). If there are no units available in the results list to create the specified group, the group will be cleared in the same way as " + cUpResetGroup.getLink() + ".";
+cUpCreateGroup.description = "Reset the group and create a search group from the local search results. The number of units put into the group will be capped by the number stored in CountGoalId. If 0 is used for the CountGoalId parameter, up to 40 objects will be put into the group instead (the highest amount). If there are no units available in the results list to create the specified group, the group will be cleared in the same way as " + cUpResetGroup.getLink() + ".";
 cUpCreateGroup.commandParameters = [ {
 	nameLink: pGoalId.getLink("IndexGoalId"),
 	name: "GoalId",
@@ -24918,13 +24918,13 @@ castleTechsArray = [ {
 	weirdName: 0,
 	id: 622,
 	building: "Castle",
-	age: 4,
+	age: 3,
 	aok: 0,
 	tc: 0,
 	wk: 1,
 	de: 1,
 	civ: "Khmer",
-	notes: "can use my-unique-research"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Elite War Wagon",
 	aiName: "ri-elite-war-wagon",
