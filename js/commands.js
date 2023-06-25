@@ -24107,45 +24107,6 @@ castleTechsArray = [ {
 	civ: "Berbers",
 	notes: "can use my-unique-research"
 }, {	
-	name: "Elite Longbowman",
-	aiName: "ri-elite-longbowman",
-	weirdName: 0,
-	id: 360,
-	building: "Castle",
-	age: 4,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "Britons",
-	notes: "can use my-unique-unit-upgrade"
-}, {	
-	name: "Yeomen",
-	aiName: "",
-	weirdName: 0,
-	id: 3,
-	building: "Castle",
-	age: 4,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "Britons",
-	notes: "Castle Age in WK/DE, can use my-unique-research"
-}, {	
-	name: "Warwolf",
-	aiName: "",
-	weirdName: 0,
-	id: 461,
-	building: "Castle",
-	age: 4,
-	aok: 0,
-	tc: 0,
-	wk: 1,
-	de: 1,
-	civ: "Britons",
-	notes: "can use my-second-unique-research (DE only)"
-}, {	
 	name: "Elite Hussite Wagon",
 	aiName: "ri-elite-hussite-wagon",
 	weirdName: 2,
@@ -24184,6 +24145,45 @@ castleTechsArray = [ {
 	de: 1,
 	civ: "Bohemians",
 	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Longbowman",
+	aiName: "ri-elite-longbowman",
+	weirdName: 0,
+	id: 360,
+	building: "Castle",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Yeomen",
+	aiName: "",
+	weirdName: 0,
+	id: 3,
+	building: "Castle",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "can use my-second-unique-research, my-unique-research in UP/WK"
+}, {	
+	name: "Warwolf",
+	aiName: "",
+	weirdName: 0,
+	id: 461,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Britons",
+	notes: "can use my-unique-research (DE only)"
 }, {
 	name: "Elite Konnik",
 	aiName: "ri-elite-konnik",
@@ -24276,10 +24276,10 @@ castleTechsArray = [ {
 	civ: "Burmese",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
-	name: "Howdah",
+	name: "Manipur Cavalry",
 	aiName: "",
 	weirdName: 0,
-	id: 626,
+	id: 627,
 	building: "Castle",
 	age: 3,
 	aok: 0,
@@ -24287,12 +24287,12 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Burmese",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research in DE, my-unique-research in WK"
 }, {	
-	name: "Manipur Cavalry",
+	name: "Howdah",
 	aiName: "",
 	weirdName: 0,
-	id: 627,
+	id: 626,
 	building: "Castle",
 	age: 4,
 	aok: 0,
@@ -24300,7 +24300,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Burmese",
-	notes: "can use my-unique-research"
+	notes: "can use my-unique-research in DE"
 }, {	
 	name: "Elite Cataphract",
 	aiName: "ri-elite-cataphract",
@@ -24549,31 +24549,31 @@ castleTechsArray = [ {
 	civ: "Franks",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
-	name: "Chivalry",
-	aiName: "",
-	weirdName: 0,
-	id: 493,
-	building: "Castle",
-	age: 3,
-	aok: 0,
-	tc: 0,
-	wk: 1,
-	de: 1,
-	civ: "Franks",
-	notes: "available only in Imperial Age in DE, can use my-second-unique-research (DE only)"
-}, {	
 	name: "Bearded Axe",
 	aiName: "",
 	weirdName: 0,
 	id: 83,
 	building: "Castle",
-	age: 4,
+	age: 3,
 	aok: 0,
 	tc: 1,
 	wk: 1,
 	de: 1,
 	civ: "Franks",
-	notes: "available in Castle Age in DE, can use my-unique-research"
+	notes: "can use my-second-unique-research, my-unique-research in UP/WK"
+}, {	
+	name: "Chivalry",
+	aiName: "",
+	weirdName: 0,
+	id: 493,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	civ: "Franks",
+	notes: "can use my-unique-research (DE only)"
 }, {	
 	name: "Elite Huskarl",
 	aiName: "ri-elite-huskarl",
@@ -24599,7 +24599,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-unique-research"
+	notes: "can use my-second-unique-research, my-unique-research in UP/WK"
 }, {	
 	name: "Perfusion",
 	aiName: "",
@@ -24612,7 +24612,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Goths",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-unique-research (DE only)"
 }, {	
 	name: "Elite Chakram Thrower",
 	aiName: "ri-elite-chakram-thrower",
@@ -25405,7 +25405,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Saracens",
-	notes: "can use my-second-unique-research"
+	notes: "can use my-unique-research"
 }, {	
 	name: "Madrasah",
 	aiName: "",
@@ -25431,7 +25431,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Saracens",
-	notes: "available in castle age in DE, can use my-unique-research"
+	notes: "can use my-second-unique-research, my-unique-research in UP/WK"
 }, {	
 	name: "Elite Serjeant",
 	aiName: "ri-elite-serjeant",
@@ -25459,7 +25459,7 @@ castleTechsArray = [ {
 	civ: "Sicilians",
 	notes: "can use my-second-unique-research"
 }, {	
-	name: "Scutage",
+	name: "Hauberk",
 	aiName: "",
 	weirdName: 0,
 	id: 757,
@@ -25745,7 +25745,7 @@ castleTechsArray = [ {
 	civ: "Vikings",
 	notes: "can use my-second-unique-research (DE only)"
 }, {	
-	name: "Berserkergang",
+	name: "Bogsveigar",
 	aiName: "",
 	weirdName: 0,
 	id: 49,
@@ -25756,7 +25756,7 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Vikings",
-	notes: "can use my-unique-research"
+	notes: "can use my-unique-research, previously called Berserkergang"
 } ];	
 	
 dockTechsArray = [ {	
@@ -36417,7 +36417,7 @@ objectsBuildingsArrayROR = [ {
 }, {	
 	name: "Fortified Wall",
 	aiName: "fortified-wall",
-	line: "",
+	line: "-399",
 	id: 155,
 	class: "wall-class",
 	cmdId: "cmdid-military-building",
@@ -36429,7 +36429,7 @@ objectsBuildingsArrayROR = [ {
 	ror: 1,
 	de: 1,
 	deror: 1,
-	notes: "Currently not included in wall-line."
+	notes: ""
 }, {	
 	name: "Watch Tower",
 	aiName: "watch-tower",
@@ -36481,7 +36481,7 @@ objectsBuildingsArrayROR = [ {
 }, {	
 	name: "Ballista Tower",
 	aiName: "bombard-tower",
-	line: "",
+	line: "-398",
 	id: 236,
 	class: "tower-class",
 	cmdId: "cmdid-military-building",
@@ -36493,7 +36493,7 @@ objectsBuildingsArrayROR = [ {
 	ror: 1,
 	de: 1,
 	deror: 1,
-	notes: "Currently not included in the tower-line."
+	notes: ""
 }, {	
 	name: "Small Gate (Ascending Closed)",
 	aiName: "",
