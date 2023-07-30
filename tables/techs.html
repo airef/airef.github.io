@@ -166,6 +166,7 @@
 				version = "DE";
 			}
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			num = 0;
 			for (h = 0; h < techsArray.length; h++) {
 				table = document.getElementById("bldg-" + h);
@@ -186,6 +187,7 @@
 					tdDe = techsArray[h][i].de;
 
 					if (tdName != "" && tdId.toString().length > 0) {
+						tdName = tdName.replace(/-/g,"");
 						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
 							if(building == "All" || tdBuilding == building) {
 								if(age == "All" || tdAge == age) {

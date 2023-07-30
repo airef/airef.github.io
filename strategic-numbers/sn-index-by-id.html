@@ -174,7 +174,7 @@
 	<script>
 		function snFilter() {
 			// Declare variables
-			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aok, up, de;
+			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aok, up, de, txtValue;
 			input = document.getElementById("snInput");
 			category = document.getElementById("sn-category");
 			category = category.value;
@@ -237,6 +237,7 @@
 				version = "DE";
 			}*/
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			table = document.getElementById("index-table");
 			tr = table.getElementsByTagName("tr");
 			num = 0;
@@ -256,7 +257,8 @@
 				}
 
 				if (tdName != "" && tdId.toString().length > 0) {
-					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1) {
+					txtValue = tdName.replace(/-/g,"");
+					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || txtValue.toString().toUpperCase().indexOf(filter) > -1) {
 						if(category == "All" || tdCategory == category) {
 							if(effective == "All" || tdEffective == effective) {
 								if(network == -1 || tdNetwork == network) {

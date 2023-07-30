@@ -44,6 +44,8 @@
 			var nameUpper, descriptionUpper, valueNameUpper, valueDescUpper, commandNum, parameterNum, paramValueNum, snNum, objectsNum, techsNum;
 			input = document.getElementById("searchInput");
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
+			console.log(filter);
 			num = 0;
 
 			//Commands
@@ -51,9 +53,12 @@
 			text += "<tr><th>Command Name</th><th>Description</th><th>Match Type</th></tr>";
 			for(var i = 0; i < commandsArray.length; i++) {
 				nameUpper = commandsArray[i].commandName.toUpperCase();
+				nameUpper = nameUpper.replace(/-/g,"");
 				descriptionUpper = commandsArray[i].description.toUpperCase();
+				descriptionUpper = descriptionUpper.replace(/-/g,"");
 				if (! (descriptionUpper)) {
 					descriptionUpper = commandsArray[i].shortDescription.toUpperCase();
+					descriptionUpper = descriptionUpper.replace(/-/g,"");
 				}
 				if (nameUpper.indexOf(filter) > -1) {
 					text += "<tr>";
@@ -82,9 +87,12 @@
 			text += "<tr><th>Page Name</th><th>Description</th><th>Match Type</th></tr>";
 			for(var i = 0; i < parametersArray.length; i++) {
 				nameUpper = parametersArray[i].upParamName.toUpperCase();
+				nameUpper = nameUpper.replace(/-/g,"");
 				descriptionUpper = parametersArray[i].description.toUpperCase();
+				descriptionUpper = descriptionUpper.replace(/-/g,"");
 				if (! (descriptionUpper)) {
 					descriptionUpper = parametersArray[i].shortDescription.toUpperCase();
+					descriptionUpper = descriptionUpper.replace(/-/g,"");
 				}
 				if (nameUpper.indexOf(filter) > -1) {
 					text += "<tr>";
@@ -113,14 +121,19 @@
 			text += "<tr><th>Parameter Value Name</th><th>Description</th><th>Parameter</th><th>Match Type</th></tr>";
 			for(var i = 0; i < parametersArray.length; i++) {
 				nameUpper = parametersArray[i].upParamName.toUpperCase();
+				nameUpper = nameUpper.replace(/-/g,"");
 				descriptionUpper = parametersArray[i].description.toUpperCase();
+				descriptionUpper = descriptionUpper.replace(/-/g,"");
 				if (! (descriptionUpper)) {
 					descriptionUpper = parametersArray[i].shortDescription.toUpperCase();
+					descriptionUpper = descriptionUpper.replace(/-/g,"");
 				}
 				if (parametersArray[i].operatorTypes.length > 0) {
 					for (j = 0; j < parametersArray[i].operatorTypes.length; j++) {
 						valueNameUpper = parametersArray[i].operatorTypes[j].operator[0].toUpperCase();
+						valueNameUpper = valueNameUpper.replace(/-/g,"");
 						valueDescUpper = parametersArray[i].operatorTypes[j].description.toUpperCase();
+						valueDescUpper = valueDescUpper.replace(/-/g,"");
 						if (valueNameUpper.indexOf(filter) > -1) {
 							text += "<tr>";
 							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
@@ -146,7 +159,9 @@
 				else if (parametersArray[i].valueList.length > 0) {
 					for (j = 0; j < parametersArray[i].valueList.length; j++) {
 						valueNameUpper = parametersArray[i].valueList[j].name.toUpperCase();
+						valueNameUpper = valueNameUpper.replace(/-/g,"");
 						valueDescUpper = parametersArray[i].valueList[j].description.toUpperCase();
+						valueDescUpper = valueDescUpper.replace(/-/g,"");
 						if (valueNameUpper.indexOf(filter) > -1) {
 							text += "<tr>";
 							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
@@ -172,7 +187,9 @@
 				else if (parametersArray[i].wildcardParam.length > 0) {
 					for (j = 0; j < parametersArray[i].wildcardParam.length; j++) {
 						valueNameUpper = parametersArray[i].wildcardParam[j].name.toUpperCase();
+						valueNameUpper = valueNameUpper.replace(/-/g,"");
 						valueDescUpper = parametersArray[i].wildcardParam[j].description.toUpperCase();
+						valueDescUpper = valueDescUpper.replace(/-/g,"");
 						if (valueNameUpper.indexOf(filter) > -1) {
 							text += "<tr>";
 							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
@@ -198,7 +215,9 @@
 				else if (parametersArray[i].ruleVariables.length > 0) {
 					for (j = 0; j < parametersArray[i].ruleVariables.length; j++) {
 						valueNameUpper = parametersArray[i].ruleVariables[j].name.toUpperCase();
+						valueNameUpper = valueNameUpper.replace(/-/g,"");
 						valueDescUpper = parametersArray[i].ruleVariables[j].description.toUpperCase();
+						valueDescUpper = valueDescUpper.replace(/-/g,"");
 						if (valueNameUpper.indexOf(filter) > -1) {
 							text += "<tr>";
 							text += "<td class=\"parameter-name\" title=\"" + parametersArray[i].upParamName;
@@ -230,9 +249,12 @@
 			text += "<tr><th>Page Name</th><th>Description</th><th>Match Type</th></tr>";
 			for(var i = 0; i < snArray.length; i++) {
 				nameUpper = snArray[i].snName.toUpperCase();
+				nameUpper = nameUpper.replace(/-/g,"");
 				descriptionUpper = snArray[i].description.toUpperCase();
+				descriptionUpper = descriptionUpper.replace(/-/g,"");
 				if (! (descriptionUpper)) {
 					descriptionUpper = snArray[i].shortDescription.toUpperCase();
+					descriptionUpper = descriptionUpper.replace(/-/g,"");
 				}
 				if (nameUpper.indexOf(filter) > -1) {
 					text += "<tr>";
@@ -263,9 +285,12 @@
 			for(var i = 0; i < objectsArray.length; i++) {
 				for(var j = 0; j < objectsArray[i].length; j++) {
 					nameUpper = objectsArray[i][j].name.toUpperCase();
+					nameUpper = nameUpper.replace(/-/g,"");
 					aiNameUpper = objectsArray[i][j].aiName.toUpperCase();
+					aiNameUpper = aiNameUpper.replace(/-/g,"");
 					if (! (aiNameUpper)) {
 						aiNameUpper = objectsArray[i][j].aiName.toUpperCase();
+						aiNameUpper = aiNameUpper.replace(/-/g,"");
 					}
 					if (nameUpper.indexOf(filter) > -1) {
 						text += "<tr><td>" + objectsArray[i][j].id + "</td>";
@@ -294,9 +319,12 @@
 			for(var i = 0; i < techsArray.length; i++) {
 				for(var j = 0; j < techsArray[i].length; j++) {
 					nameUpper = techsArray[i][j].name.toUpperCase();
+					nameUpper = nameUpper.replace(/-/g,"");
 					aiNameUpper = techsArray[i][j].aiName.toUpperCase();
+					aiNameUpper = aiNameUpper.replace(/-/g,"");
 					if (! (aiNameUpper)) {
 						aiNameUpper = techsArray[i][j].aiName.toUpperCase();
+						aiNameUpper = aiNameUpper.replace(/-/g,"");
 					}
 					if (nameUpper.indexOf(filter) > -1) {
 						text += "<tr><td>" + techsArray[i][j].id + "</td>";

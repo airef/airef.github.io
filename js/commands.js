@@ -747,6 +747,7 @@ var snInitialAttackDelay = new StrategicNumber("sn-initial-attack-delay");
 var snInitialAttackDelayType = new StrategicNumber("sn-initial-attack-delay-type");
 var snInitialExplorationRequired = new StrategicNumber("sn-initial-exploration-required");
 var snIntelligentGathering = new StrategicNumber("sn-intelligent-gathering");
+var snKeystates = new StrategicNumber("sn-keystates");
 var snLivestockDefendPriority = new StrategicNumber("sn-livestock-defend-priority");
 var snLivestockToTownCenter = new StrategicNumber("sn-livestock-to-town-center");
 var snLocalTargetingMode = new StrategicNumber("sn-local-targeting-mode");
@@ -835,6 +836,7 @@ var snPlacementFailDelta = new StrategicNumber("sn-placement-fail-delta");
 var snPlacementToCenter = new StrategicNumber("sn-placement-to-center");
 var snPlacementZoneSize = new StrategicNumber("sn-placement-zone-size");
 var snPreferredMillPlacement = new StrategicNumber("sn-preferred-mill-placement");
+var snPreferredStoragePitPlacement = new StrategicNumber("sn-preferred-storage-pit-placement");
 var snPreferredTradeDistance = new StrategicNumber("sn-preferred-trade-distance");
 var snProfilingThreshold = new StrategicNumber("sn-profiling-threshold");
 var snRandomPlacementFactor = new StrategicNumber("sn-random-placement-factor");
@@ -939,8 +941,8 @@ var snUnknownSN199 = new StrategicNumber("unknown-sn-199");
 var snUnknownSN200 = new StrategicNumber("unknown-sn-200");
 var snUnknownSN211 = new StrategicNumber("unknown-sn-211");
 
-var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
-var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits];
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snKeystates, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredStoragePitPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
+var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits, snPreferredStoragePitPlacement, snKeystates];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -7403,6 +7405,50 @@ snAllowCapturingGaiaUnits.linked = [];
 snAllowCapturingGaiaUnits.related = [];
 snAllowCapturingGaiaUnits.shortDescription = "Set > 0 to allow AI player to convert units owned by Gaia.";
 
+snPreferredStoragePitPlacement.id = 311;
+snPreferredStoragePitPlacement.snName = "sn-preferred-storage-pit-placement";
+snPreferredStoragePitPlacement.default = -1;
+snPreferredStoragePitPlacement.category = "Economy";
+snPreferredStoragePitPlacement.min = -32768;
+snPreferredStoragePitPlacement.max = 32767;
+snPreferredStoragePitPlacement.rmin = -1;
+snPreferredStoragePitPlacement.rmax = 5;
+snPreferredStoragePitPlacement.network = 0;
+snPreferredStoragePitPlacement.defined = 1;
+snPreferredStoragePitPlacement.available = 0;
+snPreferredStoragePitPlacement.effective = 1;
+snPreferredStoragePitPlacement.version = "DE";
+snPreferredStoragePitPlacement.aoe = 0;
+snPreferredStoragePitPlacement.aok = 0;
+snPreferredStoragePitPlacement.up = 0;
+snPreferredStoragePitPlacement.de = 1;
+snPreferredStoragePitPlacement.linked = [];
+snPreferredStoragePitPlacement.related = [];
+snPreferredStoragePitPlacement.shortDescription = "Controls the preferred resource the AI will place its storage pits nearby. Return of Rome DLC only.";
+snPreferredStoragePitPlacement.description = "Controls the preferred resource the AI will place its storage pits nearby. Return of Rome DLC only.</p><p>Currently this SN seems bugged, but the following values are what is supposed to work. Setting the SN to -1 seems to currently work for placing storage pits near wood.</p><pre><code><table class=\"example\"><tr><td>(defconst storage-pit-default -1)</td></tr><tr><td>(defconst storage-pit-forage 0)</td></tr><tr><td>(defconst storage-pit-hunting 1)</td></tr><tr><td>(defconst storage-pit-fishing 2)</td></tr><tr><td>(defconst storage-pit-wood 3)</td></tr><tr><td>(defconst storage-pit-gold 4)</td></tr><tr><td>(defconst storage-pit-stone 5)</td></tr></table></code></pre></div>"
+
+snKeystates.id = 312;
+snKeystates.snName = "sn-keystates";
+snKeystates.default = 0;
+snKeystates.category = "Other";
+snKeystates.min = -32768;
+snKeystates.max = 32767;
+snKeystates.rmin = 0;
+snKeystates.rmax = 3;
+snKeystates.network = 0;
+snKeystates.defined = 1;
+snKeystates.available = 0;
+snKeystates.effective = 1;
+snKeystates.version = "DE";
+snKeystates.aoe = 0;
+snKeystates.aok = 0;
+snKeystates.up = 0;
+snKeystates.de = 1;
+snKeystates.linked = [];
+snKeystates.related = [];
+snKeystates.shortDescription = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both.";
+snKeystates.description = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both. sn-keystates affects the behavior of " + cUpTargetObjects.getLink() + " and " + cUpTargetPoint.getLink() + ", and it affects them at the moment those commands are used, so set this strategic number before using them. sn-keystates can safely be set back to another value immediately after those commands are used.</p><p>Using the Shift option allows AI scripters to set movement waypoints or queue commands for units, like using Shift in a normal game. Using the Ctrl option allows AI scripters to force units to target an object more directly than normal, making the units less likely to retarget to another object."
+
 
 
 
@@ -7531,7 +7577,7 @@ cAttackWarboatCount.complexity = "Low";
 
 //build
 cBuild.shortDescription = "Builds the given building.";
-cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tile away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tile away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tile away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that uses sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
+cBuild.description = "Builds the given building. If you want to construct walls or gates, use the corresponding " + cBuildWall.getLink() + ", " + cBuildGate.getLink() + ", or " + cUpBuildLine.getLink() + " commands instead. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once. You can limit the number of buildings added to the placement queue with a " + cUpPendingObjects.getLink() + " condition.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the (build) command, the AI will place most buildings at a random location within " + snMaximumTownSize.getLink() + " tiles from the main town center using whatever value sn-maximum-town-size is set to at the end of the script. " + snMinimumTownSize.getLink() + " has no effect on building placement except for towers. However, four tiles around the TC are reserved around every town center for farms, and all buildings are placed at least one tile apart. For a complete list on the min and max distances where each building can be built, see this list here: <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">link</a>.</p><p>Buildings placed with this command will avoid the following locations:</p><ul><li>Ally (and self): will avoid placing the building on tiles where an allied building already exists.</li><li>Enemy: will avoid placing the building on tiles where an enemy building already exists. Will also avoid placing a building within the attack range of a tower, TC, or castle, + 0.5 tiles.</li></ul><p>There are many other commands that you can use instead of this command that you more precise control over building placement, such as " + cBuildForward.getLink() + ", " + cUpBuild.getLink() + ", and " + cUpBuildLine.getLink() + ".</p><h4>Placement Exceptions</h4><p>Several buildings have variations on how they are placed that are different from the description above:</p><p><strong>Town Centers</strong> are placed like most buildings when " + snTownCenterPlacement.getLink() + " is set to the default value of 0. However, if sn-town-center-placement is set to the " + pBuildingId.getLink() + " of another building, such as \"mill\" or \"lumber-camp\", the town center will follow the placement rules of that building instead.</p><p><strong>Mills</strong> and <strong>Folwarks</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a food resource within " + snMillMaxDistance.getLink() + ". The AI engine by default prefers to build mills and folwarks by forage, then by shore fish, then by deer. However, this preference can be changed with " + snPreferredMillPlacement.getLink() + ". Also, mills and folwarks are placed one tile away from food resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mills and folwarks), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Mining Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a gold or stone resource within " + snMiningCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-mining-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. If the closest gold mine distance to a dropoff point is greater than " + snGoldDropsiteDistance.getLink() + ", then it will prefer to place the mining camp near gold mines. Then it checks if the closest stone mine distance to a dropoff point is greater than " + snStoneDropsiteDistance.getLink() + ", and if it is, it will prefer to place the mining camp near stone. If neither condition is met, it prefers neither gold nor stone, and the mining camp placement behavior is undefined. It's possible the mining camp isn't placed, but this is untested. Also, mining camps are placed one tile away from gold and stone resource piles unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, and they are placed a minimum number of tiles from all dropsites (not just mining camps), as specified by " + snDropsiteSeparationDistance.getLink() + ".</p><p><strong>Lumber Camps</strong> are not placed in a random location within sn-maximum-town-size, but instead are built by a tree within " + snLumberCampMaxDistance.getLink() + " (or " + snCampMaxDistance.getLink() + " if sn-lumber-camp-max-distance is set to 0), and they are placed at least 7 tiles from the main town center. Also, lumber camps are placed one tile away from trees unless " + snAllowAdjacentDropsites.getLink() + " is set to 1 by the end of the script pass, though even with the SN set to 1 the AI will sometimes fail to build the lumber camp adjacent to trees, and they are placed a minimum number of tiles from all dropsites (not just lumber camps), as specified by " + snDropsiteSeparationDistance.getLink() + ". Usually the AI favors building lumber camps near forests rather than straggler trees, but the AI will build lumber camps near straggler trees if sn-lumber-camp-max-distance is to small for the AI to find an available forest to build the lumber camp by.</p><p><strong>Docks</strong> are of course only placed on water, and there are several SNs that can affect their placement, such as " + snDockAvoidanceFactor.getLink() + ", " + snDockPlacementMode.getLink() + ", " + snDockProximityFactor.getLink() + ", and " + snMinimumWaterBodySizeForDock.getLink() + ".</p><p><strong>Farms</strong> are automatically placed near town centers, mills, and folwarks. The AI engine prefers to place farms around TCs instead of mills or folwarks, but it will place farms around mills or folwarks if all spaces immediately next to the town center are already filled with farms.</p><p><p><strong>Fish Traps</strong> should not be placed with the build command. Instead, they should only be placed with up-build-line. It's possible they can be placed with the build command, but they often won't be placed in the right location. Also, make sure to use (up-assign-builders c: fish-trap c: -1) to make sure that villagers aren't sent to contruct them.</p><p><strong>Outposts</strong>, at least according to this <a href=\"https://airef.github.io/resources/articles/helpful-info.html#building-construction-distances\">info</a>, are placed outside the town, at a distance between sn-maximum-town-size and twice the distance of sn-maximum-town-size. They might also have a preference to be placed on hills like towers do (see the towers section below). If you choose to build outposts, make sure you test to make sure you like their placement location. You can build them in more precise locations or inside the town if you use the place-control or place-point options with up-build, or you can also place them with up-build-line.</p><p><strong>Towers</strong> are the only type of building that uses sn-minimum-town-size as the minimum distance they can be placed from the starting town center. By default they have a preference to be placed on hills, but you can remove this preference by setting " + snIgnoreTowerElevation.getLink() + " to 1. This preference for hills is not used for castles or kreposts.</p></p><p><strong>Donjons</strong>. Everything from towers applies to donjons. To construct donjons with serjeants, set " + snAllowSerjeantBuilding.getLink() + " to 1.</p><p><strong>Gates</strong> cannot be placed with the build command. Construct them with the " + cBuildGate.getLink() + " or up-build-line command. To build palisade gates, set " + snGateTypeForWall.getLink() + " to 1 before using the build-gate command.</p><p><strong>Trebuchets</strong>. Yes, (build trebuchet) actually works. Every scripter should try it once in their life. However, soon you'll see why it's considered cheating.";
 cBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7551,7 +7597,7 @@ cBuild.complexity = "Low";
 
 //build-forward
 cBuildForward.shortDescription = "Builds the given building close to an enemy.";
-cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build-forward command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build-forward command, the AI will place the building near the enemy player specified by " + snTargetPlayerNumber.getLink() + " or the player specified by " + snAttackWinningPlayer.getLink() + " if sn-target-player-number is set to 0. build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.";
+cBuildForward.description = "Builds the given building close to an enemy. The action allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (build watch-tower) will work regardless of tower upgrades. Building classes cannot be used with this command.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + " or " + cUpCanBuild.getLink() + " condition in every rule where you use the build-forward command. Without this condition, the building queue for this building may get stuck for the rest of the game.</p><p>When this command is issued, the AI engine will add the specified building to the building placement queue. If " + snEnableNewBuildingSystem.getLink() + " is set to 0, the engine will only add the building to the placement queue if there isn't already a building of the same type being constructed or waiting to be placed, but if the SN is set to 1 this check is removed, and an unlimited number of buildings of the same type are allowed to be queued for placement or be constructed at once.</p><p>At the end of each script pass, the AI engine checks if the AI has explored the minimum percentage of the map required by " + snInitialExplorationRequired.getLink() + ". If so, it will attempt to place each building that is currently in the placement queue. If the building was added to the queue with the build-forward command, the AI will place the building near the enemy player specified by " + snTargetPlayerNumber.getLink() + " or the player specified by " + snAttackWinningPlayer.getLink() + " if sn-target-player-number is set to 0. build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.</p><p>Buildings placed with build-forward will avoid placing the building on tiles where an enemy building already exists, and it will also avoid placing a building within any enemy building's line of sight, + 2 tiles.";
 cBuildForward.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -7720,7 +7766,7 @@ cBuildingTypeCount.example = [ {
 	data: "(defrule\r\n\t(building-type-count town-center < 3)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cBuildingTypeCount.commandCategory = ["Buildings", "Counting"];
-cBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCountTotal, cCcPlayersBuildingTypeCount, cGateCount];
+cBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCountTotal, cCcPlayersBuildingTypeCount, cGateCount, cUpObjectTypeCount, cUpObjectTypeCountTotal];
 cBuildingTypeCount.relatedSNs = [];
 cBuildingTypeCount.complexity = "Low";
 
@@ -7754,7 +7800,7 @@ cBuildingTypeCountTotal.example = [ {
 	data: "(defrule\r\n\t(building-type-count-total lumber-camp >= 1)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cBuildingTypeCountTotal.commandCategory = ["Buildings", "Counting"];
-cBuildingTypeCountTotal.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cCcPlayersBuildingTypeCount, cGateCount];
+cBuildingTypeCountTotal.relatedCommands = [cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cCcPlayersBuildingTypeCount, cGateCount, cUpObjectTypeCount, cUpObjectTypeCountTotal];
 cBuildingTypeCountTotal.relatedSNs = [];
 cBuildingTypeCountTotal.complexity = "Low";
 
@@ -8932,7 +8978,7 @@ cCurrentAge.example = [ {
 	data: "(defrule\r\n\t(current-age >= castle-age)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCurrentAge.commandCategory = ["Own Player Info"];
-cCurrentAge.relatedCommands = [cCurrentAge, cCurrentAgeTime, cPlayersCurrentAge, cPlayersCurrentAgeTime, cStartingAge];
+cCurrentAge.relatedCommands = [cCurrentAgeTime, cPlayersCurrentAge, cPlayersCurrentAgeTime, cStartingAge];
 cCurrentAge.relatedSNs = [];
 cCurrentAge.complexity = "Low";
 
@@ -9326,7 +9372,8 @@ cEnemyCapturedRelics.relatedSNs = [snSpecialAttackInfluence1, snSpecialAttackTyp
 cEnemyCapturedRelics.complexity = "Low";
 
 //escrow-amount
-cEscrowAmount.shortDescription = "Checks a computer player's escrow amount for a given resource type.";
+cEscrowAmount.shortDescription = "Checks a computer player's escrow stockpile amount for a given resource type.";
+cEscrowAmount.description = "Checks a computer player's escrow stockpile amount for a given resource type.</p><p>AIs can store each of their four resource stockpiles in one of two stockpile types: normal and escrow. Resources in the normal stockpiles are free for the AI to use, while resources in the escrow stockpiles can only be used with " + cUpBuild.getLink() + ", " + cUpTrain.getLink() + ", or " + cUpResearch.getLink() + " when the EscrowGoalId parameter in these commands is a goal set to the value \"with-escrow\". The user interface shows the sum of both the normal and escrow stockpile resources added together for each resource.</p><p>By default, all resources are stored in the normal stockpiles. However, " + cSetEscrowPercentage.getLink() + " and " + cUpModifyEscrow.getLink() + " can be used to store some or all of the AI's resources in the escrow stockpiles instead. Resources in the escrow stockpiles can transferred back into the normal stockpiles by using " + cReleaseEscrow.getLink() + ", " + cUpReleaseEscrow.getLink() + ", or " + cUpModifyEscrow.getLink() + ".</p><p>Resources are usually placed in escrow stockpiles in order to save up for expensive technologies or important buildings or units, so that it isn't spent on lower priority things.";
 cEscrowAmount.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -9349,13 +9396,13 @@ cEscrowAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cEscrowAmount.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cEscrowAmount.example = [ {
+	title: "Send a chat message if the AI has more than 1000 wood stored in the wood escrow stockpile.",
+	data: "(defrule\r\n\t(escrow-amount wood > 1000)\r\n=>\r\n\t(chat-local-to-self \"We have more than 1000 escrow wood.\")\r\n)"
+} ];
+cEscrowAmount.commandCategory = ["Economy"];
+cEscrowAmount.relatedCommands = [cFoodAmount, cGoldAmount, cReleaseEscrow, cSetEscrowPercentage, cStoneAmount, cWoodAmount, cUpModifyEscrow, cUpReleaseEscrow, cUpResourceAmount];
+cEscrowAmount.relatedSNs = [];
 cEscrowAmount.complexity = "Medium";
 
 //event-detected
@@ -9772,7 +9819,7 @@ cMilitaryPopulation.complexity = "Low";
 
 //player-computer
 cPlayerComputer.shortDescription = "Checks if the given player is a computer player.";
-cPlayerComputer.description = "Checks if the given player is a computer player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerComputer.description = "Checks if the given player is a computer player.</p><p>The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerComputer.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9792,7 +9839,7 @@ cPlayerComputer.complexity = "Low";
 
 //player-human
 cPlayerHuman.shortDescription = "Checks if the given player is a human player.";
-cPlayerHuman.description = "Checks if the given player is a human player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerHuman.description = "Checks if the given player is a human player.</p><p>The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerHuman.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9812,7 +9859,7 @@ cPlayerHuman.complexity = "Low";
 
 //player-in-game
 cPlayerInGame.shortDescription = "Checks if the given player is a valid player and still playing.";
-cPlayerInGame.description = "Checks if the given player is a valid player and still playing. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerInGame.description = "Checks if the given player is a valid player and still playing (hasn't resigned or been defeated).</p><p>The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerInGame.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9821,13 +9868,13 @@ cPlayerInGame.commandParameters = [ {
 	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerInGame.example = [ {
+	title: "Train up to 40 trade carts if an ally is in the game and the AI has reached Imperial Age.",
+	data: "(defrule\r\n\t(player-in-game any-ally)\r\n\t(current-age == imperial-age)\r\n\t(unit-type-count-total trade-cart < 40)\r\n\t(can-train trade-cart)\r\n=>\r\n\t(train trade-cart)\r\n)"
+} ];
 cPlayerInGame.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerInGame.relatedCommands = [cPlayerResigned, cPlayerValid, cUpPlayersInGame];
+cPlayerInGame.relatedSNs = [];
 cPlayerInGame.complexity = "Low";
 
 //player-number
@@ -9841,18 +9888,18 @@ cPlayerNumber.commandParameters = [ {
 	range: "1 to 8",
 	note: "The player number to check for a match."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerNumber.example = [ {
+	title: "Check if the AI is playing as player 2.",
+	data: "(defrule\r\n\t(player-number 2)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayerNumber.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerNumber.relatedCommands = [cUpFindPlayer, cUpFindNextPlayer, cUpGetPlayerColor];
+cPlayerNumber.relatedSNs = [snFocusPlayerNumber, snTargetPlayerNumber];
 cPlayerNumber.complexity = "Low";
 
 //player-resigned
 cPlayerResigned.shortDescription = "Checks if the given player has lost by resigning.";
-cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game use:</p><div class=\"example\"><pre><code>(not (player-in-game Player))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerResigned.description = "Checks if the given player has lost by resigning. Note that a player can lose without resigning, so this fact should not be used to check whether a player has lost a game. To check whether a player has lost a game (such as player 3) use:</p><div class=\"example\"><pre><code>(not (player-in-game 3))</code></pre></div>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerResigned.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9861,18 +9908,18 @@ cPlayerResigned.commandParameters = [ {
 	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerResigned.example = [ {
+	title: "Send \"gg\" if player 3 resigned and is an enemy.",
+	data: "(defrule\r\n\t(player-resigned 3)\r\n\t(stance-toward 3 enemy)\r\n=>\r\n\t(chat-to-enemies \"gg\")\r\n\t(disable-self)\r\n)"
+} ];
 cPlayerResigned.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerResigned.relatedCommands = [cPlayerInGame, cPlayerValid, cUpPlayersInGame];
+cPlayerResigned.relatedSNs = [];
 cPlayerResigned.complexity = "Low";
 
 //player-valid
 cPlayerValid.shortDescription = "Checks if the given player is a valid player.";
-cPlayerValid.description = "Checks if the given player is a valid player. In games with more than 2 players, players that lost before the game is over are considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the player-in-game fact. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayerValid.description = "Checks if the given player is a valid player, meaning the player slot was used during the game. In games with more than 2 players, players that lost before the game is over are still considered to be valid players. This is because although the player is not in the game, their units/buildings can still be in the game. To check whether the given player is still in the game use the " + cPlayerInGame.getLink() + " fact.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayerValid.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9881,18 +9928,18 @@ cPlayerValid.commandParameters = [ {
 	range: "Any player number.",
 	note: "The player(s) to check."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayerValid.example = [ {
+	title: "Check if we're playing in a game with more than 2 players by checking if player 3 is valid.",
+	data: "(defrule\r\n\t(player-valid 3)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayerValid.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayerValid.relatedCommands = [cPlayerInGame, cPlayerResigned, cUpPlayersInGame];
+cPlayerValid.relatedSNs = [];
 cPlayerValid.complexity = "Low";
 
 //players-building-count
 cPlayersBuildingCount.shortDescription = "Checks the given player's building count. Both existing buildings and buildings under construction are included.";
-cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersBuildingCount.description = "Checks the given player's building count. Both existing buildings and buildings under construction are included. The computer player relies only on what it has seen - no cheating. If " + snCoopShareInformation.getLink() + " is set to its default value of 1, any buildings seen by allies are also counted. A cheating version of this command, " + cCcPlayersBuildingCount.getLink() + ", can be used to count any building of this type, whether it has been scouted or not.</p><p>The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingCount.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9915,18 +9962,18 @@ cPlayersBuildingCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersBuildingCount.example = [ {
+	title: "If an enemy building has been explored, and we have at least 12 military, increase " + snMaximumTownSize.getLink() + " by 2 each pass if enemy buildings aren't in our town. This will initiate a Town Size Attack (TSA), where the AI attacks enemy buildings that are within its sn-maximum-town-size in order to \"defend\" its town.",
+	data: "(defrule\r\n\t(players-building-count any-enemy > 0)\r\n\t(military-population > 12)\r\n\t(up-enemy-buildings-in-town == 0)\r\n\t(strategic-number sn-maximum-town-size < 255)\r\n=>\r\n\t(up-modify-sn sn-maximum-town-size c:+ 2)\r\n)"
+} ];
 cPlayersBuildingCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersBuildingCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cPlayersBuildingTypeCount];
+cPlayersBuildingCount.relatedSNs = [snCoopShareInformation];
 cPlayersBuildingCount.complexity = "Low";
 
 //players-building-type-count
 cPlayersBuildingTypeCount.shortDescription = "Checks the given player's building count of the given type.";
-cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. The computer player relies only on what it has seen - no cheating. The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersBuildingTypeCount.description = "Checks the given player's building count of the given type. Both existing buildings and buildings under construction of the given type are included. The computer player relies only on what it has seen - no cheating. If " + snCoopShareInformation.getLink() + " is set to its default value of 1, any buildings seen by allies are also counted. A cheating version of this command, " + cCcPlayersBuildingTypeCount.getLink() + ", can be used to count any building, whether it has been scouted or not.</p><p>The fact allows \"focus-player\", \"target-player\", \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ", and the use of building line wildcard parameters for " + pBuildingId.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersBuildingTypeCount.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9956,18 +10003,18 @@ cPlayersBuildingTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersBuildingTypeCount.example = [ {
+	title: "If an ally has a market and the AI has less than 40 trade carts, train a trade cart.",
+	data: "(defrule\r\n\t(players-building-type-count any-ally market > 0)\r\n\t(unit-type-count-total trade-cart < 40)\r\n\t(can-train trade-cart)\r\n=>\r\n\t(train trade-cart)\r\n)"
+} ];
 cPlayersBuildingTypeCount.commandCategory = ["Buildings", "Counting", "Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersBuildingTypeCount.relatedCommands = [cBuildingCount, cBuildingCountTotal, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cPlayersBuildingCount];
+cPlayersBuildingTypeCount.relatedSNs = [snCoopShareInformation];
 cPlayersBuildingTypeCount.complexity = "Low";
 
 //players-civ
-cPlayersCiv.shortDescription = "Checks the given player's civ.";
-cPlayersCiv.description = "Checks the given player's civ. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.";
+cPlayersCiv.shortDescription = "Checks the given player's civilization.";
+cPlayersCiv.description = "Checks the given player's civilization.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p>";
 cPlayersCiv.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -9983,21 +10030,21 @@ cPlayersCiv.commandParameters = [ {
 	range: "A Civ.",
 	note: "The civilization of the player."
 } ];
-/*c.example = [ {
+cPlayersCiv.example = [ {
 	title: "Check if any ally players are playing as the Spanish.",
 	data: "(defrule\r\n\t(players-civ any-ally spanish)\r\n=>\r\n\t(do-nothing)\r\n)"
 }, {
 	title: "Check if any enemy players are playing as the same civilization.",
 	data: "(defrule\r\n\t(players-civ any-enemy my-civ)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+} ];
 cPlayersCiv.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersCiv.relatedCommands = [cCivSelected];
+cPlayersCiv.relatedSNs = [];
 cPlayersCiv.complexity = "Low";
 
 //players-civilian-population
-cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline.";
-cPlayersCivilianPopulation.description = "Checks a given player's civilian population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen civilians for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCivilianPopulation.shortDescription = "Checks a given player's civilian population.";
+cPlayersCivilianPopulation.description = "Checks a given player's civilian population, which includes villagers, fishing ships, and trade units. This fact includes seen and unseen civilians for the given player.</p><p>The CPSB notes that this is equivalent to a human player checking the timeline, which was possible in-game in AoE1, and it was probably also possible during AoE2 development when the CPSB was written, hence why this isn't regarded as a cc- cheating command. However, since this command includes unseen civilian units, some consider this command to be cheating when it's used to check enemy civilian population, but the AI scripting community permits this command in AI tournaments for historical reasons.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCivilianPopulation.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10020,18 +10067,18 @@ cPlayersCivilianPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersCivilianPopulation.example = [ {
+	title: "Check if an ally has less than 50 civilian population.",
+	data: "(defrule\r\n\t(players-civilian-population any-ally < 50)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersCivilianPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersCivilianPopulation.relatedCommands = [cCivilianPopulation, cPlayersMilitaryPopulation, cPlayersPopulation];
+cPlayersCivilianPopulation.relatedSNs = [];
 cPlayersCivilianPopulation.complexity = "Low";
 
 //players-current-age
-cPlayersCurrentAge.shortDescription = "Checks the given player's current age. This is equivalent to a human player checking the timeline.";
-cPlayersCurrentAge.description = "Checks the given player's current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCurrentAge.shortDescription = "Checks the given player's current age.";
+cPlayersCurrentAge.description = "Checks the given player's current age. The CPSB notes that this is equivalent to a human player checking the timeline, which was possible in-game in AoE1, and it was probably also possible during AoE2 development when the CPSB was written. Of course, this information is available to all players in-game, even without the timeline.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAge.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10054,18 +10101,18 @@ cPlayersCurrentAge.commandParameters = [ {
 	range: "dark-age, feudal-age, castle-age, or imperial-age.",
 	note: "The current age of the player."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersCurrentAge.example = [ {
+	title: "Check if every enemy player has advanced to the Castle Age.",
+	data: "(defrule\r\n\t(players-current-age every-enemy >= castle-age)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersCurrentAge.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersCurrentAge.relatedCommands = [cCurrentAge, cCurrentAgeTime, cPlayersCurrentAgeTime];
+cPlayersCurrentAge.relatedSNs = [];
 cPlayersCurrentAge.complexity = "Low";
 
 //players-current-age-time
 cPlayersCurrentAgeTime.shortDescription = "Checks the given player's current age time -- time spent in the current age.";
-cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. This is equivalent to a human player checking the timeline. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersCurrentAgeTime.description = "Checks the given player's current age time -- time spent in the current age. The CPSB notes that this is equivalent to a human player checking the timeline, which was possible in-game in AoE1, and it was probably also possible during AoE2 development when the CPSB was written. Of course, this information could be calculated in-game even without using the timeline.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersCurrentAgeTime.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10088,18 +10135,18 @@ cPlayersCurrentAgeTime.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersCurrentAgeTime.example = [ {
+	title: "Check if an enemy player has spent less than a minute (60 seconds) in their current age.",
+	data: "(defrule\r\n\t(players-current-age-time any-enemy < 60)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersCurrentAgeTime.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersCurrentAgeTime.relatedCommands = [cCurrentAge, cCurrentAgeTime, cPlayersCurrentAge];
+cPlayersCurrentAgeTime.relatedSNs = [];
 cPlayersCurrentAgeTime.complexity = "Low";
 
 //players-military-population
-cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population. This is equivalent to a human player checking the timeline.";
-cPlayersMilitaryPopulation.description = "Checks the given player's military population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen military units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersMilitaryPopulation.shortDescription = "Checks the given player's military population.";
+cPlayersMilitaryPopulation.description = "Checks the given player's military population, which includes all units except for villagers, fishing ships, trade units, and kings. This fact includes seen and unseen military units for the given player.</p><p>The CPSB notes that this is equivalent to a human player checking the timeline, which was possible in-game in AoE1, and it was probably also possible during AoE2 development when the CPSB was written, hence why this isn't regarded as a cc- cheating command. However, since this command includes unseen military units, some consider this command to be cheating when it's used to check enemy military population, but the AI scripting community permits this command in AI tournaments for historical reasons.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersMilitaryPopulation.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10122,18 +10169,18 @@ cPlayersMilitaryPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersMilitaryPopulation.example = [ {
+	title: "Check if an ally has less than 12 military units.",
+	data: "(defrule\r\n\t(players-military-population any-ally < 12)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersMilitaryPopulation.commandCategory = ["Counting", "Other Player Info", "Units"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersMilitaryPopulation.relatedCommands = [cMilitaryPopulation, cPlayersCivilianPopulation, cPlayersPopulation];
+cPlayersMilitaryPopulation.relatedSNs = [];
 cPlayersMilitaryPopulation.complexity = "Low";
 
 //players-population
-cPlayersPopulation.shortDescription = "Checks the given player's population. This is equivalent to a human player checking the timeline.";
-cPlayersPopulation.description = "Checks the given player's population. This is equivalent to a human player checking the timeline, so this fact includes seen and unseen units for the given player. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersPopulation.shortDescription = "Checks the given player's population.";
+cPlayersPopulation.description = "Checks the given player's population. This fact includes seen and unseen units for the given player.</p><p>The CPSB notes that this is equivalent to a human player checking the timeline, which was possible in-game in AoE1, and it was probably also possible during AoE2 development when the CPSB was written, hence why this isn't regarded as a cc- cheating command. However, since this command includes unseen units, some consider this command to be cheating when it's used to check enemy population, but the AI scripting community permits this command in AI tournaments for historical reasons. When checking for the population of an enemy player, consider using " + cPlayersUnitCount.getLink() + ". players-unit-count can overestimate enemy unit counts, but it doesn't count unseen units.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersPopulation.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10156,18 +10203,18 @@ cPlayersPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersPopulation.example = [ {
+	title: "Check if every ally has more than 120 population.",
+	data: "(defrule\r\n\t(players-population every-ally > 120)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersPopulation.commandCategory = ["Counting", "Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersPopulation.relatedCommands = [cPlayersCivilianPopulation, cPlayersMilitaryPopulation, cPopulation];
+cPlayersPopulation.relatedSNs = [];
 cPlayersPopulation.complexity = "Low";
 
 //players-score
 cPlayersScore.shortDescription = "Checks the given player's current score.";
-cPlayersScore.description = "Checks the given player's current score. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersScore.description = "Checks the given player's current score.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersScore.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10190,18 +10237,18 @@ cPlayersScore.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersScore.example = [ {
+	title: "Check if an enemy player has a score more than 9,000.",
+	data: "(defrule\r\n\t(players-score any-enemy > 9000)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
 cPlayersScore.commandCategory = ["Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersScore.relatedCommands = [cCurrentScore, cVictoryCondition, cUpGetVictoryLimit];
+cPlayersScore.relatedSNs = [snAttackWinningPlayer, snAttackWinningPlayerFactor];
 cPlayersScore.complexity = "Low";
 
 //players-stance
 cPlayersStance.shortDescription = "Checks if the given player's diplomatic stance toward the computer player matches the given stance.";
-cPlayersStance.description = "Checks if the given player's diplomatic stance toward the computer player matches the give stance, either ally, neutral, or enemy. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersStance.description = "Checks if the given player's diplomatic stance toward the computer player matches the give stance, either ally, neutral, or enemy. To check our stance toward another player, use " + cStanceToward.getLink() + ".</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersStance.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10217,18 +10264,18 @@ cPlayersStance.commandParameters = [ {
 	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance of the player."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cPlayersStance.example = [ {
+	title: "If a player we are allied to has set their stance toward us to enemy, change our stance toward them to enemy.",
+	data: "(defrule\r\n\t(players-stance any-ally enemy)\r\n=>\r\n\t(set-stance this-any-ally enemy)\r\n)"
+} ];
 cPlayersStance.commandCategory = ["Diplomacy", "Other Player Info"];
-/*c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersStance.relatedCommands = [cSetStance, cStanceToward];
+cPlayersStance.relatedSNs = [];
 cPlayersStance.complexity = "Low";
 
 //players-tribute
 cPlayersTribute.shortDescription = "Checks the player's tribute given throughout the game.";
-cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersTribute.description = "Checks the player's tribute given throughout the game. Only tribute for the given resource type is checked.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTribute.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10258,18 +10305,21 @@ cPlayersTribute.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPlayersTribute.commandCategory = ["Diplomacy", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersTribute.example = [ {
+	title: "If we have less than 200 food and an ally has tributed less than 500 food to us throughout the game, set this ally as the focus-player, check if they have > 180 population, and ask for food.",
+	data: "(defconst gl-player 100)\r\n(defrule\r\n\t(food-amount < 200)\r\n\t(players-tribute any-ally food < 500)\r\n=>\r\n\t(up-get-player-fact this-any-ally player-number 0 gl-player)\r\n\t(up-modify-sn sn-focus-player-number g:= gl-player)\r\n)\r\n\r\n(defrule\r\n\t(food-amount < 200)\r\n\t(players-tribute focus-player food < 500)\r\n\t(players-population focus-player > 180)\r\n=>\r\n\t(chat-to-player focus-player \"3Food Please\")\r\n)"
+}, {
+	title: "In case anyone is wondering, this simpler example below would not be equivalent to the example above, because the players-tribute and players-population conditions could be true for different allies. And you couldn't try to fix this by using this-any-ally with players-population instead of any-ally, because the this-any-* rule variables don't work with the vast majority of fact commands. They only work with some action commands.",
+	data: "(defrule\r\n\t(food-amount < 200)\r\n\t(players-tribute any-ally food < 500)\r\n\t(players-population any-ally > 180)\r\n=>\r\n\t(chat-to-player this-any-ally \"3Food Please\")\r\n)"
+}];
+cPlayersTribute.commandCategory = ["Diplomacy", "Other Player Info"];
+cPlayersTribute.relatedCommands = [cClearTributeMemory, cPlayersTributeMemory, cTributeToPlayer, cUpTributeToPlayer];
+cPlayersTribute.relatedSNs = [];
 cPlayersTribute.complexity = "Low";
 
 //players-tribute-memory
 cPlayersTributeMemory.shortDescription = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared.";
-cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersTributeMemory.description = "Checks a player's tribute given since the player's tribute memory for the given resource was cleared. Only tribute memory for the given resource type is checked. The tribute memory is cleared by using " + cClearTributeMemory.getLink() + ".</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersTributeMemory.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10299,18 +10349,18 @@ cPlayersTributeMemory.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPlayersTributeMemory.commandCategory = ["Diplomacy", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersTributeMemory.example = [ {
+	title: "Check if any ally has tributed gold to us since the tribute memory for that player was cleared.",
+	data: "(defrule\r\n\t(players-tribute-memory any-ally gold > 0)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cPlayersTributeMemory.commandCategory = ["Diplomacy", "Other Player Info"];
+cPlayersTributeMemory.relatedCommands = [cClearTributeMemory, cPlayersTribute, cTributeToPlayer, cUpTributeToPlayer];
+cPlayersTributeMemory.relatedSNs = [];
 cPlayersTributeMemory.complexity = "Low";
 
 //players-unit-count
 cPlayersUnitCount.shortDescription = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersUnitCount.description = "Checks the given player's unit count. The computer player relies only on what it has seen - no cheating. For allies and self only trained units are included.</p><p>To count the units of other players, each AI internally stores an explored objects list which is used by the players-unit-count, " + cPlayersUnitTypeCount.getLink() + ", " + cPlayersBuildingCount.getLink() + ", and " + cPlayersBuildingTypeCount.getLink() + " commands. Every time the AI sees an object owned by another player, that object is added to this list. However, while explored ally objects that have died are immediately removed from the explored objects list, the AI doesn't remove enemy objects from this list when they die because the object might have died in the fog of war without the AI's knowledge. Instead, the AI clears their explored objects list periodically, about every five minutes. Setting " + snCoopShareInformation.getLink() + " allows AIs to read the explored object lists of ally players. Researching Cartography, turning on the Shared Exploration game setting in DE, and researching Spies likely don't change how the explored object list system works. The possible presence of dead enemy objects in the explored object list means that players-unit-count may overcount the actual unit counts of enemy players.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitCount.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10333,18 +10383,18 @@ cPlayersUnitCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPlayersUnitCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersUnitCount.example = [ {
+	title: "Check if we have explored at least 50 enemy units owned by an enemy player.",
+	data: "(defrule\r\n\t(players-unit-type-count any-enemy >= 50)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cPlayersUnitCount.commandCategory = ["Counting", "Other Player Info", "Units"];
+cPlayersUnitCount.relatedCommands = [cPlayersPopulation, cPlayersUnitTypeCount, cUnitCount, cUnitCountTotal];
+cPlayersUnitCount.relatedSNs = [snCoopShareInformation];
 cPlayersUnitCount.complexity = "Low";
 
 //players-unit-type-count
 cPlayersUnitTypeCount.shortDescription = "Checks the given player's unit count of the given type. The computer player relies only on what it has seen - no cheating.";
-cPlayersUnitTypeCount.description = "Checks the given player's unit count of the given type. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cPlayersUnitTypeCount.description = "Checks the given player's unit count of the given type. The computer player relies only on what it has seen - no cheating. For allies and self only trained units of the given type are included.</p><p>my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used if you're counting the AI's own units, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. However, to count the AI's own units, consider using " + cUnitTypeCount.getLink() + " or " + cUnitTypeCountTotal.getLink() + " instead.</p><p><strong>Important Note:</strong> players-unit-type-count cannot use classes to count enemy units, such as (players-unit-type-count any-enemy cavalry-class > 5), though you can use classes to count allied units or the computer player's own units.</p><p>To count the units of other players, each AI internally stores an explored objects list which is used by the " + cPlayersUnitCount.getLink() + ", players-unit-type-count, " + cPlayersBuildingCount.getLink() + ", and " + cPlayersBuildingTypeCount.getLink() + " commands. Every time the AI sees an object owned by another player, that object is added to this list. However, while explored ally objects that have died are immediately removed from the explored objects list, the AI doesn't remove enemy objects from this list when they die because the object might have died in the fog of war without the AI's knowledge. Instead, the AI clears their explored objects list periodically, about every five minutes. Setting " + snCoopShareInformation.getLink() + " allows AIs to read the explored object lists of ally players. Researching Cartography, turning on the Shared Exploration game setting in DE, and researching Spies likely don't change how the explored object list system works. The possible presence of dead enemy objects in the explored object list means that players-unit-type-count may overcount the actual unit counts of enemy players.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cPlayersUnitTypeCount.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10374,13 +10424,19 @@ cPlayersUnitTypeCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPlayersUnitTypeCount.commandCategory = ["Counting", "Other Player Info", "Units"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPlayersUnitTypeCount.example = [ {
+	title: "Check if an ally player has at least 20 trade carts.",
+	data: "(defrule\r\n\t(players-unit-type-count any-ally trade-cart > 20)\r\n=>\r\n\t(do-nothing)\r\n)"
+},{
+	title: "This example won't work because you can't count enemy units with classes. Use the last example to count enemy cavalry archers.",
+	data: "(defrule\r\n\t(players-unit-type-count any-enemy cavalry-archer-class > 10)\r\n=>\r\n\t(do-nothing)\r\n)"
+},{
+	title: "Check if any enemy player has at least 10 cavalry archer type units, not including unique units.",
+	data: "(defrule\r\n\t(or\r\n\t\t(players-unit-type-count any-enemy cavalry-archer-line > 10)\r\n\t\t(or\r\n\t\t\t(players-unit-type-count any-enemy genitour-line > 10)\r\n\t\t\t(players-unit-type-count any-enemy elephant-archer-line > 10)))\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cPlayersUnitTypeCount.commandCategory = ["Counting", "Other Player Info", "Units"];
+cPlayersUnitTypeCount.relatedCommands = [cPlayersUnitCount, cUnitTypeCount, cUnitTypeCountTotal];
+cPlayersUnitTypeCount.relatedSNs = [snCoopShareInformation];
 cPlayersUnitTypeCount.complexity = "Low";
 
 //population
@@ -10401,13 +10457,13 @@ cPopulation.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPopulation.commandCategory = ["Counting", "Own Player Info", "Units"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPopulation.example = [ {
+	title: "Check if our population is over 100.",
+	data: "(defrule\r\n\t(population > 100)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cPopulation.commandCategory = ["Counting", "Own Player Info", "Units"];
+cPopulation.relatedCommands = [cCivilianPopulation, cMilitaryPopulation, cPlayersPopulation];
+cPopulation.relatedSNs = [];
 cPopulation.complexity = "Low";
 
 //population-cap
@@ -10427,13 +10483,13 @@ cPopulationCap.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPopulationCap.commandCategory = ["Game Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPopulationCap.example = [ {
+	title: "Check if the population cap is less than 200.",
+	data: "(defrule\r\n\t(population-cap < 200)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cPopulationCap.commandCategory = ["Game Info"];
+cPopulationCap.relatedCommands = [cPopulation, cPopulationHeadroom];
+cPopulationCap.relatedSNs = [];
 cPopulationCap.complexity = "Low";
 
 //population-headroom
@@ -10454,18 +10510,18 @@ cPopulationHeadroom.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cPopulationHeadroom.commandCategory = ["Counting", "Own Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cPopulationHeadroom.example = [ {
+	title: "If the housing headroom is less than 5 and the population headroom is more than zero, build a house.",
+	data: "(defrule\r\n\t(housing-headroom < 5)\r\n\t(population-headroom > 0)\r\n\t(can-build house)\r\n=>\r\n\t(build house)\r\n)"
+} ];
+cPopulationHeadroom.commandCategory = ["Counting", "Own Player Info"];
+cPopulationHeadroom.relatedCommands = [cHousingHeadroom, cPopulationCap];
+cPopulationHeadroom.relatedSNs = [];
 cPopulationHeadroom.complexity = "Low";
 
 //random-number
 cRandomNumber.shortDescription = "Checks random number value generated by generate-random-number.";
-cRandomNumber.description = "Checks random number value generated by " + cGenerateRandomNumber.getLink() + ".";
+cRandomNumber.description = "Checks the value of the most recent random number value generated by " + cGenerateRandomNumber.getLink() + ". To store the random number in a goal, use " + cUpGetFact.getLink() + " with random-number as the " + pFactId.getLink() + ".";
 cRandomNumber.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -10481,24 +10537,25 @@ cRandomNumber.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cRandomNumber.commandCategory = ["Other"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cRandomNumber.example = [ {
+	title: "Check if the random number is at least 10.",
+	data: "(defrule\r\n\t(random-number >= 10)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cRandomNumber.commandCategory = ["Other"];
+cRandomNumber.relatedCommands = [cGenerateRandomNumber];
+cRandomNumber.relatedSNs = [];
 cRandomNumber.complexity = "Low";
 
 //regicide-game
 cRegicideGame.shortDescription = "Checks if the game is a regicide game.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cRegicideGame.commandCategory = ["Game Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cRegicideGame.description = "Checks if the game is a regicide game. You can also enclose code in a #load-if-defined REGICIDE block if it should only run in a regicide game. In DE, to check if the Regicide secondary game mode is active you can use " + cFeSubGameType.getLink() + ".";
+cRegicideGame.example = [ {
+	title: "If the game is a regicide game, the AI will chat taunt 17 (\"It is good to be the king\").",
+	data: "(defrule\r\n\t(regicide-game)\r\n=>\r\n\t(chat-to-all \"17\")\r\n\t(disable-self)\r\n)"
+} ];
+cRegicideGame.commandCategory = ["Game Info"];
+cRegicideGame.relatedCommands = [cDeathMatchGame, cGameType, cFeSubGameType];
+cRegicideGame.relatedSNs = [];
 cRegicideGame.complexity = "Low";
 
 //release-escrow
@@ -14539,7 +14596,7 @@ cUpGetPointContains.complexity = "High";
 
 //up-get-point-distance
 cUpGetPointDistance.shortDescription = "Get the distance between two point goal pairs.";
-cUpGetPointDistance.description = "Get the distance between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpGetPointDistance.description = "Get the distance between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>This command does not bound the points to the map, meaning you can use it for more general calculations. It simply calculates the distance formula. When calculating the distance between two precise points, it will calculate a precise distance, where the distance is 100 times larger than the actual distance.";
 cUpGetPointDistance.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -19470,295 +19527,295 @@ pFactId.relatedParams = [pFindPlayerMethod, pObjectData, pFactParameter, pResour
 pFactId.valueList = [ {
 	name: "game-time",
 	id: 0,
-	description: "The elapsed game time in seconds.",
+	description: "The elapsed game time in seconds. The corresponding fact command is " + cGameTime.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "population-cap",
 	id: 1,
-	description: "The population cap setting.",
+	description: "The population cap setting. The corresponding fact command is " + cPopulationCap.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "population-headroom",
 	id: 2,
-	description: "The population headroom. Population headroom is the difference between the game's population cap and current housing capacity.",
+	description: "The population headroom. Population headroom is the difference between the game's population cap and current housing capacity. The corresponding fact command is " + cPopulationHeadroom.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "housing-headroom",
 	id: 3,
-	description: "The housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity.",
+	description: "The housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity. The corresponding fact command is " + cHousingHeadroom.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "idle-farm-count",
 	id: 4,
-	description: "The number of farms with no farmers.",
+	description: "The number of farms with no farmers. The corresponding fact command is " + cIdleFarmCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "food-amount",
 	id: 5,
-	description: "The current food amount.",
+	description: "The current food amount. The corresponding fact command is " + cFoodAmount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "wood-amount",
 	id: 6,
-	description: "The current wood amount.",
+	description: "The current wood amount. The corresponding fact command is " + cWoodAmount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "stone-amount",
 	id: 7,
-	description: "The current stone amount.",
+	description: "The current stone amount. The corresponding fact command is " + cStoneAmount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "gold-amount",
 	id: 8,
-	description: "The current gold amount.",
+	description: "The current gold amount. The corresponding fact command is " + cGoldAmount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "escrow-amount",
 	id: 9,
-	description: "The current amount of escrowed resources for the given resource type.",
+	description: "The current amount of escrowed resources for the given resource type. The corresponding fact command is " + cEscrowAmount.getLink() + ".",
 	parameter: pResource.getLink(),
 	players: "self"
 }, {
 	name: "commodity-buying-price",
 	id: 10,
-	description: "The current buying price for the given commodity type.",
+	description: "The current buying price for the given commodity type. The corresponding fact command is " + cCommodityBuyingPrice.getLink() + ".",
 	parameter: pCommodity.getLink(),
 	players: "self"
 }, {
 	name: "commodity-selling-price",
 	id: 11,
-	description: "The current selling price for the given commodity type.",
+	description: "The current selling price for the given commodity type. The corresponding fact command is " + cCommoditySellingPrice.getLink() + ".",
 	parameter: pCommodity.getLink(),
 	players: "self"
 }, {
 	name: "dropsite-min-distance",
 	id: 12,
-	description: "The minimum dropsite walking distance for the given resource type.",
+	description: "The minimum dropsite walking distance for the given resource type. The corresponding fact command is " + cDropsiteMinDistance.getLink() + ".",
 	parameter: pResource.getLink(),
 	players: "self"
 }, {
 	name: "soldier-count",
 	id: 13,
-	description: "The number of the player's land-based military units.",
+	description: "The number of the player's land-based military units. The corresponding fact command is " + cSoldierCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "attack-soldier-count",
 	id: 14,
-	description: "The number of the player's currently attacking land-based military units. This only counts attacking soldiers during attack-groups and attack-now attacks.",
+	description: "The number of the player's currently attacking land-based military units. This only counts attacking soldiers during attack-groups and attack-now attacks. The corresponding fact command is " + cAttackSoldierCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "defend-soldier-count",
 	id: 15,
-	description: "The number of the player's currently defending land-based military units. This only counts soldiers that aren't part of attack-groups and attack-now attacks. It includes idle military units not actively defending the player's town.",
+	description: "The number of the player's currently defending land-based military units. This only counts soldiers that aren't part of attack-groups and attack-now attacks. It includes idle military units not actively defending the player's town. The corresponding fact command is " + cDefendSoldierCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "warboat-count",
 	id: 16,
-	description: "The number of the player's warships, including transport ships.",
+	description: "The number of the player's warships, including transport ships. The corresponding fact command is " + cWarboatCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "attack-warboat-count",
 	id: 17,
-	description: "The number of the player's currently attacking warships. This only counts attacking warships during attack-groups and attack-now attacks.",
+	description: "The number of the player's currently attacking warships. This only counts attacking warships during attack-groups and attack-now attacks. The corresponding fact command is " + cAttackWarboatCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "defend-warboat-count",
 	id: 18,
-	description: "The number of the player's currently defending warships. This only counts warships that aren't part of attack-groups and attack-now attacks. It includes idle warships not actively defending the player's town.",
+	description: "The number of the player's currently defending warships. This only counts warships that aren't part of attack-groups and attack-now attacks. It includes idle warships not actively defending the player's town. The corresponding fact command is " + cDefendWarboatCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "current-age",
 	id: 19,
-	description: "The player's current age.",
+	description: "The player's current age. The corresponding fact commands are " + cCurrentAge.getLink() + " and " + cPlayersCurrentAge.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "current-score",
 	id: 20,
-	description: "The player's current score.",
+	description: "The player's current score. The corresponding fact commands are " + cCurrentScore.getLink() + " and " + cPlayersScore.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "civilization",
 	id: 21,
-	description: "The player's civilization.",
+	description: "The player's civilization. The corresponding fact commands are " + cCivSelected.getLink() + " and " + cPlayersCiv.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "player-number",
 	id: 22,
-	description: "The player's player number.",
+	description: "The player's player number. The corresponding fact command is " + cPlayerNumber.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "player-in-game",
 	id: 23,
-	description: "Checks whether the player is valid and still playing.",
+	description: "Checks whether the player is valid and still playing. The corresponding fact command is " + cPlayerInGame.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "unit-count",
 	id: 24,
-	description: "The number of units the player has.",
+	description: "The number of units the player has. The corresponding fact commands are " + cUnitCount.getLink() + " and " + cPlayersUnitCount.getLink() + ". There isn't a corresponding FactId for " + cUnitCountTotal.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "unit-type-count",
 	id: 25,
-	description: "The number of a given type of unit a player has, excluding units currently training.",
+	description: "The number of a given type of unit a player has, excluding units currently training. The corresponding fact commands are " + cUnitTypeCount.getLink() + " and " + cPlayersUnitTypeCount.getLink() + ".",
 	parameter: pUnitId.getLink(),
 	players: "any"
 }, {
 	name: "unit-type-count-total",
 	id: 26,
-	description: "The number of a given type of unit a player has, including units currently training.",
+	description: "The number of a given type of unit a player has, including units currently training. The corresponding fact command is " + cUnitTypeCountTotal.getLink() + ".",
 	parameter: pUnitId.getLink(),
 	players: "self"
 }, {
 	name: "building-count",
 	id: 27,
-	description: "The number of buildings a player has.",
+	description: "The number of buildings a player has. The corresponding fact commands are " + cBuildingCount.getLink() + " and " + cPlayersBuildingCount.getLink() + ". There isn't a corresponding FactId for " + cBuildingCountTotal.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "building-type-count",
 	id: 28,
-	description: "The number of a given type of buildings a player has.",
+	description: "The number of a given type of buildings a player has. The corresponding fact commands are " + cBuildingTypeCount.getLink() + " and " + cPlayersBuildingTypeCount.getLink() + ".",
 	parameter: pBuildingId.getLink(),
 	players: "any"
 }, {
 	name: "building-type-count-total",
 	id: 29,
-	description: "The number of a given type of building a player has, including buildings currently under construction.",
+	description: "The number of a given type of building a player has, including buildings currently under construction. The corresponding fact command is " + cBuildingTypeCountTotal.getLink() + ".",
 	parameter: pBuildingId.getLink(),
 	players: "self"
 }, {
 	name: "population",
 	id: 30,
-	description: "The player's current population.",
+	description: "The player's current population. The corresponding fact commands are " + cPopulation.getLink() + " and " + cPlayersPopulation.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "military-population",
 	id: 31,
-	description: "The player's military population, including monks and Transport Ships.",
+	description: "The player's military population, including monks and Transport Ships. The corresponding fact commands are " + cMilitaryPopulation.getLink() + " and " + cPlayersMilitaryPopulation.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "civilian-population",
 	id: 32,
-	description: "The player's civilian population, including Fishing Ships and trade units.",
+	description: "The player's civilian population, including Fishing Ships and trade units. The corresponding fact commands are " + cCivilianPopulation.getLink() + " and " + cPlayersCivilianPopulation.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "random-number",
 	id: 33,
-	description: "The current random number value generated the last time the " + cGenerateRandomNumber.getLink() + " command was used.",
+	description: "The current random number value generated the last time the " + cGenerateRandomNumber.getLink() + " command was used. The corresponding fact command is " + cRandomNumber.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "resource-amount",
 	id: 34,
-	description: "The current stockpile amount of the given resource.",
+	description: "The current stockpile amount of the given resource. The corresponding fact commands are " + cUpResourceAmount.getLink() + " and " + cUpAlliedResourceAmount.getLink() + ".",
 	parameter: pResourceType.getLink(),
 	players: "any"
 }, {
 	name: "player-distance",
 	id: 35,
-	description: "The from the AI's town center to the nearest building of the given player number.",
+	description: "The from the AI's town center to the nearest building of the given player number. The corresponding fact command is " + cUpPlayerDistance.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "allied-goal",
 	id: 36,
-	description: "The current value of an allied AI player's goal variable.",
+	description: "The current value of an allied AI player's goal variable. The corresponding fact command is " + cUpAlliedGoal.getLink() + ".",
 	parameter: pGoalId.getLink(),
 	players: "any-ally"
 }, {
 	name: "allied-sn",
 	id: 37,
-	description: "The current value of an allied AI player's strategic number.",
+	description: "The current value of an allied AI player's strategic number. The corresponding fact command is " + cUpAlliedSn.getLink() + ".",
 	parameter: pSnId.getLink(),
 	players: "any-ally"
 }, {
 	name: "resource-percent",
 	id: 38,
-	description: "The current amount of the given resource * 100.",
+	description: "The current amount of the given resource * 100. The corresponding fact commands are " + cUpResourcePercent.getLink() + " and " + cUpAlliedResourceAmount.getLink() + ".",
 	parameter: pResourceType.getLink(),
 	players: "any"
 }, {
 	name: "enemy-buildings-in-town",
 	id: 39,
-	description: "The number of enemy buildings inside the AI's town.",
+	description: "The number of enemy buildings inside the AI's town. The corresponding fact command is " + cUpEnemyBuildingsInTown.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "enemy-units-in-town",
 	id: 40,
-	description: "The number of enemy units inside the AI's town.",
+	description: "The number of enemy units inside the AI's town. The corresponding fact command is " + cUpEnemyUnitsInTown.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "enemy-villagers-in-town",
 	id: 41,
-	description: "The number of enemy villagers inside the AI's town.",
+	description: "The number of enemy villagers inside the AI's town. The corresponding fact command is " + cUpEnemyVillagersInTown.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "players-in-game",
 	id: 42,
-	description: "The number of players in the game that match the given stance (any, ally, neutral, or enemy). To get the total number of players, use &quot;any&quot as the PlayersStance. The AI player is considered allied with itself, so the number of allied players in the game includes itself.",
+	description: "The number of players in the game that match the given stance (any, ally, neutral, or enemy). To get the total number of players, use &quot;any&quot as the PlayersStance. The AI player is considered allied with itself, so the number of allied players in the game includes itself. The corresponding fact command is " + cUpPlayersInGame.getLink() + ".",
 	parameter: pPlayerStance.getLink(),
 	players: "self"
 }, {
 	name: "defender-count",
 	id: 43,
-	description: "The number of soldiers actively defending its town. This only includes soldiers targeting buildings inside the AI's town.",
+	description: "The number of soldiers actively defending its town. This only includes soldiers targeting buildings inside the AI's town. The corresponding fact command is " + cUpDefenderCount.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
 	name: "building-type-in-town",
 	id: 44,
-	description: "The number of enemy buildings of the given type inside the AI's town.",
+	description: "The number of enemy buildings of the given type inside the AI's town. The corresponding fact command is " + cUpBuildingTypeInTown.getLink() + ".",
 	parameter: pBuildingId.getLink(),
 	players: "self"
 }, {
 	name: "unit-type-in-town",
 	id: 45,
-	description: "The number of enemy units of the given type inside the AI's town.",
+	description: "The number of enemy units of the given type inside the AI's town. The corresponding fact command is " + cUpUnitTypeInTown.getLink() + ".",
 	parameter: pUnitId.getLink(),
 	players: "self"
 }, {
 	name: "villager-type-in-town",
 	id: 46,
-	description: "The number of enemy villagers of the given type inside the AI's town.",
+	description: "The number of enemy villagers of the given type inside the AI's town. The corresponding fact command is " + cUpVillagerTypeInTown.getLink() + ".",
 	parameter: pUnitId.getLink(),
 	players: "self"
 }, {
 	name: "gaia-type-count",
 	id: 47,
-	description: "The number of currently sighted Gaia resources of the given type.",
+	description: "The number of currently sighted Gaia resources of the given type. The corresponding fact command is " + cUpGaiaTypeCount.getLink() + ".",
 	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
 	players: "self"
 }, {
 	name: "gaia-type-count-total",
 	id: 48,
-	description: "The total number of sighted Gaia resources of the given type.",
+	description: "The total number of sighted Gaia resources of the given type. The corresponding fact command is " + cUpGaiaTypeCountTotal.getLink() + ".",
 	parameter: pResource.getLink() + " or " + pUnitId.getLink(),
 	players: "self"
 }, {
@@ -19770,31 +19827,31 @@ pFactId.valueList = [ {
 }, {
 	name: "current-age-time",
 	id: 50,
-	description: "The time the player has spent in the current age.",
+	description: "The time the player has spent in the current age. The corresponding fact command is " + cCurrentAgeTime.getLink() + ".",
 	parameter: "0",
 	players: "any"
 }, {
 	name: "timer-status",
 	id: 51,
-	description: "The status of a timer, either timer-disabled, timer-running, or timer-triggered.",
+	description: "The status of a timer, either timer-disabled, timer-running, or timer-triggered. The corresponding fact command is " + cUpTimerStatus.getLink() + ".",
 	parameter: pTimerId.getLink(),
 	players: "self"
 }, {
 	name: "players-tribute",
 	id: 52,
-	description: "The amount of the given resource for the given player throughout the game.",
+	description: "The amount of the given resource for the given player throughout the game. The corresponding fact command is " + cPlayersTribute.getLink() + ".",
 	parameter: pResource.getLink(),
 	players: "any"
 }, {
 	name: "players-tribute-memory",
 	id: 53,
-	description: "The amount of the given resource for the given player since the tribute memory has been cleared with " + cClearTributeMemory.getLink() + ".",
+	description: "The amount of the given resource for the given player since the tribute memory has been cleared with " + cClearTributeMemory.getLink() + ". The corresponding fact command is " + cPlayersTributeMemory.getLink() + ".",
 	parameter: pResource.getLink(),
 	players: "any"
 }, {
 	name: "treaty-time",
 	id: 54,
-	description: "DE only. The amount of treaty time left, in seconds. You can also get the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
+	description: "DE only. The amount of treaty time left, in seconds. You can also get the remaining treaty time with " + cUpGetTreatyData.getLink() + ". There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
 	parameter: "0",
 	players: "any"
 } ];

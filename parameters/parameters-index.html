@@ -59,6 +59,7 @@
 			input = document.getElementById("parametersInput");
 			version = document.getElementById("parameter-version");
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			table = document.getElementById("index-table");
 			tr = table.getElementsByTagName("tr");
 			num = 0;
@@ -69,6 +70,7 @@
 				tdVersion = tr[i].getElementsByTagName("td")[2];
 				if (tdName) {
 					txtValue = tdName.textContent || tdName.innerText;
+					txtValue = txtValue.replace(/-/g,"");
 					if (txtValue.toUpperCase().indexOf(filter) > -1) {
 						txtValue = tdVersion.textContent || tdVersion.innerText;
 						if(version.value == "All" || txtValue == version.value) {

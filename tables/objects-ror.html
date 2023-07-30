@@ -323,6 +323,7 @@
 				version = "DERoR";
 			}*/
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			num = 0;
 			for (h = 0; h < objectsArrayROR.length; h++) {
 				table = document.getElementById("bldg-" + h);
@@ -344,6 +345,7 @@
 					tdDeror = objectsArrayROR[h][i].deror;*/
 
 					if (tdName != "" && tdId.toString().length > 0) {
+						tdName = tdName.replace(/-/g,"");
 						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
 							if(objectClass == "All" || tdClass == objectClass) {
 								if(building == "All" || tdBuilding == building) {

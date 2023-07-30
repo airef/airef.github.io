@@ -177,6 +177,7 @@
 			var input, filter, table, tr, tdCol1, tdCol2, i, txtValue;
 			input = document.getElementById("valueListInput");
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			table = document.getElementById("value-list-table");
 			tr = table.getElementsByTagName("tr");
 		
@@ -186,7 +187,9 @@
 				tdCol2 = tr[i].getElementsByTagName("td")[1];
 				if (tdCol1) {
 					txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
+					txtValueCol1 = txtValueCol1.replace(/-/g,"");
 					txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
+					txtValueCol2 = txtValueCol2.replace(/-/g,"");
 					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1) {
 						tr[i].style.display = "";
 					}
@@ -201,6 +204,7 @@
 			var input, filter, table, tr, tdCol1, tdCol2, tdCol3, i, txtValue;
 			input = document.getElementById("wildcardParamInput");
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			table = document.getElementById("wildcard-param-table");
 			tr = table.getElementsByTagName("tr");
 		
@@ -211,8 +215,11 @@
 				tdCol3 = tr[i].getElementsByTagName("td")[2];
 				if (tdCol1) {
 					txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
+					txtValueCol1 = txtValueCol1.replace(/-/g,"");
 					txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
+					txtValueCol2 = txtValueCol2.replace(/-/g,"");
 					txtValueCol3 = tdCol3.textContent || tdCol3.innerText;
+					txtValueCol3 = txtValueCol3.replace(/-/g,"");
 					if (txtValueCol1.toUpperCase().indexOf(filter) > -1 || txtValueCol2.toUpperCase().indexOf(filter) > -1 || txtValueCol3.toUpperCase().indexOf(filter) > -1) {
 						tr[i].style.display = "";
 					}
