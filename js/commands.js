@@ -7485,7 +7485,7 @@ cAcknowledgeEvent.complexity = "Medium";
 
 //acknowledge-taunt
 cAcknowledgeTaunt.shortDescription = "Acknowledges the taunt (resets the flag).";
-cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.";
+cAcknowledgeTaunt.description = "Acknowledges the taunt (resets the flag). Like other event systems in the AI, taunt detection requests explicit acknowledgement.</p><p>In simple terms, whenever an AI receives a taunt message, " + cTauntDetected.getLink() + " will remain true for the given taunt until the taunt is acknowledged. If the taunt is not acknowledged, your AI's response to the taunt will happen repeatedly.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cAcknowledgeTaunt.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -7821,7 +7821,7 @@ cBuyCommodity.example = [ {
 } ];
 cBuyCommodity.commandCategory = ["Economy", "Trading"];
 cBuyCommodity.relatedCommands = [cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
-cBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
+cBuyCommodity.relatedSNs = [];
 cBuyCommodity.complexity = "Low";
 
 //can-afford-building
@@ -8062,12 +8062,12 @@ cCanBuyCommodity.example = [ {
 } ];
 cCanBuyCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
 cCanBuyCommodity.relatedCommands = [cBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
-cCanBuyCommodity.relatedSNs = [snMinimumAmountForTrading];
+cCanBuyCommodity.relatedSNs = [];
 cCanBuyCommodity.complexity = "Low";
 
 //can-research
 cCanResearch.shortDescription = "Checks if the given research can start.";
-cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
+cCanResearch.description = "Checks if the given research can start. In particular it checks:</p><ul><li>The research item is available to the computer player's civ.</li><li>Tech tree prerequisites are met</li><li>Required resources are available (not including escrow stockpiles).</li><li>The appropriate building has no items in the queue so that it may start the research.</li></ul><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>. You can also use my-unique-research, which will usually (always in DE) check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually (always in DE) check the castle age unique tech for the civilization. In UP and WK, the exceptions are the Britons (in WK only) and Goths, whose my-unique-research and my-second-unique-research are switched.";
 cCanResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -8134,7 +8134,7 @@ cCanSellCommodity.example = [ {
 } ];
 cCanSellCommodity.commandCategory = ["Can Do", "Economy", "Trading"];
 cCanSellCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cSellCommodity, cUpBuyCommodity, cUpSellCommodity];
-cCanSellCommodity.relatedSNs = [snMinimumAmountForTrading];
+cCanSellCommodity.relatedSNs = [];
 cCanSellCommodity.complexity = "Low";
 
 //can-spy
@@ -9913,7 +9913,7 @@ cPlayerResigned.example = [ {
 	data: "(defrule\r\n\t(player-resigned 3)\r\n\t(stance-toward 3 enemy)\r\n=>\r\n\t(chat-to-enemies \"gg\")\r\n\t(disable-self)\r\n)"
 } ];
 cPlayerResigned.commandCategory = ["Other Player Info"];
-cPlayerResigned.relatedCommands = [cPlayerInGame, cPlayerValid, cUpPlayersInGame];
+cPlayerResigned.relatedCommands = [cPlayerInGame, cPlayerValid, cResign, cUpPlayersInGame];
 cPlayerResigned.relatedSNs = [];
 cPlayerResigned.complexity = "Low";
 
@@ -10560,6 +10560,7 @@ cRegicideGame.complexity = "Low";
 
 //release-escrow
 cReleaseEscrow.shortDescription = "Releases the computer player's escrow for a given resource type (sets the amount to 0).";
+cReleaseEscrow.description = "Releases the computer player's escrow for a given resource type (transfers all of the given resource type from its escrow stockpile into its normal stockpile, setting the amount stored in that resource's escrow stockpile to 0).</p><p>AIs can store each of their four resource stockpiles in one of two stockpile types: normal and escrow. Resources in the normal stockpiles are free for the AI to use, while resources in the escrow stockpiles can only be used with " + cUpBuild.getLink() + ", " + cUpTrain.getLink() + ", or " + cUpResearch.getLink() + " if the EscrowGoalId parameter in these commands is a goal set to the value \"with-escrow\". The user interface shows the sum of both the normal and escrow stockpile resources added together for each resource.</p><p>By default, all resources are stored in the normal stockpiles. However, " + cSetEscrowPercentage.getLink() + " and " + cUpModifyEscrow.getLink() + " can be used to store some or all of the AI's resources in the escrow stockpiles instead. Resources in the escrow stockpiles can transferred back into the normal stockpiles by using release-escrow, " + cUpReleaseEscrow.getLink() + ", or " + cUpModifyEscrow.getLink() + ".</p><p>Resources are usually placed in escrow stockpiles in order to save up for expensive technologies or important buildings or units, so that it isn't spent on lower priority things."
 cReleaseEscrow.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -10568,18 +10569,18 @@ cReleaseEscrow.commandParameters = [ {
 	range: "food, wood, stone, or gold.",
 	note: "The escrow resource stockpile."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cReleaseEscrow.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cReleaseEscrow.example = [ {
+	title: "Release the AI's escrow food and gold so that there is enough food and gold available in the normal stockpiles to research Imperial Age.",
+	data: "(defrule\r\n\t(can-research-with-escrow imperial-age)\r\n=>\r\n\t(release-escrow food)\r\n\t(release-escrow gold)\r\n\t(research imperial-age)\r\n)"
+} ];
+cReleaseEscrow.commandCategory = ["Economy"];
+cReleaseEscrow.relatedCommands = [cEscrowAmount, cSetEscrowPercentage, cUpModifyEscrow, cUpReleaseEscrow];
+cReleaseEscrow.relatedSNs = [];
 cReleaseEscrow.complexity = "Medium";
 
 //research
 cResearch.shortDescription = "Researches the given item.";
-cResearch.description = "Researches the given item. To prevent cheating, this action will fail if the item currently cannot be researched (i.e. the tech prerequisites are not met, there is no available building, or the player cannot afford the item). You can also use my-unique-research, which will usually research the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually research the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
+cResearch.description = "Researches the given item. Please use " + cCanResearch.getLink() + ", " + cCanResearchWithEscrow.getLink() + ", or " + cUpCanResearch.getLink() + " in any rule where you use the research command, in order to prevent possible crashes.</p><p>To prevent cheating, this action will fail if the item currently cannot be researched (i.e. the tech prerequisites are not met, there is no available building, or the player cannot afford the item).</p><p>Research names, except for ages, my-unique-research, my-second-unique-research, are prefixed with a \"ri-\" which might stand for \"research item\". You can also research by the research ID rather than the research name. You can see all technologies and their research IDs in the <a href=\"" + urlPrefix + "/tables/techs.html\">Technologies table</a>. You can also use my-unique-research, which will usually (always in DE) research the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually (always in DE) research the castle age unique tech for the civilization. In UP and WK, the exceptions are the Britons (in WK only) and Goths, whose my-unique-research and my-second-unique-research are switched.";
 cResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10588,18 +10589,18 @@ cResearch.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to research."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cResearch.commandCategory = ["Techs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cResearch.example = [ {
+	title: "If playing as the Mayans, research the Crossbowman upgrade.",
+	data: "(defrule\r\n\t(civ-selected mayan)\r\n\t(can-research ri-crossbow)\r\n=>\r\n\t(research ri-crossbow)\r\n)"
+} ];
+cResearch.commandCategory = ["Techs"];
+cResearch.relatedCommands = [cCanAffordResearch, cCanResearch, cCanResearchWithEscrow, cResearchAvailable, cResearchCompleted, cUpCanResearch, cUpResearch, cUpResearchStatus];
+cResearch.relatedSNs = [snEnableResearchQueue, snEnableTrainingQueue];
 cResearch.complexity = "Low";
 
 //research-available
 cResearchAvailable.shortDescription = "Checks that the given research is available to the computer player's civ, and that the research is available at this time.";
-cResearchAvailable.description = "Checks that the given research is available to the computer player's civ, and that the research is available at this time (tech tree prerequisites are met). The fact does not check that there are enough resources to start researching. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
+cResearchAvailable.description = "Checks that the given research is available to the computer player's civ, and that the research is available at this time (technology and tech tree prerequisites are met). The fact does not check that there are enough resources to start researching or if the player has built the building needed to research the technology.</p><p>Unfortunately, because most technologies have an age as a prerequisite tech, research-available cannot be used at the beginning of the game to check if a technology is available in the civ's tech tree. There currently isn't a command that simply checks whether a technology is available in a civ's tech tree.</p><p>Using this command is equivalent to using " + cUpResearchStatus.getLink() + " to check if the technology's research status is equal to research-available.";
 cResearchAvailable.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10608,17 +10609,17 @@ cResearchAvailable.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to check availability for."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cResearchAvailable.commandCategory = ["Can Do", "Techs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cResearchAvailable.example = [ {
+	title: "Checks if Chain Barding Armor is available. The prerequisite techs are Castle Age and Scale Barding Armor, so this will only return true if the AI is in Castle Age or Imperial Age, has researched Scale Barding Armor, hasn't researched Chain Barding Armor, and isn't Aztecs, Incas, Malay, or Mayans. It won't check if the AI can afford Chain Barding Armor or has a blacksmith.",
+	data: "(defrule\r\n\t(research-available ri-chain-barding)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cResearchAvailable.commandCategory = ["Can Do", "Techs"];
+cResearchAvailable.relatedCommands = [cBuildingAvailable, cCanAffordResearch, cCanResearchWithEscrow, cResearch, cResearchCompleted, cUnitAvailable, cUpCanResearch, cUpResearch, cUpResearchStatus];
+cResearchAvailable.relatedSNs = [];
 cResearchAvailable.complexity = "Low";
 
 //research-completed
-cResearchCompleted.shortDescription = "Checks that the given research is completed.";
+cResearchCompleted.shortDescription = "Checks that the given research is completed.</p><p>Using this command is equivalent to using " + cUpResearchStatus.getLink() + " to check if the technology's research status is equal to research-complete.";
 cResearchCompleted.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10627,29 +10628,29 @@ cResearchCompleted.commandParameters = [ {
 	range: "A TechId.",
 	note: "The technology to check the completion status for."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cResearchCompleted.commandCategory = ["Can Do", "Techs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cResearchCompleted.example = [ {
+	title: "If the Caravan technology has been researched, an ally player has a market, and we have less than 40 trade carts, train a trade cart.",
+	data: "(defrule\r\n\t(research-completed ri-caravan)\r\n\t(players-building-type-count any-ally market > 0)\r\n\t(unit-type-count-total trade-cart < 40)\r\n\t(can-train trade-cart)\r\n=>\r\n\t(train trade-cart)\r\n)"
+} ];
+cResearchCompleted.commandCategory = ["Can Do", "Techs"];
+cResearchCompleted.relatedCommands = [cCanResearchWithEscrow, cResearch, cResearchAvailable, cUpCanResearch, cUpResearch, cUpResearchStatus];
+cResearchCompleted.relatedSNs = [];
 cResearchCompleted.complexity = "Low";
 
 //resign
 cResign.shortDescription = "Causes the computer player to resign.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cResign.commandCategory = ["Other"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cResign.example = [ {
+	title: "Resign when we have less than 2 population and no town center.",
+	data: "(defrule\r\n\t(population < 2)\r\n\t(building-type-count-total town-center == 0\r\n=>\r\n\t(chat-to-all \"gg\")\r\n\t(resign)\r\n)"
+} ];
+cResign.commandCategory = ["Other"];
+cResign.relatedCommands = [cPlayerInGame, cPlayerResigned, cUpPlayersInGame];
+cResign.relatedSNs = [];
 cResign.complexity = "Low";
 
 //resource-found
 cResourceFound.shortDescription = "Checks whether the computer player has found the given resource.";
-cResourceFound.description = "Checks whether the computer player has found the given resource. The fact should be used at the beginning of the game. Once it becomes true for a certain resource it stays true for that resource. In this context, food refers to a forage site.";
+cResourceFound.description = "Checks whether the computer player has found the given resource. For food, gold, and stone (not wood), the given resource must be within the dropsite's max distance for this command to be true (" + snMillMaxDistance.getLink() + " for food and " + snMiningCampMaxDistance.getLink() + " or " + snCampMaxDistance.getLink() + " for gold and stone). The fact should be used at the beginning period of the game. Once it becomes true for a certain resource it stays true for that resource.</p><p>Only forests, not straggler trees, will make resource-found true for wood. Also, only forage bushes will make resource-found true for food.</p><p>Using " + cUpGaiaTypeCount.getLink() + ", " + cUpGaiaTypeCountTotal.getLink() + ", or " + cDropsiteMinDistance.getLink() + " are better alternatives to use resource-found because they can count how many of the given resource have been found or determine how far away the resources are.";
 cResourceFound.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -10658,17 +10659,18 @@ cResourceFound.commandParameters = [ {
 	range: "food, wood, stone, or gold.",
 	note: "The resource that was found."
 } ];
-/*c.example = [ {
+cResourceFound.example = [ {
 	title: ".",
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cResourceFound.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+} ];
+cResourceFound.commandCategory = ["Economy"];
+cResourceFound.relatedCommands = [cDropsiteMinDistance, cSheepAndForageTooFar, cUpGaiaTypeCount, cUpGaiaTypeCountTotal];
+cResourceFound.relatedSNs = [snCampMaxDistance, snMillMaxDistance, snMiningCampMaxDistance];
 cResourceFound.complexity = "Low";
 
 //sell-commodity
 cSellCommodity.shortDescription = "Sells one lot of a given commodity.";
+cSellCommodity.description = "Sells one lot of a given commodity. The AI will sell 100 of the given commodity (wood, food, or stone) in return for gold at the current " + cCommoditySellingPrice.getLink() + ". The commodity selling price is the amount of gold that will be added to the gold stockpile when 100 of the specified commodity (wood, food, or stone) is sold. This price can range between 14 and infinity without Guilds, between 17 and infinity with Guilds, and between 19 and infinity when playing Saracens.";
 cSellCommodity.commandParameters = [ {
 	nameLink: pCommodity.getLink(),
 	name: "Commodity",
@@ -10677,50 +10679,39 @@ cSellCommodity.commandParameters = [ {
 	range: "food, wood, or stone",
 	note: "The commodity to sell."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSellCommodity.commandCategory = ["Economy", "Trading"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSellCommodity.example = [ {
+	title: "If we have more than 600 food and less than 100 gold, sell food if the commodity-selling-price is at least 30.",
+	data: "(defrule\r\n\t(food-amount > 600)\r\n\t(gold-amount < 100)\r\n\t(commodity-selling-price >= 30)\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(sell-commodity food)\r\n)"
+} ];
+cSellCommodity.commandCategory = ["Economy", "Trading"];
+cSellCommodity.relatedCommands = [cBuyCommodity, cCanBuyCommodity, cCanSellCommodity, cCommodityBuyingPrice, cCommoditySellingPrice, cUpBuyCommodity, cUpSellCommodity];
+cSellCommodity.relatedSNs = [];
 cSellCommodity.complexity = "Low";
 
 //set-author-email
 cSetAuthorEmail.shortDescription = "The game does not use it for anything.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetAuthorEmail.commandCategory = ["Don't Use"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetAuthorEmail.commandCategory = ["Don't Use"];
+cSetAuthorEmail.relatedCommands = [cSetAuthorName, cSetAuthorVersion];
+cSetAuthorEmail.relatedSNs = [];
 cSetAuthorEmail.complexity = "Don't Use";
 
 //set-author-name
 cSetAuthorName.shortDescription = "The game does not use it for anything.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetAuthorName.commandCategory = ["Don't Use"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetAuthorName.commandCategory = ["Don't Use"];
+cSetAuthorName.relatedCommands = [cSetAuthorEmail];
+cSetAuthorName.relatedSNs = [];
 cSetAuthorName.complexity = "Don't Use";
 
 //set-author-version
 cSetAuthorVersion.shortDescription = "The game does not use it for anything.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetAuthorVersion.commandCategory = ["Don't Use"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetAuthorVersion.commandCategory = ["Don't Use"];
+cSetAuthorVersion.relatedCommands = [cSetAuthorEmail, cSetAuthorName];
+cSetAuthorVersion.relatedSNs = [];
 cSetAuthorVersion.complexity = "Don't Use";
 
 //set-difficulty-parameter
 cSetDifficultyParameter.shortDescription = "Sets a given difficulty parameter to a given value.";
+cSetDifficultyParameter.description = "Sets a given difficulty parameter to a given value.</p><p>Difficulty parameters are similar to strategic numbers. There are two difficulty parameters that can be set: ability-to-maintain-distance or ability-to-dodge-missiles. Both have a range from 0 to 100, and the values have the opposite effect from what you'd expect! Setting a difficulty parameter to 0 completely enables the difficulty parameter behavior, and setting a difficulty parameter to 100 disables it. It isn't possible to check the current value of each difficulty parameter.</p><p>Descriptions of each difficulty parameter:</p><ul><li><strong>ability-to-maintain-distance:</strong> Chance that a computer player's ranged unit will maintain the distance. Range is 0-100, and the values are opposite from what you'd expect! When set to 0, ranged units will frequently move back to maintain distance. When set to 100, ranged units will not move back. However, this behavior only works on units are not following a move, patrol, or attack move command and are simply using their automatic attacking behavior. Setting " + snEnablePatrolAttack.getLink() + " may also disable this behavior.</li><li><strong>ability-to-dodge-missiles:</strong> Chance of a computer player's unit dodging a missile. Range is 0-100, and the values are opposite from what you'd expect! When set to 0, units will try to dodge immediately upon seeing a projectile in the air. When set to 100, they have to hit first to react. Projectiles from siege-weapon-class and unpacked-trebuchet-class (913 and 954, not including scorpions) are always dodged, no matter what this parameter is set to. Note that while setting this to 0 might seem obvious, it may prove better to experiment especially depending on what enemy units you are facing and what units you are producing. For example, navy units have turn rates and so can suffer.</li></ul>";
 cSetDifficultyParameter.commandParameters = [ {
 	nameLink: pDiffParameterId.getLink(),
 	name: "DiffParameterId",
@@ -10736,17 +10727,21 @@ cSetDifficultyParameter.commandParameters = [ {
 	range: "0 to 100.",
 	note: "The value to set the difficulty parameter to."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetDifficultyParameter.commandCategory = ["SNs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetDifficultyParameter.example = [ {
+	title: "Encourage attacking AI ranged units to maintain their distance where possible.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(set-difficulty-parameter ability-to-maintain-distance 0)\r\n)"
+},{
+	title: "Disable the ability for units to dodge missiles from most enemy units, except for heavy siege weapons.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(set-difficulty-parameter ability-to-dodge-missiles 100)\r\n)"
+} ];
+cSetDifficultyParameter.commandCategory = ["SNs"];
+cSetDifficultyParameter.relatedCommands = [cSetStrategicNumber, cUpModifySn];
+cSetDifficultyParameter.relatedSNs = [snEnablePatrolAttack];
 cSetDifficultyParameter.complexity = "Low";
 
 //set-doctrine
 cSetDoctrine.shortDescription = "Sets the doctrine to the given value.";
+cSetDoctrine.description = "Sets the doctrine to the given value, similar to setting the value of a goal. The doctrine is always an integer value and you can check if the doctrine is set to a given value with the " + cDoctrine.getLink() + " command. Unlike goals, there is only one doctrine that you can set, and you can only use the set-doctrine command to set the doctrine to a specific value. You can't dynamically set the doctrine to equal the value of a goal or strategic number, like you can with goals. In all cases, using goals instead of the doctrine will give you more flexibility, but if you run out of available goals then you can use the doctrine like an extra goal if you need it.</p><p>The doctrine starts with the value of -1 at the beginning of the game, and it only changes if you use the set-doctrine command."
 cSetDoctrine.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -10755,18 +10750,18 @@ cSetDoctrine.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the doctrine to."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetDoctrine.commandCategory = ["Goals"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetDoctrine.example = [ {
+	title: "Set the doctrine to the value 3.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(set-doctrine 3)\r\n)"
+} ];
+cSetDoctrine.commandCategory = ["Goals"];
+cSetDoctrine.relatedCommands = [cDoctrine, cGoal, cSetGoal, cUpCompareGoal, cUpModifyGoal];
+cSetDoctrine.relatedSNs = [];
 cSetDoctrine.complexity = "Low";
 
 //set-escrow-percentage
 cSetEscrowPercentage.shortDescription = "Sets the computer player's escrow percentage for a given resource type.";
-cSetEscrowPercentage.description = "Sets the computer player's escrow percentage for a given resource type. Given values have to be in the range 0-100.";
+cSetEscrowPercentage.description = "Sets the computer player's escrow percentage for a given resource type. Given values have to be in the range 0-100.</p><p>AIs can store each of their four resource stockpiles in one of two stockpile types: normal and escrow. Resources in the normal stockpiles are free for the AI to use, while resources in the escrow stockpiles can only be used with " + cUpBuild.getLink() + ", " + cUpTrain.getLink() + ", or " + cUpResearch.getLink() + " if the EscrowGoalId parameter in these commands is a goal set to the value \"with-escrow\". The user interface shows the sum of both the normal and escrow stockpile resources added together for each resource.</p><p>By default, all resources are stored in the normal stockpiles. However, set-escrow-percentage and " + cUpModifyEscrow.getLink() + " can be used to store some or all of the AI's resources in the escrow stockpiles instead.</p><p> set-escrow-percentage sets the percentage of the resources a villager or fishing ship is carrying that will be stored in the escrow stockpile instead of the normal stockpile every time the villager or fishing ship drops off the resources they are carrying. For example, if a villager is dropping off 10 wood at the lumber camp and the wood escrow percentage is set to 30, then 3 of the 10 wood that is dropped off is stored in the wood escrow stockpile, while the remaining 7 wood is stored in the normal wood stockpile. set-escrow-percentage only applies to resources as they are dropped off. It does not immediately force a certain percentage of the total stockpile to be stored in escrow. For example, if the AI has 1000 gold, setting the gold escrow percentage to 20 does not mean that the AI will reallocate its gold stockpiles so that 200 gold will be in the gold escrow stockpile and 800 gold will be in the normal gold stockpile. If you want this behavior, you can use " + cUpModifyEscrow.getLink() + " instead (see the examples section on the up-modify-escrow page on how to do this).</p><p>Resources in the escrow stockpiles can transferred back into the normal stockpiles by using release-escrow, " + cUpReleaseEscrow.getLink() + ", or " + cUpModifyEscrow.getLink() + ".</p><p>Resources are usually placed in escrow stockpiles in order to save up for expensive technologies or important buildings or units, so that it isn't spent on lower priority things.</p><p>There is no command that can check the current escrow percentage, so if you want to check the current escrow percentage, you'll need to store this percentage in a goal or an unused strategic number when you use set-escrow-percentage.";
 cSetEscrowPercentage.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -10782,10 +10777,10 @@ cSetEscrowPercentage.commandParameters = [ {
 	range: "0 to 100.",
 	note: "The escrow percentage to set."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
+cSetEscrowPercentage.example = [ {
+	title: "If we are in castle age and aren't researching Imperial Age, set the food and gold escrow percentage to 50 when we have at least 100 villagers in order to save up for the next age.",
+	data: "(defrule\r\n\t(current-age == castle-age)\r\n\t(up-research-status c: imperial-age < research-pending)\r\n\t(not\t(can-afford imperial-age))\r\n=>\r\n\t(set-escrow-percentage food 50)\r\n\t(set-escrow-percentage gold 50)\r\n)"
+} ];
 cSetEscrowPercentage.commandCategory = ["Economy"];/*
 c.relatedCommands = [];
 c.relatedSNs = [];*/
@@ -12551,7 +12546,7 @@ cUpChatDataToAll.complexity = "Medium";
 
 //up-chat-data-to-player
 cUpChatDataToPlayer.shortDescription = "Send a chat message with a formatted value to a player.";
-cUpChatDataToPlayer.description = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpChatDataToPlayer.description = "Send a chat message with a formatted value to a player. The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpChatDataToPlayer.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14052,7 +14047,7 @@ cUpGetFact.complexity = "High";
 
 //up-get-fact-max
 cUpGetFactMax.shortDescription = "Read the maximum value of the facts for specific players into a goal.";
-cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.",
+cUpGetFactMax.description = "Read the maximum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* rule variable for use in the action section of the rule, even if up-get-fact-max is used as an action. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.",
 cUpGetFactMax.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14093,7 +14088,7 @@ cUpGetFactMax.complexity = "High";
 
 //up-get-fact-min
 cUpGetFactMin.shortDescription = "Read the minimum value of the facts for specific players into a goal.";
-cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpGetFactMin.description = "Read the minimum value of the facts for specific players into a goal. This command can be used as either a fact or an action. The matching player will be set to the this-any-* wildcard player id for use in the action section of the rule, even if up-get-fact-min is used as an action. The action allows only the \"any\" wildcard parameters for " + pPlayerNumber.getLink() + ", such as any-ally or any-enemy. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpGetFactMin.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14487,6 +14482,9 @@ cUpGetPlayerFact.commandParameters = [ {
 cUpGetPlayerFact.example = [ {
 	title: "Store the civilian-population value for player 2 into gl-data.",
 	data: "(defconst gl-data 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-player-fact 2 civilian-population 0 gl-data)\r\n)"
+}, {
+	title: "If an enemy has a castle, set this player as the focus player using the this-any-enemy rule variable.",
+	data: "(defconst gl-enemy 102)\r\n(defrule\r\n\t(players-building-type-count any-enemy castle > 0)\r\n=&gt;\r\n\t(up-get-player-fact this-any-enemy player-number 0 gl-enemy)\r\n\t(up-modify-sn sn-focus-player-number g:= gl-enemy)\r\n)"
 } ];
 cUpGetPlayerFact.relatedCommands = [];
 cUpGetPlayerFact.commandCategory = ["Other Player Info", "Player Facts"];/*
@@ -15329,7 +15327,7 @@ cUpLerpTiles.complexity = "High";
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
-cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Option to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive). To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
+cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Option to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive)To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>DE will not create the log file until the game has closed. The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
 cUpLogData.commandParameters = [ {
 	nameLink: pOption.getLink(),
 	name: "Option",
@@ -15398,6 +15396,9 @@ cUpModifyEscrow.commandParameters = [ {
 cUpModifyEscrow.example = [ {
 	title: "Set the escrow-amount for food directly to 100.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-modify-escrow food c:= 100)\r\n\t(disable-self)\r\n)"
+},{
+	title: "Set the escrow-amount for gold to be 20% of whatever the AI's current total gold amount is.",
+	data: "(defconst gl-gold-amount 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-fact gold-amount 0 gl-gold-amount)\r\n\t(up-modify-goal gl-gold-amount c:%* 20) ;modify gl-gold-amount to be 20% of its previous value\r\n\t(up-modify-escrow gold g:= gl-gold-amount) ;set the gold escrow stockpile amount to be equal to the value of gl-gold-amount\r\n\t(disable-self)\r\n)"
 } ];
 cUpModifyEscrow.relatedCommands = [];
 cUpModifyEscrow.commandCategory = ["Economy"];/*
@@ -15794,7 +15795,7 @@ cUpPendingPlacement.complexity = "Medium";
 
 //up-player-distance
 cUpPlayerDistance.shortDescription = "Check the distance in tiles to the nearest building of another player.";
-cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-computer-ally\". It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cUpPlayerDistance.description = "Check the distance in tiles to the nearest building of another player.</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It cannot be used with players who aren't allies. It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cUpPlayerDistance.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -19301,11 +19302,11 @@ pDiffParameterId.relatedParams = [pDifficulty, pSnId];
 pDiffParameterId.valueList = [ {
 	name: "ability-to-maintain-distance",
 	id: 0,
-	description: "Chance that a computer player's ranged unit will maintain the distance."
+	description: "Chance that a computer player's ranged unit will maintain the distance. Range is 0-100, and the values are opposite from what you'd expect! When set to 0, ranged units will frequently move back to maintain distance. When set to 100, ranged units will not move back. However, this behavior only works on units are not following a move, patrol, or attack move command and are simply using their automatic attacking behavior. Setting " + snEnablePatrolAttack.getLink() + " may also disable this behavior."
 }, {
 	name: "ability-to-dodge-missiles",
 	id: 1,
-	description: "Chance of a computer player's unit dodging a missile. When set to 0, units will try to dodge immediately upon seeing a projectile in the air. When set to 100, they have to hit first to react. Projectiles from siege-weapon-class and unpacked-trebuchet-class (913 and 954, not including scorpions) are always dodged, no matter what this parameter is set to."
+	description: "Chance of a computer player's unit dodging a missile. Range is 0-100, and the values are opposite from what you'd expect! When set to 0, units will try to dodge immediately upon seeing a projectile in the air. When set to 100, they have to hit first to react. Projectiles from siege-weapon-class and unpacked-trebuchet-class (913 and 954, not including scorpions) are always dodged, no matter what this parameter is set to. Note that while setting this to 0 might seem obvious, it may prove better to experiment especially depending on what enemy units you are facing and what units you are producing. For example, navy units have turn rates and so can suffer."
 } ];
 
 // //Distance
@@ -20718,7 +20719,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-target",
 	id: 7,
-	description: "The object-data-class of the object that the object is targeting. This data is NOT available for units marching in formation. When the object is not targeting anything or is marching in formation toward the target, this data returns -1."
+	description: "The object-data-class of the object that the object is targeting. This data is NOT available for units marching in formation. In UP, when the object is not targeting anything or is marching in formation toward the target, this data returns -1. In DE, when the object is not targeting anything or is marching in formation toward the target, this data returns -2."
 }, {
 	name: "object-data-point-x",
 	id: 8,
@@ -21277,18 +21278,74 @@ pPlacementType.valueList = [ {
 // pPlayerId.relatedParams = [pColorId, pFindPlayerMethod, pPlayerNumber];
 
 //PlayerNumber
-pPlayerNumber.description = "A valid player number. Not all commands can use every single option listed in the Range section below. Look at the command's details page to confirm which options are available."
 pPlayerNumber.shortDescription = "A valid player number.";
-pPlayerNumber.range = "Valid player IDs can be the following:</p>" +
+pPlayerNumber.description = "A valid player number. Here is a list with the possible PlayerNumber types which all commands with a PlayerNumber parameter can use:</p>" +
 	"<ul><li>0: Gaia.</li>" +
 	"<li>1-8: The player's player number slot (not player color number).</li>" +
 	"<li>my-player-number: retrieves the player number for self.</li>" +
 	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ".</li>" +
 	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ".</li>" +
 	"<li>lobby-player-#: where # is the player number according to the number assigned to the player's color (1 = blue, 2 = red, etc.)</li>" +
-	"<li>scenario-player-#: where # is the player number according to the player slot</li>" +
-	"<li>Any wildcard parameter below:</li>" +
-	"<li>Any rule variable below, if the command supports it:</li></ul>";
+	"<li>scenario-player-#: where # is the player number according to the player slot</li></ul>" +
+	"<p>Several commands with the PlayerNumber parameter can also use any/enemy wildcard parameters and/or this-any-* rule variables from the lists at the bottom of the page. If, within the same rule, a fact command that uses an any-* wildcard parameter returns true, it will set the corresponding this-any-* rule variable for the rest of the rule, which can be used by any action command below that can use this-any-* rule variables. For example, if (players-building-count any-enemy >= 1) returns true, this-any-enemy will be set to the first enemy player that the AI knows has at least 1 building, and the AI can send a chat to this player with (chat-to-player this-any-enemy \"I found you!\").</p><p>Here is a chart of which commands can use any/every wildcard parameters and/or this-any-* rule variables. Any command that isn't on this list cannot use any of them. Use these wildcard parameters and rule variables carefully, because the game likely won't generate an error if you use them with commands which don't support them.</p><table>" +
+	"<tr><th width=200>Fact Command</th><th>any-\*</th><th>every-\*</th><th>this-any-\*</th><th style=\"min-width: 550px\">Notes</th></tr>" +
+	"<tr><td>" + cCcPlayersBuildingCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cCcPlayersBuildingTypeCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cCcPlayersUnitCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cCcPlayersUnitTypeCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerComputer.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerHuman.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerInGame.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerNumber.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerResigned.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerValid.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayerComputer.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersBuildingCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersBuildingTypeCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersCiv.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersCivilianPopulation.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersCurrentAge.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersCurrentAgeTime.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersMilitaryPopulation.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersPopulation.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersScore.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersStance.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersTribute.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersTributeMemory.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersUnitCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cPlayersUnitTypeCount.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cStanceToward.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cTauntDetected.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"<tr><td>" + cUpAlliedGoal.getLink() + "</td><td><strong>Some</strong></td><td><strong>Some</strong></td><td>No</td><td>Only works with self or computer allies</td></tr>" +
+	"<tr><td>" + cUpAlliedResourceAmount.getLink() + "</td><td><strong>Some</strong></td><td><strong>Some</strong></td><td>No</td><td>Only works with self or computer allies</td></tr>" +
+	"<tr><td>" + cUpAlliedResourcePercent.getLink() + "</td><td><strong>Some</strong></td><td><strong>Some</strong></td><td>No</td><td>Only works with self or computer allies</td></tr>" +
+	"<tr><td>" + cUpAlliedSn.getLink() + "</td><td><strong>Some</strong></td><td><strong>Some</strong></td><td>No</td><td>Only works with self or computer allies</td></tr>" +
+	"<tr><td>" + cUpGetFactMax.getLink() + "</td><td>Yes</td><td><strong>No</strong></td><td>No</td><td>The matching max player will set the corresponding this-any-* rule variable.</td></tr>" +
+	"<tr><td>" + cUpGetFactMin.getLink() + "</td><td>Yes</td><td><strong>No</strong></td><td>No</td><td>The matching min player will set the corresponding this-any-* rule variable.</td></tr>" +
+	"<tr><td>" + cUpPlayerDistance.getLink() + "</td><td>Yes</td><td>Yes</td><td>No</td><td></td></tr>" +
+	"</table><table style=\"margin-top: 10px\">" +
+	"<tr><th style=\"min-width: 200px\">Action Command</th><th>any-\*</th><th>every-\*</th><th>this-any-\*</th><th style=\"min-width: 550px\">Notes</th></tr>" +
+	"<tr><td>" + cAcknowledgeTaunt.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cChatToPlayer.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cChatToPlayerUsingId.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cChatToPlayerUsingRange.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cClearTributeMemory.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cSetStance.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cTributeToPlayer.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cUpChatDataToPlayer.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"<tr><td>" + cUpFindPlayerFlare.getLink() + "</td><td>Yes</td><td>Yes</td><td><strong>No</strong></td><td></td></tr>" +
+	"<tr><td>" + cUpGetFactMax.getLink() + "</td><td>Yes</td><td><strong>No</strong></td><td><strong>No</strong><td>The matching max player will set the corresponding this-any-* rule variable for later actions in the rule.</td></tr>" +
+	"<tr><td>" + cUpGetFactMin.getLink() + "</td><td>Yes</td><td><strong>No</strong></td><td><strong>No</strong><td>The matching min player will set the corresponding this-any-* rule variable for later actions in the rule.</td></tr>" +
+	"<tr><td>" + cUpGetFactSum.getLink() + "</td><td>Yes</td><td><strong>No</strong></td><td><strong>No</strong><td></td></tr>" +
+	"<tr><td>" + cUpGetPlayerColor.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes<td></td></tr>" +
+	"<tr><td>" + cUpGetPlayerFact.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes<td></td></tr>" +
+	"<tr><td>" + cUpGetUpgradeId.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes<td></td></tr>" +
+	"<tr><td>" + cUpSetPlacementData.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td><strong>Some</strong><td>Only works with ally players.</td></tr>" +
+	"<tr><td>" + cUpStorePlayerChat.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes<td></td></tr>" +
+	"<tr><td>" + cUpStorePlayerName.getLink() + "</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes<td></td></tr>" +
+	"<tr><td>" + cUpTributeToPlayer.getLink() + "</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>" +
+	"</table>";
+pPlayerNumber.range = "A valid player number.";
 pPlayerNumber.relatedParams = [pColorId, pThreatPlayer, pVictoryPlayer];
 pPlayerNumber.wildcardParam = [ {
 	name: "any-ally",
