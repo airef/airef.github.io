@@ -424,7 +424,7 @@ var cUpModifyEscrow = new Command("up-modify-escrow","Action","UP");
 var cUpModifyFlag = new Command("up-modify-flag","Action","UP");
 var cUpModifyGoal = new Command("up-modify-goal","Both","UP");
 var cUpModifyGroupFlag = new Command("up-modify-group-flag","Action","UP");
-var cUpModifySn = new Command("up-modify-sn","Action","UP");
+var cUpModifySn = new Command("up-modify-sn","Both","UP");
 var cUpObjectData = new Command("up-object-data","Fact","UP");
 var cUpObjectTargetData = new Command("up-object-target-data","Fact","UP");
 var cUpObjectTypeCount = new Command("up-object-type-count","Fact","UP");
@@ -15509,6 +15509,7 @@ cUpModifyGroupFlag.complexity = "Very High";
 
 //up-modify-sn
 cUpModifySn.shortDescription = "Perform math operations on a strategic number.";
+cUpModifySn.description = "Perform math operations on a strategic number. In DE, this command can be used as either a fact or an action, but it can only be used as an action in UP and WK.";
 cUpModifySn.commandParameters = [ {
 	nameLink: pSnId.getLink(),
 	name: "SnId",
