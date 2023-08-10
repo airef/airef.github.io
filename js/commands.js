@@ -9580,6 +9580,7 @@ cGenerateRandomNumber.complexity = "Low";
 
 //goal
 cGoal.shortDescription = "Checks the current value of the given goal.";
+cGoal.description = "Checks the current value of the given goal. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 512 goals available that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 512-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The " + cGoal.getLink() + " command checks if the value of the given GoalId is equal to the given value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 512 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 512 bank accounts, numbered with IDs from 1 to 512. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The " + cSetGoal.getLink() + " and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -9599,7 +9600,7 @@ cGoal.example = [ {
 	title: "Check if goal ID 50 is set to the value 1. If so, attack once.",
 	data: "(defrule\r\n\t(goal 50 1)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
 }, {
-	title: "Use a defconst to refer to goal ID 50 and check if the goal is set to the value 1. If so, attack once.",
+	title: "Use a defconst to refer to goal ID 50 and check if the goal is set to the value 1. If so, attack once. This rule is functionally identical to the above example, because the AI engine will substitute the defconsted value of gl-attack-now (50) everywhere it sees gl-attack-now in the script before running the AI.",
 	data: "(defconst gl-attack-now 50)\r\n(defrule\r\n\t(goal gl-attack-now 1)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
 }];
 cGoal.commandCategory = ["Goals"];
@@ -10781,9 +10782,9 @@ cSetEscrowPercentage.example = [ {
 	title: "If we are in castle age and aren't researching Imperial Age, set the food and gold escrow percentage to 50 when we have at least 100 villagers in order to save up for the next age.",
 	data: "(defrule\r\n\t(current-age == castle-age)\r\n\t(up-research-status c: imperial-age < research-pending)\r\n\t(not\t(can-afford imperial-age))\r\n=>\r\n\t(set-escrow-percentage food 50)\r\n\t(set-escrow-percentage gold 50)\r\n)"
 } ];
-cSetEscrowPercentage.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetEscrowPercentage.commandCategory = ["Economy"];
+cSetEscrowPercentage.relatedCommands = [cReleaseEscrow, cSetEscrowPercentage, cUpModifyEscrow, cUpReleaseEscrow];
+cSetEscrowPercentage.relatedSNs = [];
 cSetEscrowPercentage.complexity = "Medium";
 
 //set-goal
@@ -15509,7 +15510,7 @@ cUpModifyGroupFlag.complexity = "Very High";
 
 //up-modify-sn
 cUpModifySn.shortDescription = "Perform math operations on a strategic number.";
-cUpModifySn.description = "Perform math operations on a strategic number. In DE, this command can be used as either a fact or an action, but it can only be used as an action in UP and WK.";
+cUpModifySn.description = "Perform math operations on a strategic number. In DE, this command can be used as either a fact or an action, but it can only be used as an action in UP and WK. When used as a fact, it will modify the strategic number just like it would if it was used in the actions section of the rule. The only difference when up-modify-sn is used as a fact is that if it to modify the strategic number (because of an invalid strategic number ID or an invalid value), then the rest of the rule won't execute.";
 cUpModifySn.commandParameters = [ {
 	nameLink: pSnId.getLink(),
 	name: "SnId",
@@ -20868,11 +20869,11 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-distance",
 	id: 44,
-	description: "The object's distance from the target-point. This does not take obstacles into account."
+	description: "The object's distance from the target-point. This does not take obstacles into account. It is simply a distance formula calculation between the target point's location and the object's location. Do not use object-data-distance with a precise target point. Instead, use object-data-to-precise to calculate the precise distance to a precise target point."
 }, {
 	name: "object-data-precise-distance",
 	id: 45,
-	description: "The object's precise distance from the target-point, x 100. This does not take obstacles into account. Precise locations are accurate to 1/100 of a tile."
+	description: "The object's precise distance from the target-point, x 100. This does not take obstacles into account. Precise locations are accurate to 1/100 of a tile. It is simply a distance formula calculation between the target point's location and the object's location, multiplied by 100. It assumes the target point is a normal point, so do not use object-data-precise-distance with a precise target point. Instead, use object-data-to-precise to calculate the precise distance to a precise target point."
 }, {
 	name: "object-data-full-distance",
 	id: 46,
@@ -21012,7 +21013,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-to-precise",
 	id: 80,
-	description: "The precise distance from the object to the target point, x 100. This probably differs from object-data-precise-distance if the target point has been set with " + cUpSetPreciseTargetPoint.getLink() + "."
+	description: "The precise distance from the object to the target point, x 100, assuming the target point is a precise point. This does not take obstacles into account. Precise locations are accurate to 1/100 of a tile. It is simply a distance formula calculation between the target point's location and the object's location, multiplied by 100. However, it assumes the target point is a precise point, so it divides the target point's location by 100 before calculating the distance, even if the target point was set with " + cUpSetTargetPoint.getLink() + " instead of " + cUpSetPreciseTargetPoint.getLink() + ". If the target point is a normal point, not a precise point, use object-data-precise-distance to calculate the precise distance between an object and a normal target point."
 }, {
 	name: "object-data-base-type",
 	id: 81,
