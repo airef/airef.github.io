@@ -7544,7 +7544,7 @@ cAttackSoldierCount.example = [ {
 	data: "(defrule\r\n\t(attack-soldier-count >= 20)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cAttackSoldierCount.commandCategory = ["Attack", "Counting"];
-cAttackSoldierCount.relatedCommands = [cAttackWarboatCount, cDefendSoldierCount, cDefendWarboatCount, cSoldierCount, cWarboatCount];
+cAttackSoldierCount.relatedCommands = [cAttackWarboatCount, cDefendSoldierCount, cDefendWarboatCount, cMilitaryPopulation, cSoldierCount, cWarboatCount];
 cAttackSoldierCount.relatedSNs = [snNumberAttackGroups, snPercentAttackSoldiers];
 cAttackSoldierCount.complexity = "Low";
 
@@ -9281,7 +9281,7 @@ cDropsiteMinDistance.example = [ {
 	data: "(defrule\r\n\t(building-type-count lumber-camp > 0)\r\n\t(can-build lumber-camp)\r\n\t(dropsite-min-distance wood > 4)\r\n\t(dropsite-min-distance wood < 255)\r\n=>\r\n\t(build lumber-camp)\r\n)"
 } ];
 cDropsiteMinDistance.commandCategory = ["Economy"];
-cDropsiteMinDistance.relatedCommands = [cDropsiteMinDistance, cResourceFound, cSheepAndForageTooFar, cUpDeleteDistantFarms];
+cDropsiteMinDistance.relatedCommands = [cDropsiteMinDistance, cResourceFound, cSheepAndForageTooFar, cUpDeleteDistantFarms, cUpFindResource, cUpRemainingBoarAmount];
 cDropsiteMinDistance.relatedSNs = [];
 cDropsiteMinDistance.complexity = "Low";
 
@@ -9407,7 +9407,7 @@ cEscrowAmount.complexity = "Medium";
 
 //event-detected
 cEventDetected.shortDescription = "Checks if the given event has been detected.";
-cEventDetected.description = "Checks if the given event has been detected. Scenario triggers that execute an AI Script Goal effect are the only events that AI scripts can detect. The event-detected fact stays true until the event is explicitly disabled by the " + cAcknowledgeEvent.getLink() + " action.</p><p>This command, along with " + cAcknowledgeEvent.getLink() + ", is used to detect an AI Script Goal effect from a scenario trigger, often with the intention of changing the AI behavior after the scenario trigger has fired. The scenario designer chooses an AI Trigger number for the AI Script Goal effect in the scenario editor. Then, the event-detected command in the AI script will detect when this trigger effect happens. The event-detected command will remain true after the AI Script Goal trigger effect fires, so acknowledge-event is used to reset the event-detected flag so that event-detected will no longer be true, similar to how the " + cDisableTimer.getLink() + " command clears a timer that has triggered or how the " + cAcknowledgeTaunt.getLink() + " command accepts the taunt message.";
+cEventDetected.description = "Checks if the given event has been detected. Scenario triggers that execute an AI Script Goal effect are the only events that AI scripts can detect. The event-detected fact stays true until the event is explicitly disabled by the " + cAcknowledgeEvent.getLink() + " action.</p><p>This command, along with " + cAcknowledgeEvent.getLink() + ", is used to detect an AI Script Goal effect from a scenario trigger, often with the intention of changing the AI behavior after the scenario trigger has fired. The scenario designer chooses an AI Trigger number for the AI Script Goal effect in the scenario editor. Then, the event-detected command in the AI script will detect when this trigger effect happens. The event-detected command will remain true after the AI Script Goal trigger effect fires, so acknowledge-event is used to reset the event-detected flag so that event-detected will no longer be true, similar to how the " + cDisableTimer.getLink() + " command clears a timer that has triggered or how the " + cAcknowledgeTaunt.getLink() + " command accepts the taunt message.</p><p>Trigger events are essentially the inverse of signals. To allow an AI script to send a signal which the AI Signal trigger condition can detect, use " + cSetSignal.getLink() + ".";
 cEventDetected.commandParameters = [ {
 	nameLink: pEventType.getLink(),
 	name: "EventType",
@@ -9604,7 +9604,7 @@ cGoal.example = [ {
 	data: "(defconst gl-attack-now 50)\r\n(defrule\r\n\t(goal gl-attack-now 1)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
 }];
 cGoal.commandCategory = ["Goals"];
-cGoal.relatedCommands = [cDoctrine, cGoal, cSetDoctrine, cSetGoal, cSetSharedGoal, cSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpCompareFlag, cUpGetSharedGoal, cUpGetIndirectGoal, cUpModifyFlag, cUpModifyGoal, cUpSetIndirectGoal];
+cGoal.relatedCommands = [cDoctrine, cSetDoctrine, cSetGoal, cSetSharedGoal, cSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpCompareFlag, cUpGetSharedGoal, cUpGetIndirectGoal, cUpModifyFlag, cUpModifyGoal, cUpSetIndirectGoal];
 cGoal.relatedSNs = [];
 cGoal.complexity = "Low";
 
@@ -10495,7 +10495,7 @@ cPopulationCap.complexity = "Low";
 
 //population-headroom
 cPopulationHeadroom.shortDescription = "Checks the computer player's population headroom.";
-cPopulationHeadroom.description = "Checks the computer player's population headroom. Population headroom is the difference between the game's population cap and current housing capacity. For example, in a game with a population cap of 75, the computer player has a town center (capacity 5) and a house (capacity 5). In this case population headroom is 65.";
+cPopulationHeadroom.description = "Checks the computer player's population headroom. Population headroom is the difference between the game's population cap and current housing capacity. For example, in a game with a population cap of 75, if the computer player has a town center (capacity 5) and a house (capacity 5), then the population headroom is 65.";
 cPopulationHeadroom.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -10620,7 +10620,8 @@ cResearchAvailable.relatedSNs = [];
 cResearchAvailable.complexity = "Low";
 
 //research-completed
-cResearchCompleted.shortDescription = "Checks that the given research is completed.</p><p>Using this command is equivalent to using " + cUpResearchStatus.getLink() + " to check if the technology's research status is equal to research-complete.";
+cResearchCompleted.shortDescription = "Checks that the given research is completed.";
+cResearchCompleted.description = "Checks that the given research is completed.</p><p>Using this command is equivalent to using " + cUpResearchStatus.getLink() + " to check if the technology's research status is equal to research-complete.";
 cResearchCompleted.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10665,7 +10666,7 @@ cResourceFound.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cResourceFound.commandCategory = ["Economy"];
-cResourceFound.relatedCommands = [cDropsiteMinDistance, cSheepAndForageTooFar, cUpGaiaTypeCount, cUpGaiaTypeCountTotal];
+cResourceFound.relatedCommands = [cDropsiteMinDistance, cSheepAndForageTooFar, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpFindResource];
 cResourceFound.relatedSNs = [snCampMaxDistance, snMillMaxDistance, snMiningCampMaxDistance];
 cResourceFound.complexity = "Low";
 
@@ -10789,6 +10790,7 @@ cSetEscrowPercentage.complexity = "Medium";
 
 //set-goal
 cSetGoal.shortDescription = "Sets a given goal to a given value.";
+cSetGoal.description = "Sets a given goal to a given value. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 512 goals available that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 512-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The set-goal command sets the value the given GoalId to the given integer value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 512 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 512 bank accounts, numbered with IDs from 1 to 512. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The set-goal and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cSetGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -10804,18 +10806,21 @@ cSetGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the goal to."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetGoal.commandCategory = ["Goals"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetGoal.example = [ {
+	title: "Set goal ID 50 to the value 1 when the attack starts.",
+	data: "(defrule\r\n\t(goal 50 0)\r\n\t(defend-soldier-count > 15)\r\n=>\r\n\t(attack-now)\r\n\t(set-goal 50 1)\r\n\t(disable-self)\r\n)"
+}, {
+	title: "Use a defconst to refer to goal ID 50 and set the goal to the value 1 when the AI starts attacking. This rule is functionally identical to the above example, because the AI engine will substitute the defconsted value of gl-attack-now (50) everywhere it sees gl-attack-now in the script before running the AI.",
+	data: "(defconst gl-attack-now 50)\r\n(defrule\r\n\t(goal gl-attack-now 0)\r\n\t(defend-soldier-count > 15)\r\n=>\r\n\t(attack-now)\r\n\t(set-goal gl-attack-now 1)\r\n\t(disable-self)\r\n)"
+} ];
+cSetGoal.commandCategory = ["Goals"];
+cSetGoal.relatedCommands = [cDoctrine, cGoal, cSetDoctrine, cSetSharedGoal, cSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpCompareFlag, cUpGetSharedGoal, cUpGetIndirectGoal, cUpModifyFlag, cUpModifyGoal, cUpSetIndirectGoal, cUpSetSharedGoal];
+cSetGoal.relatedSNs = [];
 cSetGoal.complexity = "Low";
 
 //set-shared-goal
-cSetSharedGoal.shortDescription = "Sets a given shared goal (a goal that is shared among computer players) to a given value.";
-cSetSharedGoal.description = "Sets a given shared goal (a goal that is shared among computer players) to a given value. To be used only when all computer players are on the same team.";
+cSetSharedGoal.shortDescription = "Sets a given shared goal (a goal that is shared among all computer players) to a given value.";
+cSetSharedGoal.description = "Sets a given shared goal (a goal that is shared among all computer players) to a given value. To be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 512 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with set-shared-goal or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with " + cSharedGoal.getLink() + " or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 512 goals.";
 cSetSharedGoal.commandParameters = [ {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -10831,17 +10836,18 @@ cSetSharedGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "The value to set the shared goal to."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetSharedGoal.example = [ {
+	title: "Set shared goal #31 (defconsted to sgl-coop-attacking) to the value 1 when attacking.",
+	data: "(defconst sgl-coop-attacking 31)\r\n(defrule\r\n\t(defend-soldier-count > 12)\r\n=>\r\n\t(set-strategic-number sn-number-attack-groups 20)\r\n\t(set-shared-goal sgl-coop-attacking 1)\r\n)"
+} ];
+cSetSharedGoal.commandCategory = ["Goals", "Other Player Info"];
+cSetSharedGoal.relatedCommands = [cGoal, cSetGoal, cSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpGetSharedGoal, cUpModifyGoal, cUpSetSharedGoal];
+cSetSharedGoal.relatedSNs = [];
 cSetSharedGoal.complexity = "Medium";
 
 //set-signal
-cSetSignal.shortDescription = "Sets a given signal that can be checked by the AI Signal trigger condition in the scenario editor.";
+cSetSignal.shortDescription = "Sets a given signal value that can be checked by the AI Signal trigger condition in the scenario editor.";
+cSetSignal.description = "Sets a given signal value that can be checked by the AI Signal trigger condition in the scenario editor. To set a signal dynamically, use " + cUpSetSignal.getLink() + ". To check if a signal was already set, use " + cUpGetSignal.getLink() + ".</p><p>There are 256 different signals that an AI can send to the scenario editor, from 0 to 255, which can trigger various events in the scenario. Signals are essentially on/off flags which are set to \"off\" at the beginning of the game, and are set to \"on\" whenever the set-signal action is used. This AI Signal trigger condition can be very useful to detect events that AIs can detect, but scenario triggers cannot easily detect, such as receiving tribute. Once the given signal is set, the scenario designer can create a trigger with the condition \"AI Signal\", and select the corresponding AI Signal value in the dropdown list. Once the signal is set in the AI script, the AI Signal condition for the given signal value will become true for the rest of the game, even after a trigger with an AI Signal condition is executed, unless you use the " + cUpSetSignal.getLink() + " AI command to turn the signal off by setting the signal ID to the value 0, or the scenario designer uses the Acknowledge AI Signal trigger effect to turn the signal off (this trigger effect is only available in DE).</p><p>Signals are essentially the inverse of AI Script Goal trigger effects. To allow an AI script to detect an AI Script Goal trigger effect from a scenario trigger, use " + cEventDetected.getLink() + ".";
 cSetSignal.commandParameters = [ {
 	nameLink: pSignalId.getLink(),
 	name: "SignalId",
@@ -10850,18 +10856,18 @@ cSetSignal.commandParameters = [ {
 	range: "A valid SignalId, from 0 to 255.",
 	note: "The signal to set."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetSignal.commandCategory = ["Scenarios"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetSignal.example = [ {
+	title: "Set signal value 3 when the AI receives 200 gold as tribute from player 1. An AI Signal trigger condition with the AI Signal 3 value can detect the signal in a scenario.",
+	data: "(defrule\r\n\t(players-tribute-memory 1 gold >= 200)\r\n=>\r\n\t(set-signal 3)\r\n\t(set-stance 1 ally)\r\n\t(chat-to-player 1 \"A wise choice.\")\r\n\t(clear-tribute-memory 1 gold)\r\n\t(disable-self)\r\n)"
+} ];
+cSetSignal.commandCategory = ["Scenarios"];
+cSetSignal.relatedCommands = [cAcknowledgeEvent, cEventDetected, cUpGetEvent, cUpGetSignal, cUpSetEvent, cUpSetSignal];
+cSetSignal.relatedSNs = [];
 cSetSignal.complexity = "Medium";
 
 //set-stance
 cSetStance.shortDescription = "Sets the diplomatic stance toward a given player to the specified stance.";
-cSetStance.description = "Sets the diplomatic stance toward a given player to the specified stance, either ally, neutral, or enemy. The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for Player, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cSetStance.description = "Sets the diplomatic stance toward a given player to the specified stance, either ally, neutral, or enemy. To check our stance toward a given player, use " + cStanceToward.getLink() + ". To check the stance another player has toward us, use " + cPlayersStance.getLink() + ".</p><p>The action allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows the use of rule variables for Player, such as \"this-any-ally\" or \"this-any-enemy\". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cSetStance.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -10877,13 +10883,13 @@ cSetStance.commandParameters = [ {
 	range: "ally, neutral, or enemy.",
 	note: "The diplomacy stance to set toward the player(s)."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetStance.commandCategory = ["Diplomacy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetStance.example = [ {
+	title: "If any player has set their stance toward us to enemy, then set our stance toward them to enemy.",
+	data: "(defrule\r\n\t(players-stance any-ally enemy)\r\n=>\r\n\t(set-stance this-any-ally enemy)\r\n)"
+} ];
+cSetStance.commandCategory = ["Diplomacy"];
+cSetStance.relatedCommands = [cPlayersStance, cStanceToward];
+cSetStance.relatedSNs = [];
 cSetStance.complexity = "Low";
 
 //set-strategic-number
@@ -10914,8 +10920,8 @@ c.relatedSNs = [];*/
 cSetStrategicNumber.complexity = "Low";
 
 //shared-goal
-cSharedGoal.shortDescription = "Checks a given shared goal (a goal that is shared among computer players).";
-cSharedGoal.description = "Checks a given shared goal (a goal that is shared among computer players). It is to be used only when all computer players are on the same team.";
+cSharedGoal.shortDescription = "Checks a given shared goal (a goal that is shared among all computer players).";
+cSharedGoal.description = "Checks a given shared goal (a goal that is shared among all computer players). It is to be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 512 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with " + cSetSharedGoal.getLink() + " or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with shared-goal or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 512 goals.";
 cSharedGoal.commandParameters = [ {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -10931,29 +10937,30 @@ cSharedGoal.commandParameters = [ {
 	range: "-2,147,483,648 to 2,147,483,647.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSharedGoal.example = [ {
+	title: "If shared goal #31 (defconsted to sgl-coop-attacking) is set to the value 1, attack if we have enough soldiers.",
+	data: "(defconst sgl-coop-attacking 31)\r\n(defrule\r\n\t(shared-goal sgl-coop-attacking 1)\r\n\t(defend-soldier-count > 12)\r\n=>\r\n\t(set-strategic-number sn-number-attack-groups 20)\r\n)"
+} ];
+cSharedGoal.commandCategory = ["Goals", "Other Player Info"];
+cSharedGoal.relatedCommands = [cGoal, cSetGoal, cSetSharedGoal, cUpAlliedGoal, cUpCompareGoal, cUpGetSharedGoal, cUpModifyGoal, cUpSetSharedGoal];
+cSharedGoal.relatedSNs = [];
 cSharedGoal.complexity = "Medium";
 
 //sheep-and-forage-too-far
 cSheepAndForageTooFar.shortDescription = "Checks whether the computer player has any forage site(s) and/or sheep nearby.";
-cSheepAndForageTooFar.description = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center).";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSheepAndForageTooFar.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSheepAndForageTooFar.description = "Checks whether the computer player has any forage site(s) and/or sheep within 8 tiles of the drop-off location (Mill or Town Center). If not, this fact is true.</p><p>To check if any resource is within a certain distance of a dropsite, you can use " + cDropsiteMinDistance.getLink() + " instead, which is usually more flexible. You can check if the AI can currently see any particular resource with " + cUpGaiaTypeCount.getLink() + ".";
+cSheepAndForageTooFar.example = [ {
+	title: "If we don't have any forage sites or sheep within 8 tiles of a TC or mill, build up to 8 farms.",
+	data: "(defrule\r\n\t(sheep-and-forage-too-far)\r\n\t(building-type-count-total farm < 8)\r\n\t(can-build farm)\r\n=>\r\n\t(build-farm)\r\n)"
+} ];
+cSheepAndForageTooFar.commandCategory = ["Economy"];
+cSheepAndForageTooFar.relatedCommands = [cDropsiteMinDistance, cResourceFound, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpFindResource, cUpRemainingBoarAmount];
+cSheepAndForageTooFar.relatedSNs = [];
 cSheepAndForageTooFar.complexity = "Low";
 
 //soldier-count
 cSoldierCount.shortDescription = "Checks the computer player's soldier count. A soldier is a land-based military unit.";
+cSoldierCount.description = "Checks the computer player's soldier count. A soldier is a land-based military unit. Monks and siege weapons are included. " + cAttackSoldierCount.getLink() + " + " + cDefendSoldierCount.getLink() + " should equal soldier-count.";
 cSoldierCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -10969,30 +10976,30 @@ cSoldierCount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSoldierCount.commandCategory = ["Counting", "Units"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSoldierCount.example = [ {
+	title: "If the AI has at least 30 soldiers and is in the imperial age, attack.",
+	data: "(defrule\r\n\t(soldier-counte >= 30)\r\n\t(current-age == imperial-age)\r\n=>\r\n\t(attack-now)\r\n\t(disable-self)\r\n)"
+} ];
+cSoldierCount.commandCategory = ["Counting", "Units"];
+cSoldierCount.relatedCommands = [cAttackSoldierCount, cAttackWarboatCount, cDefendSoldierCount, cDefendWarboatCount, cMilitaryPopulation, cWarboatCount];
+cSoldierCount.relatedSNs = [];
 cSoldierCount.complexity = "Low";
 
 //spy
 cSpy.shortDescription = "Executes a spy command. Only works in Regicide games.";
-cSpy.description = "Executes a spy command. Only works in Regicide games to research the Treason effect.";
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSpy.commandCategory = ["Techs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSpy.description = "Executes a spy command. Only works in Regicide games to research the Treason effect. The computer player does see the revealed area around the enemy kings as expected. This command does not research Spies like you might expect.";
+cSpy.example = [ {
+	title: "If it's a regicide game, then research Treason.",
+	data: "(defrule\r\n\t(regicide-game)\r\n\t(can-spy)\r\n=>\r\n\t(spy)\r\n)"
+} ];
+cSpy.commandCategory = ["Techs"];
+cSpy.relatedCommands = [cCanSpy, cCanSpyWithEscrow];
+cSpy.relatedSNs = [];
 cSpy.complexity = "Low";
 
 //stance-toward
 cStanceToward.shortDescription = "Checks if the computer player's diplomatic stance toward a given player matches the given stance.";
-cStanceToward.description = "Checks if the computer player's diplomatic stance toward a given player matches the given stance, either ally, neutral, or enemy. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ".</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cStanceToward.description = "Checks if the computer player's diplomatic stance toward a given player matches the given stance, either ally, neutral, or enemy.</p><p>To check another player's diplomatic stance toward the computer player, use " + cPlayersStance.getLink() + ".</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.</p>";
 cStanceToward.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -11008,13 +11015,13 @@ cStanceToward.commandParameters = [ {
 	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance toward the player."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cStanceToward.commandCategory = ["Diplomacy", "Own Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cStanceToward.example = [ {
+	title: "Check if we are allied with the focus player.",
+	data: "(defrule\r\n\t(stance-toward focus-player ally)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cStanceToward.commandCategory = ["Diplomacy", "Own Player Info"];
+cStanceToward.relatedCommands = [cPlayersStance, cSetStance];
+cStanceToward.relatedSNs = [];
 cStanceToward.complexity = "Low";
 
 //starting-age
@@ -11035,17 +11042,18 @@ cStartingAge.commandParameters = [ {
 	range: "dark-age, feudal-age, castle-age, imperial-age, or post-imperial-age.",
 	note: "An age for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cStartingAge.commandCategory = ["Game Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cStartingAge.example = [ {
+	title: "Check if the game had a post-imperial start.",
+	data: "(defrule\r\n\t(starting-age == post-imperial)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cStartingAge.commandCategory = ["Game Info"];
+cStartingAge.relatedCommands = [cCurrentAge, cPlayersCurrentAge, cStartingResources];
+cStartingAge.relatedSNs = [];
 cStartingAge.complexity = "Low";
 
 //starting-resources
-cStartingResources.shortDescription = "Checks the starting resources level (low, medium, or high).";
+cStartingResources.shortDescription = "Checks the starting resources level.";
+cStartingResources.description = "Checks the starting resources level. The standard setting is Low resources. In games without a Starting Resources option, like Death Match, starting-resources will be equal to 1 (low resources), probably because 1 is the standard resource setting in random map games. DE added the option for Ultra High, Infinite, and Random resource starts.</p><p>Before DE, AIs on hardest difficulty would get 500 of each resource at the beginning of each age, including at the beginning of the game, but DE no longer does this.</p><p>Starting resources can be modified by " + snAddStartingResourceWood.getLink() + ", " + snAddStartingResourceFood.getLink() + ", " + snAddStartingResourceGold.getLink() + ", or " + snAddStartingResourceStone.getLink() + ", though using these strategic numbers is considered cheating in AI tournaments.</p><p>Starting resource amounts:<ul><li>Low Resources: start with 200W, 200F, 100G, and 200S.</li><li>Medium Resources: start with 500W, 500F, 300G, and 400S.</li><li>High Resources: start with 1000W, 1000F, 700G, and 800S.</li><li>Ultra High Resources (DE only): start with 20,000W, 20,000F, 10,000G, and 5000S (same as Death Match).</li><li>Infinite Resources (DE only): infinite amounts of each resource.</li><li>Random Resources (DE only): start with random amounts of each resource.</li></ul>";
 cStartingResources.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -11058,16 +11066,16 @@ cStartingResources.commandParameters = [ {
 	name: "StartingResources",
 	type: "Op",
 	dir: "in",
-	range: "low, medium, or high.",
+	range: "low, medium, high, ultra-high, infinite, or random.",
 	note: "The starting resource levels. Standard is low."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cStartingResources.commandCategory = ["Game Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cStartingResources.example = [ {
+	title: "Check if the players started with high resources.",
+	data: "(defrule\r\n\t(starting-resources == high)\r\n=>\r\n\t(do-nothing)\r\n)"
+} ];
+cStartingResources.commandCategory = ["Game Info"];
+cStartingResources.relatedCommands = [cCcAddResource, cDeathMatchGame, cFoodAmount, cGameType, cGoldAmount, cStartingAge, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpCcAddResource, cUpResourceAmount];
+cStartingResources.relatedSNs = [snAddStartingResourceWood, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone];
 cStartingResources.complexity = "Low";
 
 //stone-amount
@@ -21281,10 +21289,10 @@ pPlacementType.valueList = [ {
 
 //PlayerNumber
 pPlayerNumber.shortDescription = "A valid player number.";
-pPlayerNumber.description = "A valid player number. Here is a list with the possible PlayerNumber types which all commands with a PlayerNumber parameter can use:</p>" +
+pPlayerNumber.description = "A valid player number. Here is a list with the possible PlayerNumber types which all commands with a PlayerNumber parameter can use. target-player, focus-player, lobby-player-#, scenario-player-#, and the any/every/this-any PlayerNumber types can only be used in commands where a PlayerNumber parameter is expected.</p>" +
 	"<ul><li>0: Gaia.</li>" +
 	"<li>1-8: The player's player number slot (not player color number).</li>" +
-	"<li>my-player-number: retrieves the player number for self.</li>" +
+	"<li>my-player-number: the player number for self.</li>" +
 	"<li>target-player: the current value of " + snTargetPlayerNumber.getLink() + ".</li>" +
 	"<li>focus-player: the current value of " + snFocusPlayerNumber.getLink() + ".</li>" +
 	"<li>lobby-player-#: where # is the player number according to the number assigned to the player's color (1 = blue, 2 = red, etc.)</li>" +
@@ -22611,7 +22619,7 @@ pSnId.relatedParams = [pDiffParameterId, pGoalId, pId];
 //StartingResources
 pStartingResources.description = "The starting resources level of the game.";
 pStartingResources.shortDescription = "The starting resources level of the game.";
-pStartingResources.range = "1 to 3.";
+pStartingResources.range = "1 to 6.";
 pStartingResources.relatedParams = [pResource, pResourceType];
 pStartingResources.valueList = [ {
 	name: "low-resources",
@@ -28296,7 +28304,7 @@ objectsBarracksArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Eagle Scout (TC)/<br>Eagle Warrior (non-TC)",
+	name: "Eagle Scout (non-TC)/<br>Eagle Warrior (TC)",
 	aiName: "eagle-warrior",
 	line: "eagle-warrior-line",
 	id: 751,
@@ -28428,6 +28436,25 @@ objectsBarracksArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Can be counted with huskarl-set"
+}, {
+	name: "Flemish Militia (Train)",
+	aiName: "",
+	line: "",
+	id: 1699,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "1664",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "This is the unit you can train after Flemish Revolution is researched, Lords of the West DLC only"
 }];	
 
 
@@ -31088,7 +31115,7 @@ objectsDonjonArray = [ {
 	id: 1661,
 	class: "infantry-class",
 	cmdId: "cmdid-military",
-	building: "Castle",
+	building: "Donjon",
 	age: 4,
 	deadUnit: "1662",
 	projectile: "",
@@ -32703,25 +32730,6 @@ objectsTownCenterArray = [ {
 	wk: 0,
 	de: 1,
 	notes: "Lords of the West DLC only"
-}, {
-	name: "Flemish Militia (Train)",
-	aiName: "",
-	line: "",
-	id: 1699,
-	class: "infantry-class",
-	cmdId: "cmdid-military",
-	building: "",
-	age: 4,
-	deadUnit: "1664",
-	projectile: "",
-	chemProjectile: "",
-	civ: "Burgundians",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "This is the unit you can train after Flemish Revolution is researched, Lords of the West DLC only"
 }];	
 	
 objectsTownCenterArrayROR = [ {	
@@ -34910,7 +34918,7 @@ objectsBuildingsArray = [ {
 	notes: "In DE, dead unit is 1500"
 }, {	
 	name: "Gate (Ascending Endpieces)",
-	aiName: "gate-ascending-open",
+	aiName: "",
 	line: "",
 	id: 81,
 	class: "gate-class",

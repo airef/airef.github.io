@@ -2,7 +2,7 @@ var navContent = "";
 var footerContent = "";
 navContent += '<div class="header">';
 	navContent += '<a href=" ' + urlPrefix + '/index.html"><img class="logo" src="' + urlPrefix + '/images/logo-trans-tiny.png" /></a>';
-	navContent += '<h1>AI Scripting Encyclopedia</h1></div>';
+	navContent += '<h1><a class="header-title" href="' + urlPrefix + '/index.html">AI Scripting Encyclopedia</a></h1></div>';
 	
 	navContent += '<div class="nav">';
 		navContent += '<ul class="navbar">';

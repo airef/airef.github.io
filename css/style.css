@@ -31,6 +31,11 @@ img.logo {
 	vertical-align: middle;
 }
 
+.header h1 a {
+	font-weight: normal;
+	color: #000;
+}
+
 ul.navbar {
 	list-style-type: none;
 	margin: 20px 0 0px 0;
