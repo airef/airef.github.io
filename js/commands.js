@@ -7592,7 +7592,7 @@ cBuild.example = [ {
 } ];
 cBuild.commandCategory = ["Buildings"];
 cBuild.relatedCommands = [cBuildForward, cBuildGate, cBuildWall, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
-cBuild.relatedSNs = [snAllowAdjacentDropsites, snAllowSerjeantBuilding, snCampMaxDistance, snDropsiteSeparationDistance, snFoodDropsiteDistance, snGoldDropsiteDistance, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snLumberCampMaxDistance, snMaximumTownSize, snMillMaxDistance, snMinimumTownSize, snMiningCampMaxDistance, snPreferredMillPlacement, snRandomPlacementFactor, snStoneDropsiteDistance, snTownCenterPlacement, snUnexploredConstruction, snWoodDropsiteDistance];
+cBuild.relatedSNs = [snAllowAdjacentDropsites, snAllowSerjeantBuilding, snCampMaxDistance, snDropsiteSeparationDistance, snFoodDropsiteDistance, snGoldDropsiteDistance, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snLumberCampMaxDistance, snMaximumTownSize, snMillMaxDistance, snMinimumTownSize, snMiningCampMaxDistance, snPreferredMillPlacement, snPreferredStoragePitPlacement, snRandomPlacementFactor, snStoneDropsiteDistance, snTownCenterPlacement, snUnexploredConstruction, snWoodDropsiteDistance];
 cBuild.complexity = "Low";
 
 //build-forward
@@ -10662,8 +10662,8 @@ cResourceFound.commandParameters = [ {
 	note: "The resource that was found."
 } ];
 cResourceFound.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
+	title: "Check if forage bushes have been found.",
+	data: "(defrule\r\n\t(resource-found food)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cResourceFound.commandCategory = ["Economy"];
 cResourceFound.relatedCommands = [cDropsiteMinDistance, cSheepAndForageTooFar, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpFindResource];
@@ -10894,7 +10894,7 @@ cSetStance.complexity = "Low";
 
 //set-strategic-number
 cSetStrategicNumber.shortDescription = "Sets a given strategic number to a given value.";
-cSetStrategicNumber.description = "Sets a given strategic number to a given value. See the <a href=\"" + urlPrefix + "/strategic-numbers/sn-index.html\">Strategic Numbers</a> section for more info on each strategic number.";
+cSetStrategicNumber.description = "Sets a given strategic number to a given value. See the <a href=\"" + urlPrefix + "/strategic-numbers/sn-index.html\">Strategic Numbers</a> section for more info on each strategic number. Each strategic number has a different default value, which you can also check on the SN Index page.</p><p>Each SN is given an ID between 0 and 511. Currently, the SNs in the 313-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 510 (SN 511 might have some bugs in DE) and work your way backwards toward SNs in the 300 range.";
 cSetStrategicNumber.commandParameters = [ {
 	nameLink: pSnId.getLink(),
 	name: "SnId",
@@ -10910,13 +10910,13 @@ cSetStrategicNumber.commandParameters = [ {
 	range: "-32768 to 32767. Some strategic numbers have a smaller usable range.",
 	note: "The value to set the strategic number to."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cSetStrategicNumber.commandCategory = ["SNs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cSetStrategicNumber.example = [ {
+	title: "If sn-maximum-town-size is less than 24 and the AI is in the Castle Age or the Imperial Age, increase sn-maximum-town-size to 24.",
+	data: "(defrule\r\n\t(strategic-number sn-maximum-town-size < 24)\r\n=>\r\n\t(set-strategic-number sn-maximum-town-size 24)\r\n)"
+} ];
+cSetStrategicNumber.commandCategory = ["SNs"];
+cSetStrategicNumber.relatedCommands = [cSetDifficultyParameter, cStrategicNumber, cUpAlliedSn, cUpCompareSn, cUpModifySn];
+cSetStrategicNumber.relatedSNs = [];
 cSetStrategicNumber.complexity = "Low";
 
 //shared-goal
@@ -11106,6 +11106,7 @@ cStoneAmount.complexity = "Low";
 
 //strategic-number
 cStrategicNumber.shortDescription = "Checks a strategic number's value.";
+cStrategicNumber.description = "Checks a strategic number's value.</p><p>Strategic numbers modify various built-in behaviors and settings that can modify the automatic behaviors of your AI. See the <a href=\"" + urlPrefix + "/strategic-numbers/sn-index.html\">SN Index</a> for details on what each strategic number does. Each strategic number has a different default value, which you can also check on the SN Index page.</p><p>Each SN is given an ID between 0 and 511. Currently, the SNs in the 313-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 510 (SN 511 might have some bugs in DE) and work your way backwards toward SNs in the 300 range.";
 cStrategicNumber.commandParameters = [ {
 	nameLink: pSnId.getLink(),
 	name: "SnId",
@@ -11128,13 +11129,13 @@ cStrategicNumber.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cStrategicNumber.commandCategory = ["SNs"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cStrategicNumber.example = [ {
+	title: "If sn-maximum-town-size is less than 24 and the AI is in the Castle Age or the Imperial Age, increase sn-maximum-town-size to 24.",
+	data: "(defrule\r\n\t(strategic-number sn-maximum-town-size < 24)\r\n=>\r\n\t(set-strategic-number sn-maximum-town-size 24)\r\n)"
+} ];
+cStrategicNumber.commandCategory = ["SNs"];
+cStrategicNumber.relatedCommands = [cSetStrategicNumber, cUpAlliedSn, cUpCompareSn, cUpModifySn];
+cStrategicNumber.relatedSNs = [];
 cStrategicNumber.complexity = "Low";
 
 //taunt
@@ -18395,7 +18396,7 @@ pTypeOp.operatorTypes = [ {
 } ];
 
 //ActionId
-pActionId.description = "The current action(s) of an object. Sometimes an object can have more than one current action, such as a villager having the actions actionid-hunt and actionid-gather. It's also often wise to check an object's " + pOrderId.getLink() + " since orders last longer.";
+pActionId.description = "The current action(s) of an object. Sometimes an object can have more than one current action. It's also often wise to check an object's " + pOrderId.getLink() + " since orders last longer.";
 pActionId.shortDescription = "The current action(s) of an object.";
 pActionId.range = "-1, 600 to 699.";
 pActionId.relatedParams = [pGroupType, pIdleType, pObjectData, pOrderId, pDUCAction];
@@ -18442,7 +18443,7 @@ pActionId.valueList = [ {
 }, {
 	name: "actionid-gather",
 	id: 609,
-	description: "Unknown, but probably gathering to form an attack group or to get into formation."
+	description: "Likely a building setting a gather point."
 }, {
 	name: "actionid-move",
 	id: 610,
@@ -19377,7 +19378,7 @@ pDUCAction.valueList = [ {
 }, {
 	name: "action-gather",
 	id: 11,
-	description: "Buildings in the local list will set their gathering point at the target point or at the location of the target object(s)."
+	description: "Buildings in the local list will set their gather point at the target point or at the location of the target object(s)."
 }, {
 	name: "action-lock",
 	id: 12,
@@ -21133,7 +21134,7 @@ pOptionGoalId.range = "a goal ID to control how the command works";
 pOptionGoalId.relatedParams = [pEscrowGoalId, pGoalId, pOption];
 
 //OrderId
-pOrderId.description = "The current order for the object. Sometimes an object can have more than one current order, such as a villager having the actions orderid-hunt and orderid-gather.";
+pOrderId.description = "The current order for the object. Sometimes an object can have more than one current order.";
 pOrderId.shortDescription = "The current order for the object.";
 pOrderId.range = "-1, 700 to 799.";
 pOrderId.relatedParams = [pActionId, pGroupType, pIdleType, pObjectData, pDUCAction];
@@ -24242,7 +24243,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Bohemians",
-	notes: "can use my-unique-unit-upgrade, Dawn of the Dukes DLC only"
+	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Wagenburg Tactics",
 	aiName: "",
@@ -24359,7 +24360,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Burgundians",
-	notes: "can use my-unique-unit-upgrade, Lords of the West DLC only"
+	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Burgundian Vineyards",
 	aiName: "",
@@ -25399,7 +25400,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Poles",
-	notes: "can use my-unique-unit-upgrade (Dawn of the Dukes DLC only)"
+	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Szlachta Privileges",
 	aiName: "",
@@ -25477,7 +25478,7 @@ castleTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Romans",
-	notes: "can use my-unique-unit-upgrade (Return of Rome DLC only)"
+	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Ballistas",
 	aiName: "",
@@ -25945,9 +25946,9 @@ dockTechsArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "",
-	notes: ""
+	notes: "Free in DE"
 }, {	
 	name: "Elite Cannon Galleon",
 	aiName: "ri-deck-guns",
@@ -26271,19 +26272,6 @@ monasteryTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
-	name: "Block Printing",
-	aiName: "ri-block-printing",
-	weirdName: 0,
-	id: 230,
-	building: "Monastery",
-	age: 3,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
 	name: "Fervor",
 	aiName: "ri-fervor",
 	weirdName: 0,
@@ -26342,6 +26330,19 @@ monasteryTechsArray = [ {
 	id: 231,
 	building: "Monastery",
 	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Block Printing",
+	aiName: "ri-block-printing",
+	weirdName: 0,
+	id: 230,
+	building: "Monastery",
+	age: 4,
 	aok: 1,
 	tc: 1,
 	wk: 1,
@@ -26492,7 +26493,7 @@ siegeWorkshopTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Bohemians",
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 } ];	
 	
 stableTechsArray = [ {	
@@ -26533,7 +26534,7 @@ stableTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "",
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Cavalier",
 	aiName: "ri-cavalier",
@@ -27324,7 +27325,7 @@ marketTechsArrayROR = [ {
 	notes: ""
 }, {
 	name: "Irrigation",
-	id: 110,
+	id: 80,
 	building: "Market",
 	age: 4,
 	cost: "300F, 100W",
@@ -28454,7 +28455,7 @@ objectsBarracksArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "This is the unit you can train after Flemish Revolution is researched, Lords of the West DLC only"
+	notes: "This is the unit you can train after Flemish Revolution is researched"
 }];	
 
 
@@ -28838,7 +28839,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: ""
 }, {	
 	name: "Elite Hussite Wagon",
 	aiName: "elite-hussite-wagon",
@@ -28857,7 +28858,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: ""
 }, {
 	name: "Konnik",
 	aiName: "konnik",
@@ -28952,7 +28953,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {
 	name: "Elite Coustillier",
 	aiName: "elite-coustillier",
@@ -28971,7 +28972,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {
 	name: "Arambai",
 	aiName: "arambai",
@@ -29978,7 +29979,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: ""
 }, {	
 	name: "Elite Obuch",
 	aiName: "elite-obuch",
@@ -29997,7 +29998,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: ""
 }, {	
 	name: "Organ Gun",
 	aiName: "organ-gun",
@@ -30130,7 +30131,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+	notes: "Can be counted with serjeant-set"
 }, {
 	name: "Elite Serjeant",
 	aiName: "elite-serjeant",
@@ -30149,7 +30150,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+	notes: "Can be counted with serjeant-set"
 }, {	
 	name: "Boyar",
 	aiName: "boyar",
@@ -31107,7 +31108,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+	notes: "Can be counted with serjeant-set"
 }, {
 	name: "Elite Serjeant (Donjon)",
 	aiName: "elite-donjon-serjeant",
@@ -31126,7 +31127,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can be counted with serjeant-set, Lords of the West DLC only"
+	notes: "Can be counted with serjeant-set"
 }, {	
 	name: "Spearman (Donjon)",
 	aiName: "donjon-spearman",
@@ -31803,7 +31804,7 @@ objectsStableArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only."
+	notes: ""
 }, {	
 	name: "Knight",
 	aiName: "knight",
@@ -32710,7 +32711,7 @@ objectsTownCenterArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {
 	name: "Flemish Militia (Female)",
 	aiName: "",
@@ -32729,7 +32730,7 @@ objectsTownCenterArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }];	
 	
 objectsTownCenterArrayROR = [ {	
@@ -33547,7 +33548,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
+	notes: "Can use 'mill' to build and count folwarks"
 }, {	
 	name: "Folwark (Feudal Age)",
 	aiName: "",
@@ -33566,7 +33567,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
+	notes: "Can use 'mill' to build and count folwarks"
 }, {	
 	name: "Folwark (Castle Age)",
 	aiName: "",
@@ -33585,7 +33586,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks, Dawn of the Dukes DLC only"
+	notes: "Can use 'mill' to build and count folwarks"
 }, {	
 	name: "Mining Camp (Dark Age)",
 	aiName: "mining-camp",
@@ -34573,7 +34574,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Palisade Gate (Ascending Closed)",
 	aiName: "",
@@ -38700,7 +38701,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Amoghavarsha",
 	aiName: "",
@@ -38719,7 +38720,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Archbishop",
 	aiName: "",
@@ -38909,7 +38910,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Bleda the Hun",
 	aiName: "",
@@ -38947,7 +38948,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Bui Bi",
 	aiName: "",
@@ -39061,7 +39062,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Cuauhtemoc",
 	aiName: "",
@@ -39137,7 +39138,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Dagnajan",
 	aiName: "",
@@ -39194,7 +39195,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Duke D'Alençon",
 	aiName: "",
@@ -39232,7 +39233,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "El Cid",
 	aiName: "",
@@ -39308,7 +39309,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Envoy",
 	aiName: "",
@@ -39498,7 +39499,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Genghis Khan",
 	aiName: "",
@@ -39555,7 +39556,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Girgen Khan",
 	aiName: "",
@@ -39821,7 +39822,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Imam",
 	aiName: "",
@@ -39916,7 +39917,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {
 	name: "Jadwiga",
 	aiName: "",
@@ -39935,7 +39936,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Jan Zizka",
 	aiName: "",
@@ -39954,7 +39955,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Jarl",
 	aiName: "",
@@ -40106,7 +40107,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {
 	name: "Jogaila",
 	aiName: "",
@@ -40125,7 +40126,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Kestutis",
 	aiName: "",
@@ -40144,7 +40145,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Khosrau",
 	aiName: "",
@@ -40448,7 +40449,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Lord de Graville",
 	aiName: "",
@@ -40524,7 +40525,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Mihiro Bhoja",
 	aiName: "",
@@ -40543,7 +40544,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Miklos Toldi",
 	aiName: "",
@@ -40771,7 +40772,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Pope Leo I",
 	aiName: "",
@@ -40866,7 +40867,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Raden Wijaya",
 	aiName: "",
@@ -40904,7 +40905,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Reynald de Chatillon",
 	aiName: "",
@@ -40980,7 +40981,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Robin Hood",
 	aiName: "",
@@ -41018,7 +41019,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Roland",
 	aiName: "",
@@ -41189,7 +41190,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Sheriff of Nottingham",
 	aiName: "",
@@ -41626,7 +41627,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Urus Khan",
 	aiName: "",
@@ -41740,7 +41741,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "Warwolf Trebuchet (Packed)",
 	aiName: "",
@@ -41759,7 +41760,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Lords of the West DLC only"
+	notes: ""
 }, {	
 	name: "William the Conqueror",
 	aiName: "",
@@ -41854,7 +41855,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dynasties of India DLC only"
+	notes: ""
 }, {	
 	name: "Young Jagwiga",
 	aiName: "",
@@ -41873,7 +41874,7 @@ objectsHeroesArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Dawn of the Dukes DLC only"
+	notes: ""
 }, {	
 	name: "Zawisza the Black",
 	aiName: "",

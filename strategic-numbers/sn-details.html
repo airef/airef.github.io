@@ -53,6 +53,13 @@
 				info += "<p><table><tr><td>Default</td><td>" + snArray[i].default + "</td></tr>";
 				info += "<tr><td>Required/Usable Range</td><td>" + snArray[i].rmin + " to " + snArray[i].rmax + "</td></tr>";
 				info += "<tr><td>Allowable Range</td><td>" + snArray[i].min + " to " + snArray[i].max + "</td></tr>";
+				info += "<tr><td>Category</td><td>" + snArray[i].category + "</td></tr>";
+				if (snArray[i].effective == 0) {
+					info += "<tr><td>Effective</td><td>No</td></tr>";
+				}
+				if (snArray[i].effective == 1) {
+					info += "<tr><td>Effective</td><td>Yes</td></tr>";
+				}
 				switch (snArray[i].network) {
 					case 0:
 						info += "<tr><td>Network Sync?</td><td>No</td></tr>";
