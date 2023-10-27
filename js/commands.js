@@ -8572,7 +8572,7 @@ cChatToAllies.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-allies \"glhf\")\r\n)"
 } ];
 cChatToAllies.commandCategory = ["Chat"];
-cChatToAllies.relatedCommands = [cChatToAll, cChatToAlliesUsingId, cChatToAlliesUsingRange];
+cChatToAllies.relatedCommands = [cChatToAll, cChatToAlliesUsingId, cChatToAlliesUsingRange, cTaunt];
 cChatToAllies.relatedSNs = [];
 cChatToAllies.complexity = "Low";
 
@@ -8619,7 +8619,7 @@ cChatToAlliesUsingRange.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-allies-using-range 22300 22)\r\n)"
 } ];
 cChatToAlliesUsingRange.commandCategory = ["Chat"];
-cChatToAlliesUsingRange.relatedCommands = [cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId];
+cChatToAlliesUsingRange.relatedCommands = [cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cTauntUsingRange];
 cChatToAlliesUsingRange.relatedSNs = [];
 cChatToAlliesUsingRange.complexity = "Medium";
 
@@ -8692,7 +8692,7 @@ cChatToEnemiesUsingRange.complexity = "Medium";
 
 //chat-to-player
 cChatToPlayer.shortDescription = "Sends a given string as a chat message to a given player.";
-cChatToPlayer.description = "Sends a given string as a chat message to a given player. The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.";
+cChatToPlayer.description = "Sends a given string as a chat message to a given player.</p><p>If the chat message string starts with numerals, that number will be sent as a taunt to the specified player and the starting numerals will be removed from the message. For example, \"1 TC\" will send taunt 1 to the specified player and send the message \" TC\" to the specified player.</p><p>The fact allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color. It also allows the use of rule variables for " + pPlayerNumber.getLink() + ", such as \"this-any-ally\" or \"this-any-enemy\".";
 cChatToPlayer.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -8716,7 +8716,7 @@ cChatToPlayer.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player my-player-number \"testing\")\r\n)"
 } ];
 cChatToPlayer.commandCategory = ["Chat", "Debugging"];
-cChatToPlayer.relatedCommands = [cChatLocalToSelf, cChatToPlayerUsingId, cChatToPlayerUsingRange];
+cChatToPlayer.relatedCommands = [cChatLocalToSelf, cChatToPlayerUsingId, cChatToPlayerUsingRange, cTaunt];
 cChatToPlayer.relatedSNs = [];
 cChatToPlayer.complexity = "Low";
 
@@ -8777,7 +8777,7 @@ cChatToPlayerUsingRange.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(chat-to-player-using-range focus-player 22300 22)\r\n)"
 } ];
 cChatToPlayerUsingRange.commandCategory = ["Chat"];
-cChatToPlayerUsingRange.relatedCommands = [cChatLocalUsingRange, cChatToPlayer, cChatToPlayerUsingId];
+cChatToPlayerUsingRange.relatedCommands = [cChatLocalUsingRange, cChatToPlayer, cChatToPlayerUsingId, cTauntUsingRange];
 cChatToPlayerUsingRange.relatedSNs = [];
 cChatToPlayerUsingRange.complexity = "Medium";
 
@@ -9446,6 +9446,7 @@ cFalse.complexity = "Low";
 
 //food-amount
 cFoodAmount.shortDescription = "Checks a computer player's food amount.";
+cFoodAmount.description = "Checks a computer player's food amount. This amount includes escrowed food.";
 cFoodAmount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9466,7 +9467,7 @@ cFoodAmount.example = [ {
 	data: "(defrule\r\n\t(food-amount >= 2000)\r\n\t(can-sell-commodity food)\r\n=>\r\n\t(sell-commodity food)\r\n)"
 } ];
 cFoodAmount.commandCategory = ["Economy"];
-cFoodAmount.relatedCommands = [cFoodAmount, cGoldAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
+cFoodAmount.relatedCommands = [cGoldAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
 cFoodAmount.relatedSNs = [];
 cFoodAmount.complexity = "Low";
 
@@ -9610,6 +9611,7 @@ cGoal.complexity = "Low";
 
 //gold-amount
 cGoldAmount.shortDescription = "Checks a computer player's gold amount.";
+cGoldAmount.description = "Checks a computer player's gold amount. This amount includes escrowed gold.";
 cGoldAmount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -9630,7 +9632,7 @@ cGoldAmount.example = [ {
 	data: "(defrule\r\n\t(gold-amount >= 1000)\r\n\t(food-amount < 200)\r\n\t(can-buy-commodity food)\r\n=>\r\n\t(buy-commodity food)\r\n)"
 } ];
 cGoldAmount.commandCategory = ["Economy"];
-cGoldAmount.relatedCommands = [cFoodAmount, cGoldAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
+cGoldAmount.relatedCommands = [cFoodAmount, cStoneAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
 cGoldAmount.relatedSNs = [];
 cGoldAmount.complexity = "Low";
 
@@ -11080,6 +11082,7 @@ cStartingResources.complexity = "Low";
 
 //stone-amount
 cStoneAmount.shortDescription = "Checks a computer player's stone amount.";
+cStoneAmount.description = "Checks a computer player's stone amount. This amount includes escrowed stone.";
 cStoneAmount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -11095,13 +11098,13 @@ cStoneAmount.commandParameters = [ {
 	range: "-32768 to 32767.",
 	note: "A number for comparison."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cStoneAmount.commandCategory = ["Economy"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cStoneAmount.example = [ {
+	title: "If we have less than 100 stone and less than 3 town centers, set sn-stone-gatherer-percentage to at least 5%.",
+	data: "(defrule\r\n\t(stone-amount < 100)\r\n\t(building-type-count-total town-center < 3)\r\n=>\r\n\t(up-modify-sn sn-stone-gatherer-percentage c:max 5)\r\n)"
+} ];
+cStoneAmount.commandCategory = ["Economy"];
+cStoneAmount.relatedCommands = [cFoodAmount, cGoldAmount, cWoodAmount, cUpAlliedResourceAmount, cUpResourceAmount];
+cStoneAmount.relatedSNs = [];
 cStoneAmount.complexity = "Low";
 
 //strategic-number
@@ -11140,6 +11143,7 @@ cStrategicNumber.complexity = "Low";
 
 //taunt
 cTaunt.shortDescription = "Triggers the taunt associated with the given value.";
+cTaunt.description = "Triggers the taunt associated with the given value. This taunt will only be sent to allies, and other AIs can detect this taunt with the " + cTauntDetected.getLink() + " command.</p><p>To send a randomized taunt to allies between a range of taunt values, you can use " + cTauntUsingRange.getLink() + ".</p><p>You can also use any of the chat commands, like " + cChatToPlayer.getLink() + ", to send a taunt along with a chat message. To do this, put the taunt number at the very beginning of the message, followed by the rest of the chat message, like (chat-to-player every-ally \"3Please send food!\"). This example will send taunt 3 to all allies, and they will see the message without the taunt number at the beginning, just like when a human player starts a chat message with a taunt number.";
 cTaunt.commandParameters = [ {
 	nameLink: pTauntId.getLink(),
 	name: "TauntId",
@@ -11148,18 +11152,18 @@ cTaunt.commandParameters = [ {
 	range: "1 to 255",
 	note: "The taunt to send."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cTaunt.example = [ {
+	title: "Send taunt 31 to allies.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(taunt 31)\r\n)"
+} ];
+cTaunt.commandCategory = ["Chat", "Debugging", "Other Player Info"];
+cTaunt.relatedCommands = [cChatToAllies, cChatToPlayer, cTauntDetected, cTauntUsingRange];
+cTaunt.relatedSNs = [];
 cTaunt.complexity = "Low";
 
 //taunt-detected
-cTauntDetected.shortDescription = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged.";
-cTauntDetected.description = "Detects a given taunt. The check can be performed any number of times until the taunt is explicitly acknowledged. The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
+cTauntDetected.shortDescription = "Detects a given taunt from the given player.";
+cTauntDetected.description = "Detects a given taunt from the given player. The check can be performed any number of times until the taunt is explicitly acknowledged, meaning that if the given taunt is received from the given player, this fact with remain true until the AI uses the " + cAcknowledgeTaunt.getLink() + " command to acknowledge the taunt from that player. taunt-detected will detect taunts sent to the AI from another AI that uses the " + cTaunt.getLink() + " command, and it will also detect taunts sent in a chat message if the message starts with a number between 1 and 255.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player slot, where lobby-player-# refers to the number assigned to the player's color.";
 cTauntDetected.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -11175,18 +11179,18 @@ cTauntDetected.commandParameters = [ {
 	range: "1 to 255",
 	note: "The taunt to detect"
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cTauntDetected.commandCategory = ["Chat", "Debugging", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cTauntDetected.example = [ {
+	title: "If taunt 4 (\"Wood please\") is sent to the AI from an ally, we have more than 200 wood, and we have a market, then tribute 100 wood to the ally and acknowledge the taunt so that taunt-detected will not remain true during the next AI script pass.",
+	data: "(defrule\r\n\t(taunt-detected any-ally 4)\r\n\t(wood-amount >= 200)\r\n\t(building-type-count market > 0)\r\n=>\r\n\t(tribute-to-player this-any-ally wood 100)\r\n\t(acknowledge-taunt this-any-ally 4)\r\n)"
+} ];
+cTauntDetected.commandCategory = ["Chat", "Debugging", "Other Player Info"];
+cTauntDetected.relatedCommands = [cAcknowledgeTaunt, cChatToPlayer, cChatToAllies, cTaunt, cTauntUsingRange];
+cTauntDetected.relatedSNs = [];
 cTauntDetected.complexity = "Low";
 
 //taunt-using-range
 cTauntUsingRange.shortDescription = "Triggers a random taunt that is picked from a given taunt range.";
-cTauntUsingRange.description = "Triggers a random taunt that is picked from a given taunt range. Example: (taunt-using-range 50 10) will use a random taunt between 50 and 59.";
+cTauntUsingRange.description = "Triggers a random taunt that is picked from a given taunt range. This taunt will only be sent to allies, and other AIs can detect this taunt with the " + cTauntDetected.getLink() + " command.";
 cTauntUsingRange.commandParameters = [ {
 	nameLink: pTauntId.getLink(),
 	name: "TauntId",
@@ -11202,13 +11206,13 @@ cTauntUsingRange.commandParameters = [ {
 	range: "1 to 32767.",
 	note: "The range of possible taunts to choose from, starting from the given TauntId."
 } ];
-/*c.example = [ {
-	title: ".",
-	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(do-nothing)\r\n)"
-} ];*/
-cTauntUsingRange.commandCategory = ["Chat", "Other Player Info"];/*
-c.relatedCommands = [];
-c.relatedSNs = [];*/
+cTauntUsingRange.example = [ {
+	title: "Send allies a random taunt between 50 and 59.",
+	data: "(defrule\r\n\t(true)\r\n=>\r\n\t(taunt-using-range 50 10)\r\n)"
+} ];
+cTauntUsingRange.commandCategory = ["Chat", "Other Player Info"];
+cTauntUsingRange.relatedCommands = [cAcknowledgeTaunt, cChatToPlayerUsingRange, cChatToAlliesUsingRange, cTaunt, cTauntDetected];
+cTauntUsingRange.relatedSNs = [];
 cTauntUsingRange.complexity = "Low";
 
 //timer-triggered
