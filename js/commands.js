@@ -18909,107 +18909,115 @@ pCiv.valueList = [ {
 }, {
 	name: "italian",
 	id: 19,
-	description: "Italians. Must define with a defconst before it can be used."
+	description: "Italians. In WK, must define with a defconst before it can be used."
 }, {
 	name: "hindustanis",
 	id: 20,
-	description: "Hindustanis (for DE only). Must define with a defconst before it can be used. Feel free to use \"indian\" as a defconst name instead."
+	description: "Hindustanis (for DE only). \"indian\" can be used instead."
 }, {
 	name: "indian",
 	id: 20,
-	description: "Indians (for HD or WK only). Must define with a defconst before it can be used. Feel free to use \"hindustanis\" as a defconst name instead."
+	description: "Indians (for HD or WK only). In WK, must define with a defconst before it can be used. \"hindustanis\" can be used instead."
 }, {
 	name: "incan",
 	id: 21,
-	description: "Incas. Must define with a defconst before it can be used."
+	description: "Incas. In WK, must define with a defconst before it can be used."
 }, {
 	name: "magyar",
 	id: 22,
-	description: "Magyars. Must define with a defconst before it can be used."
+	description: "Magyars. In WK, must define with a defconst before it can be used."
 }, {
 	name: "slavic",
 	id: 23,
-	description: "Slavs. Must define with a defconst before it can be used."
+	description: "Slavs. In WK, must define with a defconst before it can be used."
 }, {
 	name: "portuguese",
 	id: 24,
-	description: "Portuguese. Must define with a defconst before it can be used."
+	description: "Portuguese. In WK, must define with a defconst before it can be used."
 }, {
 	name: "ethiopian",
 	id: 25,
-	description: "Ethiopians. Must define with a defconst before it can be used."
+	description: "Ethiopians. In WK, must define with a defconst before it can be used."
 }, {
 	name: "malian",
 	id: 26,
-	description: "Malians. Must define with a defconst before it can be used."
+	description: "Malians. In WK, must define with a defconst before it can be used."
 }, {
 	name: "berbers",
 	id: 27,
-	description: "Berbers. Must define with a defconst before it can be used."
+	description: "Berbers. In WK, must define with a defconst before it can be used."
 }, {
 	name: "khmer",
 	id: 28,
-	description: "Khmer. Must define with a defconst before it can be used."
+	description: "Khmer. In WK, must define with a defconst before it can be used."
 }, {
 	name: "malay",
 	id: 29,
-	description: "Malay. Must define with a defconst before it can be used."
+	description: "Malay. In WK, must define with a defconst before it can be used."
 }, {
 	name: "burmese",
 	id: 30,
-	description: "Burmese. Must define with a defconst before it can be used."
+	description: "Burmese. In WK, must define with a defconst before it can be used."
 }, {
 	name: "vietnamese",
 	id: 31,
-	description: "Vietnamese. Must define with a defconst before it can be used."
+	description: "Vietnamese. In WK, must define with a defconst before it can be used."
 }, {
 	name: "bulgarians",
 	id: 32,
-	description: "Bulgarians. Must define with a defconst before it can be used."
+	description: "Bulgarians."
 }, {
 	name: "tatars",
 	id: 33,
-	description: "Tatars. Must define with a defconst before it can be used."
+	description: "Tatars."
 }, {
 	name: "cumans",
 	id: 34,
-	description: "Cumans. Must define with a defconst before it can be used."
+	description: "Cumans."
 }, {
 	name: "lithuanians",
 	id: 35,
-	description: "Lithuanians. Must define with a defconst before it can be used."
+	description: "Lithuanians."
 }, {
 	name: "burgundians",
 	id: 36,
-	description: "Burgundians. Must define with a defconst before it can be used."
+	description: "Burgundians."
 }, {
 	name: "sicilians",
 	id: 37,
-	description: "Sicilians. Must define with a defconst before it can be used."
+	description: "Sicilians."
 }, {
 	name: "poles",
 	id: 38,
-	description: "Poles. Must define with a defconst before it can be used."
+	description: "Poles."
 }, {
 	name: "bohemians",
 	id: 39,
-	description: "Bohemians. Must define with a defconst before it can be used."
+	description: "Bohemians."
 }, {
 	name: "dravidians",
 	id: 40,
-	description: "Dravidians. Must define with a defconst before it can be used."
+	description: "Dravidians."
 }, {
 	name: "bengalis",
 	id: 41,
-	description: "Bengalis. Must define with a defconst before it can be used."
+	description: "Bengalis."
 }, {
 	name: "gurjaras",
 	id: 42,
-	description: "Gurjaras. Must define with a defconst before it can be used."
+	description: "Gurjaras."
 }, {
 	name: "romans",
 	id: 43,
-	description: "Romans. Must define with a defconst before it can be used."
+	description: "Romans."
+}, {
+	name: "armenians",
+	id: 44,
+	description: "Armenians."
+}, {
+	name: "georgians",
+	id: 45,
+	description: "Georgians."
 } ];
 
 //ClassId
@@ -24140,6 +24148,45 @@ castleTechsArray = [ {
 	civ: "",
 	notes: "Use with " + cSpy.getLink() + " command to research Treason"
 }, {	
+	name: "Elite Composite Bowman",
+	aiName: "ri-elite-composite-bowman",
+	weirdName: 0,
+	id: 918,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Armenians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Cilician Fleet",
+	aiName: "",
+	weirdName: 0,
+	id: 922,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Armenians",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Fereters",
+	aiName: "",
+	weirdName: 0,
+	id: 921,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Armenians",
+	notes: "can use my-unique-research"
+}, {	
 	name: "Elite Jaguar Warrior",
 	aiName: "ri-elite-jaguar-man",
 	weirdName: 1,
@@ -24172,7 +24219,7 @@ castleTechsArray = [ {
 	id: 24,
 	building: "Castle",
 	age: 4,
-	aok: 1,
+	aok: 0,
 	tc: 1,
 	wk: 1,
 	de: 1,
@@ -24724,6 +24771,45 @@ castleTechsArray = [ {
 	de: 1,
 	civ: "Franks",
 	notes: "can use my-unique-research (DE only)"
+}, {	
+	name: "Elite Monaspa",
+	aiName: "ri-elite-monaspa",
+	weirdName: 0,
+	id: 920,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Georgians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Svan Towers",
+	aiName: "",
+	weirdName: 0,
+	id: 923,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Georgians",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Aznauri Cavalry",
+	aiName: "",
+	weirdName: 0,
+	id: 924,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Georgians",
+	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Huskarl",
 	aiName: "ri-elite-huskarl",
@@ -25401,7 +25487,7 @@ castleTechsArray = [ {
 	civ: "Persians",
 	notes: "can use my-second-unique-research"
 }, {	
-	name: "Mahouts",
+	name: "Mahouts/Citadels",
 	aiName: "",
 	weirdName: 0,
 	id: 7,
@@ -25544,6 +25630,19 @@ castleTechsArray = [ {
 	civ: "Saracens",
 	notes: "can use my-unique-unit-upgrade"
 }, {	
+	name: "Bimaristan",
+	aiName: "",
+	weirdName: 0,
+	id: 28,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Saracens",
+	notes: "can use my-second-unique-research"
+}, {	
 	name: "Counterweights",
 	aiName: "",
 	weirdName: 0,
@@ -25579,9 +25678,9 @@ castleTechsArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Saracens",
-	notes: "can use my-second-unique-research, my-unique-research in UP/WK"
+	notes: "removed in DE, my-unique-research in UP/WK"
 }, {	
 	name: "Elite Serjeant",
 	aiName: "ri-elite-serjeant",
@@ -28657,6 +28756,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Composite Bowman",
+	aiName: "composite-bowman",
+	line: "composite-bowman-line",
+	id: 1800,
+	class: "archery-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1801",
+	projectile: "503",
+	chemProjectile: "516",
+	civ: "Armenians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Composite Bowman",
+	aiName: "elite-composite-bowman",
+	line: "composite-bowman-line",
+	id: 1802,
+	class: "archery-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1801",
+	projectile: "503",
+	chemProjectile: "516",
+	civ: "Armenians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Jaguar Warrior",
 	aiName: "jaguar-man",
 	line: "jaguar-man-line",
@@ -29338,6 +29475,44 @@ objectsCastleArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Monaspa",
+	aiName: "monaspa",
+	line: "monaspa-line",
+	id: 1803,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "1804",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Georgians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Monaspa",
+	aiName: "elite-monaspa",
+	line: "monaspa-line",
+	id: 1805,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "1804",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Georgians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -30461,6 +30636,44 @@ objectsCastleArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Qizilbash Warrior",
+	aiName: "",
+	line: "",
+	id: "1817",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1818",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Untrainable, scenario unit only"
+}, {	
+	name: "Elite Qizilbash Warrior",
+	aiName: "",
+	line: "",
+	id: "1829",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1818",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Untrainable, scenario unit only"
 }];	
 	
 objectsDockArray = [ {	
@@ -31383,6 +31596,44 @@ objectsMonasteryArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Warrior Priest",
+	aiName: "warrior-priest",
+	line: "",
+	id: 1811,
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Monastery",
+	age: 3,
+	deadUnit: "1812",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Armenians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Warrior Priest with Relic",
+	aiName: "",
+	line: "",
+	id: 1831,
+	class: "monk-with-relic-class",
+	cmdId: "cmdid-relic",
+	building: "Monastery",
+	age: 3,
+	deadUnit: "1812",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Warrior Monks change to this unit ID when carrying relics"
 }];
 	
 objectsSiegeWorkshopArray = [ {	
@@ -31885,6 +32136,25 @@ objectsStableArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Savar",
+	aiName: "savar",
+	line: "knight-line",
+	id: 1813,
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "1812",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Persians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -33765,6 +34035,25 @@ objectsBuildingsArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1409"
 }, {	
+	name: "Mule Cart",
+	aiName: "mule-cart",
+	line: "",
+	id: 1808,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1809",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Dock (Dark Age)",
 	aiName: "dock",
 	line: "",
@@ -34144,6 +34433,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1445"
+}, {	
+	name: "Fortified Church",
+	aiName: "fortified-church",
+	line: "",
+	id: 1806,
+	class: "building-class",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1531",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {	
 	name: "Caravanserai",
 	aiName: "caravanserai",
@@ -39868,6 +40176,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: "In DE, dead unit is 1326"
 }, {	
+	name: "Ismail",
+	aiName: "",
+	line: "",
+	id: "1819",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "449",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Itzcoatl",
 	aiName: "",
 	line: "",
@@ -39886,6 +40213,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1221"
+}, {	
+	name: "Ivane",
+	aiName: "",
+	line: "",
+	id: "1825",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "27",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {	
 	name: "Ivaylo",
 	aiName: "",
@@ -40609,6 +40955,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Mleh",
+	aiName: "",
+	line: "",
+	id: "1828",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "568",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Mordred",
 	aiName: "",
 	line: "",
@@ -41179,6 +41544,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Selim the Grim",
+	aiName: "",
+	line: "",
+	id: "1814",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1820",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Shah",
 	aiName: "",
 	line: "",
@@ -41197,6 +41581,25 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "In DE, dead unit is 1337"
+}, {	
+	name: "Shah Ismail",
+	aiName: "",
+	line: "",
+	id: "1815",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1816",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {	
 	name: "Shaybani Khan",
 	aiName: "",
@@ -41321,6 +41724,25 @@ objectsHeroesArray = [ {
 	building: "Heroes",
 	age: 1,
 	deadUnit: "1575",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Stephan",
+	aiName: "",
+	line: "",
+	id: "1827",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1812",
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
@@ -41464,6 +41886,25 @@ objectsHeroesArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Tamar",
+	aiName: "",
+	line: "",
+	id: "1822",
+	class: "monastery-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1823",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Tamerlane",
 	aiName: "",
 	line: "",
@@ -41537,6 +41978,25 @@ objectsHeroesArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Thoros",
+	aiName: "",
+	line: "",
+	id: "1821",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1848",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -41891,6 +42351,44 @@ objectsHeroesArray = [ {
 	building: "Heroes",
 	age: 1,
 	deadUnit: "431",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Yury",
+	aiName: "",
+	line: "",
+	id: "1824",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1630",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Zakare",
+	aiName: "",
+	line: "",
+	id: "1826",
+	class: "infantry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1812",
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
