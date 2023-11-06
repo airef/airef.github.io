@@ -94,7 +94,7 @@ class StrategicNumber {
 		this.available = 0;
 		this.version = "1.0c";
 		this.aoe = 0;
-		this.aok = 0;
+		this.aoc = 0;
 		this.up = 0;
 		this.de = 0;
 		this.linked = [];
@@ -138,177 +138,177 @@ class DefinedConstant {
 }
 
 //Commands
-var cTrue = new Command("true","Fact","AoK");
-var cFalse = new Command("false","Fact","AoK");
-var cAcknowledgeEvent = new Command("acknowledge-event","Action","AoK");
-var cAcknowledgeTaunt = new Command("acknowledge-taunt","Action","AoK");
-var cAttackNow = new Command("attack-now","Action","AoK");
-var cAttackSoldierCount = new Command("attack-soldier-count","Fact","AoK");
-var cAttackWarboatCount = new Command("attack-warboat-count","Fact","AoK");
-var cBuild = new Command("build","Action","AoK");
-var cBuildForward = new Command("build-forward","Action","AoK");
-var cBuildGate = new Command("build-gate","Action","AoK");
-var cBuildingAvailable = new Command("building-available","Fact","AoK");
-var cBuildingCount = new Command("building-count","Fact","AoK");
-var cBuildingCountTotal = new Command("building-count-total","Fact","AoK");
-var cBuildingTypeCount = new Command("building-type-count","Fact","AoK");
-var cBuildingTypeCountTotal = new Command("building-type-count-total","Fact","AoK");
-var cBuildWall = new Command("build-wall","Action","AoK");
-var cBuyCommodity = new Command("buy-commodity","Action","AoK");
-var cCanAffordBuilding = new Command("can-afford-building","Fact","AoK");
-var cCanAffordCompleteWall = new Command("can-afford-complete-wall","Fact","AoK");
-var cCanAffordResearch = new Command("can-afford-research","Fact","AoK");
-var cCanAffordUnit = new Command("can-afford-unit","Fact","AoK");
-var cCanBuild = new Command("can-build","Fact","AoK");
-var cCanBuildGate = new Command("can-build-gate","Fact","AoK");
-var cCanBuildGateWithEscrow = new Command("can-build-gate-with-escrow","Fact","AoK");
-var cCanBuildWall = new Command("can-build-wall","Fact","AoK");
-var cCanBuildWallWithEscrow = new Command("can-build-wall-with-escrow","Fact","AoK");
-var cCanBuildWithEscrow = new Command("can-build-with-escrow","Fact","AoK");
-var cCanBuyCommodity = new Command("can-buy-commodity","Fact","AoK");
-var cCanResearch = new Command("can-research","Fact","AoK");
-var cCanResearchWithEscrow = new Command("can-research-with-escrow","Fact","AoK");
-var cCanSellCommodity = new Command("can-sell-commodity","Fact","AoK");
-var cCanSpy = new Command("can-spy","Fact","AoK");
-var cCanSpyWithEscrow = new Command("can-spy-with-escrow","Fact","AoK");
-var cCanTrain = new Command("can-train","Fact","AoK");
-var cCanTrainWithEscrow = new Command("can-train-with-escrow","Fact","AoK");
-var cCcAddResource = new Command("cc-add-resource","Action","AoK");
-var cCcPlayersBuildingCount = new Command("cc-players-building-count","Fact","AoK");
-var cCcPlayersBuildingTypeCount = new Command("cc-players-building-type-count","Fact","AoK");
-var cCcPlayersUnitCount = new Command("cc-players-unit-count","Fact","AoK");
-var cCcPlayersUnitTypeCount = new Command("cc-players-unit-type-count","Fact","AoK");
-var cChatLocal = new Command("chat-local","Action","AoK");
-var cChatLocalToSelf = new Command("chat-local-to-self","Action","AoK");
-var cChatLocalUsingId = new Command("chat-local-using-id","Action","AoK");
-var cChatLocalUsingRange = new Command("chat-local-using-range","Action","AoK");
-var cChatToAll = new Command("chat-to-all","Action","AoK");
-var cChatToAllies = new Command("chat-to-allies","Action","AoK");
-var cChatToAlliesUsingId = new Command("chat-to-allies-using-id","Action","AoK");
-var cChatToAlliesUsingRange = new Command("chat-to-allies-using-range","Action","AoK");
-var cChatToAllUsingId = new Command("chat-to-all-using-id","Action","AoK");
-var cChatToAllUsingRange = new Command("chat-to-all-using-range","Action","AoK");
-var cChatToEnemies = new Command("chat-to-enemies","Action","AoK");
-var cChatToEnemiesUsingId = new Command("chat-to-enemies-using-id","Action","AoK");
-var cChatToEnemiesUsingRange = new Command("chat-to-enemies-using-range","Action","AoK");
-var cChatToPlayer = new Command("chat-to-player","Action","AoK");
-var cChatToPlayerUsingId = new Command("chat-to-player-using-id","Action","AoK");
-var cChatToPlayerUsingRange = new Command("chat-to-player-using-range","Action","AoK");
-var cChatTrace = new Command("chat-trace","Action","AoK");
-var cCheatsEnabled = new Command("cheats-enabled","Fact","AoK");
-var cCivilianPopulation = new Command("civilian-population","Fact","AoK");
-var cCivSelected = new Command("civ-selected","Fact","AoK");
-var cClearTributeMemory = new Command("clear-tribute-memory","Action","AoK");
-var cCommodityBuyingPrice = new Command("commodity-buying-price","Fact","AoK");
-var cCommoditySellingPrice = new Command("commodity-selling-price","Fact","AoK");
-var cCurrentAge = new Command("current-age","Fact","AoK");
-var cCurrentAgeTime = new Command("current-age-time","Fact","AoK");
-var cCurrentScore = new Command("current-score","Fact","AoK");
-var cDeathMatchGame = new Command("death-match-game","Fact","AoK");
-var cDefendSoldierCount = new Command("defend-soldier-count","Fact","AoK");
-var cDefendWarboatCount = new Command("defend-warboat-count","Fact","AoK");
-var cDeleteBuilding = new Command("delete-building","Action","AoK");
-var cDeleteUnit = new Command("delete-unit","Action","AoK");
-var cDifficulty = new Command("difficulty","Fact","AoK");
-var cDisableRule = new Command("disable-rule","Action","AoK");
-var cDisableSelf = new Command("disable-self","Action","AoK");
-var cDisableTimer = new Command("disable-timer","Action","AoK");
-var cDoctrine = new Command("doctrine","Fact","AoK");
-var cDoNothing = new Command("do-nothing","Action","AoK");
-var cDropsiteMinDistance = new Command("dropsite-min-distance","Fact","AoK");
-var cEnableRule = new Command("enable-rule","Action","AoK");
-var cEnableTimer = new Command("enable-timer","Action","AoK");
-var cEnableWallPlacement = new Command("enable-wall-placement","Action","AoK");
-var cEnemyBuildingsInTown = new Command("enemy-buildings-in-town","Fact","AoK");
-var cEnemyCapturedRelics = new Command("enemy-captured-relics","Fact","AoK");
-var cEscrowAmount = new Command("escrow-amount","Fact","AoK");
-var cEventDetected = new Command("event-detected","Fact","AoK");
-var cFoodAmount = new Command("food-amount","Fact","AoK");
-var cGameTime = new Command("game-time","Fact","AoK");
-var cGameType = new Command("game-type","Fact","AoK");
-var cGateCount = new Command("gate-count","Fact","AoK");
-var cGenerateRandomNumber = new Command("generate-random-number","Action","AoK");
-var cGoal = new Command("goal","Fact","AoK");
-var cGoldAmount = new Command("gold-amount","Fact","AoK");
-var cHoldKohRuin = new Command("hold-koh-ruin","Fact","AoK");
-var cHoldRelics = new Command("hold-relics","Fact","AoK");
-var cHousingHeadroom = new Command("housing-headroom","Fact","AoK");
-var cIdleFarmCount = new Command("idle-farm-count","Fact","AoK");
-var cLog = new Command("log","Action","AoK");
-var cLogTrace = new Command("log-trace","Action","AoK");
-var cMapSize = new Command("map-size","Fact","AoK");
-var cMapType = new Command("map-type","Fact","AoK");
-var cMilitaryPopulation = new Command("military-population","Fact","AoK");
-var cPlayerComputer = new Command("player-computer","Fact","AoK");
-var cPlayerHuman = new Command("player-human","Fact","AoK");
-var cPlayerInGame = new Command("player-in-game","Fact","AoK");
-var cPlayerNumber = new Command("player-number","Fact","AoK");
-var cPlayerResigned = new Command("player-resigned","Fact","AoK");
-var cPlayerValid = new Command("player-valid","Fact","AoK");
-var cPlayersBuildingCount = new Command("players-building-count","Fact","AoK");
-var cPlayersBuildingTypeCount = new Command("players-building-type-count","Fact","AoK");
-var cPlayersCiv = new Command("players-civ","Fact","AoK");
-var cPlayersCivilianPopulation = new Command("players-civilian-population","Fact","AoK");
-var cPlayersCurrentAge = new Command("players-current-age","Fact","AoK");
-var cPlayersCurrentAgeTime = new Command("players-current-age-time","Fact","AoK");
-var cPlayersMilitaryPopulation = new Command("players-military-population","Fact","AoK");
-var cPlayersPopulation = new Command("players-population","Fact","AoK");
-var cPlayersScore = new Command("players-score","Fact","AoK");
-var cPlayersStance = new Command("players-stance","Fact","AoK");
-var cPlayersTribute = new Command("players-tribute","Fact","AoK");
-var cPlayersTributeMemory = new Command ("players-tribute-memory","Fact","AoK");
-var cPlayersUnitCount = new Command("players-unit-count","Fact","AoK");
-var cPlayersUnitTypeCount = new Command("players-unit-type-count","Fact","AoK");
-var cPopulation = new Command("population","Fact","AoK");
-var cPopulationCap = new Command("population-cap","Fact","AoK");
-var cPopulationHeadroom = new Command("population-headroom","Fact","AoK");
-var cRandomNumber = new Command("random-number","Fact","AoK");
-var cRegicideGame = new Command("regicide-game","Fact","AoK");
-var cReleaseEscrow = new Command("release-escrow","Action","AoK");
-var cResearch = new Command("research","Action","AoK");
-var cResearchAvailable = new Command("research-available","Fact","AoK");
-var cResearchCompleted = new Command("research-completed","Fact","AoK");
-var cResign = new Command("resign","Action","AoK");
-var cResourceFound = new Command("resource-found","Fact","AoK");
-var cSellCommodity = new Command("sell-commodity","Action","AoK");
-var cSetAuthorEmail = new Command("set-author-email","Action","AoK");
-var cSetAuthorName = new Command("set-author-name","Action","AoK");
-var cSetAuthorVersion = new Command("set-author-version","Action","AoK");
-var cSetDifficultyParameter = new Command("set-difficulty-parameter","Action","AoK");
-var cSetDoctrine = new Command("set-doctrine","Action","AoK");
-var cSetEscrowPercentage = new Command("set-escrow-percentage","Action","AoK");
-var cSetGoal = new Command("set-goal","Action","AoK");
-var cSetSharedGoal = new Command("set-shared-goal","Action","AoK");
-var cSetSignal = new Command("set-signal","Action","AoK");
-var cSetStance = new Command("set-stance","Action","AoK");
-var cSetStrategicNumber = new Command("set-strategic-number","Action","AoK");
-var cSharedGoal = new Command("shared-goal","Fact","AoK");
-var cSheepAndForageTooFar = new Command("sheep-and-forage-too-far","Fact","AoK");
-var cSoldierCount = new Command("soldier-count","Fact","AoK");
-var cSpy = new Command("spy","Action","AoK");
-var cStanceToward = new Command("stance-toward","Fact","AoK");
-var cStartingAge = new Command("starting-age","Fact","AoK");
-var cStartingResources = new Command("starting-resources","Fact","AoK");
-var cStoneAmount = new Command("stone-amount","Fact","AoK");
-var cStrategicNumber = new Command("strategic-number","Fact","AoK");
-var cTaunt = new Command("taunt","Action","AoK");
-var cTauntDetected = new Command("taunt-detected","Fact","AoK");
-var cTauntUsingRange = new Command("taunt-using-range","Action","AoK");
-var cTimerTriggered = new Command("timer-triggered","Fact","AoK");
-var cTownUnderAttack = new Command("town-under-attack","Fact","AoK");
-var cTraceFact = new Command("trace-fact","Action","AoK");
-var cTrain = new Command("train","Action","AoK");
-var cTributeToPlayer = new Command("tribute-to-player","Action","AoK");
-var cUnitAvailable = new Command("unit-available","Fact","AoK");
-var cUnitCount = new Command("unit-count","Fact","AoK");
-var cUnitCountTotal = new Command("unit-count-total","Fact","AoK");
-var cUnitTypeCount = new Command("unit-type-count","Fact","AoK");
-var cUnitTypeCountTotal = new Command("unit-type-count-total","Fact","AoK");
-var cVictoryCondition = new Command("victory-condition","Fact","AoK");
-var cWallCompletedPercentage = new Command("wall-completed-percentage","Fact","AoK");
-var cWallInvisiblePercentage = new Command("wall-invisible-percentage","Fact","AoK");
-var cWarboatCount = new Command("warboat-count","Fact","AoK");
-var cWoodAmount = new Command("wood-amount","Fact","AoK");
+var cTrue = new Command("true","Fact","AoC");
+var cFalse = new Command("false","Fact","AoC");
+var cAcknowledgeEvent = new Command("acknowledge-event","Action","AoC");
+var cAcknowledgeTaunt = new Command("acknowledge-taunt","Action","AoC");
+var cAttackNow = new Command("attack-now","Action","AoC");
+var cAttackSoldierCount = new Command("attack-soldier-count","Fact","AoC");
+var cAttackWarboatCount = new Command("attack-warboat-count","Fact","AoC");
+var cBuild = new Command("build","Action","AoC");
+var cBuildForward = new Command("build-forward","Action","AoC");
+var cBuildGate = new Command("build-gate","Action","AoC");
+var cBuildingAvailable = new Command("building-available","Fact","AoC");
+var cBuildingCount = new Command("building-count","Fact","AoC");
+var cBuildingCountTotal = new Command("building-count-total","Fact","AoC");
+var cBuildingTypeCount = new Command("building-type-count","Fact","AoC");
+var cBuildingTypeCountTotal = new Command("building-type-count-total","Fact","AoC");
+var cBuildWall = new Command("build-wall","Action","AoC");
+var cBuyCommodity = new Command("buy-commodity","Action","AoC");
+var cCanAffordBuilding = new Command("can-afford-building","Fact","AoC");
+var cCanAffordCompleteWall = new Command("can-afford-complete-wall","Fact","AoC");
+var cCanAffordResearch = new Command("can-afford-research","Fact","AoC");
+var cCanAffordUnit = new Command("can-afford-unit","Fact","AoC");
+var cCanBuild = new Command("can-build","Fact","AoC");
+var cCanBuildGate = new Command("can-build-gate","Fact","AoC");
+var cCanBuildGateWithEscrow = new Command("can-build-gate-with-escrow","Fact","AoC");
+var cCanBuildWall = new Command("can-build-wall","Fact","AoC");
+var cCanBuildWallWithEscrow = new Command("can-build-wall-with-escrow","Fact","AoC");
+var cCanBuildWithEscrow = new Command("can-build-with-escrow","Fact","AoC");
+var cCanBuyCommodity = new Command("can-buy-commodity","Fact","AoC");
+var cCanResearch = new Command("can-research","Fact","AoC");
+var cCanResearchWithEscrow = new Command("can-research-with-escrow","Fact","AoC");
+var cCanSellCommodity = new Command("can-sell-commodity","Fact","AoC");
+var cCanSpy = new Command("can-spy","Fact","AoC");
+var cCanSpyWithEscrow = new Command("can-spy-with-escrow","Fact","AoC");
+var cCanTrain = new Command("can-train","Fact","AoC");
+var cCanTrainWithEscrow = new Command("can-train-with-escrow","Fact","AoC");
+var cCcAddResource = new Command("cc-add-resource","Action","AoC");
+var cCcPlayersBuildingCount = new Command("cc-players-building-count","Fact","AoC");
+var cCcPlayersBuildingTypeCount = new Command("cc-players-building-type-count","Fact","AoC");
+var cCcPlayersUnitCount = new Command("cc-players-unit-count","Fact","AoC");
+var cCcPlayersUnitTypeCount = new Command("cc-players-unit-type-count","Fact","AoC");
+var cChatLocal = new Command("chat-local","Action","AoC");
+var cChatLocalToSelf = new Command("chat-local-to-self","Action","AoC");
+var cChatLocalUsingId = new Command("chat-local-using-id","Action","AoC");
+var cChatLocalUsingRange = new Command("chat-local-using-range","Action","AoC");
+var cChatToAll = new Command("chat-to-all","Action","AoC");
+var cChatToAllies = new Command("chat-to-allies","Action","AoC");
+var cChatToAlliesUsingId = new Command("chat-to-allies-using-id","Action","AoC");
+var cChatToAlliesUsingRange = new Command("chat-to-allies-using-range","Action","AoC");
+var cChatToAllUsingId = new Command("chat-to-all-using-id","Action","AoC");
+var cChatToAllUsingRange = new Command("chat-to-all-using-range","Action","AoC");
+var cChatToEnemies = new Command("chat-to-enemies","Action","AoC");
+var cChatToEnemiesUsingId = new Command("chat-to-enemies-using-id","Action","AoC");
+var cChatToEnemiesUsingRange = new Command("chat-to-enemies-using-range","Action","AoC");
+var cChatToPlayer = new Command("chat-to-player","Action","AoC");
+var cChatToPlayerUsingId = new Command("chat-to-player-using-id","Action","AoC");
+var cChatToPlayerUsingRange = new Command("chat-to-player-using-range","Action","AoC");
+var cChatTrace = new Command("chat-trace","Action","AoC");
+var cCheatsEnabled = new Command("cheats-enabled","Fact","AoC");
+var cCivilianPopulation = new Command("civilian-population","Fact","AoC");
+var cCivSelected = new Command("civ-selected","Fact","AoC");
+var cClearTributeMemory = new Command("clear-tribute-memory","Action","AoC");
+var cCommodityBuyingPrice = new Command("commodity-buying-price","Fact","AoC");
+var cCommoditySellingPrice = new Command("commodity-selling-price","Fact","AoC");
+var cCurrentAge = new Command("current-age","Fact","AoC");
+var cCurrentAgeTime = new Command("current-age-time","Fact","AoC");
+var cCurrentScore = new Command("current-score","Fact","AoC");
+var cDeathMatchGame = new Command("death-match-game","Fact","AoC");
+var cDefendSoldierCount = new Command("defend-soldier-count","Fact","AoC");
+var cDefendWarboatCount = new Command("defend-warboat-count","Fact","AoC");
+var cDeleteBuilding = new Command("delete-building","Action","AoC");
+var cDeleteUnit = new Command("delete-unit","Action","AoC");
+var cDifficulty = new Command("difficulty","Fact","AoC");
+var cDisableRule = new Command("disable-rule","Action","AoC");
+var cDisableSelf = new Command("disable-self","Action","AoC");
+var cDisableTimer = new Command("disable-timer","Action","AoC");
+var cDoctrine = new Command("doctrine","Fact","AoC");
+var cDoNothing = new Command("do-nothing","Action","AoC");
+var cDropsiteMinDistance = new Command("dropsite-min-distance","Fact","AoC");
+var cEnableRule = new Command("enable-rule","Action","AoC");
+var cEnableTimer = new Command("enable-timer","Action","AoC");
+var cEnableWallPlacement = new Command("enable-wall-placement","Action","AoC");
+var cEnemyBuildingsInTown = new Command("enemy-buildings-in-town","Fact","AoC");
+var cEnemyCapturedRelics = new Command("enemy-captured-relics","Fact","AoC");
+var cEscrowAmount = new Command("escrow-amount","Fact","AoC");
+var cEventDetected = new Command("event-detected","Fact","AoC");
+var cFoodAmount = new Command("food-amount","Fact","AoC");
+var cGameTime = new Command("game-time","Fact","AoC");
+var cGameType = new Command("game-type","Fact","AoC");
+var cGateCount = new Command("gate-count","Fact","AoC");
+var cGenerateRandomNumber = new Command("generate-random-number","Action","AoC");
+var cGoal = new Command("goal","Fact","AoC");
+var cGoldAmount = new Command("gold-amount","Fact","AoC");
+var cHoldKohRuin = new Command("hold-koh-ruin","Fact","AoC");
+var cHoldRelics = new Command("hold-relics","Fact","AoC");
+var cHousingHeadroom = new Command("housing-headroom","Fact","AoC");
+var cIdleFarmCount = new Command("idle-farm-count","Fact","AoC");
+var cLog = new Command("log","Action","AoC");
+var cLogTrace = new Command("log-trace","Action","AoC");
+var cMapSize = new Command("map-size","Fact","AoC");
+var cMapType = new Command("map-type","Fact","AoC");
+var cMilitaryPopulation = new Command("military-population","Fact","AoC");
+var cPlayerComputer = new Command("player-computer","Fact","AoC");
+var cPlayerHuman = new Command("player-human","Fact","AoC");
+var cPlayerInGame = new Command("player-in-game","Fact","AoC");
+var cPlayerNumber = new Command("player-number","Fact","AoC");
+var cPlayerResigned = new Command("player-resigned","Fact","AoC");
+var cPlayerValid = new Command("player-valid","Fact","AoC");
+var cPlayersBuildingCount = new Command("players-building-count","Fact","AoC");
+var cPlayersBuildingTypeCount = new Command("players-building-type-count","Fact","AoC");
+var cPlayersCiv = new Command("players-civ","Fact","AoC");
+var cPlayersCivilianPopulation = new Command("players-civilian-population","Fact","AoC");
+var cPlayersCurrentAge = new Command("players-current-age","Fact","AoC");
+var cPlayersCurrentAgeTime = new Command("players-current-age-time","Fact","AoC");
+var cPlayersMilitaryPopulation = new Command("players-military-population","Fact","AoC");
+var cPlayersPopulation = new Command("players-population","Fact","AoC");
+var cPlayersScore = new Command("players-score","Fact","AoC");
+var cPlayersStance = new Command("players-stance","Fact","AoC");
+var cPlayersTribute = new Command("players-tribute","Fact","AoC");
+var cPlayersTributeMemory = new Command ("players-tribute-memory","Fact","AoC");
+var cPlayersUnitCount = new Command("players-unit-count","Fact","AoC");
+var cPlayersUnitTypeCount = new Command("players-unit-type-count","Fact","AoC");
+var cPopulation = new Command("population","Fact","AoC");
+var cPopulationCap = new Command("population-cap","Fact","AoC");
+var cPopulationHeadroom = new Command("population-headroom","Fact","AoC");
+var cRandomNumber = new Command("random-number","Fact","AoC");
+var cRegicideGame = new Command("regicide-game","Fact","AoC");
+var cReleaseEscrow = new Command("release-escrow","Action","AoC");
+var cResearch = new Command("research","Action","AoC");
+var cResearchAvailable = new Command("research-available","Fact","AoC");
+var cResearchCompleted = new Command("research-completed","Fact","AoC");
+var cResign = new Command("resign","Action","AoC");
+var cResourceFound = new Command("resource-found","Fact","AoC");
+var cSellCommodity = new Command("sell-commodity","Action","AoC");
+var cSetAuthorEmail = new Command("set-author-email","Action","AoC");
+var cSetAuthorName = new Command("set-author-name","Action","AoC");
+var cSetAuthorVersion = new Command("set-author-version","Action","AoC");
+var cSetDifficultyParameter = new Command("set-difficulty-parameter","Action","AoC");
+var cSetDoctrine = new Command("set-doctrine","Action","AoC");
+var cSetEscrowPercentage = new Command("set-escrow-percentage","Action","AoC");
+var cSetGoal = new Command("set-goal","Action","AoC");
+var cSetSharedGoal = new Command("set-shared-goal","Action","AoC");
+var cSetSignal = new Command("set-signal","Action","AoC");
+var cSetStance = new Command("set-stance","Action","AoC");
+var cSetStrategicNumber = new Command("set-strategic-number","Action","AoC");
+var cSharedGoal = new Command("shared-goal","Fact","AoC");
+var cSheepAndForageTooFar = new Command("sheep-and-forage-too-far","Fact","AoC");
+var cSoldierCount = new Command("soldier-count","Fact","AoC");
+var cSpy = new Command("spy","Action","AoC");
+var cStanceToward = new Command("stance-toward","Fact","AoC");
+var cStartingAge = new Command("starting-age","Fact","AoC");
+var cStartingResources = new Command("starting-resources","Fact","AoC");
+var cStoneAmount = new Command("stone-amount","Fact","AoC");
+var cStrategicNumber = new Command("strategic-number","Fact","AoC");
+var cTaunt = new Command("taunt","Action","AoC");
+var cTauntDetected = new Command("taunt-detected","Fact","AoC");
+var cTauntUsingRange = new Command("taunt-using-range","Action","AoC");
+var cTimerTriggered = new Command("timer-triggered","Fact","AoC");
+var cTownUnderAttack = new Command("town-under-attack","Fact","AoC");
+var cTraceFact = new Command("trace-fact","Action","AoC");
+var cTrain = new Command("train","Action","AoC");
+var cTributeToPlayer = new Command("tribute-to-player","Action","AoC");
+var cUnitAvailable = new Command("unit-available","Fact","AoC");
+var cUnitCount = new Command("unit-count","Fact","AoC");
+var cUnitCountTotal = new Command("unit-count-total","Fact","AoC");
+var cUnitTypeCount = new Command("unit-type-count","Fact","AoC");
+var cUnitTypeCountTotal = new Command("unit-type-count-total","Fact","AoC");
+var cVictoryCondition = new Command("victory-condition","Fact","AoC");
+var cWallCompletedPercentage = new Command("wall-completed-percentage","Fact","AoC");
+var cWallInvisiblePercentage = new Command("wall-invisible-percentage","Fact","AoC");
+var cWarboatCount = new Command("warboat-count","Fact","AoC");
+var cWoodAmount = new Command("wood-amount","Fact","AoC");
 var cUpAddCostData = new Command("up-add-cost-data","Action","UP");
 var cUpAddObjectById = new Command("up-add-object-by-id","Both","UP");
 var cUpAddObjectCost = new Command("up-add-object-cost","Action","UP");
@@ -506,35 +506,35 @@ var cFeSubGameType = new Command("fe-sub-game-type","Fact","DE");
 var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeSubGameType];
 
 //Parameters
-var pCompareOp = new Parameter("compareOp","AoK","&#60;rel-op&#62;");
+var pCompareOp = new Parameter("compareOp","AoC","&#60;rel-op&#62;");
 var pMathOp = new Parameter("mathOp","UP");
 var pTypeOp = new Parameter("typeOp","UP");
 var pActionId = new Parameter("ActionId","UP");
-var pAge = new Parameter("Age","AoK","&#60;age&#62;");
+var pAge = new Parameter("Age","AoC","&#60;age&#62;");
 // var pAllyPlayer = new Parameter("AllyPlayer","UP");
 var pAttackStance = new Parameter("AttackStance","UP");
 var pAttrId = new Parameter("AttrId","DE");
 // var pBorder = new Parameter("Border","UP");
-var pBuildingId = new Parameter("BuildingId","AoK","&#60;building&#62;");
-var pCiv = new Parameter("Civ","AoK","&#60;civ&#62;");
+var pBuildingId = new Parameter("BuildingId","AoC","&#60;building&#62;");
+var pCiv = new Parameter("Civ","AoC","&#60;civ&#62;");
 var pClassId = new Parameter("ClassId","UP");
 var pCmdId = new Parameter("CmdId","UP");
 // var pCode = new Parameter("Code","UP");
 var pColorId = new Parameter("ColorId","UP");
-var pCommodity = new Parameter("Commodity","AoK","&#60;commodity&#62;");
+var pCommodity = new Parameter("Commodity","AoC","&#60;commodity&#62;");
 // var pComputerAllyPlayer = new Parameter("ComputerAllyPlayer","UP");
 // var pCount = new Parameter("Count","UP");
 // var pData = new Parameter("Data","UP");
 var pDefconst = new Parameter("Defconst","UP");
-var pDifficulty = new Parameter("Difficulty","AoK","&#60;difficulty&#62;");
-var pDiffParameterId = new Parameter("DiffParameterId","AoK","&#60;difficulty-parameter&#62;");
+var pDifficulty = new Parameter("Difficulty","AoC","&#60;difficulty&#62;");
+var pDiffParameterId = new Parameter("DiffParameterId","AoC","&#60;difficulty-parameter&#62;");
 // var pDistance = new Parameter("Distance","UP");
 var pDUCAction = new Parameter("DUCAction","UP");
 var pEffectId = new Parameter("EffectId","DE");
 var pEscrowGoalId = new Parameter("EscrowGoalId","UP");
-// var pESPlayerStance = new Parameter("ESPlayerStance","AoK","&#60;diplomacy-stance&#62;");
-var pEventId = new Parameter("EventId","AoK","&#60;event-id&#62;");
-var pEventType = new Parameter("EventType","AoK","&#60;event-type&#62;");
+// var pESPlayerStance = new Parameter("ESPlayerStance","AoC","&#60;diplomacy-stance&#62;");
+var pEventId = new Parameter("EventId","AoC","&#60;event-id&#62;");
+var pEventType = new Parameter("EventType","AoC","&#60;event-type&#62;");
 var pExploredState = new Parameter("ExploredState","UP");
 // var pExtension = new Parameter("Extension","UP");
 var pFactId = new Parameter("FactId","UP");
@@ -542,8 +542,8 @@ var pFindPlayerMethod = new Parameter("FindPlayerMethod","UP");
 var pFlag = new Parameter("Flag","UP");
 var pFormation = new Parameter("Formation","UP");
 // var pFormattedString = new Parameter("FormattedString","UP");
-var pGameType = new Parameter("GameType","AoK");
-var pGoalId = new Parameter("GoalId","AoK","&#60;goal-id&#62;");
+var pGameType = new Parameter("GameType","AoC");
+var pGoalId = new Parameter("GoalId","AoC","&#60;goal-id&#62;");
 var pGroupId = new Parameter("GroupId","UP");
 var pGroupType = new Parameter("GroupType","UP");
 var pGuardFlag = new Parameter("GuardFlag","UP");
@@ -553,12 +553,13 @@ var pId = new Parameter("Id","UP");
 var pIdleType = new Parameter("IdleType","UP");
 var pIndex = new Parameter("Index","UP");
 var pItemId = new Parameter("ItemId","DE");
-var pLanguageId = new Parameter("LanguageId","AoK","&#60;string-id&#62;","&#60;string-id-start&#62;");
+var pLanguageId = new Parameter("LanguageId","AoC","&#60;string-id&#62;","&#60;string-id-start&#62;");
 // var pLimit = new Parameter("Limit","UP");
+var pLineId = new Parameter("LineId", "AoC")
 var pLocalIndex = new Parameter("LocalIndex","UP");
 var pLocalList = new Parameter("LocalList","UP");
-var pMapSize = new Parameter("MapSize","AoK","&#60;map-size&#62;");
-var pMapType = new Parameter("MapType","AoK","&#60;map-type&#62;");
+var pMapSize = new Parameter("MapSize","AoC","&#60;map-size&#62;");
+var pMapType = new Parameter("MapType","AoC","&#60;map-type&#62;");
 var pMaxDistance = new Parameter("MaxDistance","UP");
 var pMaxGarrison = new Parameter("MaxGarrison","UP");
 var pMinDistance = new Parameter("MinDistance","UP");
@@ -577,11 +578,11 @@ var pOrderId = new Parameter("OrderId","UP");
 var pOutputGoalId = new Parameter("OutputGoalId","UP");
 var pFactParameter = new Parameter("FactParameter","UP");
 var pPercent = new Parameter("Percent","UP");
-var pPerimeter = new Parameter("Perimeter","AoK","&#60;perimeter&#62;");
+var pPerimeter = new Parameter("Perimeter","AoC","&#60;perimeter&#62;");
 var pPlacementType = new Parameter("PlacementType","UP");
 // var pPlain = new Parameter("Plain","UP");
-var pPlayerNumber = new Parameter("PlayerNumber","AoK","&#60;player-number&#62;");
-var pPlayerStance = new Parameter("PlayerStance","AoK");
+var pPlayerNumber = new Parameter("PlayerNumber","AoC","&#60;player-number&#62;");
+var pPlayerStance = new Parameter("PlayerStance","AoC");
 var pPoint = new Parameter("Point","UP");
 var pPositionType = new Parameter("PositionType","UP");
 // var pPrecise = new Parameter("Precise","UP");
@@ -593,45 +594,46 @@ var pRemoteIndex = new Parameter("RemoteIndex","UP");
 var pRemoteList = new Parameter("RemoteList","UP");
 var pResearchState = new Parameter("ResearchState","UP");
 // var pResetCost = new Parameter("ResetCost","UP");
-var pResource = new Parameter("Resource","AoK","&#60;resource-type&#62;");
+var pResource = new Parameter("Resource","AoC","&#60;resource-type&#62;");
 var pResourceType = new Parameter("ResourceType","UP");
 var pRuleDelta = new Parameter("RuleDelta","UP");
 var pRuleId = new Parameter("RuleId","UP");
 var pScoutMethod = new Parameter("ScoutMethod","UP");
 var pSearchOrder = new Parameter("SearchOrder","UP");
 var pSearchSource = new Parameter("SearchSource","UP");
-var pSharedGoalId = new Parameter("SharedGoalId","AoK","&#60;shared-goal-id&#62;");
-var pSignalId = new Parameter("SignalId","AoK","&#60;signal-id&#62;");
+var pSetId = new Parameter("SetId", "UP");
+var pSharedGoalId = new Parameter("SharedGoalId","AoC","&#60;shared-goal-id&#62;");
+var pSignalId = new Parameter("SignalId","AoC","&#60;signal-id&#62;");
 // var pSize = new Parameter("Size","UP");
-var pSnId = new Parameter("SnId","AoK","&#60;strategic-number&#62;");
+var pSnId = new Parameter("SnId","AoC","&#60;strategic-number&#62;");
 // var pStart = new Parameter("Start","UP");
-var pStartingResources = new Parameter("StartingResources","AoK","&#60;starting-resources&#62;");
+var pStartingResources = new Parameter("StartingResources","AoC","&#60;starting-resources&#62;");
 // var pState = new Parameter("State","UP");
 // var pStrict = new Parameter("Strict","UP");
-var pString = new Parameter("String","AoK","&#60;string&#62;");
+var pString = new Parameter("String","AoC","&#60;string&#62;");
 var pSubGameType = new Parameter("SubGameType","DE");
 // var pTarget = new Parameter("Target","UP");
 var pThreatPlayer = new Parameter("ThreatPlayer","UP");
 var pThreatSource = new Parameter("ThreatSource","UP");
 var pThreatTarget = new Parameter("ThreatTarget","UP");
 var pThreatTime = new Parameter("ThreatTime","UP");
-var pTauntId = new Parameter("TauntId","AoK","&#60;taunt-id&#62;");
-var pTechId = new Parameter("TechId","AoK","&#60;research-item&#62;");
+var pTauntId = new Parameter("TauntId","AoC","&#60;taunt-id&#62;");
+var pTechId = new Parameter("TechId","AoC","&#60;research-item&#62;");
 var pTerrain = new Parameter("Terrain","UP");
 // var pTiles = new Parameter("Tiles","UP");
-var pTimerId = new Parameter("TimerId","AoK","&#60;timer-id&#62;");
+var pTimerId = new Parameter("TimerId","AoC","&#60;timer-id&#62;");
 var pTimerState = new Parameter("TimerState","UP");
 var pTypeId = new Parameter("TypeId","UP");
-var pUnitId = new Parameter("UnitId","AoK","&#60;unit&#62;");
+var pUnitId = new Parameter("UnitId","AoC","&#60;unit&#62;");
 // var pUpgradeId = new Parameter("UpgradeId","UP");
-var pValue = new Parameter("Value","AoK","&#60;value&#62;");
-var pVictoryCondition = new Parameter("VictoryCondition","AoK","&#60;victory-condition&#62;");
+var pValue = new Parameter("Value","AoC","&#60;value&#62;");
+var pVictoryCondition = new Parameter("VictoryCondition","AoC","&#60;victory-condition&#62;");
 var pVictoryPlayer = new Parameter("VictoryPlayer","UP");
 var pVictoryTime = new Parameter("VictoryTime","UP");
 var pVictoryType = new Parameter("VictoryType","UP");
-var pWallId = new Parameter("WallId","AoK","&#60;wall-id&#62;");
+var pWallId = new Parameter("WallId","AoC","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, /*pUpgradeId,*/ pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLineId, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSetId, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, /*pUpgradeId,*/ pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber("sn-add-starting-resource-food");
@@ -803,6 +805,7 @@ var snMinimumWaterBodySizeForDock = new StrategicNumber("sn-minimum-water-body-s
 var snMinimumWood = new StrategicNumber("sn-minimum-wood");
 var snMiningCampMaxDistance = new StrategicNumber("sn-mining-camp-max-distance");
 var snMostNeededResourceLookAhead = new StrategicNumber("sn-most-needed-resource-look-ahead");
+var snMuleCartDropsitePlacement = new StrategicNumber("sn-mule-cart-dropsite-placement");
 var snNumberAttackGroups = new StrategicNumber("sn-number-attack-groups");
 var snNumberBoatAttackGroups = new StrategicNumber("sn-number-boat-attack-groups");
 var snNumberBoatDefendGroups = new StrategicNumber("sn-number-boat-defend-groups");
@@ -941,8 +944,8 @@ var snUnknownSN199 = new StrategicNumber("unknown-sn-199");
 var snUnknownSN200 = new StrategicNumber("unknown-sn-200");
 var snUnknownSN211 = new StrategicNumber("unknown-sn-211");
 
-var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snKeystates, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredStoragePitPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
-var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits, snPreferredStoragePitPlacement, snKeystates];
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snKeystates, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snMuleCartDropsitePlacement, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredStoragePitPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
+var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits, snMuleCartDropsitePlacement, snPreferredStoragePitPlacement, snKeystates];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -967,7 +970,7 @@ snPercentCivilianExplorers.available = 0;
 snPercentCivilianExplorers.effective = 1;
 snPercentCivilianExplorers.version = "1.0c";
 snPercentCivilianExplorers.aoe = 1;
-snPercentCivilianExplorers.aok = 1;
+snPercentCivilianExplorers.aoc = 1;
 snPercentCivilianExplorers.up = 1;
 snPercentCivilianExplorers.de = 1;
 snPercentCivilianExplorers.linked = [ 3, 35, 18 ];
@@ -988,7 +991,7 @@ snPercentCivilianBuilders.available = 0;
 snPercentCivilianBuilders.effective = 1;
 snPercentCivilianBuilders.version = "1.0c";
 snPercentCivilianBuilders.aoe = 1;
-snPercentCivilianBuilders.aok = 1;
+snPercentCivilianBuilders.aoc = 1;
 snPercentCivilianBuilders.up = 1;
 snPercentCivilianBuilders.de = 1;
 snPercentCivilianBuilders.linked = [ 4, 253 ];
@@ -1009,7 +1012,7 @@ snPercentCivilianGatherers.available = 0;
 snPercentCivilianGatherers.effective = 1;
 snPercentCivilianGatherers.version = "1.0c";
 snPercentCivilianGatherers.aoe = 1;
-snPercentCivilianGatherers.aok = 1;
+snPercentCivilianGatherers.aoc = 1;
 snPercentCivilianGatherers.up = 1;
 snPercentCivilianGatherers.de = 1;
 snPercentCivilianGatherers.linked = [ 5 ];
@@ -1030,7 +1033,7 @@ snCapCivilianExplorers.available = 0;
 snCapCivilianExplorers.effective = 1;
 snCapCivilianExplorers.version = "1.0c";
 snCapCivilianExplorers.aoe = 1;
-snCapCivilianExplorers.aok = 1;
+snCapCivilianExplorers.aoc = 1;
 snCapCivilianExplorers.up = 1;
 snCapCivilianExplorers.de = 1;
 snCapCivilianExplorers.linked = [ 0, 35, 18 ];
@@ -1051,7 +1054,7 @@ snCapCivilianBuilders.available = "available, however it must be at least 6-7 at
 snCapCivilianBuilders.effective = 1;
 snCapCivilianBuilders.version = "1.0c";
 snCapCivilianBuilders.aoe = 1;
-snCapCivilianBuilders.aok = 1;
+snCapCivilianBuilders.aoc = 1;
 snCapCivilianBuilders.up = 1;
 snCapCivilianBuilders.de = 1;
 snCapCivilianBuilders.linked = [ 1, 253 ];
@@ -1073,7 +1076,7 @@ snCapCivilianGatherers.available = 0;
 snCapCivilianGatherers.effective = 1;
 snCapCivilianGatherers.version = "1.0c";
 snCapCivilianGatherers.aoe = 1;
-snCapCivilianGatherers.aok = 1;
+snCapCivilianGatherers.aoc = 1;
 snCapCivilianGatherers.up = 1;
 snCapCivilianGatherers.de = 1;
 snCapCivilianGatherers.linked = [ 2 ];
@@ -1094,7 +1097,7 @@ snUnknownSN006.available = 0;
 snUnknownSN006.effective = 0;
 snUnknownSN006.version = "1.0c";
 snUnknownSN006.aoe = 0;
-snUnknownSN006.aok = 0;
+snUnknownSN006.aoc = 0;
 snUnknownSN006.up = 0;
 snUnknownSN006.de = 0;
 snUnknownSN006.linked = [];
@@ -1115,7 +1118,7 @@ snUnknownSN007.available = 0;
 snUnknownSN007.effective = 0;
 snUnknownSN007.version = "1.0c";
 snUnknownSN007.aoe = 0;
-snUnknownSN007.aok = 0;
+snUnknownSN007.aoc = 0;
 snUnknownSN007.up = 0;
 snUnknownSN007.de = 0;
 snUnknownSN007.linked = [];
@@ -1136,7 +1139,7 @@ snUnknownSN008.available = 0;
 snUnknownSN008.effective = 0;
 snUnknownSN008.version = "1.0c";
 snUnknownSN008.aoe = 0;
-snUnknownSN008.aok = 0;
+snUnknownSN008.aoc = 0;
 snUnknownSN008.up = 0;
 snUnknownSN008.de = 0;
 snUnknownSN008.linked = [];
@@ -1157,7 +1160,7 @@ snUnknownSN009.available = 0;
 snUnknownSN009.effective = 0;
 snUnknownSN009.version = "1.0c";
 snUnknownSN009.aoe = 0;
-snUnknownSN009.aok = 0;
+snUnknownSN009.aoc = 0;
 snUnknownSN009.up = 0;
 snUnknownSN009.de = 0;
 snUnknownSN009.linked = [];
@@ -1178,7 +1181,7 @@ snUnknownSN010.available = 0;
 snUnknownSN010.effective = 0;
 snUnknownSN010.version = "1.0c";
 snUnknownSN010.aoe = 0;
-snUnknownSN010.aok = 0;
+snUnknownSN010.aoc = 0;
 snUnknownSN010.up = 0;
 snUnknownSN010.de = 0;
 snUnknownSN010.linked = [];
@@ -1199,7 +1202,7 @@ snUnknownSN011.available = 0;
 snUnknownSN011.effective = 0;
 snUnknownSN011.version = "1.0c";
 snUnknownSN011.aoe = 0;
-snUnknownSN011.aok = 0;
+snUnknownSN011.aoc = 0;
 snUnknownSN011.up = 0;
 snUnknownSN011.de = 0;
 snUnknownSN011.linked = [];
@@ -1220,7 +1223,7 @@ snUnknownSN012.available = 0;
 snUnknownSN012.effective = 0;
 snUnknownSN012.version = "1.0c";
 snUnknownSN012.aoe = 0;
-snUnknownSN012.aok = 0;
+snUnknownSN012.aoc = 0;
 snUnknownSN012.up = 0;
 snUnknownSN012.de = 0;
 snUnknownSN012.linked = [];
@@ -1241,7 +1244,7 @@ snUnknownSN013.available = 0;
 snUnknownSN013.effective = 0;
 snUnknownSN013.version = "1.0c";
 snUnknownSN013.aoe = 0;
-snUnknownSN013.aok = 0;
+snUnknownSN013.aoc = 0;
 snUnknownSN013.up = 0;
 snUnknownSN013.de = 0;
 snUnknownSN013.linked = [];
@@ -1262,7 +1265,7 @@ snUnknownSN014.available = 0;
 snUnknownSN014.effective = 0;
 snUnknownSN014.version = "1.0c";
 snUnknownSN014.aoe = 0;
-snUnknownSN014.aok = 0;
+snUnknownSN014.aoc = 0;
 snUnknownSN014.up = 0;
 snUnknownSN014.de = 0;
 snUnknownSN014.linked = [];
@@ -1283,7 +1286,7 @@ snUnknownSN015.available = 0;
 snUnknownSN015.effective = 0;
 snUnknownSN015.version = "1.0c";
 snUnknownSN015.aoe = 0;
-snUnknownSN015.aok = 0;
+snUnknownSN015.aoc = 0;
 snUnknownSN015.up = 0;
 snUnknownSN015.de = 0;
 snUnknownSN015.linked = [];
@@ -1304,7 +1307,7 @@ snMinimumAttackGroupSize.available = 0;
 snMinimumAttackGroupSize.effective = 1;
 snMinimumAttackGroupSize.version = "1.0c";
 snMinimumAttackGroupSize.aoe = 1;
-snMinimumAttackGroupSize.aok = 1;
+snMinimumAttackGroupSize.aoc = 1;
 snMinimumAttackGroupSize.up = 1;
 snMinimumAttackGroupSize.de = 1;
 snMinimumAttackGroupSize.linked = [ 26, 36 ];
@@ -1325,7 +1328,7 @@ snUnknownSN017.available = 0;
 snUnknownSN017.effective = 0;
 snUnknownSN017.version = "1.0c";
 snUnknownSN017.aoe = 0;
-snUnknownSN017.aok = 0;
+snUnknownSN017.aoc = 0;
 snUnknownSN017.up = 0;
 snUnknownSN017.de = 0;
 snUnknownSN017.linked = [];
@@ -1346,7 +1349,7 @@ snTotalNumberExplorers.available = 0;
 snTotalNumberExplorers.effective = 1;
 snTotalNumberExplorers.version = "1.0c";
 snTotalNumberExplorers.aoe = 1;
-snTotalNumberExplorers.aok = 1;
+snTotalNumberExplorers.aoc = 1;
 snTotalNumberExplorers.up = 1;
 snTotalNumberExplorers.de = 1;
 snTotalNumberExplorers.linked = [ 42, 61 ];
@@ -1367,7 +1370,7 @@ snPercentEnemySightedResponse.available = 0;
 snPercentEnemySightedResponse.effective = 1;
 snPercentEnemySightedResponse.version = "1.0c";
 snPercentEnemySightedResponse.aoe = 1;
-snPercentEnemySightedResponse.aok = 1;
+snPercentEnemySightedResponse.aoc = 1;
 snPercentEnemySightedResponse.up = 1;
 snPercentEnemySightedResponse.de = 1;
 snPercentEnemySightedResponse.linked = [ 20, 284 ];
@@ -1388,7 +1391,7 @@ snEnemySightedResponseDistance.available = 0;
 snEnemySightedResponseDistance.effective = 1;
 snEnemySightedResponseDistance.version = "1.0c";
 snEnemySightedResponseDistance.aoe = 1;
-snEnemySightedResponseDistance.aok = 1;
+snEnemySightedResponseDistance.aoc = 1;
 snEnemySightedResponseDistance.up = 1;
 snEnemySightedResponseDistance.de = 1;
 snEnemySightedResponseDistance.linked = [ 19, 284 ];
@@ -1410,7 +1413,7 @@ snUnknownSN021.available = 0;
 snUnknownSN021.effective = 0;
 snUnknownSN021.version = "1.0c";
 snUnknownSN021.aoe = 0;
-snUnknownSN021.aok = 0;
+snUnknownSN021.aoc = 0;
 snUnknownSN021.up = 0;
 snUnknownSN021.de = 0;
 snUnknownSN021.linked = [];
@@ -1431,7 +1434,7 @@ snSentryDistance.available = 0;
 snSentryDistance.effective = 1;
 snSentryDistance.version = "1.0c";
 snSentryDistance.aoe = 1;
-snSentryDistance.aok = 1;
+snSentryDistance.aoc = 1;
 snSentryDistance.up = 1;
 snSentryDistance.de = 1;
 snSentryDistance.linked = [ 72 ];
@@ -1453,7 +1456,7 @@ snRelicReturnDistance.available = 0;
 snRelicReturnDistance.effective = 0;
 snRelicReturnDistance.version = "1.0c";
 snRelicReturnDistance.aoe = 1;
-snRelicReturnDistance.aok = 0;
+snRelicReturnDistance.aoc = 0;
 snRelicReturnDistance.up = 0;
 snRelicReturnDistance.de = 0;
 snRelicReturnDistance.linked = [];
@@ -1476,7 +1479,7 @@ snPercentVictoryClamp.available = "seems available, except for when teams-locked
 snPercentVictoryClamp.effective = 0;
 snPercentVictoryClamp.version = "1.0c";
 snPercentVictoryClamp.aoe = 1;
-snPercentVictoryClamp.aok = 0;
+snPercentVictoryClamp.aoc = 0;
 snPercentVictoryClamp.up = 0;
 snPercentVictoryClamp.de = 0;
 snPercentVictoryClamp.linked = [];
@@ -1498,7 +1501,7 @@ snMinimumDefendGroupSize.available = 0;
 snMinimumDefendGroupSize.effective = 0;
 snMinimumDefendGroupSize.version = "1.0c";
 snMinimumDefendGroupSize.aoe = 1;
-snMinimumDefendGroupSize.aok = 0;
+snMinimumDefendGroupSize.aoc = 0;
 snMinimumDefendGroupSize.up = 0;
 snMinimumDefendGroupSize.de = 0;
 snMinimumDefendGroupSize.linked = [ 28, 38 ];
@@ -1519,7 +1522,7 @@ snMaximumAttackGroupSize.available = 0;
 snMaximumAttackGroupSize.effective = 1;
 snMaximumAttackGroupSize.version = "1.0c";
 snMaximumAttackGroupSize.aoe = 1;
-snMaximumAttackGroupSize.aok = 1;
+snMaximumAttackGroupSize.aoc = 1;
 snMaximumAttackGroupSize.up = 1;
 snMaximumAttackGroupSize.de = 1;
 snMaximumAttackGroupSize.linked = [ 16, 36 ];
@@ -1541,7 +1544,7 @@ snUnknownSN027.available = 0;
 snUnknownSN027.effective = 0;
 snUnknownSN027.version = "1.0c";
 snUnknownSN027.aoe = 0;
-snUnknownSN027.aok = 0;
+snUnknownSN027.aoc = 0;
 snUnknownSN027.up = 0;
 snUnknownSN027.de = 0;
 snUnknownSN027.linked = [];
@@ -1562,7 +1565,7 @@ snMaximumDefendGroupSize.available = 0;
 snMaximumDefendGroupSize.effective = 0;
 snMaximumDefendGroupSize.version = "1.0c";
 snMaximumDefendGroupSize.aoe = 1;
-snMaximumDefendGroupSize.aok = 0;
+snMaximumDefendGroupSize.aoc = 0;
 snMaximumDefendGroupSize.up = 0;
 snMaximumDefendGroupSize.de = 0;
 snMaximumDefendGroupSize.linked = [ 25, 38 ];
@@ -1583,7 +1586,7 @@ snMinimumPeaceLikeLevel.available = 0;
 snMinimumPeaceLikeLevel.effective = 0;
 snMinimumPeaceLikeLevel.version = "1.0c";
 snMinimumPeaceLikeLevel.aoe = 1;
-snMinimumPeaceLikeLevel.aok = 0;
+snMinimumPeaceLikeLevel.aoc = 0;
 snMinimumPeaceLikeLevel.up = 0;
 snMinimumPeaceLikeLevel.de = 0;
 snMinimumPeaceLikeLevel.linked = [];
@@ -1604,7 +1607,7 @@ snPercentHealthRetreat.available = "available, but avoid using it in conjunction
 snPercentHealthRetreat.effective = 0;
 snPercentHealthRetreat.version = "1.0c";
 snPercentHealthRetreat.aoe = 1;
-snPercentHealthRetreat.aok = 0;
+snPercentHealthRetreat.aoc = 0;
 snPercentHealthRetreat.up = 0;
 snPercentHealthRetreat.de = 0;
 snPercentHealthRetreat.linked = [ 95 ];
@@ -1626,7 +1629,7 @@ snPercentDeathRetreat.available = "available, but avoid using it in conjunction 
 snPercentDeathRetreat.effective = 0;
 snPercentDeathRetreat.version = "1.0c";
 snPercentDeathRetreat.aoe = 1;
-snPercentDeathRetreat.aok = 0;
+snPercentDeathRetreat.aoc = 0;
 snPercentDeathRetreat.up = 0;
 snPercentDeathRetreat.de = 0;
 snPercentDeathRetreat.linked = [ 96 ];
@@ -1648,7 +1651,7 @@ snPercentExplorationRequired.available = 0;
 snPercentExplorationRequired.effective = 1;
 snPercentExplorationRequired.version = "1.0c";
 snPercentExplorationRequired.aoe = 1;
-snPercentExplorationRequired.aok = 1;
+snPercentExplorationRequired.aoc = 1;
 snPercentExplorationRequired.up = 1;
 snPercentExplorationRequired.de = 1;
 snPercentExplorationRequired.linked = [ 167, 179, 256 ];
@@ -1669,7 +1672,7 @@ snUnknownSN033.available = 0;
 snUnknownSN033.effective = 0;
 snUnknownSN033.version = "1.0c";
 snUnknownSN033.aoe = 0;
-snUnknownSN033.aok = 0;
+snUnknownSN033.aoc = 0;
 snUnknownSN033.up = 0;
 snUnknownSN033.de = 0;
 snUnknownSN033.linked = [];
@@ -1692,7 +1695,7 @@ snZeroPriorityDistance.version = "1.0c";
 snZeroPriorityDistance.linked = [];
 snZeroPriorityDistance.related = [ 19, 20 ];
 snZeroPriorityDistance.aoe = 1;
-snZeroPriorityDistance.aok = 1;
+snZeroPriorityDistance.aoc = 1;
 snZeroPriorityDistance.up = 1;
 snZeroPriorityDistance.de = 1;
 snZeroPriorityDistance.shortDescription = "Sets the distance at which a computer player's order for a unit is set to a priority of 0.";
@@ -1712,7 +1715,7 @@ snMinimumCivilianExplorers.available = 0;
 snMinimumCivilianExplorers.effective = 1;
 snMinimumCivilianExplorers.version = "1.0c";
 snMinimumCivilianExplorers.aoe = 1;
-snMinimumCivilianExplorers.aok = 1;
+snMinimumCivilianExplorers.aoc = 1;
 snMinimumCivilianExplorers.up = 1;
 snMinimumCivilianExplorers.de = 1;
 snMinimumCivilianExplorers.linked = [ 3, 0 ];
@@ -1734,7 +1737,7 @@ snNumberAttackGroups.effective = 1;
 snNumberAttackGroups.version = "1.0c";
 snNumberAttackGroups.linked = [ 26, 16 ];
 snNumberAttackGroups.aoe = 1;
-snNumberAttackGroups.aok = 1;
+snNumberAttackGroups.aoc = 1;
 snNumberAttackGroups.up = 1;
 snNumberAttackGroups.de = 1;
 snNumberAttackGroups.related = [ 58, 60, 59, 41, 98, 227, 247, 271 ];
@@ -1754,7 +1757,7 @@ snAttackGroupMakeup.available = "seems available";
 snAttackGroupMakeup.effective = 0;
 snAttackGroupMakeup.version = "1.0c";
 snAttackGroupMakeup.aoe = 1;
-snAttackGroupMakeup.aok = 0;
+snAttackGroupMakeup.aoc = 0;
 snAttackGroupMakeup.up = 0;
 snAttackGroupMakeup.de = 0;
 snAttackGroupMakeup.linked = [];
@@ -1776,7 +1779,7 @@ snNumberDefendGroups.available = 0;
 snNumberDefendGroups.effective = 0;
 snNumberDefendGroups.version = "1.0c";
 snNumberDefendGroups.aoe = 1;
-snNumberDefendGroups.aok = 0;
+snNumberDefendGroups.aoc = 0;
 snNumberDefendGroups.up = 0;
 snNumberDefendGroups.de = 0;
 snNumberDefendGroups.linked = [ 28, 25 ];
@@ -1797,7 +1800,7 @@ snDefendGroupMakeup.available = 1;
 snDefendGroupMakeup.effective = 0;
 snDefendGroupMakeup.version = "1.0c";
 snDefendGroupMakeup.aoe = 1;
-snDefendGroupMakeup.aok = 0;
+snDefendGroupMakeup.aoc = 0;
 snDefendGroupMakeup.up = 0;
 snDefendGroupMakeup.de = 0;
 snDefendGroupMakeup.linked = [];
@@ -1819,7 +1822,7 @@ snGroupFillMethod.available = "seems available";
 snGroupFillMethod.effective = 0;
 snGroupFillMethod.version = "1.0c";
 snGroupFillMethod.aoe = 1;
-snGroupFillMethod.aok = 0;
+snGroupFillMethod.aoc = 0;
 snGroupFillMethod.up = 0;
 snGroupFillMethod.de = 0;
 snGroupFillMethod.linked = [];
@@ -1841,7 +1844,7 @@ snAttackGroupGatherSpacing.available = 0;
 snAttackGroupGatherSpacing.effective = 1;
 snAttackGroupGatherSpacing.version = "1.0c";
 snAttackGroupGatherSpacing.aoe = 1;
-snAttackGroupGatherSpacing.aok = 1;
+snAttackGroupGatherSpacing.aoc = 1;
 snAttackGroupGatherSpacing.up = 1;
 snAttackGroupGatherSpacing.de = 1;
 snAttackGroupGatherSpacing.linked = [];
@@ -1862,7 +1865,7 @@ snNumberExploreGroups.available = 0;
 snNumberExploreGroups.effective = 1;
 snNumberExploreGroups.version = "1.0c";
 snNumberExploreGroups.aoe = 1;
-snNumberExploreGroups.aok = 1;
+snNumberExploreGroups.aoc = 1;
 snNumberExploreGroups.up = 1;
 snNumberExploreGroups.de = 1;
 snNumberExploreGroups.linked = [ 44, 43 ];
@@ -1883,7 +1886,7 @@ snMinimumExploreGroupSize.available = 0;
 snMinimumExploreGroupSize.effective = 0;
 snMinimumExploreGroupSize.version = "1.0c";
 snMinimumExploreGroupSize.aoe = 1;
-snMinimumExploreGroupSize.aok = 1;
+snMinimumExploreGroupSize.aoc = 1;
 snMinimumExploreGroupSize.up = 1;
 snMinimumExploreGroupSize.de = 1;
 snMinimumExploreGroupSize.linked = [ 44, 42 ];
@@ -1905,7 +1908,7 @@ snMaximumExploreGroupSize.available = 0;
 snMaximumExploreGroupSize.effective = 0;
 snMaximumExploreGroupSize.version = "1.0c";
 snMaximumExploreGroupSize.aoe = 1;
-snMaximumExploreGroupSize.aok = 1;
+snMaximumExploreGroupSize.aoc = 1;
 snMaximumExploreGroupSize.up = 1;
 snMaximumExploreGroupSize.de = 1;
 snMaximumExploreGroupSize.linked = [ 43, 42 ];
@@ -1927,7 +1930,7 @@ snExploreGroupMakeup.available = 1;
 snExploreGroupMakeup.effective = 0;
 snExploreGroupMakeup.version = "1.0c";
 snExploreGroupMakeup.aoe = 1;
-snExploreGroupMakeup.aok = 0;
+snExploreGroupMakeup.aoc = 0;
 snExploreGroupMakeup.up = 0;
 snExploreGroupMakeup.de = 0;
 snExploreGroupMakeup.linked = [];
@@ -1949,7 +1952,7 @@ snAttackSeparationTime.available = "seems available, but leave it for later";
 snAttackSeparationTime.effective = 0;
 snAttackSeparationTime.version = "1.0c";
 snAttackSeparationTime.aoe = 1;
-snAttackSeparationTime.aok = 0;
+snAttackSeparationTime.aoc = 0;
 snAttackSeparationTime.up = 0;
 snAttackSeparationTime.de = 0;
 snAttackSeparationTime.linked = [ 102 ];
@@ -1970,7 +1973,7 @@ snAttackCoordination.available = "seems available, but leave it for later";
 snAttackCoordination.effective = 0;
 snAttackCoordination.version = "1.0c";
 snAttackCoordination.aoe = 1;
-snAttackCoordination.aok = 0;
+snAttackCoordination.aoc = 0;
 snAttackCoordination.up = 0;
 snAttackCoordination.de = 0;
 snAttackCoordination.linked = [];
@@ -1991,7 +1994,7 @@ snAttackResponseSeparationTime.available = "seems available, but leave it for la
 snAttackResponseSeparationTime.effective = 0;
 snAttackResponseSeparationTime.version = "1.0c";
 snAttackResponseSeparationTime.aoe = 1;
-snAttackResponseSeparationTime.aok = 0;
+snAttackResponseSeparationTime.aoc = 0;
 snAttackResponseSeparationTime.up = 0;
 snAttackResponseSeparationTime.de = 0;
 snAttackResponseSeparationTime.linked = [];
@@ -2012,7 +2015,7 @@ snRetreatAfterTargetDestroyed.available = "seems available, but leave it for lat
 snRetreatAfterTargetDestroyed.effective = 0;
 snRetreatAfterTargetDestroyed.version = "1.0c";
 snRetreatAfterTargetDestroyed.aoe = 1;
-snRetreatAfterTargetDestroyed.aok = 0;
+snRetreatAfterTargetDestroyed.aoc = 0;
 snRetreatAfterTargetDestroyed.up = 0;
 snRetreatAfterTargetDestroyed.de = 0;
 snRetreatAfterTargetDestroyed.linked = [];
@@ -2033,7 +2036,7 @@ snGoldDefendPriority.available = 0;
 snGoldDefendPriority.effective = 0;
 snGoldDefendPriority.version = "1.0c";
 snGoldDefendPriority.aoe = 1;
-snGoldDefendPriority.aok = 1;
+snGoldDefendPriority.aoc = 1;
 snGoldDefendPriority.up = 0;
 snGoldDefendPriority.de = 0;
 snGoldDefendPriority.linked = [];
@@ -2055,7 +2058,7 @@ snStoneDefendPriority.available = 0;
 snStoneDefendPriority.effective = 0;
 snStoneDefendPriority.version = "1.0c";
 snStoneDefendPriority.aoe = 1;
-snStoneDefendPriority.aok = 1;
+snStoneDefendPriority.aoc = 1;
 snStoneDefendPriority.up = 0;
 snStoneDefendPriority.de = 0;
 snStoneDefendPriority.linked = [];
@@ -2077,7 +2080,7 @@ snForageDefendPriority.available = 0;
 snForageDefendPriority.effective = 0;
 snForageDefendPriority.version = "1.0c";
 snForageDefendPriority.aoe = 1;
-snForageDefendPriority.aok = 1;
+snForageDefendPriority.aoc = 1;
 snForageDefendPriority.up = 0;
 snForageDefendPriority.de = 0;
 snForageDefendPriority.linked = [];
@@ -2099,7 +2102,7 @@ snChokePointDefendPriority.available = 1;
 snChokePointDefendPriority.effective = 0;
 snChokePointDefendPriority.version = "1.0c";
 snChokePointDefendPriority.aoe = 1;
-snChokePointDefendPriority.aok = 0;
+snChokePointDefendPriority.aoc = 0;
 snChokePointDefendPriority.up = 0;
 snChokePointDefendPriority.de = 0;
 snChokePointDefendPriority.linked = [];
@@ -2120,7 +2123,7 @@ snRuinsDefendPriority.available = 0;
 snRuinsDefendPriority.effective = 0;
 snRuinsDefendPriority.version = "1.0c";
 snRuinsDefendPriority.aoe = 1;
-snRuinsDefendPriority.aok = 0;
+snRuinsDefendPriority.aoc = 0;
 snRuinsDefendPriority.up = 0;
 snRuinsDefendPriority.de = 0;
 snRuinsDefendPriority.linked = [];
@@ -2141,7 +2144,7 @@ snRelicDefendPriority.available = 1;
 snRelicDefendPriority.effective = 0;
 snRelicDefendPriority.version = "1.0c";
 snRelicDefendPriority.aoe = 1;
-snRelicDefendPriority.aok = 1;
+snRelicDefendPriority.aoc = 1;
 snRelicDefendPriority.up = 0;
 snRelicDefendPriority.de = 0;
 snRelicDefendPriority.linked = [];
@@ -2163,7 +2166,7 @@ snTownDefendPriority.available = 0;
 snTownDefendPriority.effective = 0;
 snTownDefendPriority.version = "1.0c";
 snTownDefendPriority.aoe = 1;
-snTownDefendPriority.aok = 1;
+snTownDefendPriority.aoc = 1;
 snTownDefendPriority.up = 0;
 snTownDefendPriority.de = 0;
 snTownDefendPriority.linked = [];
@@ -2185,7 +2188,7 @@ snDefenseDistance.available = 0;
 snDefenseDistance.effective = 0;
 snDefenseDistance.version = "1.0c";
 snDefenseDistance.aoe = 1;
-snDefenseDistance.aok = 0;
+snDefenseDistance.aoc = 0;
 snDefenseDistance.up = 0;
 snDefenseDistance.de = 0;
 snDefenseDistance.linked = [];
@@ -2206,7 +2209,7 @@ snNumberBoatAttackGroups.available = "available, except for water maps";
 snNumberBoatAttackGroups.effective = 1;
 snNumberBoatAttackGroups.version = "1.0c";
 snNumberBoatAttackGroups.aoe = 1;
-snNumberBoatAttackGroups.aok = 1;
+snNumberBoatAttackGroups.aoc = 1;
 snNumberBoatAttackGroups.up = 1;
 snNumberBoatAttackGroups.de = 1;
 snNumberBoatAttackGroups.linked = [ 60, 59 ];
@@ -2227,7 +2230,7 @@ snMinimumBoatAttackGroupSize.available = "available, except for water maps";
 snMinimumBoatAttackGroupSize.effective = 1;
 snMinimumBoatAttackGroupSize.version = "1.0c";
 snMinimumBoatAttackGroupSize.aoe = 1;
-snMinimumBoatAttackGroupSize.aok = 1;
+snMinimumBoatAttackGroupSize.aoc = 1;
 snMinimumBoatAttackGroupSize.up = 1;
 snMinimumBoatAttackGroupSize.de = 1;
 snMinimumBoatAttackGroupSize.linked = [ 60, 58 ];
@@ -2248,7 +2251,7 @@ snMaximumBoatAttackGroupSize.available = "available, except for water maps";
 snMaximumBoatAttackGroupSize.effective = 1;
 snMaximumBoatAttackGroupSize.version = "1.0c";
 snMaximumBoatAttackGroupSize.aoe = 1;
-snMaximumBoatAttackGroupSize.aok = 1;
+snMaximumBoatAttackGroupSize.aoc = 1;
 snMaximumBoatAttackGroupSize.up = 1;
 snMaximumBoatAttackGroupSize.de = 1;
 snMaximumBoatAttackGroupSize.linked = [ 59, 58 ];
@@ -2269,7 +2272,7 @@ snNumberBoatExploreGroups.available = "available, except for water maps";
 snNumberBoatExploreGroups.effective = 1;
 snNumberBoatExploreGroups.version = "1.0c";
 snNumberBoatExploreGroups.aoe = 1;
-snNumberBoatExploreGroups.aok = 1;
+snNumberBoatExploreGroups.aoc = 1;
 snNumberBoatExploreGroups.up = 1;
 snNumberBoatExploreGroups.de = 1;
 snNumberBoatExploreGroups.linked = [ 63, 62 ];
@@ -2290,7 +2293,7 @@ snMinimumBoatExploreGroupSize.available = "available, except for water maps";
 snMinimumBoatExploreGroupSize.effective = 0;
 snMinimumBoatExploreGroupSize.version = "1.0c";
 snMinimumBoatExploreGroupSize.aoe = 1;
-snMinimumBoatExploreGroupSize.aok = 1;
+snMinimumBoatExploreGroupSize.aoc = 1;
 snMinimumBoatExploreGroupSize.up = 1;
 snMinimumBoatExploreGroupSize.de = 1;
 snMinimumBoatExploreGroupSize.linked = [ 63, 61 ];
@@ -2312,7 +2315,7 @@ snMaximumBoatExploreGroupSize.available = "available, except for water maps";
 snMaximumBoatExploreGroupSize.effective = 0;
 snMaximumBoatExploreGroupSize.version = "1.0c";
 snMaximumBoatExploreGroupSize.aoe = 1;
-snMaximumBoatExploreGroupSize.aok = 1;
+snMaximumBoatExploreGroupSize.aoc = 1;
 snMaximumBoatExploreGroupSize.up = 1;
 snMaximumBoatExploreGroupSize.de = 1;
 snMaximumBoatExploreGroupSize.linked = [ 62, 61 ];
@@ -2334,7 +2337,7 @@ snDesiredNumberTradeEscorts.available = 1;
 snDesiredNumberTradeEscorts.effective = 0;
 snDesiredNumberTradeEscorts.version = "1.0c";
 snDesiredNumberTradeEscorts.aoe = 1;
-snDesiredNumberTradeEscorts.aok = 0;
+snDesiredNumberTradeEscorts.aoc = 0;
 snDesiredNumberTradeEscorts.up = 0;
 snDesiredNumberTradeEscorts.de = 0;
 snDesiredNumberTradeEscorts.linked = [];
@@ -2355,7 +2358,7 @@ snDesiredNumberFishEscorts.available = 1;
 snDesiredNumberFishEscorts.effective = 0;
 snDesiredNumberFishEscorts.version = "1.0c";
 snDesiredNumberFishEscorts.aoe = 1;
-snDesiredNumberFishEscorts.aok = 0;
+snDesiredNumberFishEscorts.aoc = 0;
 snDesiredNumberFishEscorts.up = 0;
 snDesiredNumberFishEscorts.de = 0;
 snDesiredNumberFishEscorts.linked = [];
@@ -2376,7 +2379,7 @@ snDesiredNumberTransportEscorts.available = 1;
 snDesiredNumberTransportEscorts.effective = 0;
 snDesiredNumberTransportEscorts.version = "1.0c";
 snDesiredNumberTransportEscorts.aoe = 1;
-snDesiredNumberTransportEscorts.aok = 0;
+snDesiredNumberTransportEscorts.aoc = 0;
 snDesiredNumberTransportEscorts.up = 0;
 snDesiredNumberTransportEscorts.de = 0;
 snDesiredNumberTransportEscorts.linked = [];
@@ -2397,7 +2400,7 @@ snNumberBoatDefendGroups.available = "available, except for water maps";
 snNumberBoatDefendGroups.effective = 0;
 snNumberBoatDefendGroups.version = "1.0c";
 snNumberBoatDefendGroups.aoe = 1;
-snNumberBoatDefendGroups.aok = 0;
+snNumberBoatDefendGroups.aoc = 0;
 snNumberBoatDefendGroups.up = 0;
 snNumberBoatDefendGroups.de = 0;
 snNumberBoatDefendGroups.linked = [ 69, 68 ];
@@ -2418,7 +2421,7 @@ snMinimumBoatDefendGroupSize.available = "available, except for water maps";
 snMinimumBoatDefendGroupSize.effective = 0;
 snMinimumBoatDefendGroupSize.version = "1.0c";
 snMinimumBoatDefendGroupSize.aoe = 1;
-snMinimumBoatDefendGroupSize.aok = 0;
+snMinimumBoatDefendGroupSize.aoc = 0;
 snMinimumBoatDefendGroupSize.up = 0;
 snMinimumBoatDefendGroupSize.de = 0;
 snMinimumBoatDefendGroupSize.linked = [ 69, 67 ];
@@ -2439,7 +2442,7 @@ snMaximumBoatDefendGroupSize.available = "available, except for water maps";
 snMaximumBoatDefendGroupSize.effective = 0;
 snMaximumBoatDefendGroupSize.version = "1.0c";
 snMaximumBoatDefendGroupSize.aoe = 1;
-snMaximumBoatDefendGroupSize.aok = 0;
+snMaximumBoatDefendGroupSize.aoc = 0;
 snMaximumBoatDefendGroupSize.up = 0;
 snMaximumBoatDefendGroupSize.de = 0;
 snMaximumBoatDefendGroupSize.linked = [ 68, 67 ];
@@ -2460,7 +2463,7 @@ snDockDefendPriority.available = "available, except for water maps";
 snDockDefendPriority.effective = 0;
 snDockDefendPriority.version = "1.0c";
 snDockDefendPriority.aoe = 1;
-snDockDefendPriority.aok = 1;
+snDockDefendPriority.aoc = 1;
 snDockDefendPriority.up = 0;
 snDockDefendPriority.de = 0;
 snDockDefendPriority.linked = [];
@@ -2482,7 +2485,7 @@ snLockAttackAndAttackResponse.available = "seems available";
 snLockAttackAndAttackResponse.effective = 0;
 snLockAttackAndAttackResponse.version = "1.0c";
 snLockAttackAndAttackResponse.aoe = 1;
-snLockAttackAndAttackResponse.aok = 0;
+snLockAttackAndAttackResponse.aoc = 0;
 snLockAttackAndAttackResponse.up = 0;
 snLockAttackAndAttackResponse.de = 0;
 snLockAttackAndAttackResponse.linked = [];
@@ -2503,7 +2506,7 @@ snSentryDistanceVariation.available = 0;
 snSentryDistanceVariation.effective = 1;
 snSentryDistanceVariation.version = "1.0c";
 snSentryDistanceVariation.aoe = 1;
-snSentryDistanceVariation.aok = 1;
+snSentryDistanceVariation.aoc = 1;
 snSentryDistanceVariation.up = 1;
 snSentryDistanceVariation.de = 1;
 snSentryDistanceVariation.linked = [ 22 ];
@@ -2525,7 +2528,7 @@ snMinimumTownSize.available = 0;
 snMinimumTownSize.effective = 1;
 snMinimumTownSize.version = "1.0c";
 snMinimumTownSize.aoe = 1;
-snMinimumTownSize.aok = 1;
+snMinimumTownSize.aoc = 1;
 snMinimumTownSize.up = 1;
 snMinimumTownSize.de = 1;
 snMinimumTownSize.linked = [ 74, 250 ];
@@ -2546,7 +2549,7 @@ snMaximumTownSize.available = 0;
 snMaximumTownSize.effective = 1;
 snMaximumTownSize.version = "1.0c";
 snMaximumTownSize.aoe = 1;
-snMaximumTownSize.aok = 1;
+snMaximumTownSize.aoc = 1;
 snMaximumTownSize.up = 1;
 snMaximumTownSize.de = 1;
 snMaximumTownSize.linked = [ 73, 250 ];
@@ -2567,7 +2570,7 @@ snGroupCommanderSelectionMethod.available = 0;
 snGroupCommanderSelectionMethod.effective = 1;
 snGroupCommanderSelectionMethod.version = "1.0c";
 snGroupCommanderSelectionMethod.aoe = 1;
-snGroupCommanderSelectionMethod.aok = 1;
+snGroupCommanderSelectionMethod.aoc = 1;
 snGroupCommanderSelectionMethod.up = 1;
 snGroupCommanderSelectionMethod.de = 1;
 snGroupCommanderSelectionMethod.linked = [];
@@ -2588,7 +2591,7 @@ snConsecutiveIdleUnitLimit.available = "available, but only before militarizatio
 snConsecutiveIdleUnitLimit.effective = 1;
 snConsecutiveIdleUnitLimit.version = "1.0c";
 snConsecutiveIdleUnitLimit.aoe = 1;
-snConsecutiveIdleUnitLimit.aok = 1;
+snConsecutiveIdleUnitLimit.aoc = 1;
 snConsecutiveIdleUnitLimit.up = 1;
 snConsecutiveIdleUnitLimit.de = 1;
 snConsecutiveIdleUnitLimit.linked = [];
@@ -2610,7 +2613,7 @@ snTargetEvaluationDistance.available = 0;
 snTargetEvaluationDistance.effective = 0;
 snTargetEvaluationDistance.version = "1.0c";
 snTargetEvaluationDistance.aoe = 1;
-snTargetEvaluationDistance.aok = 0;
+snTargetEvaluationDistance.aoc = 0;
 snTargetEvaluationDistance.up = 0;
 snTargetEvaluationDistance.de = 0;
 snTargetEvaluationDistance.linked = [ 81, 89, 144, 122, 79, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -2631,7 +2634,7 @@ snTargetEvaluationHitpoints.available = 0;
 snTargetEvaluationHitpoints.effective = 0;
 snTargetEvaluationHitpoints.version = "1.0c";
 snTargetEvaluationHitpoints.aoe = 1;
-snTargetEvaluationHitpoints.aok = 0;
+snTargetEvaluationHitpoints.aoc = 0;
 snTargetEvaluationHitpoints.up = 0;
 snTargetEvaluationHitpoints.de = 0;
 snTargetEvaluationHitpoints.linked = [ 81, 89, 144, 122, 79, 77, 185, 80, 83, 90, 82, 123, 184 ];
@@ -2652,7 +2655,7 @@ snTargetEvaluationDamageCapability.available = 0;
 snTargetEvaluationDamageCapability.effective = 0;
 snTargetEvaluationDamageCapability.version = "1.0c";
 snTargetEvaluationDamageCapability.aoe = 1;
-snTargetEvaluationDamageCapability.aok = 0;
+snTargetEvaluationDamageCapability.aoc = 0;
 snTargetEvaluationDamageCapability.up = 0;
 snTargetEvaluationDamageCapability.de = 0;
 snTargetEvaluationDamageCapability.linked = [ 81, 89, 144, 122, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -2673,7 +2676,7 @@ snTargetEvaluationKills.available = 0;
 snTargetEvaluationKills.effective = 0;
 snTargetEvaluationKills.version = "1.0c";
 snTargetEvaluationKills.aoe = 1;
-snTargetEvaluationKills.aok = 0;
+snTargetEvaluationKills.aoc = 0;
 snTargetEvaluationKills.up = 0;
 snTargetEvaluationKills.de = 0;
 snTargetEvaluationKills.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 83, 90, 82, 123, 184 ];
@@ -2694,7 +2697,7 @@ snTargetEvaluationAllyProximity.available = 0;
 snTargetEvaluationAllyProximity.effective = 0;
 snTargetEvaluationAllyProximity.version = "1.0c";
 snTargetEvaluationAllyProximity.aoe = 1;
-snTargetEvaluationAllyProximity.aok = 0;
+snTargetEvaluationAllyProximity.aoc = 0;
 snTargetEvaluationAllyProximity.up = 0;
 snTargetEvaluationAllyProximity.de = 0;
 snTargetEvaluationAllyProximity.linked = [ 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -2715,7 +2718,7 @@ snTargetEvaluationRof.available = 0;
 snTargetEvaluationRof.effective = 0;
 snTargetEvaluationRof.version = "1.0c";
 snTargetEvaluationRof.aoe = 1;
-snTargetEvaluationRof.aok = 0;
+snTargetEvaluationRof.aoc = 0;
 snTargetEvaluationRof.up = 0;
 snTargetEvaluationRof.de = 0;
 snTargetEvaluationRof.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 123, 184 ];
@@ -2736,7 +2739,7 @@ snTargetEvaluationRandomness.available = 0;
 snTargetEvaluationRandomness.effective = 0;
 snTargetEvaluationRandomness.version = "1.0c";
 snTargetEvaluationRandomness.aoe = 1;
-snTargetEvaluationRandomness.aok = 0;
+snTargetEvaluationRandomness.aoc = 0;
 snTargetEvaluationRandomness.up = 0;
 snTargetEvaluationRandomness.de = 0;
 snTargetEvaluationRandomness.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 90, 82, 123, 184 ];
@@ -2757,7 +2760,7 @@ snNumberWallGates.available = "seems available, if you will not build walls";
 snNumberWallGates.effective = 0;
 snNumberWallGates.version = "1.0c";
 snNumberWallGates.aoe = 1;
-snNumberWallGates.aok = 0;
+snNumberWallGates.aoc = 0;
 snNumberWallGates.up = 0;
 snNumberWallGates.de = 0;
 snNumberWallGates.linked = [];
@@ -2778,7 +2781,7 @@ snSizeWallGates.available = 1;
 snSizeWallGates.effective = 0;
 snSizeWallGates.version = "1.0c";
 snSizeWallGates.aoe = 1;
-snSizeWallGates.aok = 0;
+snSizeWallGates.aoc = 0;
 snSizeWallGates.up = 0;
 snSizeWallGates.de = 0;
 snSizeWallGates.linked = [];
@@ -2799,7 +2802,7 @@ snCampMaxDistance.available = 0;
 snCampMaxDistance.effective = 1;
 snCampMaxDistance.version = "1.0c";
 snCampMaxDistance.aoe = 1;
-snCampMaxDistance.aok = 1;
+snCampMaxDistance.aoc = 1;
 snCampMaxDistance.up = 1;
 snCampMaxDistance.de = 1;
 snCampMaxDistance.linked = [ 260, 261, 248, 202 ];
@@ -2820,7 +2823,7 @@ snMillMaxDistance.available = 0;
 snMillMaxDistance.effective = 1;
 snMillMaxDistance.version = "1.0c";
 snMillMaxDistance.aoe = 1;
-snMillMaxDistance.aok = 1;
+snMillMaxDistance.aoc = 1;
 snMillMaxDistance.up = 1;
 snMillMaxDistance.de = 1;
 snMillMaxDistance.linked = [ 248, 202 ];
@@ -2841,7 +2844,7 @@ snTacticalUpdateFrequency.available = 0;
 snTacticalUpdateFrequency.effective = 0;
 snTacticalUpdateFrequency.version = "1.0c";
 snTacticalUpdateFrequency.aoe = 1;
-snTacticalUpdateFrequency.aok = 0;
+snTacticalUpdateFrequency.aoc = 0;
 snTacticalUpdateFrequency.up = 0;
 snTacticalUpdateFrequency.de = 0;
 snTacticalUpdateFrequency.linked = [];
@@ -2862,7 +2865,7 @@ snTargetEvaluationAttackAttempts.available = 0;
 snTargetEvaluationAttackAttempts.effective = 0;
 snTargetEvaluationAttackAttempts.version = "1.0c";
 snTargetEvaluationAttackAttempts.aoe = 1;
-snTargetEvaluationAttackAttempts.aok = 0;
+snTargetEvaluationAttackAttempts.aoc = 0;
 snTargetEvaluationAttackAttempts.up = 0;
 snTargetEvaluationAttackAttempts.de = 0;
 snTargetEvaluationAttackAttempts.linked = [ 81, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -2883,7 +2886,7 @@ snTargetEvaluationRange.available = 0;
 snTargetEvaluationRange.effective =  0;
 snTargetEvaluationRange.version = "1.0c";
 snTargetEvaluationRange.aoe = 1;
-snTargetEvaluationRange.aok = 0;
+snTargetEvaluationRange.aoc = 0;
 snTargetEvaluationRange.up = 0;
 snTargetEvaluationRange.de = 0;
 snTargetEvaluationRange.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 82, 123, 184 ];
@@ -2904,7 +2907,7 @@ snPercentUnitHealthRetreat.available = "available, but avoid using it in conjunc
 snPercentUnitHealthRetreat.effective = 0;
 snPercentUnitHealthRetreat.version = "1.0c";
 snPercentUnitHealthRetreat.aoe = 1;
-snPercentUnitHealthRetreat.aok = 0;
+snPercentUnitHealthRetreat.aoc = 0;
 snPercentUnitHealthRetreat.up = 0;
 snPercentUnitHealthRetreat.de = 0;
 snPercentUnitHealthRetreat.linked = [ 97 ];
@@ -2925,7 +2928,7 @@ snDefendOverlapDistance.available = 0;
 snDefendOverlapDistance.effective = 0;
 snDefendOverlapDistance.version = "1.0c";
 snDefendOverlapDistance.aoe = 1;
-snDefendOverlapDistance.aok = 0;
+snDefendOverlapDistance.aoc = 0;
 snDefendOverlapDistance.up = 0;
 snDefendOverlapDistance.de = 0;
 snDefendOverlapDistance.linked = [];
@@ -2946,7 +2949,7 @@ snScaleMinimumAttackGroupSize.available = 0;
 snScaleMinimumAttackGroupSize.effective = 1;
 snScaleMinimumAttackGroupSize.version = "1.0c";
 snScaleMinimumAttackGroupSize.aoe = 1;
-snScaleMinimumAttackGroupSize.aok = 1;
+snScaleMinimumAttackGroupSize.aoc = 1;
 snScaleMinimumAttackGroupSize.up = 1;
 snScaleMinimumAttackGroupSize.de = 1;
 snScaleMinimumAttackGroupSize.linked = [ 94, 99, 16, 59 ];
@@ -2968,7 +2971,7 @@ snScaleMaximumAttackGroupSize.available = 0;
 snScaleMaximumAttackGroupSize.effective = 1;
 snScaleMaximumAttackGroupSize.version = "1.0c";
 snScaleMaximumAttackGroupSize.aoe = 1;
-snScaleMaximumAttackGroupSize.aok = 1;
+snScaleMaximumAttackGroupSize.aoc = 1;
 snScaleMaximumAttackGroupSize.up = 1;
 snScaleMaximumAttackGroupSize.de = 1;
 snScaleMaximumAttackGroupSize.linked = [ 93, 99, 26, 60 ];
@@ -2989,7 +2992,7 @@ snScalePercentHealthRetreat.available = "available, but avoid using it in conjun
 snScalePercentHealthRetreat.effective = 0;
 snScalePercentHealthRetreat.version = "1.0c";
 snScalePercentHealthRetreat.aoe = 1;
-snScalePercentHealthRetreat.aok = 0;
+snScalePercentHealthRetreat.aoc = 0;
 snScalePercentHealthRetreat.up = 0;
 snScalePercentHealthRetreat.de = 0;
 snScalePercentHealthRetreat.linked = [ 30 ];
@@ -3010,7 +3013,7 @@ snScalePercentDeathRetreat.available = "available, but avoid using it in conjunc
 snScalePercentDeathRetreat.effective = 0;
 snScalePercentDeathRetreat.version = "1.0c";
 snScalePercentDeathRetreat.aoe = 1;
-snScalePercentDeathRetreat.aok = 0;
+snScalePercentDeathRetreat.aoc = 0;
 snScalePercentDeathRetreat.up = 0;
 snScalePercentDeathRetreat.de = 0;
 snScalePercentDeathRetreat.linked = [ 31 ];
@@ -3031,7 +3034,7 @@ snScalePercentUnitHealthRetreat.available = "available, but avoid using it in co
 snScalePercentUnitHealthRetreat.effective = 0;
 snScalePercentUnitHealthRetreat.version = "1.0c";
 snScalePercentUnitHealthRetreat.aoe = 1;
-snScalePercentUnitHealthRetreat.aok = 0;
+snScalePercentUnitHealthRetreat.aoc = 0;
 snScalePercentUnitHealthRetreat.up = 0;
 snScalePercentUnitHealthRetreat.de = 0;
 snScalePercentUnitHealthRetreat.linked = [ 91 ];
@@ -3052,7 +3055,7 @@ snAttackGroupSizeRandomness.available = 0;
 snAttackGroupSizeRandomness.effective = 1;
 snAttackGroupSizeRandomness.version = "1.0c";
 snAttackGroupSizeRandomness.aoe = 1;
-snAttackGroupSizeRandomness.aok = 1;
+snAttackGroupSizeRandomness.aoc = 1;
 snAttackGroupSizeRandomness.up = 1;
 snAttackGroupSizeRandomness.de = 1;
 snAttackGroupSizeRandomness.linked = [];
@@ -3073,7 +3076,7 @@ snScalingFrequency.available = 0;
 snScalingFrequency.effective = 1;
 snScalingFrequency.version = "1.0c";
 snScalingFrequency.aoe = 1;
-snScalingFrequency.aok = 1;
+snScalingFrequency.aoc = 1;
 snScalingFrequency.up = 1;
 snScalingFrequency.de = 1;
 snScalingFrequency.linked = [93, 94];
@@ -3095,7 +3098,7 @@ snMaximumGaiaAttackResponse.available = 0;
 snMaximumGaiaAttackResponse.effective = 1;
 snMaximumGaiaAttackResponse.version = "1.0c";
 snMaximumGaiaAttackResponse.aoe = 1;
-snMaximumGaiaAttackResponse.aok = 1;
+snMaximumGaiaAttackResponse.aoc = 1;
 snMaximumGaiaAttackResponse.up = 1;
 snMaximumGaiaAttackResponse.de = 1;
 snMaximumGaiaAttackResponse.linked = [];
@@ -3116,7 +3119,7 @@ snBuildFrequency.available = 0;
 snBuildFrequency.effective = 0;
 snBuildFrequency.version = "1.0c";
 snBuildFrequency.aoe = 1;
-snBuildFrequency.aok = 0;
+snBuildFrequency.aoc = 0;
 snBuildFrequency.up = 0;
 snBuildFrequency.de = 0;
 snBuildFrequency.linked = [];
@@ -3137,7 +3140,7 @@ snAttackSeparationTimeRandomness.available = "seems available, but it would be b
 snAttackSeparationTimeRandomness.effective = 0;
 snAttackSeparationTimeRandomness.version = "1.0c";
 snAttackSeparationTimeRandomness.aoe = 1;
-snAttackSeparationTimeRandomness.aok = 0;
+snAttackSeparationTimeRandomness.aoc = 0;
 snAttackSeparationTimeRandomness.up = 0;
 snAttackSeparationTimeRandomness.de = 0;
 snAttackSeparationTimeRandomness.linked = [ 46 ];
@@ -3158,7 +3161,7 @@ snAttackIntelligence.available = 0;
 snAttackIntelligence.effective = 1;
 snAttackIntelligence.version = "1.0c";
 snAttackIntelligence.aoe = 1;
-snAttackIntelligence.aok = 1;
+snAttackIntelligence.aoc = 1;
 snAttackIntelligence.up = 1;
 snAttackIntelligence.de = 1;
 snAttackIntelligence.linked = [];
@@ -3179,7 +3182,7 @@ snInitialAttackDelay.available = 0;
 snInitialAttackDelay.effective = 1;
 snInitialAttackDelay.version = "1.0c";
 snInitialAttackDelay.aoe = 1;
-snInitialAttackDelay.aok = 1;
+snInitialAttackDelay.aoc = 1;
 snInitialAttackDelay.up = 1;
 snInitialAttackDelay.de = 1;
 snInitialAttackDelay.linked = [ 134 ];
@@ -3200,7 +3203,7 @@ snSaveScenarioInformation.available = 0;
 snSaveScenarioInformation.effective = 0;
 snSaveScenarioInformation.version = "1.0c";
 snSaveScenarioInformation.aoe = 1;
-snSaveScenarioInformation.aok = 0;
+snSaveScenarioInformation.aoc = 0;
 snSaveScenarioInformation.up = 0;
 snSaveScenarioInformation.de = 0;
 snSaveScenarioInformation.linked = [];
@@ -3221,7 +3224,7 @@ snSpecialAttackType1.available = 0;
 snSpecialAttackType1.effective = 1;
 snSpecialAttackType1.version = "1.0c";
 snSpecialAttackType1.aoe = 1;
-snSpecialAttackType1.aok = 1;
+snSpecialAttackType1.aoc = 1;
 snSpecialAttackType1.up = 1;
 snSpecialAttackType1.de = 1;
 snSpecialAttackType1.linked = [ 109 ];
@@ -3242,7 +3245,7 @@ snSpecialAttackType2.available = 0;
 snSpecialAttackType2.effective = 1;
 snSpecialAttackType2.version = "1.0c";
 snSpecialAttackType2.aoe = 1;
-snSpecialAttackType2.aok = 1;
+snSpecialAttackType2.aoc = 1;
 snSpecialAttackType2.up = 1;
 snSpecialAttackType2.de = 1;
 snSpecialAttackType2.linked = [ 110 ];
@@ -3264,7 +3267,7 @@ snSpecialAttackType3.available = 0;
 snSpecialAttackType3.effective = 1;
 snSpecialAttackType3.version = "1.0c";
 snSpecialAttackType3.aoe = 1;
-snSpecialAttackType3.aok = 1;
+snSpecialAttackType3.aoc = 1;
 snSpecialAttackType3.up = 1;
 snSpecialAttackType3.de = 1;
 snSpecialAttackType3.linked = [ 111 ];
@@ -3286,7 +3289,7 @@ snSpecialAttackInfluence1.available = 0;
 snSpecialAttackInfluence1.effective = 1;
 snSpecialAttackInfluence1.version = "1.0c";
 snSpecialAttackInfluence1.aoe = 1;
-snSpecialAttackInfluence1.aok = 1;
+snSpecialAttackInfluence1.aoc = 1;
 snSpecialAttackInfluence1.up = 1;
 snSpecialAttackInfluence1.de = 1;
 snSpecialAttackInfluence1.linked = [ 106 ];
@@ -3307,7 +3310,7 @@ snSpecialAttackInfluence2.available = 0;
 snSpecialAttackInfluence2.effective = 1;
 snSpecialAttackInfluence2.version = "1.0c";
 snSpecialAttackInfluence2.aoe = 1;
-snSpecialAttackInfluence2.aok = 1;
+snSpecialAttackInfluence2.aoc = 1;
 snSpecialAttackInfluence2.up = 1;
 snSpecialAttackInfluence2.de = 1;
 snSpecialAttackInfluence2.linked = [ 107 ];
@@ -3328,7 +3331,7 @@ snSpecialAttackInfluence3.available = "seems available, except under standard vi
 snSpecialAttackInfluence3.effective = 1;
 snSpecialAttackInfluence3.version = "1.0c";
 snSpecialAttackInfluence3.aoe = 1;
-snSpecialAttackInfluence3.aok = 1;
+snSpecialAttackInfluence3.aoc = 1;
 snSpecialAttackInfluence3.up = 1;
 snSpecialAttackInfluence3.de = 1;
 snSpecialAttackInfluence3.linked = [ 108 ];
@@ -3349,7 +3352,7 @@ snMinimumWaterBodySizeForDock.available = "available, as long as the value will 
 snMinimumWaterBodySizeForDock.effective = 1;
 snMinimumWaterBodySizeForDock.version = "1.0c";
 snMinimumWaterBodySizeForDock.aoe = 1;
-snMinimumWaterBodySizeForDock.aok = 1;
+snMinimumWaterBodySizeForDock.aoc = 1;
 snMinimumWaterBodySizeForDock.up = 1;
 snMinimumWaterBodySizeForDock.de = 1;
 snMinimumWaterBodySizeForDock.linked = [];
@@ -3370,7 +3373,7 @@ snSkipAges.available = 0;
 snSkipAges.effective = 0;
 snSkipAges.version = "1.0c";
 snSkipAges.aoe = 1;
-snSkipAges.aok = 0;
+snSkipAges.aoc = 0;
 snSkipAges.up = 0;
 snSkipAges.de = 0;
 snSkipAges.linked = [];
@@ -3391,7 +3394,7 @@ snNumberBuildAttemptsBeforeSkip.available = 0;
 snNumberBuildAttemptsBeforeSkip.effective = 0;
 snNumberBuildAttemptsBeforeSkip.version = "1.0c";
 snNumberBuildAttemptsBeforeSkip.aoe = 1;
-snNumberBuildAttemptsBeforeSkip.aok = 0;
+snNumberBuildAttemptsBeforeSkip.aoc = 0;
 snNumberBuildAttemptsBeforeSkip.up = 0;
 snNumberBuildAttemptsBeforeSkip.de = 0;
 snNumberBuildAttemptsBeforeSkip.linked = [];
@@ -3412,7 +3415,7 @@ snMaxSkipsPerAttempt.available = 0;
 snMaxSkipsPerAttempt.effective = 0;
 snMaxSkipsPerAttempt.version = "1.0c";
 snMaxSkipsPerAttempt.aoe = 1;
-snMaxSkipsPerAttempt.aok = 0;
+snMaxSkipsPerAttempt.aoc = 0;
 snMaxSkipsPerAttempt.up = 0;
 snMaxSkipsPerAttempt.de = 0;
 snMaxSkipsPerAttempt.linked = [];
@@ -3433,7 +3436,7 @@ snTrainingRebuilds.available = 0;
 snTrainingRebuilds.effective = 0;
 snTrainingRebuilds.version = "1.0c";
 snTrainingRebuilds.aoe = 0;
-snTrainingRebuilds.aok = 0;
+snTrainingRebuilds.aoc = 0;
 snTrainingRebuilds.up = 0;
 snTrainingRebuilds.de = 0;
 snTrainingRebuilds.linked = [];
@@ -3454,7 +3457,7 @@ snFoodGathererPercentage.available = 0;
 snFoodGathererPercentage.effective = 1;
 snFoodGathererPercentage.version = "1.0c";
 snFoodGathererPercentage.aoe = 1;
-snFoodGathererPercentage.aok = 1;
+snFoodGathererPercentage.aoc = 1;
 snFoodGathererPercentage.up = 1;
 snFoodGathererPercentage.de = 1;
 snFoodGathererPercentage.linked = [ 156 ];
@@ -3475,7 +3478,7 @@ snGoldGathererPercentage.available = 0;
 snGoldGathererPercentage.effective = 1;
 snGoldGathererPercentage.version = "1.0c";
 snGoldGathererPercentage.aoe = 1;
-snGoldGathererPercentage.aok = 1;
+snGoldGathererPercentage.aoc = 1;
 snGoldGathererPercentage.up = 1;
 snGoldGathererPercentage.de = 1;
 snGoldGathererPercentage.linked = [ 159 ];
@@ -3496,7 +3499,7 @@ snStoneGathererPercentage.available = 0;
 snStoneGathererPercentage.effective = 1;
 snStoneGathererPercentage.version = "1.0c";
 snStoneGathererPercentage.aoe = 1;
-snStoneGathererPercentage.aok = 1;
+snStoneGathererPercentage.aoc = 1;
 snStoneGathererPercentage.up = 1;
 snStoneGathererPercentage.de = 1;
 snStoneGathererPercentage.linked = [ 158 ];
@@ -3517,7 +3520,7 @@ snWoodGathererPercentage.available = 0;
 snWoodGathererPercentage.effective = 1;
 snWoodGathererPercentage.version = "1.0c";
 snWoodGathererPercentage.aoe = 1;
-snWoodGathererPercentage.aok = 1;
+snWoodGathererPercentage.aoc = 1;
 snWoodGathererPercentage.up = 1;
 snWoodGathererPercentage.de = 1;
 snWoodGathererPercentage.linked = [ 157 ];
@@ -3538,7 +3541,7 @@ snDefendImportantGroupLeaders.available = 0;
 snDefendImportantGroupLeaders.effective = 0;
 snDefendImportantGroupLeaders.version = "1.0c";
 snDefendImportantGroupLeaders.aoe = 1;
-snDefendImportantGroupLeaders.aok = 0;
+snDefendImportantGroupLeaders.aoc = 0;
 snDefendImportantGroupLeaders.up = 0;
 snDefendImportantGroupLeaders.de = 0;
 snDefendImportantGroupLeaders.linked = [];
@@ -3559,7 +3562,7 @@ snTargetEvaluationContinent.available = 0;
 snTargetEvaluationContinent.effective = 0;
 snTargetEvaluationContinent.version = "1.0c";
 snTargetEvaluationContinent.aoe = 1;
-snTargetEvaluationContinent.aok = 0;
+snTargetEvaluationContinent.aoc = 0;
 snTargetEvaluationContinent.up = 0;
 snTargetEvaluationContinent.de = 0;
 snTargetEvaluationContinent.linked = [ 81, 89, 144, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -3580,7 +3583,7 @@ snTargetEvaluationSiegeWeapon.available = 0;
 snTargetEvaluationSiegeWeapon.effective = 0;
 snTargetEvaluationSiegeWeapon.version = "1.0c";
 snTargetEvaluationSiegeWeapon.aoe = 1;
-snTargetEvaluationSiegeWeapon.aok = 0;
+snTargetEvaluationSiegeWeapon.aoc = 0;
 snTargetEvaluationSiegeWeapon.up = 0;
 snTargetEvaluationSiegeWeapon.de = 0;
 snTargetEvaluationSiegeWeapon.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 184 ];
@@ -3601,7 +3604,7 @@ snTributeAmount.available = 1;
 snTributeAmount.effective = 0;
 snTributeAmount.version = "1.0c";
 snTributeAmount.aoe = 1;
-snTributeAmount.aok = 0;
+snTributeAmount.aoc = 0;
 snTributeAmount.up = 0;
 snTributeAmount.de = 0;
 snTributeAmount.linked = [];
@@ -3622,7 +3625,7 @@ snTributeChatFrequency.available = 1;
 snTributeChatFrequency.effective = 0;
 snTributeChatFrequency.version = "1.0c";
 snTributeChatFrequency.aoe = 1;
-snTributeChatFrequency.aok = 0;
+snTributeChatFrequency.aoc = 0;
 snTributeChatFrequency.up = 0;
 snTributeChatFrequency.de = 0;
 snTributeChatFrequency.linked = [];
@@ -3643,7 +3646,7 @@ snTributeChatRandomness.available = 1;
 snTributeChatRandomness.effective = 0;
 snTributeChatRandomness.version = "1.0c";
 snTributeChatRandomness.aoe = 1;
-snTributeChatRandomness.aok = 0;
+snTributeChatRandomness.aoc = 0;
 snTributeChatRandomness.up = 0;
 snTributeChatRandomness.de = 0;
 snTributeChatRandomness.linked = [];
@@ -3664,7 +3667,7 @@ snTributeTimeout.available = 1;
 snTributeTimeout.effective = 0;
 snTributeTimeout.version = "1.0c";
 snTributeTimeout.aoe = 1;
-snTributeTimeout.aok = 0;
+snTributeTimeout.aoc = 0;
 snTributeTimeout.up = 0;
 snTributeTimeout.de = 0;
 snTributeTimeout.linked = [];
@@ -3685,7 +3688,7 @@ snTributePlayer.available = 1;
 snTributePlayer.effective = 0;
 snTributePlayer.version = "1.0c";
 snTributePlayer.aoe = 1;
-snTributePlayer.aok = 0;
+snTributePlayer.aoc = 0;
 snTributePlayer.up = 0;
 snTributePlayer.de = 0;
 snTributePlayer.linked = [];
@@ -3706,7 +3709,7 @@ snTributeSuccessOutcome.available = 1;
 snTributeSuccessOutcome.effective = 0;
 snTributeSuccessOutcome.version = "1.0c";
 snTributeSuccessOutcome.aoe = 1;
-snTributeSuccessOutcome.aok = 0;
+snTributeSuccessOutcome.aoc = 0;
 snTributeSuccessOutcome.up = 0;
 snTributeSuccessOutcome.de = 0;
 snTributeSuccessOutcome.linked = [];
@@ -3727,7 +3730,7 @@ snTributeFailureOutcome.available = 1;
 snTributeFailureOutcome.effective = 0;
 snTributeFailureOutcome.version = "1.0c";
 snTributeFailureOutcome.aoe = 1;
-snTributeFailureOutcome.aok = 0;
+snTributeFailureOutcome.aoc = 0;
 snTributeFailureOutcome.up = 0;
 snTributeFailureOutcome.de = 0;
 snTributeFailureOutcome.linked = [];
@@ -3748,7 +3751,7 @@ snGroupLeaderDefenseDistance.available = 0;
 snGroupLeaderDefenseDistance.effective = 1;
 snGroupLeaderDefenseDistance.version = "1.0c";
 snGroupLeaderDefenseDistance.aoe = 1;
-snGroupLeaderDefenseDistance.aok = 1;
+snGroupLeaderDefenseDistance.aoc = 1;
 snGroupLeaderDefenseDistance.up = 1;
 snGroupLeaderDefenseDistance.de = 1;
 snGroupLeaderDefenseDistance.linked = [];
@@ -3769,7 +3772,7 @@ snTributePersistence.available = 1;
 snTributePersistence.effective = 0;
 snTributePersistence.version = "1.0c";
 snTributePersistence.aoe = 1;
-snTributePersistence.aok = 0;
+snTributePersistence.aoc = 0;
 snTributePersistence.up = 0;
 snTributePersistence.de = 0;
 snTributePersistence.linked = [];
@@ -3790,7 +3793,7 @@ snTributeRevokeOnAttack.available = 1;
 snTributeRevokeOnAttack.effective = 0;
 snTributeRevokeOnAttack.version = "1.0c";
 snTributeRevokeOnAttack.aoe = 1;
-snTributeRevokeOnAttack.aok = 0;
+snTributeRevokeOnAttack.aoc = 0;
 snTributeRevokeOnAttack.up = 0;
 snTributeRevokeOnAttack.de = 0;
 snTributeRevokeOnAttack.linked = [];
@@ -3811,7 +3814,7 @@ snInitialAttackDelayType.available = 0;
 snInitialAttackDelayType.effective = 1;
 snInitialAttackDelayType.version = "1.0c";
 snInitialAttackDelayType.aoe = 1;
-snInitialAttackDelayType.aok = 1;
+snInitialAttackDelayType.aoc = 1;
 snInitialAttackDelayType.up = 1;
 snInitialAttackDelayType.de = 1;
 snInitialAttackDelayType.linked = [ 104 ];
@@ -3832,7 +3835,7 @@ snBlotExplorationMap.available = "available, but only later, as it greatly influ
 snBlotExplorationMap.effective = 1;
 snBlotExplorationMap.version = "1.0c";
 snBlotExplorationMap.aoe = 1;
-snBlotExplorationMap.aok = 1;
+snBlotExplorationMap.aoc = 1;
 snBlotExplorationMap.up = 1;
 snBlotExplorationMap.de = 1;
 snBlotExplorationMap.linked = [ 136 ];
@@ -3853,7 +3856,7 @@ snBlotSize.available = "available, but only later, as it greatly influences expl
 snBlotSize.effective = 1;
 snBlotSize.version = "1.0c";
 snBlotSize.aoe = 1;
-snBlotSize.aok = 1;
+snBlotSize.aoc = 1;
 snBlotSize.up = 1;
 snBlotSize.de = 1;
 snBlotSize.linked = [ 135 ];
@@ -3874,7 +3877,7 @@ snTownWallPattern.available = 0;
 snTownWallPattern.effective = 0;
 snTownWallPattern.version = "1.0c";
 snTownWallPattern.aoe = 1;
-snTownWallPattern.aok = 0;
+snTownWallPattern.aoc = 0;
 snTownWallPattern.up = 0;
 snTownWallPattern.de = 0;
 snTownWallPattern.linked = [];
@@ -3895,7 +3898,7 @@ snAddStartingResourceFood.available = 0;
 snAddStartingResourceFood.effective = 1;
 snAddStartingResourceFood.version = "1.0c";
 snAddStartingResourceFood.aoe = 1;
-snAddStartingResourceFood.aok = 1;
+snAddStartingResourceFood.aoc = 1;
 snAddStartingResourceFood.up = 1;
 snAddStartingResourceFood.de = 1;
 snAddStartingResourceFood.linked = [];
@@ -3917,7 +3920,7 @@ snAddStartingResourceGold.available = 0;
 snAddStartingResourceGold.effective = 1;
 snAddStartingResourceGold.version = "1.0c";
 snAddStartingResourceGold.aoe = 1;
-snAddStartingResourceGold.aok = 1;
+snAddStartingResourceGold.aoc = 1;
 snAddStartingResourceGold.up = 1;
 snAddStartingResourceGold.de = 1;
 snAddStartingResourceGold.linked = [];
@@ -3938,7 +3941,7 @@ snAddStartingResourceStone.available = 0;
 snAddStartingResourceStone.effective = 1;
 snAddStartingResourceStone.version = "1.0c";
 snAddStartingResourceStone.aoe = 1;
-snAddStartingResourceStone.aok = 1;
+snAddStartingResourceStone.aoc = 1;
 snAddStartingResourceStone.up = 1;
 snAddStartingResourceStone.de = 1;
 snAddStartingResourceStone.linked = [];
@@ -3959,7 +3962,7 @@ snAddStartingResourceWood.available = 0;
 snAddStartingResourceWood.effective = 1;
 snAddStartingResourceWood.version = "1.0c";
 snAddStartingResourceWood.aoe = 1;
-snAddStartingResourceWood.aok = 1;
+snAddStartingResourceWood.aoc = 1;
 snAddStartingResourceWood.up = 1;
 snAddStartingResourceWood.de = 1;
 snAddStartingResourceWood.linked = [];
@@ -3980,7 +3983,7 @@ snIntelligentGathering.available = 0;
 snIntelligentGathering.effective = 0;
 snIntelligentGathering.version = "1.0c";
 snIntelligentGathering.aoe = 1;
-snIntelligentGathering.aok = 0;
+snIntelligentGathering.aoc = 0;
 snIntelligentGathering.up = 0;
 snIntelligentGathering.de = 0;
 snIntelligentGathering.linked = [];
@@ -4002,7 +4005,7 @@ snTaskUngroupedSoldiers.available = 0;
 snTaskUngroupedSoldiers.effective = 1;
 snTaskUngroupedSoldiers.version = "1.0c";
 snTaskUngroupedSoldiers.aoe = 1;
-snTaskUngroupedSoldiers.aok = 1;
+snTaskUngroupedSoldiers.aoc = 1;
 snTaskUngroupedSoldiers.up = 1;
 snTaskUngroupedSoldiers.de = 1;
 snTaskUngroupedSoldiers.linked = [];
@@ -4024,7 +4027,7 @@ snTargetEvaluationBoat.available = 0;
 snTargetEvaluationBoat.effective = 0;
 snTargetEvaluationBoat.version = "1.0c";
 snTargetEvaluationBoat.aoe = 1;
-snTargetEvaluationBoat.aok = 0;
+snTargetEvaluationBoat.aoc = 0;
 snTargetEvaluationBoat.up = 0;
 snTargetEvaluationBoat.de = 0;
 snTargetEvaluationBoat.linked = [ 81, 89, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123, 184 ];
@@ -4045,7 +4048,7 @@ snNumberEnemyObjectsRequired.available = 0;
 snNumberEnemyObjectsRequired.effective = 0;
 snNumberEnemyObjectsRequired.version = "1.0c";
 snNumberEnemyObjectsRequired.aoe = 1;
-snNumberEnemyObjectsRequired.aok = 0;
+snNumberEnemyObjectsRequired.aoc = 0;
 snNumberEnemyObjectsRequired.up = 0;
 snNumberEnemyObjectsRequired.de = 0;
 snNumberEnemyObjectsRequired.linked = [];
@@ -4066,7 +4069,7 @@ snNumberMaxSkipCycles.available = 0;
 snNumberMaxSkipCycles.effective = 0;
 snNumberMaxSkipCycles.version = "1.0c";
 snNumberMaxSkipCycles.aoe = 1;
-snNumberMaxSkipCycles.aok = 0;
+snNumberMaxSkipCycles.aoc = 0;
 snNumberMaxSkipCycles.up = 0;
 snNumberMaxSkipCycles.de = 0;
 snNumberMaxSkipCycles.linked = [];
@@ -4087,7 +4090,7 @@ snMostNeededResourceLookAhead.available = 1;
 snMostNeededResourceLookAhead.effective = 0;
 snMostNeededResourceLookAhead.version = "1.0c";
 snMostNeededResourceLookAhead.aoe = 1;
-snMostNeededResourceLookAhead.aok = 0;
+snMostNeededResourceLookAhead.aoc = 0;
 snMostNeededResourceLookAhead.up = 0;
 snMostNeededResourceLookAhead.de = 0;
 snMostNeededResourceLookAhead.linked = [];
@@ -4108,7 +4111,7 @@ snRetaskGatherAmount.available = 0;
 snRetaskGatherAmount.effective = 1;
 snRetaskGatherAmount.version = "1.0c";
 snRetaskGatherAmount.aoe = 1;
-snRetaskGatherAmount.aok = 1;
+snRetaskGatherAmount.aoc = 1;
 snRetaskGatherAmount.up = 1;
 snRetaskGatherAmount.de = 1;
 snRetaskGatherAmount.linked = [ 149 ];
@@ -4129,7 +4132,7 @@ snMaxRetaskGatherAmount.available = 0;
 snMaxRetaskGatherAmount.effective = 1;
 snMaxRetaskGatherAmount.version = "1.0c";
 snMaxRetaskGatherAmount.aoe = 1;
-snMaxRetaskGatherAmount.aok = 1;
+snMaxRetaskGatherAmount.aoc = 1;
 snMaxRetaskGatherAmount.up = 1;
 snMaxRetaskGatherAmount.de = 1;
 snMaxRetaskGatherAmount.linked = [ 148 ];
@@ -4151,7 +4154,7 @@ snMaxStoragePits.available = 1;
 snMaxStoragePits.effective = 0;
 snMaxStoragePits.version = "1.0c";
 snMaxStoragePits.aoe = 1;
-snMaxStoragePits.aok = 0;
+snMaxStoragePits.aoc = 0;
 snMaxStoragePits.up = 0;
 snMaxStoragePits.de = 0;
 snMaxStoragePits.linked = [];
@@ -4172,7 +4175,7 @@ snMaxGranaries.available = 1;
 snMaxGranaries.effective = 0;
 snMaxGranaries.version = "1.0c";
 snMaxGranaries.aoe = 1;
-snMaxGranaries.aok = 0;
+snMaxGranaries.aoc = 0;
 snMaxGranaries.up = 0;
 snMaxGranaries.de = 0;
 snMaxGranaries.linked = [];
@@ -4193,7 +4196,7 @@ snHouseOverage.available = 1;
 snHouseOverage.effective = 0;
 snHouseOverage.version = "1.0c";
 snHouseOverage.aoe = 1;
-snHouseOverage.aok = 0;
+snHouseOverage.aoc = 0;
 snHouseOverage.up = 0;
 snHouseOverage.de = 0;
 snHouseOverage.linked = [];
@@ -4214,7 +4217,7 @@ snUnknownSN153.available = 0;
 snUnknownSN153.effective = 0;
 snUnknownSN153.version = "1.0c";
 snUnknownSN153.aoe = 0;
-snUnknownSN153.aok = 0;
+snUnknownSN153.aoc = 0;
 snUnknownSN153.up = 0;
 snUnknownSN153.de = 0;
 snUnknownSN153.linked = [];
@@ -4235,7 +4238,7 @@ snUnknownSN154.available = 0;
 snUnknownSN154.effective = 0;
 snUnknownSN154.version = "1.0c";
 snUnknownSN154.aoe = 0;
-snUnknownSN154.aok = 0;
+snUnknownSN154.aoc = 0;
 snUnknownSN154.up = 0;
 snUnknownSN154.de = 0;
 snUnknownSN154.linked = [];
@@ -4256,7 +4259,7 @@ snBuildPlanDivisions.available = "seems available";
 snBuildPlanDivisions.effective = 0;
 snBuildPlanDivisions.version = "1.0c";
 snBuildPlanDivisions.aoe = 1;
-snBuildPlanDivisions.aok = 0;
+snBuildPlanDivisions.aoc = 0;
 snBuildPlanDivisions.up = 0;
 snBuildPlanDivisions.de = 0;
 snBuildPlanDivisions.linked = [];
@@ -4277,7 +4280,7 @@ snFoodModifierPercentage.available = 0;
 snFoodModifierPercentage.effective = 1;
 snFoodModifierPercentage.version = "1.0c";
 snFoodModifierPercentage.aoe = 1;
-snFoodModifierPercentage.aok = 1;
+snFoodModifierPercentage.aoc = 1;
 snFoodModifierPercentage.up = 1;
 snFoodModifierPercentage.de = 1;
 snFoodModifierPercentage.linked = [ 117 ];
@@ -4298,7 +4301,7 @@ snWoodModifierPercentage.available = 0;
 snWoodModifierPercentage.effective = 1;
 snWoodModifierPercentage.version = "1.0c";
 snWoodModifierPercentage.aoe = 1;
-snWoodModifierPercentage.aok = 1;
+snWoodModifierPercentage.aoc = 1;
 snWoodModifierPercentage.up = 1;
 snWoodModifierPercentage.de = 1;
 snWoodModifierPercentage.linked = [ 120 ];
@@ -4319,7 +4322,7 @@ snStoneModifierPercentage.available = 0;
 snStoneModifierPercentage.effective = 1;
 snStoneModifierPercentage.version = "1.0c";
 snStoneModifierPercentage.aoe = 1;
-snStoneModifierPercentage.aok = 1;
+snStoneModifierPercentage.aoc = 1;
 snStoneModifierPercentage.up = 1;
 snStoneModifierPercentage.de = 1;
 snStoneModifierPercentage.linked = [ 119 ];
@@ -4340,7 +4343,7 @@ snGoldModifierPercentage.available = 0;
 snGoldModifierPercentage.effective = 1;
 snGoldModifierPercentage.version = "1.0c";
 snGoldModifierPercentage.aoe = 1;
-snGoldModifierPercentage.aok = 1;
+snGoldModifierPercentage.aoc = 1;
 snGoldModifierPercentage.up = 1;
 snGoldModifierPercentage.de = 1;
 snGoldModifierPercentage.linked = [ 118 ];
@@ -4361,7 +4364,7 @@ snMaxBuildPlanGathererPercentage.available = 0;
 snMaxBuildPlanGathererPercentage.effective = 0;
 snMaxBuildPlanGathererPercentage.version = "1.0c";
 snMaxBuildPlanGathererPercentage.aoe = 1;
-snMaxBuildPlanGathererPercentage.aok = 0;
+snMaxBuildPlanGathererPercentage.aoc = 0;
 snMaxBuildPlanGathererPercentage.up = 0;
 snMaxBuildPlanGathererPercentage.de = 0;
 snMaxBuildPlanGathererPercentage.linked = [];
@@ -4383,7 +4386,7 @@ snRequiredFirstBuilding.available = 1;
 snRequiredFirstBuilding.effective = 0;
 snRequiredFirstBuilding.version = "1.0c";
 snRequiredFirstBuilding.aoe = 1;
-snRequiredFirstBuilding.aok = 0;
+snRequiredFirstBuilding.aoc = 0;
 snRequiredFirstBuilding.up = 0;
 snRequiredFirstBuilding.de = 0;
 snRequiredFirstBuilding.linked = [];
@@ -4404,7 +4407,7 @@ snUsePlayerAttacking.available = 0;
 snUsePlayerAttacking.effective = 0;
 snUsePlayerAttacking.version = "1.0c";
 snRequiredFirstBuilding.aoe = 1;
-snRequiredFirstBuilding.aok = 0;
+snRequiredFirstBuilding.aoc = 0;
 snRequiredFirstBuilding.up = 0;
 snRequiredFirstBuilding.de = 0;
 snUsePlayerAttacking.linked = [];
@@ -4425,7 +4428,7 @@ snFoodDropsiteDistance.available = 0;
 snFoodDropsiteDistance.effective = 1;
 snFoodDropsiteDistance.version = "1.0c";
 snFoodDropsiteDistance.aoe = 1;
-snFoodDropsiteDistance.aok = 1;
+snFoodDropsiteDistance.aoc = 1;
 snFoodDropsiteDistance.up = 1;
 snFoodDropsiteDistance.de = 1;
 snFoodDropsiteDistance.linked = [ 234, 235 ];
@@ -4446,7 +4449,7 @@ snWoodDropsiteDistance.available = 0;
 snWoodDropsiteDistance.effective = 1;
 snWoodDropsiteDistance.version = "1.0c";
 snWoodDropsiteDistance.aoe = 1;
-snWoodDropsiteDistance.aok = 1;
+snWoodDropsiteDistance.aoc = 1;
 snWoodDropsiteDistance.up = 1;
 snWoodDropsiteDistance.de = 1;
 snWoodDropsiteDistance.linked = [ 233 ];
@@ -4467,7 +4470,7 @@ snStoneDropsiteDistance.available = 0;
 snStoneDropsiteDistance.effective = 1;
 snStoneDropsiteDistance.version = "1.0c";
 snStoneDropsiteDistance.aoe = 1;
-snStoneDropsiteDistance.aok = 1;
+snStoneDropsiteDistance.aoc = 1;
 snStoneDropsiteDistance.up = 1;
 snStoneDropsiteDistance.de = 1;
 snStoneDropsiteDistance.linked = [ 238 ];
@@ -4488,7 +4491,7 @@ snGoldDropsiteDistance.available = 0;
 snGoldDropsiteDistance.effective = 1;
 snGoldDropsiteDistance.version = "1.0c";
 snGoldDropsiteDistance.aoe = 1;
-snGoldDropsiteDistance.aok = 1;
+snGoldDropsiteDistance.aoc = 1;
 snGoldDropsiteDistance.up = 1;
 snGoldDropsiteDistance.de = 1;
 snGoldDropsiteDistance.linked = [ 237 ];
@@ -4509,7 +4512,7 @@ snInitialExplorationRequired.available = 0;
 snInitialExplorationRequired.effective = 1;
 snInitialExplorationRequired.version = "1.0c";
 snInitialExplorationRequired.aoe = 1;
-snInitialExplorationRequired.aok = 1;
+snInitialExplorationRequired.aoc = 1;
 snInitialExplorationRequired.up = 1;
 snInitialExplorationRequired.de = 1;
 snInitialExplorationRequired.linked = [ 32, 179, 256 ];
@@ -4531,7 +4534,7 @@ snRandomPlacementFactor.available = 0;
 snRandomPlacementFactor.effective = 1;
 snRandomPlacementFactor.version = "1.0c";
 snRandomPlacementFactor.aoe = 1;
-snRandomPlacementFactor.aok = 1;
+snRandomPlacementFactor.aoc = 1;
 snRandomPlacementFactor.up = 1;
 snRandomPlacementFactor.de = 1;
 snRandomPlacementFactor.linked = [];
@@ -4552,7 +4555,7 @@ snRequiredForestTiles.available = 0;
 snRequiredForestTiles.effective = 0;
 snRequiredForestTiles.version = "1.0c";
 snRequiredForestTiles.aoe = 1;
-snRequiredForestTiles.aok = 0;
+snRequiredForestTiles.aoc = 0;
 snRequiredForestTiles.up = 0;
 snRequiredForestTiles.de = 0;
 snRequiredForestTiles.linked = [];
@@ -4573,7 +4576,7 @@ snMinimumFood.available = 1;
 snMinimumFood.effective = 0;
 snMinimumFood.version = "1.0c";
 snMinimumFood.aoe = 1;
-snMinimumFood.aok = 0;
+snMinimumFood.aoc = 0;
 snMinimumFood.up = 0;
 snMinimumFood.de = 0;
 snMinimumFood.linked = [];
@@ -4594,7 +4597,7 @@ snMinimumWood.available = 1;
 snMinimumWood.effective = 0;
 snMinimumWood.version = "1.0c";
 snMinimumWood.aoe = 1;
-snMinimumWood.aok = 0;
+snMinimumWood.aoc = 0;
 snMinimumWood.up = 0;
 snMinimumWood.de = 0;
 snMinimumWood.linked = [];
@@ -4615,7 +4618,7 @@ snMinimumStone.available = 1;
 snMinimumStone.effective = 0;
 snMinimumStone.version = "1.0c";
 snMinimumStone.aoe = 1;
-snMinimumStone.aok = 0;
+snMinimumStone.aoc = 0;
 snMinimumStone.up = 0;
 snMinimumStone.de = 0;
 snMinimumStone.linked = [];
@@ -4636,7 +4639,7 @@ snMinimumGold.available = 1;
 snMinimumGold.effective = 0;
 snMinimumGold.version = "1.0c";
 snMinimumGold.aoe = 1;
-snMinimumGold.aok = 0;
+snMinimumGold.aoc = 0;
 snMinimumGold.up = 0;
 snMinimumGold.de = 0;
 snMinimumGold.linked = [];
@@ -4657,7 +4660,7 @@ snMaximumHousesBeforeDropsites.available = 1;
 snMaximumHousesBeforeDropsites.effective = 0;
 snMaximumHousesBeforeDropsites.version = "1.0c";
 snMaximumHousesBeforeDropsites.aoe = 1;
-snMaximumHousesBeforeDropsites.aok = 0;
+snMaximumHousesBeforeDropsites.aoc = 0;
 snMaximumHousesBeforeDropsites.up = 0;
 snMaximumHousesBeforeDropsites.de = 0;
 snMaximumHousesBeforeDropsites.linked = [];
@@ -4678,7 +4681,7 @@ snSpecificBuildItemToBuild.available = "seems available";
 snSpecificBuildItemToBuild.effective = 0;
 snSpecificBuildItemToBuild.version = "1.0c";
 snSpecificBuildItemToBuild.aoe = 1;
-snSpecificBuildItemToBuild.aok = 0;
+snSpecificBuildItemToBuild.aoc = 0;
 snSpecificBuildItemToBuild.up = 0;
 snSpecificBuildItemToBuild.de = 0;
 snSpecificBuildItemToBuild.linked = [ 176 ];
@@ -4699,7 +4702,7 @@ snSpecificBuildItemTime.available = "seems available";
 snSpecificBuildItemTime.effective = 0;
 snSpecificBuildItemTime.version = "1.0c";
 snSpecificBuildItemTime.aoe = 1;
-snSpecificBuildItemTime.aok = 0;
+snSpecificBuildItemTime.aoc = 0;
 snSpecificBuildItemTime.up = 0;
 snSpecificBuildItemTime.de = 0;
 snSpecificBuildItemTime.linked = [ 175 ];
@@ -4720,7 +4723,7 @@ snUnskippableItemType.available = "seems available";
 snUnskippableItemType.effective = 0;
 snUnskippableItemType.version = "1.0c";
 snUnskippableItemType.aoe = 1;
-snUnskippableItemType.aok = 0;
+snUnskippableItemType.aoc = 0;
 snUnskippableItemType.up = 0;
 snUnskippableItemType.de = 0;
 snUnskippableItemType.linked = [];
@@ -4741,7 +4744,7 @@ snAttackDiplomacyImpact.available = "available, except for when teams-locked is 
 snAttackDiplomacyImpact.effective = 0;
 snAttackDiplomacyImpact.version = "1.0c";
 snAttackDiplomacyImpact.aoe = 1;
-snAttackDiplomacyImpact.aok = 0;
+snAttackDiplomacyImpact.aoc = 0;
 snAttackDiplomacyImpact.up = 0;
 snAttackDiplomacyImpact.de = 0;
 snAttackDiplomacyImpact.linked = [];
@@ -4762,7 +4765,7 @@ snPercentHalfExploration.available = 0;
 snPercentHalfExploration.effective = 1;
 snPercentHalfExploration.version = "1.0c";
 snPercentHalfExploration.aoe = 1;
-snPercentHalfExploration.aok = 1;
+snPercentHalfExploration.aoc = 1;
 snPercentHalfExploration.up = 1;
 snPercentHalfExploration.de = 1;
 snPercentHalfExploration.linked = [ 167, 32, 256 ];
@@ -4783,7 +4786,7 @@ snAutoBuildHouses.available = 1;
 snAutoBuildHouses.effective = 0;
 snAutoBuildHouses.version = "1.0c";
 snAutoBuildHouses.aoe = 1;
-snAutoBuildHouses.aok = 0;
+snAutoBuildHouses.aoc = 0;
 snAutoBuildHouses.up = 0;
 snAutoBuildHouses.de = 0;
 snAutoBuildHouses.linked = [];
@@ -4804,7 +4807,7 @@ snUpgradeToToolAgeAsap.available = 1;
 snUpgradeToToolAgeAsap.effective = 0;
 snUpgradeToToolAgeAsap.version = "1.0c";
 snUpgradeToToolAgeAsap.aoe = 1;
-snUpgradeToToolAgeAsap.aok = 0;
+snUpgradeToToolAgeAsap.aoc = 0;
 snUpgradeToToolAgeAsap.up = 0;
 snUpgradeToToolAgeAsap.de = 0;
 snUpgradeToToolAgeAsap.linked = [];
@@ -4825,7 +4828,7 @@ snUpgradeToBronzeAgeAsap.available = 1;
 snUpgradeToBronzeAgeAsap.effective = 0;
 snUpgradeToBronzeAgeAsap.version = "1.0c";
 snUpgradeToBronzeAgeAsap.aoe = 1;
-snUpgradeToBronzeAgeAsap.aok = 0;
+snUpgradeToBronzeAgeAsap.aoc = 0;
 snUpgradeToBronzeAgeAsap.up = 0;
 snUpgradeToBronzeAgeAsap.de = 0;
 snUpgradeToBronzeAgeAsap.linked = [];
@@ -4846,7 +4849,7 @@ snUpgradeToIronAgeAsap.available = 1;
 snUpgradeToIronAgeAsap.effective = 0;
 snUpgradeToIronAgeAsap.version = "1.0c";
 snUpgradeToIronAgeAsap.aoe = 1;
-snUpgradeToIronAgeAsap.aok = 0;
+snUpgradeToIronAgeAsap.aoc = 0;
 snUpgradeToIronAgeAsap.up = 0;
 snUpgradeToIronAgeAsap.de = 0;
 snUpgradeToIronAgeAsap.linked = [];
@@ -4867,7 +4870,7 @@ snTargetEvaluationTimeKillRatio.available = 0;
 snTargetEvaluationTimeKillRatio.effective = 0;
 snTargetEvaluationTimeKillRatio.version = "1.0c";
 snTargetEvaluationTimeKillRatio.aoe = 1;
-snTargetEvaluationTimeKillRatio.aok = 0;
+snTargetEvaluationTimeKillRatio.aoc = 0;
 snTargetEvaluationTimeKillRatio.up = 0;
 snTargetEvaluationTimeKillRatio.de = 0;
 snTargetEvaluationTimeKillRatio.linked = [ 81, 89, 144, 122, 79, 77, 78, 185, 80, 83, 90, 82, 123 ];
@@ -4888,7 +4891,7 @@ snTargetEvaluationInProgress.available = 0;
 snTargetEvaluationInProgress.effective = 0;
 snTargetEvaluationInProgress.version = "1.0c";
 snTargetEvaluationInProgress.aoe = 1;
-snTargetEvaluationInProgress.aok = 0;
+snTargetEvaluationInProgress.aoc = 0;
 snTargetEvaluationInProgress.up = 0;
 snTargetEvaluationInProgress.de = 0;
 snTargetEvaluationInProgress.linked = [ 81, 89, 144, 122, 79, 77, 78, 80, 83, 90, 82, 123, 184 ];
@@ -4909,7 +4912,7 @@ snCoopDemandTributeInterval.available = 1;
 snCoopDemandTributeInterval.effective = 0;
 snCoopDemandTributeInterval.version = "1.0c";
 snCoopDemandTributeInterval.aoe = 1;
-snCoopDemandTributeInterval.aok = 0;
+snCoopDemandTributeInterval.aoc = 0;
 snCoopDemandTributeInterval.up = 0;
 snCoopDemandTributeInterval.de = 0;
 snCoopDemandTributeInterval.linked = [ 187 ];
@@ -4930,7 +4933,7 @@ snCoopDemandTributeMaximum.available = 1;
 snCoopDemandTributeMaximum.effective = 0;
 snCoopDemandTributeMaximum.version = "1.0c";
 snCoopDemandTributeMaximum.aoe = 1;
-snCoopDemandTributeMaximum.aok = 0;
+snCoopDemandTributeMaximum.aoc = 0;
 snCoopDemandTributeMaximum.up = 0;
 snCoopDemandTributeMaximum.de = 0;
 snCoopDemandTributeMaximum.linked = [ 186 ];
@@ -4951,7 +4954,7 @@ snAttackWinningPlayer.available = "available, but only for 1v1 and Wonder Race g
 snAttackWinningPlayer.effective = 1;
 snAttackWinningPlayer.version = "1.0c";
 snAttackWinningPlayer.aoe = 1;
-snAttackWinningPlayer.aok = 1;
+snAttackWinningPlayer.aoc = 1;
 snAttackWinningPlayer.up = 1;
 snAttackWinningPlayer.de = 1;
 snAttackWinningPlayer.linked = [ 195 ];
@@ -4972,7 +4975,7 @@ snUnknownSN189.available = 0;
 snUnknownSN189.effective = 0;
 snUnknownSN189.version = "1.0c";
 snUnknownSN189.aoe = 0;
-snUnknownSN189.aok = 0;
+snUnknownSN189.aoc = 0;
 snUnknownSN189.up = 0;
 snUnknownSN189.de = 0;
 snUnknownSN189.linked = [];
@@ -4993,7 +4996,7 @@ snMaximumFood.available = 1;
 snMaximumFood.effective = 0;
 snMaximumFood.version = "1.0c";
 snMaximumFood.aoe = 1;
-snMaximumFood.aok = 0;
+snMaximumFood.aoc = 0;
 snMaximumFood.up = 0;
 snMaximumFood.de = 0;
 snMaximumFood.linked = [];
@@ -5014,7 +5017,7 @@ snMaximumWood.available = 1;
 snMaximumWood.effective = 0;
 snMaximumWood.version = "1.0c";
 snMaximumWood.aoe = 1;
-snMaximumWood.aok = 0;
+snMaximumWood.aoc = 0;
 snMaximumWood.up = 0;
 snMaximumWood.de = 0;
 snMaximumWood.linked = [];
@@ -5035,7 +5038,7 @@ snMaximumStone.available = 1;
 snMaximumStone.effective = 0;
 snMaximumStone.version = "1.0c";
 snMaximumStone.aoe = 1;
-snMaximumStone.aok = 0;
+snMaximumStone.aoc = 0;
 snMaximumStone.up = 0;
 snMaximumStone.de = 0;
 snMaximumStone.linked = [];
@@ -5056,7 +5059,7 @@ snMaximumGold.available = 1;
 snMaximumGold.effective = 0;
 snMaximumGold.version = "1.0c";
 snMaximumGold.aoe = 1;
-snMaximumGold.aok = 0;
+snMaximumGold.aoc = 0;
 snMaximumGold.up = 0;
 snMaximumGold.de = 0;
 snMaximumGold.linked = [];
@@ -5077,7 +5080,7 @@ snCoopShareInformation.available = 0;
 snCoopShareInformation.effective = 1;
 snCoopShareInformation.version = "1.0c";
 snCoopShareInformation.aoe = 1;
-snCoopShareInformation.aok = 1;
+snCoopShareInformation.aoc = 1;
 snCoopShareInformation.up = 1;
 snCoopShareInformation.de = 1;
 snCoopShareInformation.linked = [];
@@ -5098,7 +5101,7 @@ snAttackWinningPlayerFactor.available = "available, but only for 1v1 and Wonder 
 snAttackWinningPlayerFactor.effective = 1;
 snAttackWinningPlayerFactor.version = "1.0c";
 snAttackWinningPlayerFactor.aoe = 1;
-snAttackWinningPlayerFactor.aok = 1;
+snAttackWinningPlayerFactor.aoc = 1;
 snAttackWinningPlayerFactor.up = 1;
 snAttackWinningPlayerFactor.de = 1;
 snAttackWinningPlayerFactor.linked = [ 188 ];
@@ -5119,7 +5122,7 @@ snCoopShareAttacking.available = "seems available, but only for 1v1 and Wonder R
 snCoopShareAttacking.effective = 1;
 snCoopShareAttacking.version = "1.0c";
 snCoopShareAttacking.aoe = 1;
-snCoopShareAttacking.aok = 1;
+snCoopShareAttacking.aoc = 1;
 snCoopShareAttacking.up = 1;
 snCoopShareAttacking.de = 1;
 snCoopShareAttacking.linked = [ 197 ];
@@ -5141,7 +5144,7 @@ snCoopShareAttackingInterval.available = "seems available, but only for 1v1 and 
 snCoopShareAttackingInterval.effective = 1;
 snCoopShareAttackingInterval.version = "1.0c";
 snCoopShareAttackingInterval.aoe = 1;
-snCoopShareAttackingInterval.aok = 1;
+snCoopShareAttackingInterval.aoc = 1;
 snCoopShareAttackingInterval.up = 1;
 snCoopShareAttackingInterval.de = 1;
 snCoopShareAttackingInterval.linked = [ 196 ];
@@ -5162,7 +5165,7 @@ snPercentageExploreExterminators.available = 0;
 snPercentageExploreExterminators.effective = 0;
 snPercentageExploreExterminators.version = "1.0c";
 snPercentageExploreExterminators.aoe = 1;
-snPercentageExploreExterminators.aok = 0;
+snPercentageExploreExterminators.aoc = 0;
 snPercentageExploreExterminators.up = 0;
 snPercentageExploreExterminators.de = 0;
 snPercentageExploreExterminators.linked = [];
@@ -5183,7 +5186,7 @@ snUnknownSN199.available = 0;
 snUnknownSN199.effective = 0;
 snUnknownSN199.version = "1.0c";
 snUnknownSN199.aoe = 0;
-snUnknownSN199.aok = 0;
+snUnknownSN199.aoc = 0;
 snUnknownSN199.up = 0;
 snUnknownSN199.de = 0;
 snUnknownSN199.linked = [];
@@ -5204,7 +5207,7 @@ snUnknownSN200.available = 0;
 snUnknownSN200.effective = 0;
 snUnknownSN200.version = "1.0c";
 snUnknownSN200.aoe = 0;
-snUnknownSN200.aok = 0;
+snUnknownSN200.aoc = 0;
 snUnknownSN200.up = 0;
 snUnknownSN200.de = 0;
 snUnknownSN200.linked = [];
@@ -5225,7 +5228,7 @@ snTrackPlayerHistory.available = 0;
 snTrackPlayerHistory.effective = 0;
 snTrackPlayerHistory.version = "1.0c";
 snTrackPlayerHistory.aoe = 1;
-snTrackPlayerHistory.aok = 1;
+snTrackPlayerHistory.aoc = 1;
 snTrackPlayerHistory.up = 0;
 snTrackPlayerHistory.de = 0;
 snTrackPlayerHistory.linked = [];
@@ -5247,7 +5250,7 @@ snMinimumDropsiteBuffer.available = 0;
 snMinimumDropsiteBuffer.effective = 0;
 snMinimumDropsiteBuffer.version = "1.0c";
 snMinimumDropsiteBuffer.aoe = 1;
-snMinimumDropsiteBuffer.aok = 0;
+snMinimumDropsiteBuffer.aoc = 0;
 snMinimumDropsiteBuffer.up = 0;
 snMinimumDropsiteBuffer.de = 0;
 snMinimumDropsiteBuffer.linked = [ 86, 87, 260, 261 ];
@@ -5268,7 +5271,7 @@ snUseByTypeMaxGathering.available = 0;
 snUseByTypeMaxGathering.effective = 1;
 snUseByTypeMaxGathering.version = "1.0c";
 snUseByTypeMaxGathering.aoe = 1;
-snUseByTypeMaxGathering.aok = 1;
+snUseByTypeMaxGathering.aoc = 1;
 snUseByTypeMaxGathering.up = 1;
 snUseByTypeMaxGathering.de = 1;
 snUseByTypeMaxGathering.linked = [];
@@ -5289,7 +5292,7 @@ snMinimumBoarHuntGroupSize.available = 0;
 snMinimumBoarHuntGroupSize.effective = 1;
 snMinimumBoarHuntGroupSize.version = "1.0c";
 snMinimumBoarHuntGroupSize.aoe = 1;
-snMinimumBoarHuntGroupSize.aok = 0;
+snMinimumBoarHuntGroupSize.aoc = 0;
 snMinimumBoarHuntGroupSize.up = 1;
 snMinimumBoarHuntGroupSize.de = 1;
 snMinimumBoarHuntGroupSize.linked = [ 252, 244 ];
@@ -5310,7 +5313,7 @@ snAutoBuildDropsites.available = 1;
 snAutoBuildDropsites.effective = 0;
 snAutoBuildDropsites.version = "1.0c";
 snAutoBuildDropsites.aoe = 1;
-snAutoBuildDropsites.aok = 0;
+snAutoBuildDropsites.aoc = 0;
 snAutoBuildDropsites.up = 0;
 snAutoBuildDropsites.de = 0;
 snAutoBuildDropsites.linked = [];
@@ -5331,7 +5334,7 @@ snAutoBuildFarms.available = 1;
 snAutoBuildFarms.effective = 0;
 snAutoBuildFarms.version = "1.0c";
 snAutoBuildFarms.aoe = 1;
-snAutoBuildFarms.aok = 0;
+snAutoBuildFarms.aoc = 0;
 snAutoBuildFarms.up = 0;
 snAutoBuildFarms.de = 0;
 snAutoBuildFarms.linked = [];
@@ -5352,7 +5355,7 @@ snAutoBuildTowers.available = 1;
 snAutoBuildTowers.effective = 0;
 snAutoBuildTowers.version = "1.0c";
 snAutoBuildTowers.aoe = 1;
-snAutoBuildTowers.aok = 0;
+snAutoBuildTowers.aoc = 0;
 snAutoBuildTowers.up = 0;
 snAutoBuildTowers.de = 0;
 snAutoBuildTowers.linked = [];
@@ -5373,7 +5376,7 @@ snAutoBuildDocks.available = 1;
 snAutoBuildDocks.effective = 0;
 snAutoBuildDocks.version = "1.0c";
 snAutoBuildDocks.aoe = 1;
-snAutoBuildDocks.aok = 0;
+snAutoBuildDocks.aoc = 0;
 snAutoBuildDocks.up = 0;
 snAutoBuildDocks.de = 0;
 snAutoBuildDocks.linked = [];
@@ -5394,7 +5397,7 @@ snAutoBuildFishingBoats.available = 1;
 snAutoBuildFishingBoats.effective = 0;
 snAutoBuildFishingBoats.version = "1.0c";
 snAutoBuildFishingBoats.aoe = 1;
-snAutoBuildFishingBoats.aok = 0;
+snAutoBuildFishingBoats.aoc = 0;
 snAutoBuildFishingBoats.up = 0;
 snAutoBuildFishingBoats.de = 0;
 snAutoBuildFishingBoats.linked = [];
@@ -5415,7 +5418,7 @@ snAutoBuildTransports.available = 1;
 snAutoBuildTransports.effective = 0;
 snAutoBuildTransports.version = "1.0c";
 snAutoBuildTransports.aoe = 1;
-snAutoBuildTransports.aok = 0;
+snAutoBuildTransports.aoc = 0;
 snAutoBuildTransports.up = 0;
 snAutoBuildTransports.de = 0;
 snAutoBuildTransports.linked = [];
@@ -5436,7 +5439,7 @@ snUnknownSN211.available = 0;
 snUnknownSN211.effective = 0;
 snUnknownSN211.version = "1.0c";
 snUnknownSN211.aoe = 0;
-snUnknownSN211.aok = 0;
+snUnknownSN211.aoc = 0;
 snUnknownSN211.up = 0;
 snUnknownSN211.de = 0;
 snUnknownSN211.linked = [];
@@ -5457,7 +5460,7 @@ snDesiredNumberDocks.available = 1;
 snDesiredNumberDocks.effective = 0;
 snDesiredNumberDocks.version = "1.0c";
 snDesiredNumberDocks.aoe = 1;
-snDesiredNumberDocks.aok = 0;
+snDesiredNumberDocks.aoc = 0;
 snDesiredNumberDocks.up = 0;
 snDesiredNumberDocks.de = 0;
 snDesiredNumberDocks.linked = [];
@@ -5478,7 +5481,7 @@ snDesiredNumberFishingBoats.available = 1;
 snDesiredNumberFishingBoats.effective = 0;
 snDesiredNumberFishingBoats.version = "1.0c";
 snDesiredNumberFishingBoats.aoe = 1;
-snDesiredNumberFishingBoats.aok = 0;
+snDesiredNumberFishingBoats.aoc = 0;
 snDesiredNumberFishingBoats.up = 0;
 snDesiredNumberFishingBoats.de = 0;
 snDesiredNumberFishingBoats.linked = [];
@@ -5499,7 +5502,7 @@ snDesiredNumberTransports.available = 1;
 snDesiredNumberTransports.effective = 0;
 snDesiredNumberTransports.version = "1.0c";
 snDesiredNumberTransports.aoe = 1;
-snDesiredNumberTransports.aok = 0;
+snDesiredNumberTransports.aoc = 0;
 snDesiredNumberTransports.up = 0;
 snDesiredNumberTransports.de = 0;
 snDesiredNumberTransports.linked = [];
@@ -5520,7 +5523,7 @@ snAllowDiplomacyChangeOnAllyAttack.available = "seems available, except for when
 snAllowDiplomacyChangeOnAllyAttack.effective = 0;
 snAllowDiplomacyChangeOnAllyAttack.version = "1.0c";
 snAllowDiplomacyChangeOnAllyAttack.aoe = 1;
-snAllowDiplomacyChangeOnAllyAttack.aok = 0;
+snAllowDiplomacyChangeOnAllyAttack.aoc = 0;
 snAllowDiplomacyChangeOnAllyAttack.up = 0;
 snAllowDiplomacyChangeOnAllyAttack.de = 0;
 snAllowDiplomacyChangeOnAllyAttack.linked = [];
@@ -5541,7 +5544,7 @@ snMinimumAmountForTrading.available = 0;
 snMinimumAmountForTrading.effective = 0;
 snMinimumAmountForTrading.version = "1.0c";
 snMinimumAmountForTrading.aoe = 1;
-snMinimumAmountForTrading.aok = 0;
+snMinimumAmountForTrading.aoc = 0;
 snMinimumAmountForTrading.up = 0;
 snMinimumAmountForTrading.de = 0;
 snMinimumAmountForTrading.linked = [];
@@ -5562,7 +5565,7 @@ snAllowDiplomacyChangeOnTribute.available = "seems available, except for when te
 snAllowDiplomacyChangeOnTribute.effective = 0;
 snAllowDiplomacyChangeOnTribute.version = "1.0c";
 snAllowDiplomacyChangeOnTribute.aoe = 1;
-snAllowDiplomacyChangeOnTribute.aok = 0;
+snAllowDiplomacyChangeOnTribute.aoc = 0;
 snAllowDiplomacyChangeOnTribute.up = 0;
 snAllowDiplomacyChangeOnTribute.de = 0;
 snAllowDiplomacyChangeOnTribute.linked = [];
@@ -5583,7 +5586,7 @@ snEasiestReactionPercentage.available = 0;
 snEasiestReactionPercentage.effective = 1;
 snEasiestReactionPercentage.version = "1.0c";
 snEasiestReactionPercentage.aoe = 1;
-snEasiestReactionPercentage.aok = 1;
+snEasiestReactionPercentage.aoc = 1;
 snEasiestReactionPercentage.up = 1;
 snEasiestReactionPercentage.de = 1;
 snEasiestReactionPercentage.linked = [ 219 ];
@@ -5604,7 +5607,7 @@ snEasierReactionPercentage.available = 0;
 snEasierReactionPercentage.effective = 1;
 snEasierReactionPercentage.version = "1.0c";
 snEasierReactionPercentage.aoe = 1;
-snEasierReactionPercentage.aok = 1;
+snEasierReactionPercentage.aoc = 1;
 snEasierReactionPercentage.up = 1;
 snEasierReactionPercentage.de = 1;
 snEasierReactionPercentage.linked = [ 218 ];
@@ -5625,7 +5628,7 @@ snMaxFarms.available = 1;
 snMaxFarms.effective = 0;
 snMaxFarms.version = "1.0c";
 snMaxFarms.aoe = 1;
-snMaxFarms.aok = 0;
+snMaxFarms.aoc = 0;
 snMaxFarms.up = 0;
 snMaxFarms.de = 0;
 snMaxFarms.linked = [];
@@ -5646,7 +5649,7 @@ snHitsBeforeAllianceChange.available = "available, except for when teams-locked 
 snHitsBeforeAllianceChange.effective = 0;
 snHitsBeforeAllianceChange.version = "1.0c";
 snHitsBeforeAllianceChange.aoe = 1;
-snHitsBeforeAllianceChange.aok = 0;
+snHitsBeforeAllianceChange.aoc = 0;
 snHitsBeforeAllianceChange.up = 0;
 snHitsBeforeAllianceChange.de = 0;
 snHitsBeforeAllianceChange.linked = [];
@@ -5667,7 +5670,7 @@ snMaxTowers.available = "seems available";
 snMaxTowers.effective = 0;
 snMaxTowers.version = "1.0c";
 snMaxTowers.aoe = 1;
-snMaxTowers.aok = 0;
+snMaxTowers.aoc = 0;
 snMaxTowers.up = 0;
 snMaxTowers.de = 0;
 snMaxTowers.linked = [];
@@ -5688,7 +5691,7 @@ snAutoBuildWarships.available = 1;
 snAutoBuildWarships.effective = 0;
 snAutoBuildWarships.version = "1.0c";
 snAutoBuildWarships.aoe = 1;
-snAutoBuildWarships.aok = 0;
+snAutoBuildWarships.aoc = 0;
 snAutoBuildWarships.up = 0;
 snAutoBuildWarships.de = 0;
 snAutoBuildWarships.linked = [];
@@ -5709,7 +5712,7 @@ snDesiredNumberWarships.available = 1;
 snDesiredNumberWarships.effective = 0;
 snDesiredNumberWarships.version = "1.0c";
 snDesiredNumberWarships.aoe = 1;
-snDesiredNumberWarships.aok = 0;
+snDesiredNumberWarships.aoc = 0;
 snDesiredNumberWarships.up = 0;
 snDesiredNumberWarships.de = 0;
 snDesiredNumberWarships.linked = [];
@@ -5730,7 +5733,7 @@ snAllowCivilianDefense.available = 0;
 snAllowCivilianDefense.effective = 1;
 snAllowCivilianDefense.version = "1.0c";
 snAllowCivilianDefense.aoe = 1;
-snAllowCivilianDefense.aok = 1;
+snAllowCivilianDefense.aoc = 1;
 snAllowCivilianDefense.up = 1;
 snAllowCivilianDefense.de = 1;
 snAllowCivilianDefense.linked = [ ];
@@ -5752,7 +5755,7 @@ snNumberForwardBuilders.available = 0;
 snNumberForwardBuilders.effective = 1;
 snNumberForwardBuilders.version = "1.0c";
 snNumberForwardBuilders.aoe = 0;
-snNumberForwardBuilders.aok = 1;
+snNumberForwardBuilders.aoc = 1;
 snNumberForwardBuilders.up = 1;
 snNumberForwardBuilders.de = 1;
 snNumberForwardBuilders.linked = [];
@@ -5773,7 +5776,7 @@ snPercentAttackSoldiers.available = 0;
 snPercentAttackSoldiers.effective = 1;
 snPercentAttackSoldiers.version = "1.0c";
 snPercentAttackSoldiers.aoe = 0;
-snPercentAttackSoldiers.aok = 1;
+snPercentAttackSoldiers.aoc = 1;
 snPercentAttackSoldiers.up = 1;
 snPercentAttackSoldiers.de = 1;
 snPercentAttackSoldiers.linked = [];
@@ -5794,7 +5797,7 @@ snPercentAttackBoats.available = 0;
 snPercentAttackBoats.effective = 1;
 snPercentAttackBoats.version = "1.0c";
 snPercentAttackBoats.aoe = 0;
-snPercentAttackBoats.aok = 1;
+snPercentAttackBoats.aoc = 1;
 snPercentAttackBoats.up = 1;
 snPercentAttackBoats.de = 1;
 snPercentAttackBoats.linked = [];
@@ -5815,7 +5818,7 @@ snDoNotScaleForDifficultyLevel.available = 0;
 snDoNotScaleForDifficultyLevel.effective = 1;
 snDoNotScaleForDifficultyLevel.version = "1.0c";
 snDoNotScaleForDifficultyLevel.aoe = 0;
-snDoNotScaleForDifficultyLevel.aok = 1;
+snDoNotScaleForDifficultyLevel.aoc = 1;
 snDoNotScaleForDifficultyLevel.up = 1;
 snDoNotScaleForDifficultyLevel.de = 1;
 snDoNotScaleForDifficultyLevel.linked = [];
@@ -5837,7 +5840,7 @@ snGroupFormDistance.available = 0;
 snGroupFormDistance.effective = 1;
 snGroupFormDistance.version = "1.0c";
 snGroupFormDistance.aoe = 0;
-snGroupFormDistance.aok = 1;
+snGroupFormDistance.aoc = 1;
 snGroupFormDistance.up = 1;
 snGroupFormDistance.de = 1;
 snGroupFormDistance.linked = [];
@@ -5858,7 +5861,7 @@ snIgnoreAttackGroupUnderAttack.available = 0;
 snIgnoreAttackGroupUnderAttack.effective = 1;
 snIgnoreAttackGroupUnderAttack.version = "1.0c";
 snIgnoreAttackGroupUnderAttack.aoe = 0;
-snIgnoreAttackGroupUnderAttack.aok = 1;
+snIgnoreAttackGroupUnderAttack.aoc = 1;
 snIgnoreAttackGroupUnderAttack.up = 1;
 snIgnoreAttackGroupUnderAttack.de = 1;
 snIgnoreAttackGroupUnderAttack.linked = [];
@@ -5880,7 +5883,7 @@ snGatherDefenseUnits.available = 0;
 snGatherDefenseUnits.effective = 1;
 snGatherDefenseUnits.version = "1.0c";
 snGatherDefenseUnits.aoe = 0;
-snGatherDefenseUnits.aok = 1;
+snGatherDefenseUnits.aoc = 1;
 snGatherDefenseUnits.up = 1;
 snGatherDefenseUnits.de = 1;
 snGatherDefenseUnits.linked = [];
@@ -5902,7 +5905,7 @@ snMaximumWoodDropDistance.available = 0;
 snMaximumWoodDropDistance.effective = 1;
 snMaximumWoodDropDistance.version = "1.0c";
 snMaximumWoodDropDistance.aoe = 0;
-snMaximumWoodDropDistance.aok = 1;
+snMaximumWoodDropDistance.aoc = 1;
 snMaximumWoodDropDistance.up = 1;
 snMaximumWoodDropDistance.de = 1;
 snMaximumWoodDropDistance.linked = [ 164 ];
@@ -5924,7 +5927,7 @@ snMaximumFoodDropDistance.available = 0;
 snMaximumFoodDropDistance.effective = 1;
 snMaximumFoodDropDistance.version = "1.0c";
 snMaximumFoodDropDistance.aoe = 0;
-snMaximumFoodDropDistance.aok = 1;
+snMaximumFoodDropDistance.aoc = 1;
 snMaximumFoodDropDistance.up = 1;
 snMaximumFoodDropDistance.de = 1;
 snMaximumFoodDropDistance.linked = [ 163, 235, 236 ];
@@ -5946,7 +5949,7 @@ snMaximumHuntDropDistance.available = 0;
 snMaximumHuntDropDistance.effective = 1;
 snMaximumHuntDropDistance.version = "1.0c";
 snMaximumHuntDropDistance.aoe = 0;
-snMaximumHuntDropDistance.aok = 1;
+snMaximumHuntDropDistance.aoc = 1;
 snMaximumHuntDropDistance.up = 1;
 snMaximumHuntDropDistance.de = 1;
 snMaximumHuntDropDistance.linked = [ 234, 236 ];
@@ -5968,7 +5971,7 @@ snMaximumFishBoatDropDistance.available = "available, except for water maps, how
 snMaximumFishBoatDropDistance.effective = 1;
 snMaximumFishBoatDropDistance.version = "1.0c";
 snMaximumFishBoatDropDistance.aoe = 0;
-snMaximumFishBoatDropDistance.aok = 1;
+snMaximumFishBoatDropDistance.aoc = 1;
 snMaximumFishBoatDropDistance.up = 1;
 snMaximumFishBoatDropDistance.de = 1;
 snMaximumFishBoatDropDistance.linked = [ 234, 235 ];
@@ -5990,7 +5993,7 @@ snMaximumGoldDropDistance.available = 0;
 snMaximumGoldDropDistance.effective = 1;
 snMaximumGoldDropDistance.version = "1.0c";
 snMaximumGoldDropDistance.aoe = 0;
-snMaximumGoldDropDistance.aok = 1;
+snMaximumGoldDropDistance.aoc = 1;
 snMaximumGoldDropDistance.up = 1;
 snMaximumGoldDropDistance.de = 1;
 snMaximumGoldDropDistance.linked = [ 166 ];
@@ -6012,7 +6015,7 @@ snMaximumStoneDropDistance.available = 0;
 snMaximumStoneDropDistance.effective = 1;
 snMaximumStoneDropDistance.version = "1.0c";
 snMaximumStoneDropDistance.aoe = 0;
-snMaximumStoneDropDistance.aok = 1;
+snMaximumStoneDropDistance.aoc = 1;
 snMaximumStoneDropDistance.up = 1;
 snMaximumStoneDropDistance.de = 1;
 snMaximumStoneDropDistance.linked = [ 165 ];
@@ -6034,7 +6037,7 @@ snGatherIdleSoldiersAtCenter.available = 0;
 snGatherIdleSoldiersAtCenter.effective = 1;
 snGatherIdleSoldiersAtCenter.version = "1.0c";
 snGatherIdleSoldiersAtCenter.aoe = 0;
-snGatherIdleSoldiersAtCenter.aok = 1;
+snGatherIdleSoldiersAtCenter.aoc = 1;
 snGatherIdleSoldiersAtCenter.up = 1;
 snGatherIdleSoldiersAtCenter.de = 1;
 snGatherIdleSoldiersAtCenter.linked = [];
@@ -6055,7 +6058,7 @@ snGarrisonRams.available = "available, if you will not create rams";
 snGarrisonRams.effective = 1;
 snGarrisonRams.version = "1.0c";
 snGarrisonRams.aoe = 0;
-snGarrisonRams.aok = 1;
+snGarrisonRams.aoc = 1;
 snGarrisonRams.up = 1;
 snGarrisonRams.de = 1;
 snGarrisonRams.linked = [];
@@ -6076,7 +6079,7 @@ snDoNotTransportFromSameZone.available = "available, except for water maps requi
 snDoNotTransportFromSameZone.effective = 1;
 snDoNotTransportFromSameZone.version = "1.0c";
 snDoNotTransportFromSameZone.aoe = 0;
-snDoNotTransportFromSameZone.aok = 1;
+snDoNotTransportFromSameZone.aoc = 1;
 snDoNotTransportFromSameZone.up = 1;
 snDoNotTransportFromSameZone.de = 1;
 snDoNotTransportFromSameZone.linked = [];
@@ -6098,7 +6101,7 @@ snEnableNewBuildingSystem.available = 0;
 snEnableNewBuildingSystem.effective = 1;
 snEnableNewBuildingSystem.version = "1.1";
 snEnableNewBuildingSystem.aoe = 0;
-snEnableNewBuildingSystem.aok = 0;
+snEnableNewBuildingSystem.aoc = 0;
 snEnableNewBuildingSystem.up = 1;
 snEnableNewBuildingSystem.de = 1;
 snEnableNewBuildingSystem.linked = [];
@@ -6120,7 +6123,7 @@ snPercentBuildingCancellation.available = 0;
 snPercentBuildingCancellation.effective = 1;
 snPercentBuildingCancellation.version = "1.1";
 snPercentBuildingCancellation.aoe = 0;
-snPercentBuildingCancellation.aok = 0;
+snPercentBuildingCancellation.aoc = 0;
 snPercentBuildingCancellation.up = 1;
 snPercentBuildingCancellation.de = 1;
 snPercentBuildingCancellation.linked = [];
@@ -6141,7 +6144,7 @@ snEnableBoarHunting.available = 0;
 snEnableBoarHunting.effective = 1;
 snEnableBoarHunting.version = "1.1";
 snEnableBoarHunting.aoe = 0;
-snEnableBoarHunting.aok = 0;
+snEnableBoarHunting.aoc = 0;
 snEnableBoarHunting.up = 1;
 snEnableBoarHunting.de = 1;
 snEnableBoarHunting.linked = [ 204, 252 ];
@@ -6163,7 +6166,7 @@ snMinimumNumberHunters.available = 0;
 snMinimumNumberHunters.effective = 1;
 snMinimumNumberHunters.version = "1.1";
 snMinimumNumberHunters.aoe = 0;
-snMinimumNumberHunters.aok = 0;
+snMinimumNumberHunters.aoc = 0;
 snMinimumNumberHunters.up = 1;
 snMinimumNumberHunters.de = 1;
 snMinimumNumberHunters.linked = [];
@@ -6184,7 +6187,7 @@ snObjectRepairLevel.available = 0;
 snObjectRepairLevel.effective = 1;
 snObjectRepairLevel.version = "1.1";
 snObjectRepairLevel.aoe = 0;
-snObjectRepairLevel.aok = 0;
+snObjectRepairLevel.aoc = 0;
 snObjectRepairLevel.up = 1;
 snObjectRepairLevel.de = 1;
 snObjectRepairLevel.linked = [];
@@ -6206,7 +6209,7 @@ snEnablePatrolAttack.available = 0;
 snEnablePatrolAttack.effective = 1;
 snEnablePatrolAttack.version = "1.1";
 snEnablePatrolAttack.aoe = 0;
-snEnablePatrolAttack.aok = 0;
+snEnablePatrolAttack.aoc = 0;
 snEnablePatrolAttack.up = 1;
 snEnablePatrolAttack.de = 1;
 snEnablePatrolAttack.linked = [];
@@ -6228,7 +6231,7 @@ snDropsiteSeparationDistance.available = 0;
 snDropsiteSeparationDistance.effective = 1;
 snDropsiteSeparationDistance.version = "1.1";
 snDropsiteSeparationDistance.aoe = 0;
-snDropsiteSeparationDistance.aok = 0;
+snDropsiteSeparationDistance.aoc = 0;
 snDropsiteSeparationDistance.up = 1;
 snDropsiteSeparationDistance.de = 1;
 snDropsiteSeparationDistance.linked = [ 86, 87, 260, 261 ];
@@ -6250,7 +6253,7 @@ snTargetPlayerNumber.available = 0;
 snTargetPlayerNumber.effective = 1;
 snTargetPlayerNumber.version = "1.1";
 snTargetPlayerNumber.aoe = 0;
-snTargetPlayerNumber.aok = 0;
+snTargetPlayerNumber.aoc = 0;
 snTargetPlayerNumber.up = 1;
 snTargetPlayerNumber.de = 1;
 snTargetPlayerNumber.linked = [];
@@ -6271,7 +6274,7 @@ snSafeTownSize.available = 0;
 snSafeTownSize.effective = 1;
 snSafeTownSize.version = "1.1";
 snSafeTownSize.aoe = 0;
-snSafeTownSize.aok = 0;
+snSafeTownSize.aoc = 0;
 snSafeTownSize.up = 1;
 snSafeTownSize.de = 1;
 snSafeTownSize.linked = [ 74, 73 ];
@@ -6292,7 +6295,7 @@ snFocusPlayerNumber.available = 0;
 snFocusPlayerNumber.effective = 1;
 snFocusPlayerNumber.version = "1.1";
 snFocusPlayerNumber.aoe = 0;
-snFocusPlayerNumber.aok = 0;
+snFocusPlayerNumber.aoc = 0;
 snFocusPlayerNumber.up = 1;
 snFocusPlayerNumber.de = 1;
 snFocusPlayerNumber.linked = [];
@@ -6313,7 +6316,7 @@ snMinimumBoarLureGroupSize.available = 0;
 snMinimumBoarLureGroupSize.effective = 1;
 snMinimumBoarLureGroupSize.version = "1.1";
 snMinimumBoarLureGroupSize.aoe = 0;
-snMinimumBoarLureGroupSize.aok = 0;
+snMinimumBoarLureGroupSize.aoc = 0;
 snMinimumBoarLureGroupSize.up = 1;
 snMinimumBoarLureGroupSize.de = 1;
 snMinimumBoarLureGroupSize.linked = [ 204, 244 ];
@@ -6335,7 +6338,7 @@ snPreferredMillPlacement.available = 0;
 snPreferredMillPlacement.effective = 1;
 snPreferredMillPlacement.version = "1.1";
 snPreferredMillPlacement.aoe = 0;
-snPreferredMillPlacement.aok = 0;
+snPreferredMillPlacement.aoc = 0;
 snPreferredMillPlacement.up = 1;
 snPreferredMillPlacement.de = 1;
 snPreferredMillPlacement.linked = [];
@@ -6356,7 +6359,7 @@ snEnableOffensivePriority.available = 0;
 snEnableOffensivePriority.effective = 1;
 snEnableOffensivePriority.version = "1.1";
 snEnableOffensivePriority.aoe = 0;
-snEnableOffensivePriority.aok = 0;
+snEnableOffensivePriority.aoc = 0;
 snEnableOffensivePriority.up = 1;
 snEnableOffensivePriority.de = 1;
 snEnableOffensivePriority.linked = [];
@@ -6378,7 +6381,7 @@ snBuildingTargetingMode.available = 0;
 snBuildingTargetingMode.effective = 1;
 snBuildingTargetingMode.version = "1.1";
 snBuildingTargetingMode.aoe = 0;
-snBuildingTargetingMode.aok = 0;
+snBuildingTargetingMode.aoc = 0;
 snBuildingTargetingMode.up = 1;
 snBuildingTargetingMode.de = 1;
 snBuildingTargetingMode.linked = [ 74, 73 ];
@@ -6399,7 +6402,7 @@ snHomeExplorationTime.available = 0;
 snHomeExplorationTime.effective = 1;
 snHomeExplorationTime.version = "1.1";
 snHomeExplorationTime.aoe = 0;
-snHomeExplorationTime.aok = 0;
+snHomeExplorationTime.aoc = 0;
 snHomeExplorationTime.up = 1;
 snHomeExplorationTime.de = 1;
 snHomeExplorationTime.linked = [ ];
@@ -6420,7 +6423,7 @@ snNumberCivilianMilitia.available = 0;
 snNumberCivilianMilitia.effective = 1;
 snNumberCivilianMilitia.version = "1.1";
 snNumberCivilianMilitia.aoe = 0;
-snNumberCivilianMilitia.aok = 0;
+snNumberCivilianMilitia.aoc = 0;
 snNumberCivilianMilitia.up = 1;
 snNumberCivilianMilitia.de = 1;
 snNumberCivilianMilitia.linked = [ 258 ];
@@ -6441,7 +6444,7 @@ snAllowCivilianOffense.available = 0;
 snAllowCivilianOffense.effective = 1;
 snAllowCivilianOffense.version = "1.1";
 snAllowCivilianOffense.aoe = 0;
-snAllowCivilianOffense.aok = 0;
+snAllowCivilianOffense.aoc = 0;
 snAllowCivilianOffense.up = 1;
 snAllowCivilianOffense.de = 1;
 snAllowCivilianOffense.linked = [ 257 ];
@@ -6463,7 +6466,7 @@ snPreferredTradeDistance.available = 0;
 snPreferredTradeDistance.effective = 1;
 snPreferredTradeDistance.version = "1.1";
 snPreferredTradeDistance.aoe = 0;
-snPreferredTradeDistance.aok = 0;
+snPreferredTradeDistance.aoc = 0;
 snPreferredTradeDistance.up = 1;
 snPreferredTradeDistance.de = 1;
 snPreferredTradeDistance.linked = [];
@@ -6485,7 +6488,7 @@ snLumberCampMaxDistance.available = 0;
 snLumberCampMaxDistance.effective = 1;
 snLumberCampMaxDistance.version = "1.1";
 snLumberCampMaxDistance.aoe = 0;
-snLumberCampMaxDistance.aok = 0;
+snLumberCampMaxDistance.aoc = 0;
 snLumberCampMaxDistance.up = 1;
 snLumberCampMaxDistance.de = 1;
 snLumberCampMaxDistance.linked = [ 86, 261, 248, 202 ];
@@ -6506,7 +6509,7 @@ snMiningCampMaxDistance.available = 0;
 snMiningCampMaxDistance.effective = 1;
 snMiningCampMaxDistance.version = "1.1";
 snMiningCampMaxDistance.aoe = 0;
-snMiningCampMaxDistance.aok = 0;
+snMiningCampMaxDistance.aoc = 0;
 snMiningCampMaxDistance.up = 1;
 snMiningCampMaxDistance.de = 1;
 snMiningCampMaxDistance.linked = [ 86, 260, 248, 202 ];
@@ -6527,7 +6530,7 @@ snWallTargetingMode.available = 0;
 snWallTargetingMode.effective = 1;
 snWallTargetingMode.version = "1.1";
 snWallTargetingMode.aoe = 0;
-snWallTargetingMode.aok = 0;
+snWallTargetingMode.aoc = 0;
 snWallTargetingMode.up = 1;
 snWallTargetingMode.de = 1;
 snWallTargetingMode.linked = [];
@@ -6549,7 +6552,7 @@ snLivestockToTownCenter.available = 0;
 snLivestockToTownCenter.effective = 1;
 snLivestockToTownCenter.version = "1.1";
 snLivestockToTownCenter.aoe = 0;
-snLivestockToTownCenter.aok = 0;
+snLivestockToTownCenter.aoc = 0;
 snLivestockToTownCenter.up = 1;
 snLivestockToTownCenter.de = 1;
 snLivestockToTownCenter.linked = [];
@@ -6570,7 +6573,7 @@ snEnableTrainingQueue.available = 0;
 snEnableTrainingQueue.effective = 1;
 snEnableTrainingQueue.version = "1.1";
 snEnableTrainingQueue.aoe = 0;
-snEnableTrainingQueue.aok = 0;
+snEnableTrainingQueue.aoc = 0;
 snEnableTrainingQueue.up = 1;
 snEnableTrainingQueue.de = 1;
 snEnableTrainingQueue.linked = [];
@@ -6592,7 +6595,7 @@ snIgnoreTowerElevation.available = 0;
 snIgnoreTowerElevation.effective = 1;
 snIgnoreTowerElevation.version = "1.1";
 snIgnoreTowerElevation.aoe = 0;
-snIgnoreTowerElevation.aok = 0;
+snIgnoreTowerElevation.aoc = 0;
 snIgnoreTowerElevation.up = 1;
 snIgnoreTowerElevation.de = 1;
 snIgnoreTowerElevation.linked = [];
@@ -6613,7 +6616,7 @@ snTownCenterPlacement.available = 0;
 snTownCenterPlacement.effective = 1;
 snTownCenterPlacement.version = "1.1";
 snTownCenterPlacement.aoe = 0;
-snTownCenterPlacement.aok = 0;
+snTownCenterPlacement.aoc = 0;
 snTownCenterPlacement.up = 1;
 snTownCenterPlacement.de = 1;
 snTownCenterPlacement.linked = [];
@@ -6635,7 +6638,7 @@ snDisableTowerPriority.available = 0;
 snDisableTowerPriority.effective = 1;
 snDisableTowerPriority.version = "1.1";
 snDisableTowerPriority.aoe = 0;
-snDisableTowerPriority.aok = 0;
+snDisableTowerPriority.aoc = 0;
 snDisableTowerPriority.up = 1;
 snDisableTowerPriority.de = 1;
 snDisableTowerPriority.linked = [];
@@ -6657,7 +6660,7 @@ snPlacementZoneSize.available = 0;
 snPlacementZoneSize.effective = 1;
 snPlacementZoneSize.version = "1.1";
 snPlacementZoneSize.aoe = 0;
-snPlacementZoneSize.aok = 0;
+snPlacementZoneSize.aoc = 0;
 snPlacementZoneSize.up = 1;
 snPlacementZoneSize.de = 1;
 snPlacementZoneSize.linked = [ 269, 270 ];
@@ -6679,7 +6682,7 @@ snPlacementFailDelta.available = 0;
 snPlacementFailDelta.effective = 1;
 snPlacementFailDelta.version = "1.1";
 snPlacementFailDelta.aoe = 0;
-snPlacementFailDelta.aok = 0;
+snPlacementFailDelta.aoc = 0;
 snPlacementFailDelta.up = 1;
 snPlacementFailDelta.de = 1;
 snPlacementFailDelta.linked = [ 268, 270 ];
@@ -6701,7 +6704,7 @@ snPlacementToCenter.available = 0;
 snPlacementToCenter.effective = 1;
 snPlacementToCenter.version = "1.1";
 snPlacementToCenter.aoe = 0;
-snPlacementToCenter.aok = 0;
+snPlacementToCenter.aoc = 0;
 snPlacementToCenter.up = 1;
 snPlacementToCenter.de = 1;
 snPlacementToCenter.linked = [ 268, 269 ];
@@ -6722,7 +6725,7 @@ snDisableAttackGroups.available = 0;
 snDisableAttackGroups.effective = 1;
 snDisableAttackGroups.version = "1.1";
 snDisableAttackGroups.aoe = 0;
-snDisableAttackGroups.aok = 0;
+snDisableAttackGroups.aoc = 0;
 snDisableAttackGroups.up = 1;
 snDisableAttackGroups.de = 1;
 snDisableAttackGroups.linked = [ 277 ];
@@ -6743,7 +6746,7 @@ snAllowAdjacentDropsites.available = 0;
 snAllowAdjacentDropsites.effective = 1;
 snAllowAdjacentDropsites.version = "1.1";
 snAllowAdjacentDropsites.aoe = 0;
-snAllowAdjacentDropsites.aok = 0;
+snAllowAdjacentDropsites.aoc = 0;
 snAllowAdjacentDropsites.up = 1;
 snAllowAdjacentDropsites.de = 1;
 snAllowAdjacentDropsites.linked = [];
@@ -6764,7 +6767,7 @@ snDeferDropsiteUpdate.available = 0;
 snDeferDropsiteUpdate.effective = 1;
 snDeferDropsiteUpdate.version = "1.1";
 snDeferDropsiteUpdate.aoe = 0;
-snDeferDropsiteUpdate.aok = 0;
+snDeferDropsiteUpdate.aoc = 0;
 snDeferDropsiteUpdate.up = 1;
 snDeferDropsiteUpdate.de = 1;
 snDeferDropsiteUpdate.linked = [];
@@ -6785,7 +6788,7 @@ snMaximumGarrisonFill.available = 0;
 snMaximumGarrisonFill.effective = 1;
 snMaximumGarrisonFill.version = "1.1";
 snMaximumGarrisonFill.aoe = 0;
-snMaximumGarrisonFill.aok = 0;
+snMaximumGarrisonFill.aoc = 0;
 snMaximumGarrisonFill.up = 1;
 snMaximumGarrisonFill.de = 1;
 snMaximumGarrisonFill.linked = [ 275 ];
@@ -6806,7 +6809,7 @@ snNumberGarrisonUnits.available = 0;
 snNumberGarrisonUnits.effective = 1;
 snNumberGarrisonUnits.version = "1.1";
 snNumberGarrisonUnits.aoe = 0;
-snNumberGarrisonUnits.aok = 0;
+snNumberGarrisonUnits.aoc = 0;
 snNumberGarrisonUnits.up = 1;
 snNumberGarrisonUnits.de = 1;
 snNumberGarrisonUnits.linked = [ 274 ];
@@ -6827,7 +6830,7 @@ snFilterUnderAttack.available = 0;
 snFilterUnderAttack.effective = 1;
 snFilterUnderAttack.version = "1.1";
 snFilterUnderAttack.aoe = 0;
-snFilterUnderAttack.aok = 0;
+snFilterUnderAttack.aoc = 0;
 snFilterUnderAttack.up = 1;
 snFilterUnderAttack.de = 1;
 snFilterUnderAttack.linked = [];
@@ -6849,7 +6852,7 @@ snDisableDefendGroups.available = 0;
 snDisableDefendGroups.effective = 1;
 snDisableDefendGroups.version = "1.1";
 snDisableDefendGroups.aoe = 0;
-snDisableDefendGroups.aok = 0;
+snDisableDefendGroups.aoc = 0;
 snDisableDefendGroups.up = 1;
 snDisableDefendGroups.de = 1;
 snDisableDefendGroups.linked = [ 271 ];
@@ -6870,7 +6873,7 @@ snDockPlacementMode.available = 0;
 snDockPlacementMode.effective = 1;
 snDockPlacementMode.version = "1.1";
 snDockPlacementMode.aoe = 0;
-snDockPlacementMode.aok = 0;
+snDockPlacementMode.aoc = 0;
 snDockPlacementMode.up = 1;
 snDockPlacementMode.de = 1;
 snDockPlacementMode.linked = [];
@@ -6892,7 +6895,7 @@ snDockProximityFactor.available = 0;
 snDockProximityFactor.effective = 1;
 snDockProximityFactor.version = "1.1";
 snDockProximityFactor.aoe = 0;
-snDockProximityFactor.aok = 0;
+snDockProximityFactor.aoc = 0;
 snDockProximityFactor.up = 1;
 snDockProximityFactor.de = 1;
 snDockProximityFactor.linked = [ 280 ];
@@ -6913,7 +6916,7 @@ snDockAvoidanceFactor.available = 0;
 snDockAvoidanceFactor.effective = 1;
 snDockAvoidanceFactor.version = "1.1";
 snDockAvoidanceFactor.aoe = 0;
-snDockAvoidanceFactor.aok = 0;
+snDockAvoidanceFactor.aoc = 0;
 snDockAvoidanceFactor.up = 1;
 snDockAvoidanceFactor.de = 1;
 snDockAvoidanceFactor.linked = [ 279 ];
@@ -6934,7 +6937,7 @@ snDockTrainingFilter.available = 0;
 snDockTrainingFilter.effective = 1;
 snDockTrainingFilter.version = "1.1";
 snDockTrainingFilter.aoe = 0;
-snDockTrainingFilter.aok = 0;
+snDockTrainingFilter.aoc = 0;
 snDockTrainingFilter.up = 1;
 snDockTrainingFilter.de = 1;
 snDockTrainingFilter.linked = [];
@@ -6956,7 +6959,7 @@ snFreeSiegeTargeting.available = 0;
 snFreeSiegeTargeting.effective = 1;
 snFreeSiegeTargeting.version = "1.1";
 snFreeSiegeTargeting.aoe = 0;
-snFreeSiegeTargeting.aok = 0;
+snFreeSiegeTargeting.aoc = 0;
 snFreeSiegeTargeting.up = 1;
 snFreeSiegeTargeting.de = 1;
 snFreeSiegeTargeting.linked = [];
@@ -6977,7 +6980,7 @@ snWarshipTargetingMode.available = 0;
 snWarshipTargetingMode.effective = 1;
 snWarshipTargetingMode.version = "1.1";
 snWarshipTargetingMode.aoe = 0;
-snWarshipTargetingMode.aok = 0;
+snWarshipTargetingMode.aoc = 0;
 snWarshipTargetingMode.up = 1;
 snWarshipTargetingMode.de = 1;
 snWarshipTargetingMode.linked = [];
@@ -6998,7 +7001,7 @@ snDisableSightedResponseCap.available = 0;
 snDisableSightedResponseCap.effective = 1;
 snDisableSightedResponseCap.version = "1.1";
 snDisableSightedResponseCap.aoe = 0;
-snDisableSightedResponseCap.aok = 0;
+snDisableSightedResponseCap.aoc = 0;
 snDisableSightedResponseCap.up = 1;
 snDisableSightedResponseCap.de = 1;
 snDisableSightedResponseCap.linked = [ 19, 20 ];
@@ -7019,7 +7022,7 @@ snDisableBuilderAssistance.available = 0;
 snDisableBuilderAssistance.effective = 1;
 snDisableBuilderAssistance.version = "1.1";
 snDisableBuilderAssistance.aoe = 0;
-snDisableBuilderAssistance.aok = 0;
+snDisableBuilderAssistance.aoc = 0;
 snDisableBuilderAssistance.up = 1;
 snDisableBuilderAssistance.de = 1;
 snDisableBuilderAssistance.linked = [];
@@ -7040,7 +7043,7 @@ snLocalTargetingMode.available = 0;
 snLocalTargetingMode.effective = 1;
 snLocalTargetingMode.version = "1.1";
 snLocalTargetingMode.aoe = 0;
-snLocalTargetingMode.aok = 0;
+snLocalTargetingMode.aoc = 0;
 snLocalTargetingMode.up = 1;
 snLocalTargetingMode.de = 1;
 snLocalTargetingMode.linked = [];
@@ -7061,7 +7064,7 @@ snLivestockDefendPriority.available = 0;
 snLivestockDefendPriority.effective = 0;
 snLivestockDefendPriority.version = "1.1";
 snLivestockDefendPriority.aoe = 0;
-snLivestockDefendPriority.aok = 0;
+snLivestockDefendPriority.aoc = 0;
 snLivestockDefendPriority.up = 0;
 snLivestockDefendPriority.de = 0;
 snLivestockDefendPriority.linked = [];
@@ -7083,7 +7086,7 @@ snNumberTaskedUnits.available = 0;
 snNumberTaskedUnits.effective = 1;
 snNumberTaskedUnits.version = "1.5";
 snNumberTaskedUnits.aoe = 0;
-snNumberTaskedUnits.aok = 0;
+snNumberTaskedUnits.aoc = 0;
 snNumberTaskedUnits.up = 1;
 snNumberTaskedUnits.de = 1;
 snNumberTaskedUnits.linked = [];
@@ -7104,7 +7107,7 @@ snDisableVillagerGarrison.available = 0;
 snDisableVillagerGarrison.effective = 1;
 snDisableVillagerGarrison.version = "1.5";
 snDisableVillagerGarrison.aoe = 0;
-snDisableVillagerGarrison.aok = 0;
+snDisableVillagerGarrison.aoc = 0;
 snDisableVillagerGarrison.up = 1;
 snDisableVillagerGarrison.de = 1;
 snDisableVillagerGarrison.linked = [];
@@ -7125,7 +7128,7 @@ snTargetPointAdjustment.available = 0;
 snTargetPointAdjustment.effective = 1;
 snTargetPointAdjustment.version = "1.5";
 snTargetPointAdjustment.aoe = 0;
-snTargetPointAdjustment.aok = 0;
+snTargetPointAdjustment.aoc = 0;
 snTargetPointAdjustment.up = 1;
 snTargetPointAdjustment.de = 1;
 snTargetPointAdjustment.linked = [];
@@ -7147,7 +7150,7 @@ snUnexploredConstruction.available = 0;
 snUnexploredConstruction.effective = 1;
 snUnexploredConstruction.version = "1.5";
 snUnexploredConstruction.aoe = 0;
-snUnexploredConstruction.aok = 0;
+snUnexploredConstruction.aoc = 0;
 snUnexploredConstruction.up = 1;
 snUnexploredConstruction.de = 1;
 snUnexploredConstruction.linked = [];
@@ -7168,7 +7171,7 @@ snDisableTradeEvasion.available = 0;
 snDisableTradeEvasion.effective = 1;
 snDisableTradeEvasion.version = "1.5";
 snDisableTradeEvasion.aoe = 0;
-snDisableTradeEvasion.aok = 0;
+snDisableTradeEvasion.aoc = 0;
 snDisableTradeEvasion.up = 1;
 snDisableTradeEvasion.de = 1;
 snDisableTradeEvasion.linked = [];
@@ -7189,7 +7192,7 @@ snBoarLureDestination.available = 0;
 snBoarLureDestination.effective = 1;
 snBoarLureDestination.version = "1.5";
 snBoarLureDestination.aoe = 0;
-snBoarLureDestination.aok = 0;
+snBoarLureDestination.aoc = 0;
 snBoarLureDestination.up = 1;
 snBoarLureDestination.de = 1;
 snBoarLureDestination.linked = [];
@@ -7210,7 +7213,7 @@ snWildAnimalExploration.available = 0;
 snWildAnimalExploration.effective = 1;
 snWildAnimalExploration.version = "DE";
 snWildAnimalExploration.aoe = 0;
-snWildAnimalExploration.aok = 0;
+snWildAnimalExploration.aoc = 0;
 snWildAnimalExploration.up = 0;
 snWildAnimalExploration.de = 1;
 snWildAnimalExploration.linked = [];
@@ -7231,7 +7234,7 @@ snTtkfactorScalar.available = 0;
 snTtkfactorScalar.effective = 1;
 snTtkfactorScalar.version = "HD";
 snTtkfactorScalar.aoe = 0;
-snTtkfactorScalar.aok = 0;
+snTtkfactorScalar.aoc = 0;
 snTtkfactorScalar.up = 0;
 snTtkfactorScalar.de = 1;
 snTtkfactorScalar.linked = [];
@@ -7252,7 +7255,7 @@ snMaximumPatrolDistance.available = 0;
 snMaximumPatrolDistance.effective = 1;
 snMaximumPatrolDistance.version = "DE";
 snMaximumPatrolDistance.aoe = 0;
-snMaximumPatrolDistance.aok = 0;
+snMaximumPatrolDistance.aoc = 0;
 snMaximumPatrolDistance.up = 0;
 snMaximumPatrolDistance.de = 1;
 snMaximumPatrolDistance.linked = [];
@@ -7273,7 +7276,7 @@ snVillagerAttackReset.available = 0;
 snVillagerAttackReset.effective = 1;
 snVillagerAttackReset.version = "DE";
 snVillagerAttackReset.aoe = 0;
-snVillagerAttackReset.aok = 0;
+snVillagerAttackReset.aoc = 0;
 snVillagerAttackReset.up = 0;
 snVillagerAttackReset.de = 1;
 snVillagerAttackReset.linked = [];
@@ -7294,7 +7297,7 @@ snGateTypeForWall.available = 0;
 snGateTypeForWall.effective = 1;
 snGateTypeForWall.version = "DE";
 snGateTypeForWall.aoe = 0;
-snGateTypeForWall.aok = 0;
+snGateTypeForWall.aoc = 0;
 snGateTypeForWall.up = 0;
 snGateTypeForWall.de = 1;
 snGateTypeForWall.linked = [];
@@ -7315,7 +7318,7 @@ snProfilingThreshold.available = 0;
 snProfilingThreshold.effective = 0;
 snProfilingThreshold.version = "DE";
 snProfilingThreshold.aoe = 0;
-snProfilingThreshold.aok = 0;
+snProfilingThreshold.aoc = 0;
 snProfilingThreshold.up = 0;
 snProfilingThreshold.de = 1;
 snProfilingThreshold.linked = [];
@@ -7336,7 +7339,7 @@ snEnableResearchQueue.available = 0;
 snEnableResearchQueue.effective = 1;
 snEnableResearchQueue.version = "DE";
 snEnableResearchQueue.aoe = 0;
-snEnableResearchQueue.aok = 0;
+snEnableResearchQueue.aoc = 0;
 snEnableResearchQueue.up = 0;
 snEnableResearchQueue.de = 1;
 snEnableResearchQueue.linked = [];
@@ -7357,7 +7360,7 @@ snAllowSerjeantBuilding.available = 0;
 snAllowSerjeantBuilding.effective = 1;
 snAllowSerjeantBuilding.version = "DE";
 snAllowSerjeantBuilding.aoe = 0;
-snAllowSerjeantBuilding.aok = 0;
+snAllowSerjeantBuilding.aoc = 0;
 snAllowSerjeantBuilding.up = 0;
 snAllowSerjeantBuilding.de = 1;
 snAllowSerjeantBuilding.linked = [];
@@ -7378,7 +7381,7 @@ snAllowGatheringSeaFishWithVillagers.available = 0;
 snAllowGatheringSeaFishWithVillagers.effective = 1;
 snAllowGatheringSeaFishWithVillagers.version = "DE";
 snAllowGatheringSeaFishWithVillagers.aoe = 0;
-snAllowGatheringSeaFishWithVillagers.aok = 0;
+snAllowGatheringSeaFishWithVillagers.aoc = 0;
 snAllowGatheringSeaFishWithVillagers.up = 0;
 snAllowGatheringSeaFishWithVillagers.de = 1;
 snAllowGatheringSeaFishWithVillagers.linked = [];
@@ -7399,12 +7402,34 @@ snAllowCapturingGaiaUnits.available = 0;
 snAllowCapturingGaiaUnits.effective = 1;
 snAllowCapturingGaiaUnits.version = "DE";
 snAllowCapturingGaiaUnits.aoe = 0;
-snAllowCapturingGaiaUnits.aok = 0;
+snAllowCapturingGaiaUnits.aoc = 0;
 snAllowCapturingGaiaUnits.up = 0;
 snAllowCapturingGaiaUnits.de = 1;
 snAllowCapturingGaiaUnits.linked = [];
 snAllowCapturingGaiaUnits.related = [];
 snAllowCapturingGaiaUnits.shortDescription = "Set > 0 to allow AI player to convert units owned by Gaia.";
+
+snMuleCartDropsitePlacement.id = 310;
+snMuleCartDropsitePlacement.snName = "sn-mule-cart-dropsite-placement";
+snMuleCartDropsitePlacement.default = 0;
+snMuleCartDropsitePlacement.category = "Economy";
+snMuleCartDropsitePlacement.min = -32768;
+snMuleCartDropsitePlacement.max = 32767;
+snMuleCartDropsitePlacement.rmin = 0;
+snMuleCartDropsitePlacement.rmax = 32767;
+snMuleCartDropsitePlacement.network = 0;
+snMuleCartDropsitePlacement.defined = 1;
+snMuleCartDropsitePlacement.available = 0;
+snMuleCartDropsitePlacement.effective = 1;
+snMuleCartDropsitePlacement.version = "DE";
+snMuleCartDropsitePlacement.aoe = 0;
+snMuleCartDropsitePlacement.aoc = 0;
+snMuleCartDropsitePlacement.up = 0;
+snMuleCartDropsitePlacement.de = 1;
+snMuleCartDropsitePlacement.linked = [];
+snMuleCartDropsitePlacement.related = [];
+snMuleCartDropsitePlacement.shortDescription = "Controls the placement of newly constructed mule carts.";
+snMuleCartDropsitePlacement.description = "Controls the placement of newly constructed mule carts. Set to \"lumber-camp\" to prioritize placement by wood or \"mining-camp\" to prioritize placement by gold or stone.";
 
 snPreferredStoragePitPlacement.id = 311;
 snPreferredStoragePitPlacement.snName = "sn-preferred-storage-pit-placement";
@@ -7420,7 +7445,7 @@ snPreferredStoragePitPlacement.available = 0;
 snPreferredStoragePitPlacement.effective = 1;
 snPreferredStoragePitPlacement.version = "DE";
 snPreferredStoragePitPlacement.aoe = 0;
-snPreferredStoragePitPlacement.aok = 0;
+snPreferredStoragePitPlacement.aoc = 0;
 snPreferredStoragePitPlacement.up = 0;
 snPreferredStoragePitPlacement.de = 1;
 snPreferredStoragePitPlacement.linked = [];
@@ -7442,7 +7467,7 @@ snKeystates.available = 0;
 snKeystates.effective = 1;
 snKeystates.version = "DE";
 snKeystates.aoe = 0;
-snKeystates.aok = 0;
+snKeystates.aoc = 0;
 snKeystates.up = 0;
 snKeystates.de = 1;
 snKeystates.linked = [];
@@ -7450,7 +7475,392 @@ snKeystates.related = [];
 snKeystates.shortDescription = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both.";
 snKeystates.description = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both. sn-keystates affects the behavior of " + cUpTargetObjects.getLink() + " and " + cUpTargetPoint.getLink() + ", and it affects them at the moment those commands are used, so set this strategic number before using them. sn-keystates can safely be set back to another value immediately after those commands are used.</p><p>Using the Shift option allows AI scripters to set movement waypoints or queue commands for units, like using Shift in a normal game. Using the Ctrl option allows AI scripters to force units to target an object more directly than normal, making the units less likely to retarget to another object."
 
+//Unit Lines Array
+unitLinesArray = [ {
+	name: "archer-line",
+	id: -299,
+	deId: -299,
+	description: "Includes archer, crossbowman, and arbalest. In Return of Rome, it includes Bowman."
+}, {
+	name: "cavalry-archer-line",
+	id: -298,
+	deId: -298,
+	description: "Includes cavalry-archer and heavy-cavalry-archer. In Return of Rome, -298 is the improved bowman line, including Improved Bowman and Composite Bowman."
+}, {
+	name: "skirmisher-line",
+	id: -297,
+	deId: -297,
+	description: "Includes skirmisher and elite-skirmisher. DE also includes imperial-skirmisher. WK does not."
+}, {
+	name: "militiaman-line",
+	id: -296,
+	deId: -296,
+	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion."
+}, {
+	name: "spearman-line",
+	id: -295,
+	deId: -295,
+	description: "Includes spearman, pikeman, and halberdier. In Return of Rome, -295 is the cavalry line, including Cavalry, Heavy Cavalry, and Cataphract."
+}, {
+	name: "demolition-ship-line",
+	id: -294,
+	deId: -294,
+	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship. In Return of Rome, -294 is the swordsmen line, including Short Swordsman, Broad Swordsman, Long Swordsman, and Legionary."
+}, {
+	name: "fire-ship-line",
+	id: -293,
+	deId: -293,
+	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship. In Return of Rome, -293 is the horse archer line, including Horse Archer and Heavy Horse Archer."
+}, {
+	name: "galley-line",
+	id: -292,
+	deId: -292,
+	description: "Includes galley, war-galley, and galleon. In Return of Rome, -292 is the war elephant line, including War Elephant and Armored Elephant."
+}, {
+	name: "battering-ram-line",
+	id: -291,
+	deId: -291,
+	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE. In Return of Rome, -291 is the chariot line, including Chariot and Scythe Chariot."
+}, {
+	name: "mangonel-line",
+	id: -290,
+	deId: -290,
+	description: "Includes mangonel, onager (not WK), and siege-onager. In Return of Rome, -290 is the hoplite line, including Hoplite, Phalangite, and Centurion."
+}, {
+	name: "scorpion-line",
+	id: -289,
+	deId: -289,
+	description: "Includes scorpion and heavy-scorpion. In Return of Rome, -289 is the ballista line, including Ballista and Helepolis."
+}, {
+	name: "camel-line",
+	id: -288,
+	deId: -288,
+	description: "Includes camel and heavy-camel. DE also includes imperial-camel. In Return of Rome, -288 is the stone thrower line, including Stone Thrower, Catapult, and Heavy Catapult."
+}, {
+	name: "knight-line",
+	id: -287,
+	deId: -287,
+	description: "Includes knight, cavalier, and paladin. In Return of Rome, -287 is the fishing boat line, including Fishing Boat and Fishing Ship."
+}, {
+	name: "scout-cavalry-line",
+	id: -286,
+	deId: -286,
+	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar. In Return of Rome, -286 is the transport line, including Light Transport and Heavy Transport."
+}, {
+	name: "cannon-galleon-line",
+	id: -285,
+	deId: -284,
+	description: "Includes cannon-galleon and elite-cannon-galleon. In Return of Rome, -285 is the scout ship line, including Scout Ship, War Galley, and Trireme."
+}, {
+	name: "longboat-line",
+	id: -284,
+	deId: -283,
+	description: "Includes longboat and elite-longboat. In Return of Rome, -284 is the catapult trireme line, including Catapult Trireme and Juggernaut."
+}, {
+	name: "turtle-ship-line",
+	id: -283,
+	deId: -282,
+	description: "Includes turtle-ship and elite-turtle-ship. In Return of Rome, -283 is the trade boat line, including Trade Boat and Merchant Ship."
+}, {
+	name: "berserk-line",
+	id: -282,
+	deId: -281,
+	description: "Includes berserk and elite-berserk."
+}, {
+	name: "cataphract-line",
+	id: -281,
+	deId: -280,
+	description: "Includes cataphract and elite-cataphract."
+}, {
+	name: "chu-ko-nu-line",
+	id: -280,
+	deId: -279,
+	description: "Includes chu-ko-nu and elite-chu-ko-nu."
+}, {
+	name: "huskarl-line",
+	id: -279,
+	deId: -278,
+	description: "Includes huskarl and elite-huskarl. Doesn't include huskarls trained at the Barracks."
+}, {
+	name: "janissary-line",
+	id: -278,
+	deId: -277,
+	description: "Includes janissary and elite-janissary."
+}, {
+	name: "longbowman-line",
+	id: -277,
+	deId: -276,
+	description: "Includes longbowman and elite-longbowman."
+}, {
+	name: "mameluke-line",
+	id: -276,
+	deId: -275,
+	description: "Includes mameluke and elite-mameluke."
+}, {
+	name: "mangudai-line",
+	id: -275,
+	deId: -274,
+	description: "Includes mangudai and elite-mangudai."
+}, {
+	name: "samurai-line",
+	id: -274,
+	deId: -273,
+	description: "Includes samurai and elite-samurai."
+}, {
+	name: "teutonic-knight-line",
+	id: -273,
+	deId: -272,
+	description: "Includes teutonic-knight and elite-teutonic-knight."
+}, {
+	name: "throwing-axeman-line",
+	id: -272,
+	deId: -271,
+	description: "Includes throwing-axeman and elite-throwing-axeman."
+}, {
+	name: "war-elephant-line",
+	id: -271,
+	deId: -270,
+	description: "Includes war-elephant and elite-war-elephant."
+}, {
+	name: "war-wagon-line",
+	id: -270,
+	deId: -269,
+	description: "Includes war-wagon and elite-war-wagon."
+}, {
+	name: "woad-raider-line",
+	id: -269,
+	deId: -268,
+	description: "Includes woad-raider and elite-woad-raider."
+}, {
+	name: "jaguar-man-line",
+	id: -268,
+	deId: -267,
+	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
+}, {
+	name: "eagle-warrior-line",
+	id: -267,
+	deId: -266,
+	description: "Includes eagle-warrior (the Eagle Scout in WK and DE) and elite-eagle-warrior. DE also includes heavy-eagle-warrior (the Castle Age Eagle Warrior). WK does not."
+}, {
+	name: "plumed-archer-line",
+	id: -266,
+	deId: -265,
+	description: "Includes plumed-archer and elite-plumed-archer. In Return of Rome, -266 is the clubman line, including Clubman and Axeman."
+}, {
+	name: "tarkan-line",
+	id: -265,
+	deId: -264,
+	description: "Includes tarkan and elite-tarkan. Does not include tarkans trained at the Stable."
+}, {
+	name: "conquistador-line",
+	id: -264,
+	deId: -263,
+	description: "Includes conquistador and elite-conquistador."
+}, {
+	name: "camel-archer-line",
+	id: "NA",
+	deId: -285,
+	description: "DE only. Includes camel-archer and elite-camel-archer."
+}, {
+	name: "genoese-crossbowman-line",
+	id: "NA",
+	deId: -262,
+	description: "DE only. Includes genoese-crossbowman and elite-genoese-crossbowman."
+}, {
+	name: "elephant-archer-line",
+	id: "NA",
+	deId: -261,
+	description: "DE only. Includes elephant-archer and elite-elephant-archer."
+}, {
+	name: "boyar-line",
+	id: "NA",
+	deId: -260,
+	description: "DE only. Includes boyar and elite-boyar."
+}, {
+	name: "magyar-huszar-line",
+	id: "NA",
+	deId: -259,
+	description: "DE only. Includes magyar-huszar and elite-maygar-huszar."
+}, {
+	name: "kamayuk-line",
+	id: "NA",
+	deId: -258,
+	description: "Includes kamayuk and elite-kamayuk."
+}, {
+	name: "caravel-line",
+	id: "NA",
+	deId: -257,
+	description: "DE only. Includes caravel and elite-caravel."
+}, {
+	name: "organ-gun-line",
+	id: "NA",
+	deId: -256,
+	description: "DE only. Includes organ-gun and elite-organ-gun."
+}, {
+	name: "gbeto-line",
+	id: "NA",
+	deId: -255,
+	description: "DE only. Includes gbeto and elite-gbeto."
+}, {
+	name: "shotel-warrior-line",
+	id: "NA",
+	deId: -254,
+	description: "DE only. Includes shotel-warrior and elite-shotel-warrior."
+}, {
+	name: "genitour-line",
+	id: "NA",
+	deId: -253,
+	description: "DE only. Includes genitour and elite-genitour."
+}, {
+	name: "ballista-elephant-line",
+	id: "NA",
+	deId: -252,
+	description: "DE only. Includes ballista-elephant and elite-ballista-elephant."
+}, {
+	name: "rattan-archer-line",
+	id: "NA",
+	deId: -251,
+	description: "DE only. Includes rattan-archer and elite-rattan-archer."
+}, {
+	name: "arambai-line",
+	id: "NA",
+	deId: -250,
+	description: "DE only. Includes arambai and elite-arambai."
+}, {
+	name: "battle-elephant-line",
+	id: "NA",
+	deId: -249,
+	description: "DE only. Includes battle-elephant and elite-battle-elephant."
+}, {
+	name: "karambit-warrior-line",
+	id: "NA",
+	deId: -248,
+	description: "DE only. Includes karambit-warrior and elite-karambit-warrior."
+}, {
+	name: "konnik-line",
+	id: "NA",
+	deId: -247,
+	description: "DE only. Includes konnik and elite-konnik. Does not include dismounted konniks or konniks trained from Kreposts."
+}, {
+	name: "krepost-konnik-line",
+	id: "NA",
+	deId: -246,
+	description: "DE only. Includes krepost-konnik and elite-krepost-konnik. Does not include konniks trained at the castle or dismounted konniks."
+}, {
+	name: "foot-konnik-line",
+	id: "NA",
+	deId: -245,
+	description: "DE only. Includes foot-konnik and elite-foot-konnik. Does not include mounted konniks."
+}, {
+	name: "leitis-line",
+	id: "NA",
+	deId: -244,
+	description: "DE only. Includes leitis and elite-leitis."
+}, {
+	name: "kipchak-line",
+	id: "NA",
+	deId: -243,
+	description: "DE only. Includes kipchak and elite-kipchak. Does not include kipchaks that allies can train after Cuman Mercenaries is researched."
+}, {
+	name: "keshik-line",
+	id: "NA",
+	deId: -242,
+	description: "DE only. Includes keshik and elite-keshik."
+}, {
+	name: "steppe-lancer-line",
+	id: "NA",
+	deId: -241,
+	description: "DE only. Includes steppe-lancer and elite-steppe-lancer."
+}, {
+	name: "coustillier-line",
+	id: "NA",
+	deId: -240,
+	description: "DE only. Includes coustillier and elite-coustillier."
+}, {
+	name: "serjeant-line",
+	id: "NA",
+	deId: -239,
+	description: "DE only. Includes serjeant and elite-serjeant."
+}, {
+	name: "donjon-serjeant-line",
+	id: "NA",
+	deId: -238,
+	description: "DE only. Includes donjon-serjeant and elite-donjon-serjeant."
+}, {
+	name: "obuch-line",
+	id: "NA",
+	deId: -237,
+	description: "DE only. Includes obuch and elite-obuch."
+}, {
+	name: "hussite-wagon-line",
+	id: "NA",
+	deId: -236,
+	description: "DE only. Includes hussite-wagon and elite-hussite-wagon."
+}, {
+	name: "bombard-cannon-line",
+	id: "NA",
+	deId: -235,
+	description: "DE only. Includes bombard-cannon and houfnice."
+}, {
+	name: "urumi-swordsman-line",
+	id: "NA",
+	deId: -234,
+	description: "DE only. Includes urumi-swordsman and elite-urumi-swordsman."
+}, {
+	name: "ratha-melee-line",
+	id: "NA",
+	deId: -233,
+	description: "DE only. Includes ratha-melee and elite-ratha-melee. Does not include rathas in ranged mode. Use ratha-set to include ranged rathas."
+}, {
+	name: "chakram-thrower-line",
+	id: "NA",
+	deId: -232,
+	description: "DE only. Includes chakram-thrower and elite-chakram-thrower."
+}, {
+	name: "armored-elephant-line",
+	id: "NA",
+	deId: -231,
+	description: "DE only. Includes armored-elephant and siege-elephant."
+}, {
+	name: "ghulam-line",
+	id: "NA",
+	deId: -230,
+	description: "DE only. Includes ghulam and elite-ghulam."
+}, {
+	name: "shrivamsha-rider-line",
+	id: "NA",
+	deId: -229,
+	description: "DE only. Includes shrivamsha-rider and elite-shrivamsha-rider."
+}, {
+	name: "ratha-ranged-line",
+	id: "NA",
+	deId: -228,
+	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode. Use ratha-set to include melee rathas."
+}, {
+	name: "donjon-spearman-line",
+	id: "NA",
+	deId: -227,
+	description: "DE only. Includes donjon-spearman, donjon-pikeman, and donjon-halberdier."
+}, {
+	name: "centurion-line",
+	id: "NA",
+	deId: -226,
+	description: "DE only. Includes centurion and elite-centurion."
+} ];
 
+buildingLinesArray = [ {
+	name: "stone-wall-line",
+	id: -399,
+	deId: -399,
+	description: "Stone Wall line. In Return of Rome, it includes Medium Wall and Fortified Wall, but not Small Wall."
+}, {
+	name: "watch-tower-line",
+	id: -398,
+	deId: -398,
+	description: "Watch Tower line. Bugged. Won't include Guard Tower or Keep in counting commands. \"watch-tower\" by itself usually works in non-counting commands. In Return of Rome, it includes Watch Tower, Sentry Tower, Guard Tower, but not Ballista Tower."
+} ];
+
+allLinesArray = buildingLinesArray.concat(unitLinesArray);
 
 
 
@@ -7593,7 +8003,7 @@ cBuild.example = [ {
 } ];
 cBuild.commandCategory = ["Buildings"];
 cBuild.relatedCommands = [cBuildForward, cBuildGate, cBuildWall, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpBuildLine, cUpCanBuild, cUpCanBuildLine];
-cBuild.relatedSNs = [snAllowAdjacentDropsites, snAllowSerjeantBuilding, snCampMaxDistance, snDropsiteSeparationDistance, snFoodDropsiteDistance, snGoldDropsiteDistance, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snLumberCampMaxDistance, snMaximumTownSize, snMillMaxDistance, snMinimumTownSize, snMiningCampMaxDistance, snPreferredMillPlacement, snPreferredStoragePitPlacement, snRandomPlacementFactor, snStoneDropsiteDistance, snTownCenterPlacement, snUnexploredConstruction, snWoodDropsiteDistance];
+cBuild.relatedSNs = [snAllowAdjacentDropsites, snAllowSerjeantBuilding, snCampMaxDistance, snDropsiteSeparationDistance, snFoodDropsiteDistance, snGoldDropsiteDistance, snIgnoreTowerElevation, snEnableNewBuildingSystem, snInitialExplorationRequired, snLumberCampMaxDistance, snMaximumTownSize, snMillMaxDistance, snMinimumTownSize, snMiningCampMaxDistance, snMuleCartDropsitePlacement, snPreferredMillPlacement, snPreferredStoragePitPlacement, snRandomPlacementFactor, snStoneDropsiteDistance, snTownCenterPlacement, snUnexploredConstruction, snWoodDropsiteDistance];
 cBuild.complexity = "Low";
 
 //build-forward
@@ -17801,10 +18211,10 @@ cUpUngarrison.example = [ {
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: dock)\r\n\t(disable-self)\r\n)"
 }, {
 	title: "Release all garrisoned units in battering rams. Non-DE example.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram-line)\r\n\t(disable-self)\r\n)"
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram)\r\n\t(disable-self)\r\n)"
 }, {
 	title: "Release all garrisoned units in battering rams. In DE, you must use feudal-battering-ram instead since the base battering ram",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: battering-ram-line)\r\n\t(disable-self)\r\n)"
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-ungarrison c: feudal-battering-ram)\r\n\t(disable-self)\r\n)"
 } ];
 cUpUngarrison.relatedCommands = [];
 cUpUngarrison.commandCategory = ["Buildings"];/*
@@ -18822,7 +19232,7 @@ pAttrId.valueList = [ {
 pBuildingId.description = "A building object, either the defined building type name, the object ID assigned to it, or the building's class. Sometimes can also be a building line. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for reference.";
 pBuildingId.shortDescription = "A building object, either the defined building type name, the object ID assigned to it, or the building's class.";
 pBuildingId.range = "A valid building ID.";
-pBuildingId.relatedParams = [pClassId, pObjectId, pId, pTypeId, pUnitId, pWallId];
+pBuildingId.relatedParams = [pClassId, pObjectId, pId, pLineId, pSetId, pTypeId, pUnitId, pWallId];
 pBuildingId.wildcardParam = [ {
 	name: "watch-tower-line",
 	id: -398,
@@ -18832,7 +19242,7 @@ pBuildingId.wildcardParam = [ {
 //Civ
 pCiv.description = "The player's civilization. You may need to define some civilizations with a defconst. \"my-civ\" is also an option, which will detect the civilization that the AI is playing as.";
 pCiv.shortDescription = "The player's civilization.";
-pCiv.range = "0 to 18 for The Conquerors game version. 0 to 31 for AoK:HD and Wololo Kingdoms versions. 0 to 42 for AoE2:DE.";
+pCiv.range = "0 to the number of civs for the particular game version.";
 pCiv.valueList = [ {
 	name: "gaia",
 	id: 0,
@@ -19027,7 +19437,7 @@ pCiv.valueList = [ {
 pClassId.description = "A class ID. Each object in the game is assigned a class that contains other similar objects. Class IDs can often be used in place of a unit ID. Classes with an asterisk (*) in the name must be defined with a defconst. All other classes are defined in the UserPatchConst.per file that comes with a UserPatch installation.</p><p>See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> to see which units belong to each class.";
 pClassId.shortDescription = "A class ID.";
 pClassId.range = "-1, 900 to 999.";
-pClassId.relatedParams = [pBuildingId, pCmdId, pObjectId, pThreatSource, pThreatTarget, pTypeId, pUnitId];
+pClassId.relatedParams = [pBuildingId, pCmdId, pLineId, pObjectId, pSetId, pThreatSource, pThreatTarget, pTypeId, pUnitId];
 pClassId.valueList = [ {
 	name: "all-units-class",
 	id: -1,
@@ -20170,6 +20580,13 @@ pLanguageId.relatedParams = [pString, pDefconst];
 // pLimit.range = "A valid GoalId, which can range from 1 to 512.";
 // pLimit.relatedParams = [pFactId, pGuardState, pType, pVictoryCondition];
 
+//LineId
+pLineId.description = "A line ID, which refers to any upgraded or non-upgraded versions of a particular unit or building line. For example, scout-cavalry, light-cavalry, hussar, and winged-hussar are all included in the scout-cavalry-line. Note that watch-tower-line is bugged, and \"watch-tower\" should be used instead. In most cases, line IDs can be used instead of unit IDs, and for counting or training commands using line IDs is preferred.</p><p><strong>Important Note:</strong> some commands, such as " + cUpTrainSiteReady.getLink() + ", " + cUpGarrison.getLink() + ", " + cUpUngarrison.getLink() + ", " + cUpSetDefensePriority.getLink() + ", " + cUpSetOffensePriority.getLink() + ", cannot use Line IDs. Using a unit line with up-train-site-ready will crash the game.</p><p></p><p>For counting commands, a " + pSetId.getLink() + " can be used instead of a line ID. Sets combine multiple related units or unit lines together, such as packed and unpacked trebuchets, male and female villager types, or units that have more than one training location.";
+pLineId.shortDescription = "A line ID, which refers to any upgraded or non-upgraded versions of a particular unit or building line.";
+pLineId.range = "a valid LineId";
+pLineId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pSetId, pTypeId, pUnitId];
+pLineId.wildcardParam = allLinesArray;
+
 //LocalIndex
 pLocalIndex.description = "Set to 1 to clear the offset into the list of local objects to search. Explanation: The local list only contains units found for the current player. Whenever you find something with search-local, it'll be removed from searchable local object list and added to found local object list. Setting LocalIndex to 1 would clear searchable local object list and allow finding same objects again.";
 pLocalIndex.shortDescription = "Set to 1 to clear the offset into the list of local objects to search.";
@@ -21101,7 +21518,7 @@ pObjectData.valueList = [ {
 pObjectId.description = "A " + pUnitId.getLink() + " or a " + pBuildingId.getLink() + ". See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for details.";
 pObjectId.shortDescription = "A UnitId or a BuildingId.";
 pObjectId.range = "A valid " + pUnitId.getLink() + " or a valid " + pBuildingId.getLink() + ".";
-pObjectId.relatedParams = [pBuildingId, pClassId, pId, pTypeId, pUnitId];
+pObjectId.relatedParams = [pBuildingId, pClassId, pId, pLineId, pSetId, pTypeId, pUnitId];
 
 //ObjectList
 pObjectList.description = "Specifies whether the filter should apply to objects in the active list or the inactive list.</p><p>Here's some background info from scripter64 in response to a question on why some custom flags in a mod weren't being animated:</p><p>Custom building flags can't be animated due to the performance overhead of updating them. There can be many houses and wall segments (each one counts as a separate \"building\") on a map each game, so ES moved these objects into a separate [inactive] list that does not update per-turn to avoid excessive computational overhead. When attacked, they are moved into the main per-turn update list in order to animate their fire if necessary. Gates are always in the main list.</p><p>The current flag fix only enables the palisade wall ends to animate by moving those specific objects into the main object list that can update per-turn for redrawing and animation. It would probably be bad for the general performance of the game if we were to undo the ES optimization entirely and allow all objects into the per-turn update list.";
@@ -22617,6 +23034,96 @@ pSearchSource.valueList = [ {
 	description: "The list that stores the search results from " + cUpFindRemote.getLink() + " commands. This list only contains objects from the focus-player. The list holds a maximum of 40 objects."
 } ];
 
+pSetId.shortDescription = "A valid Set Id, which allows you to count multiple related units at once."
+pSetId.description = "A valid Set Id, which allows you to count multiple related units at once. Sets cannot used for unit training, for DUC, or most other commands, only with counting commands."
+pSetId.range = "970 to 990";
+pSetId.relatedParams = [pBuildingId, pClassId, pId, pLineId, pObjectId, pTypeId, pUnitId];
+pSetId.valueList = [ {
+	name: "monk-set",
+	id: 970,
+	description: "Includes monk and monk-with-relic."
+}, {
+	name: "trebuchet-set",
+	id: 971,
+	description: "Includes packed and unpacked trebuchets."
+}, {
+	name: "huskarl-set",
+	id: 972,
+	description: "Includes huskarls and elite huskarls trained at either the castle or the barracks."
+}, {
+	name: "villager-shepherd",
+	id: 973,
+	description: "Includes female and male shepherds."
+}, {
+	name: "villager-forager",
+	id: 974,
+	description: "Includes female and male foragers."
+}, {
+	name: "villager-farmer",
+	id: 975,
+	description: "Includes female and male farmers."
+}, {
+	name: "villager-hunter",
+	id: 976,
+	description: "Includes female and male hunters."
+}, {
+	name: "villager-fisherman",
+	id: 977,
+	description: "Includes female and male fishermen."
+}, {
+	name: "villager-food",
+	id: 978,
+	description: "Includes all food gathering villagers."
+}, {
+	name: "villager-wood",
+	id: 979,
+	description: "Includes female and male lumberjacks."
+}, {
+	name: "villager-stone",
+	id: 980,
+	description: "Includes female and male stone miners."
+}, {
+	name: "villager-gold",
+	id: 981,
+	description: "Includes female and male gold miners."
+}, {
+	name: "villager-builder",
+	id: 982,
+	description: "Includes female and male builders."
+}, {
+	name: "villager-repairer",
+	id: 983,
+	description: "Includes female and male repairers."
+}, {
+	name: "villager-base",
+	id: 984,
+	description: "Includes female and male villagers who are attacking or who have never been given a task."
+}, {
+	name: "tarkan-set",
+	id: 985,
+	description: "DE only. Includes tarkans and elite tarkans trained at either the castle or the stable."
+}, {
+	name: "konnik-set",
+	id: 986,
+	description: "DE only. Includes mounted and dismounted konniks and elite konniks trained at either the castle or the krepost."
+}, {
+	name: "kipchak-set",
+	id: 987,
+	description: "DE only. Includes kipchaks, elite kipchaks, and mercenary kipchaks (ally elite kipchaks trained with the Cuman Mercenaries technology)."
+}, {
+	name: "serjeant-set",
+	id: 988,
+	description: "DE only. Includes serjeants and elite serjeants trained at either the castle or the donjon."
+}, {
+	name: "flemish-militia-set",
+	id: 989,
+	description: "DE only. Includes female flemish militia, male flemish militia, and flemish militia trained at the barracks."
+}, {
+	name: "ratha-set",
+	id: 990,
+	description: "DE only. Includes rathas and elite rathas in either melee or ranged mode."
+} ];
+
 //SharedGoalId
 pSharedGoalId.description = "A goal that is shared among computer players. It is to be used only when all computer players are on the same team.";
 pSharedGoalId.shortDescription = "A goal that is shared among allied computer players.";
@@ -22982,384 +23489,14 @@ pTimerState.valueList = [ {
 pTypeId.description = "The type of object. This can be either the object name or an object line ID. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of object names and object line wildcard parameters.";
 pTypeId.shortDescription = "The type of object.";
 pTypeId.range = "A valid " + pObjectId.getLink() + " or one of the object line wildcard parameters.";
-pTypeId.relatedParams = [pBuildingId, pClassId, pObjectId, pUnitId];
+pTypeId.relatedParams = [pBuildingId, pClassId, pLineId, pObjectId, pSetId, pUnitId];
 
 //UnitId
-pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. Some commands cannot use unit lines or classes. Please see the command page for each individual command to confirm what type of UnitId can be used. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines list is incorrect for DE on unit lines -285 through -263, but a DE update to fix this is pending. If DE has applied this update and this notice hasn't removed, tell Leif! ;)";
+pUnitId.description = "The object ID of a unit, the unit type name, a unit line (see wildcard parameters below), or a unit's " + pClassId.getLink() + ". my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. Some commands cannot use unit lines or classes. Please see the command page for each individual command to confirm what type of UnitId can be used. See the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects Table</a> for a list of unit IDs and unit type names.</p><p><b>Note: </b>The unit lines IDs for UP and DE don't always match.";
 pUnitId.shortDescription = "The object ID of a unit, the unit type name, or a unit's class.";
 pUnitId.range = "A valid UnitId.";
-pUnitId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pTypeId];
-pUnitId.wildcardParam = [ {
-	name: "archer-line",
-	id: -299,
-	deId: -299,
-	description: "Includes archer, crossbowman, and arbalest. In Return of Rome, it includes Bowman."
-}, {
-	name: "cavalry-archer-line",
-	id: -298,
-	deId: -298,
-	description: "Includes cavalry-archer and heavy-cavalry-archer. In Return of Rome, -298 is the improved bowman line, including Improved Bowman and Composite Bowman."
-}, {
-	name: "skirmisher-line",
-	id: -297,
-	deId: -297,
-	description: "Includes skirmisher and elite-skirmisher. DE also includes imperial-skirmisher. WK does not."
-}, {
-	name: "militiaman-line",
-	id: -296,
-	deId: -296,
-	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion."
-}, {
-	name: "spearman-line",
-	id: -295,
-	deId: -295,
-	description: "Includes spearman, pikeman, and halberdier. In Return of Rome, -295 is the cavalry line, including Cavalry, Heavy Cavalry, and Cataphract."
-}, {
-	name: "demolition-ship-line",
-	id: -294,
-	deId: -294,
-	description: "Includes demolition-raft (WK and DE), demolition-ship (not WK), and heavy-demolition-ship. In Return of Rome, -294 is the swordsmen line, including Short Swordsman, Broad Swordsman, Long Swordsman, and Legionary."
-}, {
-	name: "fire-ship-line",
-	id: -293,
-	deId: -293,
-	description: "Includes fire-galley (WK and DE), fire-ship (not WK), fast-fire-ship. In Return of Rome, -293 is the horse archer line, including Horse Archer and Heavy Horse Archer."
-}, {
-	name: "galley-line",
-	id: -292,
-	deId: -292,
-	description: "Includes galley, war-galley, and galleon. In Return of Rome, -292 is the war elephant line, including War Elephant and Armored Elephant."
-}, {
-	name: "battering-ram-line",
-	id: -291,
-	deId: -291,
-	description: "Includes battering-ram, capped-ram, and siege-ram. Also includes feudal-battering-ram in DE. In Return of Rome, -291 is the chariot line, including Chariot and Scythe Chariot."
-}, {
-	name: "mangonel-line",
-	id: -290,
-	deId: -290,
-	description: "Includes mangonel, onager (not WK), and siege-onager. In Return of Rome, -290 is the hoplite line, including Hoplite, Phalangite, and Centurion."
-}, {
-	name: "scorpion-line",
-	id: -289,
-	deId: -289,
-	description: "Includes scorpion and heavy-scorpion. In Return of Rome, -289 is the ballista line, including Ballista and Helepolis."
-}, {
-	name: "camel-line",
-	id: -288,
-	deId: -288,
-	description: "Includes camel and heavy-camel. DE also includes imperial-camel. In Return of Rome, -288 is the stone thrower line, including Stone Thrower, Catapult, and Heavy Catapult."
-}, {
-	name: "knight-line",
-	id: -287,
-	deId: -287,
-	description: "Includes knight, cavalier, and paladin. In Return of Rome, -287 is the fishing boat line, including Fishing Boat and Fishing Ship."
-}, {
-	name: "scout-cavalry-line",
-	id: -286,
-	deId: -286,
-	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar. In Return of Rome, -286 is the transport line, including Light Transport and Heavy Transport."
-}, {
-	name: "cannon-galleon-line",
-	id: -285,
-	deId: -284,
-	description: "Includes cannon-galleon and elite-cannon-galleon. In Return of Rome, -285 is the scout ship line, including Scout Ship, War Galley, and Trireme."
-}, {
-	name: "longboat-line",
-	id: -284,
-	deId: -283,
-	description: "Includes longboat and elite-longboat. In Return of Rome, -284 is the catapult trireme line, including Catapult Trireme and Juggernaut."
-}, {
-	name: "turtle-ship-line",
-	id: -283,
-	deId: -282,
-	description: "Includes turtle-ship and elite-turtle-ship. In Return of Rome, -283 is the trade boat line, including Trade Boat and Merchant Ship."
-}, {
-	name: "berserk-line",
-	id: -282,
-	deId: -281,
-	description: "Includes berserk and elite-berserk."
-}, {
-	name: "cataphract-line",
-	id: -281,
-	deId: -280,
-	description: "Includes cataphract and elite-cataphract."
-}, {
-	name: "chu-ko-nu-line",
-	id: -280,
-	deId: -279,
-	description: "Includes chu-ko-nu and elite-chu-ko-nu."
-}, {
-	name: "huskarl-line",
-	id: -279,
-	deId: -278,
-	description: "Includes huskarl and elite-huskarl. Doesn't include huskarls trained at the Barracks."
-}, {
-	name: "janissary-line",
-	id: -278,
-	deId: -277,
-	description: "Includes janissary and elite-janissary."
-}, {
-	name: "longbowman-line",
-	id: -277,
-	deId: -276,
-	description: "Includes longbowman and elite-longbowman."
-}, {
-	name: "mameluke-line",
-	id: -276,
-	deId: -275,
-	description: "Includes mameluke and elite-mameluke."
-}, {
-	name: "mangudai-line",
-	id: -275,
-	deId: -274,
-	description: "Includes mangudai and elite-mangudai."
-}, {
-	name: "samurai-line",
-	id: -274,
-	deId: -273,
-	description: "Includes samurai and elite-samurai."
-}, {
-	name: "teutonic-knight-line",
-	id: -273,
-	deId: -272,
-	description: "Includes teutonic-knight and elite-teutonic-knight."
-}, {
-	name: "throwing-axeman-line",
-	id: -272,
-	deId: -271,
-	description: "Includes throwing-axeman and elite-throwing-axeman."
-}, {
-	name: "war-elephant-line",
-	id: -271,
-	deId: -270,
-	description: "Includes war-elephant and elite-war-elephant."
-}, {
-	name: "war-wagon-line",
-	id: -270,
-	deId: -269,
-	description: "Includes war-wagon and elite-war-wagon."
-}, {
-	name: "woad-raider-line",
-	id: -269,
-	deId: -268,
-	description: "Includes woad-raider and elite-woad-raider."
-}, {
-	name: "jaguar-man-line",
-	id: -268,
-	deId: -267,
-	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
-}, {
-	name: "eagle-warrior-line",
-	id: -267,
-	deId: -266,
-	description: "Includes eagle-warrior (the Eagle Scout in WK and DE) and elite-eagle-warrior. DE also includes heavy-eagle-warrior (the Castle Age Eagle Warrior). WK does not."
-}, {
-	name: "plumed-archer-line",
-	id: -266,
-	deId: -265,
-	description: "Includes plumed-archer and elite-plumed-archer. In Return of Rome, -266 is the clubman line, including Clubman and Axeman."
-}, {
-	name: "tarkan-line",
-	id: -265,
-	deId: -264,
-	description: "Includes tarkan and elite-tarkan. Does not include tarkans trained at the Stable."
-}, {
-	name: "conquistador-line",
-	id: -264,
-	deId: -263,
-	description: "Includes conquistador and elite-conquistador."
-}, {
-	name: "camel-archer-line",
-	id: "NA",
-	deId: -285,
-	description: "DE only. Includes camel-archer and elite-camel-archer."
-}, {
-	name: "genoese-crossbowman-line",
-	id: "NA",
-	deId: -262,
-	description: "DE only. Includes genoese-crossbowman and elite-genoese-crossbowman."
-}, {
-	name: "elephant-archer-line",
-	id: "NA",
-	deId: -261,
-	description: "DE only. Includes elephant-archer and elite-elephant-archer."
-}, {
-	name: "boyar-line",
-	id: "NA",
-	deId: -260,
-	description: "DE only. Includes boyar and elite-boyar."
-}, {
-	name: "magyar-huszar-line",
-	id: "NA",
-	deId: -259,
-	description: "DE only. Includes magyar-huszar and elite-maygar-huszar."
-}, {
-	name: "kamayuk-line",
-	id: "NA",
-	deId: -258,
-	description: "Includes kamayuk and elite-kamayuk."
-}, {
-	name: "caravel-line",
-	id: "NA",
-	deId: -257,
-	description: "DE only. Includes caravel and elite-caravel."
-}, {
-	name: "organ-gun-line",
-	id: "NA",
-	deId: -256,
-	description: "DE only. Includes organ-gun and elite-organ-gun."
-}, {
-	name: "gbeto-line",
-	id: "NA",
-	deId: -255,
-	description: "DE only. Includes gbeto and elite-gbeto."
-}, {
-	name: "shotel-warrior-line",
-	id: "NA",
-	deId: -254,
-	description: "DE only. Includes shotel-warrior and elite-shotel-warrior."
-}, {
-	name: "genitour-line",
-	id: "NA",
-	deId: -253,
-	description: "DE only. Includes genitour and elite-genitour."
-}, {
-	name: "ballista-elephant-line",
-	id: "NA",
-	deId: -252,
-	description: "DE only. Includes ballista-elephant and elite-ballista-elephant."
-}, {
-	name: "rattan-archer-line",
-	id: "NA",
-	deId: -251,
-	description: "DE only. Includes rattan-archer and elite-rattan-archer."
-}, {
-	name: "arambai-line",
-	id: "NA",
-	deId: -250,
-	description: "DE only. Includes arambai and elite-arambai."
-}, {
-	name: "battle-elephant-line",
-	id: "NA",
-	deId: -249,
-	description: "DE only. Includes battle-elephant and elite-battle-elephant."
-}, {
-	name: "karambit-warrior-line",
-	id: "NA",
-	deId: -248,
-	description: "DE only. Includes karambit-warrior and elite-karambit-warrior."
-}, {
-	name: "konnik-line",
-	id: "NA",
-	deId: -247,
-	description: "DE only. Includes konnik and elite-konnik. Does not include dismounted konniks or konniks trained from Kreposts."
-}, {
-	name: "krepost-konnik-line",
-	id: "NA",
-	deId: -246,
-	description: "DE only. Includes krepost-konnik and elite-krepost-konnik. Does not include konniks trained at the castle or dismounted konniks."
-}, {
-	name: "foot-konnik-line",
-	id: "NA",
-	deId: -245,
-	description: "DE only. Includes foot-konnik and elite-foot-konnik. Does not include mounted konniks."
-}, {
-	name: "leitis-line",
-	id: "NA",
-	deId: -244,
-	description: "DE only. Includes leitis and elite-leitis."
-}, {
-	name: "kipchak-line",
-	id: "NA",
-	deId: -243,
-	description: "DE only. Includes kipchak and elite-kipchak. Does not include kipchaks that allies can train after Cuman Mercenaries is researched."
-}, {
-	name: "keshik-line",
-	id: "NA",
-	deId: -242,
-	description: "DE only. Includes keshik and elite-keshik."
-}, {
-	name: "steppe-lancer-line",
-	id: "NA",
-	deId: -241,
-	description: "DE only. Includes steppe-lancer and elite-steppe-lancer."
-}, {
-	name: "coustillier-line",
-	id: "NA",
-	deId: -240,
-	description: "DE only. Includes coustillier and elite-coustillier."
-}, {
-	name: "serjeant-line",
-	id: "NA",
-	deId: -239,
-	description: "DE only. Includes serjeant and elite-serjeant."
-}, {
-	name: "donjon-serjeant-line",
-	id: "NA",
-	deId: -238,
-	description: "DE only. Includes donjon-serjeant and elite-donjon-serjeant."
-}, {
-	name: "obuch-line",
-	id: "NA",
-	deId: -237,
-	description: "DE only. Includes obuch and elite-obuch."
-}, {
-	name: "hussite-wagon-line",
-	id: "NA",
-	deId: -236,
-	description: "DE only. Includes hussite-wagon and elite-hussite-wagon."
-}, {
-	name: "bombard-cannon-line",
-	id: "NA",
-	deId: -235,
-	description: "DE only. Includes bombard-cannon and houfnice."
-}, {
-	name: "urumi-swordsman-line",
-	id: "NA",
-	deId: -234,
-	description: "DE only. Includes urumi-swordsman and elite-urumi-swordsman."
-}, {
-	name: "ratha-melee-line",
-	id: "NA",
-	deId: -233,
-	description: "DE only. Includes ratha-melee and elite-ratha-melee. Does not include rathas in ranged mode. Use ratha-set to include ranged rathas."
-}, {
-	name: "chakram-thrower-line",
-	id: "NA",
-	deId: -232,
-	description: "DE only. Includes chakram-thrower and elite-chakram-thrower."
-}, {
-	name: "armored-elephant-line",
-	id: "NA",
-	deId: -231,
-	description: "DE only. Includes armored-elephant and siege-elephant."
-}, {
-	name: "ghulam-line",
-	id: "NA",
-	deId: -230,
-	description: "DE only. Includes ghulam and elite-ghulam."
-}, {
-	name: "shrivamsha-rider-line",
-	id: "NA",
-	deId: -229,
-	description: "DE only. Includes shrivamsha-rider and elite-shrivamsha-rider."
-}, {
-	name: "ratha-ranged-line",
-	id: "NA",
-	deId: -228,
-	description: "DE only. Includes ratha-ranged and elite-ratha-ranged. Does not include rathas in melee mode. Use ratha-set to include melee rathas."
-}, {
-	name: "donjon-spearman-line",
-	id: "NA",
-	deId: -227,
-	description: "DE only. Includes donjon-spearman, donjon-pikeman, and donjon-halberdier."
-}, {
-	name: "centurion-line",
-	id: "NA",
-	deId: -226,
-	description: "DE only. Includes centurion and elite-centurion."
-} ];
+pUnitId.relatedParams = [pBuildingId, pClassId, pId, pLineId, pObjectId, pSetId, pTypeId];
+pUnitId.wildcardParam = unitLinesArray;
 
 // //UpgradeId
 // pUpgradeId.description = "A " + pGoalId.getLink() + " to store the upgrade type id. Note: this stores the current upgraded version of that unit/building line, not the next upgrade in the upgrade sequence.";
@@ -23422,7 +23559,7 @@ pVictoryType.relatedParams = [pGameType, pVictoryCondition, pVictoryPlayer, pVic
 pWallId.description = "The " + pBuildingId.getLink() + " of a wall type."
 pWallId.shortDescription = "The BuildingId of a wall type.";
 pWallId.range = "A Wall type.";
-pWallId.relatedParams = [pBuildingId, pPerimeter];
+pWallId.relatedParams = [pBuildingId, pClassId, pLineId, pPerimeter];
 pWallId.valueList = [ {
 	name: "palisade-wall",
 	id: 72,
@@ -30811,7 +30948,7 @@ objectsDockArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	notes: "In WK, the Fire Galley has the same ID as the AoK Fire Ship, and it's defined as \"fire-ship\"."
+	notes: "In WK, the Fire Galley has the same ID as the AoC Fire Ship, and it's defined as \"fire-ship\"."
 }, {	
 	name: "Fire Ship (non-WK)",
 	aiName: "fire-ship",
@@ -30887,7 +31024,7 @@ objectsDockArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	notes: "In WK, the Demolition Raft has the same ID as the AoK Demolition Ship, and it's defined as \"demolition-ship\""
+	notes: "In WK, the Demolition Raft has the same ID as the AoC Demolition Ship, and it's defined as \"demolition-ship\""
 }, {	
 	name: "Demolition Ship (non-WK)",
 	aiName: "demolition-ship",

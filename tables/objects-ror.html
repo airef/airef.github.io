@@ -17,7 +17,7 @@
 		<div id="nav-placeholder"></div>
 		<h2>Objects</h2>
 		<p>This list of objects in the Return of Rome DLC doesn't include any Gaia objects because they are exactly the same as in AoE2 DE.</p>
-		<p>For more info on what dead units, projectiles, lines, and classes are, click <a href="#info">here</a>.</p>
+		<p>For more info on what dead units, projectiles, <a href="https://airef.github.io/parameters/parameters-details.html#LineId">lines</a>, <a href="https://airef.github.io/parameters/parameters-details.html#SetId">sets</a>, and <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">classes</a> are, click <a href="#info">here</a>.</p>
 		<p>For a list of objects in AoE2, see the <a href="./objects.html">AoE2 Objects Table</a>.</p>
 		<p>
 			<label for="objectsInputROR" class="objects-ror-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
@@ -78,9 +78,9 @@
 		<h3 id="info" style="padding-top: 15px">Dead Objects and Projectiles</h3>
 		<p>The <strong>Dead Object ID</strong> belongs to the decaying object that is placed on the map when a unit is killed or a building is destroyed. AIs can count the dead objects they own, but they can only be counted by individual IDs. <a href="https://airef.github.io/commands/commands-details.html#cc-players-unit-type-count">cc-players-unit-type-count</a> is required to count the dead objects of other players.</p>
 		<p>The <strong>Proj. ID</strong> belongs to the projectile object that is created when a ranged object fires a projectile. These IDs are <i>not</i> the same as <a href="https://airef.github.io/parameters/parameters-details.html#ProjectileType">ProjectileType</a>. <a href="https://airef.github.io/commands/commands-details.html#cc-players-unit-type-count">cc-players-unit-type-count</a> is required to count the projectiles of other players by ID, so using <a href="https://airef.github.io/commands/commands-details.html#up-projectile-detected">up-projectile-detected</a> is recommended. If two projectile IDs are listed, the second ID is used in addition to the first projectile ID when the object is firing multiple projectiles.</p>
-		<h3>Lines and Classes</h3>
-		<p>Lines group together a base unit and its upgraded versions so that you can easily count a unit type without having to know which upgrades have been researched. Classes group together similar types of units, such as infantry or warships.</p>
-		<p>For a list of Class ID values, see <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">ClassId</a>. For a list of Line ID values, see <a href="https://airef.github.io/parameters/parameters-details.html#UnitId">UnitId</a>, <a href="https://airef.github.io/parameters/parameters-details.html#BuildingId">BuildingId</a>, or <a href="https://airef.github.io/parameters/parameters-details.html#WallId">WallId</a>.</p>
+		<h3>Lines, Sets, and Classes</h3>
+		<p>Lines group together a base unit and its upgraded versions so that you can easily count a unit type without having to know which upgrades have been researched. Sets combine multiple related units or unit lines together so that they can be counted more easily. Classes group together similar types of units, such as infantry or warships.</p>
+		<p>For a list of Class ID values, see <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">ClassId</a>. For a list of Line ID values, see <a href="https://airef.github.io/parameters/parameters-details.html#LineId">LineId</a>. For a list of Line ID values, see <a href="https://airef.github.io/parameters/parameters-details.html#SetId">SetId</a>.</p>
 		<p><a href="#top">Back to Top</a></p>
 		<div id="footer-placeholder"></div>
 	</div>

@@ -1,6 +1,6 @@
 function snFilter() {
     // Declare variables
-    var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aok, up, de;
+    var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aoc, up, de;
     input = document.getElementById("snInput");
     category = document.getElementById("sn-category");
     category = category.value;
@@ -87,7 +87,7 @@ function snFilter() {
                         if(network == -1 || tdNetwork == network) {
                             if(defined == -1 || tdDefined == defined) {
                                 if(active == -1 || tdActive == active) {
-                                    if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoK" && snArray[i].aok == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
+                                    if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoC" && snArray[i].aoc == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
                                         tr[i + 1].style.display = "";
                                         num = num + 1;
                                     }

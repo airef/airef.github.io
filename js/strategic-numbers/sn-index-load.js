@@ -1,7 +1,7 @@
 var text = "<table id=\"index-table\">";
 var effective = true;
 text += "<tr><th>ID</th><th>Strategic Number</th>";
-text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoK,<br>UP, DE)</th></tr>";
+text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoC,<br>UP, DE)</th></tr>";
 for(var i = 0; i < snArray.length; i++) {
     text += "<tr>";
     text += "<td>" + snArray[i].id + "</td>";
@@ -13,10 +13,10 @@ for(var i = 0; i < snArray.length; i++) {
     else {
         text += "\">" + snArray[i].getLink();
     }
-    // if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+    // if (snArray[i].aoe == 1 && snArray[i].aoc == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
     // 	text += "<span class=\"sn-aoe1\"> (AoE1 only)</span>";
     // }
-    // else if (snArray[i].aoe == 0 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+    // else if (snArray[i].aoe == 0 && snArray[i].aoc == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
     // 	text += "<span class=\"sn-aoe1\"> (doesn't work)</span>";
     // }
     text += "</td>";
@@ -61,11 +61,11 @@ for(var i = 0; i < snArray.length; i++) {
     else if(snArray[i].aoe == 1) {
         text += "<span class=\"sn-check-flag\" title=\"In AoE1\">&#10003&nbsp;</span>";
     }
-    if(snArray[i].aok == 0) {
-        text += "<span class=\"sn-x-flag\" title=\"Not in AoK\">&#10007&nbsp;</span>";
+    if(snArray[i].aoc == 0) {
+        text += "<span class=\"sn-x-flag\" title=\"Not in AoC\">&#10007&nbsp;</span>";
     }
-    else if(snArray[i].aok == 1) {
-        text += "<span class=\"sn-check-flag\" title=\"In AoK\">&#10003&nbsp;</span>";
+    else if(snArray[i].aoc == 1) {
+        text += "<span class=\"sn-check-flag\" title=\"In AoC\">&#10003&nbsp;</span>";
     }
     if(snArray[i].up == 0) {
         text += "<span class=\"sn-x-flag\" title=\"Not in UP\"> &#10007&nbsp;</span>";

@@ -28,7 +28,7 @@ navContent += '<div class="header">';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/objects.html">Objects Table</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#ResourceType">Resource Types</a></li>';
 			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/tables/techs.html">Techs Table</a></li>';
-			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#UnitId">Unit Lines</a></li>';
+			navContent += '<li class="quick-links-list-item"><a href="' + urlPrefix + '/parameters/parameters-details.html#LineId">Unit Lines</a></li>';
 		navContent += '</ul></div>';
 	navContent += '<hr></div>';
 document.getElementById("nav-placeholder").innerHTML = navContent;

@@ -139,13 +139,13 @@
 					info += "<p><h3>Defined Wildcard Parameters</h3></p>";
 					info += "<p><input type=\"text\" id=\"wildcardParamInput\" onkeyup=\"wildcardParamFilter()\" placeholder=\"Search for values...\"></p>";
 					info += '<table id="wildcard-param-table"><tr><th>ID</th>'
-					if (parametersArray[i].upParamName == "UnitId") {
+					if (parametersArray[i].upParamName == "UnitId" || parametersArray[i].upParamName == "LineId") {
 						info += "<th id=\"deId-col\">DE ID</th>";
 					}
 					info += '<th id="name-col">Name</th><th>Description</th></tr>';
 					for (var m = 0; m < parametersArray[i].wildcardParam.length; m++) {
 						info += "<tr><td>" + parametersArray[i].wildcardParam[m].id + "</td>";
-						if (parametersArray[i].upParamName == "UnitId") {
+						if (parametersArray[i].upParamName == "UnitId" || parametersArray[i].upParamName == "LineId") {
 							info += "<td>" + parametersArray[i].wildcardParam[m].deId + "</td>";
 						}
 						info += "<td>" + parametersArray[i].wildcardParam[m].name + "</td>";

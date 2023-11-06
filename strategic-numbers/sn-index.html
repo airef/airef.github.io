@@ -52,7 +52,7 @@
 			</select><select id="sn-version" class="drop-filter" onchange="snFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="AoE1">AoE1</option>
-				<option value="AoK">AoK</option>
+				<option value="AoC">AoC</option>
 				<option value="UP">UP</option>
 				<option value="DE">DE</option>
 			</select>
@@ -83,7 +83,7 @@
 		var text = "<table id=\"index-table\">";
 		var effective = true;
 		text += "<tr><th>ID</th><th>Strategic Number</th>";
-		text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoK,<br>UP, DE)</th></tr>";
+		text += "<th>Min</th><th>Max</th><th>Req. Min</th><th>Req. Max</th><th>Default</th><th>Flags</th><th>Versions<br>(AoE1,AoC,<br>UP, DE)</th></tr>";
 		for(var i = 0; i < snArray.length; i++) {
 			text += "<tr>";
 			text += "<td>" + snArray[i].id + "</td>";
@@ -95,10 +95,10 @@
 			else {
 				text += "\">" + snArray[i].getLink();
 			}
-			// if (snArray[i].aoe == 1 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			// if (snArray[i].aoe == 1 && snArray[i].aoc == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
 			// 	text += "<span class=\"sn-aoe1\"> (AoE1 only)</span>";
 			// }
-			// else if (snArray[i].aoe == 0 && snArray[i].aok == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
+			// else if (snArray[i].aoe == 0 && snArray[i].aoc == 0 && snArray[i].up == 0 && snArray[i].de == 0) {
 			// 	text += "<span class=\"sn-aoe1\"> (doesn't work)</span>";
 			// }
 			text += "</td>";
@@ -143,11 +143,11 @@
 			else if(snArray[i].aoe == 1) {
 				text += "<span class=\"sn-check-flag\" title=\"In AoE1\">&#10003&nbsp;</span>";
 			}
-			if(snArray[i].aok == 0) {
-				text += "<span class=\"sn-x-flag\" title=\"Not in AoK\">&#10007&nbsp;</span>";
+			if(snArray[i].aoc == 0) {
+				text += "<span class=\"sn-x-flag\" title=\"Not in AoC\">&#10007&nbsp;</span>";
 			}
-			else if(snArray[i].aok == 1) {
-				text += "<span class=\"sn-check-flag\" title=\"In AoK\">&#10003&nbsp;</span>";
+			else if(snArray[i].aoc == 1) {
+				text += "<span class=\"sn-check-flag\" title=\"In AoC\">&#10003&nbsp;</span>";
 			}
 			if(snArray[i].up == 0) {
 				text += "<span class=\"sn-x-flag\" title=\"Not in UP\"> &#10007&nbsp;</span>";
@@ -173,7 +173,7 @@
 	<script>
 		function snFilter() {
 			// Declare variables
-			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aok, up, de, txtValue;
+			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aoc, up, de, txtValue;
 			input = document.getElementById("snInput");
 			category = document.getElementById("sn-category");
 			category = category.value;
@@ -262,7 +262,7 @@
 								if(network == -1 || tdNetwork == network) {
 									if(defined == -1 || tdDefined == defined) {
 										if(active == -1 || tdActive == active) {
-											if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoK" && snArray[i].aok == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
+											if(version == "All" || (version == "AoE1" && snArray[i].aoe == 1) || (version == "AoC" && snArray[i].aoc == 1) || (version == "UP" && snArray[i].up == 1) || (version == "DE" && snArray[i].de == 1)) {
 												tr[i + 1].style.display = "";
 												num = num + 1;
 											}
