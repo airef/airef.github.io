@@ -11181,6 +11181,9 @@ cTauntDetected.commandParameters = [ {
 	note: "The taunt to detect"
 } ];
 cTauntDetected.example = [ {
+	title: "Launch an attack when an ally taunts 31 (\"Attack an Enemy Now!\") if the AI has enough soldiers to attack. Acknowledge the taunt so that the attack command is only sent once.",
+	data: "(defrule\r\n\t(taunt-detected any-ally 31)\r\n\t(military-population >= 8)\r\n=&gt;\r\n\t(attack-now)\r\n\t(acknowledge-taunt this-any-ally 31)\r\n)"
+}, {
 	title: "If taunt 4 (\"Wood please\") is sent to the AI from an ally, we have more than 200 wood, and we have a market, then tribute 100 wood to the ally and acknowledge the taunt so that taunt-detected will not remain true during the next AI script pass.",
 	data: "(defrule\r\n\t(taunt-detected any-ally 4)\r\n\t(wood-amount >= 200)\r\n\t(building-type-count market > 0)\r\n=>\r\n\t(tribute-to-player this-any-ally wood 100)\r\n\t(acknowledge-taunt this-any-ally 4)\r\n)"
 } ];
