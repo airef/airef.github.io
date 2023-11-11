@@ -7540,7 +7540,7 @@ unitLinesArray = [ {
 	name: "knight-line",
 	id: -287,
 	deId: -287,
-	description: "Includes knight, cavalier, and paladin. In Return of Rome, -287 is the fishing boat line, including Fishing Boat and Fishing Ship."
+	description: "Includes knight, cavalier, paladin, and savar. In Return of Rome, -287 is the fishing boat line, including Fishing Boat and Fishing Ship."
 }, {
 	name: "scout-cavalry-line",
 	id: -286,
@@ -26839,6 +26839,19 @@ stableTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
+	notes: ""
+}, {	
+	name: "Savar",
+	aiName: "ri-savar",
+	weirdName: 0,
+	id: 526,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Persians",
 	notes: ""
 }, {	
 	name: "Heavy Camel [Rider]",
