@@ -7846,6 +7846,21 @@ unitLinesArray = [ {
 	id: "NA",
 	deId: -226,
 	description: "DE only. Includes centurion and elite-centurion."
+}, {
+	name: "composite-bowman-line",
+	id: "NA",
+	deId: -225,
+	description: "DE only. Includes composite-bowman and elite-composite-bowman."
+}, {
+	name: "monaspa-line",
+	id: "NA",
+	deId: -224,
+	description: "DE only. Includes monaspa and elite-monaspa."
+}, {
+	name: "qizilbash-warrior-line",
+	id: "NA",
+	deId: -223,
+	description: "DE only. Includes qizilbash-warrior and elite-qizilbash-warrior. The unit line and individual units aren't defined in the AI engine."
 } ];
 
 buildingLinesArray = [ {
@@ -23105,7 +23120,7 @@ pSetId.valueList = [ {
 }, {
 	name: "konnik-set",
 	id: 986,
-	description: "DE only. Includes mounted and dismounted konniks and elite konniks trained at either the castle or the krepost."
+	description: "DE only. Includes mounted konniks and elite konniks trained at either the castle or the krepost. Untested whether it includes dismounted konniks or not."
 }, {
 	name: "kipchak-set",
 	id: 987,
@@ -41626,25 +41641,6 @@ objectsHeroesArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
-}, {
-	name: "Savar",
-	aiName: "",
-	line: "",
-	id: "WK: 932<br>DE: 1299",
-	class: "cavalry-class",
-	cmdId: "cmdid-military",
-	building: "Heroes",
-	age: 1,
-	deadUnit: "WK: 27<br>DE: 1401",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 1,
-	de: 1,
-	notes: ""
 }, {	
 	name: "Scythian Scout",
 	aiName: "",
@@ -41851,6 +41847,25 @@ objectsHeroesArray = [ {
 	weirdName: 0,
 	aok: 1,
 	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {
+	name: "Sogdian Cataphract",
+	aiName: "",
+	line: "",
+	id: "1299",
+	class: "cavalry-class",
+	cmdId: "cmdid-military",
+	building: "Heroes",
+	age: 1,
+	deadUnit: "1401",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
 	wk: 1,
 	de: 1,
 	notes: ""
