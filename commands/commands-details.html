@@ -120,7 +120,12 @@
 				info += "</table>";
 				if(commandsArray[i].example != "") {
 					if(commandsArray[i].example.length > 0) {
-						info += "<p><h3>Example</h3></p><p>";
+						if(commandsArray[i].example.length > 1) {
+							info += "<p><h3>Examples</h3></p><p>";
+						}
+						else {
+							info += "<p><h3>Example</h3></p><p>";
+						}
 						for (var l = 0; l < commandsArray[i].example.length; l++) {
 							info += commandsArray[i].example[l].title + "</p><div class=\"example\"><pre><code>";
 							info += commandsArray[i].example[l].data + "</code></pre></div>";
