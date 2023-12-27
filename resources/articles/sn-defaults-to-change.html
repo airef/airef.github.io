@@ -19,7 +19,7 @@
 			<h2>The Twelve Strategic Number Settings You Must Change Immediately</h2>
 			<p>I hope you enjoy clickbaity titles. Each strategic number has a default setting that the developers decided was the best setting in most cases. However, some of these default settings actually make no sense and cause frustration for many new scripters. Here is a list of strategic numbers you should change in your AI if you haven't already.</p>
 			<h3>Example Code</h3>
-			<p>Here is some code you can quickly copy and paste into your AI to change the SN defaults to the values recommended in this article.</p>
+			<p>Here is some code you can quickly copy and paste into your AI to change the SN defaults to the values recommended in this article. The change for sn-gate-type-for-wall isn't included since it's only required for Return of Rome gates.</p>
 			<div class="example"><pre><code>(defrule
 	(true)
 =>
@@ -67,6 +67,9 @@
 			<p>When set to the default value of 1, <a href="../../strategic-numbers/sn-details.html#sn-task-ungrouped-soldiers">sn-task-ungrouped-soldiers</a> requires all idle military units to keep a certain distance from each other, usually around 4-6 tiles. The AI will check every few seconds, and if it finds units that are too close together, it will order those units to spread out. In practice, it makes units look like the are slowly wandering around the town in a random pattern, and if the AI has a large army, these soldiers may spread out a far distance away from the center of the AI's town. In most cases the behavior of sn-task-ungrouped-soldiers is undesirable, and setting the SN to zero is better. However, some scripters will temporarily set this SN to 1 every minute or so to prevent soldiers from clumping around their training buildings after being trained.</p>
 			<h3>sn-zero-priority-distance</h3>
 			<p><a href="../../strategic-numbers/sn-details.html#sn-zero-priority-distance">sn-zero-priority-distance</a> either will cause units beyond this distance from the main town center to become idle, or it makes enemy targets beyond this to have zero priority, meaning the AI won't attack them. Neither outcome is desirable, so set this to the max value of 255 so you don't have to worry about it. The default value is 50.</p>
+			<h3>sn-gate-type-for-wall</h3>
+			<p>This change is only necessary for scripting for Return of Rome. In AoE2 DE, <a href="../../strategic-numbers/sn-details.html#sn-gate-type-for-wall">sn-gate-type-for-wall</a> tells the AI to build stone gates when it's set to the default value of 0 whenever it sees the <a href="../../commands/command-details.html#build-gate">build-gate</a> command, and it tells the AI to build palisade gates when it's set to 1. In Return of Rome, small gates are based on palisade gates, so you must set sn-gate-type-for-wall to 1 before your AI can build gates.</p>
+			
 			<hr>
 
 		</div>

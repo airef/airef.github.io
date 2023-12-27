@@ -8340,7 +8340,7 @@ cCanAffordUnit.complexity = "Low";
 
 //can-build
 cCanBuild.shortDescription = "This fact checks whether the computer player can build the given building, not counting escrow stockpiles.";
-cCanBuild.description = "This fact checks whether the computer player can build the given building. You cannot use building classes with this command. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWall.getLink() + ", " + cCanBuildGate.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available, <strong>not counting escrow stockpiles</strong>.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building.</p><p>The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a can-build, " + cCanBuildWithEscrow.getLink() + ", or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
+cCanBuild.description = "This fact checks whether the computer player can build the given building. You cannot use building classes with this command. This command does not work with walls or gates. However, you can use " + cCanBuildWall.getLink() + ", " + cCanBuildGate.getLink() + ", " + cUpCanBuildLine.getLink() + ", or " + cUpCanBuild.getLink() + " to check if walls or gates can be built.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available, <strong>not counting escrow stockpiles</strong>.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building.</p><p>The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a can-build, " + cCanBuildWithEscrow.getLink() + ", or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
 cCanBuild.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -8360,7 +8360,7 @@ cCanBuild.complexity = "Low";
 
 //can-build-with-escrow
 cCanBuildWithEscrow.shortDescription = "This fact checks whether the computer player can build the given building if escrowed resources are included.";
-cCanBuildWithEscrow.description = "This fact checks whether the computer player can build the given building if escrowed resources are included. You cannot use building classes with this command. Do not use this command with walls or gates or if you intend to construct the building with " + cUpBuildLine.getLink() + ". Instead, use the corresponding " + cCanBuildWallWithEscrow.getLink() + ", " + cCanBuildGateWithEscrow.getLink() + ", or " + cUpCanBuildLine.getLink() + " commands.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available including escrow stockpiles.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building.</p><p>The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build-with-escrow watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + ",  can-build-with-escrow, or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
+cCanBuildWithEscrow.description = "This fact checks whether the computer player can build the given building if escrowed resources are included. You cannot use building classes with this command. This command does not work with walls or gates. However, you can use " + cCanBuildWallWithEscrow.getLink() + ", " + cCanBuildGateWithEscrow.getLink() + ", " + cUpCanBuildLine.getLink() + ", or " + cUpCanBuild.getLink() + " to check if walls or gates can be built.</p><p>In particular it checks:</p><ul><li>It's available to the computer player's civ.</li><li>Tech tree prerequisites are met (also works for the Khmer building prerequisites bonus).</li><li>Resources needed for the building are available including escrow stockpiles.</li></ul><p>It does not check whether villagers exist to build it, or if there is adequate space for the building.</p><p>The fact allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-build-with-escrow watch-tower) will work regardless of tower upgrades.</p><p><b>Important Note:</b> Always use a " + cCanBuild.getLink() + ",  can-build-with-escrow, or " + cUpCanBuild.getLink() + " condition in every rule where you use the " + cBuild.getLink() + " or " + cUpBuild.getLink() + " command. Without this condition, the building queue for this building may get stuck for the rest of the game.";
 cCanBuildWithEscrow.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -18482,7 +18482,7 @@ cFeSubGameType.complexity = "Medium";
 
 //xs-script-call
 cXsScriptCall.shortDescription = "DE only. Call an XS script function from an .xs file.";
-cXsScriptCall.description = "DE only. Call an XS script function from an .xs file. It is not necessary to defconst the function name.</p><p>For more info on XS scripting, see this exhaustive guide: <a href=\"https://ugc.aoe2.rocks/general/xs/beginner/\">link</a>.</p><p>The function must be from a .xs file that has been \"included\" (loaded) by the AI script. To include a .xs file in an AI script, use the include command, like (include \"Example XS File.xs\"). Note that the filetype (.xs) must be included in the include command, and the filepath must be inside quotes. By default, .xs files must be placed in the game's xs folder, located at: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\xs\", but you can also load .xs files with a relative filepath name, using \"..\" to go up a filepath level from the xs folder and then follow the rest of the filepath to get to your .xs file. For example, to include a .xs file stored in your \"My AI\" folder within the default AI installation directory, you can use (include \"../ai/My AI/Example XS File.xs\").</p><p>Once you have included your .xs file, you can use xs-script-call to call any function from that file that doesn't have any parameters. So, if you have the code below in your XS file, you can call the helloWorld() function, but not the max() function.</p><p>xs-script-call can be used as either a Fact or an Action, and it'll execute the function either way. However, if used as a Fact, xs-script-call will be a Fact that is considered false if your function returns 0, returns \"false\", or is a void function that doesn't return anything. Because of this, if you want to use xs-script-call successfully anywhere in a rule, it's a good idea to make this function a bool function that returns \"true\" or an int function that returns any non-zero value. The AI can't do anything with the value that is returned from this function, but the xs-script-call Fact itself will return true.</p><p>If you do need an AI to be able use an integer result from an XS function, you can use the xsSetGoal() or xsSetStrategicNumber() functions within an XS function to modify the value of a goal or SN, which the AI script can then check. Likewise, xsGetGoal() and xsGetStrategicNumber() functions can allow an XS function to get the current value of a goal or SN.</p><p>If you call an XS function more than once, it's a good idea to defconst it (see the examples below). Otherwise, each time you call the function in the AI script it will add an entry to the string table.</p><p>Here is some example .xs code which is used in the examples section below:</p><div class=\"example\"><p>//This code is saved in a file called Example XS File.xs<br><br>float max(float a = 0.0, float b = 2.0) {<br><span style=\"margin-left: 10px;\">if(a > b)</span><br><span style=\"margin-left: 20px;\">return (a);</span><br><span style=\"margin-left: 10px;\">else</span><br><span style=\"margin-left: 20px;\">return (b);</span><br>}<br><br>bool helloWorld() {<br><span style=\"margin-left: 10px;\">xsChatData(\"Hello World\");</span><br><span style=\"margin-left: 10px;\">return (true);</span><br>}<br><br>int rand() {<br><span style=\"margin-left: 10px;\">int rand = xsGetRandomNumber(); //generates a random number between 0 and 32766</span><br><span style=\"margin-left: 10px;\">rand++; //increase random number range to between 1 and 32767 so that zero isn't returned, making a xs-script-call condition false</span><br><span style=\"margin-left: 10px;\">xsSetGoal(510, rand);</span><br><span style=\"margin-left: 10px;\">return (rand);</span><br>}</p></div>";
+cXsScriptCall.description = "DE only. Call an XS script function from an .xs file. It is not necessary to defconst the function name. If the function name is misspelled or a function with that name doesn't exist in any included .xs files, the command will do nothing, without reporting an error.</p><p>For more info on XS scripting, see this exhaustive guide: <a href=\"https://ugc.aoe2.rocks/general/xs/beginner/\">link</a>.</p><p>The function must be from a .xs file that has been \"included\" (loaded) by the AI script. To include a .xs file in an AI script, use the include command, like (include \"Example XS File.xs\"). Note that the filetype (.xs) must be included in the include command, and the filepath must be inside quotes. By default, .xs files must be placed in the game's xs folder, located at: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\xs\", but you can also load .xs files with a relative filepath name, using \"..\" to go up a filepath level from the xs folder and then follow the rest of the filepath to get to your .xs file. For example, to include a .xs file stored in your \"My AI\" folder within the default AI installation directory, you can use (include \"../ai/My AI/Example XS File.xs\").</p><p>Once you have included your .xs file, you can use xs-script-call to call any function from that file that doesn't have any parameters. So, if you have the code below in your XS file, you can call the helloWorld() function, but not the max() function.</p><p>xs-script-call can be used as either a Fact or an Action, and it'll execute the function either way. However, if used as a Fact, xs-script-call will be a Fact that is considered false if your function returns 0, returns \"false\", or is a void function that doesn't return anything. Because of this, if you want to use xs-script-call successfully anywhere in a rule, it's a good idea to make this function a bool function that returns \"true\" or an int function that returns any non-zero value. The AI can't do anything with the value that is returned from this function, but the xs-script-call Fact itself will return true.</p><p>If you do need an AI to be able use an integer result from an XS function, you can use the xsSetGoal() or xsSetStrategicNumber() functions within an XS function to modify the value of a goal or SN, which the AI script can then check. Likewise, xsGetGoal() and xsGetStrategicNumber() functions can allow an XS function to get the current value of a goal or SN.</p><p>If you call an XS function more than once, it's a good idea to defconst it (see the examples below). Otherwise, each time you call the function in the AI script it will add an entry to the string table.</p><p>Here is some example .xs code which is used in the examples section below:</p><div class=\"example\"><p>//This code is saved in a file called Example XS File.xs<br><br>float max(float a = 0.0, float b = 2.0) {<br><span style=\"margin-left: 10px;\">if(a > b)</span><br><span style=\"margin-left: 20px;\">return (a);</span><br><span style=\"margin-left: 10px;\">else</span><br><span style=\"margin-left: 20px;\">return (b);</span><br>}<br><br>bool helloWorld() {<br><span style=\"margin-left: 10px;\">xsChatData(\"Hello World\");</span><br><span style=\"margin-left: 10px;\">return (true);</span><br>}<br><br>int rand() {<br><span style=\"margin-left: 10px;\">int rand = xsGetRandomNumber(); //generates a random number between 0 and 32766</span><br><span style=\"margin-left: 10px;\">rand++; //increase random number range to between 1 and 32767 so that zero isn't returned, making a xs-script-call condition false</span><br><span style=\"margin-left: 10px;\">xsSetGoal(510, rand);</span><br><span style=\"margin-left: 10px;\">return (rand);</span><br>}</p></div>";
 cXsScriptCall.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -18501,9 +18501,9 @@ cXsScriptCall.example = [{
 	title: "Call the rand() function and check if the generated random number is greater than 10,000.",
 	data: "(defconst rand \"rand\")\r\n(include \"../ai/My AI/Example XS File.xs\")\r\n(defrule\r\n\t(xs-script-call rand) ;stores a random number between 1 and 32767 in goal 510\r\n\t(up-compare-goal 510 > 10000)\r\n=&gt;\r\n\t(do-nothing)\r\n\t(disable-self)\r\n)"
 }];
-cXsScriptCall.relatedCommands = [];
-cXsScriptCall.commandCategory = ["Debugging", "Goals", "Strategic Numbers", "Other"];/*
-cXsScriptCall.relatedSNs = [];*/
+cXsScriptCall.relatedCommands = [cUpLogData];
+cXsScriptCall.commandCategory = ["Debugging", "Goals", "Strategic Numbers", "Other"];
+cXsScriptCall.relatedSNs = [];
 cXsScriptCall.complexity = "Very High";
 
 
@@ -22896,11 +22896,11 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-convert-resist-min-adj",
 	id: 178,
-	description: "An adjustment to the conversion resistance of units. Likely adjusts the minimum amount of time monastery units must spend converting these units before they will be converted. Used by Faith and the Teutons team bonus."
+	description: "An adjustment to the conversion resistance of units. Likely adjusts the minimum amount of time monastery units must spend converting these units before they will be converted. Used by Faith, Devotion, and the Teutons team bonus."
 }, {
 	name: "amount-convert-resist-max-adj",
 	id: 179,
-	description: "An adjustment to the conversion resistance of units. Likely adjusts the maximum amount of time monastery units must spend converting these units. After this time, the unit will automatically be converted. Used by Faith and the Teutons team bonus."
+	description: "An adjustment to the conversion resistance of units. Likely adjusts the maximum amount of time monastery units must spend converting these units. After this time, the unit will automatically be converted. Used by Faith, Devotion, and the Teutons team bonus."
 }, {
 	name: "amount-convert-building-min",
 	id: 180,
@@ -23619,6 +23619,330 @@ pWallId.wildcardParam = [ {
 	name: "stone-wall-line",
 	id: -399,
 	description: "Stone Wall line. In Return of Rome, it includes Medium Wall and Fortified Wall, but not Small Wall."
+} ];
+
+
+
+bugsArray = [ {
+    name: "sn-gold/stone-dropsite-distance and sn-dropsite-separation-distance doesn't seem to affect mining camp placement",
+    date: "Sep 10, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150570751368364083\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1150793627090571304\">Link 2</a>",
+    description: "sn-gold-dropsite-distance sn-stone-dropsite-distance doesn't work like it does in UP instead it seems to not reliably influence MC placement. its bugged on DE. UP will place the MC correctly, no matter if value at 50 or 255 in this scenario. See Discord Link 1 for test script. Update: sn-dropsite-separation-distance doesn't seem to affect dropsite placement anymore either."
+}, {
+    name: "(can-build town-center) doesn't check if the AI has enough stone",
+    date: "Sep 9, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150040321963601930\">Link</a>",
+    description: "Seems like can-build town-center returns true even if there is not enough stone for a town-center."
+}, {
+    name: "Villager combat SNs don't have the same effect in DE as they do in UP. They aren't as aggressive.",
+    date: "Jun 30, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1124417646033633300\">Link</a>",
+    description: "interlepus reports that sn-allow-civilian-offense, sn-allow-civilian-defense don't work and sn-number-civilian-militia don't seem to work. The Bambi AI's villagers didn't seem to fight back in the Land Nomad tournament like they did in UP."
+}, {
+    name: "can-build returns false on Nomad before the TC is built",
+    date: "Jun 22, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121464519437328445\">Link</a>",
+    description: "Another major DE bug: on land nomad, can-build returns false for all buildings except town-center until the tc is built. Immortal needs to check if other buildings can be built. Immortal uses other buildings as pathing checks. Also Immortal likes to place houses before the tc is built"
+}, {
+    name: "Villagers improperly garrison in town centers",
+    date: "Jun 22, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566990744944640/1121409641901989899\">Link</a>",
+    description: "Unfortunately the garrison bug seems impossible to solve. Actually, I know what is happening now -- a while ago I found that up-gather-inside is bugged as it wont allow me to hold garrisoned vills. They would just eject immediately. So I made a workaround by replacing it with a function that sets all tc gather points to themselves. This worked perfectly in the old patch. The gather point was later cleared when we call up-gather-inside with state=0. But something is not working in the new patch. The newly created vills always get garrisoned. Even if I manually change the gather point with DUC the new vills continue to gather inside for a second. Seems like a bug. In this screenshot [see Discord link] we can see that the gather point is set away from the TC. But the new villager still decides to garrison in the TC."
+}, {
+    name: "Issues with boar hunting",
+    date: "Jun 21, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121046712505610342\">Link</a>",
+    description: "Villagers somtimes keep retasking to live boars during an active duc boar lure. All sn's should be set to 'turned off' values regarding boar luring and while I can't completely rule out that the new patch has unlocked a DUC bug it would be weird that this bug has not occured on UP and seems to also occour in other ai's like immortal. Then there is a very weird bug where the boar villager keeps attacking the boar unless given a new command like a stop command. I have been unable to figure out what in the new patch is responsable for this bug but my best gues would be that it is related to the unintended retasking of villagers to boars like in the prior issue."
+}, {
+    name: "The \"neg\" operator is broken",
+    date: "Jun 16, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1119339578634027018\">Link</a>",
+    description: "The \"neg\" operator is broken in DE. All it does is multiply the first given goal by -1. In DE, this code [in the Discord link] chats \"Test -5\" instead of the correct \"Test -4\". Changing g:neg to c:neg still chat's a -5 value instead of the correct -102 value. UP chats the correct -4 and -102 values."
+}, {
+    name: "Villagers don't explore properly on Land Nomad",
+    date: "Jun 12, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1117948419512745985\">Link</a>",
+    description: "Villager explorers don't seem to be scouting on Land Nomad. They just stand still. Setting the below SNs used to work when I was prepping for FenCrazy back in Feb (all my villagers would explore until I changed the SNs to 0 and got them to gather) but the same rule doesn't work anymore. See Discord link for a test script. Leif has tested this too to with a separate script and the villagers didn't scout on Land Nomad but all of them scouted on Arabia. There was a single occasion where 1 of their villagers explored on Land Nomad but they haven't been able to recreate this."
+}, {
+    name: "The four resource modifier SNs don't allow negative values like UP",
+    date: "Jun 5, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1115250747865579520\">Link</a>",
+    description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot."
+}, {
+    name: "Long range building conversions occurred after switching from converting a unit",
+    date: "May 31, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1113524638736203786\">Link</a>",
+    description: "I'm not currently sure if that's only a case for AIs or not, but during Prince of Arabia we had a long range building conversion.⁠ It feels like a Monk was trying to convert a villager but once it left its conversion range it changed focus to the closest think - a mining camp. See Discord link for a Twitch clip showing the bug."
+}, {
+    name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
+    date: "May 20, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link</a>",
+    description: "sn-attack-intelligence - not work too... In the up version work and attack units try avoid castles/towers... In the de - not"
+}, {
+    name: "Menus get stuck",
+    date: "May 17, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1108465838408863834\">Link</a>",
+    description: "When entering menu using Esc keyboard key and any of the buttons is hovered over, it is no longer possible to leave this window with another Esc key press until buttons are no longer highlighted. This issue happens in other menus as well, including one when setting up a game."
+}, {
+    name: "up-get-fact with player-in-game and player-valid doesn't work",
+    date: "May 4, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1103760288597147780\">Link</a>",
+    description: "up-get-focus-fact player-in-game 0 always returns 0 on DE even if the player is in game and playing, hence why it thinks it doesn't have an enemy, so it doesn't \"see\" any enemy units, so it doesn't do anything (like an empty ai file)."
+}, {
+    name: "up-set-placement-data can't be used with target-player or focus-player",
+    date: "Apr 30, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1102379431781224592\">Link</a>",
+    description: "From what i see in up-set-placement-data for UP 1.5, it accepts target-player and focus-player. In DE it does not, it only accepts constants 101 - 111. Confirmed, code is present in UP 1.5 allowing target-player and focus-player to be used for up-set-placement-data while there is no such code present in DE (latest build 82587)"
+}, {
+    name: "SN 511 isn't usable",
+    date: "Apr 25, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1100559877522329621\">Link</a>",
+    description: "Only SNs 0-510 are usable in DE. 0-511 are usable in UP."
+}, {
+    name: "TC gather points don't work",
+    date: "Apr 12, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1095825999758901479\">Link</a>",
+    description: "Rehoboam's tc gather points does not work on the new patch. Update: I found the reason for why Rehoboams gather point is not working on the new patch. It turns out (up-gather-inside c: town-center c: 0) resets the town center gather point on the new patch which it did not do on the old patch. I assume this is a bug as it is not mentioned in the patch notes?"
+}, {
+    name: "sn-boar-lure-destination doesn't send villagers to the correct location",
+    date: "Mar 25, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1089316493243723796\">Link</a>",
+    description: "Ok, I finished my tests with sn-boar-lure-destination. \"Broken\" is when villager stops attacking/moving after initial shots. Many values end up leading to the middle of TC. Some places aren't possible to be reached. See the Discord link for screenshots."
+}, {
+    name: "AI pathfinding issue when attacking with attack-now on a land map with water",
+    date: "Mar 16, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1085851467979702332\">Link</a>",
+    description: "AI get stuck in land corner near water , try to go to shorter distance path to reach enemy town. It is new bug. it doesn't happen before. I think is from game engine not from AI script. Before if units get stucks they immediatly react go to another way. Now they react but more slowly they get stuck more time in corner. Hope this can be fixed."
+}, {
+    name: "Foot konniks and flemish militia aren't counted correctly",
+    date: "Mar 6, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1082236935411609651\">Link</a>",
+    description: "Counting foot-konnik-line for enemy players doesnt work (it returns -2). Counting flemish-militia-male and flemish-militia-female for enemy players doesnt work (both return -1). Counting individual foot-konnik and elite-foot-konnik units doesn't work either. But counting flemish-militia-trained works."
+}, {
+    name: "up-get-player-fact bug",
+    date: "Mar 2, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1080832859457196062\">Link</a>",
+    description: "up-get-player-fact for building-count does not work for enemy players on DE"
+}, {
+    name: "up-find-next-player doesn't work as expected if you don't use up-find-player first",
+    date: "Feb 23, 2023",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1078215378855022643\">Link</a>",
+    description: "up-find-next-player doesn't work (on DE). The first problem is that it will return the current player (that is passed in as an argument) rather than the next players. But even if you increment it, it actually gives wrong results. E.g. if you request for an ally it may give an enemy player or even gaia. See the Discord link for a test script."
+}, {
+    name: "ai_info_map_type doesn't work",
+    date: "Dec 21, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
+    description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
+}, {
+    name: "DE AI error or custom scenario maps",
+    date: "Nov 26, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1046089463719284817\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1046089463719284817\">Link 2</a>",
+    description: "Report 1: Custom scenario maps getting \"difficulty-adjustment\" identifier error for Promisory (DE AI) script. See the Discord link for a screenshot. Report 2: Custom AI mods installed from the DE mods section try to load files from the Promisory folder. For example, when using the Beginner AI mod you get this error. This error also occurs when testing a scenario from within the scenario editor with the DE AI personality selected. See Discord link for a screenshot."
+}, {
+    name: "Path distance calculation issues",
+    date: "Nov 22, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link</a>",
+    description: "There are cases where the path distance calculation is wrong (path distances on arena f.e. not always showing that objects inside the enemy's walled town were inaccessible). See discussion at Discord link."
+}, {
+    name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
+    date: "Oct 31, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036867379004719144\">Link</a>",
+    description: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. You still cannot use action-ungarrison at all (the one that works on individual units).</p><p>Update: So it turns out that I did not test (up-gather-inside c: building c: -1) properly. There are actually 3 bugs with this command: (1) You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. (2) While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. (3) THE BIG ONE: you still cannot use action-ungarrison at all (the one that works on individual units). Ideally this command would just stop the AI automatic ungarrison of buildings - effectively making it equivalent to human buildings. I want control of when my units garrison/ungarrison and I cannot do that when the game is constantly interfering. On UP it appears that this command is implemented by setting the gather point onto the building itself. IMO this is really a hacky solution since whenever you set the gather point manually the units will all ungarrison unless you instantly set it back to the building afterwards. Sadly, there is nothing we can do to change it now although it can be worked around (as I have done). I am not sure how it is implemented on DE but it seems like it may be resetting the gather point back to the building each loop. If this is the case then the first thing to change would by to only set it once (otherwise there is no method to control ungarrison without the game interfering). But ideally DE would just implement the human behaviour I described above."
+}, {
+    name: "idle-farm-count yields negative values on map Water Nomad",
+    date: "Oct 31, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036563141347246101\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link 2</a>",
+    description: "Report 1: I found a bug with work (idle-farm-count == xx). On the map water nomad - (idle-farm-count == xx) - not work. Only on the map water nomad - idle-farm-count starts to take negative values if one farm is occupied, then idle-farm will be == -1. If 2 farms is occupied - idle-farm will be == -2. Because of this, my AI builds an infinite number of farms on this map. Report 2: And bug with idle-farms-count on the water nomad map... More precisely, on any map where there is water and farms can be built on it."
+}, {
+    name: "Resetting Offense Priorities each pass causes a crash",
+    date: "Oct 11, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1029456095325990944\">Link</a>",
+    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, than the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game."
+}, {
+    name: "position-flank has offset x coords 0-12 higher than what it should be, UP seems to use mirrored flank position",
+    date: "Oct 2, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
+    description: "Position flank works differently on DE. It allways gives the correct y-coordinate and then it gives an x coordinate 0-12 numbers higher than the correct one. This basicly means position-flank will always give the position of the enemy flank tc within 6 tiles on DE if you just subtract 6 from the x coordinate. On UP it seems to just use the mirrored flank position."
+}, {
+    name: "position-mirror gives position-opposite effect instead of position-mirror",
+    date: "Oct 2, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
+    description: "Position-mirror does not work on DE. Instead it just gives the same value as position-opposite."
+}, {
+    name: "Villager Gathering/Exploring/Building SNs bugged in DE",
+    date: "Sep 18, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1021167578472783884\">Link</a>",
+    description: "There seems to be an issue with the villager exploring or gathering SNs in DE. This code tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
+}, {
+    name: "Classes don't work for up-set-offensive-priority",
+    date: "Sep 10, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018283756139843674\">Link</a>",
+    description: "up-set-offense-priority works with classes in UP, despite scripter64's syntax description that only says Unit ID or Building ID. Classes currently don't work in DE, but they should."
+}, {
+    name: "dropsite-min-distance deer-hunting returning 255 instead of -1",
+    date: "Sep 4, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1016047774673928192\">Link</a>",
+    description: "From AI Ref: \"6 deer-hunting Deer only. Can only be used with dropsite-min-distance. For these parameters only, invalid/not-found deer returns 255 instead of -1.\" Just been doing work on deer hunting and realised this is incorrect (at least for DE). Was having an issue where (dropsite-min-distance deer-hunting < 4) was true even when the deer hadn't been found. Editing the rule to chat when (dropsite-min-distance deer-hunting == -1) showed it was true when the deer were not found. I don't know if the same is for other resources yet but thought I'd point it out. Same applies to hunting, boar-hunting and live-boar."
+}, {
+    name: "One villager remaining forced to explore",
+    date: "Aug 28, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013569003475701841\">Link</a>",
+    description: "I've also seen when one villager remains, it is forced to explore. I recall it happening in UP as well."
+}, {
+    name: "sn-number-boat-explore-groups bug",
+    date: "Aug 28, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013526417411154030\">Link</a>",
+    description: "Setting sn-number-boat-explore-groups to 0 doesnt stop the first trained ship from exploring"
+}, {
+    name: "Taunts 15 and 18 are incorrect sounds",
+    date: "Aug 13, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1008165425042968606\">Link</a>",
+    description: "Taunts 18 and 15 are stating different things than what they should be. I think there are some others as well. Being rushed and enemy sighted are incorrect as well. Nice town-ill take it works properly."
+}, {
+    name: "load-random with '+' load feature doesnt work",
+    date: "Aug 6, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1005481892298104832\">Link</a>",
+    description: "The UP load-random command doesn't seem to work on DE. Maybe the \"+\" loading feature isn't recognized or load-random doesn't work with a defconst yet. Meleon has this code. The #load-if works fine, but I confirmed that the Meleon\\core.per is not loaded for whatever reason. See Discord link for test script."
+}, {
+    name: "up-build with a goal set to with-escrow doesn't allow AI to use escrowed resources to place buildings",
+    date: "July 16, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/997860782823981119\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1140403840160632953\">Link 2</a>",
+    description: "up-build with a goal set to with-escrow does not allow the AI to use escrowed resources to place buildings. The building gets added to the placement queue, but the foundation is never placed until the AI can build the building without escrowed resources. Here's my test script. [See attached AI file at Discord link] Update: I looks like the up-build escrow bug is fixed, at least mostly. Using an escrow goal set to with-escrow, like (up-build place-normal gl-escrow c: house) allows the AI to build a house as long as it has 25 wood, regardless of the amount of wood in escrow, which is great. The only issue is that the amount of escrow wood doesn't seem to decrease when all the AI's wood is in escrow. I set the wood escrow to 100 and had the AI build as many houses as possible. Even when the AI had 0 total wood left, the amount of wood escrow stayed at 100, at least according to up-get-fact. Update 2: It looks like the EscrowGoalId for up-build simply is not used by the engine. Any GoalId number (0, 1, or 501) will allow the AI to construct the building, but escrow amounts remain unchanged."
+}, {
+    name: "Switching point of view with Ctrl-Shift-F1-8 doesn't update typing to other players perspective",
+    date: "Jun 26, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990673033452736532\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018158049640329306\">Link 2</a>",
+    description: "Report 1: In UP, if you switch perspective to p2 with Ctrl+Shift+F2, up-chat-data-to-self correctly only shows messages sent by the p2 AI script. However, in DE any up-chat-data-to-self messages sent by the p1 AI are always displayed, even if you switch perspective to p2 with Ctrl+Shift+F2. (up-chat-data-to-player my-player-number) Is also bugged. Even (chat-to-player my-player-number) is bugged, so it seems like there's an issue with my-player-number not being updated with the player perspective switch. Report 2: Switching point of view with Ctrl-Shift-F1-8 doesnt update typing to other players perspective. It stays at Player 1. I can't type as another AI player to Player 1 for example."
+}, {
+    name: "up-log-data is broken \"invalid negative master object id passed -1\"",
+    date: "Jun 26, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990635481064673320\">Link</a>",
+    description: "DE up-log-data is broken when i tried to use it, spammed \"Invalid negative master object id passed: -1\" a few hundred thousand times in the log file, if there is success in using this in the current version (62085) let me know :)"
+}, {
+    name: "up-chat-data-to-player inconsistencies with formatting",
+    date: "Jun 17, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/987566095072374794\">Link</a>",
+    description: "Small Difference between UP and DE (up-chat-data-to-self \"food-gatherer %d%%\" s: sn-food-gatherer-percentage) UP will chat food-gatherer 100% and apparently requires an %-escape-character to chat \"%\" DE will chat food-gatherer 100%% and apparently doesn't require an escape-character. (up-chat-data-to-player my-player-number \"%\" s: sn-food-gatherer-percentage) UP will chat an empty line. DE will also chat an empty line. (up-chat-data-to-player my-player-number \"write %x and %\" s: sn-food-gatherer-percentage) UP will chat write 64 and... lol why 64, scripter where are you. DE will chat write %x and %."
+}, {
+    name: "Changing color of a player in scenario causes spawn at random location on map",
+    date: "Jun 16, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/986884993886322708\">Link</a>",
+    description: "Don't know if this bug is tracked, but when I want to play that scenario in skirmish and change the color of a player it will spawn that players TC on a apparently random place of the map! Created this scenario with aoc/up and saved it with DE again. Didn't make a difference to me, both bugged. Alian713 gave a good hint: If the scenario is a 2p map and you change to a colour thats not 1 or 2 you're adding another player to it which wasn't on the map itself the colour actually changes which player you become in the scenario its not just colour itself pt2 of me asking for colour picker to be separated in the lobby from the 1-8 player numbers. So in this case its rather about the PlayerNr, than about the color. However, like I mentioned later, I wonder why you can only choose a set player in AoC/UP, but can choose a PlayerNr in DE which isn't even defined in the scenario."
+}, {
+    name: "DUC finding ally buildings [building-class/all-units-class finds all the pieces of TC (109, 618, 619, 620, 1649) instead of just 109]",
+    date: "May 8, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485565215744720917/972782609186828308\">Link</a>",
+    description: "up-find-remote does not find ally buildings except the starting TC on DE (whereas all ally buildings can be found on UP). For some reason when using building-class it will find both 109 (town-center) and 619 (also town-center) for allies but only 109 for itself (on UP it will only find 109). After update: This bug is partially fixed. You can now find ally buildings. But using building-class or all-units-class for ally town centers finds all the different pieces (109, 618, 619, 620, 1649). Should just be 109."
+}, {
+    name: "Villagers hunting far unexplored boar",
+    date: "Mar 30, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
+    description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
+}, {
+    name: "Crash when setting promotional picture for a mod",
+    date: "Mar 20, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/955046436750372904\">Link</a>",
+    description: "Whenever I try to set a promotional picture for a mod in the \"make mod public\" thingy in the mod settings, the game crashes"
+}, {
+    name: "Map eyecandy (tree on water) causing game crash upon hovering with mouse",
+    date: "Feb 24, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/946503517827387393\">Link</a>",
+    description: "4v4 AI game (4x The Morrigan vs 4x The General), game has crashed somewhere after all AIs have reached Feudal Age. \"Exception type 0xc0000005 occurred at 00007ff692cb4499\" message from log file. The game has crashed while streaming. See Discord link for mdmp file."
+}, {
+    name: "Rally points; unable to go from house to house, tower to house",
+    date: "Feb 6, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939962837630066718\">Link</a>",
+    description: "Khmer House to House rally point does not work. You can rally from TC to House or House to TC (which is why I assume house to house is intended), but House to House seems to issue a move instead of garrison command? update: you can also rally from a house to tower but not tower to house. If a house has garrison type 11 (villigers, footsoldier, monks) instead of farrison type 1 (villagers) then it works properly. Not sure what is wrong with garrison type 1."
+}, {
+    name: "ID loop search for boars failing in DE",
+    date: "Feb 5, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/939752266066436127\">Link</a>",
+    description: "Long code is posted at the Discord link where boar is not being found with DUC. Also see the ongoing discussion after that post to see differences between UP and DE."
+}, {
+    name: "Units idle after ungarrisoning from a ram",
+    date: "Feb 4, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939081341511806987\">Link</a>",
+    description: "New bug DE: sometimes unit ungarrison from ram will be paused (didn't show idle animation) especially ram got destroyed by enemy. I checked their status and they have action-attack but just stand there."
+}, {
+    name: "(generate-random-number 0) crashes DE",
+    date: "Jan 28, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/936648043300802662\">Link</a>",
+    description: "This code (see Discord link) crashes both UP and DE, would this be a candidate for a crashfix for DE?"
+}, {
+    name: "Clicking on AI trade carts causes lag",
+    date: "Jan 23, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/935054023080443945\">Link</a>",
+    description: "Clicking on my own trade cart as an AI kills my frames per second. Imperial Age, hundreds of buildings, and only trade carts/villagers as units. See the Discord link for a video example."
+}, {
+    name: "up-build not as reliable in DE? - negative sn-placement-fail-delta causing incorrect placement and build delay",
+    date: "Jan 22, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934512291456618527\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1014628241354526791\">Link 2</a>",
+    description: "Report 1: place-control works differently on DE than UP, sometimes buildings desired built in front of the town are placed in the back. Report 2: I have the suspicion, that up-build is also bugged in regard of negative sn-placement-fail-delta. 1st screenshot is a test-arabia-scenario with UP where all is as expected. 2nd screenshot is the same scenario with DE, where it build the blacksmith next to LC, but not the market, which I eventually build myself. After reaching castle age it build the castle somewhat to the front (as intended) and the other buildings near TC (as intended), but the barracks, which has also a negative sn-placement-fail-delta, got build 10 sec after reaching castle way out to the front, despite it should be build to the back in my understanding! See Discord links for screenshots."
+}, {
+    name: "sn-ignore-tower-elevation 0 doesn't work",
+    date: "Jan 22, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
+    description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation."
+}, {
+    name: "position-enemy doesn't get closest building",
+    date: "Jan 22, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
+    description: "(up-get-point position-enemy gl-target-point-x) does not get nearest target player building (ex. castle)."
+}, {
+    name: "up-get-object-data bug with object-data-action-time",
+    date: "Jan 16, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link</a>",
+    description: "Also object-data-action-time behaves differently but this is also bugged on UP. After DE update: This bug has been dealt with but is a bit weird - it just increases while the object is moving and otherwise remains constant. Probably not a major issue anyway since it is not working on UP either."
+}, {
+    name: "up-get-object-type-data bug with object-data-dropsite",
+    date: "Jan 16, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link</a>",
+    description: "object-data-dropsite is incorrectly giving 109 (town-center) when it should not be available for the up-get-object-type-data command. After update: This bug is partially fixed. Object-data-speed now works for up-get-object-type-data. But object-data-dropsite gives 68 (mill) whereas it should be something like -1. This is not a major problem however since you shouldn't be using this for up-get-object-type-data anyway."
+}, {
+    name: "up-get-object-data bug with object-data-gather-type",
+    date: "Jan 16, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566990744944640/1035523161845928007\">Link 2</a>",
+    description: "up-get-object-data bug: object-data-gather-type is only set when the villager starts gathering whereas it should be set immediately when the villager is assigned to a resource. It does however “correctly” reset to -1 when the villager is returning from the camp after dropping off their resources. Update: This bug is partially fixed. object-data-train-site and object-data-dropsite now work, but object-data-gather-type still has the same bug as before where it doesn't change until the villager starts gathering the new resource. It needs to change immediately when the villager is assigned to the new resource. Please get this fixed - it is the most annoying thing to work around."
+}, {
+    name: "sn-unexplored-construction doesn't work",
+    date: "Jan 15, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931935415492046958\">Link</a>",
+    description: "(set-strategic-number sn-unexplored-construction 1) is not working."
+}, {
+    name: "up-create-group excludes garrisoned units",
+    date: "Jan 14, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931625553700745318\">Link</a>",
+    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match."
+}, {
+    name: "up-object-type-count/-total broken",
+    date: "Jan 6, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928872194543607819\">Link</a>",
+    description: "up-object-type-count-total does not account for pending structures being built (maybe units too?). up-object-type-count-total and up-object-type-count is broken for anything that is not a unit-line or building-line with exception to villagers and gates."
+}, {
+    name: "Can't queue multiple techs",
+    date: "Jan 6, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928676025360068609\">Link</a>",
+    description: "There still seems to be issues with quing techs in DE. It seems like you cant que 2 techs after eachother. Only a unit and a tech."
+}, {
+    name: "ResourceType constants inconsistent with UP",
+    date: "Jan 5, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928242899987071036\">Link</a>",
+    description: "(ResourceAmounts) amount-razings is defined wrong as well as a lot of others, will list the ones i find that don't match UserPatch: amount-razings, amount-convert-priest, amount-convert-building, amount-military-population, amount-conversions, amount-wonder, amount-kill-ratio, amount-player-killed, amount-tribute-inefficiency, amount-gold-bonus, amount-town-center-unavailable, amount-gold-counter, amount-writing, amount-trade-good-quality, amount-trade-market-level, amount-formations, amount-building-housing-rate, amount-gather-tax-rate, amount-gather-accumulator, amount-salvage-decay-rate, amount-allow-formations, amount-can-convert."
+}, {
+    name: "up-find-resource causes a crash",
+    date: "Jan 1, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/926982868520042576\">Link</a>",
+    description: "(up-find-resource c: -1 c: 40) causes a crash. Obviously one isn't supposed to pass in -1 for the resource, but even if it happens, is it supposed to resolve to nothing? instead of crashing? See the Discord link for sample script that causes a crash."
+}, {
+    name: "Issue with object-data-target-id",
+    date: "Dec 28, 2021",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/925532891583229992\">Link</a>",
+    description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object."
+// }, {
+// 	name: "",
+// 	date: "",
+// 	link: "<a href=\"\">Link</a>",
+// 	description: ""
 } ];
 
 
@@ -26639,6 +26963,19 @@ monasteryTechsArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Devotion",
+	aiName: "ri-devotion",
+	weirdName: 0,
+	id: 46,
+	building: "Monastery",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "",
 	notes: ""

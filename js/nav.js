@@ -13,6 +13,7 @@ navContent += '<div class="header">';
 			navContent += '<li><a id="units-techs-link" href="' + urlPrefix + '/tables/tables-index.html">Tables</a></li>';
 			navContent += '<li><a id="duc-link" href="' + urlPrefix + '/duc/duc-index.html">DUC</a></li>';
 			navContent += '<li><a id="resources-link" href="' + urlPrefix + '/resources/res-index.html">Guides</a></li>';
+			navContent += '<li><a id="bugs-link" href="' + urlPrefix + '/tables/bug-tracker.html">Bugs</a></li>';
 			navContent += '<li><a id="search-link" href="' + urlPrefix + '/search/search.html">Search All</a></li>';
 		navContent += '</ul></div>';
 	navContent += '<div class="quick-links">';
@@ -54,6 +55,9 @@ switch (currPage) {
 	case "resources":
 		document.getElementById("resources-link").setAttribute("id", "active");
 		break;
+	case "bugs":
+		document.getElementById("bugs-link").setAttribute("id", "active");
+		break;
 	case "search":
 		document.getElementById("search-link").setAttribute("id", "active");
 		break;
@@ -72,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				footerContent += '<li><a id="footer-units-techs-link" href="' + urlPrefix + '/tables/tables-index.html">Tables</a></li>';
 				footerContent += '<li><a id="footer-duc-link" href="' + urlPrefix + '/duc/duc-index.html">DUC</a></li>';
 				footerContent += '<li><a id="footer-resources-link" href="' + urlPrefix + '/resources/res-index.html">Guides</a></li>';
+				footerContent += '<li><a id="footer-bugs-link" href="' + urlPrefix + '/tables/bug-tracker.html">Bugs</a></li>';
 				footerContent += '<li><a id="footer-search-link" href="' + urlPrefix + '/search/search.html">Search</a></li></ul></div>';
 		document.getElementById("footer-placeholder").innerHTML = footerContent;
 		switch (currPage) {
@@ -95,6 +100,9 @@ document.addEventListener("DOMContentLoaded", function(){
 				break;
 			case "resources":
 				document.getElementById("footer-resources-link").setAttribute("id", "active");
+				break;
+			case "bugs":
+				document.getElementById("footer-bugs-link").setAttribute("id", "active");
 				break;
 			case "search":
 				document.getElementById("footer-search-link").setAttribute("id", "active");

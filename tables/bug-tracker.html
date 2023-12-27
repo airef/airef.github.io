@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bug Tracker</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Bug Tracker</h2>
+		<p>This page lists all DE bugs reported in the AI Scripters Discord which haven't been confirmed to be fixed. To report bugs, please make a post in the AI Scripters Discord in the #bug-reports channel.</p>
+		<p>
+			<label for="bugsInput" class="input-label">Search</label>
+			<input type="text" id="bugsInput" onkeyup="bugsFilter()" placeholder="Search bug reports..." autocomplete="off" autofocus="autofocus">
+		</p>
+		<p id="num-results"></p>
+		<p id="bugsTable"></p>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "bugs";
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
+
+	<script>
+		var num = 0;
+		var text = "";
+
+		for(var i = 0; i < bugsArray.length; i++) {
+			text += "<div class=\"bug-entry\"><h4 class=\"bug-name\">" + bugsArray[i].name + "</h4>";
+			text += "<p><strong>Reported:</strong> " + bugsArray[i].date + "<br><strong>Discord Link:</strong> " + bugsArray[i].link + "<br><strong>Description:</strong> " + bugsArray[i].description + "</p><hr></div>";
+			num++;
+		}
+		document.getElementById("bugsTable").innerHTML = text;
+		document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		
+	</script>
+
+
+	<script>
+		function bugsFilter() {
+			var num = 0;
+			var text = "";
+			console.log(bugsArray.length);
+
+			// Declare variables
+			var input, filter, entry, name, description;
+			input = document.getElementById("bugsInput");
+			filter = input.value.toUpperCase();
+			entry = document.getElementsByClassName("bug-entry");
+			
+			//Remove releases that don't match search
+			num = 0;
+			for(i = 0; i < bugsArray.length; i++) {
+				name = bugsArray[i].name.toString();
+				name = name.toUpperCase();
+				description = bugsArray[i].description.toString();
+				description = description.toUpperCase();
+				if(name.indexOf(filter) > -1 || description.indexOf(filter) > -1) {
+					entry[i].style.display = "";
+					num++;
+				}
+				else {
+					entry[i].style.display = "none";
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+
+			// for(i = 0; i < bugsArray.length; i++) {
+			// 	notes = bugsArray[i].notes.toString();
+			// 	notes = notes.toUpperCase();
+			// 	if((bugsArray[i].version == version.value || version.value == "All") && (bugsArray[i].year == year.value || year.value == "All") && (bugsArray[i].month == month.value || month.value == "All") && notes.indexOf(filter) > -1 && (bugsArray[i].scriptingType == type.value || type.value == "All")) {
+			// 		for(j = 0; j < versionHeader.length; j++) {
+			// 			for(k = 0; k < releaseVersions.length; k++) {
+			// 				if((versionHeader[j].id == "version-header-" + k) && (bugsArray[i].version == releaseVersions[k])) {
+			// 					versionHeader[j].style.display = "";
+			// 					for(m = 0; m < yearHeader.length; m++) {
+			// 						for(n = 0; n < releaseYears.length; n++) {
+			// 							if((yearHeader[m].id == "year-header-" + j + "-" + n) && (bugsArray[i].year == releaseYears[n])) {
+			// 								yearHeader[m].style.display = "";
+			// 								yearHr[m].style.display = "";
+			// 								for(p = 0; p < monthHeader.length; p++) {
+			// 									for(q = 0; q < releaseMonths.length; q++) {
+			// 										if((monthHeader[p].id == "month-header-" + j + "-" + n + "-" + (q+1)) && (bugsArray[i].month == q+1)) {
+			// 											monthHeader[p].style.display = "";
+			// 											colHeader[p].style.display = "";
+			// 										}
+			// 									}
+			// 								}
+			// 							}
+			// 						}
+			// 					}
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+		}
+	</script>
+
+</body>
+</html>

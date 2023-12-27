@@ -225,6 +225,11 @@ h4 {
 	margin: 0 0 20px 0;
 }
 
+h4.bug-name {
+	font: 16pt 'Crimson Text', "Georgia", Arial, sans-serif;
+	margin: 20px 0 0 0;
+}
+
 h5 {
 	font: 12pt 'Crimson Text', "Georgia", Arial, sans-serif;
 	margin: 0 0 20px 0;
@@ -312,7 +317,7 @@ code {
 	line-height: 1.5;
 }
 
-#parametersInput {
+#parametersInput, #bugsInput {
 	width: 88%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -471,7 +476,7 @@ blockquote {
 	margin-left: 4%;
 }
 
-.techs-table, .objects-table{
+.techs-table, .objects-table, .bugs-table {
 	table-layout: fixed;
 	width: 100%;
 }
@@ -671,6 +676,22 @@ th {
 
 .patch-notes-description-col {
 	width: 81%
+}
+
+.bugs-name-col {
+	width: 70%
+}
+
+.bugs-link-col {
+	width: 20%
+}
+
+.bugs-date-col {
+	width: 10%
+}
+
+.bugs-description-col {
+	width: 100%
 }
 
 .weird-tech-name, .weird-object-name {
