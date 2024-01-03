@@ -21481,7 +21481,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-gather-type",
 	id: 71,
-	description: "The " + pResource.getLink() + " that the villager is gathering, or -1 if the object isn't gathering a resource. Trade units return 3 when they are carrying gold back to the Market or Dock. Monasteries don't return 3 when relics are garrisoned inside."
+	description: "The " + pResource.getLink() + " that the villager is gathering, or -1 if the object isn't gathering a resource. Trade units return 3 when they are carrying gold back to the Market or Dock. Monasteries don't return 3 when relics are garrisoned inside. In DE,  object-data-gather-type won't change while villagers are carrying resources of a different type. Using " + snKeystates.getLink() + " set to 2, we can force them to drop their resources when they are reassigned and this causes object-data-gather-type to change immediately. Note that it will change immediately either way when villagers are not carrying resources of a different type. It also still \"correctly\" reset to -1 when the villager is returning from the camp after dropping off their resources. WARNING: when villagers drop resources they may instantly be reassigned by the game engine if the gatherer percentages are not met."
 }, {
 	name: "object-data-language-id",
 	id: 72,
@@ -23624,6 +23624,26 @@ pWallId.wildcardParam = [ {
 
 
 bugsArray = [ {
+	// 	name: "",
+	// 	date: "",
+	// 	link: "<a href=\"\">Link</a>",
+	// 	description: ""
+	// }, {
+	name: "Dividing negative numbers by positive numbers gives incorrect result",
+	date: "Jan 2, 2024",
+	link: "[Reported by TheMaximalBeing privately]",
+	description: "It turns out that dividing negative numbers by positive numbers doesn't work. It tends to give one larger than expected."
+}, {
+	name: "action-ungarrison doesn't work",
+	date: "Jan 2, 2024",
+	link: "[Reported by TheMaximalBeing privately]",
+	description: "action-ungarrison doesn't work at all. Setting sn-keystates to 2 doesn't fix it."
+}, {
+	name: "up-get-player-fact unit counting bugs",
+	date: "Jan 2, 2024",
+	link: "[Reported by TheMaximalBeing privately]",
+	description: "Several bugs: (1) all ally unit counts are currently bugged since they count the entire unit line, rather than just the unit given to the command. (2) all enemy unit counts are currently bugged as they, including all the different upgrades, just count the base unit and not the specific given upgrade. The unit lines still work for enemies. (3) elite-huskarl-barracks/elite-stable-tarkan cannot be	counted for ally & enemy players. Both give 0 and there is no unit-line as an alternative. (4) elite-gbeto cannot be counted for ally & enemy players. Only the non-elite gbeto is counted. (5) dismounted-konniks/elite-dismounted-konniks are not counted for enemy players and give -1. dismounted-konnik-line gives -2, presumably because it is counting	both of these. (5) flemish-militia-male and flemish-militia-female are not counted for enemy players and give -1. Instead, for	enemy players, they get included in flemish-militia-trained. I assume this is intended behavior. But something for people to be aware of."
+}, {
     name: "sn-gold/stone-dropsite-distance and sn-dropsite-separation-distance doesn't seem to affect mining camp placement",
     date: "Sep 10, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150570751368364083\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1150793627090571304\">Link 2</a>",
@@ -23722,7 +23742,7 @@ bugsArray = [ {
     name: "up-get-player-fact bug",
     date: "Mar 2, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1080832859457196062\">Link</a>",
-    description: "up-get-player-fact for building-count does not work for enemy players on DE"
+    description: "up-get-player-fact for building-count does not work for enemy players on DE. It just returns -1. This command does however work when used as a normal fact: (players-building-count etc.)"
 }, {
     name: "up-find-next-player doesn't work as expected if you don't use up-find-player first",
     date: "Feb 23, 2023",
@@ -23782,7 +23802,7 @@ bugsArray = [ {
     name: "dropsite-min-distance deer-hunting returning 255 instead of -1",
     date: "Sep 4, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1016047774673928192\">Link</a>",
-    description: "From AI Ref: \"6 deer-hunting Deer only. Can only be used with dropsite-min-distance. For these parameters only, invalid/not-found deer returns 255 instead of -1.\" Just been doing work on deer hunting and realised this is incorrect (at least for DE). Was having an issue where (dropsite-min-distance deer-hunting < 4) was true even when the deer hadn't been found. Editing the rule to chat when (dropsite-min-distance deer-hunting == -1) showed it was true when the deer were not found. I don't know if the same is for other resources yet but thought I'd point it out. Same applies to hunting, boar-hunting and live-boar."
+    description: "dropsite-min-distance deer-hunting starts out 255 in first loop and then goes to -1. From AI Ref: \"6 deer-hunting Deer only. Can only be used with dropsite-min-distance. For these parameters only, invalid/not-found deer returns 255 instead of -1.\" Just been doing work on deer hunting and realised this is incorrect (at least for DE). Was having an issue where (dropsite-min-distance deer-hunting < 4) was true even when the deer hadn't been found. Editing the rule to chat when (dropsite-min-distance deer-hunting == -1) showed it was true when the deer were not found. I don't know if the same is for other resources yet but thought I'd point it out. Same applies to hunting, boar-hunting and live-boar."
 }, {
     name: "One villager remaining forced to explore",
     date: "Aug 28, 2022",
@@ -23832,7 +23852,7 @@ bugsArray = [ {
     name: "DUC finding ally buildings [building-class/all-units-class finds all the pieces of TC (109, 618, 619, 620, 1649) instead of just 109]",
     date: "May 8, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485565215744720917/972782609186828308\">Link</a>",
-    description: "up-find-remote does not find ally buildings except the starting TC on DE (whereas all ally buildings can be found on UP). For some reason when using building-class it will find both 109 (town-center) and 619 (also town-center) for allies but only 109 for itself (on UP it will only find 109). After update: This bug is partially fixed. You can now find ally buildings. But using building-class or all-units-class for ally town centers finds all the different pieces (109, 618, 619, 620, 1649). Should just be 109."
+    description: "up-find-remote using building-class or all-units-class for ally town centers finds all the different pieces (109, 618, 619, 620, 1649). Should just be 109."
 }, {
     name: "Villagers hunting far unexplored boar",
     date: "Mar 30, 2022",
@@ -23894,16 +23914,6 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link</a>",
     description: "Also object-data-action-time behaves differently but this is also bugged on UP. After DE update: This bug has been dealt with but is a bit weird - it just increases while the object is moving and otherwise remains constant. Probably not a major issue anyway since it is not working on UP either."
 }, {
-    name: "up-get-object-type-data bug with object-data-dropsite",
-    date: "Jan 16, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link</a>",
-    description: "object-data-dropsite is incorrectly giving 109 (town-center) when it should not be available for the up-get-object-type-data command. After update: This bug is partially fixed. Object-data-speed now works for up-get-object-type-data. But object-data-dropsite gives 68 (mill) whereas it should be something like -1. This is not a major problem however since you shouldn't be using this for up-get-object-type-data anyway."
-}, {
-    name: "up-get-object-data bug with object-data-gather-type",
-    date: "Jan 16, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566990744944640/1035523161845928007\">Link 2</a>",
-    description: "up-get-object-data bug: object-data-gather-type is only set when the villager starts gathering whereas it should be set immediately when the villager is assigned to a resource. It does however “correctly” reset to -1 when the villager is returning from the camp after dropping off their resources. Update: This bug is partially fixed. object-data-train-site and object-data-dropsite now work, but object-data-gather-type still has the same bug as before where it doesn't change until the villager starts gathering the new resource. It needs to change immediately when the villager is assigned to the new resource. Please get this fixed - it is the most annoying thing to work around."
-}, {
     name: "sn-unexplored-construction doesn't work",
     date: "Jan 15, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931935415492046958\">Link</a>",
@@ -23912,12 +23922,7 @@ bugsArray = [ {
     name: "up-create-group excludes garrisoned units",
     date: "Jan 14, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931625553700745318\">Link</a>",
-    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match."
-}, {
-    name: "up-object-type-count/-total broken",
-    date: "Jan 6, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928872194543607819\">Link</a>",
-    description: "up-object-type-count-total does not account for pending structures being built (maybe units too?). up-object-type-count-total and up-object-type-count is broken for anything that is not a unit-line or building-line with exception to villagers and gates."
+    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be	storing them fine -- just not including them in the count."
 }, {
     name: "Can't queue multiple techs",
     date: "Jan 6, 2022",
@@ -23938,11 +23943,6 @@ bugsArray = [ {
     date: "Dec 28, 2021",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/925532891583229992\">Link</a>",
     description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object."
-// }, {
-// 	name: "",
-// 	date: "",
-// 	link: "<a href=\"\">Link</a>",
-// 	description: ""
 } ];
 
 
