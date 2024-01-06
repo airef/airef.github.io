@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+	<title>AI Command Performance Benchmarks</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>AI Command Performance Benchmarks</h2>
+			<p>TheMaximalBeing made benchmark tests on various AI commands back in 2020 to test their overall impact on game performance and posted them in the AI Scripters forums here: <a href="https://forums.aiscripters.com/viewtopic.php?f=3&t=3992">Link</a>. Knowing the impact of these commands on performance can help scripters avoid lag. Here is the article TheMaximalBeing posted about it:</p>
+			<h3>Introduction</h3>
+			<p>Hi everyone,</p>
+			<p>For a long time, I've suspected that some of my DUC loops might be a bit slow. But just how slow are they? How many times can you issue a command before it causes a noticeable lag? I've decided to test this objectively!</p>
+			<p>For these tests I set up a loop over a command of interest. The loop was timed in *real* milliseconds, and i also found the time between rule passes (also in real milliseconds). I measured how long the loop took as a percentage of total time between rule passes.</p>
+			<p>Then the number of loops was increased until it took roughly 50% of the time between consecutive rule passes. At this point there is an obvious lag. The number of loops it took to reach this point for each command + setup is listed below.</p>
+			<p>All testing done on fast speed, WK. If you know of some other commonly used command + setup that could be slow but is not in the table then please let me know.</p>
+			<p><strong>Rule of Thumb:</strong> Make sure you are doing less than 1/10 of the number of iterations for these commands in each pass of your AI (compared to the numbers in the table below).</p>
+			<h3>Results Summary</h3>
+			<p><table>
+				<tr><th>#</th><th style="min-width:125px">Description</th><th>Setup</th><th>Loops for 50% Lag</th><th>Speed</th></tr>
+				<tr><td>0</td><td style="vertical-align: middle; background-color: white">Empty Loop</td><td>Just an empty loop body</td><td>11,000,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>1</td><td style="vertical-align: middle; background-color: white">Chat Messages<br>(chat-local-to-self)</td><td>Chat to self</td><td>100 *</td><td style="color: red">Very Slow</td></tr>
+				<tr><td>2A</td><td rowspan="8" style="vertical-align: middle; background-color: white">Basic DUC Search using localList<br>(up-find-local)</td><td>Find 240 non-existent units<br>Only 1 unit on map for each player</td><td>4,500,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>2B</td><td>Find 240 non-existent units<br>400 enemy units on map<br>Only 1 self unit exists</td><td>4,500,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>2C</td><td>Find 240 non-existent units<br>400 of my units on map</td><td>300,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>2D</td><td>Find 1 non-existent unit<br>400 of my units on map</td><td>300,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>2E</td><td>Find 1 existent unit<br>400 of them on map and nothing else</td><td>800,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>2F</td><td>Find 240 existent units<br>400 of them on map and nothing else</td><td>80,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>2G</td><td>Find 40 existent units<br>400 my units on map</td><td>400,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>2H</td><td>Find 240 existent units by class rather than id<br>400 of my units on map</td><td>80,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>3A</td><td rowspan="4" style="vertical-align: middle; background-color: white">Filtered DUC Search using localList<br>(up-find-local)</td><td>Find 240 non-existent units<br>Filter distance (up-filter-distance)<br>400 my units on map</td><td>300,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>3B</td><td>Find 240 existent units<br>Filter distance<br>400 my units on map<br>No units in radius</td><td>50,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>3C</td><td>Find 240 existent units<br>Filter distance<br>400 my units on map<br>All units in radius</td><td>80,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>3D</td><td>Find 240 existent units<br>Filter include with cmd-id set to find only military (up-filter-include)</td><td>80,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>4A</td><td rowspan="2" style="vertical-align: middle; background-color: white">Control Units with DUC<br>(up-target-point)</td><td>Command 1 unit to move at random</td><td>600,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>4B</td><td>Command 240 units to move at random individually</td><td>400 units **</td><td style="color: red">Very Slow</td></tr>
+				<tr><td>5A</td><td rowspan="5" style="vertical-align: middle; background-color: white">Removing Stuff from LocalList<br>(up-remove-objects)</td><td>list size 240<br>remove base-type<br>(no matches)</td><td>250,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>5B</td><td>list size 40<br>remove base-type<br>(no matches)</td><td>1,300,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>5C</td><td>list size 240<br>remove exact distance<br>(no matches)</td><td>120,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>5D</td><td>list size 240<br>remove exact precise-x<br>(no matches)</td><td>200,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>5E</td><td>list size 240<br>remove base-type<br>all matches<br>find inside loop</td><td>50,000</td><td style="color: orange">Medium</td></tr>
+				<tr><td>6A</td><td rowspan="5" style="vertical-align: middle; background-color: white">Sorting the LocalList<br>(up-clean-search)</td><td>Sort list size of 240<br>2 different object-data's<br>Uncorrelated object-data</td><td>3,000 (x2)</td><td style="color: red">Slow</td></tr>
+				<tr><td>6B</td><td>list size 240<br>Sort and unsort<br>same object-data</td><td>7,000 (x2)</td><td style="color: red">Slow</td></tr>
+				<tr><td>6C</td><td>list size 40<br>Sort and unsort<br>Uncorrelated object-data</td><td>45,000 (x2)</td><td style="color: orange">Medium</td></tr>
+				<tr><td>6D</td><td>list size 20<br>Sort and unsort<br>Uncorrelated object-data</td><td>300,000 (x2)</td><td style="color:green">Fast</td></tr>
+				<tr><td>6E</td><td>list size 5<br>Sort and unsort<br>Uncorrelated object-data</td><td>1,000,000 (x2)</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>7A</td><td rowspan="5" style="vertical-align: middle; background-color: white">DUC search using RemoteList<br>(up-find-remote)</td><td>Find 40 enemy units<br>undiscovered but existent<br>Enemy has 400 units</td><td>4,000,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>7B</td><td>Find 40 enemy units<br>discovered and existent<br>Enemy has 400 units</td><td>400,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>7C</td><td>Find 40 enemy units<br>Enemy has 0 units</td><td>4,000,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>7D</td><td>Find 40 enemy units<br>discovered and existent<br>Enemy has 40 units</td><td>500,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>7E</td><td>Find 40 ally units<br>discovered and existent<br>Ally has 400 units</td><td>400,000</td><td style="color:green">Fast</td></tr>
+				<tr><td>8</td><td style="vertical-align: middle; background-color: white">Loading a stored list back into RemoteList<br>(up-set-group)</td><td>Group size = 40<br>Loop over(up-set-group) to set the RemoteList</td><td>5,000,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>9A</td><td rowspan="5" style="vertical-align: middle; background-color: white">Pathing<br>(up-get-path-distance)</td><td>Pathing distance for 1 unit to point far away (200 tiles)<br>No obstacles</td><td>6,000</td><td style="color: red">Slow</td></tr>
+				<tr><td>9B</td><td>Pathing distance for 1 unit to point far away (200 tiles)<br>Lots of obstacles</td><td>4,500</td><td style="color: red">Slow</td></tr>
+				<tr><td>9C</td><td>Pathing distance for 1 unit to point far away (200 tiles)<br>Path does not exist</td><td>4,500</td><td style="color: red">Slow</td></tr>
+				<tr><td>9D</td><td>Pathing distance for 1 unit to point nearby (3 tiles)<br>No obstacles</td><td>1,000,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>9E</td><td>Pathing distance for 1 unit to point extremely far (340 tiles)<br>No obstacles</td><td>1,700</td><td style="color: red">Slow</td></tr>
+				<tr><td>10A</td><td rowspan="4" style="vertical-align: middle; background-color: white">Building at points</td><td>(up-can-build-line)<br>For palisade-wall<br>Illegal point</td><td>1,700</td><td style="color: red">Slow</td></tr>
+				<tr><td>10B</td><td>(up-can-build-line)<br>For palisade-wall<br>Legal point</td><td>1,400,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>10C</td><td>(up-build-line)<br>For palisade-wall<br>Illegal point</td><td>1,700,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>10D</td><td>(up-build-line)<br>For palisade-wall<br>Legal point</td><td>240 tiles placed ***</td><td style="color: red">Very Slow</td></tr>
+				<tr><td>11</td><td style="vertical-align: middle; background-color: white">Object Data (any unit)<br>(up-get-object-type-data)</td><td>All IDs in the range 0 to 1400 tested<br>unit lines tested<br>Several object-data types tested</td><td>5,000,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>12</td><td style="vertical-align: middle; background-color: white">Creating / clearing	search Groups<br>(up-create-group)<br>(up-reset-group)</td><td>Started with 40 militia in local list. Then repeatedly created and reset group of 40 units (GroupId = 0).</td><td>4,000,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>13</td><td style="vertical-align: middle; background-color: white">Setting the group flag<br>(up-modify-group-flag)</td><td>Same as above but also setting the Ctrl group flag each time.</td><td>1,700,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>14</td><td style="vertical-align: middle; background-color: white">DUC unit training<br>(up-target-point)</td><td>Using up-target-point with action-train	to train militia. Local list consisted of 240 barracks, so there were 240 militia trained each for each train command. Then this whole process was repeated	in a loop. Then cancelling them with up-reset-building.</td><td>60,000***</td><td style="color:orange">Medium</td></tr>
+				<tr><td>15</td><td style="vertical-align: middle; background-color: white">Getting map point contents<br>(up-get-point-contains)</td><td>Scanning at random map points to see	what unique IDs are located there. Tested with all-units-class (-1) and with several units.</td><td>1,500,000</td><td style="color:green">Very Fast</td></tr>
+				<tr><td>16A</td><td rowspan="3" style="vertical-align: middle; background-color: white">DUC unit movement<br>(up-target-point)</td><td>Moving groups of units to map border<br>(group size = 1)</td><td>400 groups ****</td><td style="color:red">Very Slow</td></tr>
+				<tr><td>16B</td><td>Moving groups of units to map border (group size = 5)</td><td>400 groups ****</td><td style="color:red">Very Slow</td></tr>
+				<tr><td>16C</td><td>Moving groups of units to map border (group size = 20)</td><td>400 groups ****</td><td style="color:red">Very Slow</td></tr>
+			</table></p>
+			<h3>General Comments</h3>
+			<p><strong>Test0:</strong> The main point of this test was to check the point at which the bottleneck is the for-loop itself. None of the other tests got too close to this point.</p>
+			<p><strong>Test1:</strong> This test checked the performance of chat messages, which turned out to be extremely poor. The lag is clearly outside the rule pass so it's hard to quantify exactly the 50% point. 100 chats per rule pass was quite slow. Players who can't see the messages are not affected.</p>
+			<p><strong>Test2:</strong> These tests were designed to test the performance of DUC searches without any filters. We can see that the performance of up-search-local is only affected by YOUR units and depends on the number of units you have. Though once the list is full (or meets the number of requested units) it may stop the search early. If you try to find a unit which does not exist, then it will have to check every unit to prove it doesn't exist. On the other hand, if the unit is abundant the search may find all the units you requested early - which is why the case for searching for 1 existent unit is way faster than 1 non-existent unit.</p>
+			<p><strong>Test3:</strong> These tests where designed to check whether adding filters affected the performance of DUC searches. If the units didn't exist in the first place, then the filters clearly do not affect performance. But event in cases where the units did exist and the filter requirements were met, then there was no difference in performance compared to the no filter case. Clearly performance it limited by adding units to the list rather than the filter.</p>
+			<p><strong>Test4:</strong> This time we control the units by targeting a point on the map. Interestingly, controlling the same unit many times did not cause poor performance. I don't think the game actually controls them until after the AI loop, and in this case, it probably only uses the most recent command (it just overrides it each time in the AI loop). Controlling many units does cause poor performance though. Again, the Lag is outside the rule pass itself. I found it quite laggy when moving 240 units randomly around them map (each controlled individually). In this case the lag is probably caused by path calculations.</p>
+			<p><strong>Test5:</strong> These tests were designed to test the performance of up-remove objects. The first 3 tests didn't actually remove stuff from the list. In cases where you don't need to remove much, the performance depends on the particular object-data you use. Removing ALL units from the list each time looks slower, but in this case the performance is actually limited by the fact that I had to refill the list each loop.</p>
+			<p><strong>Test6:</strong> These tests were designed to test the performance on sorting the lists. I had to do two sorts per loop on two different object-data's so that we are not sorting an already sorted list. Sorting algorithms usually have an n.log(n) complexity, so we expect that halving list size yields more than double the performance. This was clearly the case here - sorting 20 units is quite fast while 240 units is extremely slow.</p>
+			<p><strong>Test7:</strong> This time we do DUC searches on the remote list. These results must be interpreted carefully. The AI keeps a list of known units for each player. If it hasn't discovered the units then it doesn't need to search through them. Performance is the same as for the local list if we are doing an identical search.</p>
+			<p><strong>Test8:</strong> Rather than looping over an identical search (assuming that we need to do this), we might want to use up-create-group and in the loop up-set group to avoid searching again. This clearly leads to a massive performance boost.</p>
+			<p><strong>Test9:</strong> We test up-get-path-distance. Interestingly, obstacles on the map only slightly affected the performance (even a maze had little effect!). Instead the performance is primarily determined by how far away the object must move - and the difference can be huge!</p>
+			<p><strong>Test10:</strong> This time we test the performance of up-can-build-line and up-build line at a specific point. The up-build line check was extremely fast, as was up-build-line whenever it can't actually build it (it probably does the check first). But actually building them is a bit more complex. I found that building 240 palisades in a single rule pass was a bit slow - but the performance primarily depended on how many foundations had already been placed. The first rule pass was in fast quite fast, but it gets slower each time. After 8 rule passes or so (with 8*240 foundations) it was almost a standstill. The lag was outside the rule pass.</p>
+			<p><strong>Test11:</strong> This test was designed to test the performance of "up-get-object-type-data" (as requested by Marathon). First the data-type was set to "object-data-train-site" and a variety of units and unit-lines were tested. It turns out that all units gave close to the same performance. I also ran another test to pick out the slowest performing unit ID in the range 0 to 1400 but it turns out that there was negligible difference in performance. Note that invalid unit IDs simply return -2. I also tested this with other data including "object-data-train-time", "object-data-base-attack" and "object-data-hitpoints" and all gave identical performance. In all cases the command is very fast.</p>
+			<p><strong>Test12:</strong> The test was designed to test the performance of creating search groups. The performance is very good and we should not have to worry about this command.</p>
+			<p><strong>Test13:</strong> This test was designed to test the performance of setting the group flag. The performance is very good and we should not have to worry about this command.</p>
+			<p><strong>Test14:</strong> This test was designed to test the performance of unit training via DUC. The format of this command looks like:<br>
+			<p class="example">(up-target-point 0 action-train typeOp inOpUnitId)</p>
+			<p>This will request that the unit be trained by all objects in the local-list. Note that it cannot queue units beyond the housing cap. But it does ignore sn-enable-training-queue. So it is allowed to keep queueing until the queue is full (15 units) or until you have reached the housing cap.</p>
+			<p>To test performance, I set the pop-cap to 1000 and trained militia in 240 barracks simultaneously (with 240 barracks in the local-list). This was done in a loop. The AI could comfortably train 1000 units in a single rule pass and we can only make the command lag if we try to train ~60000 units, in which case 59000 are blocked. In practise this command should never cause poor performance.</p>
+			<p><strong>Test15:</strong> This command was designed to test the performance of "up-get-point-contains". It turned out to be surprisingly fast. I originally thought it might be looping over a large number of units. But it seems more likely that the game is storing the contents of each tile somewhere. You should be able to scan tiles without ever having to worry about performance.</p>
+			<p><strong>Test16:</strong> This test was designed to test the performance of moving units in groups rather than individually. I wanted to know if moving say 20 units as a group is faster than moving them individually. It turned out that moving them in large groups was much faster but the reason is not so obvious.</p>
+			<p>From my testing, it became apparent that rather than processing all of the unit move commands straight away, the game is storing them in a queue. When a new move command is issued the unit will immediately stop. Then it must wait until its new move command gets processed. If you do too many move commands in a single rule pass (say 400) then there will be a delay of around 3" before some units start moving.</p>
+			<p>The units that were put into the start of the queue will move straight away, and the delay gradually increases as you move further down the queue.</p>
+			<p>This make performance hard to test. The command won't actually cause poor performance - instead units will become unresponsive because the queue is getting too long. If you try to move say 400 units each rule pass then many units will stutter (except the lucky ones at the start of the queue).</p>
+			<p>It seems that the game processes unit movement per group rather than per unit. So, it's much more responsive if you move your units in large groups rather than individually. Its best if you see this for yourself. I've uploaded a demo scenario and 3 scripts below which move units in groups towards the edge of the map every 2". You will see that the stutter is much worst when we try to move them individually.</p>
+			<p>Link to DUC Movement Test scenario and AI scripts used for Test 16: <a href="https://drive.google.com/file/d/1naM0UEp_JU7L3lLgrZ1KnQyoMBhWR9zY/view">DUCmoveTest.zip</a></p>
+			<h3>Conclusions</h3>
+			<p>I am actually surprised by how good the performance of DUC is. Honestly, I've probably been worrying about it too much. It's generally OK to loop over a DUC search, even a double loop (of say 40 x 40) is OK in many cases. Although watch out for the things marked slow / very slow. Some ways to improve include:</p>
+			<ol><li>If you need to loop over a sort, try cutting down the list first.</li><li>Don't find more units than what you need.</li><li>By aware that finding a few units that are abundant is much faster than finding 1 unit that doesn't exist.</li><li>If you need to loop over an identical search the consider using up-create-group outside the loop and up-set-group inside the loop.</li></ol>		
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
