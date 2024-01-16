@@ -23629,6 +23629,11 @@ bugsArray = [ {
 	// 	link: "<a href=\"\">Link</a>",
 	// 	description: ""
 	// }, {
+	name: "dropsite-min-distance doesn't update with mule carts",
+	date: "Jan 15, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
+	description: "dropsite-min-distance wood/gold/stone doesn't work with mule carts. Does not change when mule carts move or die."
+}, {
 	name: "Imperial unique techs undefined",
 	date: "Jan 13, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1195832110750126321\">Link</a>",
