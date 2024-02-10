@@ -21186,9 +21186,9 @@ pMinGarrison.relatedParams = [pMaxGarrison];
 // pNewName.relatedParams = [pCode, pLanguageId, pString, pDefconst];
 
 //ObjectData
-pObjectData.description = "Data information about an object.</p><p><strong>Important Note:</strong> some object data is not available for units marching in formation when using " + cUpGetObjectData.getLink() + " or " + cUpObjectData.getLink() + ": object-data-action, object-data-order, object-data-target, and object-data-target-id.";
+pObjectData.description = "Data information about an object. This information is gathered from the unit's current stats, including any techs that have been researched or civ bonuses that affect the unit.</p><p><strong>Important Note:</strong> some object data is not available for units marching in formation when using " + cUpGetObjectData.getLink() + " or " + cUpObjectData.getLink() + ": object-data-action, object-data-order, object-data-target, and object-data-target-id.";
 pObjectData.shortDescription = "Data information about an object.";
-pObjectData.range = "-1 to 84.";
+pObjectData.range = "a valid ObjectData ID. -1 can only be used with up-remove-objects.";
 pObjectData.relatedParams = [pActionId, pFactId, pOrderId, pProgressType];
 pObjectData.valueList = [ {
 	name: "object-data-index",
@@ -21241,15 +21241,15 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-maxhp",
 	id: 11,
-	description: "The object's maximum possible hit points. This includes researched technologies."
+	description: "The object's maximum possible hit points. This includes researched technologies and civ bonuses."
 }, {
 	name: "object-data-range",
 	id: 12,
-	description: "The object's range. This includes researched technologies."
+	description: "The object's range. This includes researched technologies and civ bonuses."
 }, {
 	name: "object-data-speed",
 	id: 13,
-	description: "The object's speed, multiplied by 100. This includes researched technologies. In UP, deer and wolves return their walking speed, even when running. In DE, deer and wolves return different speeds depending on whether they are walking or running."
+	description: "The object's speed, multiplied by 100. This includes researched technologies and civ bonuses. In UP, deer and wolves return their walking speed, even when running. In DE, deer and wolves return different speeds depending on whether they are walking or running."
 }, {
 	name: "object-data-dropsite",
 	id: 14,
@@ -21301,15 +21301,15 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-strike-armor",
 	id: 26,
-	description: "The object's current strike (melee) armor, including researched technologies."
+	description: "The object's current strike (melee) armor, including researched technologies and civ bonuses."
 }, {
 	name: "object-data-pierce-armor",
 	id: 27,
-	description: "The object's current pierce armor, including researched technologies."
+	description: "The object's current pierce armor, including researched technologies and civ bonuses."
 }, {
 	name: "object-data-base-attack",
 	id: 28,
-	description: "The object's current base attack, including researched technologies. Attack bonus amounts are not included and cannot be detected by AIs. :("
+	description: "The object's current base attack, including researched technologies and civ bonuses. Attack bonus amounts are not included and cannot be detected by AIs. :("
 }, {
 	name: "object-data-locked",
 	id: 29,
@@ -21413,7 +21413,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-reload-time",
 	id: 54,
-	description: "The object's reload time, in milliseconds. This is the time between subsequent attacks. Note that this is the reload time statistic pulled from the data files. For the time remaining until the unit can attack again, use object-data-next-attack."
+	description: "The object's reload time, in milliseconds. This is the time between subsequent attacks. This includes researched technologies and civ bonuses. For the time remaining until the unit can attack again, use object-data-next-attack."
 }, {
 	name: "object-data-next-attack",
 	id: 55,
@@ -21425,11 +21425,11 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-train-time",
 	id: 57,
-	description: "The time it takes to train the object. Does not appear to take civ bonuses or researched technologies into account."
+	description: "The time it takes to train the object, assuming the object's train site has a \"work rate\" of 1.0. This does not take certain technologies like Conscription or civ bonuses into account because these techs and bonuses increase the building's work rate rather than modifying the train time of individual units."
 }, {
 	name: "object-data-blast-radius",
 	id: 58,
-	description: "The object's blast radius, multiplied by 100."
+	description: "The object's blast radius, multiplied by 100. This includes researched technologies and civ bonuses."
 }, {
 	name: "object-data-blast-level",
 	id: 59,
@@ -21445,7 +21445,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-min-range",
 	id: 62,
-	description: "The minium range of the object."
+	description: "The minium range of the object. This includes researched technologies and civ bonuses."
 }, {
 	name: "object-data-target-time",
 	id: 63,
@@ -21597,7 +21597,7 @@ pObjectStatus.valueList = [ {
 }, {
 	name: "status-down",
 	id: 4,
-	description: "Unknown. Is not dead sheep or dead boar."
+	description: "Objects that are currently in their dying animation but aren't completely dead yet. Does not include building rubble or dead units."
 }, {
 	name: "status-gather",
 	id: 5,
@@ -22156,11 +22156,11 @@ pResearchState.relatedParams = [pTechId];
 pResearchState.valueList = [ {
 	name: "research-disabled",
 	id: -1,
-	description: "DE only. Theoretically, this would be the status when the research is not available to the civilization. However, in most cases (if not all cases) the status is actually research-unavailable if the research isn't available to the civilization."
+	description: "DE only. The research has been manually disabled, probably through a scenario trigger. If a tech is unavailable in a civ's tech tree, the status will be research-unavailable."
 }, {
 	name: "research-unavailable",
 	id: 0,
-	description: "The research is not available, either because the age or technology prerequisites haven't been met, or the research is not available in the civ's tech tree."
+	description: "The research is not available, either because the age or technology prerequisites haven't been met or the research is not available in the civ's tech tree."
 }, {
 	name: "research-available",
 	id: 1,
@@ -23629,6 +23629,21 @@ bugsArray = [ {
 	// 	link: "<a href=\"\">Link</a>",
 	// 	description: ""
 	// }, {
+	name: "Moving the cursor with the left or right arrow keys when saving a scenario makes the game unresponsive",
+	date: "Feb 10, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1205805115370381342\">Link</a>",
+	description: "I think it happened with in-game chat before. While trying to save a scenario at a different name, selecting a place in the name where I want to make a change and moving left or right with arrow keys makes the game unresponsive. Mark where name change is supposed to be made moves by 1 character once and that's it. It keeps flashing like we could do something but all we can do is force close the game."
+}, {
+	name: "Some Userpatch constants not properly defined",
+	date: "Jan 26, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1200456724323250206\">Link</a>",
+	description: "Did some quick testing with removing the UserPatchConst.per file from my AI. Looks like the ExploredState, ObjectList, ObjectStatus, SearchOrder, and ObjectData constants aren't defined properly in DE. Also, actionid-relic and orderid-relic are missing but the rest of the actions and orders are defined."
+}, {
+	name: "sn-object-repair-level doesn't work",
+	date: "Jan 19, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1197973709693124648\">Link</a>",
+	description: "Is sn-object-repair-level working for anyone at the moment? It doesn't matter what value I set it to, villagers won't repair anything anymore. I've confirmed using up-chat-data-to player the SN is set to the correct values for repairing specific objects."
+}, {
 	name: "dropsite-min-distance doesn't update with mule carts",
 	date: "Jan 15, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
