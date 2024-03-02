@@ -23644,6 +23644,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211911683023441930\">Link</a>",
 	description: "After someone subscribes to my mod, he creates a multiplayer game. After the participant waits in the room for a period of time, he or she will be kicked out of the room and a \"Failed to receive the file from the host\" message will appear. Note from Leif: this AI mod includes .xs files, which perhaps might be the cause of the failure."
 }, {
+	name: "Relative filepaths to xs files in an include command don't work for AI mods",
+	date: "Feb 26, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211546829523656744\">Link</a>",
+	description: "In the Mod, the xs files must be placed in the xs folder before it can be loaded in the Mod. You can't use statements like (include \"..\\ai\\MyAIFolder\\filename.xs\") to load .xs files from a folder in a different location."
+}, {
 	name: "Load commands can prevent include commands to fail",
 	date: "Feb 15, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1207690744492720138\">Link</a>",
