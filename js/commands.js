@@ -8590,7 +8590,7 @@ cCanSpyWithEscrow.complexity = "Medium";
 
 //can-train
 cCanTrain.shortDescription = "Checks that the training of a given unit can start.";
-cCanTrain.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is ready to queue or start training the unit, where the number of queued units and techs is less than the current " + snEnableTrainingQueue.getLink() + " setting.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrain.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available (not counting escrow stockpiles).</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is ready to queue or start training the unit, where the number of queued units and techs is less than the current " + snEnableTrainingQueue.getLink() + " setting.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train spearman-line), instead of (can-train spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>In WK, there are two units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero and genitour. Use ID 184 for condottiero-placeholder and use ID 732 for genitour-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train huskarl) (can-train barracks-huskarl)). To check if mercenary kipchaks (elite kipchaks that allies can train after Cuman Mercenaries is researched) can be trained, use \"mercenary-kipchak\" rather than kipchak-line.</p></p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -8622,7 +8622,7 @@ cCanTrain.complexity = "Low";
 
 //can-train-with-escrow
 cCanTrainWithEscrow.shortDescription = "Checks that the training of a given unit can start, if escrow is used.";
-cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cCanTrain.getLink() + ", can-train-with-escrow, " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)).</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
+cCanTrainWithEscrow.description = "Checks that the training of a given unit can start. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle. In particular it checks:</p><ul><li>The unit is available to the computer player's civ.</li><li>Tech tree prerequisites are met.</li><li>Required resources are available including escrow stockpiles.</li><li>There is enough housing headroom for the unit.</li><li>There is an appropriate building that is not busy and is ready to start training the unit.</li></ul><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ", which means that you can use (can-train-with-escrow spearman-line), instead of (can-train-with-escrow spearman). Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (can-train-with-escrow archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>Unique units can be trained dynamically by using my-unique-unit or my-unique-unit-line as long as your aren't scripting for a Userpatch modpack like WK.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>In WK, there are two units that use a separate placeholder unit ID for training purposes, and you must use it for all can-train, " + cCanTrainWithEscrow.getLink() + ", " + cTrain.getLink() + ", " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero and genitour. Use ID 184 for condottiero-placeholder and use ID 732 for genitour-placeholder.</p><p>You cannot check for the ability to train units with unit classes (like infantry-class) or with sets (like huskarl-set, which includes castle huskarls and barracks huskarls). To check for units like huskarls or tarkans that can be trained at multiple buildings, you must each each unit type separately, such as (or (can-train-with-escrow huskarl) (can-train-with-escrow barracks-huskarl)). To check if mercenary kipchaks (elite kipchaks that allies can train after Cuman Mercenaries is researched) can be trained, use \"mercenary-kipchak\" rather than kipchak-line.</p><p>This fact will return false if the setting of " + snDockTrainingFilter.getLink() + " currently restricts the training of ships.";
 cCanTrainWithEscrow.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -11686,7 +11686,7 @@ cTraceFact.complexity = "Don't Use";
 
 //train
 cTrain.shortDescription = "Trains the given unit if possible.";
-cTrain.description = "Trains the given unit if possible, without using escrowed resources. In order to use escrow resources, they must be released with " + cReleaseEscrow.getLink() + ", " + cUpReleaseEscrow.getLink() + ", or " + cUpModifyEscrow.getLink() + ". To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. It also checks </p><p>When possible, use unit lines with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot use unit classes or unit sets, like huskarl-set. To train units which can be trained at multiple buildings, like huskarls, tarkans, konniks, and serjeants, you must use a separate unit type or unit line to train them from their non-castle building. Look up these units in the Objects Table for more information.</p><p>There are three units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cCanTrain.getLink() + ", " + cCanTrainWithEscrow.getLink() + ", train, " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero, genitour, and the mercenary kipchak that is enabled for allies when a Cuman player researches Cuman Mercenaries. Use ID 184 for condottiero-placeholder, use ID 1079 for genitour-placeholder (WK uses 732 instead), and use ID 1259 for mercenary-kipchak-placeholder.<p></p>The AI engine will automatically pick the building with the least number of queued units and techs to train the unit, and if there are multiple equally available buildings, the AI will pick one of those buildings at random. To pick a particular building or buildings on the map to train the unit, use a DUC search to put those buildings in the local list and use the " + cUpTargetPoint.getLink() + " command with the action-train action to order the buildings to train the unit. See the up-target-point page for an example.</p><p>Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.</p><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
+cTrain.description = "Trains the given unit if possible, without using escrowed resources. In order to use escrow resources, they must be released with " + cReleaseEscrow.getLink() + ", " + cUpReleaseEscrow.getLink() + ", or " + cUpModifyEscrow.getLink() + ". To prevent cheating, this action uses the same criteria as the " + cCanTrain.getLink() + " fact to make sure the unit can be trained. It also checks </p><p>When possible, use unit lines with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.</p><p>You can also train by the unit ID rather than the unit name. You can see all units and their unit IDs in the <a href=\"" + urlPrefix + "/tables/objects.html\">Objects table</a>.</p><p>You cannot use unit classes or unit sets, like huskarl-set. To train units which can be trained at multiple buildings, like huskarls, tarkans, konniks, and serjeants, you must use a separate unit type or unit line to train them from their non-castle building. Look up these units in the Objects Table for more information. To train mercenary kipchaks (elite kipchaks that allies can train after Cuman Mercenaries is researched), use \"mercenary-kipchak\" rather than kipchak-line.</p><p>In WK, there are two units that use a separate placeholder unit ID for training purposes, and you must use it for all " + cTrain.getLink() + ", " + cCanTrainWithEscrow.getLink() + ", train, " + cUpCanTrain.getLink() + ", and " + cUpTrain.getLink() + " commands. These units are the condottiero and genitour. Use ID 184 for condottiero-placeholder and use ID 732 for genitour-placeholder.<p></p>The AI engine will automatically pick the building with the least number of queued units and techs to train the unit, and if there are multiple equally available buildings, the AI will pick one of those buildings at random. To pick a particular building or buildings on the map to train the unit, use a DUC search to put those buildings in the local list and use the " + cUpTargetPoint.getLink() + " command with the action-train action to order the buildings to train the unit. See the up-target-point page for an example.</p><p>Interestingly, you can safely use the base unit of a unit line with this command instead of the unit line version, and it will work regardless of any upgrades that have been researched. For example, you can safely use (train archer) even if Crossbowman has been researched. This capability is important if you are scripting for WololoKingdoms (WK) or any other mod where some unit lines aren't defined in the AI engine.</p><p>The setting of " + snDockTrainingFilter.getLink() + " affects the ability for docks to train warships with this command.</p><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ".";
 cTrain.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -23629,6 +23629,21 @@ bugsArray = [ {
 	// 	link: "<a href=\"\">Link</a>",
 	// 	description: ""
 	// }, {
+	name: "donjon-spearman-line no longer defined internally",
+	date: "Mar 1, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1213280983483293716\">Link</a>",
+	description: "Very minor bug but I noticed the March PUP makes donjon-spearman-line give an undefined error now unless you manually defconst -227."
+}, {
+	name: "Unable to receive AI from host in multiplayer lobby",
+	date: "Feb 27, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211911683023441930\">Link</a>",
+	description: "After someone subscribes to my mod, he creates a multiplayer game. After the participant waits in the room for a period of time, he or she will be kicked out of the room and a \"Failed to receive the file from the host\" message will appear. Note from Leif: this AI mod includes .xs files, which perhaps might be the cause of the failure."
+}, {
+	name: "Load commands can prevent include commands to fail",
+	date: "Feb 15, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1207690744492720138\">Link</a>",
+	description: "In my testing, if there are any \"include\" commands to load a .xs file that appear before any \"load\" commands to load a .per file, then these .xs files are not loaded. Any .xs files that you want to include must appear after all .per \"load\" commands."
+}, {
 	name: "Moving the cursor with the left or right arrow keys when saving a scenario makes the game unresponsive",
 	date: "Feb 10, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1205805115370381342\">Link</a>",
@@ -28621,7 +28636,7 @@ objectsRangeArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	notes: "Must use ID 732 (WK) or 1079 (DE) for can-train and train commands"
+	notes: "In WK, must use ID 732 for can-train and train commands"
 }, {
 	name: "Elite Genitour",
 	aiName: "elite-genitour",
@@ -28640,12 +28655,12 @@ objectsRangeArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	notes: "Must use ID 732 (WK) or 1079 (DE) for can-train and train commands"
+	notes: "In WK, must use ID 732 for can-train and train commands"
 }, {
 	name: "Genitour (Placeholder)",
 	aiName: "",
 	line: "",
-	id: "WK: 732<br>DE: 1079",
+	id: "732",
 	class: "cavalry-archer-class (936)",
 	cmdId: "cmdid-military",
 	building: "Archery Range",
@@ -28658,8 +28673,8 @@ objectsRangeArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: "Used only for can-train and train rules"
+	de: 0,
+	notes: "No longer required for DE. Used only in WK for can-train and train rules."
 }, {	
 	name: "Elephant Archer",
 	aiName: "elephant-archer",
@@ -29060,7 +29075,7 @@ objectsBarracksArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 1,
-	notes: "Must use ID 184 for can-train and train commands"
+	notes: "In WK, must use ID 184 for can-train and train commands"
 }, {	
 	name: "Condottiero (Placeholder)",
 	aiName: "",
@@ -29078,8 +29093,8 @@ objectsBarracksArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: "Used only for can-train and train rules"
+	de: 0,
+	notes: "WK only, used only for can-train and train rules"
 }, {	
 	name: "Huskarl (Barracks)",
 	aiName: "",
@@ -29900,7 +29915,7 @@ objectsCastleArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Must use ID 1259 for can-train and train commands, can be counted with kipchak-set, Chu Ko Nus also use projectile 510"
+	notes: "Can be counted with kipchak-set, Chu Ko Nus also use projectile 510"
 }, {	
 	name: "Elite Kipchak (Mercenary Placeholder)",
 	aiName: "",
@@ -29918,8 +29933,8 @@ objectsCastleArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: "Used only for can-train and train rules"
+	de: 0,
+	notes: "No longer needed for unit training"
 }, {	
 	name: "Urumi Swordsman",
 	aiName: "urumi-swordsman",
