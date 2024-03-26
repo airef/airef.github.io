@@ -15049,7 +15049,7 @@ cUpGetPointContains.commandParameters = [ {
 } ];
 cUpGetPointContains.example = [ {
 	title: "Get the id of a tree if it exists at the map center.",
-	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-tree-id 102)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x c: explored-yes)\r\n\t(up-get-point-contains gl-center-x gl-tree-id c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
+	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defconst gl-tree-id 102)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x == explored-yes)\r\n\t(up-get-point-contains gl-center-x gl-tree-id c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpGetPointContains.relatedCommands = [];
 cUpGetPointContains.commandCategory = ["Points"];/*
@@ -16334,7 +16334,7 @@ cUpPlayersInGame.complexity = "Medium";
 
 //up-point-contains
 cUpPointContains.shortDescription = "Check if an object exists at a point goal pair position.";
-cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.";
+cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
 cUpPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -16359,7 +16359,7 @@ cUpPointContains.commandParameters = [ {
 } ];
 cUpPointContains.example = [ {
 	title: "Check if a tree exists at the map center.",
-	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-contains gl-center-x c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
+	data: "(defconst gl-center-x 100)\r\n(defconst gl-center-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-center-x)\r\n)\r\n(defrule\r\n\t(up-point-explored gl-center-x == explored-yes)\r\n\t(up-point-contains gl-center-x c: tree-class) ; tree-class = 915\r\n=&gt;\r\n\t(do-nothing)\r\n)"
 } ];
 cUpPointContains.relatedCommands = [];
 cUpPointContains.commandCategory = ["Buildings", "Points", "Units"];/*
@@ -16451,12 +16451,12 @@ cUpPointExplored.commandParameters = [ {
 	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
-	nameLink: pTypeOp.getLink(),
-	name: "typeOp",
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter.<br/>Value: c: for consts, g: for goals, or s: for strategic numbers."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pExploredState.getLink(),
 	name: "ExploredState",
@@ -20642,38 +20642,66 @@ pLocalList.range = "0 or 1.";
 pLocalList.relatedParams = [pIndex, pLocalIndex, pRemoteIndex, pRemoteList, pSearchOrder, pSearchSource];
 
 //MapSize
-pMapSize.description = "The size of the map. Archipelago, Fortress, Island, Migration, and Team Islands are one size bigger than normal. For example, tiny maps will be 144x144 and giant maps will be 255x255 on those maps.";
+pMapSize.description = "The size of the map. Before DE, Archipelago, Fortress, Island, Migration, and Team Islands are one size bigger than normal. For example, tiny maps will be 144x144 and giant maps will be 255x255 on those maps.</p><p>In DE, the 240x240 size map name was changed from Giant to Huge. Also, DE introduced a Steam launch parameter \"MORE_MAP_SIZES\" which enables an expanded set of map sizes. For the standard map sizes there are two variations of the map size name that AIs can use. It's possible some AI features won't work on map sizes larger than 255 if they were originally coded with the assumption that the map dimensions would never exceed 255 tiles. These maps can often cause a lot of lag, so only script for them with care.";
 pMapSize.shortDescription = "The size of the map.";
-pMapSize.range = "0 to 5.";
+pMapSize.range = "A valid map size.";
 pMapSize.relatedParams = [pMapType, pPositionType];
 pMapSize.valueList = [ {
-	name: "tiny",
-	id: 0,
-	description: "Tiny (2 player) map size. 120x120 tiles for most maps."
+	name: "miniature-map",
+	id: 80,
+	description: "Miniature map size. 80x80 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
 }, {
-	name: "small",
-	id: 1,
-	description: "Small (3 player) map size. 144x144 tiles for most maps."
+	name: "tiny-map, tiny",
+	id: 120,
+	description: "Tiny (2 player) map size. 120x120 tiles."
 }, {
-	name: "medium",
-	id: 2,
-	description: "Medium (4 player) map size. 168x168 tiles for most maps."
+	name: "small-map, small",
+	id: 144,
+	description: "Small (3 player) map size. 144x144 tiles."
 }, {
-	name: "normal",
-	id: 3,
-	description: "Normal (6 player) map size. 200x200 tiles for most maps."
+	name: "medium-map, medium",
+	id: 168,
+	description: "Medium (4 player) map size. 168x168 tiles."
 }, {
-	name: "large",
-	id: 4,
-	description: "Large (8 player) map size. 220x220 tiles for most maps."
+	name: "normal-map, normal",
+	id: 200,
+	description: "Normal (6 player) map size. 200x200 tiles."
 }, {
-	name: "giant",
-	id: 5,
-	description: "Giant map size. 240x240 tiles for most maps."
+	name: "large-map, large",
+	id: 220,
+	description: "Large (8 player) map size. 220x220 tiles."
 }, {
-	name: "ludikris",
-	id: 6,
-	description: "DE only. Ludicrous map size (notice the spelling of the map in the AI engine). 480x480 tiles for most maps. It's possible some AI features won't work on this map if they were originally coded with the assumption that the map dimensions would never exceed 255 tiles. The map itself can often cause a lot of lag, so only script for this map with care."
+	name: "huge-map, giant",
+	id: 240,
+	description: "Huge map size. 240x240 tiles. \"giant\" refers to the Huge map size for backwards compatibility with older AIs."
+}, {
+	name: "giant-map",
+	id: 252,
+	description: "Giant map size. 252x252 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "massive-map",
+	id: 276,
+	description: "Massive map size. 276x276 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "enormous-map",
+	id: 300,
+	description: "Enormous map size. 300x300 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "colossal-map",
+	id: 320,
+	description: "Colossal map size. 320x320 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "incredible-map",
+	id: 360,
+	description: "Incredible map size. 360x360 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "monstrous-map",
+	id: 400,
+	description: "Monstrous map size. 400x400 tiles. Requires MORE_MAP_SIZES Steam launch parameter."
+}, {
+	name: "ludicrous-map, ludicrous, ludikris",
+	id: 480,
+	description: "Ludicrous map size. 480x480 tiles for most maps."
 } ];
 
 //MapType
@@ -22320,7 +22348,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-convert-building",
 	id: 28,
-	description: "Set to 1 when Redemption is researched."
+	description: "Set to 1 when Redemption is researched. If higher than 1, monks can convert buildings from range."
 }, {
 	name: "amount-building-limit",
 	id: 30,
@@ -22348,7 +22376,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-farm-food",
 	id: 36,
-	description: "Set to the amount of food that each farm will hold when constructed."
+	description: "Set to the amount of food that each farm will hold when constructed. Affected by mill techs."
 }, {
 	name: "amount-civilian-population",
 	id: 37,
@@ -22356,7 +22384,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-all-techs-achieved",
 	id: 39,
-	description: "Likely set to 1 when an All Techs game is played."
+	description: "Likely set to 1 when an All Techs game is played or all techs have been researched."
 }, {
 	name: "amount-military-population",
 	id: 40,
@@ -22392,7 +22420,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-town-center-unavailable",
 	id: 48,
-	description: "Likely set to 1 during the Dark Age and Feudal Age when the player owns a town center."
+	description: "Set to 0 in Sudden Death. Otherwise, set to 1 to allow TC construction starting in the Castle Age."
 }, {
 	name: "amount-gold-counter",
 	id: 49,
@@ -22400,11 +22428,11 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-writing",
 	id: 50,
-	description: "Set to 1 1 when Cartography is researched. Writing was the name for Cartography in AoE1."
+	description: "Set to 1 when Cartography is researched. Writing was the name for Cartography in AoE1."
 }, {
 	name: "amount-monasteries",
 	id: 52,
-	description: "Unknown."
+	description: "The player's current number of monasteries."
 }, {
 	name: "amount-tribute",
 	id: 53,
@@ -22420,7 +22448,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-ore",
 	id: 56,
-	description: "A hidden 5th resource."
+	description: "A hidden and unused 5th resource."
 }, {
 	name: "amount-captured-unit",
 	id: 57,
@@ -22462,45 +22490,13 @@ pResourceType.valueList = [ {
 	id: 67,
 	description: "Set to 1 if conversion has been enabled for the player. Dark Age is the prerequisite, so it should always be 1 except in scenarios where Dark Age has been disabled specifically to disable conversion."
 }, {
-	name: "amount-player1-kills",
-	id: 69,
-	description: "Amount of units Player 1 has killed."
-}, {
-	name: "amount-player2-kills",
-	id: 70,
-	description: "Amount of units Player 2 has killed."
-}, {
-	name: "amount-player3-kills",
-	id: 71,
-	description: "Amount of units Player 3 has killed."
-}, {
-	name: "amount-player4-kills",
-	id: 72,
-	description: "Amount of units Player 4 has killed."
-}, {
-	name: "amount-player5-kills",
-	id: 73,
-	description: "Amount of units Player 5 has killed."
-}, {
-	name: "amount-player6-kills",
-	id: 74,
-	description: "Amount of units Player 6 has killed."
-}, {
-	name: "amount-player7-kills",
-	id: 75,
-	description: "Amount of units Player 7 has killed."
-}, {
-	name: "amount-player8-kills",
-	id: 76,
-	description: "Amount of units Player 8 has killed."
-}, {
 	name: "amount-convert-resistance",
 	id: 77,
 	description: "Amount of conversion resistance an object has. Faith increases this by 3. Teutons team bonus increases this by 2."
 }, {
 	name: "amount-trade-vig-rate",
 	id: 78,
-	description: "Sets the trading fee. Affected by Guilds."
+	description: "Sets the trading fee. Affected by Guilds and Saracens civ bonus."
 }, {
 	name: "amount-stone-bonus",
 	id: 79,
@@ -22508,11 +22504,11 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-queued-count",
 	id: 80,
-	description: "The amount of units a building is training. Doesn't seem to count technologies."
+	description: "The total amount of units all buildings are queued (waiting to be trained but aren't currently being trained). Doesn't seem to count technologies."
 }, {
 	name: "amount-training-count",
 	id: 81,
-	description: "The total amount of all units the player is currently training."
+	description: "The total amount of all units the player is currently training, not including queued units."
 }, {
 	name: "amount-raider",
 	id: 82,
@@ -22520,7 +22516,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-boarding-recharge-rate",
 	id: 83,
-	description: "Similar to monk faith regeneration, resource 35. This applies to boarding galleys that would convert ships from 1 range away. The boarding galleys could appear in custom scenarios, but otherwise this resource is unused."
+	description: "Similar to monk faith regeneration, resource 35. This applies to the hidden boarding galley unit that would convert ships from 1 range away. Boarding galleys can be used in custom scenarios if a mod unhides the unit in the scenario editor, but otherwise this resource is unused."
 }, {
 	name: "amount-starting-villagers",
 	id: 84,
@@ -22540,7 +22536,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-fish-trap-food",
 	id: 88,
-	description: "The amount of food that fish traps store, similar to resource 36 for farms."
+	description: "The max amount of food that fish traps store, similar to resource 36 for farms."
 }, {
 	name: "amount-heal-rate-modifier",
 	id: 89,
@@ -22572,7 +22568,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-berserker-heal-timer",
 	id: 96,
-	description: "A timer between each berserk health regeneration. This is cut in half by Berserkergang."
+	description: "Set to 1 for Khmer so that farmers no longer need to drop off food from farms. Used to be for controlling berserk HP regeneration. The resource hasn't been renamed in the AI engine."
 }, {
 	name: "amount-dominant-sheep-control",
 	id: 97,
@@ -22594,257 +22590,33 @@ pResourceType.valueList = [ {
 	id: 101,
 	description: "The total gold generated from trade units for the player. Likely is equal to Trade Profit in the achievements screen."
 }, {
-	name: "amount-player1-tribute",
-	id: 102,
-	description: "The total tribute sent by player 1."
-}, {
-	name: "amount-player2-tribute",
-	id: 103,
-	description: "The total tribute sent by player 2."
-}, {
-	name: "amount-player3-tribute",
-	id: 104,
-	description: "The total tribute sent by player 3."
-}, {
-	name: "amount-player4-tribute",
-	id: 105,
-	description: "The total tribute sent by player 4."
-}, {
-	name: "amount-player5-tribute",
-	id: 106,
-	description: "The total tribute sent by player 5."
-}, {
-	name: "amount-player6-tribute",
-	id: 107,
-	description: "The total tribute sent by player 6."
-}, {
-	name: "amount-player7-tribute",
-	id: 108,
-	description: "The total tribute sent by player 7."
-}, {
-	name: "amount-player8-tribute",
-	id: 109,
-	description: "The total tribute sent by player 8."
-}, {
-	name: "amount-player1-kill-value",
-	id: 110,
-	description: "The score value gained for player 1 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player2-kill-value",
-	id: 111,
-	description: "The score value gained for player 2 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player3-kill-value",
-	id: 112,
-	description: "The score value gained for player 3 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player4-kill-value",
-	id: 113,
-	description: "The score value gained for player 4 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player5-kill-value",
-	id: 114,
-	description: "The score value gained for player 5 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player6-kill-value",
-	id: 115,
-	description: "The score value gained for player 6 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player7-kill-value",
-	id: 116,
-	description: "The score value gained for player 7 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player8-kill-value",
-	id: 117,
-	description: "The score value gained for player 8 from killing units, likely used to calculate the military score."
-}, {
-	name: "amount-player1-razings",
-	id: 118,
-	description: "The amount of buildings player 1 has destroyed."
-}, {
-	name: "amount-player2-razings",
-	id: 119,
-	description: "The amount of buildings player 2 has destroyed."
-}, {
-	name: "amount-player3-razings",
-	id: 120,
-	description: "The amount of buildings player 3 has destroyed."
-}, {
-	name: "amount-player4-razings",
-	id: 121,
-	description: "The amount of buildings player 4 has destroyed."
-}, {
-	name: "amount-player5-razings",
-	id: 122,
-	description: "The amount of buildings player 5 has destroyed."
-}, {
-	name: "amount-player6-razings",
-	id: 123,
-	description: "The amount of buildings player 6 has destroyed."
-}, {
-	name: "amount-player7-razings",
-	id: 124,
-	description: "The amount of buildings player 7 has destroyed."
-}, {
-	name: "amount-player8-razings",
-	id: 125,
-	description: "The amount of buildings player 8 has destroyed."
-}, {
-	name: "amount-player1-razing-value",
-	id: 126,
-	description: "The score gained for player 1 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player2-razing-value",
-	id: 127,
-	description: "The score gained for player 2 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player3-razing-value",
-	id: 128,
-	description: "The score gained for player 3 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player4-razing-value",
-	id: 129,
-	description: "The score gained for player 4 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player5-razing-value",
-	id: 130,
-	description: "The score gained for player 5 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player6-razing-value",
-	id: 131,
-	description: "The score gained for player 6 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player7-razing-value",
-	id: 132,
-	description: "The score gained for player 7 from destroying buildings, likely used to calculate military score."
-}, {
-	name: "amount-player8-razing-value",
-	id: 133,
-	description: "The score gained for player 8 from destroying buildings, likely used to calculate military score."
-}, {
 	name: "amount-castle",
 	id: 134,
 	description: "Likely the number of player's castles currently standing. Probably isn't equal to Total Castles on the achievements screen. This is likely Resource 173 instead."
 }, {
-	name: "amount-kills-by-player1",
-	id: 136,
-	description: "Likely the number of the player's own units that were killed by player 1. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player2",
-	id: 137,
-	description: "Likely the number of the player's own units that were killed by player 2. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player3",
-	id: 138,
-	description: "Likely the number of the player's own units that were killed by player 3. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player4",
-	id: 139,
-	description: "Likely the number of the player's own units that were killed by player 4. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player5",
-	id: 140,
-	description: "Likely the number of the player's own units that were killed by player 5. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player6",
-	id: 141,
-	description: "Likely the number of the player's own units that were killed by player 6. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player7",
-	id: 142,
-	description: "Likely the number of the player's own units that were killed by player 7. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-kills-by-player8",
-	id: 143,
-	description: "Likely the number of the player's own units that were killed by player 8. Likely used to calculate Units Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player1",
-	id: 144,
-	description: "Likely the number of the player's own buildings that were destroyed by player 1. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player2",
-	id: 145,
-	description: "Likely the number of the player's own buildings that were destroyed by player 2. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player3",
-	id: 146,
-	description: "Likely the number of the player's own buildings that were destroyed by player 3. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player4",
-	id: 147,
-	description: "Likely the number of the player's own buildings that were destroyed by player 4. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player5",
-	id: 148,
-	description: "Likely the number of the player's own buildings that were destroyed by player 5. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player6",
-	id: 149,
-	description: "Likely the number of the player's own buildings that were destroyed by player 6. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player7",
-	id: 150,
-	description: "Likely the number of the player's own buildings that were destroyed by player 7. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
-	name: "amount-razings-by-player8",
-	id: 151,
-	description: "Likely the number of the player's own buildings that were destroyed by player 8. Likely used to calculate Buildings Lost in the achievements screen."
-}, {
 	name: "amount-value-killed-by-others",
 	id: 152,
-	description: "Likely the total military score gained by all other players from killing the current player's units. Probably isn't included in the actual military score calculations, otherwise some players would have negative military scores."
+	description: "Likely either the total cost or the total military score gained by all other players from killing the current player's units. Probably isn't included in the actual military score calculations, otherwise some players would have negative military scores."
 }, {
 	name: "amount-value-razed-by-others",
 	id: 153,
-	description: "Likely the total military score gained by all other players from razing the current player's buildings. Probably isn't included in the actual military score calculations, otherwise some players would have negative military scores."
+	description: "Likely either the total cost or the total military score gained by all other players from razing the current player's buildings. Probably isn't included in the actual military score calculations, otherwise some players would have negative military scores."
 }, {
 	name: "amount-killed-by-others",
 	id: 154,
-	description: "The total number of the player's units killed by the player's enemies. Likely the sum of Resources 136 through 143. Likely is equal to Units Lost in the achievements screen."
+	description: "The total number of the player's units killed by the player's enemies. Likely is equal to Units Lost in the achievements screen."
 }, {
 	name: "amount-razed-by-others",
 	id: 155,
-	description: "The total number of the player's buildings by the player's enemies. Likely the sum of Resources 144 through 151. Likely is equal to Buildings Lost in the achievements screen."
-}, {
-	name: "amount-tribute-from-player1",
-	id: 156,
-	description: "Likely the total tribute received from player 1."
-}, {
-	name: "amount-tribute-from-player2",
-	id: 157,
-	description: "Likely the total tribute received from player 2."
-}, {
-	name: "amount-tribute-from-player3",
-	id: 158,
-	description: "Likely the total tribute received from player 3."
-}, {
-	name: "amount-tribute-from-player4",
-	id: 159,
-	description: "Likely the total tribute received from player 4."
-}, {
-	name: "amount-tribute-from-player5",
-	id: 160,
-	description: "Likely the total tribute received from player 5."
-}, {
-	name: "amount-tribute-from-player6",
-	id: 161,
-	description: "Likely the total tribute received from player 6."
-}, {
-	name: "amount-tribute-from-player7",
-	id: 162,
-	description: "Likely the total tribute received from player 7."
-}, {
-	name: "amount-tribute-from-player8",
-	id: 163,
-	description: "Likely the total tribute received from player 8."
+	description: "The total number of the player's buildings by the player's enemies. Likely is equal to Buildings Lost in the achievements screen."
 }, {
 	name: "amount-value-current-units",
 	id: 164,
-	description: "Likely the economy score gained from the player's current units."
+	description: "Likely either the total cost or the economy score gained from the player's current units."
 }, {
 	name: "amount-value-current-buildings",
 	id: 165,
-	description: "Likely the economy score gained from the player's current buildings."
+	description: "Likely either the total cost or the economy score gained from the player's current buildings."
 }, {
 	name: "amount-food-total",
 	id: 166,
@@ -22864,15 +22636,15 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-total-value-of-kills",
 	id: 170,
-	description: "Likely the military score gained from killing enemy units."
+	description: "Likely either the total cost or the military score gained from killing enemy units."
 }, {
 	name: "amount-total-tribute-received",
 	id: 171,
-	description: "The total amount of tribute received. Likely the sum of Resources 156 through 163."
+	description: "The total amount of tribute received."
 }, {
 	name: "amount-total-value-of-razings",
 	id: 172,
-	description: "Likely the military score gained from razing enemy buildings."
+	description: "Likely either the total cost or the military score gained from razing enemy buildings."
 }, {
 	name: "amount-total-castles-built",
 	id: 173,
@@ -22884,7 +22656,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-tribute-score",
 	id: 175,
-	description: "The score the player gained from sending tribute."
+	description: "Likely either the score the player gained from sending tribute or the total resources tributed + tribute taxes."
 }, {
 	name: "amount-convert-min-adj",
 	id: 176,
@@ -22912,7 +22684,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-convert-building-chance",
 	id: 182,
-	description: "Likely an adjustment to the percent chance a monastery unit will successfully convert a unit each second within the minimum and maximum conversion times for the object. Inquisition sets this resource to 5."
+	description: "The percent chance a monastery unit will successfully convert a unit each second within the minimum and maximum conversion times for the object. Default is 25%. Inquisition increases this resource to 5."
 }, {
 	name: "amount-spies",
 	id: 183,
@@ -22920,7 +22692,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-value-wonders-castles",
 	id: 184,
-	description: "Likely the amount of society score gained from constructing castles and wonders."
+	description: "Likely either the total cost or the amount of society score gained from constructing castles and wonders."
 }, {
 	name: "amount-food-score",
 	id: 185,
@@ -22948,7 +22720,7 @@ pResourceType.valueList = [ {
 }, {
 	name: "amount-relic-rate",
 	id: 191,
-	description: "The rate that relics accumulate gold. Changed by Sultans and Aztec team bonus."
+	description: "The rate that relics accumulate gold. Default is 30. Changed by Sultans and Aztec team bonus."
 }, {
 	name: "amount-heresy",
 	id: 192,
@@ -22974,25 +22746,605 @@ pResourceType.valueList = [ {
 	id: 197,
 	description: "Atheism sets this to 1. Likely applies the 50% discount to Spies if this resource is set to 1."
 }, {
+	name: "amount-feitoria-food-productivity",
+	id: 205,
+	description: "DE only. Must be defined with a defconst. The amount of food obtained from owning n number of Feitorias is given by n * amount-feitoria-food-productivity * 1.6."
+}, {
+	name: "amount-feitoria-wood-productivity",
+	id: 206,
+	description: "DE only. Must be defined with a defconst. The amount of wood obtained from owning n number of Feitorias is given by n * amount-feitoria-wood-productivity * 0.7."
+}, {
+	name: "amount-feitoria-stone-productivity",
+	id: 207,
+	description: "DE only. Must be defined with a defconst.  The amount of stone obtained from owning n number of Feitorias is given by n * amount-feitoria-stone-productivity * 0.3."
+}, {
+	name: "amount-feitoria-gold-productivity",
+	id: 208,
+	description: "DE only. Must be defined with a defconst.  The amount of gold obtained from owning n number of Feitorias is given by n * amount-feitoria-gold-productivity * 1.0."
+}, {
+	name: "amount-temporary-map-reveal",
+	id: 209,
+	description: "DE only. Must be defined with a defconst. If > 0, enemy TCs are revealed. Set to 5 for Vietnamese."
+}, {
+	name: "amount-reveal-initial-type",
+	id: 210,
+	description: "DE only. Must be defined with a defconst. Reveals relics on the map for Burmese."
+}, {
+	name: "amount-elevation-bonus-higher",
+	id: 211,
+	description: "DE only. Must be defined with a defconst. The fraction for additional bonus damage dealt from higher elevation. 0.25 for Tatars. Damage that units on higher elevation deal to units on lower elevation is multiplied by 1.25 + amount-elevation-bonus-higher."
+}, {
+	name: "amount-elevation-bonus-lower",
+	id: 212,
+	description: "DE only. Must be defined with a defconst. The fraction for additional bonus damage dealt from lower elevation. Not used for Tatars. Damage that units on lower elevation deal to units on higher elevation is multiplied by 0.75 + amount-elevation-bonus-lower."
+}, {
+	name: "amount-raiding-productivity",
+	id: 213,
+	description: "DE only. Must be defined with a defconst. Used for keshik gold generation per 100 seconds. Set to 50 for Tatars."
+}, {
+	name: "amount-mercenary-kipchak-count",
+	id: 214,
+	description: "DE only. Must be defined with a defconst. The total number of mercenary kipchaks creatable. Researching Cuman Mercenaries sets this to 5 * the number of amount-castle."
+}, {
+	name: "amount-mercenary-kipchak-limit",
+	id: 215,
+	description: "DE only. Must be defined with a defconst. The total number of trained and/or queued mercenary kipchaks."
+}, {
+	name: "amount-shepherd-productivity",
+	id: 216,
+	description: "DE only. Must be defined with a defconst. The Tatars bonus for sheep lasting longer."
+}, {
+	name: "amount-shared-line-of-sight",
+	id: 217,
+	description: "DE only. Must be defined with a defconst. No longer used."
+}, {
+	name: "amount-feudal-town-center-limit",
+	id: 218,
+	description: "DE only. Must be defined with a defconst. This is the number of extra TCs a player is allowed to build IF TCs are enabled in feudal age. Default is 1. Cumans sets this to 2."
+}, {
+	name: "amount-fishing-productivity",
+	id: 219,
+	description: "DE only. Must be defined with a defconst. Mayan bonus for fishing lasting longer."
+}, {
 	name: "amount-unused-0",
 	id: 220,
 	description: "Unused. Might be usable by mods."
 }, {
-	name: "amount-unused-1",
+	name: "amount-monument-food-trickle",
 	id: 221,
-	description: "Unused. Might be usable by mods."
+	description: "Defined as \"amount-unused-1\". The monument food trickle modifier. The amount of resources obtained by owning a monument is 0.7925 * amount-monument-food-trickle."
 }, {
-	name: "amount-unused-2",
+	name: "amount-monument-wood-trickle",
 	id: 222,
-	description: "Unused. Might be usable by mods."
+	description: "Defined as \"amount-unused-2\". The monument wood trickle modifier. The amount of resources obtained by owning a monument is 0.7925 * amount-monument-wood-trickle."
 }, {
-	name: "amount-unused-3",
+	name: "amount-monument-stone-trickle",
 	id: 223,
-	description: "Unused. Might be usable by mods."
+	description: "Defined as \"amount-unused-3\". The monument stone trickle modifier. The amount of resources obtained by owning a monument is 0.7925 * amount-monument-stone-trickle."
 }, {
-	name: "amount-unused-4",
+	name: "amount-monument-gold-trickle",
 	id: 224,
-	description: "Unused. Might be usable by mods."
+	description: "Defined as \"amount-unused-4\". The monument gold trickle modifier. The amount of resources obtained by owning a monument is 0.7925 * amount-monument-gold-trickle."
+}, {
+	name: "amount-relic-food-rate",
+	id: 225,
+	description: "DE only. Must be defined with a defconst. Amount of food generated per minute per relic captured. Set to 30 for Burgundians. Affected by Atheism."
+}, {
+	name: "amount-villagers-killed-by-gaia",
+	id: 226,
+	description: "DE only. Must be defined with a defconst. Total number of villagers lost to gaia."
+}, {
+	name: "amount-villagers-killed-by-animal",
+	id: 227,
+	description: "DE only. Must be defined with a defconst. Total number of villagers lost to wild animals."
+}, {
+	name: "amount-villagers-killed-by-ai-player",
+	id: 228,
+	description: "DE only. Must be defined with a defconst. Total number of villagers lost to AIs."
+}, {
+	name: "amount-villagers-killed-by-human-player",
+	id: 229,
+	description: "DE only. Must be defined with a defconst. Total number of villagers lost to human players."
+}, {
+	name: "amount-food-generation",
+	id: 230,
+	description: "DE only. Must be defined with a defconst. Free food trickle rate per minute. Used in Battle Royale."
+}, {
+	name: "amount-wood-generation",
+	id: 231,
+	description: "DE only. Must be defined with a defconst. Free wood trickle rate per minute. Used in Battle Royale."
+}, {
+	name: "amount-stone-generation",
+	id: 232,
+	description: "DE only. Must be defined with a defconst. Free stone trickle rate per minute. USed in Battle Royale."
+}, {
+	name: "amount-gold-generation",
+	id: 233,
+	description: "DE only. Must be defined with a defconst. Free gold trickle rate per minute. Used in Battle Royale."
+}, {
+	name: "amount-spawn-cap",
+	id: 234,
+	description: "DE only. Must be defined with a defconst. Sets the limit to the number of buildings that can spawn objects for civ bonuses. Probably affected by Nomad."
+}, {
+	name: "amount-flemish-militia-pop",
+	id: 235,
+	description: "DE only. Must be defined with a defconst. Number of alive flemish militia."
+}, {
+	name: "amount-gold-farming-productivity",
+	id: 236,
+	description: "DE only. Must be defined with a defconst. Farming gold production rate per 100 seconds. Burgundian Vinegards tech sets this to 2."
+}, {
+	name: "amount-folwark-collection-amount",
+	id: 237,
+	description: "DE only. Must be defined with a defconst. The amount of food immediately collected from farms around a folwark. Affected by mill technologies and civ bonuses."
+}, {
+	name: "amount-folwark-collection-type",
+	id: 238,
+	description: "DE only. Must be defined with a defconst. The ID of the resource (0 = food, 1 = wood, 2 = stone, 3 = gold) that is given when a farm is constructed around a folwark. Set to 0 for Poles."
+}, {
+	name: "amount-building-id",
+	id: 239,
+	description: "DE only. Must be defined with a defconst. The ID of the building that the folwark needs to upgrade from for the farm collection ability to work. Set to 68 (mill) for Poles."
+}, {
+	name: "amount-units-converted",
+	id: 240,
+	description: "DE only. Must be defined with a defconst. The amount of units lost to enemy conversions."
+}, {
+	name: "amount-stone-gold-mining-productivity",
+	id: 241,
+	description: "DE only. Must be defined with a defconst. Gold production rate while mining stone per 100 seconds. Set to 18 for Poles and is modified by stone gathering techs."
+}, {
+	name: "amount-workshop-food-trickle",
+	id: 242,
+	description: "DE only. Must be defined with a defconst. Trade workshop food production rate multiplier. The amount of food obtained from owning n number of trade workshops (Unit 1647) is given by n * amount-workshop-food-trickle * 2.25."
+}, {
+	name: "amount-workshop-wood-trickle",
+	id: 243,
+	description: "DE only. Must be defined with a defconst. Trade workshop wood production rate multiplier. The amount of wood obtained from owning n number of trade workshops (Unit 1647) is given by n * amount-workshop-wood-trickle * 2.25."
+}, {
+	name: "amount-workshop-stone-trickle",
+	id: 244,
+	description: "DE only. Must be defined with a defconst. Trade workshop stone production rate multiplier. The amount of stone obtained from owning n number of trade workshops (Unit 1647) is given by n * amount-workshop-stone-trickle * 2.25."
+}, {
+	name: "amount-workshop-gold-trickle",
+	id: 245,
+	description: "DE only. Must be defined with a defconst. Trade workshop gold production rate multiplier. The amount of gold obtained from owning n number of trade workshops (Unit 1647) is given by n * amount-workshop-gold-trickle * 2.25."
+}, {
+	name: "amount-units-value-total",
+	id: 246,
+	description: "DE only. Must be defined with a defconst. The total cost of all units trained so far. This does not decrease when units are killed."
+}, {
+	name: "amount-buildings-value-total",
+	id: 247,
+	description: "DE only. Must be defined with a defconst. The total cost of all buildings constructed so far. This does not decrease when buildings are destroyed."
+}, {
+	name: "amount-villagers-created-total",
+	id: 248,
+	description: "DE only. Must be defined with a defconst. The total number of all villagers trained so far. This does not decrease when villagers are killed."
+}, {
+	name: "amount-villagers-idle-periods-total",
+	id: 249,
+	description: "DE only. Must be defined with a defconst. The number of villagers that entered an idle state since the game started. This is only updated every 5 physical minutes, and the starting villagers are added to this resource at the beginning of the game since they start out idle."
+}, {
+	name: "amount-villagers-idle-seconds-total",
+	id: 250,
+	description: "DE only. Must be defined with a defconst. The amount of total seconds all villagers have been idle since the start of the game. This is only updated every 5 physical minutes. Any villagers immediately add their idle time to this resource if they die."
+}, {
+	name: "amount-trade-food-percent",
+	id: 251,
+	description: "DE only. Must be defined with a defconst. The percentage of gold generated from trade that is also given as food. Bengalis sets this to 10."
+}, {
+	name: "amount-trade-wood-percent",
+	id: 252,
+	description: "DE only. Must be defined with a defconst. The percentage of gold generated from trade that is also given as wood."
+}, {
+	name: "amount-trade-stone-percent",
+	id: 253,
+	description: "DE only. Must be defined with a defconst. The percentage of stone generated from trade that is also given as food."
+}, {
+	name: "amount-livestock-food-productivity",
+	id: 254,
+	description: "DE only. Must be defined with a defconst. Garrisoned herdable food generation rate per 60 seconds. Gurjaras sets this to 3.5."
+}, {
+	name: "amount-speed-up-building-type",
+	id: 255,
+	description: "DE only. Must be defined with a defconst. The ID of the building to use for the speed up effect. This is set to the caravanserai by default."
+}, {
+	name: "amount-speed-up-building-range",
+	id: 256,
+	description: "DE only. Must be defined with a defconst. This specifies the range (in tiles) of the square area created around the speed up building for the speed up effect. The speed up building is specified by amount-speed-up-building-type. Set to 8 by default."
+}, {
+	name: "amount-speed-up-percentage",
+	id: 257,
+	description: "DE only. Must be defined with a defconst. The adjustment used when a unit matching the amount-speed-up-object-type is within the amount-speed-up-building-range of the speed up building. Set to 0.2 (20%) by default."
+}, {
+	name: "amount-speed-up-object-type",
+	id: 258,
+	description: "DE only. Must be defined with a defconst. The class ID (900+) of units that should be affected by the speed up effect. Set to 919 (trade-cart-class) by default."
+}, {
+	name: "amount-speed-up-effect-type",
+	id: 259,
+	description: "DE only. Must be defined with a defconst. The type of effect caused by the speed up building. Possible values are 5 (movement speed), 13 (work rate), and 109 (regeneration). Set to 5 by default."
+}, {
+	name: "amount-speed-up-secondary-effect-type",
+	id: 260,
+	description: "DE only. Must be defined with a defconst. This is the type of secondary effect caused by the speed up building. Uses same values as amount-speed-up-effect-type. Set to 109 (regeneration) by default."
+}, {
+	name: "amount-speed-up-secondary-percentage",
+	id: 261,
+	description: "DE only. Must be defined with a defconst. The adjustment used for the secondary speed up effect type when a unit matching the amount-speed-up-object-type is within the amount-speed-up-building-range of the speed up building. Set to 60 by default (60 HP per minute)."
+}, {
+	name: "amount-civ-name-override",
+	id: 262,
+	description: "DE only. Must be defined with a defconst. Unknown."
+}, {
+	name: "amount-starting-scout-id",
+	id: 263,
+	description: "DE only. Must be defined with a defconst. The unit ID of the starting scout."
+}, {
+	name: "amount-relic-wood-rate",
+	id: 264,
+	description: "DE only. Must be defined with a defconst. The relic wood production per minute."
+}, {
+	name: "amount-relic-stone-rate",
+	id: 265,
+	description: "DE only. Must be defined with a defconst. The relic stone production per minute."
+}, {
+	name: "amount-chopping-gold-productivity",
+	id: 266,
+	description: "DE only. Must be defined with a defconst. Gold production while lumberjacks chop wood per 100 seconds. Affected by Paper Money."
+}, {
+	name: "amount-foraging-wood-productivity",
+	id: 267,
+	description: "DE only. Must be defined with a defconst. Wood production while foragers gather food per 100 seconds. Set to 10.4753 for Portuguese."
+}, {
+	name: "amount-hunting-productivity",
+	id: 268,
+	description: "DE only. Must be defined with a defconst. Gold production while hunters gather food per 100 seconds."
+}, {
+	name: "amount-technology-reward-effect",
+	id: 269,
+	description: "DE only. Must be defined with a defconst. The ID of an additional effect which will fire when any technology is researched."
+}, {
+	name: "amount-unit-repair-cost",
+	id: 270,
+	description: "DE only. Must be defined with a defconst. The percentage of cost required to repair siege units and ships. Set to 0.5 by default."
+}, {
+	name: "amount-building-repair-cost",
+	id: 271,
+	description: "DE only. Must be defined with a defconst. The percentage of cost required to repair buildings. Set to 0.5 by default. Affected by Georgians team bonus."
+}, {
+	name: "amount-elevation-damage-higher",
+	id: 272,
+	description: "DE only. Must be defined with a defconst. Damage modifier for own units when attacked from higher elevation."
+}, {
+	name: "amount-elevation-damage-lower",
+	id: 273,
+	description: "DE only. Must be defined with a defconst. Damage modifier for own units when attacked from lower elevation. Georgians modifies this by -0.15."
+}, {
+	name: "amount-infantry-kill-reward",
+	id: 274,
+	description: "DE only. Must be defined with a defconst. This resource currently effectively enables/disables gold generation per second by infantry killing villagers, trade units and monks. Affected by Chieftains."
+}, {
+	name: "amount-military-can-convert",
+	id: 279,
+	description: "DE only. Must be defined with a defconst. Military units with the conversion task can convert units if this is set to > 0 for a player."
+}, {
+	name: "amount-military-conversion-range-adj",
+	id: 280,
+	description: "DE only. Must be defined with a defconst. Adds to the conversion range of military units. Probably only affects military units that can convert, not monks. Set to 6 by default."
+}, {
+	name: "amount-military-conversion-chance",
+	id: 281,
+	description: "DE only. Must be defined with a defconst. Determines the conversion probability per monk second. Probably only affects military units that can convert, not monks. Set to 25 by default."
+}, {
+	name: "amount-military-conversion-recharge-rate",
+	id: 282,
+	description: "DE only. Must be defined with a defconst. Determines the faith recharge rate after successful conversions. Probably only affects military units that can convert, not monks. Set to 1.6 by default."
+}, {
+	name: "amount-spawn-stay-inside",
+	id: 283,
+	description: "DE only. Must be defined with a defconst. Used to spawn one relic in one Armenian fortified church once constructed."
+}, {
+	name: "amount-cavalry-kill-reward",
+	id: 284,
+	description: "DE only. Must be defined with a defconst. This resource effectively sets the gold generation rate per second by cavalry fighting other military units. Used to be used by Persians."
+}, {
+	name: "amount-trigger-shared-visibility",
+	id: 285,
+	description: "DE only. Must be defined with a defconst. Unknown."
+}, {
+	name: "amount-trigger-shared-exploration",
+	id: 286,
+	description: "DE only. Must be defined with a defconst. Unknown."
+}, {
+	name: "amount-gaia-kills",
+	id: 300,
+	description: "DE only. Must be defined with a defconst. Amount of units Gaia has killed."
+}, {
+	name: "amount-player1-kills",
+	id: 301,
+	description: "Amount of units Player 1 has killed."
+}, {
+	name: "amount-player2-kills",
+	id: 302,
+	description: "Amount of units Player 2 has killed."
+}, {
+	name: "amount-player3-kills",
+	id: 303,
+	description: "Amount of units Player 3 has killed."
+}, {
+	name: "amount-player4-kills",
+	id: 304,
+	description: "Amount of units Player 4 has killed."
+}, {
+	name: "amount-player5-kills",
+	id: 305,
+	description: "Amount of units Player 5 has killed."
+}, {
+	name: "amount-player6-kills",
+	id: 306,
+	description: "Amount of units Player 6 has killed."
+}, {
+	name: "amount-player7-kills",
+	id: 307,
+	description: "Amount of units Player 7 has killed."
+}, {
+	name: "amount-player8-kills",
+	id: 308,
+	description: "Amount of units Player 8 has killed."
+}, {
+	name: "amount-kills-by-gaia",
+	id: 325,
+	description: "DE only. Must be defined with a defconst. Likely the number of the player's own units that were killed by Gaia. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player1",
+	id: 326,
+	description: "Likely the number of the player's own units that were killed by player 1. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player2",
+	id: 327,
+	description: "Likely the number of the player's own units that were killed by player 2. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player3",
+	id: 328,
+	description: "Likely the number of the player's own units that were killed by player 3. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player4",
+	id: 329,
+	description: "Likely the number of the player's own units that were killed by player 4. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player5",
+	id: 330,
+	description: "Likely the number of the player's own units that were killed by player 5. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player6",
+	id: 331,
+	description: "Likely the number of the player's own units that were killed by player 6. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player7",
+	id: 332,
+	description: "Likely the number of the player's own units that were killed by player 7. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-kills-by-player8",
+	id: 333,
+	description: "Likely the number of the player's own units that were killed by player 8. Likely used to calculate Units Lost in the achievements screen."
+}, {
+	name: "amount-gaia-razings",
+	id: 350,
+	description: "DE only. Must be defined with a defconst. The amount of buildings Gaia has destroyed."
+}, {
+	name: "amount-player1-razings",
+	id: 351,
+	description: "The amount of buildings player 1 has destroyed."
+}, {
+	name: "amount-player2-razings",
+	id: 352,
+	description: "The amount of buildings player 2 has destroyed."
+}, {
+	name: "amount-player3-razings",
+	id: 353,
+	description: "The amount of buildings player 3 has destroyed."
+}, {
+	name: "amount-player4-razings",
+	id: 354,
+	description: "The amount of buildings player 4 has destroyed."
+}, {
+	name: "amount-player5-razings",
+	id: 355,
+	description: "The amount of buildings player 5 has destroyed."
+}, {
+	name: "amount-player6-razings",
+	id: 356,
+	description: "The amount of buildings player 6 has destroyed."
+}, {
+	name: "amount-player7-razings",
+	id: 357,
+	description: "The amount of buildings player 7 has destroyed."
+}, {
+	name: "amount-player8-razings",
+	id: 358,
+	description: "The amount of buildings player 8 has destroyed."
+}, {
+	name: "amount-razings-by-gaia",
+	id: 375,
+	description: "DE only. Must be defined with a defconst. Likely the number of the player's own buildings that were destroyed by Gaia. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player1",
+	id: 376,
+	description: "Likely the number of the player's own buildings that were destroyed by player 1. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player2",
+	id: 377,
+	description: "Likely the number of the player's own buildings that were destroyed by player 2. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player3",
+	id: 378,
+	description: "Likely the number of the player's own buildings that were destroyed by player 3. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player4",
+	id: 379,
+	description: "Likely the number of the player's own buildings that were destroyed by player 4. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player5",
+	id: 380,
+	description: "Likely the number of the player's own buildings that were destroyed by player 5. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player6",
+	id: 381,
+	description: "Likely the number of the player's own buildings that were destroyed by player 6. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player7",
+	id: 382,
+	description: "Likely the number of the player's own buildings that were destroyed by player 7. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-razings-by-player8",
+	id: 383,
+	description: "Likely the number of the player's own buildings that were destroyed by player 8. Likely used to calculate Buildings Lost in the achievements screen."
+}, {
+	name: "amount-gaia-kill-value",
+	id: 400,
+	description: "DE only. Must be defined with a defconst. The score value gained for Gaia from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player1-kill-value",
+	id: 401,
+	description: "The score value gained for player 1 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player2-kill-value",
+	id: 402,
+	description: "The score value gained for player 2 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player3-kill-value",
+	id: 403,
+	description: "The score value gained for player 3 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player4-kill-value",
+	id: 404,
+	description: "The score value gained for player 4 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player5-kill-value",
+	id: 405,
+	description: "The score value gained for player 5 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player6-kill-value",
+	id: 406,
+	description: "The score value gained for player 6 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player7-kill-value",
+	id: 407,
+	description: "The score value gained for player 7 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-player8-kill-value",
+	id: 408,
+	description: "The score value gained for player 8 from killing units, likely used to calculate the military score."
+}, {
+	name: "amount-gaia-razing-value",
+	id: 425,
+	description: "DE only. Must be defined with a defconst. The score gained for Gaia from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player1-razing-value",
+	id: 426,
+	description: "The score gained for player 1 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player2-razing-value",
+	id: 427,
+	description: "The score gained for player 2 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player3-razing-value",
+	id: 428,
+	description: "The score gained for player 3 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player4-razing-value",
+	id: 429,
+	description: "The score gained for player 4 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player5-razing-value",
+	id: 430,
+	description: "The score gained for player 5 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player6-razing-value",
+	id: 431,
+	description: "The score gained for player 6 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player7-razing-value",
+	id: 432,
+	description: "The score gained for player 7 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-player8-razing-value",
+	id: 433,
+	description: "The score gained for player 8 from destroying buildings, likely used to calculate military score."
+}, {
+	name: "amount-gaia-tribute",
+	id: 450,
+	description: "DE only. Must be defined with a defconst. The total tribute sent by Gaia."
+}, {
+	name: "amount-player1-tribute",
+	id: 451,
+	description: "The total tribute sent by player 1."
+}, {
+	name: "amount-player2-tribute",
+	id: 452,
+	description: "The total tribute sent by player 2."
+}, {
+	name: "amount-player3-tribute",
+	id: 453,
+	description: "The total tribute sent by player 3."
+}, {
+	name: "amount-player4-tribute",
+	id: 454,
+	description: "The total tribute sent by player 4."
+}, {
+	name: "amount-player5-tribute",
+	id: 455,
+	description: "The total tribute sent by player 5."
+}, {
+	name: "amount-player6-tribute",
+	id: 456,
+	description: "The total tribute sent by player 6."
+}, {
+	name: "amount-player7-tribute",
+	id: 457,
+	description: "The total tribute sent by player 7."
+}, {
+	name: "amount-player8-tribute",
+	id: 458,
+	description: "The total tribute sent by player 8."
+}, {
+	name: "amount-tribute-from-gaia",
+	id: 475,
+	description: "DE only. Must be defined with a defconst. Likely the total tribute received from Gaia."
+}, {
+	name: "amount-tribute-from-player1",
+	id: 476,
+	description: "Likely the total tribute received from player 1."
+}, {
+	name: "amount-tribute-from-player2",
+	id: 477,
+	description: "Likely the total tribute received from player 2."
+}, {
+	name: "amount-tribute-from-player3",
+	id: 478,
+	description: "Likely the total tribute received from player 3."
+}, {
+	name: "amount-tribute-from-player4",
+	id: 479,
+	description: "Likely the total tribute received from player 4."
+}, {
+	name: "amount-tribute-from-player5",
+	id: 480,
+	description: "Likely the total tribute received from player 5."
+}, {
+	name: "amount-tribute-from-player6",
+	id: 481,
+	description: "Likely the total tribute received from player 6."
+}, {
+	name: "amount-tribute-from-player7",
+	id: 482,
+	description: "Likely the total tribute received from player 7."
+}, {
+	name: "amount-tribute-from-player8",
+	id: 483,
+	description: "Likely the total tribute received from player 8."
 } ];
 
 //RuleDelta
@@ -23634,11 +23986,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1213516805600186419\">Link</a>",
 	description: "I can't get up-create-group to work with goals for index and count, it only seems to work if I pass 0 to both parameters."
 }, {
-	name: "donjon-spearman-line no longer defined internally",
-	date: "Mar 1, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1213280983483293716\">Link</a>",
-	description: "Very minor bug but I noticed the March PUP makes donjon-spearman-line give an undefined error now unless you manually defconst -227."
-}, {
 	name: "Unable to receive AI from host in multiplayer lobby",
 	date: "Feb 27, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211911683023441930\">Link</a>",
@@ -23693,11 +24040,6 @@ bugsArray = [ {
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
 	description: "Several bugs: (1) all ally unit counts are currently bugged since they count the entire unit line, rather than just the unit given to the command. (2) all enemy unit counts are currently bugged as they, including all the different upgrades, just count the base unit and not the specific given upgrade. The unit lines still work for enemies. (3) elite-huskarl-barracks/elite-stable-tarkan cannot be	counted for ally & enemy players. Both give 0 and there is no unit-line as an alternative. (4) elite-gbeto cannot be counted for ally & enemy players. Only the non-elite gbeto is counted. (5) dismounted-konniks/elite-dismounted-konniks are not counted for enemy players and give -1. dismounted-konnik-line gives -2, presumably because it is counting	both of these. (5) flemish-militia-male and flemish-militia-female are not counted for enemy players and give -1. Instead, for	enemy players, they get included in flemish-militia-trained. I assume this is intended behavior. But something for people to be aware of."
-}, {
-    name: "sn-gold/stone-dropsite-distance and sn-dropsite-separation-distance doesn't seem to affect mining camp placement",
-    date: "Sep 10, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150570751368364083\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1150793627090571304\">Link 2</a>",
-    description: "sn-gold-dropsite-distance sn-stone-dropsite-distance doesn't work like it does in UP instead it seems to not reliably influence MC placement. its bugged on DE. UP will place the MC correctly, no matter if value at 50 or 255 in this scenario. See Discord Link 1 for test script. Update: sn-dropsite-separation-distance doesn't seem to affect dropsite placement anymore either."
 }, {
     name: "(can-build town-center) doesn't check if the AI has enough stone",
     date: "Sep 9, 2023",

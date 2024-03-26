@@ -65,6 +65,8 @@
 			<p>Load commands, such as (load "AI Name/Attack"), can be nested (a script that loads another script) up to 10 levels deep.</p>
 			<h3>Nested #load-if Commands</h3>
 			<p>The CPSB (the original ES AI scripting documentation) says that conditional loading directives (#load-if commands like #load-if-defined AZTEC-CIV) can be nested 50 levels deep. Nested means having a #load-if inside of a #load-if, where the inner #load-if is only read if the outer #load-if is true. However, some testing in UP a couple years ago found that the nesting limit is much lower, somewhere in the upper 30s, so be careful when using a bunch of nested #load-if-not-defined commands.</p>
+			<h3>Lag Limit</h3>
+			<p>While not a true limit per se, any script pass that lasts longer than 20 milliseconds will start causing lag. Script pass durations can be checked with up-get-precise-time.</p>
 			<h3>Doctrine</h3>
 			<p>The often forgotten doctrine. There is only one because there can only be one true doctrine...Anyway, the doctrine is simply an extra goal that you can't use with UP commands. All you can do is set it exactly to a given value with the set-doctrine command and then check if the doctrine is set exactly to a certain value with the doctrine command. But in dire need, you can use it if you run out of goals.</p>			
 
