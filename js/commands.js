@@ -18364,7 +18364,7 @@ cFeBreakPoint.commandParameters = [ {
 } ];
 cFeBreakPoint.example = [ {
 	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the OptionGoalId parameter is set to -1.",
-	data: "(defrule\r\n\t(taunt-detected any-ally 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt any-ally 255)\r\n)"
+	data: "(defrule\r\n\t(taunt-detected any-computer 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt this-any-computer 255)\r\n)"
 }, {
 	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
 	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
@@ -21357,7 +21357,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-attacker-count",
 	id: 33,
-	description: "The number of objects that are attacking the object. This is not increased for certain situations, like hunting."
+	description: "The number of objects that are attacking the object. Ranged units are only counted when a projectile is actively flying through the air toward the unit. Melee units are only counted after they have caused damage and will continue to be counted as attackers until they are retasked or switch to a different target. This is not increased for certain situations, like hunting."
 }, {
 	name: "object-data-attacker-id",
 	id: 34,
@@ -21365,7 +21365,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-under-attack",
 	id: 35,
-	description: "Returns 1 if the object is being attacked, otherwise 0. When attacked by ranged units, this data returns 1 only after the projectile is launched, but when attacked by melee units this data returns 1 only when the melee unit causes damage. Not set for certain situations, like hunting. Doesn't work for villagers. Once set to 1, there appears to be about a 30 second cooldown until the data is reset back to 0 if no other unit has attacked in that 30 second window."
+	description: "Returns 1 if the object is being attacked, otherwise 0. When attacked by ranged units, this data returns 1 only after the projectile is launched, but when attacked by melee units this data returns 1 only after the melee unit causes damage. It remains at 1 until the attacking unit switches its task or target. Not set for certain situations, like hunting. Doesn't work for villagers. Once set to 1, there appears to be about a 30 second cooldown until the data is reset back to 0 if no other unit has attacked in that 30 second window."
 }, {
 	name: "object-data-attack-timer",
 	id: 36,
@@ -23976,11 +23976,16 @@ pWallId.wildcardParam = [ {
 
 
 bugsArray = [ {
-	// 	name: "",
-	// 	date: "",
-	// 	link: "<a href=\"\">Link</a>",
-	// 	description: ""
-	// }, {
+// 	name: "",
+// 	date: "",
+// 	link: "<a href=\"\">Link</a>",
+// 	description: ""
+// }, {
+	name: "The taunt command cuts off the first digit of the taunt",
+	date: "Apr 16, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1229836038369972356\">Link</a>",
+	description: "The (taunt #) command is bugged in DE. On-screen it looks like it cuts off the first digit of the taunt number. (taunt 11) will cause (taunt-detected any-ally 1) to be true for allied AIs, which seems to confirm this. Use (chat-to-allies \"/11\") as an alternative, with the forward slash to make sure the taunt number is interpreted correctly."
+}, {
 	name: "up-create-group doesn't work with goals as parameters",
 	date: "Mar 2, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1213516805600186419\">Link</a>",
