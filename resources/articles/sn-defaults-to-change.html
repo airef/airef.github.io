@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<title>The Twelve Strategic Number Settings You Must Change Immediately</title>
+	<title>The Seventeen Strategic Number Settings You Must Change Immediately</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
@@ -16,7 +16,7 @@
 	<div class="container">
 		<div id="nav-placeholder"></div>
 		<div class="article">
-			<h2>The Twelve Strategic Number Settings You Must Change Immediately</h2>
+			<h2>The Seventeen Strategic Number Settings You Must Change Immediately</h2>
 			<p>I hope you enjoy clickbaity titles. Each strategic number has a default setting that the developers decided was the best setting in most cases. However, some of these default settings actually make no sense and cause frustration for many new scripters. Here is a list of strategic numbers you should change in your AI if you haven't already.</p>
 			<h3>Example Code</h3>
 			<p>Here is some code you can quickly copy and paste into your AI to change the SN defaults to the values recommended in this article. The change for sn-gate-type-for-wall isn't included since it's only required for Return of Rome gates.</p>
@@ -42,7 +42,9 @@
 (defrule
 	(true)
 =>
+	(set-strategic-number sn-gate-type-for-wall 1)	;only needs to be set to 1 in RoR
 	(set-strategic-number sn-zero-priority-distance 255)
+	(set-strategic-number sn-dropsite-separation-distance 3)
 	(disable-self)
 )</code></pre></div>
 			<h3>sn-cap-civilian-builders</h3>
@@ -68,8 +70,10 @@
 			<h3>sn-zero-priority-distance</h3>
 			<p><a href="../../strategic-numbers/sn-details.html#sn-zero-priority-distance">sn-zero-priority-distance</a> either will cause units beyond this distance from the main town center to become idle, or it makes enemy targets beyond this to have zero priority, meaning the AI won't attack them. Neither outcome is desirable, so set this to the max value of 255 so you don't have to worry about it. The default value is 50.</p>
 			<h3>sn-gate-type-for-wall</h3>
-			<p>This change is only necessary for scripting for Return of Rome. In AoE2 DE, <a href="../../strategic-numbers/sn-details.html#sn-gate-type-for-wall">sn-gate-type-for-wall</a> tells the AI to build stone gates when it's set to the default value of 0 whenever it sees the <a href="../../commands/command-details.html#build-gate">build-gate</a> command, and it tells the AI to build palisade gates when it's set to 1. In Return of Rome, small gates are based on palisade gates, so you must set sn-gate-type-for-wall to 1 before your AI can build gates.</p>
-			
+			<p>This change is only necessary for scripting for Return of Rome. In AoE2 DE, <a href="../../strategic-numbers/sn-details.html#sn-gate-type-for-wall">sn-gate-type-for-wall</a> tells the AI to build stone gates when it's set to the default value of 0 whenever it sees the <a href="../../commands/command-details.html#build-gate">build-gate</a> command, and it tells the AI to build palisade gates when it's set to 1. In Return of Rome, small gates are based on palisade gates, so you must set sn-gate-type-for-wall to 1 before your AI can build gates.</p><h3>sn-zero-priority-distance</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-zero-priority-distance">sn-zero-priority-distance</a> either will cause units beyond this distance from the main town center to become idle, or it makes enemy targets beyond this to have zero priority, meaning the AI won't attack them. Neither outcome is desirable, so set this to the max value of 255 so you don't have to worry about it. The default value is 50.</p>
+			<h3>sn-dropsite-separation-distance</h3>
+			<p><a href="../../strategic-numbers/sn-details.html#sn-dropsite-separation-distance">sn-dropsite-separation-distance</a> sets the minimum distance that all dropsites must be from one another, even dropsites of a different type. The default value of 10 is quite high, meaning that if a lumber camp was build 5 tiles away from a pile of gold, then the AI will not place a mining camp near that pile of gold unless sn-dropsite-separation-distance is set less than 5. 3 or 4 is the setting that scripter64 recommended. 10 tiles is used as the default for backwards compatibility for AIs created before UserPatch, when 10 tiles was a hardcoded minimum dropsite separation distance that Ensemble Studios had set.</p>			
 			<hr>
 
 		</div>
