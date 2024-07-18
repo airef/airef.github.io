@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<head>
+	<title>Star Wars Galactic Battlegrounds - AI Scripting Reference</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h1>Star Wars Galactic Battlegrounds - AI Scripting Reference</h1>
+
+			<h3>Table of Contents</h3>
+			<ul>
+				<li><a href="#section0">Section 0: Introduction</a></li>
+				<li><a href="#section1">Section 1: Non-AI Technical Information</a></li>
+				<li><a href="#section2">Section 2: What the AI Can't Do</a></li>
+				<li><a href="#section3">Section 3: Interesting AI Bugs & Oddities</a></li>
+				<li><a href="#section4">Section 4: Getting Started</a></li>
+				<li><a href="#section5">Section 5: New Stuff</a></li>
+				<li><a href="#section6">Section 6: My Experiences & Advice</a></li>
+				<li><a href="#code-snippets">Code Snippets</a></li>
+			</ul>
+
+<h2 id="section0">Section 0: Introduction</h2>
+
+<p>Star Wars Galactic Battlegrounds (abbreviated SWGB) and its expansion Clone Campaigns (abbreviated CC) is an official offshoot of Age of Empires 2 (abbreviated AOE2) made all the way back in 2001. It's very similar to AOE2: Four resources to gather, train Villagers from a Town Center (except they're called Workers and a Command Center), build a Lumber Camp nearby your trees to collect Wood (except they're called a Processing Center and Carbon), advance through the ages (now called Tech Levels), and you can build a Castle that requires a lot of Stone where you can train your unique unit and Trebuchets that must unpack to fire (except they're now called Fortresses, Ore, and Cannons respectively).</p>
+
+<p>Similar to Forgotten Empires, a mod of the game exists called <a href="https://www.moddb.com/mods/star-wars-galactic-battlegrounds-expanding-fronts">Expanding Fronts</a> (abbreviated EF). Generally speaking, there's not much of a reason to play the original Clone Campaigns over Expanding Fronts for two reasons. Not only is it more game to play with and lots of fixes like working on modern resolutions, Expanding Fronts also comes with an option to launch the original Clone Campaigns data with the Expanding Fronts fixes.</p>
+
+<p>The game goes on sale on <a href="https://www.gog.com/en/game/star_wars_galactic_battlegrounds_saga">GOG</a> and <a href="https://store.steampowered.com/app/356500/STAR_WARS_Galactic_Battlegrounds_Saga/">Steam</a> for pennies extremely often, so if you're interested in what AOE2 But In Space would look like, give it a try! :) But I won't turn this article into an advertisement xD</p>
+
+<p>This guide will assume you're scripting for SWGB:EF, but almost all of it would be applicable to SWGB:CC or even base SWGB.</p>
+
+<h2 id="section1">Section 1: Non-AI Technical Information</h2>
+
+<p>The internal structure of the game is extremely similar to AOE2 The Conquerors 1.0c. That means, when it comes to random maps and AI functionality, we don't have any UP fun tools or any DE abilities - but we are still able to make quite extensive custom AI and custom random map scripts. That said, there are a few interesting differences:</p>
+
+<ul><li>Despite the game's economy being strikingly similar to AOE2 - Farms cost 50 wood (carbon), require a Mill (Food Processing Center) to be built first, and have upgrades available at said Food Proccessing Center to boost their food capacity - the unit balance and unit interactions are nothing like it. For instance, Mechs are simply not a unit archetype that AOE2 has. Similarly, if you run out of gold in AOE2 you are limited to "trash units," when in GB several extremely powerful units don't cost any Nova.</li> 
+<li>Unit attributes can include shielding, power, detection, and stealth, are new to SWGB - no stealthed underwater prefab shelters in AOE2!</li>
+<li>Air is a crucial component of SWGB balance and a powerful strategy. Aside from other air, the way to take out air units is dedicated Anti-Air units and buildings, which cannot attack ground units. Aside from the Fortress (the AOE2 Castle), only a handful of ground units (and most of them cheat units) are able to attack both air and ground.</li>
+<li>AOE2's "Monks" were split up into Medics (which cannot attack and only heal) and Jedi* (which can pick up **holocrons (AOE2 Relics), attack, and convert). Additionally, while all monks are identical in AOE2, GB has a "Padawan/Knight/Master" split. Padawans can attack and pick up holocrons. Knights can convert some units***, attack, pick up holocrons. Masters can convert all convertible units and buildings (after Force Concentration and Force Influence have been researched, analogies to AOE2 Redemption and Atonement respectively), attack, pick up holocrons, and gain stealth. Additionally, EF Nightsister Beastmasters are Padawans that can only attack (no holocron collection).
+<ul><li>*"Jedi" is the casual term. The term used by GB is "Jedi/Sith;" as while there are Jedi Padawans, Jedi Knights, and Jedi Masters, there are also Sith Apprentices, Sith Knights, and Sith Masters. EF added Nightsisters and Knights of Ren, and renamed the group to "Force Users." However, the loose general term "Jedi" and the tiering of "Padawan/Knight/Master" has stuck.</li>
+<li>**The actual name of these is "Jedi Holocrons" and thus they are under J in the scenario editor, but everybody calls them Holocrons.</li>
+<li>*** Which units are and are not convertible by Knights is on a class basis. The term the game tells you is "Unpiloted," and that's pretty accurate - Knights cannot turn units such as Air or Mechs and neither can they turn buildings, but they can turn Workers and Troopers. Certain units such as Bounty Hunters and Air Cruisers are also inconvertible to all Jedi.</li></ul></li>
+<li>Unlike AOE2, where all civs share the same-looking unit (eg: a Militia looks like a Militia if you're playing Aztecs or Britons), in GB all the units look different - a Trade Federation Trooper looks nothing like a Wookiee Trooper! In data, this was done by every single civ having a separate unit. This makes unitlines critical for working with GB - rather than being able to specify "train fighter," which could mean 15 different units for 15 civs, you have to specify "train UNIT-FIGHTER-LINE" . However, that's not the complete end of the story, as the game also has some hardcode (modified in EF to be un-hardcode) to do this. For instance, Grenade Troopers in base GB are specified by unit - "train UNIT-GRENTRP" - and not a unitline. The game engine knows that for some civs this means this unit, and for some other civs this means this other unit, thanks to this hardcode. (Another non-AI application of this is with "match-player-civ" in RMS files, which ensures that e.g. Gungans get a Gungan scout and Wookiees get a Wookiee scout). Additionally, this is also how unit upgrade technologies work (think: AOE2 Archer -> Crossbowman). Due to every unit being different, instead of the one tech upgrading ALL Trooper Recruits to Troopers, the GB devs decided to have individual techs for individual civs: so the Republic's "Trooper" research has a different ID from the Confederacy's "Trooper" research. Again, the hardcode handles this, so you don't need to worry about it unless there's a bug in EF where something isn't hooked up correctly.</li></ul>
+
+<h2 id="section2">Section 2: What the AI Can't Do</h2>
+
+<p>The AOE2 community has recieved many engine updates, from UP to HD to DE, that have brought with them many improvements including ones that enhance the AI's functionality. We simply don't have those in GB. We'd love to be able to micro Masters to convert Assault Mechs and retreat once the conversion has finished, or order Air Cruisers to Attack Ground to hit Anti-Air Turrets outside of their range - but we simply can't. While many people have contributed to the advancements on AOE2's engine, the GB community just doesn't have this tech wizardry. Aditionally, the GB and CC devs didn't exactly do any better when they made the game. Here is a full list of Things that the AI really doesn't understand how to engage with:</p>
+
+<h3>Mechanics:</h3>
+<ul><li>Shielding. The AI can be told to build Shield Generators, which provide shielding in an area around them. However, it builds them like it does any other building. The AI does also not understand that Shield Generators do not work without power, and will not especially prioritize them over other power logic.</li>
+<li>Power Droids. The CC addition of Power Droids was not hooked up into the AI and they will sit there doing nothing.</li>
+<li>Stealth. If a unit has stealth, the AI will use it like a regular unit. The AI is able to target attack groups onto enemy stealth units even if they are not detected, but they will be unable to attack until the unit is revealed.</li>
+<li>Detection. If a unit has detection, the AI will use it like a regular unit. If the AI uses a detector to reveal a stealth unit, it was by complete co-incidence.</li>
+<li>Regicide mode (Terminate the Commander): The AI is not able to research "Commander Locate" (GB Treason) and if the Commander (GB King) is attacked while it is running to garrison, it will stop running and just sit there being shot at.</li></ul>
+
+<h3>Unit Types:</h3>
+<ul><li>Medics. These units cannot attack, only heal. The AI will almost never heal with these and will send them as part of attack groups. It is common to see three AI medics hugging an Anti-Air Turret.</li>
+<li>Air and Anti-Air. The AI does not realise that anti-air units cannot attack ground units. It is also unable to realise that the EF Interceptors are unable to attack ground units. It is able to correctly attack air units with anti-air, and it fortunately does realise that non-AA units cannot attack air, but it's very common to also see Anti-Air Mobiles in a cuddle pile with said Medics hugging your Turrets.
+<ul><li>The AI also does not realise that anti-air counters air. In particular, the AI logic of "I'm being shot at, I should try to return fire" really misbehaves when an Adv Anti-Air Turret is shooting a Fighter.</li>
+<li>The AI is not able to use Air Transports competently (see Water - Transport Ships below)</li></ul></li>
+
+<li>Jedi. Jedi partially work - they will occasionally attack, occasionally convert, and occasionally pick up holocrons. "Occasionally" is the keyword, though.
+<ul><li>Holocrons:</li>
+<ul><li>The AI does not pick up holocrons that were revealed as part of Holonet Transciever (AOE2 Cartography)</li>
+<li>A SN's default value frequently causes holocron collectors to get stuck (this is fortunately fixable)</li>
+<li>Rarely, a Jedi w/ Holocron can be assigned as part of an attack group, leading it trying to melee some units (which it can't do when holding a holocron) and promptly dying</li>
+<li>The AI struggles extremely hard to pick up Holocrons that have been revealed as part of a Jedi Temple (AOE2 Monastery) being damaged to the point of ejecting its Holocrons</li>
+<li>If a Holocron is in an inaccessible location, the AI will still task the Jedi to pick it up, even if other Holocrons are in available locations. This results in the Jedi freezing.</li>
+<li>If a Jedi is attacked en route to a holocron (eg: by a wild animal), the AI will use the Jedi to attack in response, but in the process forget that the Jedi was supposed to be picking up the holocron. (It may also forget that holocron even exists. Not sure on that one)</li>
+<li>Apparently in AOE2 the AI does not pick up Relics on Easiest. This is not the case in GB.</li>
+<li>[EF] The AI does not understand that Nightsister Beastmasters cannot pick up Holocrons and will still task them to pick them up</li></ul></li>
+<li>Attacking:</li>
+<ul><li>The AI does not stick with choosing a target for its Jedi, and they stutter between targets often hitting none of them</li>
+<li>This is still the case for Jedi with no Jedi-related abilities (eg: EF Nightsister Beastmasters) or a ranged attack (eg: EF Nightsister Hunters)</li></ul></ul>
+<li>Converting:</li>
+<ul><li>It's extremely rare to see the AI pull off a conversion, as it seems to start and then bail immediately (possibly because it is issuing an 'attack in response' order)</li>
+<li>It doesn't understand that certain units cannot be converted</li>
+<li>Struggles to convert anything at all</li></ul></ul>
+<p>What this means is that outside of holocron collection - which has a 50-50 shot of working - Jedi in AI hands are completely useless and easy pickings for any other units. They will occasionally attack and they will occasionally convert - but very occasionally. It's a shame, as Jedi in player hands are EXTREMELY devastating (your Monks have 30 HP and 0/0 armor - our Masters have 400 HP, 1/6 armor, self-regeneration, stealth, and huge attack bonuses to the classes that counter them) but the AI is completely incompetent with them.</p>
+
+<ul><li>Water. The AI is able to build a Shipyard and train boats, but that's about it.</li>
+<ul><li>Shipyards, like other military buildings, require Power or they operate at 25% speed. Unfortunately, the AI is really bad at powering them (more on this later). They are also spaced very far apart when the AI builds them.</li>
+<li>The AI is unable to build buildings with Utility Trawlers (AOE2 Fishing Boats). This includes the AquaHarvester (AOE2 Fish Trap), but also the Sensor Buoy and the Gungan unique building Underwater Prefab Shelter.</li>
+<li>The AI does not defend their Utility Trawlers with their navy, making it very easy to lock them out of water resources without engaging them</li>
+<li>Cruisers are the water siege unit (not to be confused with Air Cruisers), but the AI doesn't really understand that a) they should stay OUT of turret range and fire safely from there and b) that they should really go after buildings instead of other ships. It does use them, just not very well.</li>
+<li>There is no way to detect if the fish on the map has been exhausted, which results in generally poor Utility Trawler behaviour.</li>
+<li>Transport Ship behaviour is appalling (as is Air Transports). Its performance is so poor that even on island maps it's better for the AI to not train any. Even ignoring the tendency to load a Transport Ship with one singular AA mobile, drop it off, then pick it right back up and drop it off again five tiles away, the biggest issue is how it completely destroys the AI's economy. The AI is able to correctly recognise that resources on islands require transporting the workers there - but as soon as these workers gain any other task (such as building), it almost never recognises that the workers need transporting home. When it realises the resources on the island are not being worked it will transport even more workers over to gather them - which will then also be reassigned. In essence, if resources are on islands the AI will completely destroy its economy failing to gather them.</li>
+<li>Attack logic for ships often seems ineffectual - it works, just not very well and is straightforward to counter as a human.</li></ul></ul>
+
+<p>Lastly, a note on map type: The AI basically fails to play the game properly if there is not a land bridge between players.</p>
+
+<h2 id="section3">Section 3: Interesting AI Bugs & Oddities</h2>
+
+<p>This section will likely make more sense when the next sections have been read. Assume that these are always under AI control (for instance, trade units wandering aimlessly does not happen under human input!)</p>
+
+<ul><li>Animal Nurseries are built within sn-mill-max-distance, not sn-maximum-town-size. This can be a problem for Power Core logic. They are also considered a food dropoff despite not being one.</li>
+<li>AI is unable to build any more of a building if a foundation has been destroyed. (AOE2 bug fixed in UP).</li>
+<li>AI is unable to build anything after building a Monument (Wonder) (AOE2 bug fixed in UP).</li>
+<li>AI is unable to build on Shallows terrains. (You can wall shallows in GB!) (Semi-related: I think the RMS engine will refuse to place building on Shallows terrains, even if they are placeable there)</li>
+<li>Trade units will sometimes wander aimlessly even if there is a Spaceport (AOE2 Market) that they can trade with.</li>
+<li>Trade units tasked to a Spaceport that is under construction will not work</li>
+<li>Nomad starts without a Command Center (AOE2 Town Center) frequently wait exorbitantly long before finally placing a Town Center</li>
+<li>When building walls, the AI will not cancel these if the worker is killed (unlike other buildings) and will instead continuously send one worker after another to continue where it left off. This can easily result in the entire worker population being destroyed</li>
+<li>AI allocation of workers breaks down past the ~125 mark. (Trade units work as normal)</li>
+<li>The AI does not understand that if a herdable is heading towards an Animal Nursery to be garrisoned, it should not try and slaughter it</li>
+<li>Attack groups do not really respond as you'd hope to being attacked en route. (AOE2 bug)</li>
+<li>Turning Civilian explorers by (sn-minimum-civilian-explorers) or otherwise only work when set on game start. (Turning off civilian explorers at any time works fine) (It's possible I missed an edge case which makes it work, but I tried quite hard and couldn't get it to work).</li></ul>
+
+<p>Several small AI bugs have been fixed with various updates to Expanding Fronts, some of which have perhaps been vanilla GB bugs and some of which were introduced as EF added more things. These include:</p>
+<ul><li>idle-farm-count, building-type-count BLDG-GATE, building-type-count-total BLDG-GATE, players-unit-type-count UNIT-WORKER, cc-players-unit-type-count UNIT-WORKER return correct values</li>
+<li>can-spy and can-spy-with-escrow now require a Fortress</li>
+<li>can-buy-commodity and can-sell-commodity now require a Spaceport</li>
+<li>delete-unit UNIT-WORKER now works properly</li>
+<li>Shipyards can be built on Shore Ice correctly</li></ul>
+<p>Additionally, several unitlines have been fixed and new unitlines added over the updates, so playing on an older version of EF may have unitline issues that were fixed in later version.</p>
+
+<p>Additionally, in EF:</p>
+<ul><li>/goal <number goes here> in the chat box when spectating an AI will tell you the value of that goal</li>
+<li>/sn <name or number of sn goes here> in the chat box when spectating an AI will tell you the value of that sn
+<li>POPULATION-CAP-# defines exist from 25 to 1000</li>
+<li>Rule limit increased from 1,000 to 10,000</li></ul>
+
+<p>Lastly, in AOE2 it seems the timer limit is 50; in GB this seems to be 20.</p>
+
+<h2 id="section4">Section 4: Getting Started</h2>
+
+<p>Wow, that was a lot of introductory information. But I hope it has illustrated how GB is the same, yet different, to AOE2, and the problems encountered when scripting a GB AI are different from the problems encountered when scripting an AOE2 AI. So let's actually get into it!</p>
+
+<p>By and large, an adapted Age of Empires AI for AOC will "work." You will of course need to swap out all the names - villager becomes UNIT-WORKER, house becomes BLDG-PREFAB, and feudal-age becomes tech-level-2, and ofc no UP fun tricks, but fundamentally an AI that trains workers, gathers resources, trains units and researches technology is what a GB AI needs to work.</p>
+
+<p>On the name front, though. While the engine is distinctly AOE2's, several commands got updated for the GB names. For instance, we don't have relics in GB - they're called Jedi Holocrons, and hence (enemy-captured-relics) becomes (enemy-captured-holocrons). For resources, we don't have wood and gold, we have carbon and nova. (Food is still called food). As such, wood-amount becomes carbon-amount. Stone is an interesting one - in-game this is called "Ore," but in the code it's frequently referred to as "metal," and as such the term is (metal-amount). Engine #load-if-defined's were also changed - wonder-race became monument-race and so forth. (The GB devs didn't do their homework on this one, and left in a few cases of the original AOE2 names, which would therefore never be used as the load-if-defined would never be valid). And obviously #load-if-defined SARACENS is simply not going to work here. However, the names of the strategic numbers sn-mill-max-distance and sn-camp-max-distance were not changed, and neither was the name of the fact (sheep-and-forage-too-far) nor (current-age == <whatever>)</p>
+
+<p>If you're looking for a specific name for a unit or building, the easiest way is to find it in the standard Computer AI. (Use SLX Studio -> Data Resources -> Extract DRS -> To Folder -> gamedata.drs for GB, gamedata_x1.drs for CC, gamedata_x2.drs for EF. Then use Notepad++ Find In Files (or better) until you get what you're looking for. Alternatively, a budget method is just to throw gamedata_x2 into Notepad or better and scroll down until you see something that looks like AI script). If you can't find it in there, you'll need to use Advanced Genie Editor (AGE) to fish it up of the data file itself. (For instance, the CC AI did not research the (quite important!) AA Retrofit technology, "rt-aaretrofit" so I had to fish that one up myself.) A few internal names also don't match their final names ("Efficient Manufacturing" is "rt-drafted-labor") and there's even a typo in there ("rt-targetting-sensor") too. Fortunately, all of these errors are pretty easy to fix as in-game it will tell you exactly what file and what line it threw a hissy fit due to something not being defined properly (just like AOE2).</p>
+
+<p>A document exists floating around called the "CPSB for SWGB" that lists most of these names and seems to be fan-adapted (not made by the GB/CC dev team). However, it's not complete and, like the AOE2 CPSB, has a few errors of its own. It is nevertheless a great resource to get started; that and examining the Computer AI (either the standard CC one (which was had several major flaws) or the expanded EF one (which has been rewritten to be Much Less Stupid as well as be much more readable) will put you down the right track.</p>
+
+<p>So that's the core of it.</p>
+
+<h2 id="section5">Section 5: New Stuff</h2>
+
+<p>While several existing things were only renamed, there are a few that are new to GB!</p>
+
+<h3>SNs:</h3>
+
+<p><strong>ID 220: sn-number-forward-gatherers</strong></p>
+<p>Doesn't seem to do anything. I tried turning this to 0, 1, other values in order to disable the way the AI would completely screw over its economy (see Water in Section 2), but no luck. (Default value: -1)</p>
+
+<p><strong>ID 223: sn-percent-attack-air</strong> (default value: 75)<br>
+<strong>ID 17: sn-minimum-air-attack-group-size</strong> (default value: 4)<br>
+<strong>ID 27: sn-maximum-air-attack-group-size</strong> (default value: 10)<br>
+<strong>ID 40: sn-number-air-attack-groups</strong> (default value: 40)</p>
+<p>These SNs are presumably along the same lines of sn-percent-attack-boats, sn-percent-attack-soldiers, sn-minimum-attack-group-size, etc, but I have never formally tested them. NOTE that there is NOT a sn to control the number of air scouts. Instead, air scouts are always assigned to the same number as sn-number-explore-groups: setting this value to 2 will set 2 air scouts and 2 land scouts (assuming 2 air units and 2 land units are available to scout).</p>
+
+<p><strong>ID 21: sn-maximum-jedi-support-group-size</strong></p>
+<p>This SN controls how many "escorts" a holocron collector is given. When a Jedi is tasked to a holocron, these units will go to the holocron. When it is picked up, they will return back to the Temple. Sounds good - but misbehaves. On the return trip, it is very likely that the Jedi freezes up and gets stuck in place for some unknown reason that is only solved by killing the escorts. Additionally, while the escorts will correctly respond to being attacked en route (helpful for clearing wild animals!), they do not respond to being attacked on the return trip. Like scouts, once a unit is assigned an escort it is not cleared - so you can't "turn off the escort" midway by setting this sn to 0 and hoping the units will stop escorting. Set this SN to 0 and save yourself the hassle. (Default value: 2)</p>
+
+<p><strong>ID 6: sn-percent-animal-garrison</strong></p>
+<p>Do not adjust this SN. It will cause a desync in multiplayer. (Apparently. Have never tested this personally). Presumably has something to do with how many herdables are garrisoned into Nurseries, but again, never tested this. (Default value: 100)</p>
+
+<p><strong>ID 162: sn-max-unpowered-buildings</strong></p>
+<p>Once one more than this many buildings are unpowered, (too-many-unpowered-buildings) will become true: you can think of this as the upper limit of unpowered buildings the AI will allow before complaining. Very helpful for knowing when to build a Power Core. This command is sensible enough to not check the power status of prefabs, farms, etc; and seems to check all military buildings, Shield Generators, and Animal Nurseries. (Default value: 2)</p>
+
+<p>For a full list of SNs and which IDs they correspond to, see sn.txt in the directory of an Expanding Fronts installation. (Do not add things to this file and expect them to work). You can test the default value of an SN (or a value midway, if you changed things and want to see!) by loading up a blank AI and using "/sn <name or number>" in the chat (EF addition)</p>
+
+<h3>Facts:</h3>
+
+<p><strong>(powered-area-too-full)</strong></p>
+<p>No idea what this one does. I have never tested this.</p>
+
+<p><strong>(nursery-headroom)</strong></p>
+<p>Ostensibly, this command tells you the amount of space left in nurseries. However, it has multiple problems:</p>
+<ul><li>There is no way to distinguish between "no nerfs and no nursery" and "nursery full" using this alone. The following will cause (nursery-headroom) to return 0:</li>
+<ul><li>No nerfs and no nursery (the start of most games)</li>
+<li>Multiple nerfs and no nursery</li>
+<li>10 garrisoned nerfs in a nursery</li>
+<li>10 garrisoned nerfs and multiple nerfs sticking outside the nursery</li></ul>
+<li>Takes a while to update, much slower than every AI script pass</li>
+<li>Can misbehave on game start (possibly due to not being reset correctly on restart?)</li>
+<li>Only checks the actual current garrison of nurseries, and does not check potential. For instance, if the AI just found 16 nerfs (happens in GB maps) and it has one nursery that doesn't have any nerfs in it that the nerfs are heading towards, nursery-headroom will still return 10.</li></ul>
+
+<p>Generally, it's superior to use building-type-count[-total] BLDG-DROPANIM and unit-type-count UNIT-ANIMAL-HERD-LINE (EF unitline), but this fact does work. A simple rule like:</p>
+
+<p><div class="example"><pre><code>(defrule
+	(nursery-headroom < 1)
+	(can-build BLDG-DROPANIM)
+=>
+	(build BLDG-DROPANIM)
+)</code></pre></div></p>
+
+<p>would, if the fact didn't have all these issues, be an effective way to ensure the AI builds enough nurseries. However, not only will one be built on game start regardless of if there are any nerfs, there's also no guarantee a second one will reliably be built if it's needed. Rules like:</p>
+
+<p><div class="example"><pre><code>(defrule
+	(unit-type-count UNIT-ANIMAL-LINE > 0)
+	(building-type-count-total BLDG-DROPANIM == 0)
+	(can-build BLDG-DROPANIM)
+=>
+	(build BLDG-DROPANIM)
+)
+
+(defrule
+	(unit-type-count UNIT-ANIMAL-LINE > 10)
+	(building-type-count-total BLDG-DROPANIM < 2)
+	(can-build BLDG-DROPANIM)
+=>
+	(build BLDG-DROPANIM)
+)</code></pre></div></p>
+
+<p>would do the job more reliably with only a touch of extra complexity.</p>
+
+
+<p><strong>(too-many-unpowered-buildings)</strong></p>
+<p>Works in conjunction with sn-max-unpowered-buildings. Once one more than this many buildings (checks: all military buildings, Shield Generator, Animal Nursery) are unpowered, this will become true. Very helpful for Power Core logic. Beware that Power Cores are only built within sn-maximum-town-size, whereas Animal Nurseries and Shipyards (or anything built with build-forward) can be built outside this radius, so needs to be handled carefully especially on water maps.</p>
+
+<h3>Commands:</h3>
+
+<p>Nope, no new commands.</p>
+
+<p>... As you can see, for all the mechanics added in GB, the amount of AI functionality added is way fewer. This is  why the AI doesn't understand GB's mechanics: it simply was never integrated into the language, and "me shooty target" which worked okay in AOE2 simply doesn't quite work out the same when you have shields, air and stealthed Jedi Masters.</p>
+
+<h2 id="section6">Section 6: My Experiences & Advice</h2>
+
+<p>With all of the above, that's the technical side of what actually exists and is possible done. However, I thought it would be helpful to share my experiences with GB's mechanics and what I have found to work well.</p>
+
+<h3>6-1: Earlygame Nerfs</h3>
+
+<p>In AOE2, your sheep are 100f for you to eat on game start and forget about. While the idea of sheep exists in GB as "herdables," they're quite different. Firstly, instead of 'sheep,' they can be nerfs, banthas, [EF] Culrnose, [EF] Porgs, etc. But they all share the same attribute: they have 200f but can be garrisoned inside an Animal Nursery (cost 100c, garrisons 10) for a steady trickle of food (that can then be boosted with techs per tech level, much like your wood-chopping upgrades per age in AOE2). (In EF there is a unitline to keep track of them, UNIT-ANIMAL-HERD-LINE, but in GB you will have to search for nerf and bantha by ID or name). The Animal Nursery is also a prerequisite for the Mounted Trooper, an important T1 raiding unit that remains useful for its low cost and good anti-mech damage. This means that unlike AOE2, where eating your sheep is free and forgettable, whether  and how many nerfs you garrison is an important decision.</p>
+
+<p>The original Computer's approach was COMPLETELY useless and would only ever build an Animal Nursery in Tech Level 2 - aka well after it would have eaten all its nerfs. The approach I've taken is to garrison its nerfs as soon as there's 3 or more.</p>
+
+<p>Unfortunately, it's not that simple. The AI has an internal list of food priorities: when you set sn-food-gatherers, they don't all run across the map to eat a deer. This list for AOE2 goes a little like (don't remember exactly) farm->sheep->forage->fish->hunt, and this list was not changed for GB. What this means is that in the earlygame - when you have no farms - and you find some nerfs, even if you want to garrison them and there are perfectly yummy berries to eat and dewbacks to hunt, the AI's internal list goes OOO NERFS and slaughters the lot of them even as they're running towards the Nursery.</p>
+
+<p>My approach to this has been to turn off food gatherers and instead set every gatherer on carbon (set-strategic-number sn-carbon-gatherer-percentage 100) once it finds its nerfs. Then, once the Animal Nursery has finished construction (which you can check by not using -total and just using (building-type-count BLDG-DROPANIM > 0)), a timer is set to give the nerfs time to garrison safely before sn-food-gatherer-percentage is set above 0. I also have to add a bit of extra logic because certain starts can have more than 1 nursery's worth of nerfs, and it also means that the AI has no food income while this happens. I chose to quietly cc-add-resource food to keep its villager production up if it didn't have enough food to train one during this time.</p>
+
+<h3>6-2: Other Food Notes</h3>
+
+<p>With no DUC and no UP fun tools, the AI's location of dropoffs is hardly ideal. It will sometimes fail to scout its berries and it's really terrible at making usage of wildlife food. Wildlife huntable for food can be separated into lure (think boars) and hunt (think deer). Hunt is not terribly impactful although it is free food, but lure is very important.</p>
+
+<p>As mentioned in passing above, GB's food resources vary considerably on each generation of a random map. (Ore, Nova, and Holocrons don't vary). This means there will be maps with all the food in the world. Maps with no food at all. Maps where all the food is a billion Mynocks (deer equivalent) wandering round. Or maps with 2000f worth of lure and nothing else. Maps where berries are 250f instead of 125f AND you rolled twice as many berries as you would normally.</p>
+
+<p>The AI is unfortunately pretty incompetent at making usage of all these food sources, and not just for the herdable issues I outlined above. Food Processor (that's a Mill) placement accounts for berries and shore fish, but not hunt; a player will intuitively know "Oh, there's no berries, I guess I should eat all these Tauntauns wandering around and build my food proc there" but the AI doesn't. Even if it does go on hunt, it assigns 1-2 workers per huntable animal (when you AOE2 veterans will know you need 4 per a deer - but in GB you sometimes need 5 for 170f Tauntauns and 6-8 for 340f Orrays! (The CC devs did an oopsie and put lurables in the huntable class. They have an unfinished attack anim & damage values)). Likewise it's pretty terrible at luring - while it is possible to get the AI to lure, you can use the luring parameters from AoC - but not only is it not very good (I've seen lures get lured away, and if the luring worker is assigned to construction it's just a disaster), the food priority really prevents it from making usage of lure. You can tell it to not build any farms if it still has hunters and foragers, but not only does it then derp out with its hunters as outlined above, the food gather rate from forage is so much slower that if you check (sheep-and-forage-too-far) before building any farms in Tech Level 1 (which is what default GB Computer did!) it is going to take FOREVER for it to finish what could be 3000f worth of forage before building a single farm.</p>
+
+<p>This means the AI, even a perfectly scripted one for every use case, *will* fall behind a good human player, because it's simply not good at making usage of all the food available. It is good at berries and farms, but that's about it.</p>
+
+<p>In my AI, I have pretty extensive food cheats to allow it to catch up, including a cheat that says "If an opponent is in Tech Level 2, and we're in Tech Level 1 and we aren't even aging up yet, we should cheat enough food to make our way there" - because it's just so hopeless. You don't have to do this, but I bring it up to illustrate how you can sometimes work around the AI's ineptitude and create the illusion of an AI that plays the game well.</p>
+
+<h3>6-3: Power Logic</h3>
+
+<p>I mentioned that the AI's logic for power is pretty poor. Looking at the new commands, you might wonder why this is. A fantastic example of this is getting a Troop Center up in Tech Level 1. Unlike AOE2, where drushing is a bit of a meme strat, in GB you can get solid economic damage with Mounted Troopers. These are easily beaten off by the (extremely slow) Trooper Recruits, so getting a Troop Center up in the first Tech Level, either for offense or defense, is much more important in SWGB than getting a Barracks up is in AOE2.</p>
+
+<p>Only the Shield Generator doesn't work if it doesn't have power. All other buildings work at 25% speed. (Command Centers and Fortresses are self-powered). This means, for a player, there's no point building your Power Core BEFORE your Troop Center - not only is a Power Core more expensive (200c vs 160c), if you built the Troop Center first then you'd get a slight headstart due to the unpowered production rate.</p>
+
+<p>The AI, though... it's not so good. For whatever reason, if you build the Troop Center first, then the Power Core, the amount of times the Troop Center is powered is about a 50-50. (I theorize this might be due to the AI trying to power its Animal Nursery). If you build the Power Core first, then the AI nearly always builds the Troop Center within the power core radius and actually powers it. Neither method is completely successful, but PC->TC is WAY more effective than TC->PC, for whatever reason.</p>
+
+<p>I've had pretty good results with setting sn-max-unpowered-buildings to 1 and then building a Power Core (using escrow) whenever (too-many-unpowered-buildings) is true. This works well and means the AI usually does a good enough job of keeping everything powered - one building will always be unpowered, but it's possible that's an Animal Nursery or a duplicate building like one of its three Troop Centers.</p>
+
+<p>... well, it works well for non-water maps. Shipyards, which train military ships and Utility Trawlers (fishing boats) are built anywhere on the map, when Power Cores (and therefore all available power space) is only within sn-maximum-town-size. I couldn't find a good way to get around this, and instead I increase and decrease sn-max-unpowered-buildings depending on the number of shipyards the AI has; 1 shipyard means 1 unpowered buildings, 2-3 shipyards means 2 unpowered buildings, and 4+ shipyards means 3 unpowered buildings. I previously had told the AI to build up to 6 shipyards if it was a good boat civ; but this was counterproductive as the extra shipyards not only were never being powered (and thus almost useless for production), they were causing (too-many-unpowered-buildings) to be true which was causing the AI to spend all its carbon on power cores that weren't accomplishing anything because they were never being built by shipyards.</p>
+
+<p>See the <a href="#section63">Code Snippets</a> section to find the Computer's current power core logic, in the hopes that you might find it useful:</p>
+
+<h3>6-4: cc-players-unit-type-count</h3>
+
+<p>Commands that begin with cc- are cheating commands. These can used to e.g. see through the fog of war to see what types of units an opponent has. They're generally looked down upon in AOE2 - after all, the human can't see what the enemy has so why would the AI be able to? - but in GB the AI has so many issues that we take what we can get.</p>
+
+<p>In particular, while the original GB AI used cc-players-unit-type-count for all sorts of nonsense including training Grenade Troopers as a counter to Royal Crusaders (grenade troopers do not, in fact, counter royal crusaders), there is a strong argument to be made for the air check.</p>
+
+<p>I've already mentioned the AI's inability to handle air and anti-air units. Even if you tell it to build multiple Anti-Air Turrets, there's no guarantee it builds them in good locations. If there is a lack of anti-air units, air can completely destroy an opponent: while Command Center fire can bail you out from a few troopers, it can't attack air. And anti-air can be overwhelmed by enough air. (The only anti-air unit in Tech Level 2 is the Anti-Air Trooper. Fighters have great bonus damage into ... troopers. Yep). As such, my conclusion is that using cc-players-unit-type-count is fair game when the AI simply doesn't know how to use its counters and that failing to counter it would be completely devastating, so I allow it to use cc- to check for enemy air and prepare its AA before, not as, it arrives. (It's still straightforward to roll over the AI enough enough air, if you know what you're doing, as its handling of AA is just so bad).</p>
+
+<p>Another example is Jedi. Masters are devastating in GB because of their great speed, great durability (400 HP, 1/6 armor, regeneration), stealth, and ability to convert high-value targets such as shield generators and Anti-Air Turrets. The AI's inability to reliably counter them means that I allow it to see them with cc- and train Bounty Hunters in response. However, I do it in a better way than the GB devs did ... </p>
+
+<p><div class="example"><pre><code>(defrule
+        (unit-type-count-total UNIT-BOUNTY < 1)
+        (can-train UNIT-BOUNTY)
+        (or
+                (cc-players-unit-type-count any-enemy UNIT-JEDI-LINE >= five-percent-pop)
+                (cc-players-unit-type-count any-enemy UNIT-JEDI4 >= five-percent-pop)
+        )
+=>
+        (train UNIT-BOUNTY)
+)</code></pre></div></p>
+
+<p>This logic looks fine to any AOE2 scripter - a bit silly, but fine. However, remember all the way earlier at the end of Section 1 - the Naboo Jedi Master is not the same unit as the Empire Sith Master! If the AI is e.g. Gungans, it will look at UNIT-JEDI4 and say "That means Jedi Master of ID 125," and if it's facing off against a Galactic Empire opponent, whose unit is 115, the AI goes "Well, there are clearly no units of 125, so I'm all good" and promptly gets all its turrets converted and ran over. The solution is to check a unitline instead, which has been added in data in EF as UNIT-MASTER-LINE.</p>
+
+<h3>6-5: General Cheats</h3>
+
+<p>Following off 6-4, due to our lack of advanced unit commands and AI ineptutide from actions as basic as food gathering, I'm personally of the opinion that a SWGB AI cheating is not only fair game, but also a crucial component of making a fun AI that can keep pace with a player. With the tools currently available, it's simply impossible to make an AI that can play the game as well as even a half-decent human. Cheats - resource or otherwise - can help pave over some of these roadbumps and create the illusion of the AI playing the game properly.</p>
+
+<p>For instance, a fun bug is that the AI's scout logic is so weak that it will occasionally spot its starting berries, but only barely to the point where it wants to build a Food Processor by them but is unable to (because all non-farm buildings must be placed a certain distance away from the starting Command Center), which completely cripples the AI unless it just HAPPENS to wander back in that direction - not something controllable with script! (No, you can't even try and toggle civilian explorers as that's bugged)</p>
+
+<p>Since I'm - Zeldrake - in the fortunate position of being an AI scripter with AGE knowledge and part of the EF dev team, I'm able to create "cheat technologies" to put in EF builds that are unavailable to a player (they have an invalid button) but the AI will research them. (Fun fact: An unfinished tech, rt-amplify-shield-proj, that does nothing was scripted into the default Computer AI in base GB and you could see it research it. So technically, I'm not doing anything the original devs didn't. :p) </p>
+
+<p>Of course, just because these cheat technologies exist doesn't mean they all have to be researched right at the start of the game. Like cc-add-resource, you can use them on an as-needed basis.</p>
+
+<p>As of EF 1.5.3, here are the currently available cheat technologies for the AI. Most of them are researched at the Power Core for 10 carbon, so building and resource availability is not an issue. </p>
+
+<p><strong>ai-advinfcen:</strong> Enables the Advanced Infantry Center, a cheat building. [Design case: "deploy the garrison" is a cheat that enables this building for a player and has faction-specific units (and a few techs) that weren't balanced for random maps - you can think of it as bringing some of the editor goodies to a match.] [Computer use case: If a human builds any Advanced Infantry Centers, this allows the AI to mirror them with their own units, allowing the player to see units recognisable and obscure from the SW universe]</p>
+
+<p><strong>aic-pop:</strong> Gives the AI unlimited population headroom. (Think of it like building 1000 prefabs or the Hun "no houses" bonus). [Design case: When a human would spam a bunch of prefabs in an unimportant location on the map, the AI is stuck building them one at a time and tasking a worker from who-knows-where to build them, which can bottleneck its production by prefabs! In the worst case, the prefab sprawl can wall the AI in.] [Computer use case: Researches it once it hits 200 population]</p>
+
+<p><strong>aic-trade1:</strong> +20% nova (multiplicative) generated from trade. [Design case: With no DUC, the AI is left to put its spaceports wherever, frequently resulting in unoptimal trading. This boosts it up a bit.] [Computer use case: Researched on Hard.]</p>
+
+<p><strong>aic-trade2:</strong> +25% nova (multiplicative) generated from trade. [Design case: When used alongside aic-trade1, results in a +50% nova boost]. [Computer use case: Researched on Hardest]</p>
+
+<p><strong>aic-gunship-garrison*:</strong> Adds the benefit of RP Gunship Arnaments to the Attacker without requiring the garrison, and increases its total cost by a Repeater Trooper (taking into account Efficient Manufacturing's discount). Only affects the Republic Attacker. [Design case: RP Gunship Arnaments is a powerful tech that significantly boosts Attackers, but requires them to be garrisoned (preferably by one Repeater Trooper) to gain any benefit from the tech. Unsurprisingly the AI is unable to garrison, so this tech provides it with an alternative way to make usage of the tech.] [Computer use case: Researched on Hard and Hardest after Gunship Arnaments and Repeater Trooper has been researched]</p>
+
+<p><strong>aic-turret-garrison*:</strong> Adds the 4 bonus beams a Turret gets when garrisoned to its regular attack. Only affects Adv Turrets. [Design case: The GB version of Heated Shot boosts not just ship but all Turret attack by over +200%. Combined with many attack bonuses, turrets garrisoned with a single Repater Trooper (for max beams) are much more effective than AoK Towers. Again, the AI cannot garrison, so this cheat allows an alternative way to use this.] [Computer use case: Researched on Hard and Hardest after Advanced Turret and Repeater Trooper have been researched]</p>
+
+<p><strong>aic-rms-trainables:</strong> Speeds up training of all units available from "x [Capturable]" buildings that can generate on some random maps (eg: Bespin Government Center [Capturable] or Ewok Military Structure [Capturable]) by 4x. [Design case: A human would use a Power Droid to power these buildings, as they can often generate far from players' bases. However, the AI is unable to use Power Droids, unable to recognise that these buildings need power, and unable to reliably power distant buildings, so this negates the 4x malus that unpowered buildings get. Has a funny side effect that if the building happens to be powered, they train 4x as fast, which can result in the AI spamming a LOT of Ewoks] [Computer use case: Researched at game start]</p>
+
+<p><strong>[EF 1.5.4]: ai-cc-los:</strong> Adds, and then removes, +4 LOS to the Command Center. [Design case: revealing berries to fix issues where the AI would be unable to build a Food Processor. Computer researches this shortly after game start]</p>
+
+<p>*The effect of these is technically noticeable by an observant player. For aic-gunship-garrison, if the Attacker is then converted, the player can see it has no garrison yet still has the beams. For aic-turret-garrison, the same is true, but also once the building drops below 20% HP it does not "eject its garrison" that is providing the bonus beams and garrison flag.</p>
+
+<p>Additionally, a solely personal preference I made was to partially refund the AI's Power Cores, Shipyards, and Anti-Air Turrets (refund % depends on difficulty) using cc-add-resource, as the AI has to build many more of them to match a player's effectiveness with them.</p>
+
+<h3>6-6: A Specific Note On Lag</h3>
+
+<p>When writing Computer, my goal has been for it to be playable and fun. Lag obviously interferes with this. I have found two major causes of lag:</p>
+<ol><li>constantly setting sn-gatherer-whatever-percentage (and possibly other sn's as well)</li>
+<li>attack groups created by (attack-now)</li></ol>
+
+<h4>6-6-1: Constantly setting sn's</h4>
+
+<p>With the current script, Computer switches up its gatherer %s depending on how much of each resource it has - so if it has 1000 carbon and 10 food, it sends more workers to food. The rule looks a little like this (simplified for demonstration):</p>
+
+<p><div class="example"><pre><code>(defrule
+	(current-age == tech-level-4)
+	(food-amount < 50) 
+	(carbon-amount > 300) ; lotsa carbon, not much food
+=>
+	(set-strategic-number sn-carbon-gatherer-percentage 10)
+	(set-strategic-number sn-food-gatherer-percentage 50)
+)</code></pre></div></p>
+
+<p>Since it will take a while for the AI to gather the resources so its food amount returns above 50, this rule will be constantly firing, even after the workers have already been redistributed. This, for some reason, causes lag: the value of the sn is not changing, but constantly setting it to even the same value causes a noticeable amount of lag. Not unplayable, but noticeable.</p>
+
+<p>The straightforward solution to this is to check the value of the sn's and if they're already that value, don't execute the action:</p>
+
+<p><div class="example"><pre><code>(defrule
+	(current-age == tech-level-4)
+	(food-amount < 50) 
+	(carbon-amount > 300) ; lotsa carbon, not much food
+	(or
+		(not (strategic-number sn-carbon-gatherer-percentage == 10))
+		(not (strategic-number sn-food-gatherer-percentage == 50))
+	)
+=>
+	(set-strategic-number sn-carbon-gatherer-percentage 10)
+	(set-strategic-number sn-food-gatherer-percentage 50)
+)</code></pre></div></p>
+
+<p>However, this could misbehave if a following rule edited the percentages, which this rule could then edit right back. To alleviate this, I added logic that forced a 30s cooldown before any gatherer adjustments could happen again:</p>
+
+<p><div class="example"><pre><code>(defrule
+	(current-age == tech-level-4)
+	(goal ecoswitch READYTOGO)
+	(food-amount < 50) 
+	(carbon-amount > 300) ; lotsa carbon, not much food
+	(or
+		(not (strategic-number sn-carbon-gatherer-percentage == 10))
+		(not (strategic-number sn-food-gatherer-percentage == 50))
+	)
+=>
+	(set-strategic-number sn-carbon-gatherer-percentage 10)
+	(set-strategic-number sn-food-gatherer-percentage 50)
+	(set-goal ecoswitch COOLDOWN)
+)
+
+(defrule
+	(true)
+=>
+	(enable-timer t-economy 30)
+	(set-goal ecoswitch READYTOGO)
+	(disable-self)
+)
+
+(defrule
+	(timer-triggered t-economy)
+	(not (goal ecoswitch READYTOGO))
+=>
+	(set-goal ecoswitch READYTOGO)
+	(disable-timer t-economy) ; wait for it to be reset by setting to COOLDOWN
+)
+
+(defrule
+	(goal ecoswitch COOLDOWN)
+=>
+	(disable-timer t-economy)
+	(enable-timer t-economy 30)
+	(set-goal ecoswitch COOLDOWNING)
+)</code></pre></div></p>
+
+<h4>6-6-2 Attack group lag from (attack-now)</h4>
+
+<p>(attack-now) is a feared command for good reason: the amount of Things it does means it must not be spammed. But it goes beyond that. Even well after (attack-now) has executed, the attack groups created by the command cause significant lag, enough to slow the game to a powerpoint presentation level of crawl in multiplayer.</p>
+
+<p>I have not done any testing with manually creating attack groups by setting sn-number-attack-groups , but my intuition is that they would cause the same lag.</p>
+
+<p>Fortunately, some AI scripters will know that this is not the only method to get the AI to attack. Town Size Attack, abbreviated TSA, also works well. Set sn-maximum-town-size to a level high enough where it reaches the enemy base, and the "Oh no, there are enemy buildings in my base!" will activate and the AI will beeline all its units towards the threat. Then, when (enemy-buildings-in-town) is no longer true, increase sn-maximum-town-size. Repeat!</p>
+
+<p>The biggest advantage of TSA is that it is much less laggy. However, it's not quite that simple:</p>
+
+<p>Pros of TSA:</p>
+<ul><li>**Significantly** less laggy</li>
+<li>Usually grabs all units</li>
+<li>Attacks closest player</li>
+<li>Reinforcements will join the fight as soon as they can</li></ul>
+
+<p>Simultaneously a pro and con of TSA:</p>
+<ul><li>Increasing town size also increases the area available for building, which can result in buildings being put in distant locations they wouldn't be otherwise - actually very helpful for building Command Centers by ore and nova piles, and building turrets in unusual positions.</li></ul>
+
+<p>Cons of TSA:</p>
+<ul><li>Will sometimes have periods where units sit around doing nothing for no reason, especially Cannons</li>
+<li>Tendency to file units in one at a time and fail to form a threatening ball</li>
+<li>Units all run in as quick as they can, meaning air will always blow itself up on a Fortress while the cannons that would do well against said Fortress are still crawling along</li>
+<li>Unable to attack if a land route does not exist</li>
+<li>Anti-Air units can sometimes lag behind if there is no air for them to shoot at</li>
+<li>Does not work if the AI lacks a Command Center</li>
+<li>Turning TSA off is awkward and results in units strung along the map</li></ul>
+
+<p>Pros of attack-now:</p>
+<ul><li>Jedi conversion sometimes works better</li>
+<li>Can utilize Air Transports and Transport Ships</li>
+<li>Generally uses ships better (still doesn't use them well)</li>
+<li>Significantly easier to script</li></ul>
+
+<p>Simultaneously a pro and con of attack-now:</p>
+<ul><li>Units all move at once, meaning that they keep together, BUT ALSO that they move at the speed of a slowest unit, so your nimble Mounted Troopers and Strike Mechs are crawling at Pummel speed</li>
+<li>Anti-Air units are assigned as part of an attack group, meaning the AA will keep pace with your ground units it needs to protect, but it will also cause AA to target the same units as the ground units, resulting in the AA trying to hug a turret to death</li>
+<li>Multiple AI on one enemy team will frequently target only a single player on the opposing team, which is effective, but unfair and unfun for human opponents</li></ul>
+
+<p>Cons of attack-now:</p>
+<ul><li>Lag created by attack groups is extremely noticeable past the ~50-unit mark</li>
+<li>At high populations of military units (~100), will not grab all units and some will sit at home</li>
+<li>Attack groups do not respond well to being attacked en route and can often be thinned out before they arrive at their target</li>
+<li>Attack groups can often target a distant target and get potshotted all the way there</li>
+<li>Attack groups generally misbehave if their home base is attacked while the attack group is out</li>
+<li>Sometimes fails to sight its target, resulting in the attack group wandering around home</li>
+<li>No guarantee on which player it goes for</li>
+<li>Medics are sent off in attack groups but will not do anything</li>
+<li>Reinforcing an attack force is very tricky</li></ul>
+
+<p>With the exception of the lag department, TSA is neither better nor worse than attack-now - it is an alternative. 
+In Computer's case, I use attack-now to begin with, and switch to TSA once the forces are large enough:</p>
+
+<p><div class="example"><pre><code>(defrule
+	(population >= 120)
+	(military-population >= 40)
+	(not (goal attacktype TSA))
+=>
+	(set-goal attacktype TSA)
+)
+
+(defrule
+	(not (and
+	(population >= 120)
+	(military-population >= 40)
+	)	) ; aka not the above
+	(not (goal attacktype NORM	))
+=>
+	(set-goal attacktype NORM)
+)</code></pre></div></p>
+
+<p>In particular, when it comes to Tech Level 2 aggression, the strung-out reinforcements that occur from TSA are highly undesirable. The numbers at that stage of the game are also low so the lag is not noticeable. For smaller attacks in Tech Level 3, the reinforcing is not particularly helpful and any newly-trained units should rather stay at home in case they're needed for defense. But for later game engagements, despite any flaws of TSA, the lag reduction is paramount to my objectives of creating a fun AI for Expanding Fronts, and so TSA is used. These rules typically result in the AI switching to TSA a little after reaching Tech Level 3.</p> 
+
+<p>The script used in Computer's town size attack is included in the <a href="#section662">Code Snippets</a> section. The logic is relatively straightforward, but has a few extra complications due to the fact that sn and goals update immediately, but (enemy-buildings-in-town) will only update on the next script pass. This is responsible for most of the wonkiness, including the specific ordering of the sections.</p>
+
+<p>Additionally, since there is no math in the GB AI language, the levels for sn-maximum-town-size have to be specified by hand - no easy +1 command here!</p>
+
+<h3>6-7 Note On Unit Costs</h3>
+
+<p>There are a lot of unit types in GB that often cost similar amounts of resources. If you have rules along the lines of </p>
+
+<p><div class="example"><pre><code>(defrule
+	(unit-type-count UNIT-FIGHTER-LINE < num-fighters)
+	(can-train UNIT-FIGHTER-LINE)
+=>
+	(train UNIT-FIGHTER-LINE)
+)</code></pre></div></p>
+
+<p>for every single unit type, you might notice that the AI is struggling to get certain units on the field.</p>
+
+<p>We'll look at air specifically. Putting aside Air Transports (not reccomended for AI use) and Air Cruisers (extremely expensive), there are four generic air units: Fighters (50f 60n), Bombers (50f 80n), Interceptors (50f 50n), Attackers (75f 100n), along with unique units. If you hook up rules to train all four of these you'll notice the AI spamming Interceptors while very rarely training Attackers or Bombers.</p>
+
+<p>This is because of the relative prices. If the AI is able to afford an Attacker, it could ALSO have afforded an Interceptor. This means if the rules to train an Interceptor are always active, as the resources come in, it will always train Interceptors instead of any other air unit, because 'they're the only air unit it can afford.'</p>
+
+<p>(Note: The ordering of the rules in the file is important too. If the AI has a huge amount of resources to afford anything, then the first (train unit-whatever) in the file that has its conditions met will be the one that's trained. This is not often the cause of issues, though)</p>
+
+<p>The solution to this is to lock and unlock rules that allow training of units. But you wouldn't want a 25%-25%-25%-25% split in any case - the AI -should- have more Interceptors than Bombers, that's how EF balance works. It just shouldn't have all Interceptors and no Bombers.</p>
+
+<p>Of course, there are many ways to script this, but I've included the version Computer uses for reference in the <a href="#section67">Code Snippets</a> section. In essence, it rotates through a queue that goes Fighter-Fighter-Interceptor-Interceptor-Bomber-Attacker-[Civspecific]. When the queue is on a specific air unit, only that air unit will be trained. Internal goals are used to control the position of the queue (remember, no math in the GB language!).</p>
+
+<p>This is, of course, complicated by other units costing food and nova too - even if the queue is on Attacker which disables the AI from spending its food and nova on a Fighter, it's still able to spend food and nova on e.g. Grenade Troopers. It would be possible to interlink this all together, but not only would the result be complex, it would also need extensive failsafes: for instance, if the AI only has one unpowered airbase, it's going to take forever for it to get through an air queue and that might hold up its trooper queue when it's being run over by artillery on the ground. Presently, Computer only uses a queue for air, and all other units have can-train unit => train unit behaviour. This is usually acceptable, although it can sometimes struggle to get Mech Destroyers out, but this isn't the biggest issue since the cheaper Artillery, Mounted Troopers, and Grenade Troopers also perform adequately into Mechs.</p>
+
+<h3>6-8 Resource Detection</h3>
+
+<p>"Build a nova processing center by your nova" really should not be a hard thing for the AI, but here we are...</p>
+
+<p>Detecting whether the nova exists at game start is easy - you can use (resource-found nova). Alternatively, you can also use cc-players-unit-type-count 0 UNIT-NOVA-LINE (EF unitline). Experienced AI scripters will know the former isn't very useful because it never turns off once it's set to on. However, the second also has issues:</p>
+<ul><li>it returns double (if there are 5 holocrons on map, (cc-players-unit-type-count 0 285) will equal 10)</li>
+<li>it never turns off</li>
+<li>not using cc- and just using the normal players-unit-type-count will not work (it will always return 0)</li></ul>
+
+<p>To explain the latter, suppose there is one single piece of nova on the map. (cc-players-unit-type-count 0 UNIT-NOVA-LINE > 0) will return true. (It will not if there is was no nova). Then, suppose that this is mined out. It will STILL return true, even though there isn't any. (This may also have something to do with the AI failing to recognise resources that do not exist on game start: for instance, it is unable to mine the Resistance Command Center nova piles unless a worker happens to autotask from one nova pile to the next)</p>
+
+<p>This doesn't immediately look like a problem, but consider fish. You obviously want your AI to fish if it sees there's fish on the map - it's an important food resource! And if your Utility Trawlers (Fishing Boats) get sunk, you'll probably want to rebuild them. But there's no way to detect whether the fish has been eaten up* and that you should stop training Utility Trawlers. We don't even have any DUC commands to see if fishing boats are actually carrying any fish.</p>
+
+<p>The current method in EF Computer is to disable production of additional fishing boats and delete most fishing boats once population cap is reached. This usually works out, but there are times where it will delete its fishing boats both too early and too late (usually too late, it must be said)</p>
+
+<p>*EF adds Carbon Gas Vents, infinite sources of Carbon on the water that can be fished with Utility Trawlers. The AI fortunately recognises these and will send some - not all - trawlers to fish them. I have a separate check for Carbon Gas Vents (IDs 6482 and 7091) that disables the deletion of Trawlers as the infinite Carbon they provide is very valuable late into a game.</p>
+
+<p>Along similar lines, consider the building of additional Nova Processing Centers (AOE2 Mining Camp if it was only for Gold). Obviously, it's important to build them as needed by nova piles; but since there's no way to tell if all the available nova has been munched, how do you turn it off? Fortunately, we have a few better methods here:</p>
+<ul><li>(dropsite-min-distance nova > whatever) can help you work out if there is no nova remaining</li> 
+<li>you can directly count Nova Miners by ID (579 and 581) (Ore Miner IDs: 124 and 220), and if there haven't been any units of this type for a while (since if nova gatherer percentage > 0 but there is no nova, they will go and gather other resources instead), then there must be no nova for them to mine</li></ul>
+
+<p>Additionally, we don't have sn-lumber-camp-max-distance and sn-mining-camp-max-distance like you 1.1+ AOE2 folks have - it's just sn-camp-max-distance which controls Carbon Processing Centers, Nova Processing Centers, and Ore Processing Centers. However, it does not control Command Center placement - that's within sn-maximum-town-size - and as such a surprisingly effective method for gathering distant resources is to build one Command Center per level of Town Size Attack! The AI does try to build Command Centers by ore/nova piles, when it can, and with a good TSA increment script this ensures that it doesn't try to build its CCs right behind the enemy base (a common occurence if sn-camp-max-distance is set too high - I don't reccomend setting it above 80).</p>
+
+<p>Combining this with good values for sn-maximum-nova-drop-distance and sn-maximum-ore-drop-distance you can usually get a pretty alright result, although it's by no means optimal and you'll get silliness one way or the other. EF Computer's complete resource detection script is an absolute mess so I haven't attached it here, but it's mostly present in 60028_ai_map-loads.bin and 60034_ai_nova.bin if you want to use the script I came up with. </p>
+
+<p>There's also a wholly separate issue. GB maps, like AOE2 ones, always generate two Ore and Nova piles per player - one near and one far. The AI is frequently able to correctly build its processing centers by one of the pile, but then as the game progresses it builds up its town - and now there's no space around the ore piles to build an ore processing center because it built its prefabs and War Center there like a dingus! The best solution I've found to this has been to forcibly build two nova processing centers and two ore processing centers a little ways into the game (usually Tech Level 2) Even though human players would consider this a waste of 2x 100c, building the additional processing center means that it's correctly placed and that (dropsite-min-distance) doesn't go beserk trying to place nova processing centers around the nova that is correctly close by but is too obstructed by buildings.</p>
+
+<p>Lastly, the AI thinks Animal Nurseries are a food dropoff when they are not, meaning it will build an Animal Nursery by its berries and then farms by its Animal Nursery, making gathering extremely inefficient. The best workaround seems to be building additional Food Processing Centers so that it has plenty of other good places to build farms that will have actually functional gathering.</p>
+
+<h2 id="code-snippets">Code Snippets</h2>
+
+<h3 id="section63">Section 6-3</h3>
+
+<p><div class="example"><pre><code>;*********************************
+;**** POWER CORE LOGIC *****
+;*********************************
+
+(defrule
+   (building-type-count-total BLDG-TRAINBOAT <= 1)
+   (not (strategic-number sn-max-unpowered-buildings == 1))
+=>
+   (set-strategic-number sn-max-unpowered-buildings 1) ; This variable had ranges between 0 and 2 in GB, but it triggers on 1 higher (so a value of 1 means it fires if 2 buildings are unpowered)
+)
+
+; and this set of weird logic is because the AI is HOPELESS at powering its shipyard
+(defrule
+   (building-type-count-total BLDG-TRAINBOAT > 1) 
+   (building-type-count-total BLDG-TRAINBOAT <= 3) ; 2 or 3 shipyards
+   (not (strategic-number sn-max-unpowered-buildings == 2))
+=>
+   (set-strategic-number sn-max-unpowered-buildings 2) ; so two buildings being unpowered is fine - one random building and one shipyard (hopefully), any more means power core
+)
+
+(defrule
+   (building-type-count-total BLDG-TRAINBOAT >= 4)
+   (not (strategic-number sn-max-unpowered-buildings == 3))
+=>
+   (set-strategic-number sn-max-unpowered-buildings 3) ; three buildings being unpowered is fine, two shipyards and one other random building
+)
+
+; so it turns out
+; AI troop center power logic is noticeably improved (~50% success rate -> 90% success rate)
+; if it builds the Power Core FIRST, then the Troop Center
+
+(defrule
+   (building-type-count BLDG-POWERCORE == 0)
+   (building-type-count-total BLDG-DROPCARBON > 0)
+   (building-type-count BLDG-MAIN > 0)
+   (can-build BLDG-POWERCORE)
+   =>
+   (build BLDG-POWERCORE)
+)
+
+; after your TC is built, build a second one if you can
+
+(defrule
+   (current-age == tech-level-1) ; T2-3-4 have rules with current age time down below
+   (building-type-count-total BLDG-POWERCORE < 2)
+   (building-type-count-total BLDG-DROPCARBON > 0)
+   (building-type-count BLDG-MAIN > 0)
+   (building-type-count BLDG-TRAINTROOPER > 0)
+   (unit-type-count UNIT-LASER-LINE <= 3) ; if troops are not being produced
+   (can-build BLDG-POWERCORE)
+   =>
+   (build BLDG-POWERCORE)
+)
+
+; so it turns out if you ACTUALLY SET THIS TO A USEFUL VALUE and allow escrow
+; this works really, really, really, well
+; added caps for tech levels as it would sometimes get a bit lost
+
+(defrule
+   (too-many-unpowered-buildings)
+   (building-type-count BLDG-MAIN > 0)
+   (can-build-with-escrow BLDG-POWERCORE)
+   (or
+	   (and
+		   (current-age == tech-level-2)
+		   (building-type-count-total BLDG-POWERCORE < 4)
+	   )
+	   (or
+		   (and
+			   (current-age == tech-level-3)
+			   (building-type-count-total BLDG-POWERCORE < 9)
+		   )
+		   (and
+			   (current-age == tech-level-4)
+			   (building-type-count-total BLDG-POWERCORE < 18)
+		   )
+	   )
+   )
+   =>
+   (release-escrow carbon)
+   (build BLDG-POWERCORE)
+)
+
+; tacked on rule
+
+(defrule
+   (or
+	   (and
+		   (current-age == tech-level-2)
+		   (building-type-count-total BLDG-POWERCORE < 2)
+	   )
+	   (or
+	   (and
+		   (current-age == tech-level-3)
+		   (building-type-count-total BLDG-POWERCORE < 3)
+	   )
+	   (and
+		   (current-age == tech-level-4)
+		   (building-type-count-total BLDG-POWERCORE < 5)
+	   )
+	   )
+   )
+   (can-build-with-escrow BLDG-POWERCORE)
+   (current-age-time > 300) ; give some time for buildings to be dropped
+=>
+   (release-escrow carbon)
+   (build BLDG-POWERCORE)
+   
+)</code></pre></div></p>
+
+<h3 id="section662">Section 6-6-2</h3>
+
+<p><div class="example"><pre><code>;********************************
+;**** TOWN SIZE ATTACK *****
+;********************************
+
+;Defconsts not specified here, but stop-junk-threshold is 90% of population and popcap is set to population cap; as such, they are population-specific constants.
+
+
+(defrule
+   (population >= 120)
+   (military-population >= 40)
+   (not (goal attacktype TSA))
+=>
+   (set-goal attacktype TSA)
+)
+
+(defrule
+   (not (and
+   (population >= 120)
+   (military-population >= 40)
+   )	) ; aka not the above
+   (not (goal attacktype NORM	))
+=>
+   (set-goal attacktype NORM)
+)
+
+
+; occurs in any age
+(defrule
+   (goal aready YES) ; this is set elsewhere in the script (not copied here) as a general signal for "go on the attack" e.g. on timer, or when population cap is reached, this will be set to YES
+   (goal attacktype TSA)
+=>
+   (chat-local-to-self "ZELATS: TSA. Attack. Set to HIGH")
+   (set-goal attackTSAhold HOLDING-HIGH)
+   (set-goal aready NO)
+   (disable-timer t-attackgroup-alt) ; we don't want it to interrupt our TSA (this timer is the "go on the attack" timer that sets aready)
+   (disable-timer t-attackgroup-hold) ; it may have been doing something but we got a join in 
+)
+
+
+(defrule
+   (population < stop-junk-threshold) ; when population is smaller than the threshold
+   (goal attackTSAhold HOLDING-HIGH)
+=>
+   (set-goal attackTSAhold HOLDING-LOW) ; start the timer to call off TSA in 6min
+   (disable-timer t-attackgroup-hold)
+   (enable-timer t-attackgroup-hold 360)
+   (chat-local-to-self "ZELATS: TSA hit low pop threshold. Holding for 360s more")
+)
+(defrule
+   (population >= popcap) ; if population then reaches pop cap during this time
+   (goal attackTSAhold HOLDING-LOW)
+=>
+   (set-goal attackTSAhold HOLDING-HIGH) ; reset and wait for pop to fall back down again
+   (disable-timer t-attackgroup-hold)
+   (chat-local-to-self "ZELATS: TSA re-reached popcap, holding indefinitely")
+)
+
+; force abort conditions
+(defrule
+   (or
+	   (military-population <= 20)
+	   (building-type-count BLDG-MAIN == 0) ; no CC
+   )
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+=>
+   (set-goal attackTSAhold EXHAUSTED)
+   (set-goal attackTSAlevel 0)
+   (disable-timer t-attackgroup-hold)
+   (disable-timer t-attackgroup-alt)
+   (enable-timer t-attackgroup-alt 900)
+   (chat-local-to-self "ZELATS: Force cancelling TSA. 900s cooldown")
+)
+
+; when the timer triggers...
+
+
+(defrule
+   (timer-triggered t-attackgroup-hold)
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (population >= stop-junk-threshold) ; high pop 
+=>
+   (disable-timer t-attackgroup-hold)
+   (set-goal attackTSAhold EXHAUSTED) ; turn off TSA
+   (set-goal attackTSAlevel 0) ; this belongs here 
+   (disable-timer t-attackgroup-alt)
+   (enable-timer t-attackgroup-alt 300)
+   (chat-local-to-self "ZELATS: TSA timer ran out, turning off. Pop high: 300s cooldown.")
+)
+
+(defrule
+   (timer-triggered t-attackgroup-hold)
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (population < stop-junk-threshold) ; lower pop
+=>
+   (disable-timer t-attackgroup-hold)
+   (set-goal attackTSAhold EXHAUSTED) ; turn off TSA
+   (set-goal attackTSAlevel 0) ; this belongs here 
+   (disable-timer t-attackgroup-alt)
+   (enable-timer t-attackgroup-alt 480)
+   (chat-local-to-self "ZELATS: TSA timer ran out, turning off. Pop low: 480s cooldown.")
+)
+
+
+
+
+; this is the bit that makes town size attack actually attack
+; ordering of sections is important due to shenanigans
+; no math in the GB script language means we have to do this the Hard way
+
+; add an extra tick for processing as enemy-buildings-in-town takes till the next script pass to update
+; whereas goals update immediately
+(defrule
+   (goal attackTSAvar NULL)
+=>
+   (set-goal attackTSAvar NULL2)
+)
+
+
+(defrule
+   (goal attackTSAlevel 0)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 1)
+)
+(defrule
+   (goal attackTSAlevel 1)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 2)
+)
+(defrule
+   (goal attackTSAlevel 2)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 3)
+)
+(defrule
+   (goal attackTSAlevel 3)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 4)
+)
+(defrule
+   (goal attackTSAlevel 4)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 5)
+)
+(defrule
+   (goal attackTSAlevel 5)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 6)
+)
+(defrule
+   (goal attackTSAlevel 6)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 7)
+)
+(defrule
+   (goal attackTSAlevel 7)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 8)
+)
+(defrule
+   (goal attackTSAlevel 8)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 9)
+)
+(defrule
+   (goal attackTSAlevel 9)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (set-goal attackTSAlevel 10) ; final value
+)
+(defrule
+   (goal attackTSAlevel 10)
+   (goal attackTSAvar INCREMENT)
+=>
+   (set-goal attackTSAvar NULL)
+   (chat-to-all "ERR: Town size attack has probably broken. Attacks may not function")
+   (set-goal attackTSAlevel 11)
+)
+
+
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 0)
+   (not (strategic-number sn-maximum-town-size == 40))
+=>
+   (set-strategic-number sn-maximum-town-size 40)
+   (chat-local-to-self "ZELATS: Level 0, TS 40")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 1)
+   (not (strategic-number sn-maximum-town-size == 60))
+=>
+   (set-strategic-number sn-maximum-town-size 60)
+   (chat-local-to-self "ZELATS: Level 1, TS 60")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 2)
+   (not (strategic-number sn-maximum-town-size == 80))
+=>
+   (set-strategic-number sn-maximum-town-size 80)
+   (chat-local-to-self "ZELATS: Level 2, TS 80")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 3)
+   (not (strategic-number sn-maximum-town-size == 100))
+=>
+   (set-strategic-number sn-maximum-town-size 100)
+   (chat-local-to-self "ZELATS: Level 3, TS 100")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 4)
+   (not (strategic-number sn-maximum-town-size == 120))
+=>
+   (set-strategic-number sn-maximum-town-size 120)
+   (chat-local-to-self "ZELATS: Level 4, TS 120")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 5)
+   (not (strategic-number sn-maximum-town-size == 140))
+=>
+   (set-strategic-number sn-maximum-town-size 140)
+   (chat-local-to-self "ZELATS: Level 5, TS 140")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 6)
+   (not (strategic-number sn-maximum-town-size == 160))
+=>
+   (set-strategic-number sn-maximum-town-size 160)
+   (chat-local-to-self "ZELATS: Level 6, TS 160")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 7)
+   (not (strategic-number sn-maximum-town-size == 180))
+=>
+   (set-strategic-number sn-maximum-town-size 180)
+   (chat-local-to-self "ZELATS: Level 7, TS 180")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 8)
+   (not (strategic-number sn-maximum-town-size == 200))
+=>
+   (set-strategic-number sn-maximum-town-size 200)
+   (chat-local-to-self "ZELATS: Level 8, TS 200")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 9)
+   (not (strategic-number sn-maximum-town-size == 220))
+=>
+   (set-strategic-number sn-maximum-town-size 220)
+   (chat-local-to-self "ZELATS: Level 9, TS 220")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 10)
+   (not (strategic-number sn-maximum-town-size == 255))
+=>
+   (set-strategic-number sn-maximum-town-size 255)
+   (chat-local-to-self "ZELATS: Level 10, TS 255")
+)
+(defrule
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAlevel 11)
+   (not (strategic-number sn-maximum-town-size == 255))
+=>
+   (set-strategic-number sn-maximum-town-size 255)
+   (chat-local-to-self "ZELATS: Level 11, TS 255")
+)
+
+
+
+(defrule
+   (not (enemy-buildings-in-town))
+   (or
+	   (goal attackTSAhold HOLDING-HIGH)
+	   (goal attackTSAhold HOLDING-LOW)
+   )
+   (goal attackTSAvar NULL2)
+=>
+   (set-goal attackTSAvar INCREMENT)
+   (chat-local-to-self "ZELATS: TSA is HOLDING but no enemy buildings. INCREMENT")
+)
+
+
+; You also need to reset town size when done
+; (rules have been simplified for this)
+; tech 2
+(defrule
+   (current-age == tech-level-2)
+   (goal attackTSAhold EXHAUSTED)
+   (not (strategic-number sn-maximum-town-size == TL2-townsize))
+=>
+   (set-strategic-number sn-maximum-town-size TL2-townsize)
+   (set-strategic-number sn-sentry-distance TL2-townsize)
+)
+; tech 3
+(defrule
+   (current-age == tech-level-3)
+   (goal attackTSAhold EXHAUSTED)
+   (not (strategic-number sn-maximum-town-size == TL3-townsize))
+=>
+   (set-strategic-number sn-maximum-town-size TL3-townsize)
+   (set-strategic-number sn-sentry-distance TL3-townsize)
+)
+; tech 4
+(defrule
+   (current-age == tech-level-4)
+   (goal attackTSAhold EXHAUSTED)
+   (not (strategic-number sn-maximum-town-size == TL4-townsize))
+=>
+   (set-strategic-number sn-maximum-town-size TL4-townsize)
+   (set-strategic-number sn-sentry-distance TL4-townsize)
+)</code></pre></div></p>
+
+<h3 id="section67">Section 6-7</h3>
+
+<p><div class="example"><pre><code>;********************************
+;**** AIRBASE ROTATION *****
+;********************************
+
+; Idea here is to rotate through a unit queue
+; Queue goes: Fighter, Fighter, Interceptor, Interceptor, Bomber, Attacker, [Civ specific slot if needed]
+
+(defrule
+   (current-age == tech-level-4) 	;interceptors and attackers only exist in TL4 so do not use this system in TL3
+=>
+   (set-goal airtotrain FIGHTER)
+   (set-goal airtotraininternal 1)
+   (disable-self)
+)
+
+
+; Rules for skipping due to cap need to be put BEFORE the rules to train
+; or the AI will train them over cap if it can afford them when the rule passes by
+; which tbh isn't the worst thing in the world
+; but it did lead to headaches like Gungans suddenly deciding to go into bombers
+
+; note that the caps for units are set on a per-civ and per-population basis
+
+(defrule
+   (goal airtotrain FIGHTER) 		; if we should be training a fighter
+   (or
+	   (and
+		   (not (goal special-map WATER))
+		   (unit-type-count UNIT-FIGHTER-LINE >= TL4-fighter-arm) 	; but if they're at cap
+	   )
+	   (and
+		   (goal special-map WATER)
+		   (unit-type-count UNIT-FIGHTER-LINE >= TL4-fighter-arm-water)
+	   )
+   )
+=>
+   (set-goal airtotrain ADVANCE)		; then skip and move onto next unit type
+)
+
+(defrule
+   (goal airtotrain BOMBER)
+   (or
+	   (and
+		   (not (goal special-map WATER))
+		   (unit-type-count UNIT-BOMBER-LINE >= TL4-bomber-arm)
+	   )
+	   (and
+		   (goal special-map WATER)
+		   (unit-type-count UNIT-BOMBER-LINE >= TL4-bomber-arm-water)
+	   )
+   )
+=>
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain INTERCEPTOR)
+   (or
+	   (and
+		   (not (goal special-map WATER))
+		   (unit-type-count UNIT-INTERCEPTOR-LINE >= TL4-interceptor-arm)
+	   )
+	   (and
+		   (goal special-map WATER)
+		   (unit-type-count UNIT-INTERCEPTOR-LINE >= TL4-interceptor-arm-water)
+	   )
+   )
+=>
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain INTERCEPTOR)
+   (goal enemyairsighted NONE) ;set elsewhere in script
+=>
+   (set-goal airtotrain ADVANCE)		; special rule for interceptors, only train if enemy air is sighted (which is pretty often)
+)
+
+(defrule
+   (goal airtotrain ATTACKER)
+   (or
+	   (and
+		   (not (goal special-map WATER))
+		   (unit-type-count UNIT-ATTACKER-LINE >= TL4-attacker-arm)
+	   )
+	   (and
+		   (goal special-map WATER)
+		   (unit-type-count UNIT-ATTACKER-LINE >= TL4-attacker-arm-water)
+	   )
+   )
+=>
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain FIGHTER)
+   (can-train UNIT-FIGHTER-LINE)
+=>
+   (train UNIT-FIGHTER-LINE)
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain BOMBER)
+   (can-train UNIT-BOMBER-LINE)
+=>
+   (train UNIT-BOMBER-LINE)
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain ATTACKER)
+   (can-train UNIT-ATTACKER-LINE)
+=>
+   (train UNIT-ATTACKER-LINE)
+   (set-goal airtotrain ADVANCE)
+)
+
+(defrule
+   (goal airtotrain INTERCEPTOR)
+   (can-train UNIT-INTERCEPTOR-LINE)
+=>
+   (train UNIT-INTERCEPTOR-LINE)
+   (set-goal airtotrain ADVANCE)
+)
+
+; rules which control the next in the queue
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 1) ; fighter
+=>
+   (set-goal airtotraininternal 2)
+   (set-goal airtotrain FIGHTER)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 2)
+=>
+   (set-goal airtotraininternal 3)
+   (set-goal airtotrain INTERCEPTOR)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 3)
+=>
+   (set-goal airtotraininternal 4)
+   (set-goal airtotrain INTERCEPTOR)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 4)
+=>
+   (set-goal airtotraininternal 5)
+   (set-goal airtotrain ATTACKER)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 5)
+=>
+   (set-goal airtotraininternal 6)
+   (set-goal airtotrain BOMBER)
+)
+
+; civ specific rules for extra slots
+; generic nonspecific rule
+#load-if-not-defined RESISTANCE
+#load-if-not-defined NEWREPUBLIC
+#load-if-not-defined REBEL
+#load-if-not-defined REPUBLIC
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 6)
+=>
+   (set-goal airtotraininternal 1)
+   (set-goal airtotrain FIGHTER)
+)
+#end-if
+#end-if
+#end-if
+#end-if
+
+; RS should train one more bomber thanks to Bunkerbusters
+#load-if-defined RESISTANCE
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 6)
+=>
+   (set-goal airtotraininternal 7)
+   (set-goal airtotrain BOMBER)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 7)
+=>
+   (set-goal airtotraininternal 1)
+   (set-goal airtotrain FIGHTER)
+)
+#end-if
+
+; NR should train one more Attacker thanks to civ bonus
+#load-if-defined NEWREPUBLIC
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 6)
+=>
+   (set-goal airtotraininternal 7)
+   (set-goal airtotrain ATTACKER)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 7)
+=>
+   (set-goal airtotraininternal 1)
+   (set-goal airtotrain FIGHTER)
+)
+#end-if
+
+; RA should train one more Interceptor due to A-Wing Modifications
+#load-if-defined REBEL
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 6)
+=>
+   (set-goal airtotraininternal 7)
+   (set-goal airtotrain INTERCEPTOR)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 7)
+=>
+   (set-goal airtotraininternal 1)
+   (set-goal airtotrain FIGHTER)
+)
+#end-if
+
+; RP should train one more Attacker thanks to AI Gunship Arnaments
+#load-if-defined REPUBLIC
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 6)
+=>
+   (set-goal airtotraininternal 7)
+   (set-goal airtotrain ATTACKER)
+)
+
+(defrule
+   (goal airtotrain ADVANCE)
+   (goal airtotraininternal 7)
+=>
+   (set-goal airtotraininternal 1)
+   (set-goal airtotrain FIGHTER)
+)
+#end-if</code></pre></div></p>
+
+<h3>Table of Contents</h3>
+<ul>
+	<li><a href="#section0">Section 0: Introduction</a></li>
+	<li><a href="#section1">Section 1: Non-AI Technical Information</a></li>
+	<li><a href="#section2">Section 2: What the AI Can't Do</a></li>
+	<li><a href="#section3">Section 3: Interesting AI Bugs & Oddities</a></li>
+	<li><a href="#section4">Section 4: Getting Started</a></li>
+	<li><a href="#section5">Section 5: New Stuff</a></li>
+	<li><a href="#section6">Section 6: My Experiences & Advice</a></li>
+	<li><a href="#code-snippets">Code Snippets</a></li>
+</ul>
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
