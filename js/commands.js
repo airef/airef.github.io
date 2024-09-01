@@ -24000,11 +24000,16 @@ pWallId.wildcardParam = [ {
 
 
 bugsArray = [ {
-// 	name: "",
-// 	date: "",
-// 	link: "<a href=\"\">Link</a>",
-// 	description: ""
-// }, {
+	// 	name: "",
+	// 	date: "",
+	// 	link: "<a href=\"\">Link</a>",
+	// 	description: ""
+	// }, {
+	name: "up-can-search crash",
+	date: "Sep 1, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1279797387136733257\">Link</a>",
+	description: "up-can-search causes a crash, regardless of map type and regardless of using (up-can-search search-local) or (up-can-search search-remote)"
+}, {
 	name: "AI monks are able to convert buildings from long range",
 	date: "May 24, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243667134941368492\">Link</a>",
