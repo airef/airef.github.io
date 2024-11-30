@@ -13348,7 +13348,7 @@ cUpCreateGroup.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 } ];
 cUpCreateGroup.example = [ {
@@ -14681,7 +14681,7 @@ cUpGetGroupSize.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -15538,7 +15538,7 @@ cUpGroupSize.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -15960,7 +15960,7 @@ cUpModifyGroupFlag.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 } ];
 cUpModifyGroupFlag.example = [ {
@@ -16882,7 +16882,7 @@ cUpResetGroup.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 } ];
 cUpResetGroup.example = [ {
@@ -17428,7 +17428,7 @@ cUpSetGroup.commandParameters = [ {
 	name: "GroupId",
 	type: "Op",
 	dir: "in",
-	range: "0 to 9",
+	range: "0 to 19",
 	note: "The group id."
 } ];
 cUpSetGroup.example = [ {
@@ -20510,9 +20510,9 @@ pGoalId.range = "1 to 40 for 1.0c. 1 to 512 for UP and all other game versions."
 pGoalId.relatedParams = [pFlag, pId, pSharedGoalId, pSnId];
 
 //GroupId
-pGroupId.description = "An ID assigned to a group of objects, similar to Ctrl groups human players can use.";
+pGroupId.description = "An ID assigned to a group of objects, similar to Ctrl groups human players can use.</p><p>In UP, only GroupId's 0 through 9 could be used. However, in DE, GroupId's 0 through 19 work.";
 pGroupId.shortDescription = "An ID assigned to a group of objects.";
-pGroupId.range = "0 to 9.";
+pGroupId.range = "0 to 19.";
 pGroupId.relatedParams = [pGroupType];
 
 //GroupType
