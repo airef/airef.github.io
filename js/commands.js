@@ -18499,7 +18499,7 @@ cFeSetSignal.commandParameters = [ {
 	type: "Op",
 	dir: "in",
 	range: "0 to 255",
-	note: "The signal to set."
+	note: "The multiplayer signal to set."
 }, {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
