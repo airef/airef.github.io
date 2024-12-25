@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<head>
+	<title>Technologies Table</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<h2>Technologies</h2>
+		<p><strong>Legend:</strong> Renamed technologies from the base game are marked in <span class="weird-tech-name">yellow</span>. New technologies are marked in <span class="de-tech-name">green</span>.</p>
+		<p>This table lists all technologies in the Chronicles: Battle for Greece DLC. For AoE2 technologies see the <a href="./techs.html">AoE2 Techs Table</a>. For a list of technologies in the Return of Rome DLC, see the <a href="./techs-ror.html">Return of Rome Techs Table</a>.</p>
+		<p>
+			<label for="techsInputBfG" class="techs-input-label-bfg">Search</label><label for="techs-building" class="dropdown-label">Building</label><label for="techs-age" class="dropdown-label">Age</label>
+			<input type="text" id="techsInputBfG" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off" autofocus="autofocus"><select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
+				<option value="All" selected>All</option>
+				<option value="Academy">Academy</option>
+				<option value="Archery Range">Archery Range</option>
+				<option value="Barracks">Barracks</option>
+				<option value="Blacksmith">Blacksmith</option>
+				<option value="Fort">Fort</option>
+				<option value="Lumber Camp">Lumber Camp</option>
+				<option value="Market">Market</option>
+				<option value="Mill">Mill</option>
+				<option value="Mining Camp">Mining Camp</option>
+				<option value="Port">Port</option>
+				<option value="Shipyard">Port</option>
+				<option value="Siege Workshop">Siege Workshop</option>
+				<option value="Stable">Stable</option>
+				<option value="Temple">Temple</option>
+				<option value="Town Center">Town Center</option>
+			</select><select id="techs-age" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Age">
+				<option value="All" selected>All</option>
+				<option value="Archaic">Archaic</option>
+				<option value="Civic">Civic</option>
+				<option value="Classical">Classical</option>
+				<option value="Imperial">Imperial</option>
+			</select>
+		</p>
+		<p id="num-results"></p>
+		<div id="techIndex"></div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = ".."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "units-techs";
+	</script>
+	<script src="../js/commands.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../jqueryui/jquery-ui.min.js"></script>
+	
+	<script>
+		var numTechs;
+		var text = "";
+		for(var i = 0; i < techsArrayBfG.length; i++) {
+			numTechs = 0;
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"techs-building-header\">" + techsBuildingsArrayBfG[i] + "</h3>";
+			text += "<table class=\"techs-table\" id=\"bldg-" + i + "\"><tr><th class=\"techs-id-col-bfg\">ID</th><th class=\"techs-name-col-bfg\">Name</th><th class=\"techs-ainame-col-bfg\">AI Name</th><th class=\"techs-building-col-bfg\">Building</th><th class=\"techs-age-col-bfg\">Age</th><th class=\"techs-civ-col-bfg\">Civilization</th><th class=\"techs-notes-col-bfg\">Notes</th></tr>";
+			for(var j = 0; j < techsArrayBfG[i].length; j++) {
+				text += "<tr>";
+				text += "<td>" + techsArrayBfG[i][j].id + "</td>";
+				if(techsArrayBfG[i][j].weirdName == 1) {
+					text += "<td class=\"weird-tech-name\">" + techsArrayBfG[i][j].name + "</td>";
+				}
+				else if (techsArrayBfG[i][j].weirdName == 2) {
+					text += "<td class=\"de-tech-name\">" + techsArrayBfG[i][j].name + "</td>";
+				}
+				else {
+					text += "<td>" + techsArrayBfG[i][j].name + "</td>";
+				}
+				text += "<td>" + techsArrayBfG[i][j].aiName + "</td>";
+				text += "<td>" + techsArrayBfG[i][j].building + "</td>";
+				text += "<td>" + techsArrayBfG[i][j].age + "</td>";
+				text += "<td>" + techsArrayBfG[i][j].civ + "</td>";
+				text += "<td>" + techsArrayBfG[i][j].notes + "</td>";
+				text += "</tr>";
+				numTechs++;
+			}
+			text += "</table>"
+		}
+		document.getElementById("techIndex").innerHTML = text;
+
+		var num = 0;
+		for(var k = 0; k < techsArrayBfG.length; k++) {
+			num = num + techsArrayBfG[k].length;
+		}
+
+		document.getElementById("num-results").innerHTML = "Num Results: " + num;
+	</script>
+	<script>
+		function techsFilter() {
+			// Declare variables
+			var input, building, age, version, filter, table, tr, tdName, tdId, tdAiName, tdBuilding, tdAge, i, h, num, bldgNum, header;
+			input = document.getElementById("techsInputBfG");
+			building = document.getElementById("techs-building");
+			building = building.value;
+			age = document.getElementById("techs-age");
+			if (age.value == "All") {
+				age = "All";
+			}
+			else if (age.value == "Archaic") {
+				age = 1;
+			}
+			else if (age.value == "Civic") {
+				age = 2;
+			}
+			else if (age.value == "Classical") {
+				age = 3;
+			}
+			else if (age.value == "Imperial") {
+				age = 4;
+			}
+			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
+			num = 0;
+			for (h = 0; h < techsArrayBfG.length; h++) {
+				table = document.getElementById("bldg-" + h);
+				tr = table.getElementsByTagName("tr");
+				header = document.getElementById("bldg-header-" + h);
+				bldgNum = 0;
+
+				//Loop through all table rows, and hide those who don't match the search query
+				for (i = 0; i < tr.length - 1; i++) {
+					tdId = techsArrayBfG[h][i].id;
+					tdName = techsArrayBfG[h][i].name;
+					tdAiName = techsArrayBfG[h][i].aiName;
+					tdBuilding = techsArrayBfG[h][i].building;
+					tdAge = techsArrayBfG[h][i].age;
+
+					if (tdName != "" && tdId.toString().length > 0) {
+						tdName = tdName.replace(/-/g,"");
+						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
+							if(building == "All" || tdBuilding == building) {
+								if(age == "All" || tdAge == age) {
+									tr[i + 1].style.display = "";
+									num = num + 1;
+									bldgNum = bldgNum + 1;
+								}
+								else {
+									tr[i + 1].style.display = "none";
+								}
+							}
+							else {
+								tr[i + 1].style.display = "none";
+							}
+						}
+						else {
+							tr[i + 1].style.display = "none";
+						}
+					}
+				}
+				if (bldgNum == 0) {
+					header.style.display = "none";
+					tr[0].style.display = "none";
+				}
+				else {
+					header.style.display = "";
+					tr[0].style.display = "";
+				}
+			}
+			document.getElementById("num-results").innerHTML = "Num Results: " + num;
+		}
+	</script>
+	<script>
+		var search = window.location.href;
+		var index = search.indexOf("#");
+		if (index >= 0) {
+			search = search.slice(index + 1,search.length + 1);
+			search = search.replace(/%20/g," ");	//spaces are replaced with %20 in URL address, so change them back to a space
+			document.getElementById("techsInputBfG").value = search;
+			techsFilter();
+		}
+	</script>
+	<script>
+		$(function() {
+			$(".version-icons").tooltip({
+				show: {delay:200, duration:200},
+				hide: {duration:200}
+			});
+		});
+	</script>
+
+</body>
+</html>

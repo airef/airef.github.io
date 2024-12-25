@@ -24716,6 +24716,62 @@ rangeTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+} ];
+
+rangeTechsArrayBfG = [ {	
+	name: "Laminated Bowman",
+	aiName: "ri-crossbow",
+	weirdName: 1,
+	id: 100,
+	building: "Archery Range",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Skirmisher",
+	aiName: "ri-elite-skirmisher",
+	weirdName: 0,
+	id: 98,
+	building: "Archery Range",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Recurve Bowman",
+	aiName: "ri-arbalest",
+	weirdName: 1,
+	id: 237,
+	building: "Archery Range",
+	age: 4,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Heavy Cavalry Archer",
+	aiName: "ri-heavy-cavalry-archer",
+	weirdName: 0,
+	id: 218,
+	building: "Archery Range",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Thumb Ring",
+	aiName: "ri-thumb-ring",
+	weirdName: 0,
+	id: 437,
+	building: "Archery Range",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Parthian Tactics",
+	aiName: "ri-parthian-tactics",
+	weirdName: 0,
+	id: 436,
+	building: "Archery Range",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
 } ];	
 	
 barracksTechsArray = [ {	
@@ -24900,7 +24956,108 @@ barracksTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
-} ];	
+} ];		
+	
+barracksTechsArrayBfG = [ {	
+	name: "Maceman",
+	aiName: "ri-man-at-arms",
+	weirdName: 1,
+	id: 222,
+	building: "Barracks",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Swordsman",
+	aiName: "ri-long-swordsman",
+	weirdName: 1,
+	id: 207,
+	building: "Barracks",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Guardsman",
+	aiName: "ri-pikeman",
+	weirdName: 1,
+	id: 197,
+	building: "Barracks",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Paragon",
+	aiName: "ri-champion",
+	weirdName: 1,
+	id: 264,
+	building: "Barracks",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Guardsman",
+	aiName: "ri-halberdier",
+	weirdName: 1,
+	id: 429,
+	building: "Barracks",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Hoplite",
+	aiName: "",
+	weirdName: 2,
+	id: 1137,
+	building: "Barracks",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Supplies",
+	aiName: "ri-supplies",
+	weirdName: 0,
+	id: 716,
+	building: "Barracks",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Gambesons",
+	aiName: "ri-gambesons",
+	weirdName: 0,
+	id: 875,
+	building: "Barracks",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Baggage Carriers",
+	aiName: "ri-squires",
+	weirdName: 1,
+	id: 215,
+	building: "Barracks",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Arson",
+	aiName: "ri-arson",
+	weirdName: 0,
+	id: 602,
+	building: "Barracks",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Battle Drills",
+	aiName: "",
+	weirdName: 2,
+	id: 1173,
+	building: "Barracks",
+	age: 4,
+	civ: "",
+	notes: "Equivalent of Two-handed Swordsman upgrade"
+} ];
 	
 blacksmithTechsArray = [ {	
 	name: "Forging",
@@ -25088,6 +25245,203 @@ blacksmithTechsArray = [ {
 	name: "Plate Barding Armor",
 	aiName: "ri-plate-barding",
 	weirdName: 1,
+	id: 80,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+blacksmithTechsArrayBfG = [ {	
+	name: "Forging",
+	aiName: "ri-forging",
+	weirdName: 0,
+	id: 67,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Fletching",
+	aiName: "ri-fletching",
+	weirdName: 0,
+	id: 199,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Scale Mail Armor",
+	aiName: "ri-scale-mail",
+	weirdName: 0,
+	id: 74,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Padded Archer Armor",
+	aiName: "ri-padded-archer-armor",
+	weirdName: 0,
+	id: 211,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Scale Barding Armor",
+	aiName: "ri-scale-barding",
+	weirdName: 0,
+	id: 81,
+	building: "Blacksmith",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Iron Casting",
+	aiName: "ri-iron-casting",
+	weirdName: 0,
+	id: 68,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bodkin Arrow",
+	aiName: "ri-bodkin-arrow",
+	weirdName: 0,
+	id: 200,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Chain Mail Armor",
+	aiName: "ri-chain-mail",
+	weirdName: 0,
+	id: 76,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Leather Archer Armor",
+	aiName: "ri-leather-archer-armor",
+	weirdName: 0,
+	id: 212,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Chain Barding Armor",
+	aiName: "ri-chain-barding",
+	weirdName: 0,
+	id: 82,
+	building: "Blacksmith",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Blast Furnace",
+	aiName: "ri-blast-furnace",
+	weirdName: 0,
+	id: 75,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bracer",
+	aiName: "ri-bracer",
+	weirdName: 0,
+	id: 201,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Plate Mail Armor",
+	aiName: "ri-plate-mail",
+	weirdName: 0,
+	id: 77,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Ring Archer Armor",
+	aiName: "ri-ring-archer-armor",
+	weirdName: 0,
+	id: 219,
+	building: "Blacksmith",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Plate Barding Armor",
+	aiName: "ri-plate-barding",
+	weirdName: 0,
 	id: 80,
 	building: "Blacksmith",
 	age: 4,
@@ -27011,6 +27365,181 @@ castleTechsArray = [ {
 	civ: "Vikings",
 	notes: "can use my-unique-research, previously called Berserkergang"
 } ];	
+
+	
+	
+fortTechsArrayBfG = [ {	
+	name: "Conscription",
+	aiName: "ri-conscription",
+	weirdName: 0,
+	id: 315,
+	building: "Fort",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hoardings",
+	aiName: "ri-hoardings",
+	weirdName: 0,
+	id: 379,
+	building: "Fort",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Sappers",
+	aiName: "ri-sappers",
+	weirdName: 0,
+	id: 321,
+	building: "Fort",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Spies/Treason",
+	aiName: "",
+	weirdName: 0,
+	id: 408,
+	building: "Fort",
+	age: 4,
+	civ: "",
+	notes: "Use with " + cSpy.getLink() + " command to research Treason"
+}, {	
+	name: "Elite Immortal",
+	aiName: "",
+	weirdName: 2,
+	id: 1115,
+	building: "Fort",
+	age: 4,
+	civ: "Achaemenids",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Sparabaras",
+	aiName: "",
+	weirdName: 2,
+	id: 1110,
+	building: "Fort",
+	age: 3,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Reed Arrows",
+	aiName: "",
+	weirdName: 2,
+	id: 1111,
+	building: "Fort",
+	age: 3,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Scythed Chariots",
+	aiName: "",
+	weirdName: 2,
+	id: 1112,
+	building: "Fort",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Karda",
+	aiName: "",
+	weirdName: 2,
+	id: 1113,
+	building: "Fort",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Elite Strategos",
+	aiName: "",
+	weirdName: 2,
+	id: 1125,
+	building: "Fort",
+	age: 4,
+	civ: "Athenians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Taxiarchs",
+	aiName: "",
+	weirdName: 2,
+	id: 1120,
+	building: "Fort",
+	age: 3,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Iphicratean Tactics",
+	aiName: "",
+	weirdName: 2,
+	id: 1121,
+	building: "Fort",
+	age: 3,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Eisphora",
+	aiName: "",
+	weirdName: 2,
+	id: 1122,
+	building: "Fort",
+	age: 4,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Delian League",
+	aiName: "",
+	weirdName: 2,
+	id: 1123,
+	building: "Fort",
+	age: 4,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Elite Hippeus",
+	aiName: "",
+	weirdName: 2,
+	id: 1135,
+	building: "Fort",
+	age: 4,
+	civ: "Spartans",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Helot Levies",
+	aiName: "",
+	weirdName: 2,
+	id: 1130,
+	building: "Fort",
+	age: 3,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Krypteia",
+	aiName: "",
+	weirdName: 2,
+	id: 1131,
+	building: "Fort",
+	age: 3,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Xyphos",
+	aiName: "",
+	weirdName: 2,
+	id: 1132,
+	building: "Fort",
+	age: 4,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Peloponnesian League",
+	aiName: "",
+	weirdName: 2,
+	id: 1133,
+	building: "Fort",
+	age: 4,
+	civ: "Spartans",
+	notes: ""
+} ];	
 	
 dockTechsArray = [ {	
 	name: "War Galley",
@@ -27181,7 +27710,164 @@ dockTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
-} ];	
+} ];		
+	
+portTechsArrayBfG = [ {	
+	name: "War Lembos",
+	aiName: "",
+	weirdName: 2,
+	id: 1144,
+	building: "Port",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Lembos",
+	aiName: "",
+	weirdName: 2,
+	id: 1145,
+	building: "Port",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Lembos",
+	aiName: "",
+	weirdName: 2,
+	id: 1146,
+	building: "Port",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "25% wood",
+	aiName: "",
+	weirdName: 2,
+	id: 1255,
+	building: "Port",
+	age: 2,
+	civ: "",
+	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
+}, {	
+	name: "50% wood",
+	aiName: "",
+	weirdName: 2,
+	id: 1256,
+	building: "Port",
+	age: 2,
+	civ: "",
+	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
+}, {	
+	name: "75% wood",
+	aiName: "",
+	weirdName: 2,
+	id: 1257,
+	building: "Port",
+	age: 2,
+	civ: "",
+	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
+}, {	
+	name: "Scoop Nets",
+	aiName: "",
+	weirdName: 2,
+	id: 1161,
+	building: "Port",
+	age: 3,
+	civ: "",
+	notes: "Gillnets equivalent, but new tech ID"
+}, {	
+	name: "Drums",
+	aiName: "",
+	weirdName: 2,
+	id: 1162,
+	building: "Port",
+	age: 3,
+	civ: "",
+	notes: "Dry Dock equivalent, but new tech ID"
+}, {	
+	name: "Shipwright",
+	aiName: "",
+	weirdName: 2,
+	id: 1167,
+	building: "Port",
+	age: 4,
+	civ: "",
+	notes: "New tech ID because the Port is a new building"
+}];	
+	
+shipyardTechsArrayBfG = [ {	
+	name: "War Galley",
+	aiName: "",
+	weirdName: 2,
+	id: 1151,
+	building: "Shipyard",
+	age: 3,
+	civ: "",
+	notes: "New tech ID because the Shipyard is a new building"
+}, {	
+	name: "Bireme",
+	aiName: "",
+	weirdName: 2,
+	id: 1148,
+	building: "Shipyard",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Incendiary Ship",
+	aiName: "",
+	weirdName: 2,
+	id: 1154,
+	building: "Shipyard",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Galley",
+	aiName: "",
+	weirdName: 2,
+	id: 1152,
+	building: "Shipyard",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Trireme",
+	aiName: "",
+	weirdName: 2,
+	id: 1149,
+	building: "Shipyard",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Incendiary Ship",
+	aiName: "",
+	weirdName: 2,
+	id: 1154,
+	building: "Shipyard",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Onager Ship",
+	aiName: "",
+	weirdName: 2,
+	id: 1159,
+	building: "Shipyard",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hypozomata",
+	aiName: "",
+	weirdName: 2,
+	id: 1165,
+	building: "Shipyard",
+	age: 3,
+	civ: "",
+	notes: "Careening Equivalent"
+}];	
 	
 lcTechsArray = [ {	
 	name: "Double-Bit Axe",
@@ -27276,6 +27962,60 @@ marketTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: "Imperial Age in WK/DE"
+}, {	
+	name: "Guilds",
+	aiName: "ri-guilds",
+	weirdName: 0,
+	id: 15,
+	building: "Market",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+} ];	
+	
+marketTechsArrayBfG = [ {	
+	name: "Coinage",
+	aiName: "ri-coinage",
+	weirdName: 0,
+	id: 23,
+	building: "Market",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Caravan",
+	aiName: "ri-caravan",
+	weirdName: 0,
+	id: 48,
+	building: "Market",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Banking",
+	aiName: "ri-banking",
+	weirdName: 0,
+	id: 17,
+	building: "Market",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
 }, {	
 	name: "Guilds",
 	aiName: "ri-guilds",
@@ -27531,6 +28271,98 @@ monasteryTechsArray = [ {
 	notes: ""
 } ];	
 	
+templeTechsArrayBfG = [ {	
+	name: "Syncretism",
+	aiName: "ri-atonement",
+	weirdName: 1,
+	id: 319,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Fervor",
+	aiName: "ri-fervor",
+	weirdName: 0,
+	id: 252,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Herbal Medicine",
+	aiName: "",
+	weirdName: 0,
+	id: 441,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hemlock",
+	aiName: "ri-heresy",
+	weirdName: 1,
+	id: 439,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Evocatio",
+	aiName: "ri-redemption",
+	weirdName: 1,
+	id: 316,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Apotropaic Magic",
+	aiName: "ri-sanctity",
+	weirdName: 1,
+	id: 231,
+	building: "Temple",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Haruspicy",
+	aiName: "ri-block-printing",
+	weirdName: 1,
+	id: 230,
+	building: "Temple",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Exorcism",
+	aiName: "ri-faith",
+	weirdName: 1,
+	id: 45,
+	building: "Temple",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Purification",
+	aiName: "ri-illumination",
+	weirdName: 1,
+	id: 233,
+	building: "Temple",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Mystery Cults",
+	aiName: "ri-theocracy",
+	weirdName: 1,
+	id: 438,
+	building: "Temple",
+	age: 4,
+	civ: "",
+	notes: ""
+}];	
+	
 siegeWorkshopTechsArray = [ {	
 	name: "Capped Ram",
 	aiName: "ri-capped-ram",
@@ -27634,6 +28466,53 @@ siegeWorkshopTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Bohemians",
+	notes: ""
+} ];	
+	
+siegeWorkshopTechsArrayBfG = [ {	
+	name: "Capped Ram",
+	aiName: "ri-capped-ram",
+	weirdName: 0,
+	id: 96,
+	building: "Siege Workshop",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siege Ram",
+	aiName: "ri-siege-ram",
+	weirdName: 0,
+	id: 255,
+	building: "Siege Workshop",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Onager",
+	aiName: "ri-onager",
+	weirdName: 0,
+	id: 257,
+	building: "Siege Workshop",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siege Onager",
+	aiName: "ri-siege-onager",
+	weirdName: 0,
+	id: 320,
+	building: "Siege Workshop",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Scorpion",
+	aiName: "ri-heavy-scorpion",
+	weirdName: 0,
+	id: 239,
+	building: "Siege Workshop",
+	age: 4,
+	civ: "Athenians",
 	notes: ""
 } ];	
 	
@@ -27808,6 +28687,71 @@ stableTechsArray = [ {
 	notes: ""
 } ];	
 	
+stableTechsArrayBfG = [ {	
+	name: "Light Cavalry",
+	aiName: "ri-light-cavalry",
+	weirdName: 0,
+	id: 254,
+	building: "Stable",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Raider",
+	aiName: "ri-hussar",
+	weirdName: 1,
+	id: 428,
+	building: "Stable",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Shock Cavalry",
+	aiName: "ri-cavalier",
+	weirdName: 1,
+	id: 209,
+	building: "Stable",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Imperial Cavalry",
+	aiName: "ri-paladin",
+	weirdName: 1,
+	id: 265,
+	building: "Stable",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Elite War Chariot",
+	aiName: "",
+	weirdName: 2,
+	id: 236,
+	building: "Stable",
+	age: 4,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Bloodlines",
+	aiName: "ri-bloodlines",
+	weirdName: 0,
+	id: 435,
+	building: "Stable",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Husbandry",
+	aiName: "ri-husbandry",
+	weirdName: 0,
+	id: 39,
+	building: "Stable",
+	age: 3,
+	civ: "",
+	notes: ""
+} ];	
+	
 tcTechsArray = [ {	
 	name: "Loom",
 	aiName: "ri-loom",
@@ -27911,6 +28855,170 @@ tcTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
+	notes: ""
+} ];	
+	
+tcTechsArrayBfG = [ {	
+	name: "Loom",
+	aiName: "ri-loom",
+	weirdName: 0,
+	id: 22,
+	building: "Town Center",
+	age: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Civic Age",
+	aiName: "feudal-age",
+	weirdName: 1,
+	id: 101,
+	building: "Town Center",
+	age: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Classical Age",
+	aiName: "castle-age",
+	weirdName: 1,
+	id: 102,
+	building: "Town Center",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Town Watch",
+	aiName: "ri-town-watch",
+	weirdName: 0,
+	id: 8,
+	building: "Town Center",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Wheelbarrow",
+	aiName: "ri-wheel-barrow",
+	weirdName: 0,
+	id: 213,
+	building: "Town Center",
+	age: 2,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Imperial Age",
+	aiName: "imperial-age",
+	weirdName: 0,
+	id: 103,
+	building: "Town Center",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Town Patrol",
+	aiName: "ri-town-patrol",
+	weirdName: 0,
+	id: 280,
+	building: "Town Center",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Hand Cart",
+	aiName: "ri-hand-cart",
+	weirdName: 0,
+	id: 249,
+	building: "Town Center",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Economic Satrapy",
+	aiName: "",
+	weirdName: 2,
+	id: 1195,
+	building: "Town Center",
+	age: 2,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Military Satrapy",
+	aiName: "",
+	weirdName: 2,
+	id: 1196,
+	building: "Town Center",
+	age: 2,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Defensive Satrapy",
+	aiName: "",
+	weirdName: 2,
+	id: 1197,
+	building: "Town Center",
+	age: 2,
+	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Economic Policy",
+	aiName: "",
+	weirdName: 2,
+	id: 1202,
+	building: "Town Center",
+	age: 1,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Naval Policy",
+	aiName: "",
+	weirdName: 2,
+	id: 1203,
+	building: "Town Center",
+	age: 1,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Military Policy",
+	aiName: "",
+	weirdName: 2,
+	id: 1204,
+	building: "Town Center",
+	age: 1,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Ephorate",
+	aiName: "",
+	weirdName: 2,
+	id: 1223,
+	building: "Town Center",
+	age: 3,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Morai",
+	aiName: "",
+	weirdName: 2,
+	id: 1224,
+	building: "Town Center",
+	age: 3,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Skeuophoroi",
+	aiName: "",
+	weirdName: 2,
+	id: 1225,
+	building: "Town Center",
+	age: 3,
+	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Hippagretai",
+	aiName: "",
+	weirdName: 2,
+	id: 1226,
+	building: "Town Center",
+	age: 4,
+	civ: "Spartans",
 	notes: ""
 } ];	
 	
@@ -28084,8 +29192,116 @@ universityTechsArray = [ {
 	civ: "",
 	notes: ""
 } ];	
-
-
+	
+academyTechsArrayBfG = [ {	
+	name: "Fortified Wall",
+	aiName: "ri-fortified-wall",
+	weirdName: 0,
+	id: 194,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Guard Tower",
+	aiName: "ri-guard-tower",
+	weirdName: 0,
+	id: 140,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Bastion",
+	aiName: "ri-keep",
+	weirdName: 1,
+	id: 63,
+	building: "Academy",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Target Practice",
+	aiName: "ri-ballistics",
+	weirdName: 1,
+	id: 93,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Lighthouse",
+	aiName: "ri-heated-shot",
+	weirdName: 1,
+	id: 380,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Masonry",
+	aiName: "ri-masonry",
+	weirdName: 0,
+	id: 50,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Murder Holes",
+	aiName: "ri-murder-holes",
+	weirdName: 0,
+	id: 322,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Treadmill Crane",
+	aiName: "ri-stonecutting",
+	weirdName: 0,
+	id: 54,
+	building: "Academy",
+	age: 3,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Architecture",
+	aiName: "ri-architecture",
+	weirdName: 0,
+	id: 51,
+	building: "Academy",
+	age: 4,
+	civ: "Athenians",
+	notes: ""
+}, {	
+	name: "Arrowslits",
+	aiName: "ri-arrowslits",
+	weirdName: 0,
+	id: 608,
+	building: "Academy",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Flaming Arrows",
+	aiName: "ri-chemistry",
+	weirdName: 1,
+	id: 47,
+	building: "Academy",
+	age: 4,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siege Engineers",
+	aiName: "ri-siege-engineers",
+	weirdName: 0,
+	id: 377,
+	building: "Academy",
+	age: 4,
+	civ: "",
+	notes: ""
+} ];	
 
 academyTechsArrayROR = [ {	
 	name: "Phalangite",
@@ -28825,9 +30041,10 @@ townCenterTechsArrayROR = [ {
 
 techsArray = [rangeTechsArray, barracksTechsArray, blacksmithTechsArray, castleTechsArray, dockTechsArray, lcTechsArray, marketTechsArray, millTechsArray, mcTechsArray, monasteryTechsArray, siegeWorkshopTechsArray, stableTechsArray, tcTechsArray, universityTechsArray];
 techsArrayROR = [academyTechsArrayROR, rangeTechsArrayROR, barracksTechsArrayROR, dockTechsArrayROR, governmentCenterTechsArrayROR, granaryTechsArrayROR, marketTechsArrayROR, siegeWorkshopTechsArrayROR, stableTechsArrayROR, storagePitTechsArrayROR, templeTechsArrayROR, townCenterTechsArrayROR];
+techsArrayBfG = [academyTechsArrayBfG, rangeTechsArrayBfG, barracksTechsArrayBfG, blacksmithTechsArrayBfG, fortTechsArrayBfG, lcTechsArray, marketTechsArrayBfG, millTechsArray, mcTechsArray, portTechsArrayBfG, shipyardTechsArrayBfG, siegeWorkshopTechsArrayBfG, stableTechsArrayBfG, templeTechsArrayBfG, tcTechsArrayBfG];
 techsBuildingsArray = ["Archery Range", "Barracks", "Blacksmith", "Castle", "Dock", "Lumber Camp", "Market", "Mill", "Mining Camp", "Monastery", "Siege Workshop", "Stable", "Town Center", "University"];
 techsBuildingsArrayROR = ["Academy", "Archery Range", "Barracks", "Dock", "Government Center", "Granary", "Market", "Siege Workshop", "Stable", "Storage Pit", "Temple", "Town Center"]
-
+techsBuildingsArrayBfG = ["Academy", "Archery Range", "Barracks", "Blacksmith", "Fort", "Lumber Camp", "Market", "Mill", "Mining Camp", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center"];
 
 
 
@@ -42652,6 +43869,25 @@ objectsGaiaArray = [ {
 	building: "Gaia",
 	age: 1,
 	deadUnit: "1240",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Mouflon",
+	aiName: "",
+	line: "",
+	id: 2340,
+	class: "prey-animal-class (909)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "2341",
 	projectile: "",
 	chemProjectile: "",
 	civ: "",

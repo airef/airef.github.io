@@ -17,7 +17,7 @@
 		<div id="nav-placeholder"></div>
 		<h2>Technologies</h2>
 		<p><strong>Legend:</strong> Technologies with unexpected AI names are marked in <span class="weird-tech-name">yellow</span>. Technologies only defined in DE are marked in <span class="de-tech-name">green</span>.</p>
-		<p>For a list of technologies in the Return of Rome DLC, see the <a href="./techs-ror.html">Return of Rome Techs Table</a>.</p>
+		<p>For a list of technologies in the Return of Rome DLC, see the <a href="./techs-ror.html">Return of Rome Techs Table</a>. For a list of technologies in the Chronicles: Battle for Greece DLC, see the <a href="./techs-bfg.html">Chronicles: Battle for Greece Techs Table</a>.</p>
 		<p>
 			<label for="techsInput" class="techs-input-label">Search</label><label for="techs-building" class="dropdown-label">Building</label><label for="techs-age" class="dropdown-label">Age</label><label for="techs-versions" class="dropdown-label">Version</label>
 			<input type="text" id="techsInput" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off" autofocus="autofocus"><select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
@@ -231,7 +231,7 @@
 		if (index >= 0) {
 			search = search.slice(index + 1,search.length + 1);
 			search = search.replace(/%20/g," ");	//spaces are replaced with %20 in URL address, so change them back to a space
-			document.getElementById("techsInput").value = search;
+			document.getElementById("techsInputBfG").value = search;
 			techsFilter();
 		}
 	</script>
