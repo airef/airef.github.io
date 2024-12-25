@@ -16,44 +16,44 @@
 	<div class="container" id="top">
 		<div id="nav-placeholder"></div>
 		<h2>Objects</h2>
-		<p>This list of objects in the Return of Rome DLC doesn't include any Gaia objects because they are exactly the same as in AoE2 DE.</p>
+		<p>This list of objects in the Chronicles: Battle for Greece DLC doesn't include any Gaia objects because they are exactly the same as in AoE2 DE.</p>
 		<p>For more info on what dead units, projectiles, <a href="https://airef.github.io/parameters/parameters-details.html#LineId">lines</a>, <a href="https://airef.github.io/parameters/parameters-details.html#SetId">sets</a>, and <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">classes</a> are, click <a href="#info">here</a>.</p>
 		<p>For a list of objects in AoE2, see the <a href="./objects.html">AoE2 Objects Table</a>. For a list of objects in the Chronicles: Battle for Greece DLC, see the <a href="./objects-bfg.html">Chronicles: Battle for Greece Objects Table</a>.</p>
 		<p>
-			<label for="objectsInputROR" class="objects-ror-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
-			<input type="text" id="objectsInputROR" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
+			<label for="objectsInputBfG" class="objects-bfg-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
+			<input type="text" id="objectsInputBfG" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
 				<option value="All" selected>All</option>
-				<option value="Artifacts">Artifacts</option>
 				<option value="Archery">Archery</option>
-				<option value="Ballistas">Ballistas</option>
 				<option value="Buildings">Buildings</option>
-				<option value="Catapults">Catapults</option>
 				<option value="Cavalry">Cavalry</option>
 				<option value="Cavalry Archers">Cavalry Archers</option>
 				<option value="Farms">Farms</option>
 				<option value="Fishing Ships">Fishing Ships</option>
-				<option value="Flags">Flags</option>
+				<option value="Gastraphetoros">Gastraphetoros</option>
 				<option value="Gates">Gates</option>
-				<option value="Hand Cannoneers">Hand Cannoneers</option>
 				<option value="Infantry">Infantry</option>
-				<option value="Miscellaneous">Miscellaneous</option>
-				<option value="Priests">Priests</option>
-				<option value="Priests With Relics">Priests With Relics</option>
-				<option value="Scouts">Scouts</option>
+				<option value="Monuments">Monuments</option>
+				<option value="Packed Palintonon">Packed Palintonon</option>
+				<option value="Priestesses">Priestesses</option>
+				<option value="Scorpions">Scorpions</option>
+				<option value="Scout Cavalry">Scout Cavalry</option>
+				<option value="Siege Weapons">Siege Weapons</option>
 				<option value="Towers">Towers</option>
 				<option value="Trade Carts">Trade Carts</option>
 				<option value="Trade Cogs">Trade Cogs</option>
 				<option value="Transport Ships">Transport Ships</option>
+				<option value="Unpacked Palintonon">Unpacked Palintonon</option>
 				<option value="Villagers">Villagers</option>
 				<option value="Walls">Walls</option>
 				<option value="Warships">Warships</option>
 			</select><select id="objects-building" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Building/Category">
 				<option value="All" selected>All</option>
-				<option value="Academy">Academy</option>
 				<option value="Archery Range">Archery Range</option>
 				<option value="Barracks">Barracks</option>
-				<option value="Dock">Dock</option>
+				<option value="Fort">Fort</option>
 				<option value="Market">Market</option>
+				<option value="Port">Port</option>
+				<option value="Shipyard">Shipyard</option>
 				<option value="Siege Workshop">Siege Workshop</option>
 				<option value="Stable">Stable</option>
 				<option value="Temple">Temple</option>
@@ -62,17 +62,11 @@
 				<option value="Other">Other</option>
 			</select><select id="objects-age" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Age">
 				<option value="All" selected>All</option>
-				<option value="Stone">Stone</option>
-				<option value="Tool">Tool</option>
-				<option value="Bronze">Bronze</option>
-				<option value="Iron">Iron</option>
+				<option value="Archaic">Archaic</option>
+				<option value="Civic">Civic</option>
+				<option value="Classical">Classical</option>
+				<option value="Imperial">Imperial</option>
 			</select> 
-			<!-- </select><select id="objects-version" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Game Version">
-				<option value="All" selected>All</option>
-				<option value="AoE">AoE</option>
-				<option value="RoR">Rise of Rome</option>
-				<option value="DE">DE</option>
-				<option value="DERoR">Return of Rome</option> -->
 		</p>
 		<p id="num-results"></p>
 		<div id="objectIndex"></div>
@@ -99,57 +93,32 @@
 		var numobjects;
 		var text = "";
 		var objectID = "";
-		for(var i = 0; i < objectsArrayROR.length; i++) {
+		for(var i = 0; i < objectsArrayBfG.length; i++) {
 			numobjects = 0;
-			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArrayROR[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-ror-id-col\">ID</th><th class=\"objects-ror-name-col\">Name</th><th class=\"objects-ror-ainame-col\">AoE2 AI Name</th><th class=\"objects-ror-line-col\">Line ID</th><th class=\"objects-ror-class-col\">Class</th><th class=\"objects-ror-cmdId-col\">Cmd ID</th><th class=\"objects-ror-building-col\">Building/<br>Category</th><th class=\"objects-ror-age-col\">Age</th><th class=\"objects-ror-dead-unit-col\">Dead Object ID</th><th class=\"objects-ror-projectile-col\">Proj. ID</th>";
-			// text += "<th class=\"objects-ror-versions-col\">Versions</th>";
-			text += "<th class=\"objects-ror-notes-col\">Notes</th></tr>";
-			for(var j = 0; j < objectsArrayROR[i].length; j++) {
-				objectID = objectsArrayROR[i][j].id.toString();
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArrayBfG[i] + "</h3>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-bfg-id-col\">ID</th><th class=\"objects-bfg-name-col\">Name</th><th class=\"objects-bfg-ainame-col\">AoE2 AI Name</th><th class=\"objects-bfg-line-col\">Line ID</th><th class=\"objects-bfg-class-col\">Class</th><th class=\"objects-bfg-cmdId-col\">Cmd ID</th><th class=\"objects-bfg-building-col\">Building/<br>Category</th><th class=\"objects-bfg-age-col\">Age</th><th class=\"objects-bfg-dead-unit-col\">Dead Object ID</th><th class=\"objects-bfg-projectile-col\">Proj. ID</th>";
+			// text += "<th class=\"objects-bfg-versions-col\">Versions</th>";
+			text += "<th class=\"objects-bfg-notes-col\">Notes</th></tr>";
+			for(var j = 0; j < objectsArrayBfG[i].length; j++) {
+				objectID = objectsArrayBfG[i][j].id.toString();
 				text += "<tr>";
 				if(objectID.indexOf(":") > -1)
 				{
-					text += "<td class=\"multiple-id-object\">" + objectsArrayROR[i][j].id + "</td>";
+					text += "<td class=\"multiple-id-object\">" + objectsArrayBfG[i][j].id + "</td>";
 				}
 				else {
-					text += "<td>" + objectsArrayROR[i][j].id + "</td>";
+					text += "<td>" + objectsArrayBfG[i][j].id + "</td>";
 				}
-				text += "<td>" + objectsArrayROR[i][j].name + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].aiName + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].line + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].class + "</td>"
-				text += "<td>" + objectsArrayROR[i][j].cmdId + "</td>"
-				text += "<td>" + objectsArrayROR[i][j].building + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].age + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].deadUnit + "</td>";
-				text += "<td>" + objectsArrayROR[i][j].projectile + "</td>";
-				/*<td class=\"version-icons\">";
-				if(objectsArrayROR[i][j].aoe == 1) {
-					text += "<img src=\"../images/aok_64.png\" title=\"Age of Empires\"/> ";
-				}
-				else {
-					text += "<img src=\"../images/trans_64.png\"/> ";
-				}
-				if(objectsArrayROR[i][j].ror == 1) {
-					text += "<img src=\"../images/tc_64.png\" title=\"The Rise of Rome\"/> ";
-				}
-				else {
-					text += "<img src=\"../images/trans_64.png\"/> ";
-				}
-				if(objectsArrayROR[i][j].de == 1) {
-					text += "<img src=\"../images/hd_64.png\" title=\"Definitive Edition\"/> ";
-				}
-				else {
-					text += "<img src=\"../images/trans_64.png\"/> ";
-				}
-				if(objectsArrayROR[i][j].deror == 1) {
-					text += "<img src=\"../images/deror_64.png\" class=\"ror-image\" title=\"The Return of Rome DLC\"/>";
-				}
-				else {
-					text += "<img src=\"../images/trans_64.png\"/>";
-				}*/
-				text += "<td>" + objectsArrayROR[i][j].notes + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].name + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].aiName + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].line + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].class + "</td>"
+				text += "<td>" + objectsArrayBfG[i][j].cmdId + "</td>"
+				text += "<td>" + objectsArrayBfG[i][j].building + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].age + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].deadUnit + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].projectile + "</td>";
+				text += "<td>" + objectsArrayBfG[i][j].notes + "</td>";
 				text += "</td></tr>";
 				numobjects++;
 			}
@@ -158,16 +127,16 @@
 		document.getElementById("objectIndex").innerHTML = text;
 
 		var num = 0;
-		for(var k = 0; k < objectsArrayROR.length; k++) {
-			num = num + objectsArrayROR[k].length;
+		for(var k = 0; k < objectsArrayBfG.length; k++) {
+			num = num + objectsArrayBfG[k].length;
 		}
 		document.getElementById("num-results").innerHTML = "Num Results: " + num;
 	</script>
 	<script>
 		function objectsFilter() {
 			// Declare variables
-			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdBuilding, tdAge, tdAoe, tdRor, tdDe, tdDeror, i, h, num, bldgNum, header;
-			input = document.getElementById("objectsInputROR");
+			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdBuilding, tdAge, i, h, num, bldgNum, header;
+			input = document.getElementById("objectsInputBfG");
 			building = document.getElementById("objects-building");
 			building = building.value;
 			objectClass = document.getElementById("objects-class");
@@ -195,11 +164,11 @@
 			else if (objectClass.value == "Flags") {
 				objectClass = "flag-class (930)";
 			}
+			else if (objectClass.value == "Gastraphetoros") {
+				objectClass = "archery-cannon-class (944)";
+			}
 			else if (objectClass.value == "Gates") {
 				objectClass = "gate-class (939)";
-			}
-			else if (objectClass.value == "Hand Cannoneers") {
-				objectClass = "archery-cannon-class (944)";
 			}
 			else if (objectClass.value == "Infantry") {
 				objectClass = "infantry-class (906)";
@@ -210,19 +179,28 @@
 			else if (objectClass.value == "Miscellaneous") {
 				objectClass = "miscellaneous-class (911)";
 			}
-			else if (objectClass.value == "Priests") {
-				objectClass = "monastery-class (918)";
-			}
-			else if (objectClass.value == "Artifacts") {
+			else if (objectClass.value == "Monuments") {
 				objectClass = "monument-class (901)";
 			}
-			else if (objectClass.value == "Ballistas") {
+			else if (objectClass.value == "Priestesses") {
+				objectClass = "monastery-class (918)";
+			}
+			else if (objectClass.value == "Priestesses With Relics") {
+				objectClass = "monk-with-relic-class (943)";
+			}
+			else if (objectClass.value == "Packed Palintonon") {
+				objectClass = "packed-trebuchet-class (951)";
+			}
+			else if (objectClass.value == "Relics") {
+				objectClass = "relic-class (942)";
+			}
+			else if (objectClass.value == "Scorpions") {
 				objectClass = "scorpion-class (955)";
 			}
-			else if (objectClass.value == "Scouts") {
+			else if (objectClass.value == "Scout Cavalry") {
 				objectClass = "scout-cavalry-class (947)";
 			}
-			else if (objectClass.value == "Catapults") {
+			else if (objectClass.value == "Siege Weapons") {
 				objectClass = "siege-weapon-class (913)";
 			}
 			else if (objectClass.value == "Towers") {
@@ -237,6 +215,9 @@
 			else if (objectClass.value == "Transport Ships") {
 				objectClass = "transport-ship-class (920)";
 			}
+			else if (objectClass.value == "Unpacked Palintonon") {
+				objectClass = "unpacked-trebuchet-class (954)";
+			}
 			else if (objectClass.value == "Villagers") {
 				objectClass = "villager-class (904)";
 			}
@@ -250,38 +231,22 @@
 			if (age.value == "All") {
 				age = "All";
 			}
-			else if (age.value == "Stone") {
+			else if (age.value == "Archaic") {
 				age = 1;
 			}
-			else if (age.value == "Tool") {
+			else if (age.value == "Civic") {
 				age = 2;
 			}
-			else if (age.value == "Bronze") {
+			else if (age.value == "Classical") {
 				age = 3;
 			}
-			else if (age.value == "Iron") {
+			else if (age.value == "Imperial") {
 				age = 4;
 			}
-			/*version = document.getElementById("objects-version");
-			if (version.value == "All") {
-				version = "All";
-			}
-			else if (version.value == "AoE") {
-				version = "AoE";
-			}
-			else if (version.value == "RoR") {
-				version = "RoR";
-			}
-			else if (version.value == "DE") {
-				version = "DE";
-			}
-			else if (version.value == "DERoR") {
-				version = "DERoR";
-			}*/
 			filter = input.value.toUpperCase();
 			filter = filter.replace(/-/g,"");
 			num = 0;
-			for (h = 0; h < objectsArrayROR.length; h++) {
+			for (h = 0; h < objectsArrayBfG.length; h++) {
 				table = document.getElementById("bldg-" + h);
 				tr = table.getElementsByTagName("tr");
 				header = document.getElementById("bldg-header-" + h);
@@ -289,16 +254,13 @@
 
 				//Loop through all table rows, and hide those who don't match the search query
 				for (i = 0; i < tr.length - 1; i++) {
-					tdId = objectsArrayROR[h][i].id;
-					tdName = objectsArrayROR[h][i].name;
-					tdAiName = objectsArrayROR[h][i].aiName;
-					tdClass = objectsArrayROR[h][i].class;
-					tdBuilding = objectsArrayROR[h][i].building;
-					tdAge = objectsArrayROR[h][i].age;
-					/*tdAoe = objectsArrayROR[h][i].aoe;
-					tdRor = objectsArrayROR[h][i].ror;
-					tdDe = objectsArrayROR[h][i].de;
-					tdDeror = objectsArrayROR[h][i].deror;*/
+					tdId = objectsArrayBfG[h][i].id;
+					tdName = objectsArrayBfG[h][i].name;
+					tdAiName = objectsArrayBfG[h][i].aiName;
+					tdClass = objectsArrayBfG[h][i].class;
+					console.log(tdClass);
+					tdBuilding = objectsArrayBfG[h][i].building;
+					tdAge = objectsArrayBfG[h][i].age;
 
 					if (tdName != "" && tdId.toString().length > 0) {
 						tdName = tdName.replace(/-/g,"");
@@ -306,14 +268,9 @@
 							if(objectClass == "All" || tdClass == objectClass) {
 								if(building == "All" || tdBuilding == building) {
 									if(age == "All" || tdAge == age) {
-										//if(version == "All" || (version == "AoE" && tdAoe == 1) || (version == "RoR" && tdRor == 1) || (version == "DE" && tdDe == 1) || (version == "DERoR" && tdDeror == 1)) {
-											tr[i + 1].style.display = "";
-											num = num + 1;
-											bldgNum = bldgNum + 1;
-										/*}
-										else {
-											tr[i + 1].style.display = "none";
-										}*/
+										tr[i + 1].style.display = "";
+										num = num + 1;
+										bldgNum = bldgNum + 1;
 									}
 									else {
 										tr[i + 1].style.display = "none";
@@ -350,7 +307,7 @@
 		if (index >= 0) {
 			search = search.slice(index + 1,search.length + 1);
 			search = search.replace(/%20/g," ");	//spaces are replaced with %20 in URL address, so change them back to a space
-			document.getElementById("objectsInputROR").value = search;
+			document.getElementById("objectsInputBfG").value = search;
 			objectsFilter();
 		}
 	</script>

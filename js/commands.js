@@ -7863,6 +7863,56 @@ unitLinesArray = [ {
 	id: "NA",
 	deId: -223,
 	description: "DE only. Includes qizilbash-warrior and elite-qizilbash-warrior. The unit line and individual units aren't defined in the AI engine."
+}, {
+	name: "immortal-line",
+	id: "NA",
+	deId: -222,
+	description: "DE only. Includes immortal and elite-immortal. Does not include ranged immortals."
+}, {
+	name: "strategos-line",
+	id: "NA",
+	deId: -221,
+	description: "DE only. Includes strategos and elite-strategos."
+}, {
+	name: "hippeus-line",
+	id: "NA",
+	deId: -220,
+	description: "DE only. Includes hippeus and elite-hippeus."
+}, {
+	name: "hoplite-line",
+	id: "NA",
+	deId: -219,
+	description: "DE only. Includes hoplite and elite-hoplite."
+}, {
+	name: "war-chariot-line",
+	id: "NA",
+	deId: -218,
+	description: "DE only. Includes war-chariot and elite-war-chariot."
+}, {
+	name: "lembos-line",
+	id: "NA",
+	deId: -217,
+	description: "DE only. Includes lembos, war-lembos, heavy-lembos, and elite-lembos."
+}, {
+	name: "monoreme-line",
+	id: "NA",
+	deId: -216,
+	description: "DE only. Includes monoreme, bireme, and trireme."
+}, {
+	name: "ancient-galley-line",
+	id: "NA",
+	deId: -215,
+	description: "DE only. Includes galley (antiquity), war-galley (antiquity), and elite-galley."
+}, {
+	name: "incendiary-ship-line",
+	id: "NA",
+	deId: -214,
+	description: "DE only. Includes incendiary-raft, incendiary-ship, and heavy-incendiary-ship."
+}, {
+	name: "catapult-ship-line",
+	id: "NA",
+	deId: -213,
+	description: "DE only. Includes catapult-ship and onager-ship."
 } ];
 
 buildingLinesArray = [ {
@@ -10009,13 +10059,13 @@ cGenerateRandomNumber.complexity = "Low";
 
 //goal
 cGoal.shortDescription = "Checks the current value of the given goal.";
-cGoal.description = "Checks the current value of the given goal. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 512 goals available that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 512-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The " + cGoal.getLink() + " command checks if the value of the given GoalId is equal to the given value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 512 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 512 bank accounts, numbered with IDs from 1 to 512. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The " + cSetGoal.getLink() + " and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
+cGoal.description = "Checks the current value of the given goal. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in 1.0c) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The " + cGoal.getLink() + " command checks if the value of the given GoalId is equal to the given value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The " + cSetGoal.getLink() + " and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
 	type: "Const",
 	dir: "in",
-	range: "A valid GoalId, from 1 to 512.",
+	range: "A valid GoalId, from 1 to 16000.",
 	note: "The goal to compare the Value to."
 }, {
 	nameLink: pValue.getLink(),
@@ -11220,13 +11270,13 @@ cSetEscrowPercentage.complexity = "Medium";
 
 //set-goal
 cSetGoal.shortDescription = "Sets a given goal to a given value.";
-cSetGoal.description = "Sets a given goal to a given value. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 512 goals available that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 512-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The set-goal command sets the value the given GoalId to the given integer value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 512 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 512 bank accounts, numbered with IDs from 1 to 512. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The set-goal and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
+cSetGoal.description = "Sets a given goal to a given value. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in 1.0c) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The set-goal command sets the value the given GoalId to the given integer value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The set-goal and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cSetGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
 	type: "Const",
 	dir: "in",
-	range: "A valid GoalId, from 1 to 512.",
+	range: "A valid GoalId, from 1 to 16000.",
 	note: "The goal to set."
 }, {
 	nameLink: pValue.getLink(),
@@ -11250,7 +11300,7 @@ cSetGoal.complexity = "Low";
 
 //set-shared-goal
 cSetSharedGoal.shortDescription = "Sets a given shared goal (a goal that is shared among all computer players) to a given value.";
-cSetSharedGoal.description = "Sets a given shared goal (a goal that is shared among all computer players) to a given value. To be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 512 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with set-shared-goal or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with " + cSharedGoal.getLink() + " or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 512 goals.";
+cSetSharedGoal.description = "Sets a given shared goal (a goal that is shared among all computer players) to a given value. To be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 16000 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with set-shared-goal or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with " + cSharedGoal.getLink() + " or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 16000 goals.";
 cSetSharedGoal.commandParameters = [ {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -11351,7 +11401,7 @@ cSetStrategicNumber.complexity = "Low";
 
 //shared-goal
 cSharedGoal.shortDescription = "Checks a given shared goal (a goal that is shared among all computer players).";
-cSharedGoal.description = "Checks a given shared goal (a goal that is shared among all computer players). It is to be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 512 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with " + cSetSharedGoal.getLink() + " or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with shared-goal or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 512 goals.";
+cSharedGoal.description = "Checks a given shared goal (a goal that is shared among all computer players). It is to be used only when all computer players are on the same team.</p><p>Shared goals are a separate set of 256 goals, in addition to the regular 16000 normal goals, which are shared between all AIs in the game, even between AIs that are enemies. Any AI can modify them at any time with " + cSetSharedGoal.getLink() + " or " + cUpSetSharedGoal.getLink() + ", and all AIs can check their values with shared-goal or " + cUpGetSharedGoal.getLink() + ". Otherwise, shared goals share the same characteristics of normal goals, which you can read about in the " + cSetGoal.getLink() + " description.</p><p>Because shared goals can change without the AI's knowledge and the fact than enemy AIs can check their values, it's often better to use " + cUpAlliedGoal.getLink() + ", which allows you to check the value of one of an allied AI's normal 16000 goals.";
 cSharedGoal.commandParameters = [ {
 	nameLink: pSharedGoalId.getLink(),
 	name: "SharedGoalId",
@@ -12069,7 +12119,7 @@ cUpAddCostData.commandParameters = [ {
 	name: "GoalId",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals that store cost data for food, wood, stone, and gold."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -12181,14 +12231,14 @@ cUpAddPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -12496,7 +12546,7 @@ cUpBoundPrecisePoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read and store the (x,y) pair."
 }, {
 	nameLink: pOption.getLink(),
@@ -12537,14 +12587,14 @@ cUpBoundPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 } ];
 cUpBoundPoint.example = [ {
@@ -12657,14 +12707,14 @@ cUpBuildLine.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -12779,7 +12829,7 @@ cUpCanBuildLine.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -13300,14 +13350,14 @@ cUpCopyPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 } ];
 cUpCopyPoint.example = [ {
@@ -13368,14 +13418,14 @@ cUpCrossTiles.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -13897,13 +13947,13 @@ cUpFilterStatus.complexity = "Very High";
 
 //up-find-flare
 cUpFindFlare.shortDescription = "Read the (x,y) position of an allied flare into an extended goal pair.";
-cUpFindFlare.description = "Read the (x,y) position of an allied flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1). This command is equivalent to up-find-player-flare with any-ally.";
+cUpFindFlare.description = "Read the (x,y) position of an allied flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 15998. If it fails to get a valid position, it will return (-1,-1). This command is equivalent to up-find-player-flare with any-ally.";
 cUpFindFlare.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 } ],
 cUpFindFlare.example = [ {
@@ -14024,7 +14074,7 @@ cUpFindPlayer.complexity = "Medium";
 
 //up-find-player-flare
 cUpFindPlayerFlare.shortDescription = "Read the (x,y) position of any visible flare into an extended goal pair.";
-cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1).";
+cUpFindPlayerFlare.description = "Read the (x,y) position of any visible flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 15998. If it fails to get a valid position, it will return (-1,-1).</p><p>Please note that it has never been designed to work with this-any-* or every-* wildcards, as flares belong to all recipient players, even when they aren't owned by them, so the stored player from this-* would not necessarily be the actual sender of the flare. If you search for players-unit-type-count any-* flare, do not expect this-* to be the sender player for any action commands (not limited to just the flare stuff). If you need to know the specific player number of the sender, you'll need to loop with focus-player checks.</p><p>The action allows \"my-player-number\", \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1).";
 cUpFindPlayerFlare.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -14037,7 +14087,7 @@ cUpFindPlayerFlare.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 } ];
 cUpFindPlayerFlare.example = [ {
@@ -14431,7 +14481,7 @@ cUpGetCostDelta.commandParameters = [ {
 	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals to store the cost delta for food, wood, stone, and gold."
 } ];
 cUpGetCostDelta.example = [ {
@@ -14708,7 +14758,7 @@ cUpGetGuardState.commandParameters = [ {
 	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals to read the guard state."
 } ];
 cUpGetGuardState.example = [ {
@@ -14737,7 +14787,7 @@ cUpGetIndirectGoal.commandParameters = [ {
 	name: "GoalId",
 	type: "Op",
 	dir: "in",
-	range: "1 to 512",
+	range: "1 to 16000",
 	note: "The goal to get."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -14859,7 +14909,7 @@ cUpGetPathDistance.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOption.getLink(),
@@ -14988,7 +15038,7 @@ cUpGetPreciseTime.complexity = "High";
 
 //up-get-point
 cUpGetPoint.shortDescription = "Read a specific (x,y) position into an extended goal pair.";
-cUpGetPoint.description = "Read a specific (x,y) position into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 510. If it fails to get a valid position, it will return (-1,-1).";
+cUpGetPoint.description = "Read a specific (x,y) position into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 15998. If it fails to get a valid position, it will return (-1,-1).";
 cUpGetPoint.commandParameters = [ {
 	nameLink: pPositionType.getLink(),
 	name: "PositionType",
@@ -15001,7 +15051,7 @@ cUpGetPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 } ];
 cUpGetPoint.example = [ {
@@ -15024,7 +15074,7 @@ cUpGetPointContains.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -15065,14 +15115,14 @@ cUpGetPointDistance.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -15098,7 +15148,7 @@ cUpGetPointElevation.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -15125,7 +15175,7 @@ cUpGetPointTerrain.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTerrain.getLink(),
@@ -15152,7 +15202,7 @@ cUpGetPointZone.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -15225,7 +15275,7 @@ cUpGetSearchState.commandParameters = [ {
 	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals to read the search state."
 } ];
 cUpGetSearchState.example = [ {
@@ -15716,14 +15766,14 @@ cUpLerpPercent.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -15757,14 +15807,14 @@ cUpLerpTiles.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -16160,7 +16210,7 @@ cUpPathDistance.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pOption.getLink(),
@@ -16341,7 +16391,7 @@ cUpPointContains.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -16375,14 +16425,14 @@ cUpPointDistance.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pPoint.getLink("Point2"),
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -16415,7 +16465,7 @@ cUpPointElevation.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -16449,7 +16499,7 @@ cUpPointExplored.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -16483,7 +16533,7 @@ cUpPointTerrain.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -16517,7 +16567,7 @@ cUpPointZone.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -16843,7 +16893,7 @@ cUpResetCostData.commandParameters = [ {
 	name: "GoalId",
 	type: "Goal",
 	dir: "out",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals that store cost data for food, wood, stone, and gold."
 } ];
 cUpResetCostData.example = [ {
@@ -17194,7 +17244,7 @@ cUpSendFlare.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15998",
 	note: "The first of 2 consecutive goals to read the (x,y) pair."
 } ];
 cUpSendFlare.example = [ {
@@ -17454,7 +17504,7 @@ cUpSetIndirectGoal.commandParameters = [ {
 	name: "GoalId",
 	type: "Op",
 	dir: "in",
-	range: "1 to 512",
+	range: "1 to 16000",
 	note: "The goal to set."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -17588,7 +17638,7 @@ cUpSetPreciseTargetPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15598",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 } ];
 cUpSetPreciseTargetPoint.example = [ {
@@ -17749,7 +17799,7 @@ cUpSetTargetPoint.commandParameters = [{
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510",
+	range: "an extended GoalId from 41 to 15598",
 	note: "The first of 2 consecutive goals to store the (x,y) pair."
 } ];
 cUpSetTargetPoint.example = [{
@@ -17817,7 +17867,7 @@ cUpSetupCostData.commandParameters = [ {
 	name: "GoalId",
 	type: "Goal",
 	dir: "io",
-	range: "an extended GoalId from 41 to 508",
+	range: "an extended GoalId from 41 to 15996",
 	note: "The first of 4 consecutive goals to store cost data for food, wood, stone, and gold."
 } ];
 cUpSetupCostData.example = [ {
@@ -18032,7 +18082,7 @@ cUpTargetPoint.commandParameters = [ {
 	name: "Point",
 	type: "Goal",
 	dir: "in",
-	range: "an extended GoalId from 41 to 510, or 0 to read the point set by up-set-target-point",
+	range: "an extended GoalId from 41 to 15998, or 0 to read the point set by up-set-target-point",
 	note: "The first of 2 consecutive goals to read an (x,y) pair."
 }, {
 	nameLink: pDUCAction.getLink(),
@@ -19497,6 +19547,18 @@ pCiv.valueList = [ {
 	name: "georgians",
 	id: 45,
 	description: "Georgians."
+}, {
+	name: "achaemenids",
+	id: 46,
+	description: "Achaemenids (must define with a defconst first)."
+}, {
+	name: "athenians",
+	id: 47,
+	description: "Athenians (must define with a defconst first)."
+}, {
+	name: "spartans",
+	id: 48,
+	description: "Spartans (must define with a defconst first)."
 } ];
 
 //ClassId
@@ -19835,7 +19897,7 @@ pDiffParameterId.valueList = [ {
 // //Distance
 // pDistance.description = "The distance between two points. Always stored in a goal.";
 // pDistance.shortDescription = "The distance between two points. Always stored in a goal.";
-// pDistance.range = "A valid GoalId. Max range for a GoalId is 1 to 512.";
+// pDistance.range = "A valid GoalId. Max range for a GoalId is 1 to 16000.";
 // pDistance.relatedParams = [pMaxDistance, pMinDistance, pPercent, pPerimeter, pPoint, pTiles];
 
 //DUCAction
@@ -19979,7 +20041,7 @@ pEffectId.valueList = [ {
 //EscrowGoalId
 pEscrowGoalId.description = "A goal ID that controls whether escrow should be used. It can be set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;. Alternatively, you can use 0 instead of a goal ID to specify that escrow should never be used for this item. Note that using the constants &quot;with-escrow&quot; or &quot;without-escrow&quot; themselves for EscrowGoalId is not valid because 0 or a valid goal ID is expected.";
 pEscrowGoalId.shortDescription = "A goal ID that is set to the value &quot;with-escrow&quot; or the value &quot;without-escrow&quot;.";
-pEscrowGoalId.range = "0 or a valid GoalId, ranging from 1 to 512.";
+pEscrowGoalId.range = "0 or a valid GoalId, ranging from 1 to 16000.";
 pEscrowGoalId.relatedParams = [pOption, pOptionGoalId];
 
 // ESPlayerStance
@@ -20504,9 +20566,9 @@ pGameType.valueList = [ {
 } ];
 
 //GoalId
-pGoalId.description = "A valid goal ID. A goal ID can either be a number within the range below or a defined constant set to a number within the range below.";
+pGoalId.description = "A valid goal ID. A goal ID can either be a number within the range below or a defined constant set to a number within the range: 1 to 40 for 1.0c. 1 to 512 for UP. 1 to 16000 for DE.";
 pGoalId.shortDescription = "A valid goal ID.";
-pGoalId.range = "1 to 40 for 1.0c. 1 to 512 for UP and all other game versions.";
+pGoalId.range = "1 to 40 for 1.0c. 1 to 512 for UP. 1 to 16000 for DE.";
 pGoalId.relatedParams = [pFlag, pId, pSharedGoalId, pSnId];
 
 //GroupId
@@ -20584,7 +20646,7 @@ pGuardFlag.valueList = [ {
 // //GuardState
 // pGuardState.description = "The first of four consecutive goals to read the guard state.";
 // pGuardState.shortDescription = "The first of four consecutive goals to read the guard state.";
-// pGuardState.range = "An extended goal ID, from 41 to 509.";
+// pGuardState.range = "An extended goal ID, from 41 to 15997.";
 // pGuardState.relatedParams = [pFactId, pGuardFlag, pType, pVictoryCondition];
 
 // //Hitpoints
@@ -20643,7 +20705,7 @@ pLanguageId.relatedParams = [pString, pDefconst];
 // //Limit
 // pLimit.description = "A GoalId to store the victory limit. Stores 10 * the remaining game years for time victory, the target amount for score victory, or -1 if invalid.";
 // pLimit.shortDescription = "A GoalId to store the victory limit.";
-// pLimit.range = "A valid GoalId, which can range from 1 to 512.";
+// pLimit.range = "A valid GoalId, which can range from 1 to 16000.";
 // pLimit.relatedParams = [pFactId, pGuardState, pType, pVictoryCondition];
 
 //LineId
@@ -21785,8 +21847,8 @@ pOrderId.valueList = [ {
 
 //OutputGoalId
 pOutputGoalId.shortDescription = "A goal to store the data output of a command.";
-pOutputGoalId.description = "A goal to store the data output of a command. For " + cUpGetCostDelta.getLink() + ", " + cUpGetGuardState.getLink() + ", and " + cUpGetSearchState.getLink() + " only, this goal is the first of four consecutive goals that will store the data output, and only goal IDs 41 through 508 can be used with the OutputGoalId parameter.";
-pOutputGoalId.range = "a valid GoalId, max range of GoalId is 1 to 512.";
+pOutputGoalId.description = "A goal to store the data output of a command. For " + cUpGetCostDelta.getLink() + ", " + cUpGetGuardState.getLink() + ", and " + cUpGetSearchState.getLink() + " only, this goal is the first of four consecutive goals that will store the data output, and only goal IDs 41 through 15997 can be used with the OutputGoalId parameter.";
+pOutputGoalId.range = "a valid GoalId, max range of GoalId is 1 to 16000.";
 pOutputGoalId.relatedParams = [pGoalId];
 
 //Percent
@@ -22040,9 +22102,9 @@ pPlayerStance.valueList = [ {
 } ];
 
 //Point
-pPoint.description = "The first of 2 consecutive goals to store the x and y coordinates of the point. These goals must be extended goals (goal IDs 41-510), which have a signed 32-bit range (-2,147,483,648 to 2,147,483,647).";
+pPoint.description = "The first of 2 consecutive goals to store the x and y coordinates of the point. These goals must be extended goals (goal IDs 41-15998), which have a signed 32-bit range (-2,147,483,648 to 2,147,483,647).";
 pPoint.shortDescription = "The first of 2 consecutive goals to store the x and y coordinates of the point.";
-pPoint.range = "41 to 510.";
+pPoint.range = "41 to 15998.";
 pPoint.relatedParams = [pPositionType, pScoutMethod];
 
 //PositionType
@@ -23557,7 +23619,7 @@ pSignalId.relatedParams = [pEventId, pEventType];
 // //Size
 // pSize.description = "A " + pGoalId.getLink() + " that will be used to store the size of the group.";
 // pSize.shortDescription = "A GoalId that will be used to store the size of the group.";
-// pSize.range = "1 to 512.";
+// pSize.range = "1 to 16000.";
 // pSize.relatedParams = [pCount, pGroupId, pGroupType];
 
 //SnId
@@ -23569,13 +23631,13 @@ pSnId.relatedParams = [pDiffParameterId, pGoalId, pId];
 // //SourceClass
 // pSourceClass.description = "A " + pGoalId.getLink() + " that will be used to store the " + pClassId.getLink() + " of the attacking object.";
 // pSourceClass.shortDescription = "A GoalId that will store the ClassId of the attacking object.";
-// pSourceClass.range = "1 to 512.";
+// pSourceClass.range = "1 to 16000.";
 // pSourceClass.relatedParams = [pClassId, pFindPlayerMethod, pProjectileType, pTargetClass];
 
 // //Start
 // pStart.description = "Determines whether a timestamp or elapsed time is retrieved. To get a timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a timestamp.";
 // pStart.shortDescription = "Determines whether a timestamp or elapsed time is retrieved.";
-// pStart.range = "0 or a valid goal with range between 1 and 512.";
+// pStart.range = "0 or a valid goal with range between 1 and 16000.";
 // pStart.relatedParams = [pElapsedTime, pTime];
 
 //StartingResources
@@ -23659,7 +23721,7 @@ pSubGameType.valueList = [ {
 // //TargetClass
 // pTargetClass.description = "A goal that stores the " + pClassId.getLink() + " of the target of the attack.";
 // pTargetClass.shortDescription = "A goal that stores the ClassId of the target of the attack.";
-// pTargetClass.range = "A " + pGoalId.getLink() + ". This can range from 1 to 512.";
+// pTargetClass.range = "A " + pGoalId.getLink() + ". This can range from 1 to 16000.";
 // pTargetClass.relatedParams = [pClassId, pProjectileType, pSourceClass];
 
 //TauntId
@@ -23851,25 +23913,25 @@ pTerrain.valueList = [ {
 //ThreatPlayer
 pThreatPlayer.shortDescription = "Stores the enemy player who triggered the most recent attack threat event.";
 pThreatPlayer.description = "Stores the enemy player who triggered the most recent attack threat event.";
-pThreatPlayer.range = "A goal ID between 1 and 512 to store the player number.";
+pThreatPlayer.range = "A goal ID between 1 and 16000 to store the player number.";
 pThreatPlayer.relatedParams = [pThreatSource, pThreatTarget, pThreatTime];
 
 //ThreatSource
 pThreatSource.shortDescription = "Stores the class of the enemy object that triggered the most recent attack threat event.";
 pThreatSource.description = "Stores the class of the enemy object that triggered the most recent attack threat event.";
-pThreatSource.range = "A goal ID between 1 and 512 to store the source class.";
+pThreatSource.range = "A goal ID between 1 and 16000 to store the source class.";
 pThreatSource.relatedParams = [pThreatPlayer, pThreatTarget, pThreatTime];
 
 //ThreatTarget
 pThreatTarget.shortDescription = "Stores the class of the object that the enemy attacked in the most recent attack threat event.";
 pThreatTarget.description = "Stores the class of the object that the enemy attacked in the most recent attack threat event.";
-pThreatTarget.range = "A goal ID between 1 and 512 to store the elapsed time.";
+pThreatTarget.range = "A goal ID between 1 and 16000 to store the elapsed time.";
 pThreatTarget.relatedParams = [pThreatPlayer, pThreatSource, pThreatTime];
 
 //ThreatTime
 pThreatTime.shortDescription = "Stores the elapsed time in milliseconds since the most recent attack threat event.";
 pThreatTime.description = "Stores the elapsed time in milliseconds since the most recent attack threat event.";
-pThreatTime.range = "A goal ID between 1 and 512 to store the elapsed time.";
+pThreatTime.range = "A goal ID between 1 and 16000 to store the elapsed time.";
 pThreatTime.relatedParams = [pThreatPlayer, pThreatSource, pThreatTarget];
 
 // //Tiles
@@ -23970,7 +24032,7 @@ pVictoryTime.relatedParams = [pVictoryCondition, pVictoryPlayer, pVictoryType];
 //VictoryType
 pVictoryType.description = "A " + pGoalId.getLink() + " that stores the type of victory approaching. Stores one of the following: relic, wonder, monument, or 0 if invalid.";
 pVictoryType.shortDescription = "A GoalId that stores the type of victory approaching.";
-pVictoryType.range = "A " + pGoalId.getLink() + ". These range from 1 to 512.";
+pVictoryType.range = "A " + pGoalId.getLink() + ". These range from 1 to 16000.";
 pVictoryType.relatedParams = [pGameType, pVictoryCondition, pVictoryPlayer, pVictoryTime];
 
 //WallId
@@ -29224,6 +29286,128 @@ objectsRangeArrayROR = [ {
 	deror: 1,
 	notes: ""
 } ];
+
+objectsRangeArrayBfG = [ {	
+	name: "Bowman",
+	aiName: "archer",
+	line: "archer-line",
+	id: 4,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 2,
+	deadUnit: "3",
+	projectile: "363",
+	chemProjectile: "466",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Laminated Bowman",
+	aiName: "crossbowman",
+	line: "archer-line",
+	id: 24,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 3,
+	deadUnit: "26",
+	projectile: "364",
+	chemProjectile: "375",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Recurve Bowman",
+	aiName: "arbalest",
+	line: "archer-line",
+	id: 492,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 4,
+	deadUnit: "496",
+	projectile: "507",
+	chemProjectile: "519",
+	civ: "Athenians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Skirmisher",
+	aiName: "skirmisher",
+	line: "skirmisher-line",
+	id: 7,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 2,
+	deadUnit: "238",
+	projectile: "365",
+	chemProjectile: "376",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Skirmisher",
+	aiName: "elite-skirmisher",
+	line: "skirmisher-line",
+	id: 6,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 3,
+	deadUnit: "100",
+	projectile: "366",
+	chemProjectile: "377",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {
+	name: "Cavalry Archer",
+	aiName: "cavalry-archer",
+	line: "cavalry-archer-line",
+	id: 39,
+	class: "cavalry-archer-class (936)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 3,
+	deadUnit: "34",
+	projectile: "477",
+	chemProjectile: "475",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Heavy Cavalry Archer",
+	aiName: "heavy-cavalry-archer",
+	line: "cavalry-archer-line",
+	id: 474,
+	class: "cavalry-archer-class (936)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 4,
+	deadUnit: "631",
+	projectile: "478",
+	chemProjectile: "476",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gastraphetoros",
+	aiName: "hand-cannoneer",
+	line: "",
+	id: 5,
+	class: "archery-cannon-class (944)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 4,
+	deadUnit: "98",
+	projectile: "380",
+	chemProjectile: "",
+	civ: "Athenians",
+	weirdName: 0,
+	notes: "Requires Flaming Arrows"
+}];
 	
 objectsBarracksArray = [ {	
 	name: "Militia",
@@ -29549,8 +29733,173 @@ objectsBarracksArray = [ {
 	de: 1,
 	notes: "This is the unit you can train after Flemish Revolution is researched"
 }];	
-
-
+	
+objectsBarracksArrayBfG = [ {	
+	name: "Levy",
+	aiName: "militiaman",
+	line: "militiaman-line",
+	id: 74,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 1,
+	deadUnit: "152",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 1,
+	notes: ""
+}, {	
+	name: "Maceman",
+	aiName: "man-at-arms",
+	line: "militiaman-line",
+	id: 75,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 2,
+	deadUnit: "154",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 4,
+	notes: ""
+}, {	
+	name: "Swordsman",
+	aiName: "long-swordsman",
+	line: "militiaman-line",
+	id: 77,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "180",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 4,
+	notes: ""
+}, {	
+	name: "Paragon",
+	aiName: "champion",
+	line: "militiaman-line",
+	id: 567,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "568",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 4,
+	notes: ""
+}, {	
+	name: "Spearman",
+	aiName: "spearman",
+	line: "spearman-line",
+	id: 93,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 2,
+	deadUnit: "140",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Guardsman",
+	aiName: "pikeman",
+	line: "spearman-line",
+	id: 358,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "501",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Guardsman",
+	aiName: "halberdier",
+	line: "spearman-line",
+	id: 359,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "502",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Hoplite",
+	aiName: "",
+	line: "hoplite-line",
+	id: 2110,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2112",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Hoplite",
+	aiName: "",
+	line: "hoplite-line",
+	id: 2111,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2112",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Hoplite (with Xyphos)",
+	aiName: "",
+	line: "",
+	id: 2187,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2112",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	notes: "Hoplite upgrades to this unit when Xyphos is researched, not included in hoplite-line"
+}, {	
+	name: "Elite Hoplite (with Xyphos)",
+	aiName: "",
+	line: "",
+	id: 2188,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2112",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	notes: "Elite Hoplite upgrades to this unit when Xyphos is researched, not included in hoplite-line"
+}];	
 	
 objectsBarracksArrayROR = [ {
 	name: "Clubman",
@@ -29671,7 +30020,7 @@ objectsCastleArray = [ {
 	aiName: "trebuchet",
 	line: "",
 	id: 331,
-	class: "packed-trebuchet-class",
+	class: "packed-trebuchet-class (951)",
 	cmdId: "cmdid-military",
 	building: "Castle",
 	age: 4,
@@ -31644,6 +31993,192 @@ objectsCastleArray = [ {
 	notes: "Untrainable, scenario unit only"
 }];	
 	
+objectsFortArray = [ {	
+	name: "Palintonon (Packed)",
+	aiName: "trebuchet",
+	line: "",
+	id: 331,
+	class: "packed-trebuchet-class (951)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "735",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palintonon (Unpacked)",
+	aiName: "",
+	line: "",
+	id: 42,
+	class: "unpacked-trebuchet-class (954)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "194",
+	projectile: "371",
+	chemProjectile: "469",
+	civ: "",
+	weirdName: 0,
+	notes: "Can be counted with trebuchet-set"
+}, {	
+	name: "Immortal",
+	aiName: "",
+	line: "immortal-line",
+	id: 2101,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2103",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Immortal",
+	aiName: "",
+	line: "immortal-line",
+	id: 2102,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2103",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Immortal (Ranged)",
+	aiName: "",
+	line: "",
+	id: 2174,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2304",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Immortal (Ranged)",
+	aiName: "",
+	line: "",
+	id: 2175,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2103",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Strategos",
+	aiName: "",
+	line: "strategos-line",
+	id: 2104,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2106",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Athenians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Strategos",
+	aiName: "",
+	line: "strategos-line",
+	id: 2105,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2106",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Athenians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Strategos (with Taxiarchs)",
+	aiName: "",
+	line: "strategos-line",
+	id: 2227,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2106",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Athenians",
+	weirdName: 0,
+	notes: "Strategos upgrades to this unit when Taxiarchs is researched"
+}, {	
+	name: "Elite Strategos (with Taxiarchs)",
+	aiName: "",
+	line: "strategos-line",
+	id: 2228,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2106",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Athenians",
+	weirdName: 0,
+	notes: "Elite Strategos upgrades to this unit when Taxiarchs is researched"
+}, {	
+	name: "Hippeus",
+	aiName: "",
+	line: "hippeus-line",
+	id: 2107,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2109",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Hippeus",
+	aiName: "",
+	line: "hippeus-line",
+	id: 2108,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2109",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	notes: ""
+}];	
+	
 objectsDockArray = [ {	
 	name: "Fishing Ship",
 	aiName: "fishing-ship",
@@ -32100,6 +32635,409 @@ objectsDockArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Harbors also use projectiles 512 and 526"
+}];
+
+objectsPortArray = [ {	
+	name: "Fishing Ship (Antiquity)",
+	aiName: "",
+	line: "",
+	id: 2147,
+	class: "fishing-ship-class (921)",
+	cmdId: "cmdid-fishing-ship",
+	building: "Port",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Oystering Ship",
+	aiName: "",
+	line: "",
+	id: 2171,
+	class: "fishing-ship-class (921)",
+	cmdId: "cmdid-fishing-ship",
+	building: "Port",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Merchant Ship",
+	aiName: "",
+	line: "",
+	id: 2149,
+	class: "trade-cog-class (902)",
+	cmdId: "cmdid-trade",
+	building: "Port",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Transport Ship (Antiquity)",
+	aiName: "",
+	line: "",
+	id: 2148,
+	class: "transport-ship-class (920)",
+	cmdId: "cmdid-transport",
+	building: "Port",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}];
+	
+objectsShipyardArray = [ {	
+	name: "Lembos",
+	aiName: "",
+	line: "lembos-line",
+	id: 2123,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 1,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "War Lembos",
+	aiName: "",
+	line: "lembos-line",
+	id: 2124,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 2,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Heavy Lembos",
+	aiName: "",
+	line: "lembos-line",
+	id: 2125,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 3,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Lembos",
+	aiName: "",
+	line: "lembos-line",
+	id: 2126,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Lembos",
+	aiName: "",
+	line: "lembos-line",
+	id: 2123,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 1,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Monoreme",
+	aiName: "",
+	line: "monoreme-line",
+	id: 2127,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Bireme",
+	aiName: "",
+	line: "monoreme-line",
+	id: 2128,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Trireme",
+	aiName: "",
+	line: "monoreme-line",
+	id: 2129,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Galley (Antiquity)",
+	aiName: "",
+	line: "ancient-galley-line",
+	id: 2130,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 2,
+	deadUnit: "",
+	projectile: "540",
+	chemProjectile: "541",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "War Galley (Antiquity)",
+	aiName: "",
+	line: "ancient-galley-line",
+	id: 2131,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 3,
+	deadUnit: "",
+	projectile: "540",
+	chemProjectile: "541",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Galley",
+	aiName: "",
+	line: "ancient-galley-line",
+	id: 2132,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "540",
+	chemProjectile: "541",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Incendiary Raft",
+	aiName: "",
+	line: "incendiary-raft-line",
+	id: 2133,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Incendiary Ship",
+	aiName: "",
+	line: "incendiary-raft-line",
+	id: 2134,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Heavy Incendiary Ship",
+	aiName: "",
+	line: "incendiary-raft-line",
+	id: 2135,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Catapult Ship",
+	aiName: "",
+	line: "catapult-ship-line",
+	id: 2138,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 3,
+	deadUnit: "",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Onager Ship",
+	aiName: "",
+	line: "catapult-ship-line",
+	id: 2139,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Leviathan",
+	aiName: "",
+	line: "",
+	id: 2140,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Shipyard",
+	age: 4,
+	deadUnit: "",
+	projectile: "2226",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }];	
 	
 objectsDockArrayROR = [ {	
@@ -32604,6 +33542,38 @@ objectsMonasteryArray = [ {
 	notes: "Warrior Monks change to this unit ID when carrying relics"
 }];
 	
+objectsTempleArrayBfG = [ {	
+	name: "Priestess",
+	aiName: "monk",
+	line: "",
+	id: 125,
+	class: "monastery-class (918)",
+	cmdId: "cmdid-monk",
+	building: "Temple",
+	age: 3,
+	deadUnit: "134",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Can be counted with monk-set"
+}, {	
+	name: "Priestess with Relic",
+	aiName: "",
+	line: "",
+	id: 286,
+	class: "monk-with-relic-class (943)",
+	cmdId: "cmdid-relic",
+	building: "Temple",
+	age: 3,
+	deadUnit: "134",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Priestesses change to this unit ID when carrying relics"
+}];
+	
 objectsSiegeWorkshopArray = [ {	
 	name: "Battering Ram (Feudal)",
 	aiName: "feudal-battering-ram",
@@ -32877,6 +33847,162 @@ objectsSiegeWorkshopArray = [ {
 	id: "WK: 494<br>DE: 1105",
 	class: "siege-weapon-class (913)",
 	cmdId: "WK: cmdid-military<br>DE: 12",
+	building: "Siege Workshop",
+	age: 3,
+	deadUnit: "1107",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 5,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "cmdid 12 is cmdid-siege-tower. cmdid-siege-tower must be defined in your AI script before it can be used."
+}];	
+	
+objectsSiegeWorkshopArrayBfG = [ {	
+	name: "Battering Ram (Civic)",
+	aiName: "feudal-battering-ram",
+	line: "battering-ram-line",
+	id: 1258,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 2,
+	deadUnit: "23",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 2,
+	notes: "In DE, this unit ID is now the base unit for ALL civs. ID 35 is an upgrade."
+}, {	
+	name: "Battering Ram",
+	aiName: "battering-ram",
+	line: "battering-ram-line",
+	id: 35,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 3,
+	deadUnit: "23",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Capped Ram",
+	aiName: "capped-ram",
+	line: "battering-ram-line",
+	id: 422,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "423",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Siege Ram",
+	aiName: "siege-ram",
+	line: "battering-ram-line",
+	id: 548,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "549",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mangonel",
+	aiName: "mangonel",
+	line: "mangonel-line",
+	id: 280,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 3,
+	deadUnit: "121",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Onager (non-WK)",
+	aiName: "onager",
+	line: "mangonel-line",
+	id: 550,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "675",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Siege Onager",
+	aiName: "siege-onager",
+	line: "mangonel-line",
+	id: 588,
+	class: "siege-weapon-class (913)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "589",
+	projectile: "656, 369",
+	chemProjectile: "658, 468",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Scorpion",
+	aiName: "scorpion",
+	line: "scorpion-line",
+	id: 279,
+	class: "scorpion-class (955)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 3,
+	deadUnit: "149",
+	projectile: "367",
+	chemProjectile: "378",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Heavy Scorpion",
+	aiName: "heavy-scorpion",
+	line: "scorpion-line",
+	id: 542,
+	class: "scorpion-class (955)",
+	cmdId: "cmdid-military",
+	building: "Siege Workshop",
+	age: 4,
+	deadUnit: "543",
+	projectile: "627",
+	chemProjectile: "628",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {
+	name: "Siege Tower",
+	aiName: "",
+	line: "",
+	id: "1105",
+	class: "siege-weapon-class (913)",
+	cmdId: "12",
 	building: "Siege Workshop",
 	age: 3,
 	deadUnit: "1107",
@@ -33371,6 +34497,128 @@ objectsStableArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
+	notes: ""
+}];
+	
+objectsStableArrayBfG = [ {	
+	name: "Scout Cavalry",
+	aiName: "scout-cavalry",
+	line: "scout-cavalry-line",
+	id: 448,
+	class: "scout-cavalry-class (947)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 2,
+	deadUnit: "449",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Light Cavalry",
+	aiName: "light-cavalry",
+	line: "scout-cavalry-line",
+	id: 546,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 3,
+	deadUnit: "547",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Raider",
+	aiName: "hussar",
+	line: "scout-cavalry-line",
+	id: 441,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "480",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Lancer",
+	aiName: "knight",
+	line: "knight-line",
+	id: 38,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 3,
+	deadUnit: "111",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Shock Cavalry",
+	aiName: "cavalier",
+	line: "knight-line",
+	id: 283,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "139",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Imperial Cavalry",
+	aiName: "paladin",
+	line: "knight-line",
+	id: 569,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "570",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "War Chariot",
+	aiName: "",
+	line: "war-chariot-line",
+	id: 2150,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 3,
+	deadUnit: "2302",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite War Chariot",
+	aiName: "",
+	line: "war-chariot-line",
+	id: 2151,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "2302",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
 	notes: ""
 }];
 	
@@ -33988,6 +35236,521 @@ objectsTownCenterArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "Burgundians",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}];	
+	
+objectsTownCenterArrayBfG = [ {	
+	name: "Villager (Male)",
+	aiName: "villager",
+	line: "",
+	id: 83,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "224",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-base, which will only include attacking villagers or villagers never assigned to a task"
+}, {	
+	name: "Villager (Female)",
+	aiName: "",
+	line: "",
+	id: 293,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "211",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-base, which will only include attacking villagers or villagers never assigned to a task"
+}, {	
+	name: "Builder (Female)",
+	aiName: "",
+	line: "",
+	id: 212,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "213",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-builder"
+}, {	
+	name: "Builder (Male)",
+	aiName: "",
+	line: "",
+	id: 118,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "225",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-builder"
+}, {	
+	name: "Farmer (Female)",
+	aiName: "",
+	line: "",
+	id: 214,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "215",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-farmer"
+}, {	
+	name: "Farmer (Male)",
+	aiName: "",
+	line: "",
+	id: 259,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "226",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-farmer"
+}, {	
+	name: "Fisherman (Female)",
+	aiName: "",
+	line: "",
+	id: 57,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "60",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-fisherman"
+}, {	
+	name: "Fisherman (Male)",
+	aiName: "",
+	line: "",
+	id: 56,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "58",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-fisherman"
+}, {	
+	name: "Forager (Female)",
+	aiName: "",
+	line: "",
+	id: 354,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "355",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-forager"
+}, {	
+	name: "Forager (Male)",
+	aiName: "",
+	line: "",
+	id: 120,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "353",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-forager"
+}, {	
+	name: "Gold Miner (Female)",
+	aiName: "",
+	line: "",
+	id: 581,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "221",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-gold"
+}, {	
+	name: "Gold Miner (Male)",
+	aiName: "",
+	line: "",
+	id: 579,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "229",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-gold"
+}, {	
+	name: "Hunter (Female)",
+	aiName: "",
+	line: "",
+	id: 216,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "217",
+	projectile: "509",
+	chemProjectile: "521",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-hunter"
+}, {	
+	name: "Hunter (Male)",
+	aiName: "",
+	line: "",
+	id: 122,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "227",
+	projectile: "509",
+	chemProjectile: "521",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-hunter"
+}, {	
+	name: "Lumberjack (Female)",
+	aiName: "",
+	line: "",
+	id: 218,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "219",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-wood"
+}, {	
+	name: "Lumberjack (Male)",
+	aiName: "",
+	line: "",
+	id: 123,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "228",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-wood"
+}, {	
+	name: "Repairer (Female)",
+	aiName: "",
+	line: "",
+	id: 222,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "213",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-repairer"
+}, {	
+	name: "Repairer (Male)",
+	aiName: "",
+	line: "",
+	id: 156,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "225",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-repairer"
+}, {	
+	name: "Shepherd (Female)",
+	aiName: "",
+	line: "",
+	id: 590,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "591",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-shepherd"
+}, {	
+	name: "Shepherd (Male)",
+	aiName: "",
+	line: "",
+	id: 592,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "593",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-shepherd"
+}, {	
+	name: "Stone Miner (Female)",
+	aiName: "",
+	line: "",
+	id: 220,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "221",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-stone"
+}, {	
+	name: "Stone Miner (Male)",
+	aiName: "",
+	line: "",
+	id: 124,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "229",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: "Can be counted with villager-stone"
+}, {
+	name: "Polemarch (Archaic Age)",
+	aiName: "",
+	line: "",
+	id: 2162,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 1,
+	deadUnit: "2163",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {
+	name: "Polemarch (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 2164,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 2,
+	deadUnit: "2163",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {
+	name: "Polemarch (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 2165,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 3,
+	deadUnit: "2163",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {
+	name: "Polemarch (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 2166,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 2,
+	deadUnit: "2163",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {
+	name: "Polemarch (Classical Age, with Ephorate)",
+	aiName: "",
+	line: "",
+	id: 2167,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "",
+	age: 3,
+	deadUnit: "2163",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Spartans",
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
@@ -37053,6 +38816,1910 @@ objectsBuildingsArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
+	notes: ""
+}];
+	
+objectsBuildingsArrayBfG = [ {	
+	name: "Town Center (Archaic Age)",
+	aiName: "town-center",
+	line: "",
+	id: 109,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1408",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	notes: "For TC foundations use town-center-foundation (ID 621)"
+}, {	
+	name: "Town Center (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 71,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1431",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	notes: "For TC foundations use town-center-foundation (ID 621)"
+}, {	
+	name: "Town Center (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 141,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1432",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	notes: "For TC foundations use town-center-foundation (ID 621)"
+}, {	
+	name: "Town Center (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 142,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1433",
+	projectile: "54",
+	chemProjectile: "328",
+	civ: "",
+	weirdName: 0,
+	notes: "For TC foundations use town-center-foundation (ID 621)"
+}, {	
+	name: "Town Center (Foundation)",
+	aiName: "town-center-foundation",
+	line: "",
+	id: 621,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1408",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Town Center (Annex 1, Archaic Age)",
+	aiName: "",
+	line: "",
+	id: 618,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Civic Age)",
+	aiName: "",
+	line: "",
+	id: 614,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Classical Age)",
+	aiName: "",
+	line: "",
+	id: 481,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {	
+	name: "Town Center (Annex 1, Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 611,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the main part of the TC. This graphic is stacked on top of the main TC object. It is located offset of the main TC object by (1, -1), i.e. one tile north."
+}, {
+	name: "Town Center (Annex 2, Archaic Age)",
+	aiName: "",
+	line: "",
+	id: 619,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Civic Age)",
+	aiName: "",
+	line: "",
+	id: 615,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Classical Age)",
+	aiName: "",
+	line: "",
+	id: 482,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 2, Classical Age)",
+	aiName: "",
+	line: "",
+	id: 612,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the pillers supporting the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 0), i.e. 1 tile SW."
+}, {
+	name: "Town Center (Annex 3, Archaic Age)",
+	aiName: "",
+	line: "",
+	id: 620,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Civic Age)",
+	aiName: "",
+	line: "",
+	id: 616,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Classical Age)",
+	aiName: "",
+	line: "",
+	id: 483,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Town Center (Annex 3, Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 613,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "This is the graphics of the left and right sides of the TC. The graphics are stacked on top of the main TC object. It is located offset of the main TC object by (-1, 1), i.e. 1 tile south."
+}, {
+	name: "Economic Town Center",
+	aiName: "",
+	line: "",
+	id: 2275,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {
+	name: "Defensive Town Center",
+	aiName: "",
+	line: "",
+	id: 2276,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {
+	name: "Military Town Center",
+	aiName: "",
+	line: "",
+	id: 2277,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {		
+	name: "House (Archaic Age)",
+	aiName: "house",
+	line: "",
+	id: 70,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1403",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {		
+	name: "House (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 463,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1434",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {		
+	name: "House (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 464,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1435",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {		
+	name: "House (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 465,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1435",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mill (Archaic Age)",
+	aiName: "mill",
+	line: "",
+	id: 68,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1404",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mill (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 129,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1404",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mill (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 130,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1404",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mill (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 131,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1404",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mining Camp (Archaic Age)",
+	aiName: "mining-camp",
+	line: "",
+	id: 584,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1410",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mining Camp (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 585,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1410",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mining Camp (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 586,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1410",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Mining Camp (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 587,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1410",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Lumber Camp (Archaic Age)",
+	aiName: "lumber-camp",
+	line: "",
+	id: 562,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1409",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Lumber Camp (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 563,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1409",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Lumber Camp (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 564,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1409",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Lumber Camp (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 565,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1409",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Port (Archaic Age)",
+	aiName: "paphos-port",
+	line: "",
+	id: 2172,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 1,
+	notes: ""
+}, {	
+	name: "Port (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 2143,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Port (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 2142,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Port (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 2141,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Shipyard (Civic Age)",
+	aiName: "paphos-shipyard",
+	line: "",
+	id: 2119,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 1,
+	notes: ""
+}, {	
+	name: "Shipyard (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 2118,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Shipyard (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 2117,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fish Trap",
+	aiName: "fish-trap",
+	line: "",
+	id: 199,
+	class: "farm-class (949)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "278",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Farm",
+	aiName: "farm",
+	line: "",
+	id: 50,
+	class: "farm-class (949)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "357",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Blacksmith (Civic Age)",
+	aiName: "blacksmith",
+	line: "",
+	id: 103,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1419",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Blacksmith (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 18,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1420",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Blacksmith (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 19,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1420",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Market (Civic Age)",
+	aiName: "market",
+	line: "",
+	id: 84,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1422",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Market (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 116,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1423",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Market (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 137,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1424",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Temple (Archaic Age, Base)",
+	aiName: "monastery",
+	line: "",
+	id: 104,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1421",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Temple (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 30,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1421",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "The Civic Age tech upgrades the temple to this unit, but it's not available until Classical Age."
+}, {	
+	name: "Temple (Classical Age, Upgraded)",
+	aiName: "",
+	line: "",
+	id: 31,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1421",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "The Classical Age tech upgrades the temple to this unit."
+}, {	
+	name: "Temple (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 32,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1421",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Academy (Classical Age)",
+	aiName: "university",
+	line: "",
+	id: 209,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1427",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Academy (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 210,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1428",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Wonder",
+	aiName: "wonder",
+	line: "",
+	id: 276,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1445",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Barracks (Archaic Age)",
+	aiName: "barracks",
+	line: "",
+	id: 12,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1402",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Barracks (Civic Age)",
+	aiName: "",
+	line: "",
+	id: 498,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1413",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Barracks (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 132,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1414",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Barracks (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 20,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1414",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Archery Range (Civic Age)",
+	aiName: "archery-range",
+	line: "",
+	id: 87,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1415",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Archery Range (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 10,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1416",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Archery Range (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 14,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1416",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Stable (Civic Age)",
+	aiName: "stable",
+	line: "",
+	id: 101,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1417",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Stable (Classical Age)",
+	aiName: "",
+	line: "",
+	id: 86,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1418",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Stable (Imperial Age)",
+	aiName: "",
+	line: "",
+	id: 153,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1418",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Siege Workshop",
+	aiName: "siege-workshop",
+	line: "",
+	id: 49,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1425/1426",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Outpost",
+	aiName: "outpost",
+	line: "",
+	id: 598,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1405",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Wall",
+	aiName: "palisade-wall",
+	line: "",
+	id: 72,
+	class: "wall-class (927)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1407",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Stone Wall",
+	aiName: "stone-wall",
+	line: "stone-wall-line",
+	id: 117,
+	class: "wall-class (927)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1508",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Wall",
+	aiName: "fortified-wall",
+	line: "stone-wall-line",
+	id: 155,
+	class: "wall-class (927)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1509",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Watch Tower",
+	aiName: "watch-tower",
+	line: "watch-tower-line",
+	id: 79,
+	class: "tower-class (952)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1436",
+	projectile: "504, 505",
+	chemProjectile: "517, 518",
+	civ: "",
+	weirdName: 6,
+	notes: ""
+}, {	
+	name: "Guard Tower",
+	aiName: "guard-tower",
+	line: "watch-tower-line",
+	id: 234,
+	class: "tower-class (952)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1437",
+	projectile: "504, 505",
+	chemProjectile: "517, 518",
+	civ: "",
+	weirdName: 6,
+	notes: ""
+}, {	
+	name: "Bastion",
+	aiName: "keep",
+	line: "watch-tower-line",
+	id: 235,
+	class: "tower-class (952)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 4,
+	deadUnit: "1438",
+	projectile: "504, 505",
+	chemProjectile: "517, 518",
+	civ: "",
+	weirdName: 6,
+	notes: ""
+}, {	
+	name: "Fort",
+	aiName: "castle",
+	line: "",
+	id: 82,
+	class: "building-class (903)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1430",
+	projectile: "746",
+	chemProjectile: "747",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Ascending Closed)",
+	aiName: "",
+	line: "",
+	id: 789,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1440",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Ascending Open)",
+	aiName: "",
+	line: "",
+	id: 790,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1440",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Ascending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 791,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Palisade Gate (Ascending Foundation)",
+	aiName: "",
+	line: "",
+	id: 792,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Descending Closed)",
+	aiName: "",
+	line: "",
+	id: 793,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1441",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Descending Open)",
+	aiName: "",
+	line: "",
+	id: 794,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1441",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 795,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Palisade Gate (Descending Foundation)",
+	aiName: "",
+	line: "",
+	id: 796,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Horizontal Closed)",
+	aiName: "",
+	line: "",
+	id: 797,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1442",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Horizontal Open)",
+	aiName: "",
+	line: "",
+	id: 798,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1442",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Horizontal Endpieces)",
+	aiName: "",
+	line: "",
+	id: 799,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Palisade Gate (Horizontal Foundation)",
+	aiName: "",
+	line: "",
+	id: 800,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Vertical Closed)",
+	aiName: "",
+	line: "",
+	id: 801,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1443",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Vertical Open)",
+	aiName: "",
+	line: "",
+	id: 802,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1444",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Palisade Gate (Vertical Endpieces)",
+	aiName: "",
+	line: "",
+	id: 803,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Palisade Gate (Vertical Foundation)",
+	aiName: "",
+	line: "",
+	id: 804,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Ascending Closed)",
+	aiName: "gate-ascending-closed",
+	line: "",
+	id: 64,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1500",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Ascending Open)",
+	aiName: "gate-ascending-open",
+	line: "",
+	id: 78,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1500",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Ascending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 81,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Gate (Ascending Foundation)",
+	aiName: "gate,<br>gate-ascending",
+	line: "",
+	id: 487,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Descending Closed)",
+	aiName: "gate-descending-closed",
+	line: "",
+	id: 88,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1501",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Descending Open)",
+	aiName: "",
+	line: "",
+	id: 91,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1501",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "gate-descending-open is incorrectly defined in UserPatchConst.per as 99 instead of 91"
+}, {	
+	name: "Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 95,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Gate (Descending Foundation)",
+	aiName: "gate-descending",
+	line: "",
+	id: 490,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1408",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Horizontal Closed)",
+	aiName: "gate-horizontal-closed",
+	line: "",
+	id: 659,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1502",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Horizontal Open)",
+	aiName: "gate-horizontal-open",
+	line: "",
+	id: 661,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1502",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Horizontal Endpieces)",
+	aiName: "gate-horizontal-open",
+	line: "",
+	id: 663,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Gate (Horizontal Foundation)",
+	aiName: "gate-horizontal",
+	line: "",
+	id: 665,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Vertical Closed)",
+	aiName: "gate-vertical-closed",
+	line: "",
+	id: 667,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1503",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Vertical Open)",
+	aiName: "gate-vertical-open",
+	line: "",
+	id: 669,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1503",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Gate (Vertical Endpieces)",
+	aiName: "gate-vertical-open",
+	line: "",
+	id: 673,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Gate (Vertical Foundation)",
+	aiName: "gate-vertical",
+	line: "",
+	id: 673,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Ascending Closed)",
+	aiName: "",
+	line: "",
+	id: 63,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1504",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Ascending Open)",
+	aiName: "",
+	line: "",
+	id: 67,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1504",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Ascending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 80,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Fortified Gate (Ascending Foundation)",
+	aiName: "",
+	line: "",
+	id: 488,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1407",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Descending Closed)",
+	aiName: "",
+	line: "",
+	id: 85,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1505",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Descending Open)",
+	aiName: "",
+	line: "",
+	id: 90,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1505",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Descending Endpieces)",
+	aiName: "",
+	line: "",
+	id: 92,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Fortified Gate (Descending Foundation)",
+	aiName: "",
+	line: "",
+	id: 491,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1409",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Horizontal Closed)",
+	aiName: "",
+	line: "",
+	id: 660,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1506",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Horizontal Open)",
+	aiName: "",
+	line: "",
+	id: 662,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1506",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Horizontal Endpieces)",
+	aiName: "",
+	line: "",
+	id: 664,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Fortified Gate (Horizontal Foundation)",
+	aiName: "",
+	line: "",
+	id: 666,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Vertical Closed)",
+	aiName: "",
+	line: "",
+	id: 668,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1507",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Vertical Open)",
+	aiName: "",
+	line: "",
+	id: 670,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1507",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Fortified Gate (Vertical Endpieces)",
+	aiName: "",
+	line: "",
+	id: 672,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: "Each gate has two endpieces that are adjacent to the main gate object."
+}, {	
+	name: "Fortified Gate (Vertical Foundation)",
+	aiName: "",
+	line: "",
+	id: 674,
+	class: "gate-class (939)",
+	cmdId: "cmdid-military-building",
+	building: "Buildings",
+	age: 3,
+	deadUnit: "1406",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Monument",
+	aiName: "",
+	line: "",
+	id: 826,
+	class: "monument-class (901)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
 	notes: ""
 }];
 	
@@ -43879,5 +47546,7 @@ objectsOtherArrayROR = [ {
 
 objectsArray = [objectsRangeArray, objectsBarracksArray, objectsCastleArray, objectsDockArray, objectsDonjonArray, objectsKrepostArray, objectsMarketArray, objectsMonasteryArray, objectsSiegeWorkshopArray, objectsStableArray, objectsTownCenterArray, objectsBuildingsArray, objectsGaiaArray, objectsHeroesArray, objectsOtherArray];
 objectsArrayROR = [objectsAcademyArrayROR, objectsRangeArrayROR, objectsBarracksArrayROR, objectsDockArrayROR, objectsMarketArrayROR, objectsSiegeWorkshopArrayROR, objectsStableArrayROR, objectsTempleArrayROR, objectsTownCenterArrayROR, objectsBuildingsArrayROR, objectsOtherArrayROR];
+objectsArrayBfG = [objectsRangeArrayBfG, objectsBarracksArrayBfG, objectsFortArray, objectsMarketArray, objectsPortArray, objectsShipyardArray, objectsSiegeWorkshopArrayBfG, objectsStableArrayBfG, objectsTempleArrayBfG, objectsTownCenterArrayBfG, objectsBuildingsArrayBfG];
 objectsBuildingsArray = ["Archery Range", "Barracks", "Castle", "Dock", "Donjon", "Krepost", "Market", "Monastery", "Siege Workshop", "Stable", "Town Center", "Buildings", "Gaia", "Heroes", "Other"];
 objectsBuildingsArrayROR = ["Academy", "Archery Range", "Barracks", "Dock", "Market", "Siege Workshop", "Stable", "Temple", "Town Center", "Buildings", "Other"];
+objectsBuildingsArrayBfG = ["Archery Range", "Barracks", "Fort", "Market", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center", "Buildings"];
