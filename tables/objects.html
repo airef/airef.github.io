@@ -120,7 +120,7 @@
 		var objectID = "";
 		for(var i = 0; i < objectsArray.length; i++) {
 			numobjects = 0;
-			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArray[i] + "</h3>";
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingNamesArray[i] + "</h3>";
 			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdId-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th class=\"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectile-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArray[i].length; j++) {
 				objectID = objectsArray[i][j].id.toString();

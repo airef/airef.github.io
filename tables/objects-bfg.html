@@ -95,20 +95,13 @@
 		var objectID = "";
 		for(var i = 0; i < objectsArrayBfG.length; i++) {
 			numobjects = 0;
-			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingsArrayBfG[i] + "</h3>";
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingNamesArrayBfG[i] + "</h3>";
 			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-bfg-id-col\">ID</th><th class=\"objects-bfg-name-col\">Name</th><th class=\"objects-bfg-ainame-col\">AoE2 AI Name</th><th class=\"objects-bfg-line-col\">Line ID</th><th class=\"objects-bfg-class-col\">Class</th><th class=\"objects-bfg-cmdId-col\">Cmd ID</th><th class=\"objects-bfg-building-col\">Building/<br>Category</th><th class=\"objects-bfg-age-col\">Age</th><th class=\"objects-bfg-dead-unit-col\">Dead Object ID</th><th class=\"objects-bfg-projectile-col\">Proj. ID</th>";
-			// text += "<th class=\"objects-bfg-versions-col\">Versions</th>";
 			text += "<th class=\"objects-bfg-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArrayBfG[i].length; j++) {
 				objectID = objectsArrayBfG[i][j].id.toString();
 				text += "<tr>";
-				if(objectID.indexOf(":") > -1)
-				{
-					text += "<td class=\"multiple-id-object\">" + objectsArrayBfG[i][j].id + "</td>";
-				}
-				else {
-					text += "<td>" + objectsArrayBfG[i][j].id + "</td>";
-				}
+				text += "<td>" + objectsArrayBfG[i][j].id + "</td>";
 				text += "<td>" + objectsArrayBfG[i][j].name + "</td>";
 				text += "<td>" + objectsArrayBfG[i][j].aiName + "</td>";
 				text += "<td>" + objectsArrayBfG[i][j].line + "</td>";
@@ -258,7 +251,6 @@
 					tdName = objectsArrayBfG[h][i].name;
 					tdAiName = objectsArrayBfG[h][i].aiName;
 					tdClass = objectsArrayBfG[h][i].class;
-					console.log(tdClass);
 					tdBuilding = objectsArrayBfG[h][i].building;
 					tdAge = objectsArrayBfG[h][i].age;
 
