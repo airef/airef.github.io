@@ -87,6 +87,9 @@
 						info += "<tr><td>Available As Custom SN?</td><td>" + snArray[i].available + "</td></tr>";
 				}
 				info += "<tr><td>Version Added</td><td>" + snArray[i].version + "</td></tr>";
+				if( snArray[i].snNameAoE1.length > 0) {
+					info += "<tr><td>AoE1 SN Name:</td><td>" + snArray[i].snNameAoE1 + "</td></tr>";
+				}
 				if( snArray[i].linked.length > 0) {
 					info += "<tr><td>Linked SNs</td><td>";
 					for (var j = 0; j < snArray[i].linked.length; j++) {

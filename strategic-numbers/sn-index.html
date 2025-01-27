@@ -173,7 +173,7 @@
 	<script>
 		function snFilter() {
 			// Declare variables
-			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aoc, up, de, txtValue;
+			var input, category, effective, network, defined, active, version, filter, table, tr, tdName, tdNameAoE1, tdId, tdCategory, tdEffective, tdNetwork, tdDefined, tdActive, tdVersion, i, num, aoe1, aoc, up, de, txtValue, txtValueAoE1;
 			input = document.getElementById("snInput");
 			category = document.getElementById("sn-category");
 			category = category.value;
@@ -245,6 +245,7 @@
 			//for (i = 0; i < 1; i++) {
 				tdId = snArray[i].id;
 				tdName = snArray[i].snName;
+				tdNameAoE1 = snArray[i].snNameAoE1;
 				tdCategory = snArray[i].category;
 				tdEffective = snArray[i].effective;
 				tdNetwork = snArray[i].network;
@@ -256,7 +257,8 @@
 
 				if (tdName != "" && tdId.toString().length > 0) {
 					txtValue = tdName.replace(/-/g,"");
-					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || txtValue.toUpperCase().indexOf(filter) > -1) {
+					txtValueAoE1 = tdNameAoE1.replace(/-/g,"");
+					if (tdId.toString().toUpperCase().indexOf(filter) > -1 || txtValue.toUpperCase().indexOf(filter) > -1 || txtValueAoE1.toUpperCase().indexOf(filter) > -1) {
 						if(category == "All" || tdCategory == category) {
 							if(effective == "All" || tdEffective == effective) {
 								if(network == -1 || tdNetwork == network) {
