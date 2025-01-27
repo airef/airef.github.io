@@ -24439,6 +24439,36 @@ bugsArray = [ {
 	// 	link: "<a href=\"\">Link</a>",
 	// 	description: ""
 	// }, {
+	name: "Gates are included in enemy archer-line counts",
+	date: "Jan 18, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
+	description: "Gates are being included in archer-line unit-type-counts when using up-get-fact-sum."
+}, {
+	name: "Rule with can-sell-commodity fired without a market",
+	date: "Jan 5, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
+	description: "In one of the matches today, a rule with can-sell-commodity fired without a market."
+}, {
+	name: "up-delete-objects command left gates at 1 HP",
+	date: "Nov 9, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1304770789559763018\">Link</a>",
+	description: "weird bug here, red deleted all its walls but the gates remained at 1 hp."
+}, {
+	name: "live-boar dropsite distance bugged",
+	date: "Nov 6, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1303903748988469321\">Link</a>",
+	description: "(dropsite-min-distance live-boar ... ...) is still super inconsistent. Either this or boars (not sure about deer) seem to be bugged. The same boar is spotted at different locations/times. Pictures show first rule trigger. Looks like I might need to use precise distance instead of dropsite-min-distance here. I remember having issues with finding boars and deer with remote search like a year ago, from that time I use ID loops to find boars and deer"
+}, {
+	name: "Sometimes AIs will stop building farms for no reason",
+	date: "Nov 1, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1301908835492958260\">Link</a>",
+	description: "For some reason the farms will not continue to be built. Only after all farms are deleted, will farms start to be built again.  In addition to what ER says, I think it starts to happen with farms being placed farther out."
+}, {
+	name: "Wolves not always found properly with up-find-remote",
+	date: "Sep 8, 2024",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1282264202852962386\">Link</a>",
+	description: "Doing a up-find-remote or up-find-status-remote search for predator-class with gaia as the focus player doesn't find wolves. "
+}, {
 	name: "up-can-search crash",
 	date: "Sep 1, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1279797387136733257\">Link</a>",
