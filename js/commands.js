@@ -8263,6 +8263,46 @@ unitLinesArray = [ {
 	id: "NA",
 	deId: -213,
 	description: "DE only. Includes catapult-ship and onager-ship."
+}, {
+	name: "hei-guang-cavalry-line",
+	id: "NA",
+	deId: -211,
+	description: "DE only. Includes hei-guang-cavalry and elite-hei-guang-cavalry."
+}, {
+	name: "tiger-cavalry-line",
+	id: "NA",
+	deId: -210,
+	description: "DE only. Includes tiger-cavalry and elite-tiger-cavalry."
+}, {
+	name: "white-feather-guard-line",
+	id: "NA",
+	deId: -209,
+	description: "DE only. Includes white-feather-guard and elite-white-feather-guard."
+}, {
+	name: "fire-archer-line",
+	id: "NA",
+	deId: -208,
+	description: "DE only. Includes fire-archer and elite-fire-archer."
+}, {
+	name: "fire-lancer-line",
+	id: "NA",
+	deId: -207,
+	description: "DE only. Includes fire-lancer and elite-fire-lancer."
+}, {
+	name: "rocket-cart-line",
+	id: "NA",
+	deId: -206,
+	description: "DE only. Includes rocket-cart and heavy-rocket-cart."
+}, {
+	name: "Iron-pagoda-line",
+	id: "NA",
+	deId: -205,
+	description: "DE only. Includes iron-pagoda and elite-iron-pagoda."
+}, {
+	name: "liao-dao-line",
+	id: "NA",
+	deId: -204,
+	description: "DE only. Includes liao-dao and elite-liao-dao."
 } ];
 
 buildingLinesArray = [ {
@@ -20288,6 +20328,26 @@ pCiv.valueList = [ {
 	name: "spartans",
 	id: 48,
 	description: "Spartans (must define with a defconst first)."
+}, {
+	name: "shu",
+	id: 49,
+	description: "Shu."
+}, {
+	name: "wu",
+	id: 50,
+	description: "Wu."
+}, {
+	name: "wei",
+	id: 51,
+	description: "Wei."
+}, {
+	name: "jurchens",
+	id: 52,
+	description: "Jurchens."
+}, {
+	name: "khitans",
+	id: 53,
+	description: "Khitans."
 } ];
 
 //ClassId
@@ -25648,12 +25708,12 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
-	name: "Supplies",
-	aiName: "ri-supplies",
-	weirdName: 2,
-	id: 716,
+	name: "Elite Fire Lancer",
+	aiName: "",
+	weirdName: 0,
+	id: 982,
 	building: "Barracks",
-	age: 2,
+	age: 4,
 	aok: 0,
 	tc: 0,
 	wk: 0,
@@ -25661,9 +25721,22 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Supplies",
+	aiName: "ri-supplies",
+	weirdName: 0,
+	id: 716,
+	building: "Barracks",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Gambesons",
 	aiName: "ri-gambesons",
-	weirdName: 2,
+	weirdName: 0,
 	id: 875,
 	building: "Barracks",
 	age: 3,
@@ -26264,7 +26337,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Composite Bowman",
 	aiName: "ri-elite-composite-bowman",
-	weirdName: 2,
+	weirdName: 0,
 	id: 918,
 	building: "Castle",
 	age: 4,
@@ -26277,7 +26350,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Cilician Fleet",
 	aiName: "ri-cilician-fleet",
-	weirdName: 2,
+	weirdName: 0,
 	id: 922,
 	building: "Castle",
 	age: 3,
@@ -26290,7 +26363,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Fereters",
 	aiName: "ri-fereters",
-	weirdName: 2,
+	weirdName: 0,
 	id: 921,
 	building: "Castle",
 	age: 4,
@@ -26342,7 +26415,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Ratha",
 	aiName: "ri-elite-ratha",
-	weirdName: 2,
+	weirdName: 0,
 	id: 828,
 	building: "Castle",
 	age: 4,
@@ -26355,7 +26428,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Paiks",
 	aiName: "ri-paiks",
-	weirdName: 2,
+	weirdName: 0,
 	id: 833,
 	building: "Castle",
 	age: 3,
@@ -26368,7 +26441,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Mahayana",
 	aiName: "ri-mahayana",
-	weirdName: 2,
+	weirdName: 0,
 	id: 834,
 	building: "Castle",
 	age: 4,
@@ -26420,7 +26493,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Hussite Wagon",
 	aiName: "ri-elite-hussite-wagon",
-	weirdName: 2,
+	weirdName: 0,
 	id: 781,
 	building: "Castle",
 	age: 4,
@@ -26433,7 +26506,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Wagenburg Tactics",
 	aiName: "ri-wagenburg-tactics",
-	weirdName: 2,
+	weirdName: 0,
 	id: 784,
 	building: "Castle",
 	age: 3,
@@ -26446,7 +26519,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Hussite Reforms",
 	aiName: "ri-hussite-reforms",
-	weirdName: 2,
+	weirdName: 0,
 	id: 785,
 	building: "Castle",
 	age: 4,
@@ -26498,7 +26571,7 @@ castleTechsArray = [ {
 }, {
 	name: "Elite Konnik",
 	aiName: "ri-elite-konnik",
-	weirdName: 2,
+	weirdName: 0,
 	id: 678,
 	building: "Castle",
 	age: 4,
@@ -26511,7 +26584,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Stirrups",
 	aiName: "ri-stirrups",
-	weirdName: 2,
+	weirdName: 0,
 	id: 685,
 	building: "Castle",
 	age: 3,
@@ -26524,7 +26597,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Bagains",
 	aiName: "ri-bagains",
-	weirdName: 2,
+	weirdName: 0,
 	id: 686,
 	building: "Castle",
 	age: 4,
@@ -26537,7 +26610,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Coustillier",
 	aiName: "ri-elite-coustillier",
-	weirdName: 2,
+	weirdName: 0,
 	id: 751,
 	building: "Castle",
 	age: 4,
@@ -26550,7 +26623,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Burgundian Vineyards",
 	aiName: "ri-burgundian-vineyards",
-	weirdName: 2,
+	weirdName: 0,
 	id: 754,
 	building: "Castle",
 	age: 3,
@@ -26563,7 +26636,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Flemish Revolution",
 	aiName: "ri-flemish-revolution",
-	weirdName: 2,
+	weirdName: 0,
 	id: 755,
 	building: "Castle",
 	age: 4,
@@ -26732,7 +26805,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Kipchak",
 	aiName: "ri-elite-kipchak",
-	weirdName: 2,
+	weirdName: 0,
 	id: 682,
 	building: "Castle",
 	age: 4,
@@ -26745,7 +26818,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Steppe Husbandry",
 	aiName: "ri-steppe-husbandry",
-	weirdName: 2,
+	weirdName: 0,
 	id: 689,
 	building: "Castle",
 	age: 3,
@@ -26758,7 +26831,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Cuman Mercenaries",
 	aiName: "ri-cuman-mercenaries",
-	weirdName: 2,
+	weirdName: 0,
 	id: 690,
 	building: "Castle",
 	age: 4,
@@ -26771,7 +26844,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Urumi Swordsman",
 	aiName: "ri-elite-urumi-swordsman",
-	weirdName: 2,
+	weirdName: 0,
 	id: 826,
 	building: "Castle",
 	age: 4,
@@ -26784,7 +26857,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Medical Corps",
 	aiName: "ri-medical-corps",
-	weirdName: 2,
+	weirdName: 0,
 	id: 831,
 	building: "Castle",
 	age: 3,
@@ -26797,7 +26870,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Wootz Steel",
 	aiName: "ri-wootz-steel",
-	weirdName: 2,
+	weirdName: 0,
 	id: 832,
 	building: "Castle",
 	age: 4,
@@ -26888,7 +26961,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Monaspa",
 	aiName: "ri-elite-monaspa",
-	weirdName: 2,
+	weirdName: 0,
 	id: 920,
 	building: "Castle",
 	age: 4,
@@ -26901,7 +26974,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Svan Towers",
 	aiName: "ri-svan-towers",
-	weirdName: 2,
+	weirdName: 0,
 	id: 923,
 	building: "Castle",
 	age: 3,
@@ -26914,7 +26987,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Aznauri Cavalry",
 	aiName: "ri-aznauri-cavalry",
-	weirdName: 2,
+	weirdName: 0,
 	id: 924,
 	building: "Castle",
 	age: 4,
@@ -26966,7 +27039,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Chakram Thrower",
 	aiName: "ri-elite-chakram-thrower",
-	weirdName: 2,
+	weirdName: 0,
 	id: 830,
 	building: "Castle",
 	age: 4,
@@ -26979,7 +27052,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Kshatriyas",
 	aiName: "ri-kshatriyas",
-	weirdName: 2,
+	weirdName: 0,
 	id: 835,
 	building: "Castle",
 	age: 3,
@@ -26992,7 +27065,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Frontier Guards",
 	aiName: "ri-frontier-guards",
-	weirdName: 2,
+	weirdName: 0,
 	id: 836,
 	building: "Castle",
 	age: 4,
@@ -27005,7 +27078,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Ghulam",
 	aiName: "ri-elite-ghulam",
-	weirdName: 2,
+	weirdName: 0,
 	id: 840,
 	building: "Castle",
 	age: 4,
@@ -27237,6 +27310,84 @@ castleTechsArray = [ {
 	civ: "Japanese",
 	notes: "can use my-unique-research"
 }, {	
+	name: "Elite Iron Pagoda",
+	aiName: "ri-elite-iron-pagoda",
+	weirdName: 0,
+	id: 991,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Jurchens",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Fortified Bastions",
+	aiName: "ri-fortified-bastions",
+	weirdName: 0,
+	id: 996,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Jurchens",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Thunderclap Bombs",
+	aiName: "ri-thunderclap-bombs",
+	weirdName: 0,
+	id: 997,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Jurchens",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Liao Dao",
+	aiName: "ri-elite-liao-dao",
+	weirdName: 0,
+	id: 1002,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Lamellar Armor",
+	aiName: "ri-lamellar-armor",
+	weirdName: 0,
+	id: 1006,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Ordo Cavalry",
+	aiName: "ri-ordo-cavalry",
+	weirdName: 0,
+	id: 1007,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
+	notes: "can use my-unique-research"
+}, {	
 	name: "Elite Ballista Elephant",
 	aiName: "ri-elite-ballista-elephant",
 	weirdName: 2,
@@ -27317,7 +27468,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Leitis",
 	aiName: "ri-elite-leitis",
-	weirdName: 2,
+	weirdName: 0,
 	id: 684,
 	building: "Castle",
 	age: 4,
@@ -27330,7 +27481,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Hill Forts",
 	aiName: "ri-hill-forts",
-	weirdName: 2,
+	weirdName: 0,
 	id: 691,
 	building: "Castle",
 	age: 3,
@@ -27343,7 +27494,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Tower Shields",
 	aiName: "ri-tower-shields",
-	weirdName: 2,
+	weirdName: 0,
 	id: 692,
 	building: "Castle",
 	age: 4,
@@ -27590,7 +27741,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Kamandaran",
 	aiName: "ri-kamandaran",
-	weirdName: 2,
+	weirdName: 0,
 	id: 488,
 	building: "Castle",
 	age: 3,
@@ -27616,7 +27767,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Obuch",
 	aiName: "ri-elite-obuch",
-	weirdName: 2,
+	weirdName: 0,
 	id: 779,
 	building: "Castle",
 	age: 4,
@@ -27629,7 +27780,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Szlachta Privileges",
 	aiName: "ri-szlachta-privileges",
-	weirdName: 2,
+	weirdName: 0,
 	id: 782,
 	building: "Castle",
 	age: 3,
@@ -27642,7 +27793,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Lechitic Legacy",
 	aiName: "ri-lechitic-legacy",
-	weirdName: 2,
+	weirdName: 0,
 	id: 783,
 	building: "Castle",
 	age: 4,
@@ -27694,7 +27845,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Centurion",
 	aiName: "ri-elite-centurion",
-	weirdName: 2,
+	weirdName: 0,
 	id: 882,
 	building: "Castle",
 	age: 4,
@@ -27707,7 +27858,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Ballistas",
 	aiName: "ri-ballistas",
-	weirdName: 2,
+	weirdName: 0,
 	id: 883,
 	building: "Castle",
 	age: 3,
@@ -27720,7 +27871,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Comitatenses",
 	aiName: "ri-comitatenses",
-	weirdName: 2,
+	weirdName: 0,
 	id: 884,
 	building: "Castle",
 	age: 4,
@@ -27759,7 +27910,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Counterweights",
 	aiName: "ri-counterweights",
-	weirdName: 2,
+	weirdName: 0,
 	id: 454,
 	building: "Castle",
 	age: 4,
@@ -27796,9 +27947,48 @@ castleTechsArray = [ {
 	civ: "Saracens",
 	notes: "removed in DE, my-unique-research in UP/WK"
 }, {	
+	name: "Elite White Feather Guard",
+	aiName: "ri-elite-white-feather-guard",
+	weirdName: 0,
+	id: 1064,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Shu",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Bolt Magazine",
+	aiName: "ri-bolt-magazine",
+	weirdName: 0,
+	id: 1069,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Shu",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Coiled Serpent Array",
+	aiName: "ri-coiled-serpent-array",
+	weirdName: 0,
+	id: 1070,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Shu",
+	notes: "can use my-unique-research"
+}, {	
 	name: "Elite Serjeant",
 	aiName: "ri-elite-serjeant",
-	weirdName: 2,
+	weirdName: 0,
 	id: 753,
 	building: "Castle",
 	age: 4,
@@ -27811,7 +28001,7 @@ castleTechsArray = [ {
 }, {	
 	name: "First Crusade",
 	aiName: "ri-first-crusade",
-	weirdName: 2,
+	weirdName: 0,
 	id: 756,
 	building: "Castle",
 	age: 3,
@@ -27824,7 +28014,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Hauberk",
 	aiName: "ri-hauberk",
-	weirdName: 2,
+	weirdName: 0,
 	id: 757,
 	building: "Castle",
 	age: 4,
@@ -27850,7 +28040,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Detinets",
 	aiName: "ri-detinets",
-	weirdName: 2,
+	weirdName: 0,
 	id: 455,
 	building: "Castle",
 	age: 3,
@@ -27876,7 +28066,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Druzhina",
 	aiName: "ri-druzhina",
-	weirdName: 2,
+	weirdName: 0,
 	id: 513,
 	building: "Castle",
 	age: 4,
@@ -27928,7 +28118,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Elite Keshik",
 	aiName: "ri-elite-keshik",
-	weirdName: 2,
+	weirdName: 0,
 	id: 680,
 	building: "Castle",
 	age: 4,
@@ -27941,7 +28131,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Silk Armor",
 	aiName: "ri-silk-armor",
-	weirdName: 2,
+	weirdName: 0,
 	id: 687,
 	building: "Castle",
 	age: 3,
@@ -27954,7 +28144,7 @@ castleTechsArray = [ {
 }, {	
 	name: "Timurid Siegecraft",
 	aiName: "ri-timurid-siegecraft",
-	weirdName: 2,
+	weirdName: 0,
 	id: 688,
 	building: "Castle",
 	age: 4,
@@ -28120,6 +28310,84 @@ castleTechsArray = [ {
 	de: 1,
 	civ: "Vikings",
 	notes: "can use my-unique-research, previously called Berserkergang"
+}, {	
+	name: "Elite Tiger Cavalry",
+	aiName: "ri-elite-berserk",
+	weirdName: 0,
+	id: 1036,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wei",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Tuntian",
+	aiName: "ri-tuntian",
+	weirdName: 0,
+	id: 1061,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wei",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Ming Guang Armor",
+	aiName: "ri-ming-guang-armor",
+	weirdName: 0,
+	id: 1062,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wei",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Fire Archer",
+	aiName: "ri-elite-fire-archer",
+	weirdName: 0,
+	id: 1074,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wu",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Red Cliffs Tactics",
+	aiName: "ri-red-cliffs-tactics",
+	weirdName: 0,
+	id: 1080,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wu",
+	notes: "can use my-second-unique-research"
+}, {	
+	name: "Sitting Tiger",
+	aiName: "ri-sitting-tiger",
+	weirdName: 0,
+	id: 1081,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Wu",
+	notes: "can use my-unique-research"
 } ];	
 
 	
@@ -28335,6 +28603,19 @@ dockTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
+	notes: ""
+}, {	
+	name: "Dragon Ship",
+	aiName: "ri-dragon-ship",
+	weirdName: 0,
+	id: 1010,
+	building: "Dock",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Chinese",
 	notes: ""
 }, {	
 	name: "Heavy Demolition Ship",
@@ -28800,6 +29081,19 @@ millTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+},{	
+	name: "Domestication",
+	aiName: "ri-domestication",
+	weirdName: 0,
+	id: 1014,
+	building: "Mill",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
+	notes: ""
 }, {	
 	name: "Heavy Plow",
 	aiName: "ri-heavy-plow",
@@ -28813,6 +29107,19 @@ millTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+},{	
+	name: "Pastoralism",
+	aiName: "ri-pastoralism",
+	weirdName: 0,
+	id: 1013,
+	building: "Mill",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
+	notes: ""
 }, {	
 	name: "Crop Rotation",
 	aiName: "ri-crop-rotation",
@@ -28825,6 +29132,19 @@ millTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
+	notes: ""
+},{	
+	name: "Transhumance",
+	aiName: "ri-transhumance",
+	weirdName: 0,
+	id: 1012,
+	building: "Mill",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Khitans",
 	notes: ""
 } ];	
 	
@@ -29185,6 +29505,19 @@ siegeWorkshopTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Heavy Rocket Cart",
+	aiName: "",
+	weirdName: 0,
+	id: 980,
+	building: "Siege Workshop",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Heavy Scorpion",
 	aiName: "ri-heavy-scorpion",
 	weirdName: 0,
@@ -29392,8 +29725,21 @@ stableTechsArray = [ {
 }, {	
 	name: "Elite Steppe Lancer",
 	aiName: "ri-elite-steppe-lancer",
-	weirdName: 2,
+	weirdName: 0,
 	id: 715,
+	building: "Stable",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Hei Guang Cavalry",
+	aiName: "",
+	weirdName: 0,
+	id: 1033,
 	building: "Stable",
 	age: 4,
 	aok: 0,
@@ -29405,7 +29751,7 @@ stableTechsArray = [ {
 }, {	
 	name: "Elite Shrivamsha Rider",
 	aiName: "ri-elite-shrivamsha-rider",
-	weirdName: 2,
+	weirdName: 0,
 	id: 843,
 	building: "Stable",
 	age: 4,
@@ -35883,7 +36229,7 @@ objectsSiegeWorkshopArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
-	weirdName: 2,
+	weirdName: 0,
 	aok: 0,
 	tc: 0,
 	wk: 0,
