@@ -310,7 +310,7 @@ var cWallInvisiblePercentage = new Command("wall-invisible-percentage","Fact","A
 var cWarboatCount = new Command("warboat-count","Fact","AoC");
 var cWoodAmount = new Command("wood-amount","Fact","AoC");
 var cUpAddCostData = new Command("up-add-cost-data","Action","UP");
-var cUpAddObjectById = new Command("up-add-object-by-id","Both","UP");
+var cUpAddObjectById = new Command("up-add-object-by-id","Fact/Action","UP");
 var cUpAddObjectCost = new Command("up-add-object-cost","Action","UP");
 var cUpAddPoint = new Command("up-add-point","Action","UP");
 var cUpAddResearchCost = new Command("up-add-research-cost","Action","UP");
@@ -362,14 +362,14 @@ var cUpFilterInclude = new Command("up-filter-include","Action","UP");
 var cUpFilterRange = new Command("up-filter-range","Action","UP");
 var cUpFilterStatus = new Command("up-filter-status","Action","UP");
 var cUpFindFlare = new Command("up-find-flare","Action","UP");
-var cUpFindLocal = new Command("up-find-local","Both","UP");
+var cUpFindLocal = new Command("up-find-local","Fact/Action","UP");
 var cUpFindNextPlayer = new Command("up-find-next-player","Action","UP");
 var cUpFindPlayer = new Command("up-find-player","Action","UP");
 var cUpFindPlayerFlare = new Command("up-find-player-flare","Action","UP");
-var cUpFindRemote = new Command("up-find-remote","Both","UP");
-var cUpFindResource = new Command("up-find-resource","Both","UP");
-var cUpFindStatusLocal = new Command("up-find-status-local","Both","UP");
-var cUpFindStatusRemote = new Command("up-find-status-remote","Both","UP");
+var cUpFindRemote = new Command("up-find-remote","Fact/Action","UP");
+var cUpFindResource = new Command("up-find-resource","Fact/Action","UP");
+var cUpFindStatusLocal = new Command("up-find-status-local","Fact/Action","UP");
+var cUpFindStatusRemote = new Command("up-find-status-remote","Fact/Action","UP");
 var cUpFullResetSearch = new Command("up-full-reset-search","Action","UP");
 var cUpGaiaTypeCount = new Command("up-gaia-type-count","Fact","UP");
 var cUpGaiaTypeCountTotal = new Command("up-gaia-type-count-total","Fact","UP");
@@ -378,22 +378,22 @@ var cUpGatherInside = new Command("up-gather-inside","Action","UP");
 var cUpGetAttackerClass = new Command("up-get-attacker-class","Action","UP");
 var cUpGetCostDelta = new Command("up-get-cost-delta","Action","UP");
 var cUpGetEvent = new Command("up-get-event","Action","UP");
-var cUpGetFact = new Command("up-get-fact","Both","UP");
-var cUpGetFactMax = new Command("up-get-fact-max","Both","UP");
-var cUpGetFactMin = new Command("up-get-fact-min","Both","UP");
-var cUpGetFactSum = new Command("up-get-fact-sum","Both","UP");
-var cUpGetFocusFact = new Command("up-get-focus-fact","Both","UP");
+var cUpGetFact = new Command("up-get-fact","Fact/Action","UP");
+var cUpGetFactMax = new Command("up-get-fact-max","Fact/Action","UP");
+var cUpGetFactMin = new Command("up-get-fact-min","Fact/Action","UP");
+var cUpGetFactSum = new Command("up-get-fact-sum","Fact/Action","UP");
+var cUpGetFocusFact = new Command("up-get-focus-fact","Fact/Action","UP");
 var cUpGetGroupSize = new Command("up-get-group-size","Action","UP");
 var cUpGetGuardState = new Command("up-get-guard-state","Action","UP");
 var cUpGetIndirectGoal = new Command("up-get-indirect-goal","Action","UP");
-var cUpGetObjectData = new Command("up-get-object-data","Both","UP");
-var cUpGetObjectTargetData = new Command("up-get-object-target-data","Both","UP");
+var cUpGetObjectData = new Command("up-get-object-data","Fact/Action","UP");
+var cUpGetObjectTargetData = new Command("up-get-object-target-data","Fact/Action","UP");
 var cUpGetObjectTypeData = new Command("up-get-object-type-data","Action","UP");
 var cUpGetPathDistance = new Command("up-get-path-distance","Action","UP");
 var cUpGetPlayerColor = new Command("up-get-player-color","Action","UP");
-var cUpGetPlayerFact = new Command("up-get-player-fact","Both","UP");
+var cUpGetPlayerFact = new Command("up-get-player-fact","Fact/Action","UP");
 var cUpGetPoint = new Command("up-get-point","Action","UP");
-var cUpGetPointContains = new Command("up-get-point-contains","Both","UP");
+var cUpGetPointContains = new Command("up-get-point-contains","Fact/Action","UP");
 var cUpGetPointDistance = new Command("up-get-point-distance","Action","UP");
 var cUpGetPointElevation = new Command("up-get-point-elevation","Action","UP");
 var cUpGetPointTerrain = new Command("up-get-point-terrain","Action","UP");
@@ -404,7 +404,7 @@ var cUpGetRuleId = new Command("up-get-rule-id","Action","UP");
 var cUpGetSearchState = new Command("up-get-search-state","Action","UP");
 var cUpGetSharedGoal = new Command("up-get-shared-goal","Action","UP");
 var cUpGetSignal = new Command("up-get-signal","Action","UP");
-var cUpGetTargetFact = new Command("up-get-target-fact","Both","UP");
+var cUpGetTargetFact = new Command("up-get-target-fact","Fact/Action","UP");
 var cUpGetThreatData = new Command("up-get-threat-data","Action","UP");
 var cUpGetTimer = new Command("up-get-timer","Action","UP");
 var cUpGetTreatyData = new Command("up-get-treaty-data","Action","DE");
@@ -422,9 +422,9 @@ var cUpLerpTiles = new Command("up-lerp-tiles","Action","UP");
 var cUpLogData = new Command("up-log-data","Action","UP");
 var cUpModifyEscrow = new Command("up-modify-escrow","Action","UP");
 var cUpModifyFlag = new Command("up-modify-flag","Action","UP");
-var cUpModifyGoal = new Command("up-modify-goal","Both","UP");
+var cUpModifyGoal = new Command("up-modify-goal","Fact/Action","UP");
 var cUpModifyGroupFlag = new Command("up-modify-group-flag","Action","UP");
-var cUpModifySn = new Command("up-modify-sn","Both","UP");
+var cUpModifySn = new Command("up-modify-sn","Fact/Action","UP");
 var cUpObjectData = new Command("up-object-data","Fact","UP");
 var cUpObjectTargetData = new Command("up-object-target-data","Fact","UP");
 var cUpObjectTypeCount = new Command("up-object-type-count","Fact","UP");
@@ -476,8 +476,8 @@ var cUpSetPlacementData = new Command("up-set-placement-data","Action","UP");
 var cUpSetPreciseTargetPoint = new Command("up-set-precise-target-point","Action","UP");
 var cUpSetSharedGoal = new Command("up-set-shared-goal","Action","UP");
 var cUpSetSignal = new Command("up-set-signal","Action","UP");
-var cUpSetTargetById = new Command("up-set-target-by-id","Both","UP");
-var cUpSetTargetObject = new Command("up-set-target-object","Both","UP");
+var cUpSetTargetById = new Command("up-set-target-by-id","Fact/Action","UP");
+var cUpSetTargetObject = new Command("up-set-target-object","Fact/Action","UP");
 var cUpSetTargetPoint = new Command("up-set-target-point","Action","UP");
 var cUpSetTimer = new Command("up-set-timer","Action","UP");
 var cUpSetupCostData = new Command("up-setup-cost-data","Action","UP");
@@ -504,9 +504,26 @@ var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
 var cFeFilterGarrisoned = new Command("fe-filter-garrisoned","Action","DE");
 var cFeSetSignal = new Command("fe-set-signal","Action","DE");
 var cFeSubGameType = new Command("fe-sub-game-type","Fact","DE");
-var cXsScriptCall = new Command("xs-script-call","Both","DE");
+var cXsScriptCall = new Command("xs-script-call","Fact/Action","DE");
 
-var commandsArray = [cAcknowledgeEvent, cAcknowledgeTaunt, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefendSoldierCount, cDefendWarboatCount, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeFilterGarrisoned, cFeSetSignal, cFeSubGameType, cXsScriptCall];
+var cDefconst = new Command("defconst","Other","1.0c");
+var cDefrule = new Command("defrule","Other","1.0c");
+var cElse = new Command("#else","Other","1.0c");
+var cEndIf = new Command("#end-if","Other","1.0c");
+var cInclude = new Command("include","Other","UP");
+var cLoad = new Command("load","Other","1.0c");
+var cLoadIfDefined = new Command("#load-if-defined","Other","1.0c");
+var cLoadIfNotDefined = new Command("#load-if-not-defined","Other","1.0c");
+var cLoadRandom = new Command("load-random","Other","1.0c");
+var cAnd = new Command("and","Other","1.0c");
+var cNand = new Command("nand","Other","1.0c");
+var cNor = new Command("nor","Other","1.0c");
+var cNot = new Command("not","Other","1.0c");
+var cOr = new Command("or","Other","1.0c");
+var cXnor = new Command("xnor","Other","1.0c");
+var cXor = new Command("xor","Other","1.0c");
+
+var commandsArray = [cElse, cEndIf, cLoadIfDefined, cLoadIfNotDefined, cAcknowledgeEvent, cAcknowledgeTaunt, cAnd, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefconst, cDefendSoldierCount, cDefendWarboatCount, cDefrule, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLoad, cLoadRandom, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cNand, cNor, cNot, cOr, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cXnor, cXor, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeFilterGarrisoned, cFeSetSignal, cFeSubGameType, cInclude, cXsScriptCall];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","AoC","&#60;rel-op&#62;");
@@ -559,6 +576,7 @@ var pItemId = new Parameter("ItemId","DE");
 var pLanguageId = new Parameter("LanguageId","AoC","&#60;string-id&#62;","&#60;string-id-start&#62;");
 // var pLimit = new Parameter("Limit","UP");
 var pLineId = new Parameter("LineId", "AoC")
+var pLoadIfSymbol = new Parameter("LoadIfSymbol", "AoC");
 var pLocalIndex = new Parameter("LocalIndex","UP");
 var pLocalList = new Parameter("LocalList","UP");
 var pMapSize = new Parameter("MapSize","AoC","&#60;map-size&#62;");
@@ -636,7 +654,7 @@ var pVictoryTime = new Parameter("VictoryTime","UP");
 var pVictoryType = new Parameter("VictoryType","UP");
 var pWallId = new Parameter("WallId","AoC","&#60;wall-id&#62;");
 
-var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLineId, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSetId, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, /*pUpgradeId,*/ pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
+var parametersArray = [pCompareOp, pMathOp, pTypeOp, pActionId, pAge, /*pAllyPlayer,*/ pAttackStance, pAttrId, /*pBorder,*/ /*pBreakState,*/ pBuildingId, pCiv, pClassId, pCmdId, /*pCode,*/ pColorId, pCommodity, /*pComputerAllyPlayer,*/ /*pCount,*/ /*pData,*/ pDefconst, pDifficulty, pDiffParameterId, /*pDistance,*/ pDUCAction, pEffectId, pEscrowGoalId, /*pESPlayerStance,*/ pEventId, pEventType, pExploredState, /*pExtension,*/ pFactId, pFactParameter, pFindPlayerMethod, pFlag, pFormation, /*pFormattedString,*/ pGameType, pGoalId, pGroupId, pGroupType, pGuardFlag, /*pGuardState,*/ /*pHitpoints,*/ pId, pIdleType, pIndex, pItemId, pLanguageId, /*pLimit,*/ pLineId, pLoadIfSymbol, pLocalIndex, pLocalList, pMapSize, pMapType, pMaxDistance, pMaxGarrison, pMinDistance, pMinGarrison, /*pMode,*/ /*pNewName,*/ pObjectData, pObjectId, pObjectList, pObjectStatus, /*pOn,*/ pOnMainland, pOption, pOptionGoalId, pOrderId, pOutputGoalId, pPercent, pPerimeter, pPlacementType, /*pPlain,*/ pPlayerNumber, pPlayerStance, pPoint, pPositionType, /*pPrecise,*/ /*pPreserveResearch,*/ pProgressType, pProjectileType, pPriorityType, pRemoteIndex, pRemoteList, pResearchState, /*pResetCost,*/ pResource, pResourceType, pRuleDelta, pRuleId, pScoutMethod, pSearchOrder, pSearchSource, pSetId, pSharedGoalId, pSignalId, /*pSize,*/ pSnId, /*pStart,*/ pStartingResources, /*pState,*/ /*pStrict,*/ pString, pSubGameType, /*pTarget,*/ pTauntId, pTechId, pTerrain, pThreatPlayer, pThreatSource, pThreatTarget, pThreatTime, /*pTiles,*/ pTimerId, pTimerState,  pTypeId, pUnitId, /*pUpgradeId,*/ pValue, pVictoryCondition, pVictoryPlayer, pVictoryTime, pVictoryType, pWallId];
 
 //Strategic Numbers
 var snAddStartingResourceFood = new StrategicNumber("sn-add-starting-resource-food");
@@ -1071,8 +1089,8 @@ snCapCivilianBuilders.up = 1;
 snCapCivilianBuilders.de = 1;
 snCapCivilianBuilders.linked = [ 1, 253 ];
 snCapCivilianBuilders.related = [ 3, 5 ];
-snCapCivilianBuilders.shortDescription = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.";
-snCapCivilianBuilders.description = "Caps the number of builders allocated. Factored in after the percentage is calculated. Ignored when set to -1, causing all construction to be blocked.</p><p>This is an SN that you should change from its default value. Set it high, like 200, but really any reasonably high number is fine. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.";
+snCapCivilianBuilders.shortDescription = "Caps the number of builders allocated. Factored in after the percentage is calculated.";
+snCapCivilianBuilders.description = "Caps the number of builders allocated. Factored in after the percentage is calculated. Some previous documentation says this strategic number is ignored when set to -1, but using -1 has the same effect as setting the SN to 0.</p><p>This is an SN that you should change from its default value. Set it high, like 200, but really any reasonably high number is fine. The default is 2, but there is no real reason to cap the number of builders your AI can use at once. The AI will only assign builders as necessary, so setting this SN to a huge number like 200 won't tell your AI to send all of its villagers to construct buildings.</p><p>Instead, the AI will automatically assign one builder at minimum to every building foundation unless you place the building with " + cUpBuildLine.getLink() + " and you set " + cUpAssignBuilders.getLink() + " to -1 for that building beforehand (setting up-assign-builders to 0 still assigns one builder). Then, it will assign builders to that building type until the number for up-assign-builders is reached for that whole building type or sn-cap-civilian-builders is reached. For example, if you use (up-assign-builders c: farm c: 4) and you order two farms to be built, the AI will distribute four builders total to build those two farms, usually two to each farm. By default up-assign-builders is set to 1 for each building type. " + snPercentCivilianBuilders.getLink() + " won't affect how many builders are assigned, so you can ignore sn-percent-civilian-builders.";
 
 snCapCivilianGatherers.id = 5;
 snCapCivilianGatherers.snName = "sn-cap-civilian-gatherers";
@@ -1094,7 +1112,8 @@ snCapCivilianGatherers.up = 1;
 snCapCivilianGatherers.de = 1;
 snCapCivilianGatherers.linked = [ 2 ];
 snCapCivilianGatherers.related = [ 3, 4 ];
-snCapCivilianGatherers.shortDescription = "Caps the number of gatherers allocated. Factored in after the percentage is calculated. Ignored when set to -1.";
+snCapCivilianGatherers.shortDescription = "Caps the number of gatherers allocated. Factored in after the percentage is calculated. Ignored when set to -1";
+snCapCivilianGatherers.description = "Caps the number of gatherers allocated. Factored in after the percentage is calculated. Ignored when set to -1, meaning there is no cap on the number of gatherers. Unless this SN caps gatherers, all villagers who aren't exploring or building will start gathering resources so that they aren't idle. In virtually all cases this is what you want, so there usually isn't any reason to change this SN from the default -1 setting.</p><p>" + snPercentCivilianGatherers.getLink() + " does not affect the number of gatherers, so you can rely on this SN alone to determine the number of gatherers that your AI has.";
 
 snUnknownSN006.id = 6;
 snUnknownSN006.snName = "sn-percent-soldier-explorers";
@@ -9651,7 +9670,7 @@ cCivilianPopulation.complexity = "Low";
 
 //civ-selected
 cCivSelected.shortDescription = "Checks the computer player's civilization.";
-cCivSelected.description = "Checks the computer player's civilization. You can use \"my-civ,\" which will automatically detect the civilization the AI is playing as. Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command. You can also enclose code in a #load-if-defined [CIV-NAME]-CIV block if it should only run when a particular civ is selected.</p><p>To check for the civilization of other players, use " + cPlayersCiv.getLink() + ".";
+cCivSelected.description = "Checks the computer player's civilization. You can use \"my-civ,\" which will automatically detect the civilization the AI is playing as. Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the " + pLoadIfSymbol.getLink() + " civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command. You can also enclose code in a #load-if-defined [CIV-NAME]-CIV block if it should only run when a particular civ is selected.</p><p>To check for the civilization of other players, use " + cPlayersCiv.getLink() + ".";
 cCivSelected.commandParameters = [ {
 	nameLink: pCiv.getLink(),
 	name: "Civ",
@@ -9953,7 +9972,7 @@ cDeleteUnit.complexity = "Low";
 
 //difficulty
 cDifficulty.shortDescription = "Checks the difficulty setting.";
-cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as a difficulty value of 4, easy as 3, moderate as 2, hard as 1, hardest as 0, and extreme as -1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number (Extreme is the lowest number in DE)!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard, Hardest, or Extreme.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard, Hardest, or Extreme.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><p>Because of the counter-intuitive ordering of difficulties, you may find it helpful to use the #load-if symbols to check difficulty settings instead, such as #load-if-defined DIFFICULTY-HARD or #load-if-not-defined DIFFICULTY-HARDEST.</p><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy/standard: 133% (0:25 to 0:33)</li><li>moderate: 100% (for DE it's 114% (0:25 to 0:28))</li><li>hard: 100% (for DE it's 105% (0:25 to 0:26))</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>For non-DE game versions, Hardest difficulty adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled, but you can remove these resources with a negative " + cCcAddResource.getLink() + " or " + cUpCcAddResource.getLink() + " command. Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See " + snDoNotScaleForDifficultyLevel.getLink() + " for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
+cDifficulty.description = "Checks the difficulty setting.</p><p>The ordering of difficulty settings is the opposite of what one would expect! Make sure that this is taken in account when using facts to compare difficulties. easiest &gt; easy &gt; moderate &gt; hard &gt; hardest (ie; treat easiest as a difficulty value of 4, easy as 3, moderate as 2, hard as 1, hardest as 0, and extreme as -1).</p><p>For testing certain difficulty levels see the code examples. It is counter intuitive!</p><table class=\"example\"><tr><td>(difficulty == easiest)</td><td>True if the difficulty is easiest</td></tr><tr><td>(difficulty &gt; easiest)</td><td>WRONG: This will never be true, Easiest is the &quot;highest&quot; number!</td></tr><tr><td>(difficulty &lt; hardest)</td><td>WRONG: This will never be true, Hardest is the &quot;lowest&quot; number (Extreme is the lowest number in DE)!</td></tr><tr><td>(difficulty &lt;= moderate)</td><td>This is true if the difficulty is Moderate, Hard, Hardest, or Extreme.</td></tr><tr><td>(difficulty &gt;= easy)</td><td>This is true if the difficulty is Easy or Easiest.</td><tr><td>(difficulty &gt; hard)</td><td>Counter-intuitive - avoid (you probably want the opposite in fact, see below), this is true if the difficulty is Moderate, Easy or Easiest.</td></tr><tr><td>(difficulty &lt;= hard)</td><td>This is true if the difficulty is Hard, Hardest, or Extreme.</td></tr><tr><td>(difficulty &gt; hardest)</td><td>This is true if the difficulty is Hard, Moderate, Easy or Easiest</td></tr></table><p>Because of the counter-intuitive ordering of difficulties, you may find it helpful to use " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + " to check difficulty settings instead, such as #load-if-defined DIFFICULTY-HARD or #load-if-not-defined DIFFICULTY-HARDEST.</p><h4>Full information on difficulty affecting aspects</h4><p>Remember that easy is referred to as Standard in the game. This information about difficulty is from the CPSB about the hardcoded changes. Automatic changes to some sn values can be stopped with " + snDoNotScaleForDifficultyLevel.getLink() + "; see this SN for more information.</p><ol><li>Distance an enemy unit must be within when the computer player unit looks for a new target:<ul><li>easiest: LOS (can be modified by " + snEasiestReactionPercentage.getLink() + ")</li><li>easy: LOS (can be modified by " + snEasierReactionPercentage.getLink() + ")</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Computer players ignore relics on the easiest level.</li><li>Computer players do not attack villagers on the easiest and easy difficulty levels.</li><li>If a non-exploring computer unit gets attacked, the computer player's attack delay for attack-group settings is modified:<ul><li>easiest: allow attacking one minute earlier</li><li>easy: allow attacking two minutes earlier</li><li>moderate: allow attacking immediately</li><li>hard: allow attacking immediately</li><li>hardest: allow attacking immediately</li></ul></li><li>After a wolf kills a unit, have it gorge itself (not attack again) for:</li><ul><li>easiest: 35 seconds</li><li>easy: 30 seconds</li><li>moderate: 25 seconds</li><li>hard: 20 seconds</li><li>hardest: 15 seconds</li></ul></li><li>Distance a unit must be within when a wolf looks for a new target:<ul><li>easiest: LOS * 0.5</li><li>easy: LOS * 0.75</li><li>moderate: LOS * 2</li><li>hard: LOS * 2</li><li>hardest: LOS * 2</li></ul></li><li>Unit build (using villager for example) and research time (including age advancement):<ul><li>easiest: 200% (0:25 to 0:50)</li><li>easy/standard: 133% (0:25 to 0:33)</li><li>moderate: 100% (for DE it's 114% (0:25 to 0:28))</li><li>hard: 100% (for DE it's 105% (0:25 to 0:26))</li><li>hardest: 100%</li></ul></li></ol><p>Building construction appears to be unaffected.</p><p>For non-DE game versions, Hardest difficulty adds a hardcoded 500 of each resource at the beginning of the game and on reaching each new age. This cannot be disabled, but you can remove these resources with a negative " + cCcAddResource.getLink() + " or " + cUpCcAddResource.getLink() + " command. Also note that starting the game in later ages adds these bonuses incrementally (so up to 2000 for starting in the Imperial Age or Post-Imperial Age).</p><p>Each difficulty level will change certain SN values automatically (including when set manually) unless sn-do-not-scale-for-difficulty-level is set to 1. See " + snDoNotScaleForDifficultyLevel.getLink() + " for these values. Small additional note is that Hard also still makes SN changes, so it is recommended for a non-cheating AI to use sn-do-not-scale-for-difficulty-level so it can perform well on Hard.";
 cDifficulty.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -10826,7 +10845,7 @@ cPlayersBuildingTypeCount.complexity = "Low";
 
 //players-civ
 cPlayersCiv.shortDescription = "Checks the given player's civilization.";
-cPlayersCiv.description = "Checks the given player's civilization.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the #load-if civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1). You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p>";
+cPlayersCiv.description = "Checks the given player's civilization.</p><p>Note that the civilization names used with this command for pre-DE civs are usually different than the civ's display name. They are like the " + pLoadIfSymbol.getLink() + " civ names where they often use the adjective form of the civ name, not the plural name. See " + pCiv.getLink() + " for a list of correct civ names to use with this command.</p><p>The fact allows \"focus-player\", \"target-player\", and \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1). You can use \"my-civ\" for the Civ parameter, which will automatically detect the civilization the AI is playing as.</p>";
 cPlayersCiv.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -12436,6 +12455,344 @@ cWoodAmount.commandCategory = ["Economy"];
 cWoodAmount.relatedCommands = [cFoodAmount, cGoldAmount, cStoneAmount, cUpAlliedResourceAmount, cUpResourceAmount];
 cWoodAmount.relatedSNs = [];
 cWoodAmount.complexity = "Low";
+
+//defconst
+cDefconst.shortDescription = "Creates a user-defined constant.";
+cDefconst.description = "Creates a user-defined constant.</p><p>The syntax of the AI expert system (the programming language that AoE2 uses for its computer AIs) is entirely based on a dictionary of constants (text variables that are assigned a value that will remain constant) that have an integer or string (text) that are assigned to them. For example, \"archer\" is a constant that is internally defined with the value 4, which is the archer's ID number in the game's unit list. So, any AI code that uses the constant \"archer\" will interpret it as the number 4. For example, (unit-type-count archer > 5) will check if the AI has more than 5 units with the Unit ID #4, thus counting the number of archers the AI has.</p><p>The AoE2 AI engine allows AI scripters to define custom constants with the defconst command. Constants are very handy for naming of goals, goal values, timers, taunts, etc. Without constants all of these would be just nameless numbers.</p><p>Unlike most commands, the defconst command must be used outside of a rule. During the first initial script pass, the AI engine will compile a list of all loaded defconsts and store their assigned values in memory, and the defconst lines in the code will be ignored for the rest of the game. All uses of that defconst must occur after the defconst line in your code, so the best practice is to include all of your defconsts at the top of your main AI file so that they are easy to find and maintain. If you group all of your defconsts together in one file, it makes it easy to customize your AI by changing the number that the defconst represents without having to change it everywhere in your file. In the example below, if you referred to num-dark-age-villagers in many places in your AI, you could easily change the defconst to be 12 villagers by changing it in just one place.</p><p>If you want to assign a defconst to a different value depending on the game, you can put the defconst inside of a " + cLoadIfDefined.getLink() + " or a " + cLoadIfNotDefined.getLink() + " section. Only defconsts within a #load-if-defined or #load-if-not-defined that matches the current game settings will load and create that defconst. In DE, if you have more than one loaded defconst command with the same defconst name, the value of the last defconst with the same name will be the final value for that defconst. In UP, having multiple loaded defconsts with the same name will cause an error. Also, all defconsts used anywhere in the AI must have a defconst that is loaded for all game settings, even if that defconst is only used inside a #load-if-defined or #load-if-not-defined section of code that isn't loaded for the particular game. For example, if \"num-eagle-warriors\" is a defconst that is only used in code that is loaded with an American civ, the num-eagle-warriors defconst must be created for every possible game setting.</p><p>For more information, there is a multi-part article series about defconsts here: <a href=\"../resources/articles/defconsts-goals-sns-1.html\">Defconsts, Goals, and SNs</a>.";
+cDefconst.commandParameters = [ {
+	nameLink: pDefconst.getLink(),
+	name: "Defconst",
+	type: "Const",
+	dir: "in",
+	range: "a valid name for the defconst",
+	note: "The name you want to assign to the constant."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Const",
+	dir: "in",
+	range: "-32768 to 32767.",
+	note: "A value to assign to the defconst, can be a number or another defconst."
+} ];
+cDefconst.example = [ {
+	title: "Define a decided number of villagers in the Dark Age (22). The following rule uses it to train up to 22 villagers in dark age.",
+	data: "(defconst num-dark-age-villagers 22)\r\n(defrule\r\n\t(unit-type-count-total villager < num-dark-age-villagers)\r\n\t(can-train villager)\r\n=>\r\n\t(train villager)\r\n)"
+}, {
+	title: "Define the scout unit for a particular civilization by using #load-if-defined. If the AI has no scout unit, and the AI is in dark age, set sn-cap-civilian-explorers to 1 to order a villager to explore. In a real AI, you'd also define scout-unit differently for American civs, but this example is shortened for the sake of brevity.",
+	data: "#load-if-defined INDIAN-CIV\r\n\t(defconst scout-unit camel-scout)\r\n#else\r\n\t(defconst scout-unit scout-cavalry)\r\n#end-if\r\n\r\n(defrule\r\n\t(unit-type-count scout-unit == 0)\r\n\t(current-age == dark-age)\r\n\t(strategic-number sn-cap-civilian-explorers == 0)\r\n=>\r\n\t(set-strategic-number sn-cap-civilian-explorers 1)\r\n)"
+}, {
+	title: "Define a defconst called g-attacking that we can use to refer to goal #392 and a defconst called YES that is set to 1. If we have at least 20 military and we aren't attacking, start an attack and set goal 392 to 1 using these defconsts.",
+	data: "(defconst g-attacking 392)\r\n(defconst YES 1)\r\n(defrule\r\n\t(military-population >= 20)\r\n\t(up-compare-goal g-attacking != YES)\r\n=>\r\n\t(attack-now)\r\n\t(set-goal g-attacking YES)\r\n)"
+} ];
+cDefconst.commandCategory = ["Other"];
+cDefconst.relatedCommands = [];
+cDefconst.relatedSNs = [];
+cDefconst.complexity = "Low";
+
+//defrule
+cDefrule.shortDescription = "Defines the start of a new rule.";
+cDefrule.description = "Defines the start of a new rule. \"defrule\" is short for \"define rule.\"</p><p>Rules are the basis for the Expert System, the AI scripting language for AoE2. There is a list of things we know about the game world, the other players, and so on. These are called facts. We check the facts with rules until a set of conditions exists that we need the computer player to act upon. Actions are what we call those commands that cause things to happen in the game. Examples might be training a unit, researching a technology, or sending a chat message.</p><p>Rules are defined in the script with the defrule instruction. Each defined rule is given a rule ID. If the conditions (facts) for the rule are met (i.e. true), the instructions in that rule (actions) are followed. If the conditions for the rule are not met (False), the rule is passed by. The facts section of the rule is separated from the following actions section with a \"=>\" forward arrow.</p><p>Note that the parentheses around the rule are required, though the white-space formatting (spaces, tabs, etc.) is not important. Rules continue to be evaluated in order each pass unless they are disabled. This is done with the " + cDisableSelf.getLink() + " command. Disabled rules cannot be enabled later, but their rule ID is still valid, so the rule will still be counted for rule jump commands like " + cUpJumpRule.getLink() + ".</p><p>Each rule must have at least one fact and at least one action. Each rule is limited to 32 commands, including facts, actions, and logical operators, such as " + cAnd.getLink() + " or " + cNot.getLink() + ". In UP and the original versions of the game, rules were limited to 16 commands.</p><p>AIs are limited to loading 10,000 rules. This limit does not include rules that aren't loaded for the particular game, such as rules within a " + cLoadIfDefined.getLink() + " or a " + cLoadIfNotDefined.getLink() + " block.";
+cDefrule.example = [ {
+	title: "Define a rule with the defrule command with one fact and two actions which will send a \"glhf\" message after 10 seconds to all players. The disable-self command disables this rule, meaning that the rule will not be evaluated again after the disable-self command is issued.",
+	data: "(defrule\r\n\t(game-time >= 10)\r\n=>\r\n\t(chat-to-all \"glhf\")\r\n\t(disable-self)\r\n)"
+} ];
+cDefrule.commandCategory = ["Other"];
+cDefrule.relatedCommands = [cDisableSelf];
+cDefrule.relatedSNs = [];
+cDefrule.complexity = "Low";
+
+//else
+cElse.shortDescription = "Loads the code following the #else command if the previous #load-if-defined or #load-if-not-defined isn't true.";
+cElse.description = "Loads the following code if the previous #load-if-defined or #load-if-not-defined isn't true.</p><p>#else is a conditional loading command that can only be used following a " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + " command. If #else follows a #load-if-defined, then any rules between the #else and a closing " + cEndIf.getLink() + " will only be loaded if the system symbol for the #load-if-defined is not defined. Otherwise, the rules between the #else and a closing #end-if will not be read at any point in the game after the debugger is finished checking the AI for errors. Likewise, if #else follows a #load-if-not-defined, then any rules between the #else and a closing #end-if will only be loaded if the system symbol for the #load-if-not-defined is actually defined.</p><p>All #else commands must have a closing #end-if.";
+cElse.example = [ {
+	title: "If the AI is in the pocket position, set the g-position goal to 2. Else, set the g-position goal to 1.",
+	data: "(defconst g-position 46)\r\n#load-if-defined POCKET-POSITION\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 2)\r\n\t(disable-self)\r\n)\r\n#else\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 1)\r\n\t(disable-self)\r\n)\r\n#end-if"
+} ];
+cElse.commandCategory = ["Other"];
+cElse.relatedCommands = [cEndIf, cLoadIfDefined, cLoadIfNotDefined];
+cElse.relatedSNs = [];
+cElse.complexity = "Low";
+
+//end-if
+cEndIf.shortDescription = "Ends a conditionally loaded section of code.";
+cEndIf.description = "Ends a conditionally loaded section of code (i.e. a " + cLoadIfDefined.getLink() + ", " + cLoadIfNotDefined.getLink() + ", or " + cElse.getLink() + " section). Every #load-if-defined or #load-if-not-defined which starts a conditionally loaded section of code must have a matching #end-if that end that section of code, though there may be an #else section before the #end-if.</p><p>Conditionally loaded sections of code require the use of a " + pLoadIfSymbol.getLink() + ". You can check out the <a href=\"../tables/load-if.html\">Load-If Symbols</a> page for a complete list of the load-if symbols that you can use.";
+cEndIf.example = [ {
+	title: "If the AI isn't starting in the post-imperial age, order the AI to build a blacksmith.",
+	data: "#load-if-not-defined POST-IMPERIAL-AGE-START\r\n(defrule\r\n\t(building-type-count-total blacksmith == 0)\r\n\t(can-build blacksmith)\r\n=>\r\n\t(build blacksmith)\r\n)\r\n#end-if"
+}, {
+	title: "If the AI is in the pocket position, set the g-position goal to 2. Else, set the g-position goal to 1.",
+	data: "(defconst g-position 46)\r\n#load-if-defined POCKET-POSITION\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 2)\r\n\t(disable-self)\r\n)\r\n#else\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 1)\r\n\t(disable-self)\r\n)\r\n#end-if"
+} ];
+cEndIf.commandCategory = ["Other"];
+cEndIf.relatedCommands = [cElse, cLoadIfDefined, cLoadIfNotDefined];
+cEndIf.relatedSNs = [];
+cEndIf.complexity = "Low";
+
+//include
+cInclude.shortDescription = "DE only. Loads an XS file.";
+cInclude.description = "DE only. Loads an XS file.</p><p>For more info on XS scripting, see this exhaustive guide: <a href=\"https://ugc.aoe2.rocks/general/xs/beginner/\">link</a>.</p><p>Unlike the " + cLoad.getLink() + " command, the filetype (.xs) must be included in the include command. The filepath must be inside quotes. By default, .xs files must be placed in the game's xs folder, located at: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\xs\", but you can also load .xs files with a relative filepath name, using \"../\" to go up a filepath level from the xs folder and then follow the rest of the filepath to get to your .xs file. For example, to include a .xs file stored in your \"My AI\" folder within the default AI installation directory, you can use (include \"../ai/My AI/Example XS File.xs\").</p><p>Once you have included your .xs file, you can use " + cXsScriptCall.getLink() + " to call any function from that file that doesn't have any parameters. See the xs-script-call page for more details.</p><p>Unfortunately, as of this writing, including XS scripts seems to be bugged because it seems to still use the xs folder within the installation directory as the default folder, rather than the xs folder inside the mods folder, making it impossible to specify the correct directory.</p><p>Additionally, if there are any load or " + cLoadRandom.getLink() + " commands that appear later in your AI script, any include commands will not work. In summary, place all load and load-random commands at the top of your AI, and then add your include commands.</p><p>The include command can be inserted anywhere between rules. Include commands cannot be included inside a rule.</p><p>Once an .xs file is included, all .xs code that isn't within a function will start running immediately, and any rules within the .xs file will start running periodically if enabled. To call functions from the AI script, use xs-script-call.";
+cInclude.commandParameters = [ {
+	nameLink: pString.getLink(),
+	name: "String",
+	type: "Text",
+	dir: "in",
+	range: "the filename and path to the .xs file to load",
+	note: "The .xs file extension is needed. ../ allows you to move up one directory level from the xs folder."
+} ];
+cInclude.example = [ {
+	title: "Load a file called \"XS Example.xs\", which is in the default xs folder.",
+	data: "(include \"XS Example.xs\")"
+}, {
+	title: "Load a file called \"XS Example2.xs\", which is in a folder called \"My AI\", which is inside the default AI folder.",
+	data: "(include \"../ai/My AI/XS Example2.xs\")"
+} ];
+cInclude.commandCategory = ["Other"];
+cInclude.relatedCommands = [cLoad, cLoadRandom, cXsScriptCall];
+cInclude.relatedSNs = [];
+cInclude.complexity = "Very High";
+
+//load
+cLoad.shortDescription = "Loads the code from a separate .per AI file with the given filename.";
+cLoad.description = "Loads the code from a separate .per AI file with the given filename. Notice that the filename does not have path or an extension. The script interpreter automatically adds a path and an extension. By default, the load command will look for a file with a matching filename within the main AI directory. If you want to load a .per file from a folder within the AI directory, enter the name of the folder, followed by a slash, and then followed by the filename without a file extension.</p><p>Here are the default AI directories per game version:<ul><li>CD Version/UP: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\AI</li><li>WK: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\Games\\WololoKingdoms\\Script.Ai</li><li>DE: C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\ai</li><li>DE Mods: C:\\Users\\%USERNAME%\\Games\\Age of Empires 2 DE\\[Your Unique Game ID]\\mods\\local\\[The Mod's Name]\\resources\\_common\\ai (if you want to edit a mod you downloaded, use the subscribed folder instead of the local folder)</ul></p><p>Using the load command makes it easier to organize and re-use parts of your scripts in new ways. Loaded files are in every aspect the same as original script files, so any script file can be loaded by any other script file.</p><p>The load command can be inserted anywhere between rules. Load commands cannot be used inside a rule, so if you want to load your AI code according to a certain condition, use " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + ". If you want to randomly select a file to load from a list of files, use " + cLoadRandom.getLink() + ". The AI Expert system that AoE2 uses loads all AI files at runtime, so you cannot tell the AI to load a file after a game has started.</p><p>It is important to mention that the load command executes immediately. This means that when a load command is encountered, parsing of the current file is suspended until the load command finishes. At that point parsing resumes, starting with a rule immediately following the load command. Essentially, you can think of the load command as copying the code from the external .per file and pasting it into the original .per file that has the load command. Or, more accurately, if you have programming experience, you can think of the load command as a function call.</p><p>Load commands can be nested (a script that loads another script) up to 10 levels deep.</p><p>Loading multiple script files from a top-level script file makes computer players' knowledge modular. This approach has a benefit only if the script files loaded do not have overlapping areas of expertise.";
+cLoad.commandParameters = [ {
+	nameLink: pString.getLink(),
+	name: "String",
+	type: "Text",
+	dir: "in",
+	range: "the filename and path to the .per file to load",
+	note: "The .per file extension is not needed."
+} ];
+cLoad.example = [ {
+	title: "Load a file called \"Example.per\", which is in the default AI folder.",
+	data: "(load \"Example\")"
+}, {
+	title: "Load a file called \"Example2.per\", which is in a folder called \"My AI\", which is inside the default AI folder.",
+	data: "(load \"My AI/Example\")"
+}, {
+	title: "If the AI is playing Nomad, open \"Nomad.per\". Otherwise, open \"Standard Start.per\". Both files are within a folder called \"My AI\", which is inside the default AI folder.",
+	data: "#load-if-defined NOMAD-MAP\r\n\t(load \"My AI/Nomad\")\r\n#else\r\n\t(load \"My AI/Standard Start\")\r\n#end-if"
+} ];
+cLoad.commandCategory = ["Other"];
+cLoad.relatedCommands = [cInclude, cLoadRandom, cLoadIfDefined, cLoadIfNotDefined];
+cLoad.relatedSNs = [];
+cLoad.complexity = "Low";
+
+//load-random
+cLoadRandom.shortDescription = "Randomly loads the code from one AI file out of a list of files.";
+cLoadRandom.description = "Randomly loads the code from one AI file out of a list of files. This command provides an option of randomizing AI strategies on the level higher than the rule level. Notice that the filenames do not have path or an extension. The script interpreter automatically adds a path and an extension. By default, the load-random command will look for a file with a matching filename within the main AI directory. If you want to load a .per file from a folder within the AI directory, enter the name of the folder, followed by a slash, and then followed by the filename without a file extension.</p><p>Here are the default AI directories per game version:<ul><li>CD Version/UP: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\AI</li><li>WK: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\Games\\WololoKingdoms\\Script.Ai</li><li>DE: C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\ai</li><li>DE Mods: C:\\Users\\%USERNAME%\\Games\\Age of Empires 2 DE\\[Your Unique Game ID]\\mods\\local\\[The Mod's Name]\\resources\\_common\\ai (if you want to edit a mod you downloaded, use the subscribed folder instead of the local folder)</ul></p><p>Using the load-random command makes it easier to organize and re-use parts of your scripts in new ways and to provide variation between games. Loaded files are in every aspect the same as original script files, so any script file can be loaded by any other script file.</p><p>The load-random command can be inserted anywhere between rules. load-random commands cannot be used inside a rule, so if you want to load your AI code according to a certain condition, use " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + ".</p><p>Each file within the load-random is given a percent chance from 1 to 100 for that file to be selected. If a percentage is not provided, this file is regarded as the default file which will be picked if the other files with percentages are not chosen. Only one of the possible files within the load-random command will be selected. If the percentages don't add up to 100 and there is no default file given, then there is a chance that the load-random command will not load any files. If only the default file is given, that file will load 100% of the time, but this version of the load-random command is slower than the " + cLoad.getLink() + " command, so specifying only a default file is not recommended.</p><p>Userpatch added some additional options for load-random. Instead of a literal numeric percent, you can use a + followed by a defconst which specifies the percent, without spaces. This allows the scripter to randomly load files according to defconsts. You can also use a + to load files with 100% probability. In either case, the + is ignored by the CD version (version 1.0c) AI parser, so load-random commands using a + will ensure that thes files are only loaded if the player is using Userpatch. As of this writing, the options in this paragraph are bugged in DE.</p><p>The AI Expert system that AoE2 uses loads all AI files at runtime, so you cannot tell the AI to load a file after a game has started. Once a load-random command has determined which file to randomly load, this selected file will be used throughout the rest of the game. When a load-random command is encountered, parsing of the current file is suspended until the load-random command finishes. At that point parsing resumes, starting with a rule immediately following the load-random command. Essentially, you can think of the load-random command as copying the code from the external .per file and pasting it into the original .per file that has the load-random command. Or, more accurately, if you have programming experience, you can think of the load-random command as a function call.</p><p>Load commands can be nested (a script that loads another script) up to 10 levels deep.</p><p>Loading multiple script files from a top-level script file makes computer players' knowledge modular. This approach has a benefit only if the script files loaded do not have overlapping areas of expertise.";
+cLoadRandom.commandParameters = [ {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Const",
+	dir: "in",
+	range: "1 to 100, a defconst, or left blank",
+	note: "The probability that the following file is loaded."
+}, {
+	nameLink: pString.getLink(),
+	name: "String",
+	type: "Text",
+	dir: "in",
+	range: "a valid filename and path to a .per file",
+	note: "The filename and path to the .per file to load. The .per file extension is not needed."
+} ];
+cLoadRandom.example = [ {
+	title: "In the example below, \"filename1\" has a 20% chance of being loaded, \"filename2\" has a 10% chance, \"filename3\" has a 40% chance, and \"filename4\" is loaded if the first three files are not. \"filename4\" is called the default file.",
+	data: "(load-random\r\n\t20 \"filename1\"\r\n\t10 \"filename2\"\r\n\t40 \"filename3\"\r\n\t\"filename4\"\r\n)"
+}, {
+	title: "In the example below, \"filename1\" has a 20% chance of being loaded, \"filename2\" has a 10% chance, and \"filename3\" has a 40% chance. No default file given, unlike the first example. This is a valid syntax. There is a 30% chance that no file will be loaded.",
+	data: "(load-random\r\n\t20 \"filename1\"\r\n\t10 \"filename2\"\r\n\t40 \"filename3\"\r\n)"
+}, {
+	title: "Only the default file is given. This is a valid syntax. The file is always loaded. This command is a slower version of the load command so its use is not recommended.",
+	data: "(load-random\r\n\t\"filename\"\r\n)"
+}, {
+	title: "This file will be loaded 100% of the time if the game is running on Userpatch. Otherwise, the file won't be loaded.",
+	data: "(load-random\r\n\t+ \"filename\"\r\n)"
+}, {
+	title: "If the AI is Britons, the Archer Rush file is chosen 80% of the time, and the Scout Rush file is chosen 20% of the time. Otherwise, the AI will choose the files 60% and 40% of the time, respectively. This load-random will be ignored if the game is not running on Userpatch.",
+	data: "#load-if-defined BRITON-CIV\r\n\t(defconst archer-rush-prob 80)\r\n\t(defconst scout-rush-prob 20)\r\n#else\r\n\t(defconst archer-rush-prob 60)\r\n\t(defconst scout-rush-prob 40)\r\n#endif\r\n(load-random\r\n\t+archer-rush-prob \"My AI/Archer Rush\"\r\n\t+scout-rush-prob \"My AI/Scout Rush\"\r\n)"
+}, {
+	title: "This will not work, since a defconst is required if you want to use a + and you want to specify a probability.",
+	data: "(load-random\r\n\t+50 \"filename\"\r\n)"
+} ];
+cLoadRandom.commandCategory = ["Other"];
+cLoadRandom.relatedCommands = [cInclude, cLoad, cLoadIfDefined, cLoadIfNotDefined];
+cLoadRandom.relatedSNs = [];
+cLoadRandom.complexity = "Low";
+
+//#load-if-defined
+cLoadIfDefined.shortDescription = "Loads the code following the #load-if-defined if the given load-if symbol is defined for the current game.";
+cLoadIfDefined.description = "Loads the code following the #load-if-defined if the given load-if symbol is defined for the current game. All code following the #load-if-defined will be conditionally loaded in this manner until an " + cElse.getLink() + " command is used, or an " + cEndIf.getLink() + " is used to end the load-if block. Using an #else command after a #load-if-defined is optional, but all #load-if-defined commands must eventually have a closing #end-if.</p><p>load-if symbols are case-sensitive. Technically, any text can be used for the " + pLoadIfSymbol.getLink() + " parameter, such as #load-if-defined TEST, but since \"TEST\" is not an available load-if symbol, the code following a #load-if-defined TEST will never be loaded. The AI debugger will not generate an error if you accidentally misspelled a load-if symbol. However, you can use this feature intentionally as a way to essentially comment out an entire block of code.</p><p>Conditional loading commands like #load-if-defined and " + cLoadIfNotDefined.getLink() + " can be nested up to 50 levels deep. Nesting conditional loading commands means using a conditional loading command inside of a preexisting conditional loading block. In this case, all of the conditional loading commands must be true for the code within the nested conditional loading command to run. See the examples below for details.";
+cLoadIfDefined.commandParameters = [ {
+	nameLink: pLoadIfSymbol.getLink(),
+	name: "LoadIfSymbol",
+	type: "Const",
+	dir: "in",
+	range: "any unquoted text",
+	note: "The name of a symbol that you want to check."
+} ];
+cLoadIfDefined.example = [ {
+	title: "Research Garland Wars if the AI is playing as Aztecs and has at least 10 infantry units.",
+	data: "#load-if-defined AZTEC-CIV\r\n(defrule\r\n\t(unit-type-count infantry-class >= 10)\r\n\t(can-research my-unique-research)\r\n=>\r\n\t(research my-unique-research)\r\n)\r\n#end-if"
+}, {
+	title: "If the AI is in the pocket position, set the g-position goal to 2. Else, set the g-position goal to 1.",
+	data: "(defconst g-position 46)\r\n#load-if-defined POCKET-POSITION\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 2)\r\n\t(disable-self)\r\n)\r\n#else\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 1)\r\n\t(disable-self)\r\n)\r\n#end-if"
+}, {
+	title: "If the AI is playing Turks on Arena, research imperial age.",
+	data: "#load-if-defined TURKISH-CIV\r\n#load-if-defined ARENA-MAP\r\n(defrule\r\n\t(can-research imperial-age)\r\n=>\r\n\t(research imperial-age)\r\n)\r\n#end-if ;closing end-if for ARENA-MAP\r\n#end-if ;closing end-if for TURKISH-CIV"
+}, {
+	title: "This code will never be loaded, because the two #load-if-defined conditions can't both be true at the same time.",
+	data: "#load-if-defined FRANKISH-CIV\r\n#load-if-defined PERSIAN-CIV\r\n(defrule\r\n\t(can-train knight-line)\r\n=>\r\n\t(train knight-line)\r\n)\r\n#end-if ;closing end-if for PERSIAN-CIV\r\n#end-if ;closing end-if for FRANKISH-CIV"
+}, {
+	title: "Load different files depending on whether the AI is playing Arabia or Islands",
+	data: "#load-if-defined ARABIA-MAP\r\n\t(load \"MyAI/Arabia\")\r\n#end-if\r\n#load-if-defined ISLANDS-MAP\r\n\t(load \"MyAI/Islands\")\r\n#end-if"
+} ];
+cLoadIfDefined.commandCategory = ["Other"];
+cLoadIfDefined.relatedCommands = [cElse, cEndIf, cInclude, cLoad, cLoadIfNotDefined, cLoadRandom];
+cLoadIfDefined.relatedSNs = [];
+cLoadIfDefined.complexity = "Low";
+
+//#load-if-not-defined
+cLoadIfNotDefined.shortDescription = "Loads the code following the #load-if-not-defined if the given load-if symbol is NOT defined for the current game.";
+cLoadIfNotDefined.description = "Loads the code following the #load-if-not-defined if the given load-if symbol is NOT defined for the current game. All code following the #load-if-not-defined will be conditionally loaded in this manner until an " + cElse.getLink() + " command is used, or an " + cEndIf.getLink() + " is used to end the load-if block. Using an #else command after a #load-if-not-defined is optional, but all #load-if-not-defined commands must eventually have a closing #end-if.</p><p>load-if symbols are case-sensitive. Technically, any text can be used for the " + pLoadIfSymbol.getLink() + " parameter, such as #load-if-not-defined TEST, but since \"TEST\" is not an available load-if symbol, the code following a #load-if-not-defined TEST will always be loaded. The AI debugger will not generate an error if you accidentally misspelled a load-if symbol.</p><p>Conditional loading commands like #load-if-not-defined and " + cLoadIfDefined.getLink() + " can be nested up to 50 levels deep. Nesting conditional loading commands means using a conditional loading command inside of a preexisting conditional loading block. In this case, all of the conditional loading commands must be true for the code within the nested conditional loading command to run. See the examples below for details.";
+cLoadIfNotDefined.commandParameters = [ {
+	nameLink: pLoadIfSymbol.getLink(),
+	name: "LoadIfSymbol",
+	type: "Const",
+	dir: "in",
+	range: "any unquoted text",
+	note: "The name of a symbol that you want to check."
+} ];
+cLoadIfNotDefined.example = [ {
+	title: "Set the number of total builders assigned to build houses to 3 if you aren't playing as the Huns and need to build the first two houses.",
+	data: "#load-if-not-defined HUN-CIV\r\n(defrule\r\n\t(building-type-count house == 0)\r\n\t(building-type-count-total house >= 2)\r\n=>\r\n\t(up-assign-builders c: house c: 3)\r\n)\r\n#end-if"
+}, {
+	title: "If the AI is not in the pocket position, set the g-position goal to 1 (flank). Else, set the g-position goal to 2 (pocket).",
+	data: "(defconst g-position 46)\r\n#load-if-not-defined POCKET-POSITION\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 1)\r\n\t(disable-self)\r\n)\r\n#else\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(set-goal g-position 2)\r\n\t(disable-self)\r\n)\r\n#end-if"
+}, {
+	title: "If the AI isn't playing Spanish or Bulgarians, train up to 10 archers.",
+	data: "#load-if-not-defined SPANISH-CIV\r\n#load-if-not-defined BULGARIANS-CIV\r\n(defrule\r\n\t(unit-type-count-total archer-line < 10)\r\n\t(can-train archer-line)\r\n=>\r\n\t(train archer-line)\r\n)\r\n#end-if ;closing end-if for BULGARIANS-CIV\r\n#end-if ;closing end-if for SPANISH-CIV"
+} ];
+cLoadIfNotDefined.commandCategory = ["Other"];
+cLoadIfNotDefined.relatedCommands = [cElse, cEndIf, cInclude, cLoad, cLoadIfNotDefined, cLoadRandom];
+cLoadIfNotDefined.relatedSNs = [];
+cLoadIfNotDefined.complexity = "Low";
+
+//and
+cAnd.shortDescription = "Returns true if both of the facts following this command are true.";
+cAnd.description = "Returns true if both of the facts following this command are true.</p><p>The and command is one of several logical operator commands available, along with " + cNand.getLink() + ", " + cNor.getLink() + ", " + cNot.getLink() + ", " + cOr.getLink() + ", " + cXnor.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cAnd.example = [ {
+	title: "If AI has at least started researching champion and has <= 40 champions, then train more swordsmen. In this example, the and command is actually unnecessary and can be removed, but this example is here to demonstrate the basic syntax.",
+	data: "(defrule\r\n\t(and\r\n\t\t(up-research-status c: ri-champion >= research-pending)\r\n\t\t(unit-type-count-total militiaman-line < 40)\r\n\t)\r\n\t(can-train militiaman-line)\r\n=>\r\n\t(train militiaman-line)\r\n)"
+}, {
+	title: "If AI has started researching champion, or the AI has researched long swordsmen and an enemy has at least 10 eagle warriors, then train up to 40 champions. This example uses an and command nested inside of an or command. The and command will be checked first to see if both of the facts inside the or command is true (long swordsman has researched AND the enemy has eagle warriors). If so, then it'll return true and the other fact inside of the or command (if champion has at least started being researched) will be checked to see if it is also true.",
+	data: "(defrule\r\n\t(or\r\n\t\t(up-research-status c: ri-champion >= research-pending)\r\n\t\t(and\r\n\t\t\t(research-completed ri-long-swordsman)\r\n\t\t\t(players-unit-type-count any-enemy eagle-warrior-line >= 10)\r\n\t\t)\r\n\t)\r\n\t(unit-type-count-total militiaman-line < 40)\r\n\t(can-train militiaman-line)\r\n=>\r\n\t(train militiaman-line)\r\n)"
+}, {
+	title: "This example is just for illustration purposes. If the and command from the prior example is true (the AI has researched long swordsman AND an enemy has at least 10 eagle warriors), then this is what the code would look like after the and command was evaluated. Hopefully it illustrates how nested logical operator commands work. Because at least one of the facts inside the or command is already guaranteed to be true, it doesn't really matter at this point if the AI has started researching champion. As long as the AI has less than 40 swordsmen, it will train them if it can.",
+	data: "(defrule\r\n\t(or\r\n\t\t(up-research-status c: ri-champion >= research-pending)\r\n\t\t(true)\r\n\t)\r\n\t(unit-type-count-total militiaman-line < 40)\r\n\t(can-train militiaman-line)\r\n=>\r\n\t(train militiaman-line)\r\n)"
+} ];
+cAnd.commandCategory = ["Other"];
+cAnd.relatedCommands = [cNand, cNor, cNot, cOr, cXnor, cXor];
+cAnd.relatedSNs = [];
+cAnd.complexity = "Low";
+
+//nand
+cNand.shortDescription = "Returns true if at least one of the facts following this command is false.";
+cNand.description = "Returns true if at least one of the facts following this command is false.</p><p>The nand command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNor.getLink() + ", " + cNot.getLink() + ", " + cOr.getLink() + ", " + cXnor.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cNand.example = [ {
+	title: "If the AI's current target player is not both in the game and enemies with us, then find a random enemy to set as the target player.",
+	data: "(defconst gl-enemy-player 101)\r\n(defrule)\r\n\t(nand\r\n\t\t(player-in-game target-player)\r\n\t\t(stance-toward target-player enemy)\r\n\t)\r\n=>\r\n\t(up-find-player enemy find-random gl-enemy-player)\r\n\t(up-modify-sn sn-target-player-number g:= gl-enemy-player)\r\n)"
+}, {
+	title: "If our town isn't both under attack and also defended by less than 15 soldiers, or we have at least 2 castles, research imperial age.",
+	data: "(defrule\r\n\t(or\r\n\t\t(building-type-count castle >= 2)\r\n\t\t(nand\r\n\t\t\t(town-under-attack)\r\n\t\t\t(defend-soldier-count < 15)\r\n\t\t)\r\n\t)\r\n\t(can-research imperial-age)\r\n=>\r\n\t(research imperial-age)\r\n)"
+}, {
+	title: "This example is just for illustration purposes. If the nand command from the prior example is true (the AI isn't both under attack and also defended by less than 15 soldiers), then this is what the code would look like after the nand command was evaluated. Hopefully it illustrates how nested logical operator commands work. Because at least one of the facts inside the or command is already guaranteed to be true, it doesn't really matter at this point if the AI has at least 2 castles. As long as the AI can research imperial age, it will.",
+	data: "(defrule\r\n\t(or\r\n\t\t(building-type-count castle >= 2)\r\n\t\t(true)\r\n\t)\r\n\t(can-research imperial-age)\r\n=>\r\n\t(research imperial-age)\r\n)"
+} ];
+cNand.commandCategory = ["Other"];
+cNand.relatedCommands = [cAnd, cNor, cNot, cOr, cXnor, cXor];
+cNand.relatedSNs = [];
+cNand.complexity = "Low";
+
+//nor
+cNor.shortDescription = "Returns true if both of the facts following this command are false.";
+cNor.description = "Returns true if both of the facts following this command are false.</p><p>The nor command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNand.getLink() + ", " + cNot.getLink() + ", " + cOr.getLink() + ", " + cXnor.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cNor.example = [ {
+	title: "If we aren't under attack and we don't have any enemy buildings in town, train up to 40 trade carts.",
+	data: "(defrule\r\n\t(nand\r\n\t\t(town-under-attack)\r\n\t\t(enemy-buildings-in-town)\r\n\t)\r\n\t(unit-type-count-total trade-cart < 40)\r\n\t(can-train trade-cart)\r\n=>\r\n\t(train trade-cart)\r\n)"
+}, {
+	title: "If the target player isn't Aztecs, Inca, or Maya, train up to 10 spearmen.",
+	data: "(defrule\r\n\t(nor\r\n\t\t(players-civ target-player aztec)\r\n\t\t(or\r\n\t\t\t(players-civ target-player incan)\r\n\t\t\t(players-civ target-player mayan)\r\n\t\t)\r\n\t)\r\n\t(unit-type-count-total spearman-line <= 10)\r\n\t(can-train spearman-line)\r\n=>\r\n\t(train spearman-line)\r\n)"
+}, {
+	title: "This example is just for illustration purposes. If the or command from the prior example is false (the target player isn't Inca or Maya), then this is what the code would look like after the or command was evaluated. Hopefully it illustrates how nested logical operator commands work. Now, as long as the target player isn't aztec and the AI has <= 10 spearmen, it will train them if it can.",
+	data: "(defrule\r\n\t(nor\r\n\t\t(players-civ target-player aztec)\r\n\t\t(false)\r\n\t)\r\n\t(unit-type-count-total spearman-line <= 10)\r\n\t(can-train spearman-line)\r\n=>\r\n\t(train spearman-line)\r\n)"
+} ];
+cNor.commandCategory = ["Other"];
+cNor.relatedCommands = [cAnd, cNand, cNot, cOr, cXnor, cXor];
+cNor.relatedSNs = [];
+cNor.complexity = "Low";
+
+//not
+cNot.shortDescription = "Returns true if the fact following this command is false.";
+cNot.description = "Returns true if the fact following this command is false.</p><p>The not command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNand.getLink() + ", " + cNor.getLink() + ", " + cOr.getLink() + ", " + cXnor.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cNot.example = [ {
+	title: "If we can't set the unit ID stored in g-scout-id, set it back to -1.",
+	data: "(defconst g-scout-id 201)\r\n(defrule\r\n\t(not\r\n\t\t(up-set-target-by-id g: g-scout-id)\r\n\t)\r\n=>\r\n\t(set-goal g-scout-id -1)\r\n)"
+}, {
+	title: "This example is only to demonstrate the syntax of nested logical operator commands. In practice, you can always replace an operator inside of a not with a different logical operator command. For example, an or command inside of a not command can be replaced with a nor command. Likewise, an and command inside of a not command can be replaced with a nand command.",
+	data: "(defrule\r\n\t(not\r\n\t\t(or\r\n\t\t\t(civ-selected armenians)\r\n\t\t\t(civ-selected georgians)\r\n\t\t)\r\n\t)\r\n\t(building-type-count-total lumber-camp == 0)\r\n\t(can-build lumber-camp)\r\n=>\r\n\t(build lumber-camp)\r\n)"
+} ];
+cNot.commandCategory = ["Other"];
+cNot.relatedCommands = [cAnd, cNand, cNor, cOr, cXnor, cXor];
+cNot.relatedSNs = [];
+cNot.complexity = "Low";
+
+//or
+cOr.shortDescription = "Returns true if at least one of the facts following this command is true.";
+cOr.description = "Returns true if at least one of the facts following this command is true.</p><p>The or command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNand.getLink() + ", " + cNor.getLink() + ", " + cNot.getLink() + ", " + cXnor.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cOr.example = [ {
+	title: "If an enemy has a castle or there is a watch tower inside our town, train up to 3 battering rams.",
+	data: "(defrule\r\n\t(or\r\n\t\t(players-building-type-count any-enemy castle > 0)\r\n\t\t(up-building-type-in-town c: watch-tower > 0)\r\n\t)\r\n\t(unit-type-count-total battering-ram-line < 3)\r\n\t(can-train battering-ram-line)\r\n=>\r\n\t(train battering-ram-line)\r\n)"
+}, {
+	title: "If the target player isn't Aztecs, Inca, or Maya, train up to 10 spearmen.",
+	data: "(defrule\r\n\t(nor\r\n\t\t(players-civ target-player aztec)\r\n\t\t(or\r\n\t\t\t(players-civ target-player incan)\r\n\t\t\t(players-civ target-player mayan)\r\n\t\t)\r\n\t)\r\n\t(unit-type-count-total spearman-line <= 10)\r\n\t(can-train spearman-line)\r\n=>\r\n\t(train spearman-line)\r\n)"
+}, {
+	title: "This example is just for illustration purposes. If the or command from the prior example is false (the target player isn't Inca or Maya), then this is what the code would look like after the or command was evaluated. Hopefully it illustrates how nested logical operator commands work. Now, as long as the target player isn't aztec and the AI has <= 10 spearmen, it will train them if it can.",
+	data: "(defrule\r\n\t(nor\r\n\t\t(players-civ target-player aztec)\r\n\t\t(false)\r\n\t)\r\n\t(unit-type-count-total spearman-line <= 10)\r\n\t(can-train spearman-line)\r\n=>\r\n\t(train spearman-line)\r\n)"
+} ];
+cOr.commandCategory = ["Other"];
+cOr.relatedCommands = [cAnd, cNand, cNot, cNor, cXnor, cXor];
+cOr.relatedSNs = [];
+cOr.complexity = "Low";
+
+//xor
+cXor.shortDescription = "Returns true if one of the facts following this command is true and the other is false.";
+cXor.description = "Returns true if one of the facts following this command is true and the other is false. Both facts cannot be true like " + cOr.getLink() + ".</p><p>The xor command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNand.getLink() + ", " + cNor.getLink() + ", " + cNot.getLink() + ", " + cOr.getLink() + ", and " + cXnor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cXor.example = [ {
+	title: "If playing as Maya and we either have at least one archery range or we have at least one blacksmith, but not both, then build a market.",
+	data: "#load-if-defined MAYAN-CIV\r\n(defrule\r\n\t(xor\r\n\t\t(building-type-count-total archery-range >= 1)\r\n\t\t(building-type-count-total blacksmith >= 1)\r\n\t)\r\n\t(building-type-count-total market == 0)\r\n\t(can-build market)\r\n=>\r\n\t(build market)\r\n)\r\n#end-if"
+}, {
+	title: "If playing as Maya and we have an ally OR we either have at least one archery range or we have at least one blacksmith, but not both, then build a market.",
+	data: "#load-if-defined MAYAN-CIV\r\n(defrule\r\n\t(or\r\n\t\t(player-in-game any-ally)\r\n\t\t(xor\r\n\t\t\t(building-type-count-total archery-range >= 1)\r\n\t\t\t(building-type-count-total blacksmith >= 1)\r\n\t\t)\r\n\t)\r\n\t(building-type-count-total market == 0)\r\n\t(can-build market)\r\n=>\r\n\t(build market)\r\n)\r\n#end-if"
+}, {
+	title: "This example is just for illustration purposes. If the xor command from the prior example is false (AI either has zero archery ranges and blacksmiths or it has both an archery range and a blacksmith), then this is what the code would look like after the xor command was evaluated. Hopefully it illustrates how nested logical operator commands work. In this case, the AI will only build a market if it has an ally.",
+	data: "#load-if-defined MAYAN-CIV\r\n(defrule\r\n\t(or\r\n\t\t(player-in-game any-ally)\r\n\t\t(false)\r\n\t)\r\n\t(building-type-count-total market == 0)\r\n\t(can-build market)\r\n=>\r\n\t(build market)\r\n)\r\n#end-if"
+} ];
+cXor.commandCategory = ["Other"];
+cXor.relatedCommands = [cAnd, cNand, cNot, cNor, cOr, cXnor];
+cXor.relatedSNs = [];
+cXor.complexity = "Low";
+
+//xnor
+cXnor.shortDescription = "Returns true if one of the facts following this command is true and the other is false.";
+cXnor.description = "Returns true if one of the facts following this command is true and the other is false. Both facts cannot be true like " + cOr.getLink() + ".</p><p>The xnor command is one of several logical operator commands available, along with " + cAnd.getLink() + ", " + cNand.getLink() + ", " + cNor.getLink() + ", " + cNot.getLink() + ", " + cOr.getLink() + ", and " + cXor.getLink() + ". See the <a href=\"../resources/articles/logical-operators.html\">Logical Operator Commands</a> guide for more information on how to use logical operator commands.";
+cXnor.example = [ {
+	title: "Build up to 80 farms if either the AI is under attack and has more than 4 idle farms, or the AI isn't under attack and has less than 4 idle farms.",
+	data: "(defrule\r\n\t(xnor\r\n\t\t(town-under-attack)\r\n\t\t(idle-farm-count >= 4)\r\n\t)\r\n\t(building-type-count-total farm <= 80)\r\n\t(can-build farm)\r\n=>\r\n\t(build farm)\r\n)"
+} ];
+cXnor.commandCategory = ["Other"];
+cXnor.relatedCommands = [cAnd, cNand, cNot, cNor, cOr, cXor];
+cXnor.relatedSNs = [];
+cXnor.complexity = "Low";
 
 
 
@@ -16041,7 +16398,7 @@ cUpJumpDirect.complexity = "High";
 
 //up-jump-dynamic
 cUpJumpDynamic.shortDescription = "Jump dynamically within the current rule set.";
-cUpJumpDynamic.description = "Jump dynamically within the current rule set. Never use this command where #load blocks may make your jump target unreliable. Please ensure that the rule you are jumping to actually exists. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
+cUpJumpDynamic.description = "Jump dynamically within the current rule set. Never use this command where " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + " blocks may make your jump target unreliable. Please ensure that the rule you are jumping to actually exists. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
 cUpJumpDynamic.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16068,7 +16425,7 @@ cUpJumpDynamic.complexity = "High";
 
 //up-jump-rule
 cUpJumpRule.shortDescription = "Jump forward or backward within the current rule set.";
-cUpJumpRule.description = "Jump forward or backward within the current rule set. Never use this command where #load blocks may make your jump target unreliable. Please ensure that the rule you are jumping to actually exists. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
+cUpJumpRule.description = "Jump forward or backward within the current rule set. Never use this command where " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + " blocks may make your jump target unreliable. Please ensure that the rule you are jumping to actually exists. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
 cUpJumpRule.commandParameters = [ {
 	nameLink: pRuleDelta.getLink(),
 	name: "RuleDelta",
@@ -18719,7 +19076,7 @@ cFeBreakPoint.description = "DE only. Add a break point to force the AI debugger
 cFeBreakPoint.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
-	type: "Op",
+	type: "Const",
 	dir: "in",
 	range: "-32768 to 32767",
 	note: "A value to be compared with."
@@ -18784,7 +19141,7 @@ cFeCcEffectAmount.commandParameters = [ {
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
-	type: "Op",
+	type: "Const",
 	dir: "in",
 	range: "-32768 to 32767",
 	note: "The amount of the effect."
@@ -18825,7 +19182,7 @@ cFeCcEffectPercent.commandParameters = [ {
 }, {
 	nameLink: pPercent.getLink(),
 	name: "Percent",
-	type: "Op",
+	type: "Const",
 	dir: "in",
 	range: "-32768 to 32767",
 	note: "The amount of the effect. Will be divided by 100 with precision."
@@ -18932,7 +19289,7 @@ cFeSubGameType.complexity = "Medium";
 
 //xs-script-call
 cXsScriptCall.shortDescription = "DE only. Call an XS script function from an .xs file.";
-cXsScriptCall.description = "DE only. Call an XS script function from an .xs file. It is not necessary to defconst the function name. If the function name is misspelled or a function with that name doesn't exist in any included .xs files, the command will do nothing, without reporting an error.</p><p>For more info on XS scripting, see this exhaustive guide: <a href=\"https://ugc.aoe2.rocks/general/xs/beginner/\">link</a>.</p><p>The function must be from a .xs file that has been \"included\" (loaded) by the AI script. To include a .xs file in an AI script, use the include command, like (include \"Example XS File.xs\"). Note that the filetype (.xs) must be included in the include command, and the filepath must be inside quotes. By default, .xs files must be placed in the game's xs folder, located at: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\xs\", but you can also load .xs files with a relative filepath name, using \"..\" to go up a filepath level from the xs folder and then follow the rest of the filepath to get to your .xs file. For example, to include a .xs file stored in your \"My AI\" folder within the default AI installation directory, you can use (include \"../ai/My AI/Example XS File.xs\").</p><p>Once you have included your .xs file, you can use xs-script-call to call any function from that file that doesn't have any parameters. So, if you have the code below in your XS file, you can call the helloWorld() function, but not the max() function.</p><p>xs-script-call can be used as either a Fact or an Action, and it'll execute the function either way. However, if used as a Fact, xs-script-call will be a Fact that is considered false if your function returns 0, returns \"false\", or is a void function that doesn't return anything. Because of this, if you want to use xs-script-call successfully anywhere in a rule, it's a good idea to make this function a bool function that returns \"true\" or an int function that returns any non-zero value. The AI can't do anything with the value that is returned from this function, but the xs-script-call Fact itself will return true.</p><p>If you do need an AI to be able use an integer result from an XS function, you can use the xsSetGoal() or xsSetStrategicNumber() functions within an XS function to modify the value of a goal or SN, which the AI script can then check. Likewise, xsGetGoal() and xsGetStrategicNumber() functions can allow an XS function to get the current value of a goal or SN.</p><p>If you call an XS function more than once, it's a good idea to defconst it (see the examples below). Otherwise, each time you call the function in the AI script it will add an entry to the string table.</p><p>Here is some example .xs code which is used in the examples section below:</p><div class=\"example\"><p>//This code is saved in a file called Example XS File.xs<br><br>float max(float a = 0.0, float b = 2.0) {<br><span style=\"margin-left: 10px;\">if(a > b)</span><br><span style=\"margin-left: 20px;\">return (a);</span><br><span style=\"margin-left: 10px;\">else</span><br><span style=\"margin-left: 20px;\">return (b);</span><br>}<br><br>bool helloWorld() {<br><span style=\"margin-left: 10px;\">xsChatData(\"Hello World\");</span><br><span style=\"margin-left: 10px;\">return (true);</span><br>}<br><br>int rand() {<br><span style=\"margin-left: 10px;\">int rand = xsGetRandomNumber(); //generates a random number between 0 and 32766</span><br><span style=\"margin-left: 10px;\">rand++; //increase random number range to between 1 and 32767 so that zero isn't returned, making a xs-script-call condition false</span><br><span style=\"margin-left: 10px;\">xsSetGoal(510, rand);</span><br><span style=\"margin-left: 10px;\">return (rand);</span><br>}</p></div>";
+cXsScriptCall.description = "DE only. Call an XS script function from an .xs file. It is not necessary to defconst the function name. If the function name is misspelled or a function with that name doesn't exist in any included .xs files, the command will do nothing, without reporting an error.</p><p>For more info on XS scripting, see this exhaustive guide: <a href=\"https://ugc.aoe2.rocks/general/xs/beginner/\">link</a>.</p><p>The function must be from a .xs file that has been \"included\" (loaded) by the AI script. To include a .xs file in an AI script, use the " + cInclude.getLink() + " command, like (include \"Example XS File.xs\"). Note that the filetype (.xs) must be included in the include command, and the filepath must be inside quotes. By default, .xs files must be placed in the game's xs folder, located at: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\xs\", but you can also load .xs files with a relative filepath name, using \"../\" to go up a filepath level from the xs folder and then follow the rest of the filepath to get to your .xs file. For example, to include a .xs file stored in your \"My AI\" folder within the default AI installation directory, you can use (include \"../ai/My AI/Example XS File.xs\").</p><p>Once you have included your .xs file, you can use xs-script-call to call any function from that file that doesn't have any parameters. So, if you have the code below in your XS file, you can call the helloWorld() function, but not the max() function.</p><p>xs-script-call can be used as either a Fact or an Action, and it'll execute the function either way. However, if used as a Fact, xs-script-call will be a Fact that is considered false if your function returns 0, returns \"false\", or is a void function that doesn't return anything. Because of this, if you want to use xs-script-call successfully anywhere in a rule, it's a good idea to make this function a bool function that returns \"true\" or an int function that returns any non-zero value. The AI can't do anything with the value that is returned from this function, but the xs-script-call Fact itself will return true.</p><p>If you do need an AI to be able use an integer result from an XS function, you can use the xsSetGoal() or xsSetStrategicNumber() functions within an XS function to modify the value of a goal or SN, which the AI script can then check. Likewise, xsGetGoal() and xsGetStrategicNumber() functions can allow an XS function to get the current value of a goal or SN.</p><p>If you call an XS function more than once, it's a good idea to defconst it (see the examples below). Otherwise, each time you call the function in the AI script it will add an entry to the string table.</p><p>Here is some example .xs code which is used in the examples section below:</p><div class=\"example\"><p>//This code is saved in a file called Example XS File.xs<br><br>float max(float a = 0.0, float b = 2.0) {<br><span style=\"margin-left: 10px;\">if(a > b)</span><br><span style=\"margin-left: 20px;\">return (a);</span><br><span style=\"margin-left: 10px;\">else</span><br><span style=\"margin-left: 20px;\">return (b);</span><br>}<br><br>bool helloWorld() {<br><span style=\"margin-left: 10px;\">xsChatData(\"Hello World\");</span><br><span style=\"margin-left: 10px;\">return (true);</span><br>}<br><br>int rand() {<br><span style=\"margin-left: 10px;\">int rand = xsGetRandomNumber(); //generates a random number between 0 and 32766</span><br><span style=\"margin-left: 10px;\">rand++; //increase random number range to between 1 and 32767 so that zero isn't returned, making a xs-script-call condition false</span><br><span style=\"margin-left: 10px;\">xsSetGoal(510, rand);</span><br><span style=\"margin-left: 10px;\">return (rand);</span><br>}</p></div>";
 cXsScriptCall.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -18951,7 +19308,7 @@ cXsScriptCall.example = [{
 	title: "Call the rand() function and check if the generated random number is greater than 10,000.",
 	data: "(defconst rand \"rand\")\r\n(include \"../ai/My AI/Example XS File.xs\")\r\n(defrule\r\n\t(xs-script-call rand) ;stores a random number between 1 and 32767 in goal 510\r\n\t(up-compare-goal 510 > 10000)\r\n=&gt;\r\n\t(do-nothing)\r\n\t(disable-self)\r\n)"
 }];
-cXsScriptCall.relatedCommands = [cUpLogData];
+cXsScriptCall.relatedCommands = [cInclude, cUpLogData];
 cXsScriptCall.commandCategory = ["Debugging", "Goals", "Strategic Numbers", "Other"];
 cXsScriptCall.relatedSNs = [];
 cXsScriptCall.complexity = "Very High";
@@ -21086,6 +21443,12 @@ pLineId.shortDescription = "A line ID, which refers to any upgraded or non-upgra
 pLineId.range = "a valid LineId";
 pLineId.relatedParams = [pBuildingId, pClassId, pId, pObjectId, pSetId, pTypeId, pUnitId];
 pLineId.wildcardParam = allLinesArray;
+
+//LoadIfSymbol
+pLoadIfSymbol.description = "A game setting which can be checked by a conditional loading command. See the <a href=\"../tables/load-if.html\">load-if Symbols</a> page for a complete list of load-if symbols that are defined in the game engine.</p><p>At the beginning of the game, the AI engine checks the global game settings and player-specific settings such as their civ and flank/pocket position. Any of the load-if symbols that match the current game settings are added to a list of defined symbols, and the " + cLoadIfDefined.getLink() + " and " + cLoadIfNotDefined.getLink() + " commands can check this list to see if the provided load-if symbols matches the currently defined list.";
+pLoadIfSymbol.shortDescription = "A game setting which can be checked by a conditional loading command.";
+pLoadIfSymbol.range = "a valid LoadIfSymbol";
+pLoadIfSymbol.relatedParams = [pAge, pCiv, pDifficulty, pGameType, pMapSize, pMapType, pStartingResources, pSubGameType, pVictoryCondition];
 
 //LocalIndex
 pLocalIndex.description = "Set to 1 to clear the offset into the list of local objects to search. Explanation: The local list only contains units found for the current player. Whenever you find something with search-local, it'll be removed from searchable local object list and added to found local object list. Setting LocalIndex to 1 would clear searchable local object list and allow finding same objects again.";
@@ -23967,7 +24330,7 @@ pSetId.valueList = [ {
 	id: 988,
 	description: "DE only. Includes serjeants and elite serjeants trained at either the castle or the donjon."
 }, {
-	name: "flemish-militia-set",
+	name: "flemish-pikeman-set",
 	id: 989,
 	description: "DE only. Includes female flemish militia, male flemish militia, and flemish militia trained at the barracks."
 }, {

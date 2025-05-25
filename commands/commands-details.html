@@ -42,14 +42,25 @@
 		var i = 0;
 		while ( i < commandsArray.length) {
 			if ( commandsArray[i].commandName == item) {
-				info += "<h3>Syntax</h3><p>(<strong>" + commandsArray[i].commandName + "</strong>";
+				info += "<h3>Syntax</h3><p>";
+					if (commandsArray[i].commandType != "Other" || (commandsArray[i].commandName != "#load-if-defined" && commandsArray[i].commandName != "#load-if-not-defined" && commandsArray[i].commandName != "#else" && commandsArray[i].commandName != "#end-if")) {
+						info += "(<strong>" + commandsArray[i].commandName + "</strong>";
+					}
+					else {
+						info += "<strong>" + commandsArray[i].commandName + "</strong>";
+					}
 					for (var j = 0; j < commandsArray[i].commandParameters.length; j++) {
 						info += " <<span class=\"param\" title=\"" + commandsArray[i].commandParameters[j].dir + commandsArray[i].commandParameters[j].type + commandsArray[i].commandParameters[j].name + ":<br/>" + commandsArray[i].commandParameters[j].note + "<br/>Value: " + commandsArray[i].commandParameters[j].range + "\">";
 						/*info += "<span class=\"dir-type\">" + commandsArray[i].commandParameters[j].dir + "</span>";
 						info += "<span class=\"dir-type\">" + commandsArray[i].commandParameters[j].type + "</span>";*/
 						info += commandsArray[i].commandParameters[j].nameLink + "</span>>";
 					}
-					info += ")</p>";
+					if (commandsArray[i].commandType != "Other" || (commandsArray[i].commandName != "#load-if-defined" && commandsArray[i].commandName != "#load-if-not-defined" && commandsArray[i].commandName != "#else" && commandsArray[i].commandName != "#end-if")) {
+						info += ")</p>";
+					}
+					else {
+						info += "</p>";
+					}
 					if (commandsArray[i].commandParameters.length > 0) {
 						info += "<p>Hover over or click each of the parameters for more detail.</p>";
 					}
@@ -81,9 +92,11 @@
 				case "Action":
 					info += "<td>Action. The command will execute if all the facts in the rule are true.</td>";
 					break;
-				case "Both":
-					info += "<td>Both. This command can be used as a fact or an action. When used as a fact, it will attempt to execute as an action even though it's in the fact section of the rule. If the action cannot be executed, then it will return false, and all following commands in the rule will not execute.</td>";
+				case "Fact/Action":
+					info += "<td>Fact/Action. This command can be used as a fact or an action. When used as a fact, it will attempt to execute as an action even though it's in the fact section of the rule. If the action cannot be executed, then it will return false, and all following commands in the rule will not execute.</td>";
 					break;
+				case "Other":
+					info += "<td>Other. This command is neither a fact, nor an action."
 				}
 				info += "</tr><tr><td>Version Introduced</td><td>" + commandsArray[i].commandVersion + "</td></tr>";
 				if (commandsArray[i].commandCategory.length > 0) {

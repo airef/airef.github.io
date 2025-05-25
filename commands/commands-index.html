@@ -66,7 +66,8 @@
 				<option value="All" selected>All</option>
 				<option value="Fact">Fact</option>
 				<option value="Action">Action</option>
-				<option value="Both">Both</option>
+				<option value="Fact/Action">Fact/Action</option>
+				<option value="Other">Other</option>
 			</select><select id="command-version" class="drop-filter" onchange="commandsFilter()" autocomplete="off" title="Game Version">
 				<option value="All" selected>All</option>
 				<option value="AoC">AoC</option>
@@ -207,7 +208,7 @@
 								}
 								if(txtValue >= minComplexity && txtValue <= maxComplexity) {
 									txtValue = tdType.textContent || tdType.innerText;
-									if(tdVersion && (type.value == "All" || txtValue == type.value || txtValue == "Both")) {
+									if(tdVersion && (type.value == "All" || txtValue == type.value || (txtValue == "Fact/Action" && type.value != "Other"))) {
 										txtValue = tdVersion.textContent || tdVersion.innerText;
 										if(version.value == "All" || txtValue == version.value) {
 											tr[i].style.display = "";

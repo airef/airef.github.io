@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+	<title>Logical Operator Commands</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>Logical Operator Commands</h2>
+			<p>Logical operator commands are essential commands for AI scripting. If you're not a programmer (or even if you are), you might not know what the term "logical operator" means, but you've probably encountered the commands themselves in AI scripting before, as well as in many other contexts, such as spreadsheet formulas. AoE2 supports seven logical operator commands: <a href="../../commands/commands-details.html#and">and</a>, <a href="../../commands/commands-details.html#nand">nand</a>, <a href="../../commands/commands-details.html#nor">nor</a>, <a href="../../commands/commands-details.html#not">not</a>, <a href="../../commands/commands-details.html#or">or</a>, <a href="../../commands/commands-details.html#xor">xor</a>, and <a href="../../commands/commands-details.html#xnor">xnor</a>.</p>
+			<h3>Introduction</h3>
+			<p>Logical operator commands give you extra flexibility to control the conditions that must be true before the AI can move on to the actions section of the rule. They evaluate the two facts that follow the logical operator command (or the one following fact for the not command), and check if each fact is true or false. Each logical operator command has different conditions for the facts that must be true for the logical operator command itself will be considered true. For example, in the case of the or command, at least one of the facts within the and command must be true.</p>
+			<h3>Syntax</h3>
+			<p>If you are used to other programming languages, you'll notice that the syntax of logical operator commands in AoE2 is different than other programming languages. Instead of placing the command between the two facts like you would in spoken language or many programming languages, you place the command <em>before</em> the two facts, similar to how you'd use logical operator formulas in spreadsheet software, like Excel. For example, if you're using the or command, the two facts that the or command is evaluating must be enclosed inside of the or command, with the <span class="inline-example"><code>(or</code></span> preceding the two facts, and a closing parenthesis <span class="inline-example"><code>)</code></span> after the second fact.</p>
+			<p>Unfortunately, the AoE2 scripting language does not allow you to compare more than two facts at a time. To get around this, you can nest logical operator commands, i.e. putting a logical operator command inside of another logical operator command. One or both of the commands within the command can be logical operator commands themselves. Any facts within a nested logical operator command don't count toward the two facts that are within the command. Instead, each entire nested logical operator command would count as a single fact. This is because the nested logical operator commands are evaluated first, becoming either true or false, and then the outer un-nested logical operator command is evaluated (see the example section below to illustrate this). Indenting facts after a logical operator command like the examples below can be a good way to visualize which facts are inside of which command, as well as which logical operator commands will be evaluated first.</p>
+			<p>Like other commands, logical operator commands count toward the 32 command limit per rule (in UP the limit is 16 commands per rule).</p>
+			<h3>Logical Operator Command List</h3>
+			<p>Here is a list of all seven logical operators and the conditions that must be met for each logical operator to be considered true:</p>
+			<p>
+				<ul>
+					<li><a href="../../commands/commands-details.html#not">not</a>: the fact within the not command must be false. Only one fact is allowed within the not command.</li>
+					<li><a href="../../commands/commands-details.html#and">and</a>: both of the facts within the and command must be true.</li>
+					<li><a href="../../commands/commands-details.html#nand">nand</a>: short for "not and". At least one of the two facts within the nand command must be false. nand is the exact opposite of and.</li>
+					<li><a href="../../commands/commands-details.html#or">or</a>: at least one of the facts within the or command must be true.</li>
+					<li><a href="../../commands/commands-details.html#nor">nor</a>: short for "not or." Both facts within the nor command must be false. nor is the exact opposite of or.</li>
+					<li><a href="../../commands/commands-details.html#xor">xor</a>: short for "exclusive or." One of the two facts within the xor command must be true, but both facts cannot be true.</li>
+					<li><a href="../../commands/commands-details.html#xnor">xnor</a>: short for "exclusive not or." Either both of the two facts within the xnor command must be true, or both of them must be false. xnor is the exact opposite of xor.</li>
+				</ul>
+			</p>
+			<p>Put another way, here's a logic truth table for 6 of the logical operator commands (not isn't included because it only checks one fact). For example, the and command is only true in the case where Fact A and Fact B are both true.</p>
+			<p><table>
+				<tr><td colspan="2" style="text-align: center";>If Facts A and B are:</td><td colspan="6" style="text-align: center";>Then each logical operator command will be:</td></tr>
+				<tr><th>Fact A Result</th><th>Fact B Result</th><th>and</th><th>nand</th><th>or</th><th>nor</th><th>xor</th><th>xnor</th></tr>
+				<tr><td>false</td><td>false</td><td>false</td><td>true</td><td>false</td><td>true</td><td>false</td><td>true</td></tr>
+				<tr><td>true</td><td>false</td><td>false</td><td>true</td><td>true</td><td>false</td><td>true</td><td>false</td></tr>
+				<tr><td>false</td><td>true</td><td>false</td><td>true</td><td>true</td><td>false</td><td>true</td><td>false</td></tr>
+				<tr><td>true</td><td>true</td><td>true</td><td>false</td><td>true</td><td>false</td><td>false</td><td>true</td></tr>
+			</table></p>
+			<h3>Examples</h3>
+			<p><strong>Basic Example</strong></p>
+			<p>If an enemy has a castle or there is a watch tower inside our town, train up to 3 battering rams.</p>
+			<p><div class="example"><pre><code>(defrule
+	(or
+		(players-building-type-count any-enemy castle > 0)
+		(up-building-type-in-town c: watch-tower > 0)
+	)
+	(unit-type-count-total battering-ram-line < 3)
+	(can-train battering-ram-line)
+=>
+	(train battering-ram-line)
+)</code></pre></div></p>
+			<p><strong>Nested Example</strong></p>
+			<p>This example shows how nested logical operator commands work. In this rule, if the target player isn't Aztecs, Inca, or Maya, the AI will train up to 10 spearmen if it can.</p>
+			<p><div class="example"><pre><code>(defrule
+	(nor
+		(players-civ target-player aztec)
+		(or
+			(players-civ target-player incan)
+			(players-civ target-player mayan)
+		)
+	)
+	(unit-type-count-total spearman-line <= 10)
+	(can-train spearman-line)
+=>
+	(train spearman-line)
+)</code></pre></div></p>
+			<p>If the or command from the prior example is false (the target player isn't Inca or Maya), then this is what the code would look like internally after the or command was evaluated. Hopefully it illustrates how nested logical operator commands work. Now, as long as the target player isn't aztec and the AI has <= 10 spearmen, it will train them if it can.</p>
+			<p><div class="example"><pre><code>(defrule
+	(nor
+		(players-civ target-player aztec)
+		(false)
+	)
+	(unit-type-count-total spearman-line <= 10)
+	(can-train spearman-line)
+=>
+	(train spearman-line)
+)</code></pre></div></p>
+			<p>Here's how the code would look next if the target player isn't Aztec.</p>
+			<p><div class="example"><pre><code>(defrule
+	(nor
+		(false)
+		(false)
+	)
+	(unit-type-count-total spearman-line <= 10)
+	(can-train spearman-line)
+=>
+	(train spearman-line)
+)</code></pre></div></p>
+			<p>Lastly, here's how the code would look after the nor is evaluated.</p>
+			<p><div class="example"><pre><code>(defrule
+	(true)
+	(unit-type-count-total spearman-line <= 10)
+	(can-train spearman-line)
+=>
+	(train spearman-line)
+)</code></pre></div></p>
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
