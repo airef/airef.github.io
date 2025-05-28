@@ -235,17 +235,7 @@ h5 {
 	margin: 0 0 20px 0;
 }
 
-.techs-building-header, .objects-building-header{
-	font: 16pt "Georgia", Arial, sans-serif;
-	margin: 20px 0 0 0;
-}
-
-.techs-building-header, .objects-building-header{
-	font: 16pt "Georgia", Arial, sans-serif;
-	margin: 20px 0 0 0;
-}
-
-.techs-building-header, .objects-building-header{
+.techs-building-header, .objects-building-header, .load-types-header{
 	font: 16pt "Georgia", Arial, sans-serif;
 	margin: 20px 0 0 0;
 }
@@ -317,7 +307,7 @@ code {
 	line-height: 1.5;
 }
 
-#parametersInput, #bugsInput {
+#parametersInput, #bugsInput, #loadInput {
 	width: 88%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -342,7 +332,7 @@ code {
 	font-weight: bold;
 }
 
-.parameters-input-label { 
+.parameters-input-label, .load-input-label { 
 	width: 88%;
 	padding-top: 10px;
 	display: inline-block;

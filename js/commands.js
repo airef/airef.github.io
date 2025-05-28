@@ -8319,8 +8319,1627 @@ buildingLinesArray = [ {
 
 allLinesArray = buildingLinesArray.concat(unitLinesArray);
 
+gameTypeLoadIfsArray = [ {	
+	name: "DEATH-MATCH",
+	description: "Death Match game.",
+	type: "Game Type"
+}, {
+	name: "RANDOM-MAP",
+	description: "Random Map game.",
+	type: "Game Type"
+}, {
+	name: "REGICIDE",
+	description: "Regicide game.",
+	type: "Game Type"
+}, {
+	name: "KING-OF-THE-HILL",
+	description: "King of the Hill game. CPSB incorrectly states \"KING\".",
+	type: "Game Type"
+}, {
+	name: "WONDER-RACE",
+	description: "Wonder Race game. CPSB incorrectly states \"WONDER RACE\".",
+	type: "Game Type"
+}, {
+	name: "DEFEND-WONDER",
+	description: "Defend the Wonder game. CPSB incorrectly states \"DEFEND THE WONDER\".",
+	type: "Game Type"
+}, {
+	name: "TURBO-RANDOM-MAP",
+	description: "Turbo random map game.",
+	type: "Game Type"
+}, {
+	name: "SUDDEN-DEATH",
+	description: "Sudden death game. HD/DE only.",
+	type: "Game Type"
+}, {
+	name: "CAPTURE-THE-RELIC",
+	description: "Capture the Relic game. HD/DE only.",
+	type: "Game Type"
+}, {
+	name: "BATTLE-ROYALE",
+	description: "Battle Royale game. DE only.",
+	type: "Game Type"
+}, {
+	name: "EMPIRE-WARS",
+	description: "Empire Wars game. DE only.",
+	type: "Game Type"
+}, {
+	name: "TURBO-MODE",
+	description: "A game where the Turbo Mode checkbox is checked.",
+	type: "Game Type"
+}, {
+	name: "SUB-GAME-MODE-EMPIRE-WARS",
+	description: "A game where the Empire Wars Mode checkbox is checked.",
+	type: "Game Type"
+}, {
+	name: "SUB-GAME-MODE-SUDDEN-DEATH",
+	description: "A game where the Sudden Death Mode checkbox is checked.",
+	type: "Game Type"
+}, {
+	name: "SUB-GAME-MODE-REGICIDE",
+	description: "A game where the Regicide Mode checkbox is checked.",
+	type: "Game Type"
+}, {
+	name: "SUB-GAME-MODE-KING-OF-THE-HILL",
+	description: "A game where the King of the Hill Mode checkbox is checked.",
+	type: "Game Type"
+}, {
+	name: "GAME-SPEED-LOCKED",
+	description: "Game speed is locked.",
+	type: "Game Type"
+}, {
+	name: "ALL-TECHS-ENABLED",
+	description: "All techs enabled.",
+	type: "Game Type"
+}, {
+	name: "LAST-MAN-STANDING",
+	description: "Last Man Standing checked.",
+	type: "Game Type"
+}, {
+	name: "BATTLE-ROYALE-TIME-X-MINUTES",
+	description: "Battle Royale Time Limit, where X is the number of minutes.",
+	type: "Game Type"
+}];
+ageLoadIfsArray = [ {	
+	name: "DARK-AGE-START",
+	description: "Dark Age start.",
+	type: "Start/End Age"
+}, {
+	name: "FEUDAL-AGE-START",
+	description: "Feudal Age start.",
+	type: "Start/End Age"
+}, {
+	name: "CASTLE-AGE-START",
+	description: "Castle Age start.",
+	type: "Start/End Age"
+}, {
+	name: "IMPERIAL-AGE-START",
+	description: "Imperial Age start.",
+	type: "Start/End Age"
+}, {
+	name: "POST-IMPERIAL-AGE-START",
+	description: "Post-Imperial Age start.",
+	type: "Start/End Age"
+}, {
+	name: "DARK-AGE-END",
+	description: "Highest available age is Dark Age.",
+	type: "Start/End Age"
+}, {
+	name: "FEUDAL-AGE-END",
+	description: "Highest available age is Feudal Age.",
+	type: "Start/End Age"
+}, {
+	name: "CASTLE-AGE-END",
+	description: "Highest available age is Castle Age.",
+	type: "Start/End Age"
+}, {
+	name: "IMPERIAL-AGE-END",
+	description: "Highest available age is Imperial Age.",
+	type: "Start/End Age"
+}];
+resourcesLoadIfsArray = [ {	
+	name: "LOW-RESOURCES-START",
+	description: "Low resources start (Standard).",
+	type: "Starting Resources"
+}, {
+	name: "MEDIUM-RESOURCES-START",
+	description: "Medium resources start.",
+	type: "Starting Resources"
+}, {
+	name: "HIGH-RESOURCES-START",
+	description: "High resources start.",
+	type: "Starting Resources"
+}, {
+	name: "ULTRA-RESOURCES-START",
+	description: "Ultra resources start. DE only.",
+	type: "Starting Resources"
+}, {
+	name: "INFINITE-RESOURCES-START",
+	description: "Infinite resources start. DE only.",
+	type: "Starting Resources"
+}, {
+	name: "RANDOM-RESOURCES-START",
+	description: "Random resources start. DE only.",
+	type: "Starting Resources"
+}];
+mapSizeLoadIfsArray = [ {	
+	name: "MINIATURE-MAP-SIZE",
+	description: "Miniature size map. 80x80 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "TINY-MAP",
+	description: "Tiny size (2 player) map. 120x120 tiles.",
+	type: "Map Size"
+}, {
+	name: "TINY-MAP-SIZE",
+	description: "Tiny size (2 player) map. 120x120 tiles.",
+	type: "Map Size"
+}, {
+	name: "SMALL-MAP",
+	description: "Small size (3 player) map. 144x144 tiles.",
+	type: "Map Size"
+}, {
+	name: "SMALL-MAP-SIZE",
+	description: "Small size (3 player) map. 144x144 tiles.",
+	type: "Map Size"
+}, {
+	name: "MEDIUM-MAP",
+	description: "Medium size (4 player) map. 168x168 tiles.",
+	type: "Map Size"
+}, {
+	name: "MEDIUM-MAP-SIZE",
+	description: "Medium size map. 168x168 tiles.",
+	type: "Map Size"
+}, {
+	name: "NORMAL-MAP",
+	description: "Normal size (6 player) map. 200x200 tiles.",
+	type: "Map Size"
+}, {
+	name: "NORMAL-MAP-SIZE",
+	description: "Normal size map. 200x200 tiles.",
+	type: "Map Size"
+}, {
+	name: "LARGE-MAP",
+	description: "Large size (8 player) map. 220x220 tiles.",
+	type: "Map Size"
+}, {
+	name: "LARGE-MAP-SIZE",
+	description: "Large size map. 220x220 tiles.",
+	type: "Map Size"
+}, {
+	name: "GIANT-MAP",
+	description: "Huge size map. 240x240 tiles. DE changed the name of 240x240 tile map to Huge. GIANT-MAP refers to the Huge map for backwards compatibility with old AIs.",
+	type: "Map Size"
+}, {
+	name: "HUGE-MAP-SIZE",
+	description: "Huge size map. 240x240 tiles.",
+	type: "Map Size"
+}, {
+	name: "GIANT-MAP-SIZE",
+	description: "Giant size map. 252x252 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "MASSIVE-MAP-SIZE",
+	description: "Massive size map. 276x276 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "ENORMOUS-MAP-SIZE",
+	description: "Enormous size map. 300x300 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "COLOSSAL-MAP-SIZE",
+	description: "Colossal size map. 320x320 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "INCREDIBLE-MAP-SIZE",
+	description: "Incredible size map. 360x360 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "MONSTROUS-MAP-SIZE",
+	description: "Monstrous size map. 400x400 tiles. Requires MORE_MAP_SIZES Steam launch parameter.",
+	type: "Map Size"
+}, {
+	name: "LUDIKRIS-MAP",
+	description: "Ludicrous size map (notice the spelling!). 480x480 tiles.",
+	type: "Map Size"
+}, {
+	name: "LUDICROUS-MAP",
+	description: "Ludicrous size map. 480x480 tiles.",
+	type: "Map Size"
+}, {
+	name: "LUDICROUS-MAP-SIZE",
+	description: "Ludicrous size map. 480x480 tiles.",
+	type: "Map Size"
+}];
+victoryLoadIfsArray = [ {	
+	name: "VICTORY-STANDARD",
+	description: "Standard victory by Conquest, wonders, or relics.",
+	type: "Victory"
+}, {
+	name: "VICTORY-CONQUEST",
+	description: "Victory by Conquest only.",
+	type: "Victory"
+}, {
+	name: "VICTORY-TIME-LIMIT",
+	description: "Victory by having the best score by the time limit.",
+	type: "Victory"
+}, {
+	name: "VICTORY-SCORE",
+	description: "Victory by reaching a certain score.",
+	type: "Victory"
+}, {
+	name: "VICTORY-CUSTOM",
+	description: "Custom victories, such as scenarios. Probably"
+}, {
+	name: "VICTORY-RELICS",
+	description: "Victory by Relics only.",
+	type: "Victory"
+}];
+difficultyLoadIfsArray = [ {	
+	name: "DIFFICULTY-EASIEST",
+	description: "Easiest difficulty.",
+	type: "Difficulty"
+}, {
+	name: "DIFFICULTY-EASY",
+	description: "Standard difficulty.",
+	type: "Difficulty"
+}, {
+	name: "DIFFICULTY-MODERATE",
+	description: "Moderate difficulty.",
+	type: "Difficulty"
+}, {
+	name: "DIFFICULTY-HARD",
+	description: "Hard difficulty.",
+	type: "Difficulty"
+}, {
+	name: "DIFFICULTY-HARDEST",
+	description: "Hardest difficulty.",
+	type: "Difficulty"
+}, {
+	name: "DIFFICULTY-EXTREME",
+	description: "Extreme difficulty. DE only.",
+	type: "Difficulty"
+}];
+popCapLoadIfsArray = [ {	
+	name: "POPULATION-CAP-25",
+	description: "25 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-50",
+	description: "50 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-75",
+	description: "75 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-100",
+	description: "100 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-125",
+	description: "125 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-150",
+	description: "150 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-175",
+	description: "175 population cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-200",
+	description: "200 population cap <strong>or higher</strong>.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-X",
+	description: "Population cap = X, substitute X for the desired pop cap.",
+	type: "Pop Cap"
+}, {
+	name: "POPULATION-CAP-EXTENDED",
+	description: "Population cap > 200.",
+	type: "Pop Cap"
+}];
+versionLoadIfsArray = [ {	
+	name: "UP-GAME-[NAME]",
+	description: "Substitute [NAME] with the expansion name.",
+	type: "Game Version"
+}, {
+	name: "UP-GAME-AGE2-X1",
+	description: "The Conquerors expansion.",
+	type: "Game Version"
+}, {
+	name: "UP-GAME-AGE2-X2",
+	description: "The Age of Forgotten Empires mod (not the official AoF expansion).",
+	type: "Game Version"
+}, {
+	name: "UP-GAME-WK",
+	description: "Wololo Kingdoms expansion. Also defined for DE.",
+	type: "Game Version"
+}, {
+	name: "UP-AVAILABLE",
+	description: "Userpatch version 1.1 and later.",
+	type: "Game Version"
+}, {
+	name: "UP-VERSION-1.5",
+	description: "Userpatch version 1.5.",
+	type: "Game Version"
+}, {
+	name: "UP-VERSION-1.4",
+	description: "Userpatch version 1.4 and later.",
+	type: "Game Version"
+}, {
+	name: "UP-VERSION-1.3",
+	description: "Userpatch version 1.3 and later.",
+	type: "Game Version"
+}, {
+	name: "UP-VERSION-1.2",
+	description: "Userpatch version 1.2 and later.",
+	type: "Game Version"
+}, {
+	name: "UP-VERSION-1.1",
+	description: "Userpatch version 1.1 and later.",
+	type: "Game Version"
+}, {
+	name: "DE-AVAILABLE",
+	description: "Definitive Edition game.",
+	type: "Game Version"
+}, {
+	name: "DE-GAME-AGE2",
+	description: "The AoE2 mode (always loaded in DE unless playing the AoE1 mode of Return of Rome).",
+	type: "Game Version"
+}, {
+	name: "DE-GAME-ROME",
+	description: "The AoE1 mode of the Return of Rome DLC.",
+	type: "Game Version"
+}];
+playersTeamsLoadIfsArray = [ {	
+	name: "TEAMS-LOCKED",
+	description: "Locked teams.",
+	type: "Players & Teams"
+}, {
+	name: "TEAM-TOGETHER",
+	description: "Team Together option is selected.",
+	type: "Players & Teams"
+}, {
+	name: "UP-PLAYER-[1-8]",
+	description: "Likely defined only if the AI's player slot number matches the [1-8].",
+	type: "Players & Teams"
+}, {
+	name: "UP-[NAME]-CIV-ALLY",
+	description: "Defined if the player has an ally of the given civ at the start of the game. Replace [NAME] with a civ name, like UP-TEUTONIC-CIV-ALLY.",
+	type: "Players & Teams"
+}, {
+	name: "UP-[NAME]-CIV-ENEMY",
+	description: "Defined if the player has an enemy (or neutral) of the given civ at the start of the game. Replace [NAME] with a civ name. Also defined for neutral players.",
+	type: "Players & Teams"
+}, {
+	name: "UP-[1-8]-PLAYER-GAME",
+	description: "Total number of players in the game. Replace [1-8] with the number of players you want to specify.",
+	type: "Players & Teams"
+}, {
+	name: "UP-[1-8]-PLAYER-TEAM",
+	description: "Number of players on the AI's team. Replace [1-8] with the number of players you want to specify.",
+	type: "Players & Teams"
+}, {
+	name: "UP-ALLY-IN-GAME",
+	description: "Defined if the player has an ally at the start of the game.",
+	type: "Players & Teams"
+}, {
+	name: "UP-MULTIPLE-ENEMIES",
+	description: "Defined if the player has more than one enemy.",
+	type: "Players & Teams"
+}, {
+	name: "UP-TEAM-DISADVANTAGE",
+	description: "Defined if an enemy team is larger.",
+	type: "Players & Teams"
+}, {
+	name: "UP-POCKET-POSITION",
+	description: "The player is a pocket (positioned between two allied players).",
+	type: "Players & Teams"
+}, {
+	name: "UP-HUMAN-IN-GAME",
+	description: "Defined if there is a human player in the game.",
+	type: "Players & Teams"
+}, {
+	name: "UP-HUMAN-ALLY",
+	description: "Defined if the player has a human ally.",
+	type: "Players & Teams"
+}, {
+	name: "UP-HUMAN-ENEMY",
+	description: "Defined if the player has a human enemy.",
+	type: "Players & Teams"
+}, {
+	name: "UP-COMPUTER-ALLY",
+	description: "Defined if the player has a computer ally.",
+	type: "Players & Teams"
+}, {
+	name: "UP-COMPUTER-ENEMY",
+	description: "Defined if the player has a computer enemy.",
+	type: "Players & Teams"
+}];
+customLoadIfsArray = [ {	
+	name: "CUSTOM-MAP",
+	description: "Any custom random map that doesn't use ai_info_map_type.",
+	type: "Custom RMS"
+}, {
+	name: "UP-NOMAD-STYLE",
+	description: "Custom maps that define the map style as Nomad with ai_info_map_type.",
+	type: "Custom RMS"
+}, {
+	name: "UP-MICHI-STYLE",
+	description: "Custom maps that define the map style as Michi with ai_info_map_type.",
+	type: "Custom RMS"
+}, {
+	name: "UP-NOMAD-RESOURCES",
+	description: "Custom maps that set nomad_resources to give players extra wood and stone (extra resources in built-in Nomad is hard-coded and does not set this).",
+	type: "Custom RMS"
+}, {
+	name: "UP-GROUPED-BY-TEAM",
+	description: "Custom maps that set grouped_by_team to start team players in close proximity to each other.",
+	type: "Custom RMS"
+}];
+revealLoadIfsArray = [ {	
+	name: "REVEAL-NORMAL",
+	description: "Normal reveal start.",
+	type: "Reveal Map"
+}, {
+	name: "REVEAL-EXPLORED",
+	description: "Explored reveal start.",
+	type: "Reveal Map"
+}, {
+	name: "REVEAL-ALL-VISIBLE",
+	description: "All Visible reveal start.",
+	type: "Reveal Map"
+}, {
+	name: "REVEAL-NO-FOG",
+	description: "There is no fog of war, but the AI still has to explore the map.",
+	type: "Reveal Map"
+}];
+otherLoadIfsArray = [ {	
+	name: "UP-MULTIPLAYER-GAME",
+	description: "Multiplayer game.",
+	type: "Other"
+}, {
+	name: "UP-PROCESS-60FPS",
+	description: "60 frames per second enabled (instead of the 20 fps in 1.0c).",
+	type: "Other"
+}, {
+	name: "SCENARIO-MAP",
+	description: "Use UP-SCENARIO-GAME instead since scenarios have the option of setting a map type (Arabia, etc.).",
+	type: "Other"
+}, {
+	name: "UP-SCENARIO-GAME",
+	description: "Defined for custom scenario games, even if the scenario sets the AI Info Map Type.",
+	type: "Other"
+}, {
+	name: "FE-CAMPAIGN-GAME",
+	description: "Defined for scenarios that are part of official game campaigns that are released with the game.",
+	type: "Other"
+}, {
+	name: "FE-CUSTOM-CAMPAIGN",
+	description: "Defined for scenarios that are part of a custom campaign mod.",
+	type: "Other"
+}, {
+	name: "DE-SOLID-FARMS",
+	description: "Defined if a game version is loaded that has unwalkable farms (i.e. Return of Rome).",
+	type: "Other"
+}];
+aoe2CivsLoadIfsArray = [ {	
+	name: "GAIA",
+	description: "Gaia civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "ARMENIANS-CIV",
+	description: "Armenians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "ATHENIANS-CIV",
+	description: "Athenians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "AZTEC-CIV",
+	description: "Aztecs civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BENGALIS-CIV",
+	description: "Bengalis civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BERBERS-CIV",
+	description: "Berbers civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BRITON-CIV",
+	description: "Britons civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BOHEMIANS-CIV",
+	description: "Bohemians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BULGARIANS-CIV",
+	description: "Bulgarians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BURGUNDIANS-CIV",
+	description: "Burgundians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BURMESE-CIV",
+	description: "Burmese civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "BYZANTINE-CIV",
+	description: "Byzantines civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "CELTIC-CIV",
+	description: "Celts civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "CHINESE-CIV",
+	description: "Chinese civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "CUMANS-CIV",
+	description: "Cumans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "DRAVIDIANS-CIV",
+	description: "Dravidians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "ETHIOPIAN-CIV",
+	description: "Ethiopians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "FRANKISH-CIV",
+	description: "Franks civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "GEORGIANS-CIV",
+	description: "Georgians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "GOTHIC-CIV",
+	description: "Goths civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "GURJARAS-CIV",
+	description: "Gurjaras civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "HUN-CIV",
+	description: "Huns civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "INCAN-CIV",
+	description: "Incas civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "INDIAN-CIV",
+	description: "Indians civ. Also defined for Hindustanis civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "ITALIAN-CIV",
+	description: "Italians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "JAPANESE-CIV",
+	description: "Japanese civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "JURCHENS-CIV",
+	description: "Jurchens civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "KHITANS-CIV",
+	description: "Khitans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "KHMER-CIV",
+	description: "Khmer civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "KOREAN-CIV",
+	description: "Koreans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "LITHUANIANS-CIV",
+	description: "Lithuanians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MAGYAR-CIV",
+	description: "Magyars civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MALAY-CIV",
+	description: "Malay civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MALIAN-CIV",
+	description: "Malians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MAYAN-CIV",
+	description: "Mayans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MONGOL-CIV",
+	description: "Mongols civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "PERSIAN-CIV",
+	description: "Persians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "POLES-CIV",
+	description: "Poles civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "PORTUGUESE-CIV",
+	description: "Portuguese civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "ROMANS-CIV",
+	description: "Romans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SARACEN-CIV",
+	description: "Saracens civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SHU-CIV",
+	description: "Shu civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SICILIANS-CIV",
+	description: "Sicilians civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SLAVIC-CIV",
+	description: "Slavs civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SPANISH-CIV",
+	description: "Spanish civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "SPARTANS-CIV",
+	description: "Spartans civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "TATARS-CIV",
+	description: "Tatars civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "TEUTONIC-CIV",
+	description: "Teutons civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "TURKISH-CIV",
+	description: "Turks civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "VIETNAMESE-CIV",
+	description: "Vietnamese civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "VIKING-CIV",
+	description: "Vikings civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "WEI-CIV",
+	description: "Wei civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "WU-CIV",
+	description: "Wu civ.",
+	type: "AoE2 Civs"
+}];
+rorCivsLoadIfsArray = [ {	
+	name: "GAIA",
+	description: "Gaia civ.",
+	type: "RoR Civs"
+}, {
+	name: "ASSYRIAN-CIV",
+	description: "Assyrians civ.",
+	type: "RoR Civs"
+}, {
+	name: "BABYLONIAN-CIV",
+	description: "Babylonians civ.",
+	type: "RoR Civs"
+}, {
+	name: "CARTHAGIAN-CIV",
+	description: "Carthaginians civ. Notice the spelling.",
+	type: "RoR Civs"
+}, {
+	name: "CHOSON-CIV",
+	description: "Choson civ.",
+	type: "RoR Civs"
+}, {
+	name: "EGYPTIAN-CIV",
+	description: "Egyptians civ.",
+	type: "RoR Civs"
+}, {
+	name: "GREEK-CIV",
+	description: "Greeks civ.",
+	type: "RoR Civs"
+}, {
+	name: "HITTITE-CIV",
+	description: "Hittites civ.",
+	type: "RoR Civs"
+}, {
+	name: "LAC-VIET-CIV",
+	description: "Lac Viet civ.",
+	type: "RoR Civs"
+}, {
+	name: "MACEDONIAN-CIV",
+	description: "Macedonians civ.",
+	type: "RoR Civs"
+}, {
+	name: "MINOAN-CIV",
+	description: "Minoans civ.",
+	type: "RoR Civs"
+}, {
+	name: "PALMYRAN-CIV",
+	description: "Palmyrans civ.",
+	type: "RoR Civs"
+}, {
+	name: "PERSIAN-CIV",
+	description: "Persians civ.",
+	type: "RoR Civs"
+}, {
+	name: "PHOENICIAN-CIV",
+	description: "Phoenicians civ.",
+	type: "RoR Civs"
+}, {
+	name: "ROMAN-CIV",
+	description: "Romans civ.",
+	type: "RoR Civs"
+}, {
+	name: "SHANG-CIV",
+	description: "Shang civ.",
+	type: "RoR Civs"
+}, {
+	name: "SUMERIAN-CIV",
+	description: "Sumerians civ.",
+	type: "RoR Civs"
+}, {
+	name: "YAMATO-CIV",
+	description: "Yamato civ.",
+	type: "RoR Civs"
+}];
+aoe2MapsLoadIfsArray = [ {	
+	name: "ACCLIVITY-MAP",
+	description: "Acclivity map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ACROPOLIS-MAP",
+	description: "Acropolis map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "AFRICAN-CLEARING-MAP",
+	description: "African Clearing map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "AFTERMATH-MAP",
+	description: "Aftermath map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ALPINE-LAKES-MAP",
+	description: "Alpine Lakes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "AMAZON-TUNNEL-MAP",
+	description: "Amazon Tunnel map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ARABIA-MAP",
+	description: "Arabia map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ARCHIPELAGO-MAP",
+	description: "Archipelago map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ARENA-MAP",
+	description: "Arena map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ATACAMA-MAP",
+	description: "Acatama map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "BALTIC-MAP",
+	description: "Baltic map.",
+	type: "AoE2 Maps"
+}, {
+	name: "BLACK-FOREST-MAP",
+	description: "Black Forest map.",
+	type: "AoE2 Maps"
+}, {
+	name: "BOG-ISLANDS-MAP",
+	description: "Bog Islands map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "BOGLAND-MAP",
+	description: "Bogland map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "BUDAPEST-MAP",
+	description: "Budapest map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CENOTES-MAP",
+	description: "Cenotes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CITYOFLAKES-MAP",
+	description: "City of Lakes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CLIFFBOUND-MAP",
+	description: "Cliffbound map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "COASTAL-MAP",
+	description: "Coastal map.",
+	type: "AoE2 Maps"
+}, {
+	name: "COASTAL-FOREST-MAP",
+	description: "Coastal Forest map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CONTINENTAL-MAP",
+	description: "Continental map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CRATER-MAP",
+	description: "Crater map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CRATER-LAKE-MAP",
+	description: "Crater Lake map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CROSSROADS-MAP",
+	description: "Crossroads map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "DUNESPRINGS-MAP",
+	description: "Dunesprings map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ENCLOSED-MAP",
+	description: "Enclosed map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ERUPTION-MAP",
+	description: "Eruption map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "FORTIFIED-CLEARING-MAP",
+	description: "Fortified Clearing map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "FORTRESS-MAP",
+	description: "Fortress map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FOUR-LAKES-MAP",
+	description: "Four Lakes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "FRIGID-LAKE-MAP",
+	description: "Frigid Lake map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "GHOST-LAKE-MAP",
+	description: "Ghost Lake map.",
+	type: "AoE2 Maps"
+}, {
+	name: "GLADE-MAP",
+	description: "Glade map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "GOLD-RUSH-MAP",
+	description: "Gold Rush map.",
+	type: "AoE2 Maps"
+}, {
+	name: "GOLDENPIT-MAP",
+	description: "Golden Pit map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "GOLDEN-STREAM-MAP",
+	description: "Golden Stream map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "GOLDEN-SWAMP-MAP",
+	description: "Golden Swamp map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "GREENLAND-MAP",
+	description: "Greenland map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HABOOB-MAP",
+	description: "Haboob map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HAMBURGER-MAP",
+	description: "Hamburger map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HIDEOUT-MAP",
+	description: "Hideout map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HIGHLAND-MAP",
+	description: "Highland map.",
+	type: "AoE2 Maps"
+}, {
+	name: "HILLFORT-MAP",
+	description: "Hill Fort map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HOLLOW-WOODLANDS-MAP",
+	description: "Hollow Woodlands map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "ISLANDS-MAP",
+	description: "Islands map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ISTHMUS-MAP",
+	description: "Isthmus map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "KARSTS-MAP",
+	description: "Karsts map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "KAWASAN-MAP",
+	description: "Kawasan map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "KILIMANJARO-MAP",
+	description: "Kilimanjaro map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "LAND-MADNESS-MAP",
+	description: "Land Madness map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "LAND-NOMAD-MAP",
+	description: "Land Nomad map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "LOMBARDIA-MAP",
+	description: "Lombardia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "LOWLAND-MAP",
+	description: "Lowland map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MANGROVE-JUNGLE-MAP",
+	description: "Mangrove Jungle map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MARKETPLACE-MAP",
+	description: "Marketplace map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MEADOW-MAP",
+	description: "Meadow map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MEDITERRANEAN-MAP",
+	description: "Mediterranean map.",
+	type: "AoE2 Maps"
+}, {
+	name: "MEGARANDOM-MAP",
+	description: "MegaRandom map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MICHI-MAP",
+	description: "Michi map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MIGRATION-MAP",
+	description: "Migration map.",
+	type: "AoE2 Maps"
+}, {
+	name: "MONGOLIA-MAP",
+	description: "Mongolia map.",
+	type: "AoE2 Maps"
+}, {
+	name: "MORASS-MAP",
+	description: "Morass map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOUNTAIN-DUNES-MAP",
+	description: "Mountain Dunes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOUNTAIN-PASS-MAP",
+	description: "Mountain Pass map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOUNTAIN-RANGE-MAP",
+	description: "Mountain Range map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOUNTAIN-RIDGE-MAP",
+	description: "Mountain Ridge map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "NILE-DELTA-MAP",
+	description: "Nile Delta map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "NOMAD-MAP",
+	description: "Nomad map.",
+	type: "AoE2 Maps"
+}, {
+	name: "NORTHERN-ISLES-MAP",
+	description: "Northern Isles map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "OASIS-MAP",
+	description: "Oasis map.",
+	type: "AoE2 Maps"
+}, {
+	name: "PACIFIC-ISLANDS-MAP",
+	description: "Pacific Islands map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "PASSAGE-MAP",
+	description: "Passage map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "RAVINES-MAP",
+	description: "Ravines map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "RING-FORTRESS-MAP",
+	description: "Ring Fortress map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "RIVER-DIVIDE-MAP",
+	description: "River Divide map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "RIVERS-MAP",
+	description: "Rivers map.",
+	type: "AoE2 Maps"
+}, {
+	name: "RUNESTONES-MAP",
+	description: "Runestones map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SACRED-SPRINGS-MAP",
+	description: "Sacred Springs map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SALT-MARSH-MAP",
+	description: "Salt Marsh map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SANDBANK-MAP",
+	description: "Sandbank map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SANDRIFT-MAP",
+	description: "Sandrift map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SCANDANAVIA-MAP",
+	description: "Scandinavia map. Notice the spelling!",
+	type: "AoE2 Maps"
+}, {
+	name: "SEIZE-THE-MOUNTAIN-MAP",
+	description: "Seize The Mountain map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SERENGETI-MAP",
+	description: "Serengeti map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SHOALS-MAP",
+	description: "Shoals map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SHRUBLAND-MAP",
+	description: "Shrubland map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "SOCOTRO-MAP",
+	description: "Socotra map. Defined only in DE. Notice the spelling!",
+	type: "AoE2 Maps"
+}, {
+	name: "STEPPE-MAP",
+	description: "Steppe map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "TEAM-ISLANDS-MAP",
+	description: "Team Islands map.",
+	type: "AoE2 Maps"
+}, {
+	name: "TEAM-MOATS-MAP",
+	description: "Team Moats map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "VALLEY-MAP",
+	description: "Valley map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "VOLCANIC-ISLAND-MAP",
+	description: "Volcanic Island map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "WADE-MAP",
+	description: "Wade map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "WATER-NOMAD-MAP",
+	description: "Water Nomad map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "WOLF-HILL-MAP",
+	description: "Wolf Hill map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "YUCATAN-MAP",
+	description: "Yucatan map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CANALS-MAP",
+	description: "Canals ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CAPRICIOUS-MAP",
+	description: "Capricious ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "DINGOS-MAP",
+	description: "Dingos ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "GRAVEYARDS-MAP",
+	description: "Graveyards ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "METROPOLIS-MAP",
+	description: "Metropolis ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOATS-MAP",
+	description: "Moats ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "PARADISE-ISLAND-MAP",
+	description: "Paradise Island ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "PILGRIMS-MAP",
+	description: "Pilgrims ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "PRAIRIE-MAP",
+	description: "Prairie ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SEASONS-MAP",
+	description: "Seasons ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SHERWOOD-FOREST-MAP",
+	description: "Sherwood Forest ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SHERWOOD-HEROES-MAP",
+	description: "Sherwood Heroes ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SHIPWRECK-MAP",
+	description: "Shipwreck ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "TEAM-GLACIERS-MAP",
+	description: "Team Glaciers ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "THE-UNKNOWN-MAP",
+	description: "The Unknown ES map.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-ARABIA-MAP",
+	description: "Quick Play Arabia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-ARENA-MAP",
+	description: "Quick Play Arena map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-BLACK-FOREST-MAP",
+	description: "Quick Play Black Forest map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-FORTIFIED-CLEARING MAP",
+	description: "Quick Play Fortified Clearing map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-GLADE-MAP",
+	description: "Quick Play Glade map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-NOMAD-MAP",
+	description: "Quick Play Nomad map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "QUICKPLAY-RUNESTONES-MAP",
+	description: "Quick Play Runestones map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CTR_RANDOM-MAP",
+	description: "Capture the Relic random map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CTR_MONSOON-MAP",
+	description: "Capture the Relic Monsoon map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CTR_PYRAMID-DESCENT-MAP",
+	description: "Capture the Relic Pyramid Descent map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CTR_SPIRAL-MAP",
+	description: "Capture the Relic Spiral map.",
+	type: "AoE2 Maps"
+}, {
+	name: "BATTLE-ON-THE-ICE-MAP",
+	description: "Battle on the Ice Battle Royale map.",
+	type: "AoE2 Maps"
+}, {
+	name: "EL-DORADO-MAP",
+	description: "El Dorado Battle Royale map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FALL-OF-AXUM-MAP",
+	description: "Fall of Axum Battle Royale map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FALL-OF-ROME-MAP",
+	description: "Fall of Rome Battle Royale map.",
+	type: "AoE2 Maps"
+}, {
+	name: "THE-MAJAPHIT-EMPIRE-MAP",
+	description: "The Majapahit Empire Battle Royale map. Notice the spelling!"
+}, {
+	name: "REAL-WORLD-AMAZON-MAP",
+	description: "Real World Amazon map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-ANTARCTICA-MAP",
+	description: "Real World Antarctica map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-ARAL-SEA-MAP",
+	description: "Real World Aral Sea map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-AUSTRALIA-MAP",
+	description: "Real World Australia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-BLACK-SEA-MAP",
+	description: "Real World Black Sea map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-BOHEMIA-MAP",
+	description: "Real World Bohemia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-BYZANTIUM-MAP",
+	description: "Real World Byzantium map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-CARIBBEAN-MAP",
+	description: "Real World Central America map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-CAUCASUS-MAP",
+	description: "Real World Caucasus map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-CHINA-MAP",
+	description: "Real World China map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-ENGLAND-MAP",
+	description: "Real World Britain map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-FRANCE-MAP",
+	description: "Real World France map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-HORN-OF-AFRICA-MAP",
+	description: "Real World Horn of Africa map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-INDIA-MAP",
+	description: "Real World India map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-INDOCHINA-MAP",
+	description: "Real World Indochina map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-INDONESIA-MAP",
+	description: "Real World Indonesia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-ITALY-MAP",
+	description: "Real World Italy map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-JUTLAND-MAP",
+	description: "Real World Norse Lands map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-MADAGASCAR-MAP",
+	description: "Real World Madagascar map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-MALACCA-MAP",
+	description: "Real World Malacca map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-MANCHURIA-MAP",
+	description: "Real World Manchuria map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-MIDEAST-MAP",
+	description: "Real World Mideast map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-NIPPON-MAP",
+	description: "Real World Sea of Japan (East Sea) map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-PHILIPPINES-MAP",
+	description: "Real World Philippines map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-SIBERIA-MAP",
+	description: "Real World Siberia map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-SPAIN-MAP",
+	description: "Real World Iberia map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-STRAIT-OF-MALACCA-MAP",
+	description: "Real World Strait of Malacca map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-TEXAS-MAP",
+	description: "Real World Texas map.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-WEST-AFRICA-MAP",
+	description: "Real World West Africa map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "REAL-WORLD-WORLD-MAP",
+	description: "Real World Earth map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "BORDER-STONES-SPECIAL-MAP",
+	description: "Border Stones special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "CANYONS-SPECIAL-MAP",
+	description: "Canyons special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ENEMY-ARCHIPELAGO-SPECIAL-MAP",
+	description: "Enemy Archipelago special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "ENEMY-ISLANDS-SPECIAL-MAP",
+	description: "Enemy Islands special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FAR-OUT-SPECIAL-MAP",
+	description: "Far Out special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FRONT-LINE-SPECIAL-MAP",
+	description: "Front Line special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "HOLY-LINE-SPECIAL-MAP",
+	description: "Holy Line special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "INNER-CIRCLE-SPECIAL-MAP",
+	description: "Inner Circle special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "JOURNEY-SOUTH-SPECIAL-MAP",
+	description: "Journey South special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "JUNGLE-ISLANDS-SPECIAL-MAP",
+	description: "Jungle Islands special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "JUNGLE-LANES-SPECIAL-MAP",
+	description: "Jungle Lanes special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "MOTHERLAND-SPECIAL-MAP",
+	description: "Motherland special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "OPEN-PLAINS-SPECIAL-MAP",
+	description: "Open Plains special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "RING-OF-WATER-SPECIAL-MAP",
+	description: "Ring of Water special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SNAKE-FOREST-SPECIAL-MAP",
+	description: "Snake Forest special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SNAKE-PIT-SPECIAL-MAP",
+	description: "Snake Pit special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SPRAWLING-STREAMS-SPECIAL-MAP",
+	description: "Sprawling Streams special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "SWIRLING-RIVER-SPECIAL-MAP",
+	description: "Swirling River special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "THE-EYE-SPECIAL-MAP",
+	description: "The Eye special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "TWIN-FORESTS-SPECIAL-MAP",
+	description: "Twin Forests special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "YIN-YANG-SPECIAL-MAP",
+	description: "Yin Yang special map.",
+	type: "AoE2 Maps"
+}];
+rorMapsLoadIfsArray = [ {	
+	name: "ALLIANCE-MAP",
+	description: "Alliance map.",
+	type: "RoR Maps"
+}, {
+	name: "CITADEL-MAP",
+	description: "Citadel map.",
+	type: "RoR Maps"
+}, {
+	name: "CLEARING-MAP",
+	description: "Clearing map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIICOASTAL-MAP",
+	description: "Coastal map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIICONTINENTAL-MAP",
+	description: "Continental map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "DARKFOREST-MAP",
+	description: "Dark Forest map.",
+	type: "RoR Maps"
+}, {
+	name: "DESERTRIDGE-MAP",
+	description: "Desert Ridge map.",
+	type: "RoR Maps"
+}, {
+	name: "GOLDMOUNTAIN-MAP",
+	description: "Gold Mountain map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIIHIGHLAND-MAP",
+	description: "Highland map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "HILLCOUNTRY-MAP",
+	description: "Hill Country map.",
+	type: "RoR Maps"
+}, {
+	name: "INLAND-MAP",
+	description: "Inland map.",
+	type: "RoR Maps"
+}, {
+	name: "INSIDEOUT-MAP",
+	description: "Inside Out map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIILANDNOMAD-MAP",
+	description: "Land Nomad map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "LARGEISLANDS-MAP",
+	description: "Large Islands map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIIMEDITERRANEAN-MAP",
+	description: "Mediterranean map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIIMEGARANDOM-MAP",
+	description: "MegaRandom map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "MUDDYWATERS-MAP",
+	description: "Muddy Waters map.",
+	type: "RoR Maps"
+}, {
+	name: "NARROWS-MAP",
+	description: "Narrows map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIINOMAD-MAP",
+	description: "Nomad map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIIOASIS-MAP",
+	description: "Oasis map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "OCEANCHANNEL-MAP",
+	description: "Ocean Channel map.",
+	type: "RoR Maps"
+}, {
+	name: "OCEANRING-MAP",
+	description: "Ocean Ring map.",
+	type: "RoR Maps"
+}, {
+	name: "PLATEAUS-MAP",
+	description: "Plateaus map.",
+	type: "RoR Maps"
+}, {
+	name: "RIVERCROSSING-MAP",
+	description: "River Crossing map.",
+	type: "RoR Maps"
+}, {
+	name: "POMPEIIRIVERS-MAP",
+	description: "Rivers map (Return of Rome version).",
+	type: "RoR Maps"
+}, {
+	name: "SAHARA-MAP",
+	description: "Sahara map.",
+	type: "RoR Maps"
+}, {
+	name: "SMALLISLANDS-MAP",
+	description: "Small Islands map.",
+	type: "RoR Maps"
+}, {
+	name: "TWINSETTLEMENTS-MAP",
+	description: "Twin Settlements map.",
+	type: "RoR Maps"
+}];
 
-
+loadIfSymbolsArray = [gameTypeLoadIfsArray, ageLoadIfsArray, resourcesLoadIfsArray, mapSizeLoadIfsArray, victoryLoadIfsArray, difficultyLoadIfsArray, popCapLoadIfsArray, versionLoadIfsArray, playersTeamsLoadIfsArray, customLoadIfsArray, revealLoadIfsArray, otherLoadIfsArray, aoe2CivsLoadIfsArray, rorCivsLoadIfsArray, aoe2MapsLoadIfsArray, rorMapsLoadIfsArray];
+loadIfSymbolsNamesArray = ["Game Type", "Starting/Ending Age", "Starting Resources", "Map Size", "Victory", "Difficulty", "Population Cap", "Game Version", "Players & Teams", "Custom RMS", "Reveal Map", "Other", "Civs (AoE2)", "Civs (Return of Rome)", "Map Type (AoE2)", "Map Type (Return of Rome)"];
 
 //Commands
 
@@ -22066,6 +23685,98 @@ pMapType.valueList = [ {
 	name: "sacred-springs",
 	id: 173,
 	description: "Sacred Springs map."
+}, {
+	name: "wade",
+	id: 174,
+	description: "Wade map."
+}, {
+	name: "morass",
+	id: 175,
+	description: "Morass map."
+}, {
+	name: "shoals",
+	id: 176,
+	description: "Shoals map."
+}, {
+	name: "cliffbound",
+	id: 177,
+	description: "Cliffbound map."
+}, {
+	name: "isthmus",
+	id: 178,
+	description: "Isthmus map."
+}, {
+	name: "dune-springs",
+	id: 179,
+	description: "Dune Springs map."
+}, {
+	name: "golden-stream",
+	id: 180,
+	description: "Golden Stream map."
+}, {
+	name: "mountain-dunes",
+	id: 181,
+	description: "Mountain Dunes map."
+}, {
+	name: "river-divide",
+	id: 182,
+	description: "River Divide map."
+}, {
+	name: "sandrift",
+	id: 183,
+	description: "Sandrift map."
+}, {
+	name: "shrubland",
+	id: 184,
+	description: "Shrubland map."
+}, {
+	name: "passage",
+	id: 185,
+	description: "Passage map."
+}, {
+	name: "hollow-woodlands",
+	id: 186,
+	description: "Hollow Woodlands map."
+}, {
+	name: "karsts",
+	id: 187,
+	description: "Karsts map."
+}, {
+	name: "glade",
+	id: 188,
+	description: "Glade map."
+}, {
+	name: "fortified-clearing",
+	id: 189,
+	description: "Fortified Clearing map."
+}, {
+	name: "qp-arabia",
+	id: 190,
+	description: "Quick Play Arabia map."
+}, {
+	name: "qp-fortified-clearing",
+	id: 191,
+	description: "Quick Play Fortified Clearing map."
+}, {
+	name: "qp-glade",
+	id: 192,
+	description: "Quick Play Glade map."
+}, {
+	name: "qp-nomad",
+	id: 193,
+	description: "Quick Play Nomad map."
+}, {
+	name: "qp-runestones",
+	id: 194,
+	description: "Quick Play Runestones map."
+}, {
+	name: "qp-arena",
+	id: 195,
+	description: "Quick Play Arena map."
+}, {
+	name: "qp-black-forest",
+	id: 196,
+	description: "Quick Play Black Forest map."
 } ];
 
 //MaxDistance
