@@ -32145,7 +32145,7 @@ objectsBarracksArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Changes to 1976 when <= 45 HP"
+	notes: "Changes to 1976 when <= 45 HP. Changes back to 1974 when healthy."
 }, {	
 	name: "Jian Swordsman (Injured)",
 	aiName: "",
