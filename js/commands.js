@@ -8294,7 +8294,7 @@ unitLinesArray = [ {
 	deId: -206,
 	description: "DE only. Includes rocket-cart and heavy-rocket-cart."
 }, {
-	name: "Iron-pagoda-line",
+	name: "iron-pagoda-line",
 	id: "NA",
 	deId: -205,
 	description: "DE only. Includes iron-pagoda and elite-iron-pagoda."
@@ -8659,31 +8659,31 @@ versionLoadIfsArray = [ {
 	type: "Game Version"
 }, {
 	name: "UP-AVAILABLE",
-	description: "Userpatch version 1.1 and later.",
+	description: "Userpatch version 1.1 and later. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "UP-VERSION-1.5",
-	description: "Userpatch version 1.5.",
+	description: "Userpatch version 1.5. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "UP-VERSION-1.4",
-	description: "Userpatch version 1.4 and later.",
+	description: "Userpatch version 1.4 and later. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "UP-VERSION-1.3",
-	description: "Userpatch version 1.3 and later.",
+	description: "Userpatch version 1.3 and later. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "UP-VERSION-1.2",
-	description: "Userpatch version 1.2 and later.",
+	description: "Userpatch version 1.2 and later. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "UP-VERSION-1.1",
-	description: "Userpatch version 1.1 and later.",
+	description: "Userpatch version 1.1 and later. Also defined for DE.",
 	type: "Game Version"
 }, {
 	name: "DE-AVAILABLE",
-	description: "Definitive Edition game.",
+	description: "Definitive Edition game version.",
 	type: "Game Version"
 }, {
 	name: "DE-GAME-AGE2",
@@ -21950,23 +21950,23 @@ pCiv.valueList = [ {
 }, {
 	name: "shu",
 	id: 49,
-	description: "Shu."
+	description: "Shu (must define with a defconst first)."
 }, {
 	name: "wu",
 	id: 50,
-	description: "Wu."
+	description: "Wu (must define with a defconst first)."
 }, {
 	name: "wei",
 	id: 51,
-	description: "Wei."
+	description: "Wei (must define with a defconst first)."
 }, {
 	name: "jurchens",
 	id: 52,
-	description: "Jurchens."
+	description: "Jurchens (must define with a defconst first)."
 }, {
 	name: "khitans",
 	id: 53,
-	description: "Khitans."
+	description: "Khitans (must define with a defconst first)."
 } ];
 
 //ClassId
@@ -22396,11 +22396,11 @@ pDUCAction.valueList = [ {
 }, {
 	name: "action-attack-move",
 	id: 19,
-	description: "Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
+	description: "Must be defined with a defconst. Only available in DE. Units in the local list will attack move to the point or the location of the target object(s)."
 }, {
 	name: "action-transform",
 	id: 20,
-	description: "Only available in DE. Rathas in the local list will switch between melee and ranged mode."
+	description: "Must be defined with a defconst. Only available in DE. Rathas in the local list will switch between melee and ranged mode."
 } ];
 
 //EffectId
@@ -30317,7 +30317,7 @@ dockTechsArray = [ {
 	notes: ""
 }, {	
 	name: "Dragon Ship",
-	aiName: "ri-dragon-ship",
+	aiName: "",
 	weirdName: 0,
 	id: 1010,
 	building: "Dock",
@@ -30794,7 +30794,7 @@ millTechsArray = [ {
 	notes: ""
 },{	
 	name: "Domestication",
-	aiName: "ri-domestication",
+	aiName: "",
 	weirdName: 0,
 	id: 1014,
 	building: "Mill",
@@ -30820,7 +30820,7 @@ millTechsArray = [ {
 	notes: ""
 },{	
 	name: "Pastoralism",
-	aiName: "ri-pastoralism",
+	aiName: "",
 	weirdName: 0,
 	id: 1013,
 	building: "Mill",
@@ -30846,7 +30846,7 @@ millTechsArray = [ {
 	notes: ""
 },{	
 	name: "Transhumance",
-	aiName: "ri-transhumance",
+	aiName: "",
 	weirdName: 0,
 	id: 1012,
 	building: "Mill",
@@ -36838,7 +36838,7 @@ objectsDockArray = [ {
 	notes: ""
 }, {	
 	name: "Lou Chuan",
-	aiName: "lou-chuan",
+	aiName: "",
 	line: "",
 	id: 1948,
 	class: "warship-class (922)",
