@@ -502,6 +502,7 @@ var cFeBreakPoint = new Command("fe-break-point","Action","DE");
 var cFeCcEffectAmount = new Command("fe-cc-effect-amount","Action","DE");
 var cFeCcEffectPercent = new Command("fe-cc-effect-percent","Action","DE");
 var cFeFilterGarrisoned = new Command("fe-filter-garrisoned","Action","DE");
+var cFeIdlePastureCount = new Command("fe-idle-pasture-count","Fact","DE");
 var cFeSetSignal = new Command("fe-set-signal","Action","DE");
 var cFeSubGameType = new Command("fe-sub-game-type","Fact","DE");
 var cXsScriptCall = new Command("xs-script-call","Fact/Action","DE");
@@ -523,7 +524,7 @@ var cOr = new Command("or","Other","1.0c");
 var cXnor = new Command("xnor","Other","1.0c");
 var cXor = new Command("xor","Other","1.0c");
 
-var commandsArray = [cElse, cEndIf, cLoadIfDefined, cLoadIfNotDefined, cAcknowledgeEvent, cAcknowledgeTaunt, cAnd, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefconst, cDefendSoldierCount, cDefendWarboatCount, cDefrule, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLoad, cLoadRandom, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cNand, cNor, cNot, cOr, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cXnor, cXor, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeFilterGarrisoned, cFeSetSignal, cFeSubGameType, cInclude, cXsScriptCall];
+var commandsArray = [cElse, cEndIf, cLoadIfDefined, cLoadIfNotDefined, cAcknowledgeEvent, cAcknowledgeTaunt, cAnd, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefconst, cDefendSoldierCount, cDefendWarboatCount, cDefrule, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLoad, cLoadRandom, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cNand, cNor, cNot, cOr, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cXnor, cXor, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeFilterGarrisoned, cFeIdlePastureCount, cFeSetSignal, cFeSubGameType, cInclude, cXsScriptCall];
 
 //Parameters
 var pCompareOp = new Parameter("compareOp","AoC","&#60;rel-op&#62;");
@@ -12175,7 +12176,7 @@ cHousingHeadroom.complexity = "Low";
 
 //idle-farm-count
 cIdleFarmCount.shortDescription = "Checks a computer player's idle farm count - the number of farms with no farmers assigned to gather from it.";
-cIdleFarmCount.description = "Checks a computer player's idle farm count - the number of farms with no farmers assigned to gather from it. It can be used before a new farm is built to make sure it is needed.";
+cIdleFarmCount.description = "Checks a computer player's idle farm count - the number of farms with no farmers assigned to gather from it. It can be used before a new farm is built to make sure it is needed.</p><p>To check the number of idle pastures, use " + cFeIdlePastureCount.getLink() + ".";
 cIdleFarmCount.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -12196,7 +12197,7 @@ cIdleFarmCount.example = [ {
 	data: "(defrule\r\n\t(idle-farm-count == 0)\r\n\t(can-build farm)\r\n=>\r\n\t(build farm)\r\n)"
 } ];
 cIdleFarmCount.commandCategory = ["Counting", "Economy"];
-cIdleFarmCount.relatedCommands = [cUpDeleteDistantFarms, cUpIdleUnitCount];
+cIdleFarmCount.relatedCommands = [cUpDeleteDistantFarms, cUpIdleUnitCount, cFeIdlePastureCount];
 cIdleFarmCount.relatedSNs = [snMaximumFoodDropDistance];
 cIdleFarmCount.complexity = "Low";
 
@@ -20879,6 +20880,33 @@ cFeFilterGarrisoned.commandCategory = ["DUC"];
 cFeFilterGarrisoned.relatedSNs = [];
 cFeFilterGarrisoned.complexity = "Very High";
 
+//fe-idle-pasture-count
+cFeIdlePastureCount.shortDescription = "DE only. Checks the number of pastures with zero herders gathering from it.";
+cFeIdlePastureCount.description = "DE only. Checks the number of pastures with zero herders gathering from it. It can be used before a new pasture is built to make sure it is needed.</p><p>To check the number of idle farms, use " + cIdleFarmCount.getLink() + ".";
+cFeIdlePastureCount.commandParameters = [ {
+	nameLink: pCompareOp.getLink(),
+	name: "compareOp",
+	type: "",
+	dir: "",
+	range: "",
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c:, g:, s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
+}, {
+	nameLink: pValue.getLink(),
+	name: "Value",
+	type: "Op",
+	dir: "in",
+	range: "-32768 to 32767.",
+	note: "A number for comparison."
+} ];
+cFeIdlePastureCount.example = [ {
+	title: "If we have no idle pastures and have less than 40 pastures, build a new pasture if we can.",
+	data: "(defconst pasture 1889)\r\n(defconst pasture-mangrove 1893) ;pastures built on mangrove terrain\r\n(defconst pasture-land 1897) ;pastures built on land terrain\r\n(defrule\r\n\t(fe-idle-pasture-count == 0)\r\n\t(building-type-count-total pasture-mangrove < 40)\r\n\t(building-type-count-total pasture-land < 40)\r\n\t(can-build pasture)\r\n=>\r\n\t(build pasture)\r\n)"
+}];
+cFeIdlePastureCount.relatedCommands = [cIdleFarmCount, cUpIdleUnitCount];
+cFeIdlePastureCount.commandCategory = ["Counting", "Economy"];
+cFeIdlePastureCount.relatedSNs = [snMaximumFoodDropDistance];
+cFeIdlePastureCount.complexity = "Low";
+
 //fe-set-signal
 cFeSetSignal.shortDescription = "DE only. Set the value of a multiplayer scenario trigger signal.";
 cFeSetSignal.description = "DE only. Set the value of a multiplayer scenario trigger signal.</p><p>This action only works with a \"Multiplayer AI Signal\" trigger condition in a single and multiplayer scenario. For the \"AI Signal\" condition use " + cUpSetSignal.getLink() + " (only works in a single player scenario).</p>";
@@ -22849,9 +22877,21 @@ pFactId.valueList = [ {
 }, {
 	name: "treaty-time",
 	id: 54,
-	description: "DE only. The amount of treaty time left, in seconds. You can also get the remaining treaty time with " + cUpGetTreatyData.getLink() + ". There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
+	description: "DE only. The amount of treaty time left, in seconds. There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
 	parameter: "0",
 	players: "any"
+}, {
+	name: "battle-royale-time",
+	id: 55,
+	description: "DE only. Must be defined with a defconst. The amount of battle royale time left, in seconds. There isn't a corresponding fact command.",
+	parameter: "0",
+	players: "any"
+}, {
+	name: "idle-pasture-count",
+	id: 56,
+	description: "DE only. Must be defined with a defconst. The amount of idle pastures, with zero herders gathering from it. You can also check the number of idle pastures with " + cFeIdlePastureCount.getLink() + ".",
+	parameter: "0",
+	players: "self"
 } ];
 
 //FactParameter
@@ -39709,6 +39749,44 @@ objectsTownCenterArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Can be counted with villager-stone"
+}, {	
+	name: "Herder (Female)",
+	aiName: "",
+	line: "",
+	id: 1891,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "215",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Khitans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Doesn't seem to have a villager-herder counting option"
+}, {	
+	name: "Herder (Male)",
+	aiName: "",
+	line: "",
+	id: 1892,
+	class: "villager-class (904)",
+	cmdId: "cmdid-villager",
+	building: "Town Center",
+	age: 1,
+	deadUnit: "215",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Khitans",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Doesn't seem to have a villager-herder counting option"
 }, {
 	name: "Flemish Militia (Male)",
 	aiName: "flemish-pikeman",
@@ -40167,44 +40245,6 @@ objectsTownCenterArrayBfG = [ {
 	wk: 1,
 	de: 1,
 	notes: "Can be counted with villager-stone"
-}, {	
-	name: "Herder (Female)",
-	aiName: "",
-	line: "",
-	id: 1891,
-	class: "villager-class (904)",
-	cmdId: "cmdid-villager",
-	building: "Town Center",
-	age: 1,
-	deadUnit: "215",
-	projectile: "",
-	chemProjectile: "",
-	civ: "Khitans",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "Doesn't seem to have a villager-herder counting option"
-}, {	
-	name: "Herder (Male)",
-	aiName: "",
-	line: "",
-	id: 1892,
-	class: "villager-class (904)",
-	cmdId: "cmdid-villager",
-	building: "Town Center",
-	age: 1,
-	deadUnit: "215",
-	projectile: "",
-	chemProjectile: "",
-	civ: "Khitans",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "Doesn't seem to have a villager-herder counting option"
 }, {
 	name: "Polemarch (Archaic Age)",
 	aiName: "",
