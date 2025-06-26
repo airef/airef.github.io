@@ -22885,7 +22885,7 @@ pFactId.valueList = [ {
 	id: 55,
 	description: "DE only. Must be defined with a defconst. The amount of battle royale time left, in seconds. There isn't a corresponding fact command.",
 	parameter: "0",
-	players: "any"
+	players: "self"
 }, {
 	name: "idle-pasture-count",
 	id: 56,
