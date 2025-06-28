@@ -26612,11 +26612,41 @@ pWallId.wildcardParam = [ {
 
 
 bugsArray = [ {
-	// 	name: "",
-	// 	date: "",
-	// 	link: "<a href=\"\">Link</a>",
-	// 	description: ""
-	// }, {
+// 	name: "",
+// 	date: "",
+// 	link: "<a href=\"\">Link</a>",
+// 	description: ""
+// }, {
+	name: "Herders are not included in villager-food",
+	date: "June 28, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1388502360065572927\">Link</a>",
+	description: "Herders are not included in villager-food. They currently must be counted with their unit IDs directly. Female herder = 1891 and male herder = 1892."
+}, {
+	name: "Counting rocket-cart-line and rocket cart unit IDs includes projectiles",
+	date: "June 20, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link</a>",
+	description: "I found a bug... At the moment of the rocket-cart shot - the number of rocket-cart-line units increases by the number of shells 😄 for example, i have 1 rocket-cart... At first unit-type-count rocket-cart = 1, but at the moment of the shot unit-type-count rocket-cart > 1 😄 usually 9, if some shells have already fallen to the ground, then 7...5...)) this bug work with all ID units, and with 1904 and with 1907, and with -206 (rocket-cart-line)"
+}, {
+	name: "AIs can train more than one hero",
+	date: "May 19, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1374171802473070622\">Link</a>",
+	description: "AIs can train more than one hero for the Three Kingdoms DLC civs. Currently AI scripters must check unit counts to ensure the AI doesn't have a hero before training."
+}, {
+	name: "Chat messages starting with 1 don't trigger the correct taunt",
+	date: "March 7, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566990744944640/1347735742008393819\">Link</a>",
+	description: "Chat messages that start with 1, such as (chat-to-player my-player-number \"1 Yes\") do not properly trigger the taunt-detected condition. The same issue with taunt 1 also happens with taunts 10-19 and taunts 100-199. Taunts that start with 1 seem to simply disregard the first 1, so (chat-to-player my-player-number \"11 Laugh\") will cause (taunt-detected my-player-number 1) to be true. Taunts 2-9, 20-99, and 200-256 are unaffected."
+}, {
+	name: "The EscrowGoalId parameter for up-can-build-with-escrow doesn't work properly",
+	date: "Feb 28, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1345041379260108820\">Link</a>",
+	description: "up-build-line does not respect escrow, which is OK to me. But up-can-build-line does not work as documented either. In my limited testing, setting the EscrowGoalID parameter to 0 allows freely using escrowed resources, setting it to a goal that has with-escrow (0) denies the escrowed resources, setting it to a goal that has without-escrow (1) allows using the resources, setting it to a goal that has any other value denies the escrowed resources. Essentially, it currently only accepts the literal values of 0 (with-escrow) or 1 (without-escrow) instead of a Goal Id."
+}, {
+	name: "position-enemy counts walls when calculating the target player's closest building",
+	date: "Feb 7, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1337413622246408286\">Link</a>",
+	description: "position-enemy counts walls when calculating the target player's closest building, but walls should be excluded."
+}, {
 	name: "Gates are included in enemy archer-line counts",
 	date: "Jan 18, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
