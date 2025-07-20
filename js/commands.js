@@ -24089,7 +24089,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-train-time",
 	id: 57,
-	description: "The time it takes to train the object, assuming the object's train site has a \"work rate\" of 1.0. This does not take certain technologies like Conscription or civ bonuses into account because these techs and bonuses increase the building's work rate rather than modifying the train time of individual units."
+	description: "The time it takes to train the object, assuming the object's train site has a \"work rate\" of 1.0. This does not take into account technologies like Conscription or civ bonuses which train units faster by increasing the building's work rate rather than modifying the train time of individual units."
 }, {
 	name: "object-data-blast-radius",
 	id: 58,
@@ -26617,6 +26617,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "object-data-to-precise measures from left corner of target point",
+	date: "July 3, 2025",
+	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
+	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
+}, {
 	name: "Herders are not included in villager-food",
 	date: "June 28, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1388502360065572927\">Link</a>",
@@ -33777,7 +33782,7 @@ objectsBarracksArray = [ {
 	notes: ""
 }, {	
 	name: "Fire Lancer",
-	aiName: "fire-lancer",
+	aiName: "",
 	line: "fire-lancer-line",
 	id: 1901,
 	class: "infantry-class (906)",
@@ -38189,7 +38194,7 @@ objectsSiegeWorkshopArray = [ {
 	notes: ""
 }, {	
 	name: "Rocket Cart",
-	aiName: "rocket-cart",
+	aiName: "",
 	line: "rocket-cart-line",
 	id: 1904,
 	class: "siege-weapon-class (913)",
@@ -41836,7 +41841,7 @@ objectsBuildingsArray = [ {
 	notes: "In DE, dead unit is 1445"
 }, {	
 	name: "Fortified Church",
-	aiName: "fortified-church",
+	aiName: "",
 	line: "",
 	id: 1806,
 	class: "building-class (903)",
@@ -47355,7 +47360,7 @@ objectsGaiaArray = [ {
 	aiName: "",
 	line: "",
 	id: 1899,
-	class: "prey-animal-class (909)",
+	class: "farm-class (949)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
 	age: 1,
@@ -47431,7 +47436,7 @@ objectsGaiaArray = [ {
 	aiName: "",
 	line: "",
 	id: 1900,
-	class: "prey-animal-class (909)",
+	class: "farm-class (949)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
 	age: 1,
