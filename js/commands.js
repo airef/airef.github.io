@@ -14529,7 +14529,7 @@ cUpAddObjectById.complexity = "Very High";
 
 //up-add-object-cost
 cUpAddObjectCost.shortDescription = "Add or subtract objects of a specific type to the current cost data.";
-cUpAddObjectCost.description = "Add or subtract objects of a specific type to the current cost data.</p><p>Note the special exception for town centers below. Gates likely also need to use foundation IDs instead.";
+cUpAddObjectCost.description = "Add or subtract objects of a specific type to the current cost data.</p><p>Note the special exception for town centers below. Gates likely also need to use foundation IDs instead.</p><p>It's recommended to use the base unit or building, rather than a unit or building line. This command does not work with unit or building lines if the unit or building is not yet available to the civ because of incomplete techs or not being in the prerequisite age for the object. For example, \"mangonel-line\" only works once the AI is in the castle or imperial age, but \"mangonel\" works from the start of the game.";
 cUpAddObjectCost.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
