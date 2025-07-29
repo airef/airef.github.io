@@ -8832,6 +8832,10 @@ aoe2CivsLoadIfsArray = [ {
 	description: "Gaia civ.",
 	type: "AoE2 Civs"
 }, {
+	name: "ACHAEMENIDS-CIV",
+	description: "Achaemenids civ.",
+	type: "AoE2 Civs"
+}, {
 	name: "ARMENIANS-CIV",
 	description: "Armenians civ.",
 	type: "AoE2 Civs"
@@ -13981,7 +13985,7 @@ cVictoryCondition.commandParameters = [ {
 } ];
 cVictoryCondition.example = [ {
 	title: "If the game has a standard victory condition, build a wonder if possible.",
-	data: "(defrule\r\n\t(victory-condition standard)\r\n\t(can-build wonder)\r\n=>\r\n\t(build-wonder)\r\n)"
+	data: "(defrule\r\n\t(victory-condition standard)\r\n\t(can-build wonder)\r\n=>\r\n\t(build wonder)\r\n)"
 } ];
 cVictoryCondition.commandCategory = ["Game Info"];
 cVictoryCondition.relatedCommands = [cCurrentScore, cEnemyCapturedRelics, cGameType, cHoldKohRuin, cHoldRelics, cPlayersScore, cRegicideGame, cUpGetVictoryData, cUpGetVictoryLimit, cFeSubGameType];
