@@ -18194,7 +18194,7 @@ cUpLerpTiles.complexity = "High";
 
 //up-log-data
 cUpLogData.shortDescription = "Write a formatted text line to aoelog.txt.";
-cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Option to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive)To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>DE will not create the log file until the game has closed. The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
+cUpLogData.description = "Write a formatted text line to aoelog.txt. Set Option to 1 in order to write plain text. You must close the game in order to open aoelog.txt, which is located in the game folder, usually at \"C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\". Please consider game performance when writing data.</p><p>To log a message without referencing any data, simply leave the %d out of the chat message and use 'c: 0' as the last two parameters.</p><p>In DE, this command does not write the data to an aoelog.txt file. Instead, you need to launch the game with the parameters 'LOGSYSTEMS=AIScript' and 'VERBOSELOGGING' (case sensitive)To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>Unless you use the launch parameter CONSTANTLOGGING, DE will not create the log file until the game has closed. The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.</p><p>Here's a full list of recommended Steam launch parameters: SKIPINTRO DEBUGSPEEDS AIDEBUGGING LOGSYSTEMS=AIScript VERBOSELOGGING CONSTANTLOGGING. This allows you to skip the intro cinematic, increase the game speed up to 8.0 speed (beware that AI performance suffers noticeably past 2.0 speed and especially at 8.0 speed), allows for AI scripting logs, and writes to the log file continuously, rather than only when exiting the game.";
 cUpLogData.commandParameters = [ {
 	nameLink: pOption.getLink(),
 	name: "Option",
@@ -22009,7 +22009,7 @@ pClassId.relatedParams = [pBuildingId, pCmdId, pLineId, pObjectId, pSetId, pThre
 pClassId.valueList = [ {
 	name: "all-units-class",
 	id: -1,
-	description: "All Units class. Counts all objects."
+	description: "All Units class. Counts all objects, including buildings."
 }, {
 	name: "archery-class",
 	id: 900,
@@ -24085,7 +24085,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-next-attack",
 	id: 55,
-	description: "The time until the object can attack again, in milliseconds. The time is a countdown that starts at the object's object-data-reload-time and counts down to 0. The countdown begins at the start of the unit's attack animation. This isn't a problem for melee units since they deal damage immediately at the start of their attack animation. However, ranged units have a delay between the start of their attack animation and when the projectile is launched. You can find the delays of each object in seconds here: <a href=\"https://ageofempires.fandom.com/wiki/Frame_delay\">link</a>. For example, a crossbowman's reload time is 2000 milliseconds, and the time length of their projectile delay is 0.35 seconds, or 350 milliseconds. So, if the object-data-next-attack is below 1650 (2000 minus 350), that means that the crossbowman has shot their arrow and is waiting until they can shoot again."
+	description: "The time until the object can attack again, in milliseconds. The time is a countdown that starts at the object's object-data-reload-time and counts down to 0. The countdown begins at the start of the unit's attack animation. One important thing to note is that damage is not dealt at the start of a unit's attack animation, but instead they have an attack delay. You can find the attack delays of each object in seconds here: <a href=\"https://ageofempires.fandom.com/wiki/Frame_delay\">link</a>. For ranged units, the attack delay is equal to: (object-data-frame-delay / Number Attack Animation Frames) * Attack Animation Duration. For melee units, the attack delay is equal to: Attack Animation Duration / 2. For example, a crossbowman's reload time without Thumb Ring is 2000 milliseconds, and the time length of their projectile delay is 0.35 seconds, or 350 milliseconds. So, if the object-data-next-attack is below 1650 (2000 minus 350), that means that the crossbowman has shot their arrow and is waiting until they can shoot again."
 }, {
 	name: "object-data-train-site",
 	id: 56,
@@ -26156,6 +26156,10 @@ pSetId.valueList = [ {
 	name: "ratha-set",
 	id: 990,
 	description: "DE only. Includes rathas and elite rathas in either melee or ranged mode."
+}, {
+	name: "spearman-set",
+	id: 991,
+	description: "DE only. Includes spearmen, pikemen, and halberdiers trained at either the barracks or the donjon."
 } ];
 
 //SharedGoalId
@@ -26621,18 +26625,28 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "up-guard-unit can crash the game",
+	date: "Aug 8, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1403468905481240626\">Link</a>",
+	description: "up-guard-unit basically crashes DE at the moment. Highly recommend not using this command. Most of the crashes seem to come with rules that execute the command every pass. Rules with disable-self or a long timer seem to crash the game less."
+}, {
+	name: "Fishing Ships can't explore",
+	date: "Jul 30, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1400155158087733388\">Link</a>",
+	description: "Very much suspecting there might be a flaw in fishing boat scouting without UP in DE. Has anyone seen boats not stop scouting within an AI recently without UP with fishing boats? What I've noticed is the \"stop\" icon keeps on turning itself on and off on the fishing boats which are scouting."
+}, {
 	name: "object-data-to-precise measures from left corner of target point",
-	date: "July 3, 2025",
+	date: "Jul 3, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
 	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
 }, {
 	name: "Herders are not included in villager-food",
-	date: "June 28, 2025",
+	date: "Jun 28, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1388502360065572927\">Link</a>",
 	description: "Herders are not included in villager-food. They currently must be counted with their unit IDs directly. Female herder = 1891 and male herder = 1892."
 }, {
 	name: "Counting rocket-cart-line and rocket cart unit IDs includes projectiles",
-	date: "June 20, 2025",
+	date: "Jun 20, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link</a>",
 	description: "I found a bug... At the moment of the rocket-cart shot - the number of rocket-cart-line units increases by the number of shells 😄 for example, i have 1 rocket-cart... At first unit-type-count rocket-cart = 1, but at the moment of the shot unit-type-count rocket-cart > 1 😄 usually 9, if some shells have already fallen to the ground, then 7...5...)) this bug work with all ID units, and with 1904 and with 1907, and with -206 (rocket-cart-line)"
 }, {
@@ -26642,11 +26656,11 @@ bugsArray = [ {
 	description: "AIs can train more than one hero for the Three Kingdoms DLC civs. Currently AI scripters must check unit counts to ensure the AI doesn't have a hero before training."
 }, {
 	name: "Chat messages starting with 1 don't trigger the correct taunt",
-	date: "March 7, 2025",
+	date: "Mar 7, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566990744944640/1347735742008393819\">Link</a>",
 	description: "Chat messages that start with 1, such as (chat-to-player my-player-number \"1 Yes\") do not properly trigger the taunt-detected condition. The same issue with taunt 1 also happens with taunts 10-19 and taunts 100-199. Taunts that start with 1 seem to simply disregard the first 1, so (chat-to-player my-player-number \"11 Laugh\") will cause (taunt-detected my-player-number 1) to be true. Taunts 2-9, 20-99, and 200-256 are unaffected."
 }, {
-	name: "The EscrowGoalId parameter for up-can-build-with-escrow doesn't work properly",
+	name: "The EscrowGoalId parameter for up-can-build-line doesn't work properly",
 	date: "Feb 28, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1345041379260108820\">Link</a>",
 	description: "up-build-line does not respect escrow, which is OK to me. But up-can-build-line does not work as documented either. In my limited testing, setting the EscrowGoalID parameter to 0 allows freely using escrowed resources, setting it to a goal that has with-escrow (0) denies the escrowed resources, setting it to a goal that has without-escrow (1) allows using the resources, setting it to a goal that has any other value denies the escrowed resources. Essentially, it currently only accepts the literal values of 0 (with-escrow) or 1 (without-escrow) instead of a Goal Id."
@@ -27074,127 +27088,9 @@ bugsArray = [ {
 
 
 
-
-rangeTechsArray = [ {	
-	name: "Improved Bow",
-	id: 100,
-	building: "Archery Range",
-	age: 3,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Elite Skirmisher",
-	aiName: "ri-elite-skirmisher",
-	weirdName: 0,
-	id: 98,
-	building: "Archery Range",
-	age: 3,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Arbalest",
-	aiName: "ri-arbalest",
-	weirdName: 0,
-	id: 237,
-	building: "Archery Range",
-	age: 4,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Heavy Cavalry Archer",
-	aiName: "ri-heavy-cavalry-archer",
-	weirdName: 0,
-	id: 218,
-	building: "Archery Range",
-	age: 4,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Hand Cannon",
-	aiName: "ri-hand-cannon",
-	weirdName: 0,
-	id: 85,
-	building: "Archery Range",
-	age: 4,
-	aok: 1,
-	tc: 0,
-	wk: 0,
-	de: 0,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Elite Genitour",
-	aiName: "ri-elite-genitour",
-	weirdName: 2,
-	id: 599,
-	building: "Archery Range",
-	age: 4,
-	aok: 0,
-	tc: 0,
-	wk: 1,
-	de: 1,
-	civ: "Berbers",
-	notes: "Available for Berber allies"
-}, {	
-	name: "Elite Elephant Archer",
-	aiName: "ri-elite-elephant-archer",
-	weirdName: 2,
-	id: 481,
-	building: "Archery Range",
-	age: 4,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	civ: "",
-	notes: "DE only, same tech ID is used for unique unit upgrade for Indians civ in HD/WK"
-}, {	
-	name: "Thumb Ring",
-	aiName: "ri-thumb-ring",
-	weirdName: 0,
-	id: 437,
-	building: "Archery Range",
-	age: 3,
-	aok: 0,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Parthian Tactics",
-	aiName: "ri-parthian-tactics",
-	weirdName: 0,
-	id: 436,
-	building: "Archery Range",
-	age: 4,
-	aok: 0,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-} ];
-
 rangeTechsArray = [ {	
 	name: "Crossbowman",
-	aiName: "ri-crossbow",
+	aiName: "ri-crossbow, ri-crossbowman (DE only)",
 	weirdName: 1,
 	id: 100,
 	building: "Archery Range",
@@ -27220,7 +27116,7 @@ rangeTechsArray = [ {
 	notes: ""
 }, {	
 	name: "Arbalest",
-	aiName: "ri-arbalest",
+	aiName: "ri-arbalest, ri-arbalester (DE only)",
 	weirdName: 0,
 	id: 237,
 	building: "Archery Range",
@@ -27326,7 +27222,7 @@ rangeTechsArray = [ {
 
 rangeTechsArrayBfG = [ {	
 	name: "Laminated Bowman",
-	aiName: "ri-crossbow",
+	aiName: "ri-crossbow, ri-crossbowman (DE only)",
 	weirdName: 1,
 	id: 100,
 	building: "Archery Range",
@@ -27344,7 +27240,7 @@ rangeTechsArrayBfG = [ {
 	notes: ""
 }, {	
 	name: "Recurve Bowman",
-	aiName: "ri-arbalest",
+	aiName: "ri-arbalest, ri-arbalester (DE only)",
 	weirdName: 1,
 	id: 237,
 	building: "Archery Range",
@@ -28165,7 +28061,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Jaguar Warrior",
-	aiName: "ri-elite-jaguar-man",
+	aiName: "ri-elite-jaguar-man, ri-elite-jaguar-warrior (DE only)",
 	weirdName: 1,
 	id: 432,
 	building: "Castle",
@@ -28698,7 +28594,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research (DE only)"
 }, {	
 	name: "Torsion Engines",
-	aiName: "ri-torsion-engines",
+	aiName: "ri-torsion, ri-torsion-engines",
 	weirdName: 2,
 	id: 575,
 	building: "Castle",
@@ -30435,7 +30331,7 @@ dockTechsArray = [ {
 	notes: "Free in DE"
 }, {	
 	name: "Elite Cannon Galleon",
-	aiName: "ri-deck-guns",
+	aiName: "ri-deck-guns, ri-elite-cannon-galleon (DE only)",
 	weirdName: 1,
 	id: 376,
 	building: "Dock",
@@ -30770,7 +30666,7 @@ marketTechsArray = [ {
 	id: 48,
 	building: "Market",
 	age: 3,
-	aok: 1,
+	aok: 0,
 	tc: 1,
 	wk: 1,
 	de: 1,
@@ -30824,7 +30720,7 @@ marketTechsArrayBfG = [ {
 	id: 48,
 	building: "Market",
 	age: 3,
-	aok: 1,
+	aok: 0,
 	tc: 1,
 	wk: 1,
 	de: 1,
@@ -31475,7 +31371,7 @@ stableTechsArray = [ {
 	notes: ""
 }, {	
 	name: "Heavy Camel [Rider]",
-	aiName: "ri-heavy-camel",
+	aiName: "ri-heavy-camel, ri-heavy-camel-rider (DE only)",
 	weirdName: 0,
 	id: 236,
 	building: "Stable",
@@ -32020,7 +31916,7 @@ universityTechsArray = [ {
 	notes: ""
 }, {	
 	name: "Treadmill Crane",
-	aiName: "ri-stonecutting",
+	aiName: "ri-stonecutting, ri-treadmill-crane (DE only)",
 	weirdName: 1,
 	id: 54,
 	building: "University",
@@ -33035,7 +32931,7 @@ objectsRangeArray = [ {
 	notes: ""
 }, {	
 	name: "Arbalest",
-	aiName: "arbalest",
+	aiName: "arbalest, arbalester (DE only)",
 	line: "archer-line",
 	id: 492,
 	class: "archery-class (900)",
@@ -33558,7 +33454,7 @@ objectsRangeArrayBfG = [ {
 	
 objectsBarracksArray = [ {	
 	name: "Militia",
-	aiName: "militiaman",
+	aiName: "militiaman, militia (DE only)",
 	line: "militiaman-line",
 	id: 74,
 	class: "infantry-class (906)",
@@ -33900,7 +33796,7 @@ objectsBarracksArray = [ {
 	notes: "Can be counted with huskarl-set"
 }, {
 	name: "Flemish Militia (Train)",
-	aiName: "",
+	aiName: "town-center-flemish-pikeman",
 	line: "",
 	id: 1699,
 	class: "infantry-class (906)",
@@ -33911,12 +33807,12 @@ objectsBarracksArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "Burgundians",
-	weirdName: 0,
+	weirdName: 1,
 	aok: 0,
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "This is the unit you can train after Flemish Revolution is researched"
+	notes: "Does not include villagers that become flemish militia after Flemish Revolution"
 }, {	
 	name: "Jian Swordsman (Healthy)",
 	aiName: "",
@@ -34335,7 +34231,7 @@ objectsCastleArray = [ {
 	notes: ""
 }, {	
 	name: "Jaguar Warrior",
-	aiName: "jaguar-man",
+	aiName: "jaguar-man, jaguar-warrior (DE only)",
 	line: "jaguar-man-line",
 	id: 725,
 	class: "infantry-class (906)",
@@ -34354,7 +34250,7 @@ objectsCastleArray = [ {
 	notes: ""
 }, {	
 	name: "Elite Jaguar Warrior",
-	aiName: "elite-jaguar-man",
+	aiName: "elite-jaguar-man, elite-jaguar-warrior (DE only)",
 	line: "jaguar-man-line",
 	id: 726,
 	class: "infantry-class (906)",
@@ -34943,7 +34839,7 @@ objectsCastleArray = [ {
 	notes: ""
 }, {
 	name: "Shotel Warrior",
-	aiName: "shotel-warrior",
+	aiName: "shotel, shotel-warrior",
 	line: "shotel-warrior-line",
 	id: "WK: 453<br>DE: 1016",
 	class: "infantry-class (906)",
@@ -34962,7 +34858,7 @@ objectsCastleArray = [ {
 	notes: ""
 }, {
 	name: "Elite Shotel Warrior",
-	aiName: "elite-shotel-warrior",
+	aiName: "elite-shotel, elite-shotel-warrior",
 	line: "shotel-warrior-line",
 	id: "WK: 459<br>DE: 1018",
 	class: "infantry-class (906)",
@@ -36795,7 +36691,7 @@ objectsDockArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
-	weirdName: 2,
+	weirdName: 1,
 	aok: 0,
 	tc: 0,
 	wk: 1,
@@ -37898,7 +37794,7 @@ objectsMonasteryArray = [ {
 	notes: "Can be counted with monk-set"
 }, {	
 	name: "Monk with Relic",
-	aiName: "",
+	aiName: "monk-with-relic",
 	line: "",
 	id: 286,
 	class: "monk-with-relic-class (943)",
@@ -37909,7 +37805,7 @@ objectsMonasteryArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
-	weirdName: 0,
+	weirdName: 2,
 	aok: 1,
 	tc: 1,
 	wk: 1,
@@ -38399,7 +38295,7 @@ objectsSiegeWorkshopArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
-	weirdName: 5,
+	weirdName: 0,
 	aok: 0,
 	tc: 0,
 	wk: 1,
@@ -38818,7 +38714,7 @@ objectsStableArray = [ {
 	notes: ""
 }, {	
 	name: "Camel [Rider]",
-	aiName: "camel",
+	aiName: "camel, camel-rider (DE only)",
 	line: "camel-line",
 	id: 329,
 	class: "cavalry-class (912)",
@@ -38837,7 +38733,7 @@ objectsStableArray = [ {
 	notes: ""
 }, {	
 	name: "Heavy Camel [Rider]",
-	aiName: "heavy-camel",
+	aiName: "heavy-camel, heavy-camel-rider (DE only)",
 	line: "camel-line",
 	id: 330,
 	class: "cavalry-class (912)",
@@ -38856,7 +38752,7 @@ objectsStableArray = [ {
 	notes: ""
 }, {	
 	name: "Imperial Camel [Rider]",
-	aiName: "imperial-camel",
+	aiName: "imperial-camel, imperial-camel-rider",
 	line: "camel-line",
 	id: 207,
 	class: "cavalry-class (912)",
@@ -39847,7 +39743,7 @@ objectsTownCenterArray = [ {
 	notes: ""
 }, {
 	name: "Flemish Militia (Female)",
-	aiName: "",
+	aiName: "flemish-pikeman-female",
 	line: "",
 	id: 1697,
 	class: "infantry-class (906)",
@@ -39858,7 +39754,7 @@ objectsTownCenterArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "Burgundians",
-	weirdName: 0,
+	weirdName: 1,
 	aok: 0,
 	tc: 0,
 	wk: 0,
