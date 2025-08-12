@@ -27502,9 +27502,9 @@ barracksTechsArrayBfG = [ {
 	notes: ""
 }, {	
 	name: "Paragon",
-	aiName: "ri-champion",
-	weirdName: 1,
-	id: 264,
+	aiName: "",
+	weirdName: 2,
+	id: 1174,
 	building: "Barracks",
 	age: 4,
 	civ: "",
@@ -27525,15 +27525,6 @@ barracksTechsArrayBfG = [ {
 	id: 1137,
 	building: "Barracks",
 	age: 4,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Supplies",
-	aiName: "ri-supplies",
-	weirdName: 0,
-	id: 716,
-	building: "Barracks",
-	age: 2,
 	civ: "",
 	notes: ""
 }, {	
