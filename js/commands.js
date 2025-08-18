@@ -26625,6 +26625,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "scout-mirror calculates the same location as scout-opposite",
+	date: "Aug 15, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1405774563379511297\">Link</a>",
+	description: "Why does scout-mirror scout the opposite position instead of the mirror position?"
+}, {
 	name: "up-guard-unit can crash the game",
 	date: "Aug 8, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1403468905481240626\">Link</a>",
@@ -36667,6 +36672,25 @@ objectsDockArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Dragon Ship",
+	aiName: "",
+	line: "fire-ship-line",
+	id: 1302,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 4,
+	deadUnit: "",
+	projectile: "676",
+	chemProjectile: "",
+	civ: "Chinese",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
