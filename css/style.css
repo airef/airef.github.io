@@ -325,13 +325,6 @@ code {
 	text-indent: 10px;
 }
 
-.input-label, .techs-input-label-ror, .techs-input-label-bfg { 
-	width: 78%;
-	padding-top: 10px;
-	display: inline-block;
-	font-weight: bold;
-}
-
 .parameters-input-label, .load-input-label { 
 	width: 88%;
 	padding-top: 10px;
@@ -339,8 +332,8 @@ code {
 	font-weight: bold;
 }
 
-.sn-input-label{
-	width: 38%;
+.input-label, .techs-input-label-ror, .techs-input-label-bfg { 
+	width: 78%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
@@ -353,8 +346,22 @@ code {
 	font-weight: bold;
 }
 
-.commands-input-label, .objects-input-label, .patch-notes-input-label {
+.commands-input-label, .patch-notes-input-label {
 	width: 58%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.objects-input-label {
+	width: 48%;
+	padding-top: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.sn-input-label{
+	width: 38%;
 	padding-top: 10px;
 	display: inline-block;
 	font-weight: bold;
@@ -376,15 +383,6 @@ label, input, select {
 	margin-right: 0.2%;
 }
 
-#snInput {
-	width: 38%; 
-	font-size: 13px; /* Increase font-size */
-	padding: 10px 0; /* Add some padding */
-	border: 1px solid #ddd; /* Add a grey border */
-	margin-bottom: 12px; /* Add some space below the input */
-	text-indent: 10px;
-}
-
 #techsInputROR, #techsInputBfG {
 	width: 78%; 
 	font-size: 13px; /* Increase font-size */
@@ -403,8 +401,26 @@ label, input, select {
 	text-indent: 10px;
 }
 
-#commandsInput, #objectsInput, #patchNotesInput {
+#commandsInput, #patchNotesInput {
 	width: 58%; 
+	font-size: 13px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#objectsInput {
+	width: 48%; 
+	font-size: 13px; /* Increase font-size */
+	padding: 10px 0; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin-bottom: 12px; /* Add some space below the input */
+	text-indent: 10px;
+}
+
+#snInput {
+	width: 38%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
 	border: 1px solid #ddd; /* Add a grey border */
@@ -549,7 +565,7 @@ th {
 }
 
 .objects-id-col {
-	width: 7%;
+	width: 4%;
 }
 
 .objects-name-col {
@@ -593,7 +609,7 @@ th {
 }
 
 .objects-versions-col {
-	width: 5%;
+	width: 7%;
 }
 
 .objects-notes-col {

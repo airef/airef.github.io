@@ -20,7 +20,7 @@
 		<p>For more info on what dead units, projectiles, <a href="https://airef.github.io/parameters/parameters-details.html#LineId">lines</a>, <a href="https://airef.github.io/parameters/parameters-details.html#SetId">sets</a>, and <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">classes</a> are, click <a href="#info">here</a>.</p>
 		<p>For a list of objects in the Return of Rome DLC, see the <a href="./objects-ror.html">Return of Rome Objects Table</a>. For a list of objects in the Chronicles: Battle for Greece DLC, see the <a href="./objects-bfg.html">Chronicles: Battle for Greece Objects Table</a>.</p>
 		<p>
-			<label for="objectsInput" class="objects-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><label for="objects-versions" class="dropdown-label">Version</label>
+			<label for="objectsInput" class="objects-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-cmdid" class="dropdown-label">Command ID</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><label for="objects-versions" class="dropdown-label">Version</label>
 			<input type="text" id="objectsInput" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
 				<option value="All" selected>All</option>
 				<option value="Archery">Archery</option>
@@ -62,6 +62,19 @@
 				<option value="Villagers">Villagers</option>
 				<option value="Walls">Walls</option>
 				<option value="Warships">Warships</option>
+			</select><select id="objects-cmdid" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Command ID">
+				<option value="All" selected>All</option>
+				<option value="Flags">Flags</option>
+				<option value="Gaia">Gaia</option>
+				<option value="Economic Buildings">Economic Buildings</option>
+				<option value="Villagers">Villagers</option>
+				<option value="Military">Military</option>
+				<option value="Trade Units">Trade Units</option>
+				<option value="Monks">Monks</option>
+				<option value="Transport Ships">Transport Ships</option>
+				<option value="Relics">Relics</option>
+				<option value="Fishing Ships">Fishing Ships</option>
+				<option value="Military Buildings">Military Buildings</option>
 			</select><select id="objects-building" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Building/Category">
 				<option value="All" selected>All</option>
 				<option value="Archery Range">Archery Range</option>
@@ -121,7 +134,9 @@
 		for(var i = 0; i < objectsArray.length; i++) {
 			numobjects = 0;
 			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingNamesArray[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdId-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th class=\"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th><th class=\"objects-projectile-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th><th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-id-col\">ID</th><th class=\"objects-name-col\">Name</th><th class=\"objects-ainame-col\">AI Name</th><th class=\"objects-line-col\">Line</th><th class=\"objects-class-col\">Class</th><th class=\"objects-cmdId-col\">Cmd ID</th><th class=\"objects-building-col\">Building/<br>Category</th><th class=\"objects-age-col\">Age</th><th class=\"objects-dead-unit-col\">Dead Object ID</th>";
+			//text += "<th class=\"objects-projectile-col\">Proj. ID</th><th class=\"objects-chem-projectile-col\">Chem. Proj. ID</th>";
+			text += "<th class=\"objects-versions-col\">Versions<br/>(AoK,TC, WK,DE)</th><th class=\"objects-notes-col\">Notes</th></tr>";
 			for(var j = 0; j < objectsArray[i].length; j++) {
 				objectID = objectsArray[i][j].id.toString();
 				text += "<tr>";
@@ -156,8 +171,9 @@
 				text += "<td>" + objectsArray[i][j].building + "</td>";
 				text += "<td>" + objectsArray[i][j].age + "</td>";
 				text += "<td>" + objectsArray[i][j].deadUnit + "</td>";
-				text += "<td>" + objectsArray[i][j].projectile + "</td>";
-				text += "<td>" + objectsArray[i][j].chemProjectile + "</td><td class=\"version-icons\">";
+				//text += "<td>" + objectsArray[i][j].projectile + "</td>";
+				//text += "<td>" + objectsArray[i][j].chemProjectile + "</td>;
+				text += "<td class=\"version-icons\">";
 				if(objectsArray[i][j].aok == 1) {
 					text += "<img src=\"../images/aok_64.png\" title=\"Age of Kings\"/> ";
 				}
@@ -199,7 +215,7 @@
 	<script>
 		function objectsFilter() {
 			// Declare variables
-			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdBuilding, tdAge, tdAok, tdTc, tdWk, tdDe, i, h, num, bldgNum, header;
+			var input, building, age, objectClass, objectCmdId, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdCmdId, tdBuilding, tdAge, tdAok, tdTc, tdWk, tdDe, i, h, num, bldgNum, header;
 			input = document.getElementById("objectsInput");
 			building = document.getElementById("objects-building");
 			building = building.value;
@@ -324,6 +340,43 @@
 			else if (objectClass.value == "Warships") {
 				objectClass = "warship-class (922)";
 			}
+			objectCmdId = document.getElementById("objects-cmdid");
+			if (objectCmdId.value == "All") {
+				objectCmdId = "All";
+			}
+			else if (objectCmdId.value == "Flags") {
+				objectCmdId = "cmdid-flag";
+			}
+			else if (objectCmdId.value == "Gaia") {
+				objectCmdId = "cmdid-livestock-gaia";
+			}
+			else if (objectCmdId.value == "Economic Buildings") {
+				objectCmdId = "cmdid-civilian-building";
+			}
+			else if (objectCmdId.value == "Villagers") {
+				objectCmdId = "cmdid-villager";
+			}
+			else if (objectCmdId.value == "Military") {
+				objectCmdId = "cmdid-military";
+			}
+			else if (objectCmdId.value == "Trade Units") {
+				objectCmdId = "cmdid-trade";
+			}
+			else if (objectCmdId.value == "Monks") {
+				objectCmdId = "cmdid-monk";
+			}
+			else if (objectCmdId.value == "Transport Ships") {
+				objectCmdId = "cmdid-transport";
+			}
+			else if (objectCmdId.value == "Relics") {
+				objectCmdId = "cmdid-relic";
+			}
+			else if (objectCmdId.value == "Fishing Ships") {
+				objectCmdId = "cmdid-fishing-ship";
+			}
+			else if (objectCmdId.value == "Military Buildings") {
+				objectCmdId = "cmdid-military-building";
+			}
 			age = document.getElementById("objects-age");
 			if (age.value == "All") {
 				age = "All";
@@ -371,6 +424,7 @@
 					tdName = objectsArray[h][i].name;
 					tdAiName = objectsArray[h][i].aiName;
 					tdClass = objectsArray[h][i].class;
+					tdCmdId = objectsArray[h][i].cmdId;
 					tdBuilding = objectsArray[h][i].building;
 					tdAge = objectsArray[h][i].age;
 					tdAok = objectsArray[h][i].aok;
@@ -382,12 +436,17 @@
 						tdName = tdName.replace(/-/g,"");
 						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
 							if(objectClass == "All" || tdClass == objectClass) {
-								if(building == "All" || tdBuilding == building) {
-									if(age == "All" || tdAge == age) {
-										if(version == "All" || (version == "AoK" && tdAok == 1) || (version == "TC" && tdTc == 1) || (version == "WK" && tdWk == 1) || (version == "DE" && tdDe == 1)) {
-											tr[i + 1].style.display = "";
-											num = num + 1;
-											bldgNum = bldgNum + 1;
+								if(objectCmdId == "All" || tdCmdId == objectCmdId) {
+									if(building == "All" || tdBuilding == building) {
+										if(age == "All" || tdAge == age) {
+											if(version == "All" || (version == "AoK" && tdAok == 1) || (version == "TC" && tdTc == 1) || (version == "WK" && tdWk == 1) || (version == "DE" && tdDe == 1)) {
+												tr[i + 1].style.display = "";
+												num = num + 1;
+												bldgNum = bldgNum + 1;
+											}
+											else {
+												tr[i + 1].style.display = "none";
+											}
 										}
 										else {
 											tr[i + 1].style.display = "none";
