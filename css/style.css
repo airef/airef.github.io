@@ -249,7 +249,7 @@ h5 {
 	margin: 10px 0 10px 4%;
 }
 
-p {
+p, li {
 	font: 9pt "Segoe UI", Arial, sans-serif;
 }
 
@@ -714,6 +714,18 @@ th {
 
 .highlight { 
 	background-color: red; 
+}
+
+.events-body {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-gap: 20px;
+}
+
+.events-about-sidebar {
+	background-color: #eee;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 
