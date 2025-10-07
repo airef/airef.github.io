@@ -8098,7 +8098,7 @@ unitLinesArray = [ {
 	name: "krepost-konnik-line",
 	id: "NA",
 	deId: -246,
-	description: "DE only. Includes krepost-konnik and elite-krepost-konnik. Does not include konniks trained at the castle or dismounted konniks."
+	description: "No longer used. Technically includes krepost-konnik and elite-krepost-konnik, but these unit IDs are no longer used by the game. Does not include konniks trained at the castle or dismounted konniks."
 }, {
 	name: "foot-konnik-line",
 	id: "NA",
@@ -8138,7 +8138,7 @@ unitLinesArray = [ {
 	name: "donjon-serjeant-line",
 	id: "NA",
 	deId: -238,
-	description: "DE only. Includes donjon-serjeant and elite-donjon-serjeant."
+	description: "No longer used. Technically includes donjon-serjeant and elite-donjon-serjeant, but these unit IDs are no longer used by the game."
 }, {
 	name: "obuch-line",
 	id: "NA",
@@ -8193,7 +8193,7 @@ unitLinesArray = [ {
 	name: "donjon-spearman-line",
 	id: "NA",
 	deId: -227,
-	description: "DE only. Includes donjon-spearman, donjon-pikeman, and donjon-halberdier."
+	description: "No longer used. Technically includes donjon-spearman, donjon-pikeman, and donjon-halberdier, but these unit IDs are no longer used by the game."
 }, {
 	name: "centurion-line",
 	id: "NA",
@@ -16636,7 +16636,7 @@ cUpFullResetSearch.complexity = "Very High";
 
 //up-gaia-type-count
 cUpGaiaTypeCount.shortDescription = "Check the current sighted resource count from gaia.";
-cUpGaiaTypeCount.description = "Check the current sighted resource count from gaia. This command may be relatively slow, since it must check the status of all discovered resources within the requested subset (food, wood, stone, or gold).";
+cUpGaiaTypeCount.description = "Check the current sighted resource count from gaia. This command may be relatively slow, since it must check the status of all discovered resources within the requested subset (food, wood, stone, or gold).</p><p>This command does not work with relics.";
 cUpGaiaTypeCount.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16680,7 +16680,7 @@ cUpGaiaTypeCount.complexity = "Medium";
 
 //up-gaia-type-count-total
 cUpGaiaTypeCountTotal.shortDescription = "Check the total sighted resource count from gaia.";
-cUpGaiaTypeCountTotal.description = "Check the total sighted resource count from gaia. When checking food, wood, stone, or gold, this command operates very quickly. However, the required data does not exist for specific food types, including deer and sheep. As a fallback, it will redirect to the slower up-gaia-type-count, and the result will only reflect resources that still exist.";
+cUpGaiaTypeCountTotal.description = "Check the total sighted resource count from gaia. When checking food, wood, stone, or gold, this command operates very quickly. However, the required data does not exist for specific food types, including deer and sheep. As a fallback, it will redirect to the slower up-gaia-type-count, and the result will only reflect resources that still exist.</p><p>This command does not work with relics.";
 cUpGaiaTypeCountTotal.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -26629,6 +26629,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "Training commands don't work for units with multiple training locations.",
+	date: "Oct 7, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1425112865064488980\">Link</a>",
+	description: "If a unit has more than one train location (serjeants, konniks, huskarls, and tarkans), the train and can-train commands only work for the first train location (usually the castle). This bug is caused by the introduction of a feature that allows units to have multiple training locations, and the various AI training commands (can-train, can-train-with-escrow, train, up-can-train, and up-train) don't appear to have been updated yet to work with this new feature. Using the DUC action-train option with up-target-point seems to work."
+}, {
 	name: "fe-break-point does not allow the AI script that triggered the break point to continue playing.",
 	date: "Aug 24, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1409094206647177239\">Link</a>",
@@ -33778,8 +33783,8 @@ objectsBarracksArray = [ {
 	aok: 0,
 	tc: 1,
 	wk: 1,
-	de: 1,
-	notes: "Can be counted with huskarl-set"
+	de: 0,
+	notes: "Can be counted with huskarl-set. No longer used in DE, use my-unique-unit-line or huskarl-line."
 }, {	
 	name: "Elite Huskarl (Barracks)",
 	aiName: "",
@@ -33797,8 +33802,8 @@ objectsBarracksArray = [ {
 	aok: 0,
 	tc: 1,
 	wk: 1,
-	de: 1,
-	notes: "Can be counted with huskarl-set"
+	de: 0,
+	notes: "Can be counted with huskarl-set. No longer used in DE, use my-unique-unit-line or huskarl-line."
 }, {
 	name: "Flemish Militia (Train)",
 	aiName: "town-center-flemish-pikeman",
@@ -37622,8 +37627,8 @@ objectsDonjonArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: "Can be counted with serjeant-set"
+	de: 0,
+	notes: "Do not use. Use my-unique-unit-line or serjeant-line."
 }, {
 	name: "Elite Serjeant (Donjon)",
 	aiName: "elite-donjon-serjeant",
@@ -37641,8 +37646,8 @@ objectsDonjonArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: "Can be counted with serjeant-set"
+	de: 0,
+	notes: "Do not use. Use my-unique-unit-line or serjeant-line."
 }, {	
 	name: "Spearman (Donjon)",
 	aiName: "",
@@ -37660,8 +37665,8 @@ objectsDonjonArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: ""
+	de: 0,
+	notes: "Do not use. Use spearman-line."
 }, {	
 	name: "Pikeman (Donjon)",
 	aiName: "",
@@ -37679,8 +37684,8 @@ objectsDonjonArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: ""
+	de: 0,
+	notes: "Do not use. Use spearman-line."
 }, {	
 	name: "Halberdier (Donjon)",
 	aiName: "",
@@ -37698,8 +37703,8 @@ objectsDonjonArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: ""
+	de: 0,
+	notes: "Do not use. Use spearman-line."
 }];
 	
 objectsKrepostArray = [ {	
@@ -37719,8 +37724,8 @@ objectsKrepostArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: "Can be counted with konnik-set"
+	de: 0,
+	notes: "Do not use. Use my-unique-unit-line or konnik-line."
 }, {	
 	name: "Elite Konnik (Krepost)",
 	aiName: "elite-krepost-konnik",
@@ -37738,8 +37743,8 @@ objectsKrepostArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: "Can be counted with konnik-set"
+	de: 0,
+	notes: "Do not use. Use my-unique-unit-line or konnik-line."
 }];	
 	
 objectsMarketArray = [ {	
@@ -38981,8 +38986,8 @@ objectsStableArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: "Can be counted with tarkan-set"
+	de: 0,
+	notes: "Can be counted with tarkan-set. In DE, use my-unique-unit-line or tarkan-line instead."
 }, {	
 	name: "Elite Tarkan (Stable)",
 	aiName: "stable-elite-tarkan",
@@ -39000,8 +39005,8 @@ objectsStableArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
-	notes: "Can be counted with tarkan-set"
+	de: 0,
+	notes: "Can be counted with tarkan-set. In DE, use my-unique-unit-line or tarkan-line instead."
 }, {	
 	name: "Xolotl Warrior",
 	aiName: "",
