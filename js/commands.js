@@ -7848,7 +7848,7 @@ unitLinesArray = [ {
 	name: "militiaman-line",
 	id: -296,
 	deId: -296,
-	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion."
+	description: "Includes militiaman, man-at-arms, long-swordsman, two-handed-swordsman, and champion. DE also includes legionary."
 }, {
 	name: "spearman-line",
 	id: -295,
@@ -7888,7 +7888,7 @@ unitLinesArray = [ {
 	name: "camel-line",
 	id: -288,
 	deId: -288,
-	description: "Includes camel and heavy-camel. DE also includes imperial-camel. In Return of Rome, -288 is the stone thrower line, including Stone Thrower, Catapult, and Heavy Catapult."
+	description: "Includes camel and heavy-camel. DE also includes camel-scout and imperial-camel. In Return of Rome, -288 is the stone thrower line, including Stone Thrower, Catapult, and Heavy Catapult."
 }, {
 	name: "knight-line",
 	id: -287,
@@ -7898,7 +7898,7 @@ unitLinesArray = [ {
 	name: "scout-cavalry-line",
 	id: -286,
 	deId: -286,
-	description: "Includes scout-cavalry, light-cavalry, hussar, and winged-hussar. In Return of Rome, -286 is the transport line, including Light Transport and Heavy Transport."
+	description: "Includes scout-cavalry, light-cavalry, and hussar. DE also includes winged-hussar. In Return of Rome, -286 is the transport line, including Light Transport and Heavy Transport."
 }, {
 	name: "cannon-galleon-line",
 	id: -285,
@@ -7988,7 +7988,7 @@ unitLinesArray = [ {
 	name: "jaguar-man-line",
 	id: -268,
 	deId: -267,
-	description: "Notice the spelling! Includes jaguar-warrior and elite-jaguar-warrior."
+	description: "Note the spelling! jaguar-warrior-line can also be used in DE. Includes jaguar-warrior and elite-jaguar-warrior."
 }, {
 	name: "eagle-warrior-line",
 	id: -267,
@@ -8268,7 +8268,7 @@ unitLinesArray = [ {
 	name: "hei-guang-cavalry-line",
 	id: "NA",
 	deId: -211,
-	description: "DE only. Includes hei-guang-cavalry and elite-hei-guang-cavalry."
+	description: "DE only. Includes hei-guang-cavalry and heavy-hei-guang-cavalry."
 }, {
 	name: "tiger-cavalry-line",
 	id: "NA",
@@ -38913,8 +38913,8 @@ objectsStableArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Elite Hei Guang Cavalry",
-	aiName: "elite-hei-guang-cavalry",
+	name: "Heavy Hei Guang Cavalry",
+	aiName: "heavy-hei-guang-cavalry",
 	line: "hei-guang-cavalry-line",
 	id: 1946,
 	class: "cavalry-class (912)",
