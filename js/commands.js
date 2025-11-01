@@ -11965,14 +11965,14 @@ cFoodAmount.complexity = "Low";
 
 //game-time
 cGameTime.shortDescription = "Checks the game time.";
-cGameTime.description = "Checks the game time, the amount of time elapsed since the start of the game, measured in game seconds. The fact can be used to make rules time-specific. For example, the computer can become more aggressive after 15 minutes of game time. Note: some scripters have reported that unlike other commands that have a " + pCompareOp.getLink() + " operator, the game-time command has a slight bug where you cannot use goal comparison operators like g:== or g:>, and only constant or strategic number comparison operators can be used for the compareOp operator. However, I, Leif Ericson, have used goal gomparison operators successfully. Test before using goal comparison operators with the game-time fact.</p><p>game-time measures the game time in game seconds. The current game time can be found by using F11. Unless the game is being played on Slow speed (1.0 speed), the game time moves faster that real time. Casual speed (Normal speed in single player games in UP) is 1.5 times faster than real time, Normal speed (Normal speed in multiplayer games in UP) is 1.7 times faster than real time, and Fast speed is 2.0 times faster than real time. Even faster speeds are possible with DE launch options (see this <a href=\"https://youtu.be/jGaaQ6FmxiU\">video</a> or with the speedhack option in Cheat Engine, though AI behavior can diminish at faster game speeds.";
+cGameTime.description = "Checks the game time, the amount of time elapsed since the start of the game, measured in game seconds. The fact can be used to make rules time-specific. For example, the computer can become more aggressive after 15 minutes of game time.</p><p>game-time measures the game time in game seconds. The current game time can be found by using F11. Unless the game is being played on Slow speed (1.0 speed), the game time moves faster that real time. Casual speed (Normal speed in single player games in UP) is 1.5 times faster than real time, Normal speed (Normal speed in multiplayer games in UP) is 1.7 times faster than real time, and Fast speed is 2.0 times faster than real time. Even faster speeds are possible with DE launch options (see this <a href=\"https://youtu.be/jGaaQ6FmxiU\">video</a> or with the speedhack option in Cheat Engine, though AI behavior can diminish at faster game speeds.";
 cGameTime.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
 	type: "",
 	dir: "",
 	range: "",
-	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c: or s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required.<strong>Note:</strong> game-time is bugged with goal comparison operators, so you cannot use them. For example, you cannot use g:==, just == or s:==."
+	note: "Sets the expected type of the following parameter for comparison.<br/>Value: c: or s: followed by: &gt;, &gt;=, &lt;, &lt;=, ==, !=<br/>Note: the c: prefix is optional; other prefixes are required."
 }, {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -26779,11 +26779,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
 	description: "dropsite-min-distance wood/gold/stone doesn't work with mule carts. Does not change when mule carts move or die."
 }, {
-	name: "Imperial unique techs undefined",
-	date: "Jan 13, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1195832110750126321\">Link</a>",
-	description: "The imperial age unique techs are not defined for the original 18 civs, but they are defined for all other civs. All the castle age unique techs are defined properly for all civs, except Goths, Mayans, and Saracens."
-}, {
 	name: "Dividing negative numbers by positive numbers gives incorrect result",
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
@@ -26973,11 +26968,6 @@ bugsArray = [ {
     date: "Aug 6, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1005481892298104832\">Link</a>",
     description: "The UP load-random command doesn't seem to work on DE. Maybe the \"+\" loading feature isn't recognized or load-random doesn't work with a defconst yet. Meleon has this code. The #load-if works fine, but I confirmed that the Meleon\\core.per is not loaded for whatever reason. See Discord link for test script."
-}, {
-    name: "up-build with a goal set to with-escrow doesn't allow AI to use escrowed resources to place buildings",
-    date: "July 16, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/997860782823981119\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1140403840160632953\">Link 2</a>",
-    description: "up-build with a goal set to with-escrow does not allow the AI to use escrowed resources to place buildings. The building gets added to the placement queue, but the foundation is never placed until the AI can build the building without escrowed resources. Here's my test script. [See attached AI file at Discord link] Update: I looks like the up-build escrow bug is fixed, at least mostly. Using an escrow goal set to with-escrow, like (up-build place-normal gl-escrow c: house) allows the AI to build a house as long as it has 25 wood, regardless of the amount of wood in escrow, which is great. The only issue is that the amount of escrow wood doesn't seem to decrease when all the AI's wood is in escrow. I set the wood escrow to 100 and had the AI build as many houses as possible. Even when the AI had 0 total wood left, the amount of wood escrow stayed at 100, at least according to up-get-fact. Update 2: It looks like the EscrowGoalId for up-build simply is not used by the engine. Any GoalId number (0, 1, or 501) will allow the AI to construct the building, but escrow amounts remain unchanged."
 }, {
     name: "Switching point of view with Ctrl-Shift-F1-8 doesn't update typing to other players perspective",
     date: "Jun 26, 2022",
