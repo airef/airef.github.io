@@ -13137,7 +13137,7 @@ cResearchCompleted.complexity = "Low";
 cResign.shortDescription = "Causes the computer player to resign.";
 cResign.example = [ {
 	title: "Resign when we have less than 2 population and no town center.",
-	data: "(defrule\r\n\t(population < 2)\r\n\t(building-type-count-total town-center == 0\r\n=>\r\n\t(chat-to-all \"gg\")\r\n\t(resign)\r\n)"
+	data: "(defrule\r\n\t(population < 2)\r\n\t(building-type-count-total town-center == 0)\r\n=>\r\n\t(chat-to-all \"gg\")\r\n\t(resign)\r\n)"
 } ];
 cResign.commandCategory = ["Other"];
 cResign.relatedCommands = [cPlayerInGame, cPlayerResigned, cUpPlayersInGame];
