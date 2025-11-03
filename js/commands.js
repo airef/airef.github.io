@@ -26385,7 +26385,7 @@ pTerrain.valueList = [ {
 }, {
 	name: "terrain-forest-oak",
 	id: 20,
-	description: "Oak Forest terrain. Replaced with Mangrove Forest in the Rajas expansion. To use the old Oak Forest terrain in this expansion and later, use terrain-forest instead."
+	description: "Oak Forest terrain. Replaced with Oak Bush in DE. To use the old Oak Forest terrain in this expansion and later, use terrain-forest instead."
 }, {
 	name: "terrain-forest-snow",
 	id: 21,
@@ -26409,7 +26409,7 @@ pTerrain.valueList = [ {
 }, {
 	name: "terrain-ice",
 	id: 26,
-	description: "Ice terrain."
+	description: "Ice terrain. This ice terrain is navigable by ships."
 }, {
 	name: "terrain-foundation",
 	id: 27,
@@ -26421,15 +26421,15 @@ pTerrain.valueList = [ {
 }, {
 	name: "terrain-farm1",
 	id: 29,
-	description: "Farm 1 terrain. Looks like farms at the start of construction."
+	description: "Farm 1 terrain. Farms that are 0% planted."
 }, {
 	name: "terrain-farm2",
 	id: 30,
-	description: "Farm 2 terrain. Looks like partially planted farms."
+	description: "Farm 2 terrain. Farms that are 33% planted."
 }, {
 	name: "terrain-farm3",
 	id: 31,
-	description: "Farm 3 terrain. Looks like mostly planted farms."
+	description: "Farm 3 terrain. Farms that are 66% planted."
 }, {
 	name: "terrain-snow",
 	id: 32,
@@ -26437,15 +26437,15 @@ pTerrain.valueList = [ {
 }, {
 	name: "terrain-dirt-snow",
 	id: 33,
-	description: "Snow Dirt terrain. Changed to Snow Road in African Kingdoms to make room for Cracked terrain. To use the old Snow Dirt in this expansion and later, use terrain-foundation-snow."
+	description: "Snow Dirt terrain. Obsolete in DE. In DE, use terrain-foundation-snow."
 }, {
 	name: "terrain-grass-snow",
 	id: 34,
-	description: "Snow Grass terrain."
+	description: "Snow Grass terrain. Obsolete in DE."
 }, {
 	name: "terrain-ice2",
 	id: 35,
-	description: "Other Ice terrain. Not sure what the difference is between terrain-ice and terrain-ice2"
+	description: "Other Ice terrain. This ice terrain is not navigable by ships."
 }, {
 	name: "terrain-foundation-snow",
 	id: 36,
@@ -26457,20 +26457,309 @@ pTerrain.valueList = [ {
 }, {
 	name: "terrain-road-snow",
 	id: 38,
-	description: "Snow Road. Replaced with Cracked terrain in African Kingdoms. To use the old Snow Road terrain in this expansion and later, use terrain-dirt-snow."
+	description: "Snow Road. Obsolete in DE. In DE, use terrain-foundation-snow"
 }, {
 	name: "terrain-road-fungus",
 	id: 39,
-	description: "Fungus Road terrain."
+	description: "Fungus Road terrain. Obsolete in DE. In DE, use terrain-road-fungus-de."
 }, {
 	name: "terrain-koh",
 	id: 40,
 	description: "Terrain placed under monuments in King of the Hill games."
 }, {
-	name: "terrain-unknown",
+	name: "terrain-savannah-dirt*",
 	id: 41,
-	description: "Unknown terrain. Replaced with Acacia Forest."
-} ];
+	description: "DE only. Must be defined with a defconst. Savannah Dirt terrain. Defconsted as terrain-unknown in UP."
+}, {
+	name: "terrain-dirt4*",
+	id: 42,
+	description: "DE only. Must be defined with a defconst. Dirt4 terrain."
+}, {
+	name: "terrain-desert-cracked*",
+	id: 45,
+	description: "DE only. Must be defined with a defconst. Desert cracked terrain."
+}, {
+	name: "terrain-desert-quicksand*",
+	id: 46,
+	description: "DE only. Must be defined with a defconst. Desert quicksand terrain."
+}, {
+	name: "terrain-black*",
+	id: 47,
+	description: "DE only. Must be defined with a defconst. Black terrain."
+}, {
+	name: "terrain-forest-dragon-tree*",
+	id: 48,
+	description: "DE only. Must be defined with a defconst. Dragon tree forest terrain."
+}, {
+	name: "terrain-forest-baobab*",
+	id: 49,
+	description: "DE only. Must be defined with a defconst. Baobab Forest terrain."
+}, {
+	name: "terrain-forest-acacia*",
+	id: 50,
+	description: "DE only. Must be defined with a defconst. Acacia Forest terrain."
+}, {
+	name: "terrain-beach-vegetation-white*",
+	id: 51,
+	description: "DE only. Must be defined with a defconst. White Beach Vegetation terrain."
+}, {
+	name: "terrain-beach-vegetation*",
+	id: 52,
+	description: "DE only. Must be defined with a defconst. Beach Vegetation terrain."
+}, {
+	name: "terrain-beach-white*",
+	id: 53,
+	description: "DE only. Must be defined with a defconst. White Beach terrain."
+}, {
+	name: "terrain-shallows-mangrove*",
+	id: 54,
+	description: "DE only. Must be defined with a defconst. Mangrove Shallows terrain."
+}, {
+	name: "terrain-forest-mangrove*",
+	id: 55,
+	description: "DE only. Must be defined with a defconst. Mangrove Forest terrain."
+}, {
+	name: "terrain-forest-rainforest*",
+	id: 56,
+	description: "DE only. Must be defined with a defconst. Rainforest Forest terrain."
+}, {
+	name: "terrain-water-deep-ocean*",
+	id: 57,
+	description: "DE only. Must be defined with a defconst. Deep Ocean Water terrain."
+}, {
+	name: "terrain-water-azure*",
+	id: 58,
+	description: "DE only. Must be defined with a defconst. Azure Water terrain."
+}, {
+	name: "terrain-shallows-azure*",
+	id: 59,
+	description: "DE only. Must be defined with a defconst. Azure Shallows terrain."
+}, {
+	name: "terrain-grass-jungle*",
+	id: 60,
+	description: "DE only. Must be defined with a defconst. Jungle Grass terrain."
+}, {
+	name: "terrain-farm-rice*",
+	id: 63,
+	description: "DE only. Must be defined with a defconst. Rice Farm terrain."
+}, {
+	name: "terrain-farm-rice-dead*",
+	id: 64,
+	description: "DE only. Must be defined with a defconst. Dead Rice Farm terrain."
+}, {
+	name: "terrain-farm-rice1*",
+	id: 65,
+	description: "DE only. Must be defined with a defconst. Rice Farms that are 0% planted."
+}, {
+	name: "terrain-farm-rice2*",
+	id: 66,
+	description: "DE only. Must be defined with a defconst. Rice Farms that are 33% planted."
+}, {
+	name: "terrain-farm-rice3*",
+	id: 67,
+	description: "DE only. Must be defined with a defconst. Rice Farms that are 66% planted."
+}, {
+	name: "terrain-corruption*",
+	id: 69,
+	description: "DE only. Must be defined with a defconst. Corruption terrain."
+}, {
+	name: "terrain-gravel*",
+	id: 70,
+	description: "DE only. Must be defined with a defconst. Gravel terrain."
+}, {
+	name: "terrain-underbrush-leaves*",
+	id: 71,
+	description: "DE only. Must be defined with a defconst. Leaves Underbrush terrain."
+}, {
+	name: "terrain-underbrush-snow*",
+	id: 72,
+	description: "DE only. Must be defined with a defconst. Snow Underbrush terrain."
+}, {
+	name: "terrain-snow-light*",
+	id: 73,
+	description: "DE only. Must be defined with a defconst. Light Snow terrain."
+}, {
+	name: "terrain-snow-strong*",
+	id: 74,
+	description: "DE only. Must be defined with a defconst. Strong Snow terrain."
+}, {
+	name: "terrain-road-fungus-de*",
+	id: 75,
+	description: "DE only. Must be defined with a defconst. Road Fungus terrain. Replaces terrain-road-fungus terrain in DE."
+}, {
+	name: "terrain-dirt-mud*",
+	id: 76,
+	description: "DE only. Must be defined with a defconst. Dirt Mud terrain."
+}, {
+	name: "terrain-underbrush-jungle*",
+	id: 77,
+	description: "DE only. Must be defined with a defconst. Jungle Underbrush terrain."
+}, {
+	name: "terrain-road-gravel*",
+	id: 78,
+	description: "DE only. Must be defined with a defconst. Gravel Road terrain."
+}, {
+	name: "terrain-beach-not-navigable*",
+	id: 79,
+	description: "DE only. Must be defined with a defconst. Non-navigable Beach terrain."
+}, {
+	name: "terrain-beach-wet-sand-not-navigable*",
+	id: 80,
+	description: "DE only. Must be defined with a defconst. Non-navigable Wet Sand Beach terrain."
+}, {
+	name: "terrain-beach-wet-gravel-not-navigable*",
+	id: 81,
+	description: "DE only. Must be defined with a defconst. Non-navigable Wet Gravel Beach terrain."
+}, {
+	name: "terrain-beach-wet-rock-not-navigable*",
+	id: 82,
+	description: "DE only. Must be defined with a defconst. Non-navigable Wet Rock Beach terrain."
+}, {
+	name: "terrain-grass-rainforest*",
+	id: 83,
+	description: "DE only. Must be defined with a defconst. Rainforest Grass terrain."
+}, {
+	name: "terrain-forest-mediterranean*",
+	id: 88,
+	description: "DE only. Must be defined with a defconst. Mediterranean Forest terrain."
+}, {
+	name: "terrain-forest-bush*",
+	id: 89,
+	description: "DE only. Must be defined with a defconst. Bush Forest terrain."
+}, {
+	name: "terrain-forest-reeds-shallows*",
+	id: 90,
+	description: "DE only. Must be defined with a defconst. Reeds Forest terrain which is placed on Shallows terrain."
+}, {
+	name: "terrain-forest-reeds-beach*",
+	id: 91,
+	description: "DE only. Must be defined with a defconst. Reeds Forest terrain which is placed on Beach terrain."
+}, {
+	name: "terrain-forest-reeds*",
+	id: 92,
+	description: "DE only. Must be defined with a defconst. Reeds Forest terrain which is placed on all terrains except Shallows and Beach."
+}, {
+	name: "terrain-water-green*",
+	id: 95,
+	description: "DE only. Must be defined with a defconst. Green Water terrain."
+}, {
+	name: "terrain-water-brown*",
+	id: 96,
+	description: "DE only. Must be defined with a defconst. Brown Water terrain."
+}, {
+	name: "terrain-grass-dry*",
+	id: 100,
+	description: "DE only. Must be defined with a defconst. Dry Grass terrain."
+}, {
+	name: "terrain-swamp-bogland*",
+	id: 101,
+	description: "DE only. Must be defined with a defconst. Bogland Swamp terrain."
+}, {
+	name: "terrain-gravel-desert*",
+	id: 102,
+	description: "DE only. Must be defined with a defconst. Desert Gravel terrain."
+}, {
+	name: "terrain-forest-autumn*",
+	id: 104,
+	description: "DE only. Must be defined with a defconst. Autumn Forest terrain."
+}, {
+	name: "terrain-forest-autumn-snow*",
+	id: 105,
+	description: "DE only. Must be defined with a defconst. Snow Autumn Forest terrain."
+}, {
+	name: "terrain-forest-dead*",
+	id: 106,
+	description: "DE only. Must be defined with a defconst. Dead Forest terrain."
+}, {
+	name: "terrain-beach-wet*",
+	id: 107,
+	description: "DE only. Must be defined with a defconst. Wet Beach terrain."
+}, {
+	name: "terrain-beach-wet-gravel*",
+	id: 108,
+	description: "DE only. Must be defined with a defconst. Wet Gravel Beach terrain."
+}, {
+	name: "terrain-beach-wet-rock*",
+	id: 109,
+	description: "DE only. Must be defined with a defconst. Wet Rock Beach terrain."
+}, {
+	name: "terrain-forest-birch*",
+	id: 110,
+	description: "DE only. Must be defined with a defconst. Birch Forest terrain."
+}, {
+	name: "terrain-swamp-shallows*",
+	id: 111,
+	description: "DE only. Must be defined with a defconst. Swamp Shallows terrain."
+}, {
+	name: "terrain-forest-palm-grass*",
+	id: 112,
+	description: "DE only. Must be defined with a defconst. Palm Grass Forest terrain."
+}, {
+	name: "terrain-forest-lush-bamboo*",
+	id: 113,
+	description: "DE only. Must be defined with a defconst. Lush Bamboo Forest terrain."
+}, {
+	name: "terrain-water-yellow*",
+	id: 114,
+	description: "DE only. Must be defined with a defconst. Yellow Water terrain."
+}, {
+	name: "terrain-shallows-yellow*",
+	id: 115,
+	description: "DE only. Must be defined with a defconst. Yellow Shallows terrain."
+}, {
+	name: "terrain-water-yellow-deep*",
+	id: 116,
+	description: "DE only. Must be defined with a defconst. Deep Yellow Water terrain."
+}, {
+	name: "terrain-pasture*",
+	id: 117,
+	description: "DE only. Must be defined with a defconst. Pasture terrain."
+}, {
+	name: "terrain-pasture-dead*",
+	id: 118,
+	description: "DE only. Must be defined with a defconst. Dead Pasture terrain."
+}, {
+	name: "terrain-pasture1*",
+	id: 119,
+	description: "DE only. Must be defined with a defconst. Pastures that are 0% planted."
+}, {
+	name: "terrain-pasture2*",
+	id: 120,
+	description: "DE only. Must be defined with a defconst. Pastures that are 33% planted."
+}, {
+	name: "terrain-pasture3*",
+	id: 121,
+	description: "DE only. Must be defined with a defconst. Pastures that are 66% planted."
+}, {
+	name: "terrain-grass-flowers1*",
+	id: 122,
+	description: "DE only. Must be defined with a defconst. Grass Flowers 1 terrain."
+}, {
+	name: "terrain-grass-flowers2*",
+	id: 123,
+	description: "DE only. Must be defined with a defconst. Grass Flowers 2 terrain."
+}, {
+	name: "terrain-snow-soft*",
+	id: 124,
+	description: "DE only. Must be defined with a defconst. Soft Snow terrain."
+}, {
+	name: "terrain-snow-soft-light*",
+	id: 125,
+	description: "DE only. Must be defined with a defconst. Light Soft Snow terrain."
+}, {
+	name: "terrain-snow-soft-strong*",
+	id: 126,
+	description: "DE only. Must be defined with a defconst. Strong Soft Snow terrain."
+}, {
+	name: "terrain-ice-soft*",
+	id: 127,
+	description: "DE only. Must be defined with a defconst. Soft Ice terrain."
+}, {
+	name: "terrain-black-walkable*",
+	id: 129,
+	description: "DE only. Must be defined with a defconst. Walkable Black terrain."
+}
+];
 
 //ThreatPlayer
 pThreatPlayer.shortDescription = "Stores the enemy player who triggered the most recent attack threat event.";
