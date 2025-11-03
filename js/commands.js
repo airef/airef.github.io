@@ -8304,6 +8304,26 @@ unitLinesArray = [ {
 	id: "NA",
 	deId: -204,
 	description: "DE only. Includes liao-dao and elite-liao-dao."
+}, {
+	name: "companion-cavalry-line",
+	id: "NA",
+	deId: -203,
+	description: "DE only. Includes companion-cavalry and elite-companion-cavalry."
+}, {
+	name: "phalangite-line",
+	id: "NA",
+	deId: -202,
+	description: "DE only. Includes phalangite and elite-phalangite."
+}, {
+	name: "rhomphaia-warrior-line",
+	id: "NA",
+	deId: -201,
+	description: "DE only. Includes rhomphaia-warrior and elite-rhomphaia-warrior."
+}, {
+	name: "paddiyodha-longbowman-line",
+	id: "NA",
+	deId: -200,
+	description: "DE only. Includes paddiyodha-longbowman and elite-paddiyodha-longbowman."
 } ];
 
 buildingLinesArray = [ {
@@ -8832,16 +8852,8 @@ aoe2CivsLoadIfsArray = [ {
 	description: "Gaia civ.",
 	type: "AoE2 Civs"
 }, {
-	name: "ACHAEMENIDS-CIV",
-	description: "Achaemenids civ.",
-	type: "AoE2 Civs"
-}, {
 	name: "ARMENIANS-CIV",
 	description: "Armenians civ.",
-	type: "AoE2 Civs"
-}, {
-	name: "ATHENIANS-CIV",
-	description: "Athenians civ.",
 	type: "AoE2 Civs"
 }, {
 	name: "AZTEC-CIV",
@@ -9012,10 +9024,6 @@ aoe2CivsLoadIfsArray = [ {
 	description: "Spanish civ.",
 	type: "AoE2 Civs"
 }, {
-	name: "SPARTANS-CIV",
-	description: "Spartans civ.",
-	type: "AoE2 Civs"
-}, {
 	name: "TATARS-CIV",
 	description: "Tatars civ.",
 	type: "AoE2 Civs"
@@ -9043,6 +9051,31 @@ aoe2CivsLoadIfsArray = [ {
 	name: "WU-CIV",
 	description: "Wu civ.",
 	type: "AoE2 Civs"
+}];
+chroniclesCivsLoadIfsArray = [ {
+	name: "ACHAEMENIDS-CIV",
+	description: "Achaemenids civ.",
+	type: "Chronicles Civs"
+}, {
+	name: "ATHENIANS-CIV",
+	description: "Athenians civ.",
+	type: "Chronicles Civs"
+}, {
+	name: "MACEDONIANS-CIV",
+	description: "Macedonians civ.",
+	type: "Chronicles Civs"
+}, {
+	name: "PURU-CIV",
+	description: "Puru civ.",
+	type: "Chronicles Civs"
+}, {
+	name: "SPARTANS-CIV",
+	description: "Spartans civ.",
+	type: "Chronicles Civs"
+}, {
+	name: "THRACIANS-CIV",
+	description: "Macedonians civ.",
+	type: "Chronicles Civs"
 }];
 rorCivsLoadIfsArray = [ {	
 	name: "GAIA",
@@ -9943,8 +9976,8 @@ rorMapsLoadIfsArray = [ {
 	type: "RoR Maps"
 }];
 
-loadIfSymbolsArray = [gameTypeLoadIfsArray, ageLoadIfsArray, resourcesLoadIfsArray, mapSizeLoadIfsArray, victoryLoadIfsArray, difficultyLoadIfsArray, popCapLoadIfsArray, versionLoadIfsArray, playersTeamsLoadIfsArray, customLoadIfsArray, revealLoadIfsArray, otherLoadIfsArray, aoe2CivsLoadIfsArray, rorCivsLoadIfsArray, aoe2MapsLoadIfsArray, rorMapsLoadIfsArray];
-loadIfSymbolsNamesArray = ["Game Type", "Starting/Ending Age", "Starting Resources", "Map Size", "Victory", "Difficulty", "Population Cap", "Game Version", "Players & Teams", "Custom RMS", "Reveal Map", "Other", "Civs (AoE2)", "Civs (Return of Rome)", "Map Type (AoE2)", "Map Type (Return of Rome)"];
+loadIfSymbolsArray = [gameTypeLoadIfsArray, ageLoadIfsArray, resourcesLoadIfsArray, mapSizeLoadIfsArray, victoryLoadIfsArray, difficultyLoadIfsArray, popCapLoadIfsArray, versionLoadIfsArray, playersTeamsLoadIfsArray, customLoadIfsArray, revealLoadIfsArray, otherLoadIfsArray, aoe2CivsLoadIfsArray, chroniclesCivsLoadIfsArray, rorCivsLoadIfsArray, aoe2MapsLoadIfsArray, rorMapsLoadIfsArray];
+loadIfSymbolsNamesArray = ["Game Type", "Starting/Ending Age", "Starting Resources", "Map Size", "Victory", "Difficulty", "Population Cap", "Game Version", "Players & Teams", "Custom RMS", "Reveal Map", "Other", "Civs (AoE2)", "Civs (Chronicles)", "Civs (Return of Rome)", "Map Type (AoE2)", "Map Type (Return of Rome)"];
 
 //Commands
 
@@ -21999,6 +22032,18 @@ pCiv.valueList = [ {
 	name: "khitans",
 	id: 53,
 	description: "Khitans (must define with a defconst first)."
+}, {
+	name: "macedonians",
+	id: 54,
+	description: "Macedonians (must define with a defconst first)."
+}, {
+	name: "thracians",
+	id: 55,
+	description: "Thracians (must define with a defconst first)."
+}, {
+	name: "puru",
+	id: 56,
+	description: "Puru (must define with a defconst first)."
 } ];
 
 //ClassId
@@ -27518,7 +27563,7 @@ rangeTechsArray = [ {
 	notes: ""
 } ];
 
-rangeTechsArrayBfG = [ {	
+rangeTechsArrayChr = [ {	
 	name: "Laminated Bowman",
 	aiName: "ri-crossbow, ri-crossbowman (DE only)",
 	weirdName: 1,
@@ -27543,7 +27588,7 @@ rangeTechsArrayBfG = [ {
 	id: 237,
 	building: "Archery Range",
 	age: 4,
-	civ: "Athenians",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Heavy Cavalry Archer",
@@ -27552,7 +27597,7 @@ rangeTechsArrayBfG = [ {
 	id: 218,
 	building: "Archery Range",
 	age: 4,
-	civ: "Achaemenids",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Thumb Ring",
@@ -27570,7 +27615,34 @@ rangeTechsArrayBfG = [ {
 	id: 436,
 	building: "Archery Range",
 	age: 4,
-	civ: "Achaemenids",
+	civ: "",
+	notes: ""
+}, {	
+	name: "Archery Range Balanced Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1278,
+	building: "Archery Range",
+	age: 2,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Archery Range Conscript Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1279,
+	building: "Archery Range",
+	age: 2,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Archery Range Mercenaries Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1280,
+	building: "Archery Range",
+	age: 2,
+	civ: "Macedonians",
 	notes: ""
 } ];	
 	
@@ -27771,7 +27843,7 @@ barracksTechsArray = [ {
 	notes: ""
 } ];		
 	
-barracksTechsArrayBfG = [ {	
+barracksTechsArrayChr = [ {	
 	name: "Maceman",
 	aiName: "ri-man-at-arms",
 	weirdName: 1,
@@ -27826,6 +27898,15 @@ barracksTechsArrayBfG = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Elite Phalangite",
+	aiName: "",
+	weirdName: 2,
+	id: 1291,
+	building: "Barracks",
+	age: 4,
+	civ: "Macedonians",
+	notes: ""
+}, {	
 	name: "Gambesons",
 	aiName: "ri-gambesons",
 	weirdName: 0,
@@ -27861,6 +27942,33 @@ barracksTechsArrayBfG = [ {
 	age: 4,
 	civ: "",
 	notes: "Equivalent of Two-handed Swordsman upgrade"
+}, {	
+	name: "Barracks Balanced Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1275,
+	building: "Barracks",
+	age: 1,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Barracks Conscript Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1276,
+	building: "Barracks",
+	age: 1,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Barracks Mercenaries Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1277,
+	building: "Barracks",
+	age: 1,
+	civ: "Macedonians",
+	notes: ""
 } ];
 	
 blacksmithTechsArray = [ {	
@@ -28060,7 +28168,7 @@ blacksmithTechsArray = [ {
 	notes: ""
 } ];	
 	
-blacksmithTechsArrayBfG = [ {	
+blacksmithTechsArrayChr = [ {	
 	name: "Forging",
 	aiName: "ri-forging",
 	weirdName: 0,
@@ -28240,7 +28348,7 @@ blacksmithTechsArrayBfG = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	civ: "Athenians",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Plate Barding Armor",
@@ -30367,7 +30475,7 @@ castleTechsArray = [ {
 
 	
 	
-fortTechsArrayBfG = [ {	
+fortTechsArrayChr = [ {	
 	name: "Conscription",
 	aiName: "ri-conscription",
 	weirdName: 0,
@@ -30494,6 +30602,114 @@ fortTechsArrayBfG = [ {
 	civ: "Athenians",
 	notes: ""
 }, {	
+	name: "Elite Companion Cavalry",
+	aiName: "",
+	weirdName: 2,
+	id: 1289,
+	building: "Fort",
+	age: 4,
+	civ: "Macedonians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Veteran Chiliarchs",
+	aiName: "",
+	weirdName: 2,
+	id: 1284,
+	building: "Fort",
+	age: 3,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Ends of the World",
+	aiName: "",
+	weirdName: 2,
+	id: 1285,
+	building: "Fort",
+	age: 3,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Pezhetairoi",
+	aiName: "",
+	weirdName: 2,
+	id: 1286,
+	building: "Fort",
+	age: 4,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Sarissophoroi",
+	aiName: "",
+	weirdName: 2,
+	id: 1287,
+	building: "Fort",
+	age: 4,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Elite Pattiyodha Longbowman",
+	aiName: "",
+	weirdName: 2,
+	id: 1326,
+	building: "Fort",
+	age: 4,
+	civ: "Puru",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Vadhavadha",
+	aiName: "",
+	weirdName: 2,
+	id: 1307,
+	building: "Fort",
+	age: 3,
+	civ: "Puru",
+	notes: ""
+}, {	
+	name: "Leaf-Headed Shafts",
+	aiName: "",
+	weirdName: 2,
+	id: 1308,
+	building: "Fort",
+	age: 3,
+	civ: "Puru",
+	notes: ""
+}, {	
+	name: "Vedic Teachings",
+	aiName: "",
+	weirdName: 2,
+	id: 1309,
+	building: "Fort",
+	age: 4,
+	civ: "Puru",
+	notes: ""
+}, {	
+	name: "Skandhavaras",
+	aiName: "",
+	weirdName: 2,
+	id: 1310,
+	building: "Fort",
+	age: 4,
+	civ: "Puru",
+	notes: ""
+}, {	
+	name: "Defensive Emplacement",
+	aiName: "",
+	weirdName: 2,
+	id: 1323,
+	building: "Fort",
+	age: 4,
+	civ: "Puru",
+	notes: "Requires Skandhavaras"
+}, {	
+	name: "Defensive Emplacement",
+	aiName: "",
+	weirdName: 2,
+	id: 1324,
+	building: "Fort",
+	age: 4,
+	civ: "Puru",
+	notes: "Requires Skandhavaras"
+}, {	
 	name: "Elite Hippeus",
 	aiName: "",
 	weirdName: 2,
@@ -30537,6 +30753,51 @@ fortTechsArrayBfG = [ {
 	building: "Fort",
 	age: 4,
 	civ: "Spartans",
+	notes: ""
+}, {	
+	name: "Elite Rhomphaia Warrior",
+	aiName: "",
+	weirdName: 2,
+	id: 1301,
+	building: "Fort",
+	age: 4,
+	civ: "Thracians",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Odomantian Raiders",
+	aiName: "",
+	weirdName: 2,
+	id: 1296,
+	building: "Fort",
+	age: 3,
+	civ: "Thracians",
+	notes: ""
+}, {	
+	name: "Dii Plunderers",
+	aiName: "",
+	weirdName: 2,
+	id: 1297,
+	building: "Fort",
+	age: 3,
+	civ: "Thracians",
+	notes: ""
+}, {	
+	name: "Bessian Metalworking",
+	aiName: "",
+	weirdName: 2,
+	id: 1298,
+	building: "Fort",
+	age: 4,
+	civ: "Thracians",
+	notes: ""
+}, {	
+	name: "Peltasts",
+	aiName: "",
+	weirdName: 2,
+	id: 1299,
+	building: "Fort",
+	age: 4,
+	civ: "Thracians",
 	notes: ""
 } ];	
 	
@@ -30722,9 +30983,20 @@ dockTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
-} ];		
+} ];				
 	
-portTechsArrayBfG = [ {	
+outpostTechsArrayChr = [ {	
+	name: "Fortified Outpost",
+	aiName: "",
+	weirdName: 2,
+	id: 1270,
+	building: "Outpost",
+	age: 1,
+	civ: "Macedonians",
+	notes: ""
+}];
+	
+portTechsArrayChr = [ {	
 	name: "War Lembos",
 	aiName: "",
 	weirdName: 2,
@@ -30807,7 +31079,7 @@ portTechsArrayBfG = [ {
 	notes: "New tech ID because the Port is a new building"
 }];	
 	
-shipyardTechsArrayBfG = [ {	
+shipyardTechsArrayChr = [ {	
 	name: "War Galley",
 	aiName: "",
 	weirdName: 2,
@@ -30989,7 +31261,7 @@ marketTechsArray = [ {
 	notes: ""
 } ];	
 	
-marketTechsArrayBfG = [ {	
+marketTechsArrayChr = [ {	
 	name: "Coinage",
 	aiName: "ri-coinage",
 	weirdName: 0,
@@ -31120,6 +31392,47 @@ millTechsArray = [ {
 	wk: 0,
 	de: 1,
 	civ: "Khitans",
+	notes: ""
+} ];	
+	
+millTechsArrayChr = [ {	
+	name: "Horse Collar",
+	aiName: "ri-horse-collar",
+	weirdName: 0,
+	id: 14,
+	building: "Mill",
+	age: 2,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Heavy Plow",
+	aiName: "ri-heavy-plow",
+	weirdName: 0,
+	id: 13,
+	building: "Mill",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Crop Rotation",
+	aiName: "ri-crop-rotation",
+	weirdName: 0,
+	id: 12,
+	building: "Mill",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
 	notes: ""
 } ];	
 	
@@ -31322,7 +31635,7 @@ monasteryTechsArray = [ {
 	notes: ""
 } ];	
 	
-templeTechsArrayBfG = [ {	
+templeTechsArrayChr = [ {	
 	name: "Syncretism",
 	aiName: "ri-atonement",
 	weirdName: 1,
@@ -31533,7 +31846,7 @@ siegeWorkshopTechsArray = [ {
 	notes: ""
 } ];	
 	
-siegeWorkshopTechsArrayBfG = [ {	
+siegeWorkshopTechsArrayChr = [ {	
 	name: "Capped Ram",
 	aiName: "ri-capped-ram",
 	weirdName: 0,
@@ -31576,7 +31889,7 @@ siegeWorkshopTechsArrayBfG = [ {
 	id: 239,
 	building: "Siege Workshop",
 	age: 4,
-	civ: "Athenians",
+	civ: "",
 	notes: ""
 } ];	
 	
@@ -31764,7 +32077,7 @@ stableTechsArray = [ {
 	notes: ""
 } ];	
 	
-stableTechsArrayBfG = [ {	
+stableTechsArrayChr = [ {	
 	name: "Light Cavalry",
 	aiName: "ri-light-cavalry",
 	weirdName: 0,
@@ -31780,7 +32093,7 @@ stableTechsArrayBfG = [ {
 	id: 428,
 	building: "Stable",
 	age: 4,
-	civ: "Achaemenids",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Shock Cavalry",
@@ -31798,7 +32111,7 @@ stableTechsArrayBfG = [ {
 	id: 265,
 	building: "Stable",
 	age: 4,
-	civ: "Achaemenids",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Elite War Chariot",
@@ -31808,6 +32121,15 @@ stableTechsArrayBfG = [ {
 	building: "Stable",
 	age: 4,
 	civ: "Achaemenids",
+	notes: ""
+}, {	
+	name: "Elite Sannahya",
+	aiName: "",
+	weirdName: 2,
+	id: 1328,
+	building: "Stable",
+	age: 4,
+	civ: "Puru",
 	notes: ""
 }, {	
 	name: "Bloodlines",
@@ -31826,6 +32148,33 @@ stableTechsArrayBfG = [ {
 	building: "Stable",
 	age: 3,
 	civ: "",
+	notes: ""
+}, {	
+	name: "Stable Balanced Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1281,
+	building: "Stable",
+	age: 2,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Stable Conscript Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1282,
+	building: "Stable",
+	age: 2,
+	civ: "Macedonians",
+	notes: ""
+}, {	
+	name: "Stable Mercenaries Doctrine",
+	aiName: "",
+	weirdName: 2,
+	id: 1283,
+	building: "Stable",
+	age: 2,
+	civ: "Macedonians",
 	notes: ""
 } ];	
 	
@@ -31935,7 +32284,7 @@ tcTechsArray = [ {
 	notes: ""
 } ];	
 	
-tcTechsArrayBfG = [ {	
+tcTechsArrayChr = [ {	
 	name: "Loom",
 	aiName: "ri-loom",
 	weirdName: 0,
@@ -32270,7 +32619,7 @@ universityTechsArray = [ {
 	notes: ""
 } ];	
 	
-academyTechsArrayBfG = [ {	
+academyTechsArrayChr = [ {	
 	name: "Fortified Wall",
 	aiName: "ri-fortified-wall",
 	weirdName: 0,
@@ -32349,7 +32698,7 @@ academyTechsArrayBfG = [ {
 	id: 51,
 	building: "Academy",
 	age: 4,
-	civ: "Athenians",
+	civ: "",
 	notes: ""
 }, {	
 	name: "Arrowslits",
@@ -33118,10 +33467,10 @@ townCenterTechsArrayROR = [ {
 
 techsArray = [rangeTechsArray, barracksTechsArray, blacksmithTechsArray, castleTechsArray, dockTechsArray, lcTechsArray, marketTechsArray, millTechsArray, mcTechsArray, monasteryTechsArray, siegeWorkshopTechsArray, stableTechsArray, tcTechsArray, universityTechsArray];
 techsArrayROR = [academyTechsArrayROR, rangeTechsArrayROR, barracksTechsArrayROR, dockTechsArrayROR, governmentCenterTechsArrayROR, granaryTechsArrayROR, marketTechsArrayROR, siegeWorkshopTechsArrayROR, stableTechsArrayROR, storagePitTechsArrayROR, templeTechsArrayROR, townCenterTechsArrayROR];
-techsArrayBfG = [academyTechsArrayBfG, rangeTechsArrayBfG, barracksTechsArrayBfG, blacksmithTechsArrayBfG, fortTechsArrayBfG, lcTechsArray, marketTechsArrayBfG, millTechsArray, mcTechsArray, portTechsArrayBfG, shipyardTechsArrayBfG, siegeWorkshopTechsArrayBfG, stableTechsArrayBfG, templeTechsArrayBfG, tcTechsArrayBfG];
+techsArrayChr = [academyTechsArrayChr, rangeTechsArrayChr, barracksTechsArrayChr, blacksmithTechsArrayChr, fortTechsArrayChr, lcTechsArray, marketTechsArrayChr, millTechsArrayChr, mcTechsArray, outpostTechsArrayChr, portTechsArrayChr, shipyardTechsArrayChr, siegeWorkshopTechsArrayChr, stableTechsArrayChr, templeTechsArrayChr, tcTechsArrayChr];
 techsBuildingsArray = ["Archery Range", "Barracks", "Blacksmith", "Castle", "Dock", "Lumber Camp", "Market", "Mill", "Mining Camp", "Monastery", "Siege Workshop", "Stable", "Town Center", "University"];
 techsBuildingsArrayROR = ["Academy", "Archery Range", "Barracks", "Dock", "Government Center", "Granary", "Market", "Siege Workshop", "Stable", "Storage Pit", "Temple", "Town Center"]
-techsBuildingsArrayBfG = ["Academy", "Archery Range", "Barracks", "Blacksmith", "Fort", "Lumber Camp", "Market", "Mill", "Mining Camp", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center"];
+techsBuildingsArrayChr = ["Academy", "Archery Range", "Barracks", "Blacksmith", "Fort", "Lumber Camp", "Market", "Mill", "Mining Camp", "Outpost", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center"];
 
 
 
@@ -33619,7 +33968,7 @@ objectsRangeArrayROR = [ {
 	notes: ""
 } ];
 
-objectsRangeArrayBfG = [ {	
+objectsRangeArrayChr = [ {	
 	name: "Bowman",
 	aiName: "archer",
 	line: "archer-line",
@@ -33661,7 +34010,7 @@ objectsRangeArrayBfG = [ {
 	deadUnit: "496",
 	projectile: "507",
 	chemProjectile: "519",
-	civ: "Athenians",
+	civ: "",
 	weirdName: 0,
 	notes: ""
 }, {	
@@ -33721,7 +34070,7 @@ objectsRangeArrayBfG = [ {
 	deadUnit: "631",
 	projectile: "478",
 	chemProjectile: "476",
-	civ: "Achaemenids",
+	civ: "",
 	weirdName: 0,
 	notes: ""
 }, {	
@@ -34142,7 +34491,7 @@ objectsBarracksArray = [ {
 	notes: "Changes to this unit when <= 45 HP"
 }];	
 	
-objectsBarracksArrayBfG = [ {	
+objectsBarracksArrayChr = [ {	
 	name: "Levy",
 	aiName: "militiaman",
 	line: "militiaman-line",
@@ -34307,6 +34656,36 @@ objectsBarracksArrayBfG = [ {
 	civ: "Spartans",
 	weirdName: 0,
 	notes: "Elite Hoplite upgrades to this unit when Xyphos is researched, not included in hoplite-line"
+}, {	
+	name: "Phalangite",
+	aiName: "",
+	line: "phalangite-line",
+	id: 2384,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2395",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Macedonians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Phalangite",
+	aiName: "",
+	line: "phalangite-line",
+	id: 2385,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2395",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Macedonians",
+	weirdName: 0,
+	notes: ""
 }];	
 	
 objectsBarracksArrayROR = [ {
@@ -36746,6 +37125,66 @@ objectsFortArray = [ {
 	weirdName: 0,
 	notes: "Elite Strategos upgrades to this unit when Taxiarchs is researched"
 }, {	
+	name: "Companion Cavalry",
+	aiName: "",
+	line: "companion-cavalry-line",
+	id: 2382,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2392",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Macedonians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Companion Cavalry",
+	aiName: "",
+	line: "companion-cavalry-line",
+	id: 2383,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2392",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Macedonians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Pattiyodha Longbowman",
+	aiName: "",
+	line: "pattiyodha-longbowman-line",
+	id: 2388,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2395",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Puru",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Pattiyodha Longbowman",
+	aiName: "",
+	line: "pattiyodha-longbowman-line",
+	id: 2389,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2395",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Puru",
+	weirdName: 0,
+	notes: ""
+}, {	
 	name: "Hippeus",
 	aiName: "",
 	line: "hippeus-line",
@@ -36773,6 +37212,36 @@ objectsFortArray = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "Spartans",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Rhomphaia Warrior",
+	aiName: "",
+	line: "rhomphaia-warrior-line",
+	id: 2386,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 3,
+	deadUnit: "2394",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Thracians",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Rhomphaia Warrior",
+	aiName: "",
+	line: "rhomphaia-warrior-line",
+	id: 2387,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Fort",
+	age: 4,
+	deadUnit: "2394",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Thracians",
 	weirdName: 0,
 	notes: ""
 }];	
@@ -38197,7 +38666,7 @@ objectsMonasteryArray = [ {
 	notes: "Warrior Monks change to this unit ID when carrying relics"
 }];
 	
-objectsTempleArrayBfG = [ {	
+objectsTempleArrayChr = [ {	
 	name: "Priestess",
 	aiName: "monk",
 	line: "",
@@ -38630,7 +39099,7 @@ objectsSiegeWorkshopArray = [ {
 	notes: "cmdid 12 is cmdid-siege-tower. cmdid-siege-tower must be defined in your AI script before it can be used."
 }];	
 	
-objectsSiegeWorkshopArrayBfG = [ {	
+objectsSiegeWorkshopArrayChr = [ {	
 	name: "Battering Ram (Civic)",
 	aiName: "feudal-battering-ram",
 	line: "battering-ram-line",
@@ -39307,7 +39776,7 @@ objectsStableArray = [ {
 	notes: ""
 }];
 	
-objectsStableArrayBfG = [ {	
+objectsStableArrayChr = [ {	
 	name: "Scout Cavalry",
 	aiName: "scout-cavalry",
 	line: "scout-cavalry-line",
@@ -39349,7 +39818,7 @@ objectsStableArrayBfG = [ {
 	deadUnit: "480",
 	projectile: "",
 	chemProjectile: "",
-	civ: "Achaemenids",
+	civ: "",
 	weirdName: 0,
 	notes: ""
 }, {	
@@ -39394,7 +39863,7 @@ objectsStableArrayBfG = [ {
 	deadUnit: "570",
 	projectile: "",
 	chemProjectile: "",
-	civ: "Achaemenids",
+	civ: "",
 	weirdName: 0,
 	notes: ""
 }, {	
@@ -39425,6 +39894,36 @@ objectsStableArrayBfG = [ {
 	projectile: "",
 	chemProjectile: "",
 	civ: "Achaemenids",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Sannahya",
+	aiName: "",
+	line: "sannahya-line",
+	id: 2390,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 3,
+	deadUnit: "2396",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Puru",
+	weirdName: 0,
+	notes: ""
+}, {	
+	name: "Elite Sannahya",
+	aiName: "",
+	line: "sannahya-line",
+	id: 2391,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Stable",
+	age: 4,
+	deadUnit: "2396",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Puru",
 	weirdName: 0,
 	notes: ""
 }];
@@ -40127,7 +40626,7 @@ objectsTownCenterArray = [ {
 	notes: ""
 }];	
 	
-objectsTownCenterArrayBfG = [ {	
+objectsTownCenterArrayChr = [ {	
 	name: "Villager (Male)",
 	aiName: "villager",
 	line: "",
@@ -43797,7 +44296,7 @@ objectsBuildingsArray = [ {
 	notes: ""
 }];
 	
-objectsBuildingsArrayBfG = [ {	
+objectsBuildingsArrayChr = [ {	
 	name: "Town Center (Archaic Age)",
 	aiName: "town-center",
 	line: "",
@@ -53360,7 +53859,7 @@ objectsOtherArrayROR = [ {
 
 objectsArray = [objectsRangeArray, objectsBarracksArray, objectsCastleArray, objectsDockArray, objectsDonjonArray, objectsKrepostArray, objectsMarketArray, objectsMonasteryArray, objectsSiegeWorkshopArray, objectsStableArray, objectsTownCenterArray, objectsBuildingsArray, objectsGaiaArray, objectsHeroesArray, objectsOtherArray];
 objectsArrayROR = [objectsAcademyArrayROR, objectsRangeArrayROR, objectsBarracksArrayROR, objectsDockArrayROR, objectsMarketArrayROR, objectsSiegeWorkshopArrayROR, objectsStableArrayROR, objectsTempleArrayROR, objectsTownCenterArrayROR, objectsBuildingsArrayROR, objectsOtherArrayROR];
-objectsArrayBfG = [objectsRangeArrayBfG, objectsBarracksArrayBfG, objectsFortArray, objectsMarketArray, objectsPortArray, objectsShipyardArray, objectsSiegeWorkshopArrayBfG, objectsStableArrayBfG, objectsTempleArrayBfG, objectsTownCenterArrayBfG, objectsBuildingsArrayBfG];
+objectsArrayChr = [objectsRangeArrayChr, objectsBarracksArrayChr, objectsFortArray, objectsMarketArray, objectsPortArray, objectsShipyardArray, objectsSiegeWorkshopArrayChr, objectsStableArrayChr, objectsTempleArrayChr, objectsTownCenterArrayChr, objectsBuildingsArrayChr];
 objectsBuildingNamesArray = ["Archery Range", "Barracks", "Castle", "Dock", "Donjon", "Krepost", "Market", "Monastery", "Siege Workshop", "Stable", "Town Center", "Buildings", "Gaia", "Heroes", "Other"];
 objectsBuildingNamesArrayROR = ["Academy", "Archery Range", "Barracks", "Dock", "Market", "Siege Workshop", "Stable", "Temple", "Town Center", "Buildings", "Other"];
-objectsBuildingNamesArrayBfG = ["Archery Range", "Barracks", "Fort", "Market", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center", "Buildings"];
+objectsBuildingNamesArrayChr = ["Archery Range", "Barracks", "Fort", "Market", "Port", "Shipyard", "Siege Workshop", "Stable", "Temple", "Town Center", "Buildings"];

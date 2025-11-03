@@ -332,7 +332,7 @@ code {
 	font-weight: bold;
 }
 
-.input-label, .techs-input-label-ror, .techs-input-label-bfg { 
+.input-label, .techs-input-label-ror, .techs-input-label-chr { 
 	width: 78%;
 	padding-top: 10px;
 	display: inline-block;
@@ -346,7 +346,7 @@ code {
 	font-weight: bold;
 }
 
-.commands-input-label, .patch-notes-input-label, .objects-ror-input-label, .objects-bfg-input-label {
+.commands-input-label, .patch-notes-input-label, .objects-ror-input-label, .objects-chr-input-label {
 	width: 58%;
 	padding-top: 10px;
 	display: inline-block;
@@ -383,7 +383,7 @@ label, input, select {
 	margin-right: 0.2%;
 }
 
-#techsInputROR, #techsInputBfG {
+#techsInputROR, #techsInputChr {
 	width: 78%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -401,7 +401,7 @@ label, input, select {
 	text-indent: 10px;
 }
 
-#commandsInput, #objectsInputROR, #objectsInputBfG, #patchNotesInput {
+#commandsInput, #objectsInputROR, #objectsInputChr, #patchNotesInput {
 	width: 58%; 
 	font-size: 13px; /* Increase font-size */
 	padding: 10px 0; /* Add some padding */
@@ -532,35 +532,35 @@ th {
 	width: 30%;
 }
 
-.techs-id-col-ror, .techs-id-col-bfg {
+.techs-id-col-ror, .techs-id-col-chr {
 	width: 5%;
 }
 
-.techs-name-col-ror, .techs-name-col-bfg {
+.techs-name-col-ror, .techs-name-col-chr {
 	width: 20%;
 }
 
-.techs-building-col-ror, .techs-building-col-bfg {
+.techs-building-col-ror, .techs-building-col-chr {
 	width: 16%;
 }
 
-.techs-age-col-ror, .techs-age-col-bfg {
+.techs-age-col-ror, .techs-age-col-chr {
 	width: 5%;
 }
 
-.techs-cost-col-ror, .techs-cost-col-bfg {
+.techs-cost-col-ror, .techs-cost-col-chr {
 	width: 10%;
 }
 
-.techs-time-col-ror, .techs-time-col-bfg {
+.techs-time-col-ror, .techs-time-col-chr {
 	width: 5%;
 }
 
-.techs-description-col-ror, .techs-description-col-bfg {
+.techs-description-col-ror, .techs-description-col-chr {
 	width: 25%;
 }
 
-.techs-notes-col-ror, .techs-notes-col-bfg {
+.techs-notes-col-ror, .techs-notes-col-chr {
 	width: 14%;
 }
 
@@ -569,23 +569,27 @@ th {
 }
 
 .objects-name-col {
-	width: 10%;
+	width: 9%;
 }
 
 .objects-ainame-col {
-	width: 9%;
+	width: 8%;
 }
 
 .objects-line-col {
-	width: 10%;
+	width: 9%;
 }
 
 .objects-class-col {
-	width: 9%;
+	width: 8%;
 }
 
 .objects-cmdId-col {
-	width: 9%;
+	width: 8%;
+}
+
+.objects-civ-col {
+	width: 8%;
 }
 
 .objects-building-col {
@@ -609,59 +613,63 @@ th {
 }
 
 .objects-versions-col {
-	width: 7%;
+	width: 6%;
 }
 
 .objects-notes-col {
-	width: 15%;
+	width: 13%;
 }
 
-.objects-ror-id-col, .objects-bfg-id-col {
+.objects-ror-id-col, .objects-chr-id-col {
 	width: 3%;
 }
 
-.objects-ror-name-col, .objects-bfg-name-col {
-	width: 12%;
+.objects-ror-name-col, .objects-chr-name-col {
+	width: 11%;
 }
 
-.objects-ror-ainame-col, .objects-bfg-ainame-col {
-	width: 12%;
+.objects-ror-ainame-col, .objects-chr-ainame-col {
+	width: 11%;
 }
 
-.objects-ror-line-col, .objects-bfg-line-col {
-	width: 6%;
+.objects-ror-line-col, .objects-chr-line-col {
+	width: 5%;
 }
 
-.objects-ror-class-col, .objects-bfg-class-col {
-	width: 12%;
+.objects-ror-class-col, .objects-chr-class-col {
+	width: 11%;
 }
 
-.objects-ror-cmdId-col, .objects-bfg-cmdId-col {
+.objects-ror-cmdId-col, .objects-chr-cmdId-col {
+	width: 8%;
+}
+
+.objects-ror-civ-col, .objects-chr-civ-col {
 	width: 9%;
 }
 
-.objects-ror-building-col, .objects-bfg-building-col {
-	width: 9%;
+.objects-ror-building-col, .objects-chr-building-col {
+	width: 8%;
 }
 
-.objects-ror-age-col, .objects-bfg-age-col {
+.objects-ror-age-col, .objects-chr-age-col {
 	width: 3%;
 }
 
-.objects-ror-dead-unit-col, .objects-bfg-dead-unit-col {
-	width: 6%;
+.objects-ror-dead-unit-col, .objects-chr-dead-unit-col {
+	width: 5%;
 }
 
-.objects-ror-projectile-col, .objects-bfg-projectile-col {
-	width: 6%;
+.objects-ror-projectile-col, .objects-chr-projectile-col {
+	width: 5%;
 }
 
 /* .objects-ror-versions-col {
 	width: 9%;
 } */
 
-.objects-ror-notes-col, .objects-bfg-notes-col {
-	width: 18%;
+.objects-ror-notes-col, .objects-chr-notes-col {
+	width: 16%;
 }
 
 .ror-image {

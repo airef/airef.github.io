@@ -20,8 +20,8 @@
 		<p>For more info on what dead units, projectiles, <a href="https://airef.github.io/parameters/parameters-details.html#LineId">lines</a>, <a href="https://airef.github.io/parameters/parameters-details.html#SetId">sets</a>, and <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">classes</a> are, click <a href="#info">here</a>.</p>
 		<p>For a list of objects in AoE2, see the <a href="./objects.html">AoE2 Objects Table</a>. For a list of objects in the Return of Rome DLC, see the <a href="./objects-ror.html">Return of Rome Objects Table</a>.</p>
 		<p>
-			<label for="objectsInputBfG" class="objects-bfg-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-cmdId" class="dropdown-label">Command ID</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
-			<input type="text" id="objectsInputBfG" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
+			<label for="objectsInputChr" class="objects-chr-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-cmdId" class="dropdown-label">Command ID</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
+			<input type="text" id="objectsInputChr" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
 				<option value="All" selected>All</option>
 				<option value="Archery">Archery</option>
 				<option value="Buildings">Buildings</option>
@@ -106,26 +106,27 @@
 		var numobjects;
 		var text = "";
 		var objectID = "";
-		for(var i = 0; i < objectsArrayBfG.length; i++) {
+		for(var i = 0; i < objectsArrayChr.length; i++) {
 			numobjects = 0;
-			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingNamesArrayBfG[i] + "</h3>";
-			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-bfg-id-col\">ID</th><th class=\"objects-bfg-name-col\">Name</th><th class=\"objects-bfg-ainame-col\">AoE2 AI Name</th><th class=\"objects-bfg-line-col\">Line ID</th><th class=\"objects-bfg-class-col\">Class</th><th class=\"objects-bfg-cmdId-col\">Cmd ID</th><th class=\"objects-bfg-building-col\">Building/<br>Category</th><th class=\"objects-bfg-age-col\">Age</th><th class=\"objects-bfg-dead-unit-col\">Dead Object ID</th>";
-			// text += "<th class=\"objects-bfg-projectile-col\">Proj. ID</th>";
-			text += "<th class=\"objects-bfg-notes-col\">Notes</th></tr>";
-			for(var j = 0; j < objectsArrayBfG[i].length; j++) {
-				objectID = objectsArrayBfG[i][j].id.toString();
+			text += "<h3 id=\"bldg-header-" + i + "\" class=\"objects-building-header\">" + objectsBuildingNamesArrayChr[i] + "</h3>";
+			text += "<table class=\"objects-table\" id=\"bldg-" + i + "\"><tr><th class=\"objects-chr-id-col\">ID</th><th class=\"objects-chr-name-col\">Name</th><th class=\"objects-chr-ainame-col\">AoE2 AI Name</th><th class=\"objects-chr-line-col\">Line ID</th><th class=\"objects-chr-class-col\">Class</th><th class=\"objects-chr-cmdId-col\">Cmd ID</th><th class=\"objects-chr-civ-col\">Civilization</th><th class=\"objects-chr-building-col\">Building/<br>Category</th><th class=\"objects-chr-age-col\">Age</th><th class=\"objects-chr-dead-unit-col\">Dead Object ID</th>";
+			// text += "<th class=\"objects-chr-projectile-col\">Proj. ID</th>";
+			text += "<th class=\"objects-chr-notes-col\">Notes</th></tr>";
+			for(var j = 0; j < objectsArrayChr[i].length; j++) {
+				objectID = objectsArrayChr[i][j].id.toString();
 				text += "<tr>";
-				text += "<td>" + objectsArrayBfG[i][j].id + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].name + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].aiName + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].line + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].class + "</td>"
-				text += "<td>" + objectsArrayBfG[i][j].cmdId + "</td>"
-				text += "<td>" + objectsArrayBfG[i][j].building + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].age + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].deadUnit + "</td>";
-				// text += "<td>" + objectsArrayBfG[i][j].projectile + "</td>";
-				text += "<td>" + objectsArrayBfG[i][j].notes + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].id + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].name + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].aiName + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].line + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].class + "</td>"
+				text += "<td>" + objectsArrayChr[i][j].cmdId + "</td>"
+				text += "<td>" + objectsArrayChr[i][j].civ + "</td>"
+				text += "<td>" + objectsArrayChr[i][j].building + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].age + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].deadUnit + "</td>";
+				// text += "<td>" + objectsArrayChr[i][j].projectile + "</td>";
+				text += "<td>" + objectsArrayChr[i][j].notes + "</td>";
 				text += "</td></tr>";
 				numobjects++;
 			}
@@ -134,8 +135,8 @@
 		document.getElementById("objectIndex").innerHTML = text;
 
 		var num = 0;
-		for(var k = 0; k < objectsArrayBfG.length; k++) {
-			num = num + objectsArrayBfG[k].length;
+		for(var k = 0; k < objectsArrayChr.length; k++) {
+			num = num + objectsArrayChr[k].length;
 		}
 		document.getElementById("num-results").innerHTML = "Num Results: " + num;
 	</script>
@@ -143,7 +144,7 @@
 		function objectsFilter() {
 			// Declare variables
 			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdCmdId, tdBuilding, tdAge, i, h, num, bldgNum, header;
-			input = document.getElementById("objectsInputBfG");
+			input = document.getElementById("objectsInputChr");
 			building = document.getElementById("objects-building");
 			building = building.value;
 			objectClass = document.getElementById("objects-class");
@@ -290,7 +291,7 @@
 			filter = input.value.toUpperCase();
 			filter = filter.replace(/-/g,"");
 			num = 0;
-			for (h = 0; h < objectsArrayBfG.length; h++) {
+			for (h = 0; h < objectsArrayChr.length; h++) {
 				table = document.getElementById("bldg-" + h);
 				tr = table.getElementsByTagName("tr");
 				header = document.getElementById("bldg-header-" + h);
@@ -298,13 +299,13 @@
 
 				//Loop through all table rows, and hide those who don't match the search query
 				for (i = 0; i < tr.length - 1; i++) {
-					tdId = objectsArrayBfG[h][i].id;
-					tdName = objectsArrayBfG[h][i].name;
-					tdAiName = objectsArrayBfG[h][i].aiName;
-					tdClass = objectsArrayBfG[h][i].class;
-					tdCmdId = objectsArrayBfG[h][i].cmdId;
-					tdBuilding = objectsArrayBfG[h][i].building;
-					tdAge = objectsArrayBfG[h][i].age;
+					tdId = objectsArrayChr[h][i].id;
+					tdName = objectsArrayChr[h][i].name;
+					tdAiName = objectsArrayChr[h][i].aiName;
+					tdClass = objectsArrayChr[h][i].class;
+					tdCmdId = objectsArrayChr[h][i].cmdId;
+					tdBuilding = objectsArrayChr[h][i].building;
+					tdAge = objectsArrayChr[h][i].age;
 
 					if (tdName != "" && tdId.toString().length > 0) {
 						tdName = tdName.replace(/-/g,"");
@@ -356,7 +357,7 @@
 		if (index >= 0) {
 			search = search.slice(index + 1,search.length + 1);
 			search = search.replace(/%20/g," ");	//spaces are replaced with %20 in URL address, so change them back to a space
-			document.getElementById("objectsInputBfG").value = search;
+			document.getElementById("objectsInputChr").value = search;
 			objectsFilter();
 		}
 	</script>
