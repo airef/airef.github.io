@@ -23975,7 +23975,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-carry",
 	id: 16,
-	description: "The amount of resources an object is carrying. This includes the amount of resources a villager is holding, the amount of food left in decaying animals, monk faith generation, flares, and unit corpses. The latter two have carry because of a decay timer that controls when they are removed from the map. Objects that cannot carry resources return 0."
+	description: "The amount of resources an object is carrying. This includes the amount of resources a villager is holding, the amount of food left in decaying animals, monk faith generation, flares, and unit corpses. It does not include resources that trade carts and trade cogs are carrying. Flares and corpses have carry because of a decay timer that controls when they are removed from the map. Objects that cannot carry resources return 0."
 }, {
 	name: "object-data-garrisoned",
 	id: 17,
@@ -26964,6 +26964,31 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "AI monks can be ordered to convert non-convertable buildings with a right click command.",
+	date: "Nov 10, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1437517147185086628\">Link</a>",
+	description: "AI monks can be ordered to convert non-convertable buildings with a right click command. Redemption isn't necessary beforehand, and faith regeneration doesn't have to be at 100% either. Human controlled monks don't have these abilities."
+}, {
+	name: "Units can go idle when targeting buildings at their max range, sometimes causing bugs with interrupting their attack animation.",
+	date: "Nov 5, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435748618991829073\">Link</a>",
+	description: "Units can go idle when targeting buildings at their max range, sometimes causing bugs with interrupting their attack animation."
+}, {
+	name: "Trebuchets continually unpack and repack or go idle",
+	date: "Nov 5, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435743498451292221\">Link</a>",
+	description: "Trebuchets permanently unpack and repack. Most of the time all trebs worked perfectly fine, then all of them on a single castle at once go idle for the rest of the game."
+}, {
+	name: "Mangonels go idle when units are inside their minimum range",
+	date: "Oct 28, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1432923135639814204\">Link</a>",
+	description: "Mangonels just sperg out and freeze in a command spam whenever anything is within their minimum range."
+}, {
+	name: "The multiple training location feature seems to crash the game for Goths",
+	date: "Oct 18, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429074897333780550\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429087701356777562\">Link 2</a>",
+	description: "Report 1: I tried to shift-delete two castles on behalf of my AI (after anarchy, in order to force it to make huskarls in the barracks instead of the castles), and now my game is hanging. Report 2: Clicking huskarl in the barracks with an AI playing seems to break the game I think. Had the same in my tests from the other week."
+}, {
 	name: "Training commands don't work for units with multiple training locations.",
 	date: "Oct 7, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1425112865064488980\">Link</a>",
@@ -26983,11 +27008,6 @@ bugsArray = [ {
 	date: "Aug 8, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1403468905481240626\">Link</a>",
 	description: "up-guard-unit basically crashes DE at the moment. Highly recommend not using this command. Most of the crashes seem to come with rules that execute the command every pass. Rules with disable-self or a long timer seem to crash the game less."
-}, {
-	name: "Fishing Ships can't explore",
-	date: "Jul 30, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1400155158087733388\">Link</a>",
-	description: "Very much suspecting there might be a flaw in fishing boat scouting without UP in DE. Has anyone seen boats not stop scouting within an AI recently without UP with fishing boats? What I've noticed is the \"stop\" icon keeps on turning itself on and off on the fishing boats which are scouting."
 }, {
 	name: "object-data-to-precise measures from left corner of target point",
 	date: "Jul 3, 2025",
@@ -27032,7 +27052,7 @@ bugsArray = [ {
 	name: "Rule with can-sell-commodity fired without a market",
 	date: "Jan 5, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
-	description: "In one of the matches today, a rule with can-sell-commodity fired without a market."
+	description: "In one of the matches today, a rule with can-sell-commodity fired without a market. All thats required is that you placed a market foundation once."
 }, {
 	name: "up-delete-objects command left gates at 1 HP",
 	date: "Nov 9, 2024",
