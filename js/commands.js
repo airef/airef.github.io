@@ -92,7 +92,7 @@ class StrategicNumber {
 		this.network = 0;
 		this.defined = 0;
 		this.available = 0;
-		this.version = "1.0c";
+		this.version = "AoC";
 		this.aoe = 0;
 		this.aoc = 0;
 		this.up = 0;
@@ -507,22 +507,22 @@ var cFeSetSignal = new Command("fe-set-signal","Action","DE");
 var cFeSubGameType = new Command("fe-sub-game-type","Fact","DE");
 var cXsScriptCall = new Command("xs-script-call","Fact/Action","DE");
 
-var cDefconst = new Command("defconst","Other","1.0c");
-var cDefrule = new Command("defrule","Other","1.0c");
-var cElse = new Command("#else","Other","1.0c");
-var cEndIf = new Command("#end-if","Other","1.0c");
+var cDefconst = new Command("defconst","Other","AoC");
+var cDefrule = new Command("defrule","Other","AoC");
+var cElse = new Command("#else","Other","AoC");
+var cEndIf = new Command("#end-if","Other","AoC");
 var cInclude = new Command("include","Other","UP");
-var cLoad = new Command("load","Other","1.0c");
-var cLoadIfDefined = new Command("#load-if-defined","Other","1.0c");
-var cLoadIfNotDefined = new Command("#load-if-not-defined","Other","1.0c");
-var cLoadRandom = new Command("load-random","Other","1.0c");
-var cAnd = new Command("and","Other","1.0c");
-var cNand = new Command("nand","Other","1.0c");
-var cNor = new Command("nor","Other","1.0c");
-var cNot = new Command("not","Other","1.0c");
-var cOr = new Command("or","Other","1.0c");
-var cXnor = new Command("xnor","Other","1.0c");
-var cXor = new Command("xor","Other","1.0c");
+var cLoad = new Command("load","Other","AoC");
+var cLoadIfDefined = new Command("#load-if-defined","Other","AoC");
+var cLoadIfNotDefined = new Command("#load-if-not-defined","Other","AoC");
+var cLoadRandom = new Command("load-random","Other","AoC");
+var cAnd = new Command("and","Other","AoC");
+var cNand = new Command("nand","Other","AoC");
+var cNor = new Command("nor","Other","AoC");
+var cNot = new Command("not","Other","AoC");
+var cOr = new Command("or","Other","AoC");
+var cXnor = new Command("xnor","Other","AoC");
+var cXor = new Command("xor","Other","AoC");
 
 var commandsArray = [cElse, cEndIf, cLoadIfDefined, cLoadIfNotDefined, cAcknowledgeEvent, cAcknowledgeTaunt, cAnd, cAttackNow, cAttackSoldierCount, cAttackWarboatCount, cBuild, cBuildForward, cBuildGate, cBuildWall, cBuildingAvailable, cBuildingCount, cBuildingCountTotal, cBuildingTypeCount, cBuildingTypeCountTotal, cBuyCommodity, cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit, cCanBuild, cCanBuildWithEscrow, cCanBuildGate, cCanBuildGateWithEscrow, cCanBuildWall, cCanBuildWallWithEscrow, cCanBuyCommodity, cCanResearch, cCanResearchWithEscrow, cCanSellCommodity, cCanSpy, cCanSpyWithEscrow, cCanTrain, cCanTrainWithEscrow, cCcAddResource, cCcPlayersBuildingCount, cCcPlayersBuildingTypeCount, cCcPlayersUnitCount, cCcPlayersUnitTypeCount, cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cChatToAll, cChatToAllUsingId, cChatToAllUsingRange, cChatToAllies, cChatToAlliesUsingId, cChatToAlliesUsingRange, cChatToEnemies, cChatToEnemiesUsingId, cChatToEnemiesUsingRange, cChatToPlayer, cChatToPlayerUsingId, cChatToPlayerUsingRange, cChatTrace, cCheatsEnabled, cCivilianPopulation, cCivSelected, cClearTributeMemory, cCommodityBuyingPrice, cCommoditySellingPrice, cCurrentAge, cCurrentAgeTime, cCurrentScore, cDeathMatchGame, cDefconst, cDefendSoldierCount, cDefendWarboatCount, cDefrule, cDeleteBuilding, cDeleteUnit, cDifficulty, cDisableRule, cDisableSelf, cDisableTimer, cDoctrine, cDoNothing, cDropsiteMinDistance, cEnableRule, cEnableTimer, cEnableWallPlacement, cEnemyBuildingsInTown, cEnemyCapturedRelics, cEscrowAmount, cEventDetected, cFalse, cFoodAmount, cGameTime, cGameType, cGateCount, cGenerateRandomNumber, cGoal, cGoldAmount, cHoldKohRuin, cHoldRelics, cHousingHeadroom, cIdleFarmCount, cLoad, cLoadRandom, cLog, cLogTrace, cMapSize, cMapType, cMilitaryPopulation, cNand, cNor, cNot, cOr, cPlayerComputer, cPlayerHuman, cPlayerInGame, cPlayerNumber, cPlayerResigned, cPlayerValid, cPlayersBuildingCount, cPlayersBuildingTypeCount, cPlayersCiv, cPlayersCivilianPopulation, cPlayersCurrentAge, cPlayersCurrentAgeTime, cPlayersMilitaryPopulation, cPlayersPopulation, cPlayersScore, cPlayersStance, cPlayersTribute, cPlayersTributeMemory, cPlayersUnitCount, cPlayersUnitTypeCount, cPopulation, cPopulationCap, cPopulationHeadroom, cRandomNumber, cRegicideGame, cReleaseEscrow, cResearch, cResearchAvailable, cResearchCompleted, cResign, cResourceFound, cSellCommodity, cSetAuthorEmail, cSetAuthorName, cSetAuthorVersion, cSetDifficultyParameter, cSetDoctrine, cSetEscrowPercentage, cSetGoal, cSetSharedGoal, cSetSignal, cSetStance, cSetStrategicNumber, cSharedGoal, cSheepAndForageTooFar, cSoldierCount, cSpy, cStanceToward, cStartingAge, cStartingResources, cStoneAmount, cStrategicNumber, cTaunt, cTauntDetected, cTauntUsingRange, cTimerTriggered, cTownUnderAttack, cTraceFact, cTrain, cTributeToPlayer, cTrue, cUnitAvailable, cUnitCount, cUnitCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cVictoryCondition, cWallCompletedPercentage, cWallInvisiblePercentage, cWarboatCount, cWoodAmount, cXnor, cXor, cUpAddCostData, cUpAddObjectById, cUpAddObjectCost, cUpAddPoint, cUpAddResearchCost, cUpAlliedGoal, cUpAlliedResourceAmount, cUpAlliedResourcePercent, cUpAlliedSn, cUpAssignBuilders, cUpAttackerClass, cUpBoundPoint, cUpBoundPrecisePoint, cUpBuild, cUpBuildLine, cUpBuildingTypeInTown, cUpBuyCommodity, cUpCanBuild, cUpCanBuildLine, cUpCanResearch, cUpCanSearch, cUpCanTrain, cUpCcAddResource, cUpCcSendCheat, cUpChangeName, cUpChatDataToAll, cUpChatDataToPlayer, cUpChatDataToSelf, cUpCleanSearch, cUpCompareConst, cUpCompareFlag, cUpCompareGoal, cUpCompareSn, cUpCompareText, cUpCopyPoint, cUpCreateGroup, cUpCrossTiles, cUpDefenderCount, cUpDeleteDistantFarms, cUpDeleteIdleUnits, cUpDeleteObjects, cUpDisbandGroupType, cUpDropResources, cUpEnemyBuildingsInTown, cUpEnemyUnitsInTown, cUpEnemyVillagersInTown, cUpFilterDistance, cUpFilterExclude, cUpFilterGarrison, cUpFilterInclude, cUpFilterRange, cUpFilterStatus, cUpFindFlare, cUpFindLocal, cUpFindNextPlayer, cUpFindPlayer, cUpFindPlayerFlare, cUpFindRemote, cUpFindResource, cUpFindStatusLocal, cUpFindStatusRemote, cUpFullResetSearch, cUpGaiaTypeCount, cUpGaiaTypeCountTotal, cUpGarrison, cUpGatherInside, cUpGetAttackerClass, cUpGetCostDelta, cUpGetEvent, cUpGetFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpGetFocusFact, cUpGetGroupSize, cUpGetGuardState, cUpGetIndirectGoal, cUpGetObjectData, cUpGetObjectTargetData, cUpGetObjectTypeData, cUpGetPathDistance, cUpGetPlayerColor, cUpGetPlayerFact, cUpGetPoint, cUpGetPointContains, cUpGetPointDistance, cUpGetPointElevation, cUpGetPointTerrain, cUpGetPointZone, cUpGetPreciseTime, cUpGetProjectilePlayer, cUpGetRuleId, cUpGetSearchState, cUpGetSharedGoal, cUpGetSignal, cUpGetTargetFact, cUpGetThreatData, cUpGetTimer, cUpGetTreatyData, cUpGetUpgradeId, cUpGetVictoryData, cUpGetVictoryLimit, cUpGroupSize, cUpGuardUnit, cUpIdleUnitCount, cUpJumpDirect, cUpJumpDynamic, cUpJumpRule, cUpLerpPercent, cUpLerpTiles, cUpLogData, cUpModifyEscrow, cUpModifyFlag, cUpModifyGoal, cUpModifyGroupFlag, cUpModifySn, cUpObjectData, cUpObjectTargetData, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpPathDistance, cUpPendingObjects, cUpPendingPlacement, cUpPlayerDistance, cUpPlayersInGame, cUpPointContains, cUpPointDistance, cUpPointElevation, cUpPointExplored, cUpPointTerrain, cUpPointZone, cUpProjectileDetected, cUpProjectileTarget, cUpReleaseEscrow, cUpRemainingBoarAmount, cUpRemoveObjects, cUpRequestHunters, cUpResearch, cUpResearchStatus, cUpResetAttackNow, cUpResetBuilding, cUpResetCostData, cUpResetFilters, cUpResetGroup, cUpResetPlacement, cUpResetScouts, cUpResetSearch, cUpResetTargetPriorities, cUpResetUnit, cUpResourceAmount, cUpResourcePercent, cUpRetaskGatherers, cUpRetreatNow, cUpRetreatTo, cUpSellCommodity, cUpSendFlare, cUpSendScout, cUpSetAttackStance, cUpSetDefensePriority, cUpSetEvent, cUpSetGroup, cUpSetIndirectGoal, cUpSetOffensePriority, cUpSetPlacementData, cUpSetPreciseTargetPoint, cUpSetSharedGoal, cUpSetSignal, cUpSetTargetById, cUpSetTargetObject, cUpSetTargetPoint, cUpSetTimer, cUpSetupCostData, cUpStoreMapName, cUpStoreObjectName, cUpStorePlayerChat, cUpStorePlayerName, cUpStoreTechName, cUpStoreText, cUpStoreTypeName, cUpTargetObjects, cUpTargetPoint, cUpTimerStatus, cUpTrain, cUpTrainSiteReady, cUpTributeToPlayer, cUpUngarrison, cUpUnitTypeInTown, cUpUpdateTargets, cUpVillagerTypeInTown, cFeBreakPoint, cFeCcEffectAmount, cFeCcEffectPercent, cFeFilterGarrisoned, cFeIdlePastureCount, cFeSetSignal, cFeSubGameType, cInclude, cXsScriptCall];
 
@@ -5481,7 +5481,7 @@ snTrackPlayerHistory.de = 0;
 snTrackPlayerHistory.linked = [];
 snTrackPlayerHistory.related = [ 105 ];
 snTrackPlayerHistory.shortDescription = "Doesn't work. Decides whether or not a human player's tendencies are tracked or not.";
-snTrackPlayerHistory.description = "It does nothing in UP 1.5 or DE. in 1.0c it wrote a load of gibberish to a file called yyyyyyyyyyyyyyy and occasionally caused a crash. The original intent in the CPSB was to \"decide whether or not a human player's tendencies are tracked or not.\"";
+snTrackPlayerHistory.description = "It does nothing in UP 1.5 or DE. in AoC it wrote a load of gibberish to a file called yyyyyyyyyyyyyyy and occasionally caused a crash. The original intent in the CPSB was to \"decide whether or not a human player's tendencies are tracked or not.\"";
 
 snMinimumDropsiteBuffer.id = 202;
 snMinimumDropsiteBuffer.snName = "sn-minimum-dropsite-buffer";
@@ -6011,7 +6011,7 @@ snAllowCivilianDefense.de = 1;
 snAllowCivilianDefense.linked = [ ];
 snAllowCivilianDefense.related = [ 100, 258 ];
 snAllowCivilianDefense.shortDescription = "Set to 0 to disable civilian defense, 1 to defend against weak, non-ranged units, 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.";
-snAllowCivilianDefense.description = "Set to 0 to disable civilian defense except against gaia (wolves, etc.), 1 to defend against weak, non-ranged units (like 1.0c), 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.</p><p>For reference, villager speed: default: 0.8, wheelbarrow: 0.88, hand-cart: 0.97.<br>For archer-line and skirmisher-line, speed: 0.96.</p><p>With " + snAllowCivilianOffense.getLink() + " set to 1, the \"weak units\" check is eliminated, allowing for a more aggressive response. Despite the speed advantage, even with only wheelbarrow, early ranged units are swiftly eliminated by villagers with minimal losses and luring.";
+snAllowCivilianDefense.description = "Set to 0 to disable civilian defense except against gaia (wolves, etc.), 1 to defend against weak, non-ranged units (like AoC), 2 for all weak units except warships and units faster than villagers, and 3 for all weak units except warships.</p><p>For reference, villager speed: default: 0.8, wheelbarrow: 0.88, hand-cart: 0.97.<br>For archer-line and skirmisher-line, speed: 0.96.</p><p>With " + snAllowCivilianOffense.getLink() + " set to 1, the \"weak units\" check is eliminated, allowing for a more aggressive response. Despite the speed advantage, even with only wheelbarrow, early ranged units are swiftly eliminated by villagers with minimal losses and luring.";
 
 snNumberForwardBuilders.id = 226;
 snNumberForwardBuilders.snName = "sn-number-forward-builders";
@@ -6026,7 +6026,7 @@ snNumberForwardBuilders.network = 0;
 snNumberForwardBuilders.defined = 1;
 snNumberForwardBuilders.available = 0;
 snNumberForwardBuilders.effective = 1;
-snNumberForwardBuilders.version = "1.0c";
+snNumberForwardBuilders.version = "AoC";
 snNumberForwardBuilders.aoe = 0;
 snNumberForwardBuilders.aoc = 1;
 snNumberForwardBuilders.up = 1;
@@ -6048,7 +6048,7 @@ snPercentAttackSoldiers.network = 0;
 snPercentAttackSoldiers.defined = 1;
 snPercentAttackSoldiers.available = 0;
 snPercentAttackSoldiers.effective = 1;
-snPercentAttackSoldiers.version = "1.0c";
+snPercentAttackSoldiers.version = "AoC";
 snPercentAttackSoldiers.aoe = 0;
 snPercentAttackSoldiers.aoc = 1;
 snPercentAttackSoldiers.up = 1;
@@ -6070,7 +6070,7 @@ snPercentAttackBoats.network = 0;
 snPercentAttackBoats.defined = 1;
 snPercentAttackBoats.available = 0;
 snPercentAttackBoats.effective = 1;
-snPercentAttackBoats.version = "1.0c";
+snPercentAttackBoats.version = "AoC";
 snPercentAttackBoats.aoe = 0;
 snPercentAttackBoats.aoc = 1;
 snPercentAttackBoats.up = 1;
@@ -6092,7 +6092,7 @@ snDoNotScaleForDifficultyLevel.network = 0;
 snDoNotScaleForDifficultyLevel.defined = 1;
 snDoNotScaleForDifficultyLevel.available = 0;
 snDoNotScaleForDifficultyLevel.effective = 1;
-snDoNotScaleForDifficultyLevel.version = "1.0c";
+snDoNotScaleForDifficultyLevel.version = "AoC";
 snDoNotScaleForDifficultyLevel.aoe = 0;
 snDoNotScaleForDifficultyLevel.aoc = 1;
 snDoNotScaleForDifficultyLevel.up = 1;
@@ -6115,7 +6115,7 @@ snGroupFormDistance.network = 0;
 snGroupFormDistance.defined = 1;
 snGroupFormDistance.available = 0;
 snGroupFormDistance.effective = 1;
-snGroupFormDistance.version = "1.0c";
+snGroupFormDistance.version = "AoC";
 snGroupFormDistance.aoe = 0;
 snGroupFormDistance.aoc = 1;
 snGroupFormDistance.up = 1;
@@ -6137,7 +6137,7 @@ snIgnoreAttackGroupUnderAttack.network = 0;
 snIgnoreAttackGroupUnderAttack.defined = 1;
 snIgnoreAttackGroupUnderAttack.available = 0;
 snIgnoreAttackGroupUnderAttack.effective = 1;
-snIgnoreAttackGroupUnderAttack.version = "1.0c";
+snIgnoreAttackGroupUnderAttack.version = "AoC";
 snIgnoreAttackGroupUnderAttack.aoe = 0;
 snIgnoreAttackGroupUnderAttack.aoc = 1;
 snIgnoreAttackGroupUnderAttack.up = 1;
@@ -6160,7 +6160,7 @@ snGatherDefenseUnits.network = 0;
 snGatherDefenseUnits.defined = 1;
 snGatherDefenseUnits.available = 0;
 snGatherDefenseUnits.effective = 1;
-snGatherDefenseUnits.version = "1.0c";
+snGatherDefenseUnits.version = "AoC";
 snGatherDefenseUnits.aoe = 0;
 snGatherDefenseUnits.aoc = 1;
 snGatherDefenseUnits.up = 1;
@@ -6183,7 +6183,7 @@ snMaximumWoodDropDistance.network = 0;
 snMaximumWoodDropDistance.defined = 1;
 snMaximumWoodDropDistance.available = 0;
 snMaximumWoodDropDistance.effective = 1;
-snMaximumWoodDropDistance.version = "1.0c";
+snMaximumWoodDropDistance.version = "AoC";
 snMaximumWoodDropDistance.aoe = 0;
 snMaximumWoodDropDistance.aoc = 1;
 snMaximumWoodDropDistance.up = 1;
@@ -6206,7 +6206,7 @@ snMaximumFoodDropDistance.network = 0;
 snMaximumFoodDropDistance.defined = 1;
 snMaximumFoodDropDistance.available = 0;
 snMaximumFoodDropDistance.effective = 1;
-snMaximumFoodDropDistance.version = "1.0c";
+snMaximumFoodDropDistance.version = "AoC";
 snMaximumFoodDropDistance.aoe = 0;
 snMaximumFoodDropDistance.aoc = 1;
 snMaximumFoodDropDistance.up = 1;
@@ -6229,7 +6229,7 @@ snMaximumHuntDropDistance.network = 0;
 snMaximumHuntDropDistance.defined = 1;
 snMaximumHuntDropDistance.available = 0;
 snMaximumHuntDropDistance.effective = 1;
-snMaximumHuntDropDistance.version = "1.0c";
+snMaximumHuntDropDistance.version = "AoC";
 snMaximumHuntDropDistance.aoe = 0;
 snMaximumHuntDropDistance.aoc = 1;
 snMaximumHuntDropDistance.up = 1;
@@ -6252,7 +6252,7 @@ snMaximumFishBoatDropDistance.network = 0;
 snMaximumFishBoatDropDistance.defined = 1;
 snMaximumFishBoatDropDistance.available = "available, except for water maps, however if the value will always be large enough, it should be fine";
 snMaximumFishBoatDropDistance.effective = 1;
-snMaximumFishBoatDropDistance.version = "1.0c";
+snMaximumFishBoatDropDistance.version = "AoC";
 snMaximumFishBoatDropDistance.aoe = 0;
 snMaximumFishBoatDropDistance.aoc = 1;
 snMaximumFishBoatDropDistance.up = 1;
@@ -6275,7 +6275,7 @@ snMaximumGoldDropDistance.network = 0;
 snMaximumGoldDropDistance.defined = 1;
 snMaximumGoldDropDistance.available = 0;
 snMaximumGoldDropDistance.effective = 1;
-snMaximumGoldDropDistance.version = "1.0c";
+snMaximumGoldDropDistance.version = "AoC";
 snMaximumGoldDropDistance.aoe = 0;
 snMaximumGoldDropDistance.aoc = 1;
 snMaximumGoldDropDistance.up = 1;
@@ -6298,7 +6298,7 @@ snMaximumStoneDropDistance.network = 0;
 snMaximumStoneDropDistance.defined = 1;
 snMaximumStoneDropDistance.available = 0;
 snMaximumStoneDropDistance.effective = 1;
-snMaximumStoneDropDistance.version = "1.0c";
+snMaximumStoneDropDistance.version = "AoC";
 snMaximumStoneDropDistance.aoe = 0;
 snMaximumStoneDropDistance.aoc = 1;
 snMaximumStoneDropDistance.up = 1;
@@ -6321,7 +6321,7 @@ snGatherIdleSoldiersAtCenter.network = 0;
 snGatherIdleSoldiersAtCenter.defined = 1;
 snGatherIdleSoldiersAtCenter.available = 0;
 snGatherIdleSoldiersAtCenter.effective = 1;
-snGatherIdleSoldiersAtCenter.version = "1.0c";
+snGatherIdleSoldiersAtCenter.version = "AoC";
 snGatherIdleSoldiersAtCenter.aoe = 0;
 snGatherIdleSoldiersAtCenter.aoc = 1;
 snGatherIdleSoldiersAtCenter.up = 1;
@@ -6329,6 +6329,7 @@ snGatherIdleSoldiersAtCenter.de = 1;
 snGatherIdleSoldiersAtCenter.linked = [];
 snGatherIdleSoldiersAtCenter.related = [ 232 ];
 snGatherIdleSoldiersAtCenter.shortDescription = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.";
+snGatherIdleSoldiersAtCenter.description = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.</p><p>This SN was added in the Conquerors expansion, so it is not available in the original Age of Kings version.";
 
 snGarrisonRams.id = 240;
 snGarrisonRams.snName = "sn-garrison-rams";
@@ -6343,7 +6344,7 @@ snGarrisonRams.network = 0;
 snGarrisonRams.defined = 1;
 snGarrisonRams.available = "available, if you will not create rams";
 snGarrisonRams.effective = 1;
-snGarrisonRams.version = "1.0c";
+snGarrisonRams.version = "AoC";
 snGarrisonRams.aoe = 0;
 snGarrisonRams.aoc = 1;
 snGarrisonRams.up = 1;
@@ -6351,6 +6352,7 @@ snGarrisonRams.de = 1;
 snGarrisonRams.linked = [];
 snGarrisonRams.related = [];
 snGarrisonRams.shortDescription = "Set to 0 to turn off. When on, the CP AI tries (but doesn't always succeed) to put infantry units into rams before the attack group departs.";
+snGarrisonRams.description = "Set to 0 to turn off. When on, the CP AI tries (but doesn't always succeed) to put infantry units into rams before the attack group departs.</p><p>This SN was added in the Conquerors expansion, so it is not available in the original Age of Kings version.";
 
 snDoNotTransportFromSameZone.id = 241;
 snDoNotTransportFromSameZone.snName = "sn-do-not-transport-from-same-zone";
@@ -6364,8 +6366,8 @@ snDoNotTransportFromSameZone.rmax = 1;
 snDoNotTransportFromSameZone.network = 0;
 snDoNotTransportFromSameZone.defined = 1;
 snDoNotTransportFromSameZone.available = "available, except for water maps requiring transport ships";
-snDoNotTransportFromSameZone.effective = 1;
-snDoNotTransportFromSameZone.version = "1.0c";
+snDoNotTransportFromSameZone.effective = 0;
+snDoNotTransportFromSameZone.version = "AoC";
 snDoNotTransportFromSameZone.aoe = 0;
 snDoNotTransportFromSameZone.aoc = 1;
 snDoNotTransportFromSameZone.up = 1;
@@ -6373,7 +6375,7 @@ snDoNotTransportFromSameZone.de = 1;
 snDoNotTransportFromSameZone.linked = [];
 snDoNotTransportFromSameZone.related = [];
 snDoNotTransportFromSameZone.shortDescription = "Set to 1 to influence transport ship behavior.";
-snDoNotTransportFromSameZone.description = "The UP reference says that you can set this to 1 to influence transport ship behavior. However, most other sources of documentation leave this SN undocumented, so this SN may not have an effect.";
+snDoNotTransportFromSameZone.description = "The UP reference says that you can set this to 1 to influence transport ship behavior. However, most other sources of documentation leave this SN undocumented, so this SN may not have an effect.</p><p>This SN was added in the Conquerors expansion, so it is not available in the original Age of Kings version.";
 
 snEnableNewBuildingSystem.id = 242;
 snEnableNewBuildingSystem.snName = "sn-enable-new-building-system";
@@ -6486,7 +6488,7 @@ snObjectRepairLevel.de = 1;
 snObjectRepairLevel.linked = [];
 snObjectRepairLevel.related = [];
 snObjectRepairLevel.shortDescription = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons. For scenarios and campaigns, the default is 1 for compatibility.";
-snObjectRepairLevel.description = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons.</p><p>For scenarios and campaigns, the default is 1 for compatibility. The default is 16387 (wonder, castle, monastery, town-center, siege) for all other game modes.</p><p>Examples:<br>0 = wonder only (essentially disabled)<br>1 = wonder, castle, monastery (the 1.0c repair level)<br>3 = wonder, castle, monastery, town-center<br>20547 = wonder, castle, monastery, town-center, dock, towers, siege weapons (scripter64 uses this in Chameleon)<br>20547 = 0 + 1 + 2 + 64 + 4096 + 16384";
+snObjectRepairLevel.description = "Add bit flags together to generate a value: 0 = wonder; 1 = castle, monastery; 2 = town-center; 4 = barracks; 8 = archery-range; 16 = stable; 32 = siege-workshop; 64 = dock; 128 = market; 256 = university; 512 = blacksmith; 1024 = lumber-camp, mining-camp, mill; 2048 = house; 4096 = towers; 8192 = walls and gates; 16384 = siege weapons.</p><p>For scenarios and campaigns, the default is 1 for compatibility. The default is 16387 (wonder, castle, monastery, town-center, siege) for all other game modes.</p><p>Examples:<br>0 = wonder only (essentially disabled)<br>1 = wonder, castle, monastery (the AoC repair level)<br>3 = wonder, castle, monastery, town-center<br>20547 = wonder, castle, monastery, town-center, dock, towers, siege weapons (scripter64 uses this in Chameleon)<br>20547 = 0 + 1 + 2 + 64 + 4096 + 16384";
 
 snEnablePatrolAttack.id = 247;
 snEnablePatrolAttack.snName = "sn-enable-patrol-attack";
@@ -7382,7 +7384,7 @@ snLocalTargetingMode.de = 1;
 snLocalTargetingMode.linked = [];
 snLocalTargetingMode.related = [];
 snLocalTargetingMode.shortDescription = "Set to 1 to prioritize attack bonuses and overall damage per hit. If set to 2, units will prioritize targets with high base pierce armor, such as rams; otherwise, they will target as usual. The offensive priority value of a target (-1 to 11) is added to the weight for modes 1 and 2, as well. If set to 0, units will target as usual.";
-snLocalTargetingMode.description = "Set to 1 to prioritize attack bonuses and overall damage per hit. If set to 2, units will prioritize targets with high base pierce armor, such as rams; otherwise, they will target as usual. The offensive priority value of a target (-1 to 11) is added to the weight for modes 1 and 2, as well. If set to 0, units will target as usual.</p><p>Note that units that do 1hp or less damage per hit (like archers) will intentionally try to avoid wasting shots on high-pierce targets like rams on modes 1 and 2, if a better target is available.</p><p>Here are the exact weight calculations:</p><ul><li>SN = 0 (1.0c local targeting system): 5 weight is given to the current target, 0-75 weight based on distance (nearest available target is 75, farthest is 0), and 0-10 weight is given to time to eliminate the target based on number of hits and reload time.</li><li>SN = 1: Weight = the net attack value (i.e. attack+bonuses-armor) * 3 + offensive-priority-value. If the net attack value is <= 1, then -5 weight is used instead.</li><li>SN = 2: Weight is the same as SN = 1, but only if the target has >= 40 base pierce armor; otherwise default local targeting behavior is used (the SN=0 weights).</li></ul><p>In other words, SN=2 is primarily for defense from things like rams coming for your trebuchets, etc. With SN=1, you might get the best behavior. After all weights are added together, the target with the highest weight is attacked. It's possible that the weights from SN=0 are added to the weights of SN=1 when sn-local-targeting-mode is set to 1, but probably not. The explanations from patch notes are unclear.</p><p>However, units that don't move have reduced priority compared to units that move, except rams, cannon galleons, petards, and trebuchets have this ordering reversed and prioritize units that don't move first.";
+snLocalTargetingMode.description = "Set to 1 to prioritize attack bonuses and overall damage per hit. If set to 2, units will prioritize targets with high base pierce armor, such as rams; otherwise, they will target as usual. The offensive priority value of a target (-1 to 11) is added to the weight for modes 1 and 2, as well. If set to 0, units will target as usual.</p><p>Note that units that do 1hp or less damage per hit (like archers) will intentionally try to avoid wasting shots on high-pierce targets like rams on modes 1 and 2, if a better target is available.</p><p>Here are the exact weight calculations:</p><ul><li>SN = 0 (AoC local targeting system): 5 weight is given to the current target, 0-75 weight based on distance (nearest available target is 75, farthest is 0), and 0-10 weight is given to time to eliminate the target based on number of hits and reload time.</li><li>SN = 1: Weight = the net attack value (i.e. attack+bonuses-armor) * 3 + offensive-priority-value. If the net attack value is <= 1, then -5 weight is used instead.</li><li>SN = 2: Weight is the same as SN = 1, but only if the target has >= 40 base pierce armor; otherwise default local targeting behavior is used (the SN=0 weights).</li></ul><p>In other words, SN=2 is primarily for defense from things like rams coming for your trebuchets, etc. With SN=1, you might get the best behavior. After all weights are added together, the target with the highest weight is attacked. It's possible that the weights from SN=0 are added to the weights of SN=1 when sn-local-targeting-mode is set to 1, but probably not. The explanations from patch notes are unclear.</p><p>However, units that don't move have reduced priority compared to units that move, except rams, cannon galleons, petards, and trebuchets have this ordering reversed and prioritize units that don't move first.";
 
 snLivestockDefendPriority.id = 287;
 snLivestockDefendPriority.snName = "sn-livestock-defend-priority";
@@ -8825,7 +8827,7 @@ otherLoadIfsArray = [ {
 	type: "Other"
 }, {
 	name: "UP-PROCESS-60FPS",
-	description: "60 frames per second enabled (instead of the 20 fps in 1.0c).",
+	description: "60 frames per second enabled (instead of the 20 fps in AoC).",
 	type: "Other"
 }, {
 	name: "SCENARIO-MAP",
@@ -12107,7 +12109,7 @@ cGenerateRandomNumber.complexity = "Low";
 
 //goal
 cGoal.shortDescription = "Checks the current value of the given goal.";
-cGoal.description = "Checks the current value of the given goal. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in 1.0c) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The " + cGoal.getLink() + " command checks if the value of the given GoalId is equal to the given value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The " + cSetGoal.getLink() + " and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
+cGoal.description = "Checks the current value of the given goal. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in AoC) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The " + cGoal.getLink() + " command checks if the value of the given GoalId is equal to the given value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The " + cSetGoal.getLink() + " and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -12241,7 +12243,7 @@ cIdleFarmCount.complexity = "Low";
 
 //log
 cLog.shortDescription = "Writes the given string to a log file. Only works in DE.";
-cLog.description = "Writes the given string to a log file. Used purely for testing purposes. Works only if logging is enabled. Logging is disabled in 1.0c (the old CD version of the game) and Userpatch. Use " + cUpLogData.getLink() + " instead.</p><p>However, logging can be enabled in DE. To do this, you need to launch the game with the parameters LOGSYSTEMS=AIScript and VERBOSELOGGING (case sensitive). To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
+cLog.description = "Writes the given string to a log file. Used purely for testing purposes. Works only if logging is enabled. Logging is disabled in AoC (the old CD version of the game) and Userpatch. Use " + cUpLogData.getLink() + " instead.</p><p>However, logging can be enabled in DE. To do this, you need to launch the game with the parameters LOGSYSTEMS=AIScript and VERBOSELOGGING (case sensitive). To do this with the Steam version, open your Steam games library with the Steam client, right click on Age of Empires II: Definitive Edition in the left sidebar that lists the games you own, and click Properties. In the Properties window, under the General tab, type the parameters above separated by spaces. Then, when you launch the game these parameters will be active.</p><p>The log produced in DE will be found in the Steam user folder, usually something like \"C:\\Users\\[user ID]\\Games\\Age of Empires 2 DE\\logs\" but note that this log isn't just used by the AI (it would be best to log something identifying the AI log at the start of the game), some of these logs with VERBOSELOGGING can get quite large so it might be a good idea to periodically clean out the folder.";
 cLog.commandParameters = [ {
 	nameLink: pString.getLink(),
 	name: "String",
@@ -13318,7 +13320,7 @@ cSetEscrowPercentage.complexity = "Medium";
 
 //set-goal
 cSetGoal.shortDescription = "Sets a given goal to a given value.";
-cSetGoal.description = "Sets a given goal to a given value. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in 1.0c) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The set-goal command sets the value the given GoalId to the given integer value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The set-goal and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
+cSetGoal.description = "Sets a given goal to a given value. While their purpose may be unclear based on their name, goals are variables which can store an integer value which can be checked with this command or with " + cUpCompareGoal.getLink() + ". Each goal is given an ID, and AIs have 16000 goals available (only 512 in UP and only 40 in AoC) that they can use to store different values, and they all store the value -1 at the beginning of the game. Goals are one of the most important concepts of AI scripting, so it's good to learn how to use them.</p><p>In programming speak, goals are a 16000-length one-indexed 32-bit integer array, pre-initialized to -1, and a GoalId refers to a particular index of that array. The set-goal command sets the value the given GoalId to the given integer value. New goals or variables cannot be defined, only constants (called defconsts by the AI engine), so AI scripters are limited to these 16000 goals, though unused strategic numbers can also be used like goals in a pinch.</p><p>If the paragraph above makes absolutely no sense to you, you can imagine goals like a bank which holds 16000 bank accounts, numbered with IDs from 1 to 16000. These accounts can hold whole amounts (no cents or decimal amounts of money), and they can store either positive or negative amounts of money. These bank accounts are restricted to holding between -2,147,483,648 and 2,147,483,647 dollars, and they all start with -$1 (negative 1 dollars) stored inside them until they are used by a customer (the AI scripter). The set-goal and " + cUpModifyGoal.getLink() + " commands can modify how much money is stored in a particular account.</p><p>Following this bank metaphor, the " + cGoal.getLink() + " command checks if the given bank account number holds the given amount of money. For example, (goal 5 13) checks if goal ID #5 holds the value 13 (i.e. bank account #5 holds $13), and (goal 415 -3274) checks if goal ID #415 holds the value -3,274 (i.e. bank account #415 holds -$3,274). You can also use " + cUpCompareGoal.getLink() + " to check the current value of a goal ID in a more powerful manner, such as checking if the goal stores greater or less than the given value.</p><p>It is pretty common to use a defconst to refer to a goal ID number to make the AI more readable. See the second example below on what this looks like."
 cSetGoal.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -14277,7 +14279,7 @@ cLoad.complexity = "Low";
 
 //load-random
 cLoadRandom.shortDescription = "Randomly loads the code from one AI file out of a list of files.";
-cLoadRandom.description = "Randomly loads the code from one AI file out of a list of files. This command provides an option of randomizing AI strategies on the level higher than the rule level. Notice that the filenames do not have path or an extension. The script interpreter automatically adds a path and an extension. By default, the load-random command will look for a file with a matching filename within the main AI directory. If you want to load a .per file from a folder within the AI directory, enter the name of the folder, followed by a slash, and then followed by the filename without a file extension.</p><p>Here are the default AI directories per game version:<ul><li>CD Version/UP: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\AI</li><li>WK: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\Games\\WololoKingdoms\\Script.Ai</li><li>DE: C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\ai</li><li>DE Mods: C:\\Users\\%USERNAME%\\Games\\Age of Empires 2 DE\\[Your Unique Game ID]\\mods\\local\\[The Mod's Name]\\resources\\_common\\ai (if you want to edit a mod you downloaded, use the subscribed folder instead of the local folder)</ul></p><p>Using the load-random command makes it easier to organize and re-use parts of your scripts in new ways and to provide variation between games. Loaded files are in every aspect the same as original script files, so any script file can be loaded by any other script file.</p><p>The load-random command can be inserted anywhere between rules. load-random commands cannot be used inside a rule, so if you want to load your AI code according to a certain condition, use " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + ".</p><p>Each file within the load-random is given a percent chance from 1 to 100 for that file to be selected. If a percentage is not provided, this file is regarded as the default file which will be picked if the other files with percentages are not chosen. Only one of the possible files within the load-random command will be selected. If the percentages don't add up to 100 and there is no default file given, then there is a chance that the load-random command will not load any files. If only the default file is given, that file will load 100% of the time, but this version of the load-random command is slower than the " + cLoad.getLink() + " command, so specifying only a default file is not recommended.</p><p>Userpatch added some additional options for load-random. Instead of a literal numeric percent, you can use a + followed by a defconst which specifies the percent, without spaces. This allows the scripter to randomly load files according to defconsts. You can also use a + to load files with 100% probability. In either case, the + is ignored by the CD version (version 1.0c) AI parser, so load-random commands using a + will ensure that thes files are only loaded if the player is using Userpatch. As of this writing, the options in this paragraph are bugged in DE.</p><p>The AI Expert system that AoE2 uses loads all AI files at runtime, so you cannot tell the AI to load a file after a game has started. Once a load-random command has determined which file to randomly load, this selected file will be used throughout the rest of the game. When a load-random command is encountered, parsing of the current file is suspended until the load-random command finishes. At that point parsing resumes, starting with a rule immediately following the load-random command. Essentially, you can think of the load-random command as copying the code from the external .per file and pasting it into the original .per file that has the load-random command. Or, more accurately, if you have programming experience, you can think of the load-random command as a function call.</p><p>Load commands can be nested (a script that loads another script) up to 10 levels deep.</p><p>Loading multiple script files from a top-level script file makes computer players' knowledge modular. This approach has a benefit only if the script files loaded do not have overlapping areas of expertise.";
+cLoadRandom.description = "Randomly loads the code from one AI file out of a list of files. This command provides an option of randomizing AI strategies on the level higher than the rule level. Notice that the filenames do not have path or an extension. The script interpreter automatically adds a path and an extension. By default, the load-random command will look for a file with a matching filename within the main AI directory. If you want to load a .per file from a folder within the AI directory, enter the name of the folder, followed by a slash, and then followed by the filename without a file extension.</p><p>Here are the default AI directories per game version:<ul><li>CD Version/UP: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\AI</li><li>WK: C:\\Program Files (x86)\\Microsoft Games\\Age of Empires II\\Games\\WololoKingdoms\\Script.Ai</li><li>DE: C:\\Program Files (x86)\\Steam\\steamapps\\common\\AoE2DE\\resources\\_common\\ai</li><li>DE Mods: C:\\Users\\%USERNAME%\\Games\\Age of Empires 2 DE\\[Your Unique Game ID]\\mods\\local\\[The Mod's Name]\\resources\\_common\\ai (if you want to edit a mod you downloaded, use the subscribed folder instead of the local folder)</ul></p><p>Using the load-random command makes it easier to organize and re-use parts of your scripts in new ways and to provide variation between games. Loaded files are in every aspect the same as original script files, so any script file can be loaded by any other script file.</p><p>The load-random command can be inserted anywhere between rules. load-random commands cannot be used inside a rule, so if you want to load your AI code according to a certain condition, use " + cLoadIfDefined.getLink() + " or " + cLoadIfNotDefined.getLink() + ".</p><p>Each file within the load-random is given a percent chance from 1 to 100 for that file to be selected. If a percentage is not provided, this file is regarded as the default file which will be picked if the other files with percentages are not chosen. Only one of the possible files within the load-random command will be selected. If the percentages don't add up to 100 and there is no default file given, then there is a chance that the load-random command will not load any files. If only the default file is given, that file will load 100% of the time, but this version of the load-random command is slower than the " + cLoad.getLink() + " command, so specifying only a default file is not recommended.</p><p>Userpatch added some additional options for load-random. Instead of a literal numeric percent, you can use a + followed by a defconst which specifies the percent, without spaces. This allows the scripter to randomly load files according to defconsts. You can also use a + to load files with 100% probability. In either case, the + is ignored by the CD version (version AoC) AI parser, so load-random commands using a + will ensure that thes files are only loaded if the player is using Userpatch. As of this writing, the options in this paragraph are bugged in DE.</p><p>The AI Expert system that AoE2 uses loads all AI files at runtime, so you cannot tell the AI to load a file after a game has started. Once a load-random command has determined which file to randomly load, this selected file will be used throughout the rest of the game. When a load-random command is encountered, parsing of the current file is suspended until the load-random command finishes. At that point parsing resumes, starting with a rule immediately following the load-random command. Essentially, you can think of the load-random command as copying the code from the external .per file and pasting it into the original .per file that has the load-random command. Or, more accurately, if you have programming experience, you can think of the load-random command as a function call.</p><p>Load commands can be nested (a script that loads another script) up to 10 levels deep.</p><p>Loading multiple script files from a top-level script file makes computer players' knowledge modular. This approach has a benefit only if the script files loaded do not have overlapping areas of expertise.";
 cLoadRandom.commandParameters = [ {
 	nameLink: pValue.getLink(),
 	name: "Value",
@@ -14856,7 +14858,7 @@ cUpAlliedSn.complexity = "Medium";
 
 //up-assign-builders
 cUpAssignBuilders.shortDescription = "Assign a specific number of builders to a building type or class.";
-cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If the current number of builders for the building type or class is less than the amount of villagers specified by up-assign-builders, the additional builders are immediately sent to help construct the building.</p><p>If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed. Additionally, if you want to stop sending any builders to construct a building type or class, you must set up-assign-builders to -1, not 0.</p><p>When using any build command besides " + cUpBuildLine.getLink() + ", the game will automatically assign one builder to construct the building, regardless of what you have up-assign-builders set to. However, if the original builder is killed or restasked and up-assign-builders is set to -1 for the building, the AI will not send a replacement builder to finish the building.</p><p>Assigning the number of builders by class is best for walls and gates. By default, like v1.0c, wonders have 250 (max) builders, and the wall class has 2.";
+cUpAssignBuilders.description = "Assign a specific number of builders to a building type or class. This assignment lasts for all future buildings of the specified building type or class until a new up-assign-builders command is issued. If the current number of builders for the building type or class is less than the amount of villagers specified by up-assign-builders, the additional builders are immediately sent to help construct the building.</p><p>If you want a certain number of assign builders to only last for the construction of one building, you must set up-assign-builders again after the building is constructed. Additionally, if you want to stop sending any builders to construct a building type or class, you must set up-assign-builders to -1, not 0.</p><p>When using any build command besides " + cUpBuildLine.getLink() + ", the game will automatically assign one builder to construct the building, regardless of what you have up-assign-builders set to. However, if the original builder is killed or restasked and up-assign-builders is set to -1 for the building, the AI will not send a replacement builder to finish the building.</p><p>Assigning the number of builders by class is best for walls and gates. By default, like AoC, wonders have 250 (max) builders, and the wall class has 2.";
 cUpAssignBuilders.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -19757,7 +19759,7 @@ cUpSetDefensePriority.description += "<tr><td>50</td><td>mining-camp</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>100</td><td>market</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>250</td><td>house</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>500</td><td>barracks, archery-range, stable, monastery, siege-workshop, dock</td></tr>";
-cUpSetDefensePriority.description += "<tr><td>500</td><td>gate (not in v1.0c, but set since the gate fix)</td></tr>";
+cUpSetDefensePriority.description += "<tr><td>500</td><td>gate (not in AoC, but set since the gate fix)</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>1000</td><td>town-center (ID 109, standing), town-center-foundation (ID 621, foundation)</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>2000</td><td>watch-tower</td></tr>";
 cUpSetDefensePriority.description += "<tr><td>3000</td><td>guard-tower</td></tr>";
@@ -21082,7 +21084,7 @@ cXsScriptCall.complexity = "Very High";
 //Parameters
 
 //compareOp
-pCompareOp.description = "Performs a comparison between two parameters in a command. The prefix determines the expected type of parameter for the second parameter to be compared. There are three possible versions you can use for each operator.";
+pCompareOp.description = "Performs a comparison between two parameters in a command. The prefix determines the expected type of parameter for the second parameter to be compared. There are three possible versions you can use for each operator. Prefixes can only be used in UP and DE. AoC only supports the literal comparisons with constants, without the c: prefix.";
 pCompareOp.shortDescription = "Performs a comparison between two parameters in a command.";
 pCompareOp.range = "0 to 5, 7 to 12, 14 to 19.";
 pCompareOp.relatedParams = [pMathOp, pTypeOp];
@@ -23068,9 +23070,9 @@ pGameType.valueList = [ {
 } ];
 
 //GoalId
-pGoalId.description = "A valid goal ID. A goal ID can either be a number within the range below or a defined constant set to a number within the range: 1 to 40 for 1.0c. 1 to 512 for UP. 1 to 16000 for DE.";
+pGoalId.description = "A valid goal ID. A goal ID can either be a number within the range below or a defined constant set to a number within the range: 1 to 40 for AoC. 1 to 512 for UP. 1 to 16000 for DE.";
 pGoalId.shortDescription = "A valid goal ID.";
-pGoalId.range = "1 to 40 for 1.0c. 1 to 512 for UP. 1 to 16000 for DE.";
+pGoalId.range = "1 to 40 for AoC. 1 to 512 for UP. 1 to 16000 for DE.";
 pGoalId.relatedParams = [pFlag, pId, pSharedGoalId, pSnId];
 
 //GroupId
@@ -24903,9 +24905,9 @@ pResearchState.valueList = [ {
 // pResetCost.range = "0 or 1.";
 
 //Resource
-pResource.description = "A gatherable resource type. Note: using the ClassId is not valid for most (all?) of the 1.0c commands that use this parameter.";
+pResource.description = "A gatherable resource type. Note: using the ClassId is not valid for most (all?) of the AoC commands that use this parameter.";
 pResource.shortDescription = "A gatherable resource type.";
-pResource.range = "0 to 3, or the " + pClassId.getLink() + " of the resource.";
+pResource.range = "0 to 7, or the " + pClassId.getLink() + " of the resource.";
 pResource.relatedParams = [pCommodity, pResourceType, pStartingResources];
 pResource.valueList = [ {
 	name: "food",
@@ -24926,19 +24928,19 @@ pResource.valueList = [ {
 }, {
 	name: "hunting",
 	id: 4,
-	description: "Boar and Deer. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only, invalid/not-found deer or boar returns 255 instead of -1."
+	description: "Boar and Deer. Only available in UP and DE. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only, invalid/not-found deer or boar returns 255 instead of -1."
 }, {
 	name: "boar-hunting",
 	id: 5,
-	description: "Live and dead boar only. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only,  invalid/not-found boar returns 255 instead of -1."
+	description: "Live and dead boar only. Only available in UP and DE. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only,  invalid/not-found boar returns 255 instead of -1."
 }, {
 	name: "deer-hunting",
 	id: 6,
-	description: "Deer only. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only, invalid/not-found deer returns 255 instead of -1."
+	description: "Deer only. Only available in UP and DE. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only, invalid/not-found deer returns 255 instead of -1."
 }, {
 	name: "live-boar",
 	id: 7,
-	description: "Live boar only. Dead boars not included. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only,  invalid/not-found live boar returns 255 instead of -1."
+	description: "Live boar only. Only available in UP and DE. Dead boars not included. Can only be used with " + cDropsiteMinDistance.getLink() + ". For these parameters only,  invalid/not-found live boar returns 255 instead of -1."
 } ];
 
 

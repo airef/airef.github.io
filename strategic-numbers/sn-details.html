@@ -50,7 +50,8 @@
 					info += "<h3>Description</h3></p><p>" + snArray[i].shortDescription + "</p>";
 				}
 				info += "<p><h3>Info</h3></p>";
-				info += "<p><table><tr><td>Default</td><td>" + snArray[i].default + "</td></tr>";
+				info += "<p><table><tr><td>ID</td><td>" + snArray[i].id + "</td></tr>";
+				info += "<tr><td>Default Value</td><td>" + snArray[i].default + "</td></tr>";
 				info += "<tr><td>Required/Usable Range</td><td>" + snArray[i].rmin + " to " + snArray[i].rmax + "</td></tr>";
 				info += "<tr><td>Allowable Range</td><td>" + snArray[i].min + " to " + snArray[i].max + "</td></tr>";
 				info += "<tr><td>Category</td><td>" + snArray[i].category + "</td></tr>";
@@ -86,7 +87,7 @@
 					default:
 						info += "<tr><td>Available As Custom SN?</td><td>" + snArray[i].available + "</td></tr>";
 				}
-				info += "<tr><td>Version Added</td><td>" + snArray[i].version + "</td></tr>";
+				info += "<tr><td>Version</td><td>" + snArray[i].version + "</td></tr>";
 				if( snArray[i].snNameAoE1.length > 0) {
 					info += "<tr><td>AoE1 SN Name:</td><td>" + snArray[i].snNameAoE1 + "</td></tr>";
 				}
