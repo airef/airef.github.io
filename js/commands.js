@@ -14030,7 +14030,7 @@ cVictoryCondition.complexity = "Low";
 
 //wall-completed-percentage
 cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given perimeter wall.";
-cWallCompletedPercentage.description = "Checks the completion percentage for a given perimeter wall. Trees and other destructible natural barriers are included and count as completed. On island maps if there is an entirely water based barrier between the AI and any enemies then this will return 100% completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimieter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
+cWallCompletedPercentage.description = "Checks the completion percentage for a given perimeter wall. Trees and other destructible natural barriers are included and count as completed. On island maps if there is an entirely water based barrier between the AI and any enemies then this will return 100% completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
 cWallCompletedPercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -14067,7 +14067,7 @@ cWallCompletedPercentage.complexity = "Low";
 
 //wall-invisible-percentage
 cWallInvisiblePercentage.shortDescription = "Checks what percentage of the potential wall placement is covered with fog.";
-cWallInvisiblePercentage.description = "Checks what percentage of the potential wall placement is covered with fog. If the invisible percentage is not equal to 0 we do not know if there is a hole or not. This is because the hidden tile(s) might have a tree(s). The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the invisible percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimieter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
+cWallInvisiblePercentage.description = "Checks what percentage of the potential wall placement is covered with fog. If the invisible percentage is not equal to 0 we do not know if there is a hole or not. This is because the hidden tile(s) might have a tree(s). The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the invisible percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
 cWallInvisiblePercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -27401,45 +27401,15 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
     description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation."
 }, {
-    name: "position-enemy doesn't get closest building",
-    date: "Jan 22, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
-    description: "(up-get-point position-enemy gl-target-point-x) does not get nearest target player building (ex. castle)."
-}, {
-    name: "up-get-object-data bug with object-data-action-time",
-    date: "Jan 16, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/932261396706652210\">Link</a>",
-    description: "Also object-data-action-time behaves differently but this is also bugged on UP. After DE update: This bug has been dealt with but is a bit weird - it just increases while the object is moving and otherwise remains constant. Probably not a major issue anyway since it is not working on UP either."
-}, {
-    name: "sn-unexplored-construction doesn't work",
-    date: "Jan 15, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931935415492046958\">Link</a>",
-    description: "(set-strategic-number sn-unexplored-construction 1) is not working."
-}, {
     name: "up-create-group excludes garrisoned units",
     date: "Jan 14, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931625553700745318\">Link</a>",
-    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be	storing them fine -- just not including them in the count."
-}, {
-    name: "Can't queue multiple techs",
-    date: "Jan 6, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928676025360068609\">Link</a>",
-    description: "There still seems to be issues with quing techs in DE. It seems like you cant que 2 techs after eachother. Only a unit and a tech."
-}, {
-    name: "ResourceType constants inconsistent with UP",
-    date: "Jan 5, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/928242899987071036\">Link</a>",
-    description: "(ResourceAmounts) amount-razings is defined wrong as well as a lot of others, will list the ones i find that don't match UserPatch: amount-razings, amount-convert-priest, amount-convert-building, amount-military-population, amount-conversions, amount-wonder, amount-kill-ratio, amount-player-killed, amount-tribute-inefficiency, amount-gold-bonus, amount-town-center-unavailable, amount-gold-counter, amount-writing, amount-trade-good-quality, amount-trade-market-level, amount-formations, amount-building-housing-rate, amount-gather-tax-rate, amount-gather-accumulator, amount-salvage-decay-rate, amount-allow-formations, amount-can-convert."
-}, {
-    name: "up-find-resource causes a crash",
-    date: "Jan 1, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/926982868520042576\">Link</a>",
-    description: "(up-find-resource c: -1 c: 40) causes a crash. Obviously one isn't supposed to pass in -1 for the resource, but even if it happens, is it supposed to resolve to nothing? instead of crashing? See the Discord link for sample script that causes a crash."
+    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be storing them fine -- just not including them in the count. Leif editor note: The only actual bug here is that up-get-group-size and up-group-size exclude garrisoned and dead units when calculating the group size in DE, while UP includes them. If this difference is intended, then this isn't a bug."
 }, {
     name: "Issue with object-data-target-id",
     date: "Dec 28, 2021",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/925532891583229992\">Link</a>",
-    description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object."
+    description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object. Leif editor note: It's possible that patrol and attack move soldiers never switch out of being in formation when they attack, unlike in UP. In UP, there is an obvious split second where you can see the units pause before switching from the patrol formation into attacking nearby units, while this isn't present in DE. If this can be confirmed, I'll remove this from the bug reports as simply being a game engine difference."
 } ];
 
 
