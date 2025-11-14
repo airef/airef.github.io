@@ -18377,8 +18377,8 @@ c.relatedSNs = [];*/
 cUpModifyGoal.complexity = "Medium";
 
 //up-modify-group-flag
-cUpModifyGroupFlag.shortDescription = "Modify the ctrl group flag for units in a search group.";
-cUpModifyGroupFlag.description = "Modify the ctrl group flag for units in a search group. You must manage the group flag carefully in order to avoid unexpected situations. Please remove the group flag before modifying a flagged search group. You can find units from a flagged search group using object-data-group-flag, which is set to the group id.</p><p>Do not modify the group flag of control groups owned by another player, because this will clear any control group settings that player has set, because up-modify-group-flag changes the object-data-group-flag data for that unit. When managing search groups that contain objects from other players, only use " + cUpCreateGroup.getLink() + " or " + cUpSetGroup.getLink() + ".";
+cUpModifyGroupFlag.shortDescription = "Modify the control group flag for units in a search group.";
+cUpModifyGroupFlag.description = "Modify the control group flag for units in a search group. You must manage the group flag carefully in order to avoid unexpected situations. Please remove the group flag before modifying a flagged search group. You can find units from a flagged search group using object-data-group-flag, which is set to the group id.</p><p>Because this command modifies the object-data-group-flag of the units themselves, you must ensure that objects owned by other players are not in a search group before using this command. This can occur if a unit in search group is converted, and the AI scripter doesn't include code to remove converted units from their search groups. Changing the control group flag of other players' units, even accidentally, is considered cheating in AI tournaments.";
 cUpModifyGroupFlag.commandParameters = [ {
 	nameLink: pOption.getLink(),
 	name: "Option",
