@@ -14029,8 +14029,8 @@ cVictoryCondition.relatedSNs = [];
 cVictoryCondition.complexity = "Low";
 
 //wall-completed-percentage
-cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given perimeter wall.";
-cWallCompletedPercentage.description = "Checks the completion percentage for a given perimeter wall. Trees and other destructible natural barriers are included and count as completed. On island maps if there is an entirely water based barrier between the AI and any enemies then this will return 100% completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.";
+cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given wall perimeter.";
+cWallCompletedPercentage.description = "Checks the completion percentage for a given wall perimeter. Trees and other destructible natural barriers are included and count as completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.</p><p><strong>Note: </strong>There are multiple cases where wall-completed-percentage equals 100 when you wouldn't expect:<ol><li>Maps with starting walls like Arena, Fortress, or Hideout.</li><li>On island maps if there is an entirely water based barrier between the AI and any enemies.</li><li>If a treaty is active.</li></ol>";
 cWallCompletedPercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
