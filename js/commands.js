@@ -22109,7 +22109,7 @@ pClassId.valueList = [ {
 }, {
 	name: "cavalry-class",
 	id: 912,
-	description: "Cavalry class. Doesn't include all mounted units. Scout cavalry are excluded, but Light Cavalry and Hussar are included."
+	description: "Cavalry class. Doesn't scout cavalry, light cavalry, or hussar, although it includes light cavalry or hussars (not scout cavalry) that are placed at the start of the game in scenarios."
 }, {
 	name: "siege-weapon-class",
 	id: 913,
@@ -22189,7 +22189,7 @@ pClassId.valueList = [ {
 }, {
 	name: "scout-cavalry-class*",
 	id: 947,
-	description: "Scout Cavalry class."
+	description: "Scout Cavalry class. Includes scout cavalry, light cavalry, and hussar, although it doesn't include light cavalry or hussars (not scout cavalry) that are placed at the start of the game in scenarios."
 }, {
 	name: "farm-class",
 	id: 949,
@@ -27356,50 +27356,50 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
     description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
 }, {
-    name: "Crash when setting promotional picture for a mod",
-    date: "Mar 20, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/955046436750372904\">Link</a>",
-    description: "Whenever I try to set a promotional picture for a mod in the \"make mod public\" thingy in the mod settings, the game crashes"
-}, {
-    name: "Map eyecandy (tree on water) causing game crash upon hovering with mouse",
-    date: "Feb 24, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/946503517827387393\">Link</a>",
-    description: "4v4 AI game (4x The Morrigan vs 4x The General), game has crashed somewhere after all AIs have reached Feudal Age. \"Exception type 0xc0000005 occurred at 00007ff692cb4499\" message from log file. The game has crashed while streaming. See Discord link for mdmp file."
-}, {
-    name: "Rally points; unable to go from house to house, tower to house",
-    date: "Feb 6, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939962837630066718\">Link</a>",
-    description: "Khmer House to House rally point does not work. You can rally from TC to House or House to TC (which is why I assume house to house is intended), but House to House seems to issue a move instead of garrison command? update: you can also rally from a house to tower but not tower to house. If a house has garrison type 11 (villigers, footsoldier, monks) instead of farrison type 1 (villagers) then it works properly. Not sure what is wrong with garrison type 1."
-}, {
-    name: "ID loop search for boars failing in DE",
-    date: "Feb 5, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/939752266066436127\">Link</a>",
-    description: "Long code is posted at the Discord link where boar is not being found with DUC. Also see the ongoing discussion after that post to see differences between UP and DE."
-}, {
-    name: "Units idle after ungarrisoning from a ram",
-    date: "Feb 4, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939081341511806987\">Link</a>",
-    description: "New bug DE: sometimes unit ungarrison from ram will be paused (didn't show idle animation) especially ram got destroyed by enemy. I checked their status and they have action-attack but just stand there."
-}, {
+//     name: "Crash when setting promotional picture for a mod",
+//     date: "Mar 20, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/955046436750372904\">Link</a>",
+//     description: "Whenever I try to set a promotional picture for a mod in the \"make mod public\" thingy in the mod settings, the game crashes"
+// }, {
+//     name: "Map eyecandy (tree on water) causing game crash upon hovering with mouse",
+//     date: "Feb 24, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/946503517827387393\">Link</a>",
+//     description: "4v4 AI game (4x The Morrigan vs 4x The General), game has crashed somewhere after all AIs have reached Feudal Age. \"Exception type 0xc0000005 occurred at 00007ff692cb4499\" message from log file. The game has crashed while streaming. See Discord link for mdmp file."
+// }, {
+//     name: "Rally points; unable to go from house to house, tower to house",
+//     date: "Feb 6, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939962837630066718\">Link</a>",
+//     description: "Khmer House to House rally point does not work. You can rally from TC to House or House to TC (which is why I assume house to house is intended), but House to House seems to issue a move instead of garrison command? update: you can also rally from a house to tower but not tower to house. If a house has garrison type 11 (villigers, footsoldier, monks) instead of farrison type 1 (villagers) then it works properly. Not sure what is wrong with garrison type 1."
+// }, {
+//     name: "ID loop search for boars failing in DE",
+//     date: "Feb 5, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/939752266066436127\">Link</a>",
+//     description: "Long code is posted at the Discord link where boar is not being found with DUC. Also see the ongoing discussion after that post to see differences between UP and DE."
+// }, {
+//     name: "Units idle after ungarrisoning from a ram",
+//     date: "Feb 4, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/939081341511806987\">Link</a>",
+//     description: "New bug DE: sometimes unit ungarrison from ram will be paused (didn't show idle animation) especially ram got destroyed by enemy. I checked their status and they have action-attack but just stand there."
+// }, {
     name: "(generate-random-number 0) crashes DE",
     date: "Jan 28, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/936648043300802662\">Link</a>",
     description: "This code (see Discord link) crashes both UP and DE, would this be a candidate for a crashfix for DE?"
 }, {
-    name: "Clicking on AI trade carts causes lag",
-    date: "Jan 23, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/935054023080443945\">Link</a>",
-    description: "Clicking on my own trade cart as an AI kills my frames per second. Imperial Age, hundreds of buildings, and only trade carts/villagers as units. See the Discord link for a video example."
-}, {
+//     name: "Clicking on AI trade carts causes lag",
+//     date: "Jan 23, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/935054023080443945\">Link</a>",
+//     description: "Clicking on my own trade cart as an AI kills my frames per second. Imperial Age, hundreds of buildings, and only trade carts/villagers as units. See the Discord link for a video example."
+// }, {
     name: "up-build not as reliable in DE? - negative sn-placement-fail-delta causing incorrect placement and build delay",
     date: "Jan 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934512291456618527\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1014628241354526791\">Link 2</a>",
-    description: "Report 1: place-control works differently on DE than UP, sometimes buildings desired built in front of the town are placed in the back. Report 2: I have the suspicion, that up-build is also bugged in regard of negative sn-placement-fail-delta. 1st screenshot is a test-arabia-scenario with UP where all is as expected. 2nd screenshot is the same scenario with DE, where it build the blacksmith next to LC, but not the market, which I eventually build myself. After reaching castle age it build the castle somewhat to the front (as intended) and the other buildings near TC (as intended), but the barracks, which has also a negative sn-placement-fail-delta, got build 10 sec after reaching castle way out to the front, despite it should be build to the back in my understanding! See Discord links for screenshots."
+    description: "Report 1: place-control works differently on DE than UP, sometimes buildings desired built in front of the town are placed in the back. Report 2: I have the suspicion, that up-build is also bugged in regard of negative sn-placement-fail-delta. 1st screenshot is a test-arabia-scenario with UP where all is as expected. 2nd screenshot is the same scenario with DE, where it build the blacksmith next to LC, but not the market, which I eventually build myself. After reaching castle age it build the castle somewhat to the front (as intended) and the other buildings near TC (as intended), but the barracks, which has also a negative sn-placement-fail-delta, got build 10 sec after reaching castle way out to the front, despite it should be build to the back in my understanding! See Discord links for screenshots. Leif update: the issue seems to be with sn-placement-fail-delta. Positive values seem to have no effect, while negative values seem to prevent placement altogether."
 }, {
     name: "sn-ignore-tower-elevation 0 doesn't work",
     date: "Jan 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
-    description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation."
+    description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation. Leif update: The SN settings are reversed. Setting the SN to 1 prefers elevation, not 0."
 }, {
     name: "up-create-group excludes garrisoned units",
     date: "Jan 14, 2022",
@@ -39354,7 +39354,7 @@ objectsStableArray = [ {
 	aiName: "light-cavalry",
 	line: "scout-cavalry-line",
 	id: 546,
-	class: "cavalry-class (912)",
+	class: "scout-cavalry-class (947)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 3,
@@ -39367,13 +39367,13 @@ objectsStableArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: ""
+	notes: "Starting light cavalry in scenarios are cavalry-class"
 }, {	
 	name: "Hussar",
 	aiName: "hussar",
 	line: "scout-cavalry-line",
 	id: 441,
-	class: "cavalry-class (912)",
+	class: "scout-cavalry-class (947)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 4,
@@ -39386,13 +39386,13 @@ objectsStableArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 1,
-	notes: ""
+	notes: "Starting hussars in scenarios are cavalry-class"
 }, {	
 	name: "Winged Hussar",
 	aiName: "winged-hussar",
 	line: "scout-cavalry-line",
 	id: 1707,
-	class: "cavalry-class (912)",
+	class: "scout-cavalry-class (947)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 4,
@@ -39405,7 +39405,7 @@ objectsStableArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: ""
+	notes: "Starting winged hussars in scenarios are cavalry-class"
 }, {	
 	name: "Knight",
 	aiName: "knight",
@@ -39789,7 +39789,7 @@ objectsStableArrayChr = [ {
 	aiName: "light-cavalry",
 	line: "scout-cavalry-line",
 	id: 546,
-	class: "cavalry-class (912)",
+	class: "scout-cavalry-class (947)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 3,
@@ -39798,13 +39798,13 @@ objectsStableArrayChr = [ {
 	chemProjectile: "",
 	civ: "",
 	weirdName: 0,
-	notes: ""
+	notes: "Starting light cavalry in scenarios are cavalry-class"
 }, {	
 	name: "Raider",
 	aiName: "hussar",
 	line: "scout-cavalry-line",
 	id: 441,
-	class: "cavalry-class (912)",
+	class: "scout-cavalry-class (947)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 4,
@@ -39813,7 +39813,7 @@ objectsStableArrayChr = [ {
 	chemProjectile: "",
 	civ: "",
 	weirdName: 0,
-	notes: ""
+	notes: "Starting raiders in scenarios are cavalry-class"
 }, {	
 	name: "Lancer",
 	aiName: "knight",
