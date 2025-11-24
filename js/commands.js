@@ -11781,7 +11781,7 @@ cDoNothing.complexity = "Low";
 
 //dropsite-min-distance
 cDropsiteMinDistance.shortDescription = "Checks computer player's minimum dropsite walking distance for a given resource type.";
-cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is the tile distance between the tile the resource is on and the center tile of the nearest dropsite. For example, if the dropsite is adjacent to the given resource, then dropsite-min-distance will be 1. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.</p>If no resources of the given type have been found, then dropsite-min-distance will be -1 for that resource. If resources of the given type have been found but are unaccessible because they are on a different island, then dropsite-min-distance will be 255 for that resource.</p><p>There are eight different types of resource dropsite distances you can check for:</p><p><ul><li>food: all food sources, including farms, except boar and fish for fishing ships. Some specially generated objects, like the Incan starting llama, aren't counted.</li><li>wood: all trees.</li><li>stone: all stone mines.</li><li>gold: all gold mines.</li><li>Hunting: all boar and deer (and their geographical variants), both live and dead.</li><li>boar-hunting: all boar (and their geographical variants), both live and dead, excludes all types of deer.</li><li>deer-hunting: all deer (and their geographical variants), both live and dead, excludes all types of boar.</li><li>live-boar: all boar (and their geographical variants) that have not yet been killed.</li></ul>";
+cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is the tile distance between the tile the resource is on and the center tile of the nearest dropsite. For example, if the dropsite is adjacent to the given resource, then dropsite-min-distance will be 1. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.</p>If no resources of the given type have been found, then dropsite-min-distance will be -1 for that resource. If resources of the given type have been found but are unaccessible because they are on a different island, then dropsite-min-distance will be 255 for that resource. However, hunting, boar-hunting, deer-hunting, and live-boar drop distances are 255 instead when those hunting resources haven't been found, at least on UP.</p><p>There are eight different types of resource dropsite distances you can check for:</p><p><ul><li>food: all food sources, including farms, except boar and fish for fishing ships. Some specially generated objects, like the Incan starting llama, aren't counted.</li><li>wood: all trees.</li><li>stone: all stone mines.</li><li>gold: all gold mines.</li><li>Hunting: all boar and deer (and their geographical variants), both live and dead.</li><li>boar-hunting: all boar (and their geographical variants), both live and dead, excludes all types of deer.</li><li>deer-hunting: all deer (and their geographical variants), both live and dead, excludes all types of boar.</li><li>live-boar: all boar (and their geographical variants) that have not yet been killed.</li></ul>";
 cDropsiteMinDistance.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -27039,7 +27039,7 @@ bugsArray = [ {
 	name: "Chat messages starting with 1 don't trigger the correct taunt",
 	date: "Mar 7, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566990744944640/1347735742008393819\">Link</a>",
-	description: "Chat messages that start with 1, such as (chat-to-player my-player-number \"1 Yes\") do not properly trigger the taunt-detected condition. The same issue with taunt 1 also happens with taunts 10-19 and taunts 100-199. Taunts that start with 1 seem to simply disregard the first 1, so (chat-to-player my-player-number \"11 Laugh\") will cause (taunt-detected my-player-number 1) to be true. Taunts 2-9, 20-99, and 200-256 are unaffected."
+	description: "Chat messages that start with 1, such as (chat-to-player my-player-number \"1 Yes\") do not properly trigger the taunt-detected condition. The same issue with taunt 1 also happens with taunts 10-19 and taunts 100-199. Taunts that start with 1 seem to simply disregard the first 1, so (chat-to-player my-player-number \"11 Laugh\") will cause (taunt-detected my-player-number 1) to be true. Taunts 2-9, 20-99, and 200-256 are unaffected. This issue also causes the wrong taunt audio clips to be sent when AI starts a chat message with a taunt that begins with a 1."
 }, {
 	name: "The EscrowGoalId parameter for up-can-build-line doesn't work properly",
 	date: "Feb 28, 2025",
@@ -27276,20 +27276,20 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036867379004719144\">Link</a>",
     description: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. You still cannot use action-ungarrison at all (the one that works on individual units).</p><p>Update: So it turns out that I did not test (up-gather-inside c: building c: -1) properly. There are actually 3 bugs with this command: (1) You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. (2) While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. (3) THE BIG ONE: you still cannot use action-ungarrison at all (the one that works on individual units). Ideally this command would just stop the AI automatic ungarrison of buildings - effectively making it equivalent to human buildings. I want control of when my units garrison/ungarrison and I cannot do that when the game is constantly interfering. On UP it appears that this command is implemented by setting the gather point onto the building itself. IMO this is really a hacky solution since whenever you set the gather point manually the units will all ungarrison unless you instantly set it back to the building afterwards. Sadly, there is nothing we can do to change it now although it can be worked around (as I have done). I am not sure how it is implemented on DE but it seems like it may be resetting the gather point back to the building each loop. If this is the case then the first thing to change would by to only set it once (otherwise there is no method to control ungarrison without the game interfering). But ideally DE would just implement the human behaviour I described above."
 }, {
-    name: "idle-farm-count yields negative values on map Water Nomad",
+    name: "idle-farm-count yields negative values for Rice Farms",
     date: "Oct 31, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036563141347246101\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link 2</a>",
-    description: "Report 1: I found a bug with work (idle-farm-count == xx). On the map water nomad - (idle-farm-count == xx) - not work. Only on the map water nomad - idle-farm-count starts to take negative values if one farm is occupied, then idle-farm will be == -1. If 2 farms is occupied - idle-farm will be == -2. Because of this, my AI builds an infinite number of farms on this map. Report 2: And bug with idle-farms-count on the water nomad map... More precisely, on any map where there is water and farms can be built on it."
+    description: "Report 1: I found a bug with work (idle-farm-count == xx). On the map water nomad - (idle-farm-count == xx) - not work. Only on the map water nomad - idle-farm-count starts to take negative values if one farm is occupied, then idle-farm will be == -1. If 2 farms is occupied - idle-farm will be == -2. Because of this, my AI builds an infinite number of farms on this map. Report 2: And bug with idle-farms-count on the water nomad map... More precisely, on any map where there is water and farms can be built on it. Leif Edit: I believe this bug is caused by idle-farm-count not counting rice farms. idle-farm-count will equal the number of rice farmers * -1."
 }, {
-    name: "Resetting Offense Priorities each pass causes a crash",
+    name: "Resetting Offense Priorities can cause a crash",
     date: "Oct 11, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1029456095325990944\">Link</a>",
-    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, than the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game."
+    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, than the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only way to prevent a crash with up-set-offense-priority is to only modify class priorities with up-set-offense-priority."
 }, {
-    name: "position-flank has offset x coords 0-12 higher than what it should be, UP seems to use mirrored flank position",
+    name: "position-flank is always very close to the enemy's starting location",
     date: "Oct 2, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
-    description: "Position flank works differently on DE. It allways gives the correct y-coordinate and then it gives an x coordinate 0-12 numbers higher than the correct one. This basicly means position-flank will always give the position of the enemy flank tc within 6 tiles on DE if you just subtract 6 from the x coordinate. On UP it seems to just use the mirrored flank position."
+    description: "Position flank works differently on DE. It allways gives the correct y-coordinate and then it gives an x coordinate 0-12 numbers higher than the correct one. This basicly means position-flank will always give the position of the enemy flank tc within 6 tiles on DE if you just subtract 6 from the x coordinate. This allows the AI to easily find the enemy even without scouting. On UP it seems to just use the mirrored flank position to predict where the enemy should be."
 }, {
     name: "position-mirror gives position-opposite effect instead of position-mirror",
     date: "Oct 2, 2022",
@@ -27299,33 +27299,33 @@ bugsArray = [ {
     name: "Villager Gathering/Exploring/Building SNs bugged in DE",
     date: "Sep 18, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1021167578472783884\">Link</a>",
-    description: "There seems to be an issue with the villager exploring or gathering SNs in DE. This code tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
+    description: "There seems to be an issue with the villager exploring or gathering SNs in DE. It's possible for villagers to be sent to gather resources even when sn-cap-civilian-gatherers is set to 0. This code tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
 }, {
-    name: "Classes don't work for up-set-offensive-priority",
-    date: "Sep 10, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018283756139843674\">Link</a>",
-    description: "up-set-offense-priority works with classes in UP, despite scripter64's syntax description that only says Unit ID or Building ID. Classes currently don't work in DE, but they should."
-}, {
+//     name: "Classes don't work for up-set-offensive-priority",
+//     date: "Sep 10, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018283756139843674\">Link</a>",
+//     description: "up-set-offense-priority works with classes in UP, despite scripter64's syntax description that only says Unit ID or Building ID. Classes currently don't work in DE, but they should."
+// }, {
     name: "dropsite-min-distance deer-hunting returning 255 instead of -1",
     date: "Sep 4, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1016047774673928192\">Link</a>",
-    description: "dropsite-min-distance deer-hunting starts out 255 in first loop and then goes to -1. From AI Ref: \"6 deer-hunting Deer only. Can only be used with dropsite-min-distance. For these parameters only, invalid/not-found deer returns 255 instead of -1.\" Just been doing work on deer hunting and realised this is incorrect (at least for DE). Was having an issue where (dropsite-min-distance deer-hunting < 4) was true even when the deer hadn't been found. Editing the rule to chat when (dropsite-min-distance deer-hunting == -1) showed it was true when the deer were not found. I don't know if the same is for other resources yet but thought I'd point it out. Same applies to hunting, boar-hunting and live-boar."
+    description: "dropsite-min-distance deer-hunting starts out 255 in first loop and then goes to -1 and stays at -1 until deer have been found. Same with other hunting drop distances. In UP, these hunting drop distances are 255 when they haven't been found."
 }, {
-    name: "One villager remaining forced to explore",
-    date: "Aug 28, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013569003475701841\">Link</a>",
-    description: "I've also seen when one villager remains, it is forced to explore. I recall it happening in UP as well."
-}, {
+//     name: "One villager remaining forced to explore",
+//     date: "Aug 28, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013569003475701841\">Link</a>",
+//     description: "I've also seen when one villager remains, it is forced to explore. I recall it happening in UP as well."
+// }, {
     name: "sn-number-boat-explore-groups bug",
     date: "Aug 28, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013526417411154030\">Link</a>",
     description: "Setting sn-number-boat-explore-groups to 0 doesnt stop the first trained ship from exploring"
 }, {
-    name: "Taunts 15 and 18 are incorrect sounds",
-    date: "Aug 13, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1008165425042968606\">Link</a>",
-    description: "Taunts 18 and 15 are stating different things than what they should be. I think there are some others as well. Being rushed and enemy sighted are incorrect as well. Nice town-ill take it works properly."
-}, {
+//     name: "Taunts 15 and 18 are incorrect sounds",
+//     date: "Aug 13, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1008165425042968606\">Link</a>",
+//     description: "Taunts 18 and 15 are stating different things than what they should be. I think there are some others as well. Being rushed and enemy sighted are incorrect as well. Nice town-ill take it works properly."
+// }, {
     name: "load-random with '+' load feature doesnt work",
     date: "Aug 6, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1005481892298104832\">Link</a>",
@@ -27336,31 +27336,21 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990673033452736532\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018158049640329306\">Link 2</a>",
     description: "Report 1: In UP, if you switch perspective to p2 with Ctrl+Shift+F2, up-chat-data-to-self correctly only shows messages sent by the p2 AI script. However, in DE any up-chat-data-to-self messages sent by the p1 AI are always displayed, even if you switch perspective to p2 with Ctrl+Shift+F2. (up-chat-data-to-player my-player-number) Is also bugged. Even (chat-to-player my-player-number) is bugged, so it seems like there's an issue with my-player-number not being updated with the player perspective switch. Report 2: Switching point of view with Ctrl-Shift-F1-8 doesnt update typing to other players perspective. It stays at Player 1. I can't type as another AI player to Player 1 for example."
 }, {
-    name: "up-log-data is broken \"invalid negative master object id passed -1\"",
-    date: "Jun 26, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990635481064673320\">Link</a>",
-    description: "DE up-log-data is broken when i tried to use it, spammed \"Invalid negative master object id passed: -1\" a few hundred thousand times in the log file, if there is success in using this in the current version (62085) let me know :)"
-}, {
-    name: "up-chat-data-to-player inconsistencies with formatting",
-    date: "Jun 17, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/987566095072374794\">Link</a>",
-    description: "Small Difference between UP and DE (up-chat-data-to-self \"food-gatherer %d%%\" s: sn-food-gatherer-percentage) UP will chat food-gatherer 100% and apparently requires an %-escape-character to chat \"%\" DE will chat food-gatherer 100%% and apparently doesn't require an escape-character. (up-chat-data-to-player my-player-number \"%\" s: sn-food-gatherer-percentage) UP will chat an empty line. DE will also chat an empty line. (up-chat-data-to-player my-player-number \"write %x and %\" s: sn-food-gatherer-percentage) UP will chat write 64 and... lol why 64, scripter where are you. DE will chat write %x and %."
-}, {
-    name: "Changing color of a player in scenario causes spawn at random location on map",
-    date: "Jun 16, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/986884993886322708\">Link</a>",
-    description: "Don't know if this bug is tracked, but when I want to play that scenario in skirmish and change the color of a player it will spawn that players TC on a apparently random place of the map! Created this scenario with aoc/up and saved it with DE again. Didn't make a difference to me, both bugged. Alian713 gave a good hint: If the scenario is a 2p map and you change to a colour thats not 1 or 2 you're adding another player to it which wasn't on the map itself the colour actually changes which player you become in the scenario its not just colour itself pt2 of me asking for colour picker to be separated in the lobby from the 1-8 player numbers. So in this case its rather about the PlayerNr, than about the color. However, like I mentioned later, I wonder why you can only choose a set player in AoC/UP, but can choose a PlayerNr in DE which isn't even defined in the scenario."
-}, {
-    name: "DUC finding ally buildings [building-class/all-units-class finds all the pieces of TC (109, 618, 619, 620, 1649) instead of just 109]",
-    date: "May 8, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485565215744720917/972782609186828308\">Link</a>",
-    description: "up-find-remote using building-class or all-units-class for ally town centers finds all the different pieces (109, 618, 619, 620, 1649). Should just be 109."
-}, {
-    name: "Villagers hunting far unexplored boar",
-    date: "Mar 30, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
-    description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
-}, {
+//     name: "up-chat-data-to-player inconsistencies with formatting",
+//     date: "Jun 17, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/987566095072374794\">Link</a>",
+//     description: "Small Difference between UP and DE (up-chat-data-to-self \"food-gatherer %d%%\" s: sn-food-gatherer-percentage) UP will chat food-gatherer 100% and apparently requires an %-escape-character to chat \"%\" DE will chat food-gatherer 100%% and apparently doesn't require an escape-character. (up-chat-data-to-player my-player-number \"%\" s: sn-food-gatherer-percentage) UP will chat an empty line. DE will also chat an empty line. (up-chat-data-to-player my-player-number \"write %x and %\" s: sn-food-gatherer-percentage) UP will chat write 64 and... lol why 64, scripter where are you. DE will chat write %x and %."
+// }, {
+//     name: "Changing color of a player in scenario causes spawn at random location on map",
+//     date: "Jun 16, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/986884993886322708\">Link</a>",
+//     description: "Don't know if this bug is tracked, but when I want to play that scenario in skirmish and change the color of a player it will spawn that players TC on a apparently random place of the map! Created this scenario with aoc/up and saved it with DE again. Didn't make a difference to me, both bugged. Alian713 gave a good hint: If the scenario is a 2p map and you change to a colour thats not 1 or 2 you're adding another player to it which wasn't on the map itself the colour actually changes which player you become in the scenario its not just colour itself pt2 of me asking for colour picker to be separated in the lobby from the 1-8 player numbers. So in this case its rather about the PlayerNr, than about the color. However, like I mentioned later, I wonder why you can only choose a set player in AoC/UP, but can choose a PlayerNr in DE which isn't even defined in the scenario."
+// }, {
+//     name: "Villagers hunting far unexplored boar",
+//     date: "Mar 30, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
+//     description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
+// }, {
 //     name: "Crash when setting promotional picture for a mod",
 //     date: "Mar 20, 2022",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/955046436750372904\">Link</a>",
@@ -42335,6 +42325,25 @@ objectsBuildingsArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Rice Farm",
+	aiName: "",
+	line: "",
+	id: 1187,
+	class: "farm-class (949)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "357",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: "Farms built on mangrove shallows become rice farms"
 }, {	
 	name: "Pasture",
 	aiName: "",
