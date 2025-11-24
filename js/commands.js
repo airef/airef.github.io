@@ -7655,8 +7655,8 @@ snGateTypeForWall.shortDescription = "0 for stone gates, 1 for palisade gates wh
 snProfilingThreshold.id = 305;
 snProfilingThreshold.snName = "sn-profiling-threshold";
 snProfilingThreshold.snNameAoE1 = "";
-snProfilingThreshold.default = 0;
-snProfilingThreshold.category = "None";
+snProfilingThreshold.default = -1;
+snProfilingThreshold.category = "Other";
 snProfilingThreshold.min = -32768;
 snProfilingThreshold.max = 32767;
 snProfilingThreshold.rmin = -32768;
@@ -7664,7 +7664,7 @@ snProfilingThreshold.rmax = 32767;
 snProfilingThreshold.network = 0;
 snProfilingThreshold.defined = 1;
 snProfilingThreshold.available = 0;
-snProfilingThreshold.effective = 0;
+snProfilingThreshold.effective = 1;
 snProfilingThreshold.version = "DE";
 snProfilingThreshold.aoe = 0;
 snProfilingThreshold.aoc = 0;
@@ -7672,7 +7672,7 @@ snProfilingThreshold.up = 0;
 snProfilingThreshold.de = 1;
 snProfilingThreshold.linked = [];
 snProfilingThreshold.related = [];
-snProfilingThreshold.shortDescription = "Not currently used in public release.";
+snProfilingThreshold.shortDescription = "The maximum number of milliseconds between script passes before the game will be stopped and the debug screen will appear. Ignored if set to -1 (the default).</p><p>For this SN to work, you must also add the Steam launch parameters AIDEBUGGING and AISCRIPTPROFILING. To set launch parameters, open Steam => Right click the game in the Library view => click Properties => and type the launch parameters, separated by spaces (not commas).</p><p>According to offwo, the DE devs give a rough guideline that this shouldn't trigger at 1000 and under 600 was ideal, but offwo suggests that setting this SN to 1500-2000 is fine for a custom AI. Setting this SN to a higher value like 10000 can help find jump freezes too without having to wait a long time.";
 
 snEnableResearchQueue.id = 306;
 snEnableResearchQueue.snName = "sn-enable-research-queue";
@@ -26966,6 +26966,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "object-data-carry doesn't work for trade carts",
+	date: "Nov 24, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1442546497706135685\">Link</a>",
+	description: "Trade carts report an object-data-carry of 0 at all times. object-data-carry works properly in UP."
+}, {
 	name: "AI monks can be ordered to convert non-convertable buildings with a right click command.",
 	date: "Nov 10, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1437517147185086628\">Link</a>",
