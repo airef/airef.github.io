@@ -12792,7 +12792,7 @@ cPlayersStance.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
+	range: "ally, neutral, enemy, or enemy-treaty. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance of the player."
 } ];
 cPlayersStance.example = [ {
@@ -13410,7 +13410,7 @@ cSetStance.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy.",
+	range: "ally, neutral, enemy, or enemy-treaty.",
 	note: "The diplomacy stance to set toward the player(s)."
 } ];
 cSetStance.example = [ {
@@ -13542,7 +13542,7 @@ cStanceToward.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "ally, neutral, or enemy. The fact allows the any/every wildcard parameters for pPlayerStance.",
+	range: "ally, neutral, enemy, or enemy-treaty. The fact allows the any/every wildcard parameters for pPlayerStance.",
 	note: "The diplomacy stance toward the player."
 } ];
 cStanceToward.example = [ {
@@ -16401,7 +16401,7 @@ cUpFindNextPlayer.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "any, ally, neutral, enemy",
+	range: "any, ally, neutral, enemy, or enemy-treaty",
 	note: "The stance of the player to find."
 }, {
 	nameLink: pFindPlayerMethod.getLink(),
@@ -16434,7 +16434,7 @@ cUpFindPlayer.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "any, ally, neutral, enemy",
+	range: "any, ally, neutral, enemy, or enemy-treaty",
 	note: "The stance of the player to find."
 }, {
 	nameLink: pFindPlayerMethod.getLink(),
@@ -18745,7 +18745,7 @@ cUpPlayersInGame.commandParameters = [ {
 	name: "PlayerStance",
 	type: "Const",
 	dir: "in",
-	range: "any, ally, neutral, enemy",
+	range: "any, ally, neutral, enemy, or enemy-treaty",
 	note: "The stance of players to check."
 }, {
 	nameLink: pCompareOp.getLink(),
@@ -24705,6 +24705,10 @@ pPlayerStance.valueList = [ {
 	name: "enemy",
 	id: 3,
 	description: "Enemy."
+}, {
+	name: "enemy-treaty",
+	id: 4,
+	description: "DE only. Must be defined with a defconst. This diplomatic stance is used while treaty mode is active for any players who will become enemies when the treaty ends."
 } ];
 
 //Point
@@ -26966,6 +26970,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "position-enemy allows you to see the enemy position through the fog of war on treaty starts",
+	date: "Dec 2, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1445471610390708384\">Link</a>",
+	description: "position-enemy sees through the fog of war on LN and leads you right to the target player. 3 Bs, 3 different target players and all 3 found in the fog of war. It's possible that sn-coop-share-information allows AIs to share object lists with enemy players while treaty mode is active."
+}, {
 	name: "up-find-player and up-find-next-player don't work properly",
 	date: "Nov 30, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1444764691036504269\">Link</a>",
@@ -26990,6 +26999,11 @@ bugsArray = [ {
 	date: "Nov 5, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435743498451292221\">Link</a>",
 	description: "Trebuchets permanently unpack and repack. Most of the time all trebs worked perfectly fine, then all of them on a single castle at once go idle for the rest of the game."
+}, {
+	name: "action-transform doesn't work",
+	date: "Oct 30, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1433488327507579031\">Link</a>",
+	description: "DUC code to tell rathas to switch between ranged and melee mode with action-transform no longer works. See example code on Discord."
 }, {
 	name: "Mangonels go idle when units are inside their minimum range",
 	date: "Oct 28, 2025",
