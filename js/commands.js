@@ -26970,6 +26970,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "Italians my-unique-research and my-second-unique-research are incorrect",
+	date: "Dec 10, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1448453527297855630\">Link</a>",
+	description: "Current Pavise is still my-second-unique-research and Silk Road is still my-unique-research. my-second-unique-research should be Silk Road, and my-unique-research should be Pirotechnia."
+}, {
 	name: "position-enemy allows you to see the enemy position through the fog of war on treaty starts",
 	date: "Dec 2, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1445471610390708384\">Link</a>",
@@ -27105,11 +27110,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1279797387136733257\">Link</a>",
 	description: "up-can-search causes a crash, regardless of map type and regardless of using (up-can-search search-local) or (up-can-search search-remote)"
 }, {
-	name: "AI monks are able to convert buildings from long range",
-	date: "May 24, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243667134941368492\">Link</a>",
-	description: "AI is able to convert buildings from long range. This is one of the examples when it may happen. I think it is also possible to convert a building when previously converted target is killed/destroyed. In this clip it seems that monks were trying to convert a piece of a wall and since that's impossible, they targeted nearest object - a mill - <a href=\"https://clips.twitch.tv/BlazingNicePanCoolStoryBob-tHb0aZBigZTLW0vr\">https://clips.twitch.tv/BlazingNicePanCoolStoryBob-tHb0aZBigZTLW0vr</a>."
-}, {
 	name: "object-data-player doesn't update for human-controlled units after an AI monk converts them",
 	date: "May 23, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243318310398070864\">Link</a>",
@@ -27190,35 +27190,15 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121464519437328445\">Link</a>",
     description: "Another major DE bug: on land nomad, can-build returns false for all buildings except town-center until the tc is built. Immortal needs to check if other buildings can be built. Immortal uses other buildings as pathing checks. Also Immortal likes to place houses before the tc is built"
 }, {
-    name: "Villagers improperly garrison in town centers",
-    date: "Jun 22, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485566990744944640/1121409641901989899\">Link</a>",
-    description: "Unfortunately the garrison bug seems impossible to solve. Actually, I know what is happening now -- a while ago I found that up-gather-inside is bugged as it wont allow me to hold garrisoned vills. They would just eject immediately. So I made a workaround by replacing it with a function that sets all tc gather points to themselves. This worked perfectly in the old patch. The gather point was later cleared when we call up-gather-inside with state=0. But something is not working in the new patch. The newly created vills always get garrisoned. Even if I manually change the gather point with DUC the new vills continue to gather inside for a second. Seems like a bug. In this screenshot [see Discord link] we can see that the gather point is set away from the TC. But the new villager still decides to garrison in the TC."
-}, {
     name: "Issues with boar hunting",
     date: "Jun 21, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121046712505610342\">Link</a>",
     description: "Villagers somtimes keep retasking to live boars during an active duc boar lure. All sn's should be set to 'turned off' values regarding boar luring and while I can't completely rule out that the new patch has unlocked a DUC bug it would be weird that this bug has not occured on UP and seems to also occour in other ai's like immortal. Then there is a very weird bug where the boar villager keeps attacking the boar unless given a new command like a stop command. I have been unable to figure out what in the new patch is responsable for this bug but my best gues would be that it is related to the unintended retasking of villagers to boars like in the prior issue."
 }, {
-    name: "The \"neg\" operator is broken",
-    date: "Jun 16, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1119339578634027018\">Link</a>",
-    description: "The \"neg\" operator is broken in DE. All it does is multiply the first given goal by -1. In DE, this code [in the Discord link] chats \"Test -5\" instead of the correct \"Test -4\". Changing g:neg to c:neg still chat's a -5 value instead of the correct -102 value. UP chats the correct -4 and -102 values."
-}, {
-    name: "Villagers don't explore properly on Land Nomad",
-    date: "Jun 12, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1117948419512745985\">Link</a>",
-    description: "Villager explorers don't seem to be scouting on Land Nomad. They just stand still. Setting the below SNs used to work when I was prepping for FenCrazy back in Feb (all my villagers would explore until I changed the SNs to 0 and got them to gather) but the same rule doesn't work anymore. See Discord link for a test script. Leif has tested this too to with a separate script and the villagers didn't scout on Land Nomad but all of them scouted on Arabia. There was a single occasion where 1 of their villagers explored on Land Nomad but they haven't been able to recreate this."
-}, {
     name: "The four resource modifier SNs don't allow negative values like UP",
     date: "Jun 5, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1115250747865579520\">Link</a>",
     description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot."
-}, {
-    name: "Long range building conversions occurred after switching from converting a unit",
-    date: "May 31, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1113524638736203786\">Link</a>",
-    description: "I'm not currently sure if that's only a case for AIs or not, but during Prince of Arabia we had a long range building conversion.⁠ It feels like a Monk was trying to convert a villager but once it left its conversion range it changed focus to the closest think - a mining camp. See Discord link for a Twitch clip showing the bug."
 }, {
     name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
     date: "May 20, 2023",
@@ -27244,11 +27224,6 @@ bugsArray = [ {
     date: "Apr 25, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1100559877522329621\">Link</a>",
     description: "Only SNs 0-510 are usable in DE. 0-511 are usable in UP."
-}, {
-    name: "TC gather points don't work",
-    date: "Apr 12, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1095825999758901479\">Link</a>",
-    description: "Rehoboam's tc gather points does not work on the new patch. Update: I found the reason for why Rehoboams gather point is not working on the new patch. It turns out (up-gather-inside c: town-center c: 0) resets the town center gather point on the new patch which it did not do on the old patch. I assume this is a bug as it is not mentioned in the patch notes?"
 }, {
     name: "sn-boar-lure-destination doesn't send villagers to the correct location",
     date: "Mar 25, 2023",
@@ -27280,21 +27255,16 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
     description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
 }, {
-    name: "DE AI error or custom scenario maps",
-    date: "Nov 26, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1046089463719284817\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1046089463719284817\">Link 2</a>",
-    description: "Report 1: Custom scenario maps getting \"difficulty-adjustment\" identifier error for Promisory (DE AI) script. See the Discord link for a screenshot. Report 2: Custom AI mods installed from the DE mods section try to load files from the Promisory folder. For example, when using the Beginner AI mod you get this error. This error also occurs when testing a scenario from within the scenario editor with the DE AI personality selected. See Discord link for a screenshot."
-}, {
     name: "Path distance calculation issues",
     date: "Nov 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link</a>",
     description: "There are cases where the path distance calculation is wrong (path distances on arena f.e. not always showing that objects inside the enemy's walled town were inaccessible). See discussion at Discord link."
 }, {
-    name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
-    date: "Oct 31, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036867379004719144\">Link</a>",
-    description: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. You still cannot use action-ungarrison at all (the one that works on individual units).</p><p>Update: So it turns out that I did not test (up-gather-inside c: building c: -1) properly. There are actually 3 bugs with this command: (1) You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. (2) While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. (3) THE BIG ONE: you still cannot use action-ungarrison at all (the one that works on individual units). Ideally this command would just stop the AI automatic ungarrison of buildings - effectively making it equivalent to human buildings. I want control of when my units garrison/ungarrison and I cannot do that when the game is constantly interfering. On UP it appears that this command is implemented by setting the gather point onto the building itself. IMO this is really a hacky solution since whenever you set the gather point manually the units will all ungarrison unless you instantly set it back to the building afterwards. Sadly, there is nothing we can do to change it now although it can be worked around (as I have done). I am not sure how it is implemented on DE but it seems like it may be resetting the gather point back to the building each loop. If this is the case then the first thing to change would by to only set it once (otherwise there is no method to control ungarrison without the game interfering). But ideally DE would just implement the human behaviour I described above."
-}, {
+//     name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
+//     date: "Oct 31, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036867379004719144\">Link</a>",
+//     description: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. You still cannot use action-ungarrison at all (the one that works on individual units).</p><p>Update: So it turns out that I did not test (up-gather-inside c: building c: -1) properly. There are actually 3 bugs with this command: (1) You can not properly set the gather point since it seems to just get reset each loop. You can only set it in the same loop that you use the unload command. (2) While you can now use action-unload and go-to-work on the tc the villagers won't actually gather from the resource that you used the gather point on. Instead they just walk up to it, bump into it, and then reassign elsewhere. (3) THE BIG ONE: you still cannot use action-ungarrison at all (the one that works on individual units). Ideally this command would just stop the AI automatic ungarrison of buildings - effectively making it equivalent to human buildings. I want control of when my units garrison/ungarrison and I cannot do that when the game is constantly interfering. On UP it appears that this command is implemented by setting the gather point onto the building itself. IMO this is really a hacky solution since whenever you set the gather point manually the units will all ungarrison unless you instantly set it back to the building afterwards. Sadly, there is nothing we can do to change it now although it can be worked around (as I have done). I am not sure how it is implemented on DE but it seems like it may be resetting the gather point back to the building each loop. If this is the case then the first thing to change would by to only set it once (otherwise there is no method to control ungarrison without the game interfering). But ideally DE would just implement the human behaviour I described above."
+// }, {
     name: "idle-farm-count yields negative values for Rice Farms",
     date: "Oct 31, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036563141347246101\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link 2</a>",
