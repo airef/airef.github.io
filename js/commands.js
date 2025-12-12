@@ -26981,8 +26981,8 @@ bugsArray = [ {
 	description: "position-enemy sees through the fog of war on LN and leads you right to the target player. 3 Bs, 3 different target players and all 3 found in the fog of war. It's possible that sn-coop-share-information allows AIs to share object lists with enemy players while treaty mode is active."
 }, {
 	name: "up-find-player and up-find-next-player don't work properly",
-	date: "Nov 30, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1444764691036504269\">Link</a>",
+	date: "Feb 23, 2023",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1078215378855022643\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1444764691036504269\">Link2</a>",
 	description: "up-find-player and up-find-next-player are a mess. This has been reported on various occasions. I am doing some (slightly unstructured) testing now. My preliminary findings: find-closest works, but returns -1 after the farthest player, and does not cycle back to the first. find-ordered does not work at all, just returns -1. find-attacker works, but I think it only returns the most recent attacker (potentially Gaia) or else -1? find-random may not be very useful, since it will (according to the docs) only hold out the most recently found player. Also, I suspect that player 0, i.e. Gaia, occasionally comes up with find-closest. My tests have been run with the recommended pattern of first finding a player with up-find-player and then using up-find-next-player with the same settings and the same I/O goal. There are many more possible tests to run. Also, find-closest finds or estimates the positions of unexplored enemies, but also seems to respond to explored buildings."
 }, {
 	name: "object-data-carry doesn't work for trade carts",
@@ -27015,11 +27015,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1432923135639814204\">Link</a>",
 	description: "Mangonels just sperg out and freeze in a command spam whenever anything is within their minimum range."
 }, {
-	name: "The multiple training location feature seems to crash the game for Goths",
-	date: "Oct 18, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429074897333780550\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429087701356777562\">Link 2</a>",
-	description: "Report 1: I tried to shift-delete two castles on behalf of my AI (after anarchy, in order to force it to make huskarls in the barracks instead of the castles), and now my game is hanging. Report 2: Clicking huskarl in the barracks with an AI playing seems to break the game I think. Had the same in my tests from the other week."
-}, {
+// 	name: "The multiple training location feature seems to crash the game for Goths",
+// 	date: "Oct 18, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429074897333780550\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429087701356777562\">Link 2</a>",
+// 	description: "Report 1: I tried to shift-delete two castles on behalf of my AI (after anarchy, in order to force it to make huskarls in the barracks instead of the castles), and now my game is hanging. Report 2: Clicking huskarl in the barracks with an AI playing seems to break the game I think. Had the same in my tests from the other week."
+// }, {
 	name: "Training commands don't work for units with multiple training locations.",
 	date: "Oct 7, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1425112865064488980\">Link</a>",
@@ -27045,11 +27045,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
 	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
 }, {
-	name: "Herders are not included in villager-food",
-	date: "Jun 28, 2025",
-	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1388502360065572927\">Link</a>",
-	description: "Herders are not included in villager-food. They currently must be counted with their unit IDs directly. Female herder = 1891 and male herder = 1892."
-}, {
 	name: "Counting rocket-cart-line and rocket cart unit IDs includes projectiles",
 	date: "Jun 20, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link</a>",
@@ -27059,11 +27054,6 @@ bugsArray = [ {
 	date: "May 19, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1374171802473070622\">Link</a>",
 	description: "AIs can train more than one hero for the Three Kingdoms DLC civs. Currently AI scripters must check unit counts to ensure the AI doesn't have a hero before training."
-}, {
-	name: "Chat messages starting with 1 don't trigger the correct taunt",
-	date: "Mar 7, 2025",
-	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566990744944640/1347735742008393819\">Link</a>",
-	description: "Chat messages that start with 1, such as (chat-to-player my-player-number \"1 Yes\") do not properly trigger the taunt-detected condition. The same issue with taunt 1 also happens with taunts 10-19 and taunts 100-199. Taunts that start with 1 seem to simply disregard the first 1, so (chat-to-player my-player-number \"11 Laugh\") will cause (taunt-detected my-player-number 1) to be true. Taunts 2-9, 20-99, and 200-256 are unaffected. This issue also causes the wrong taunt audio clips to be sent when AI starts a chat message with a taunt that begins with a 1."
 }, {
 	name: "The EscrowGoalId parameter for up-can-build-line doesn't work properly",
 	date: "Feb 28, 2025",
@@ -27115,11 +27105,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243318310398070864\">Link</a>",
 	description: "I've been wondering why Bright Spark's military have been clumping in the home base during team games vs humans but I've never been able to recreate it with AI games. Turns out, if you are a human player and your unit gets converted - DUC remote searches still think the unit belongs to the human player. Play the same scenario with an AI and the DUC search picks up the unit switching side. In Bright Spark's example, every case the units were clumped up it was because it had converted an enemy human's unit and my DUC was getting the army to all action-default to that unit, even though it wasn't an enemy anymore."
 }, {
-	name: "The taunt command cuts off the first digit of the taunt",
-	date: "Apr 16, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1229836038369972356\">Link</a>",
-	description: "The (taunt #) command is bugged in DE. On-screen it looks like it cuts off the first digit of the taunt number. (taunt 11) will cause (taunt-detected any-ally 1) to be true for allied AIs, which seems to confirm this. Use (chat-to-allies \"/11\") as an alternative, with the forward slash to make sure the taunt number is interpreted correctly."
-}, {
 	name: "up-create-group doesn't work with goals as parameters",
 	date: "Mar 2, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1213516805600186419\">Link</a>",
@@ -27140,11 +27125,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1207690744492720138\">Link</a>",
 	description: "In my testing, if there are any \"include\" commands to load a .xs file that appear before any \"load\" commands to load a .per file, then these .xs files are not loaded. Any .xs files that you want to include must appear after all .per \"load\" commands."
 }, {
-	name: "Moving the cursor with the left or right arrow keys when saving a scenario makes the game unresponsive",
-	date: "Feb 10, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1205805115370381342\">Link</a>",
-	description: "I think it happened with in-game chat before. While trying to save a scenario at a different name, selecting a place in the name where I want to make a change and moving left or right with arrow keys makes the game unresponsive. Mark where name change is supposed to be made moves by 1 character once and that's it. It keeps flashing like we could do something but all we can do is force close the game."
-}, {
+// 	name: "Moving the cursor with the left or right arrow keys when saving a scenario makes the game unresponsive",
+// 	date: "Feb 10, 2024",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1205805115370381342\">Link</a>",
+// 	description: "I think it happened with in-game chat before. While trying to save a scenario at a different name, selecting a place in the name where I want to make a change and moving left or right with arrow keys makes the game unresponsive. Mark where name change is supposed to be made moves by 1 character once and that's it. It keeps flashing like we could do something but all we can do is force close the game."
+// }, {
 	name: "Some Userpatch constants not properly defined",
 	date: "Jan 26, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1200456724323250206\">Link</a>",
@@ -27180,11 +27165,11 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150040321963601930\">Link</a>",
     description: "Seems like can-build town-center returns true even if there is not enough stone for a town-center."
 }, {
-    name: "Villager combat SNs don't have the same effect in DE as they do in UP. They aren't as aggressive.",
-    date: "Jun 30, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1124417646033633300\">Link</a>",
-    description: "interlepus reports that sn-allow-civilian-offense, sn-allow-civilian-defense don't work and sn-number-civilian-militia don't seem to work. The Bambi AI's villagers didn't seem to fight back in the Land Nomad tournament like they did in UP."
-}, {
+//     name: "Villager combat SNs don't have the same effect in DE as they do in UP. They aren't as aggressive.",
+//     date: "Jun 30, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1124417646033633300\">Link</a>",
+//     description: "interlepus reports that sn-allow-civilian-offense, sn-allow-civilian-defense don't work and sn-number-civilian-militia don't seem to work. The Bambi AI's villagers didn't seem to fight back in the Land Nomad tournament like they did in UP."
+// }, {
     name: "can-build returns false on Nomad before the TC is built",
     date: "Jun 22, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121464519437328445\">Link</a>",
@@ -27200,16 +27185,11 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1115250747865579520\">Link</a>",
     description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot."
 }, {
-    name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
-    date: "May 20, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link</a>",
-    description: "sn-attack-intelligence - not work too... In the up version work and attack units try avoid castles/towers... In the de - not"
-}, {
-    name: "Menus get stuck",
-    date: "May 17, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1108465838408863834\">Link</a>",
-    description: "When entering menu using Esc keyboard key and any of the buttons is hovered over, it is no longer possible to leave this window with another Esc key press until buttons are no longer highlighted. This issue happens in other menus as well, including one when setting up a game."
-}, {
+//     name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
+//     date: "May 20, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link</a>",
+//     description: "sn-attack-intelligence - not work too... In the up version work and attack units try avoid castles/towers... In the de - not"
+// }, {
     name: "up-get-fact with player-in-game and player-valid doesn't work",
     date: "May 4, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1103760288597147780\">Link</a>",
@@ -27229,36 +27209,26 @@ bugsArray = [ {
     date: "Mar 25, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1089316493243723796\">Link</a>",
     description: "Ok, I finished my tests with sn-boar-lure-destination. \"Broken\" is when villager stops attacking/moving after initial shots. Many values end up leading to the middle of TC. Some places aren't possible to be reached. See the Discord link for screenshots."
-}, {
-    name: "AI pathfinding issue when attacking with attack-now on a land map with water",
-    date: "Mar 16, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1085851467979702332\">Link</a>",
-    description: "AI get stuck in land corner near water , try to go to shorter distance path to reach enemy town. It is new bug. it doesn't happen before. I think is from game engine not from AI script. Before if units get stucks they immediatly react go to another way. Now they react but more slowly they get stuck more time in corner. Hope this can be fixed."
+// }, {
+//     name: "AI pathfinding issue when attacking with attack-now on a land map with water",
+//     date: "Mar 16, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1085851467979702332\">Link</a>",
+//     description: "AI get stuck in land corner near water , try to go to shorter distance path to reach enemy town. It is new bug. it doesn't happen before. I think is from game engine not from AI script. Before if units get stucks they immediatly react go to another way. Now they react but more slowly they get stuck more time in corner. Hope this can be fixed."
 }, {
     name: "Foot konniks and flemish militia aren't counted correctly",
     date: "Mar 6, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1082236935411609651\">Link</a>",
-    description: "Counting foot-konnik-line for enemy players doesnt work (it returns -2). Counting flemish-militia-male and flemish-militia-female for enemy players doesnt work (both return -1). Counting individual foot-konnik and elite-foot-konnik units doesn't work either. But counting flemish-militia-trained works."
+    description: "Counting foot-konnik-line for enemy players doesnt work (it returns -2). Counting flemish-militia-male and flemish-militia-female for enemy players doesnt work (both return -1). Counting individual foot-konnik and elite-foot-konnik units doesn't work either. But counting flemish-militia-trained works. Update: This has changed in DE since this report, but not fixed. Trained flemish militia are now counted as both town-center-flemish-pikeman and flemish-pikeman-female. Dismounted konniks are now double-counted."
 }, {
-    name: "up-get-player-fact bug",
+    name: "up-get-player-fact building-count bug",
     date: "Mar 2, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1080832859457196062\">Link</a>",
-    description: "up-get-player-fact for building-count does not work for enemy players on DE. It just returns -1. This command does however work when used as a normal fact: (players-building-count etc.)"
-}, {
-    name: "up-find-next-player doesn't work as expected if you don't use up-find-player first",
-    date: "Feb 23, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1078215378855022643\">Link</a>",
-    description: "up-find-next-player doesn't work (on DE). The first problem is that it will return the current player (that is passed in as an argument) rather than the next players. But even if you increment it, it actually gives wrong results. E.g. if you request for an ally it may give an enemy player or even gaia. See the Discord link for a test script."
+    description: "up-get-player-fact for building-count does not work for enemy players on DE. It just returns -1. This command does however work when used as a normal fact: (players-building-count etc.). Update: up-get-player-fact for building-count only returns 0 now."
 }, {
     name: "ai_info_map_type doesn't work",
     date: "Dec 21, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
     description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
-}, {
-    name: "Path distance calculation issues",
-    date: "Nov 22, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link</a>",
-    description: "There are cases where the path distance calculation is wrong (path distances on arena f.e. not always showing that objects inside the enemy's walled town were inaccessible). See discussion at Discord link."
 }, {
 //     name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
 //     date: "Oct 31, 2022",
