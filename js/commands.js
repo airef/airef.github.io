@@ -27230,6 +27230,11 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
     description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
 }, {
+    name: "Path distance calculation issues",
+    date: "Nov 22, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1449416353801961562\">Link2</a>",
+    description: "There are cases where the path distance calculation is wrong (path distances on arena f.e. not always showing that objects inside the enemy's walled town were inaccessible). See discussion at Discord link. Update: it looks like path distances correctly know that closed diagonal gates cannot be pathed through, but there are still issues with horizontal and vertical gates being considered pathable even when they're closed."
+}, {
 //     name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
 //     date: "Oct 31, 2022",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036867379004719144\">Link</a>",
