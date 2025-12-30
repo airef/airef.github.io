@@ -26970,6 +26970,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "building-type-count and building-type-count-total count cancelled building foundations",
+	date: "Dec 30, 2025",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1455571914721591411\">Link</a>",
+	description: "building-type-count and building-type-count-total count cancelled building foundations while the foundation is in its dying animation (status-down). Once the building's collapse animation ends, these commands no longer count the cancelled building. This is a legacy bug, and it also occurs in UP. The Discord link includes a test AI script to replicate it. Likewise, unit-type-count and unit-type-count-total count dying (status-down) units, when they should be excluded."
+}, {
 	name: "Italians my-unique-research and my-second-unique-research are incorrect",
 	date: "Dec 10, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1448453527297855630\">Link</a>",
@@ -27070,7 +27075,7 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
 	description: "Gates are being included in archer-line unit-type-counts when using up-get-fact-sum."
 }, {
-	name: "Rule with can-sell-commodity fired without a market",
+	name: "AIs can buy and sell resources as long as they have a market foundation placed at some point in the game",
 	date: "Jan 5, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
 	description: "In one of the matches today, a rule with can-sell-commodity fired without a market. All thats required is that you placed a market foundation once."
