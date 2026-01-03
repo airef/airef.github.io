@@ -20915,7 +20915,7 @@ cFeExcludeFromAttackGroup.commandParameters = [ {
 } ];
 cFeExcludeFromAttackGroup.example = [ {
 	title: "Exclude Cao Cao from attacks.",
-	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-exclude-from-attack-group c: 1954) ;1954 = Cao Cao\r\n)"
+	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-exclude-from-attack-group c: 1954) ;1954 = Cao Cao\r\n\t(disable-self)\r\n)"
 }];
 cFeExcludeFromAttackGroup.relatedCommands = [cFeResetAttackGroupExclusionList];
 cFeExcludeFromAttackGroup.commandCategory = ["Attack"];
