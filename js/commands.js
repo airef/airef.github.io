@@ -27011,6 +27011,21 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "Town Center not firing arrows",
+	date: "Jan 8, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458910178903855256\">Link</a>",
+	description: "Not sure if that's DE on Nomad but even with lots of villagers in TC and Castle Age research done, TC doesn't fire. Towers also seem to fail to fire occasionally."
+}, {
+	name: "housing-headroom is uncapped by the pop cap, causing population-headroom to go negative",
+	date: "Jan 6, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458065584083177677\">Link</a>",
+	description: "housing-headroom is uncapped by the pop cap, and it will include headroom above the pop cap that it can't use. population-headroom is calculated by population-capacity - housing-capacity, so when housing capacity goes above the pop cap, population-headroom will go negative. There is some debate whether this should be changed or not. Follow the link to see the discussion."
+}, {
+	name: "enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends",
+	date: "Jan 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1457008448750489632\">Link</a>",
+	description: "Enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends. Found cause: The TC object 1649 was using the wrong unit counting index, it shouldn't be counted at all but was using the closest index to it which happens to be coustillier 1655."
+}, {
 	name: "building-type-count and building-type-count-total count cancelled building foundations",
 	date: "Dec 30, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1455571914721591411\">Link</a>",
