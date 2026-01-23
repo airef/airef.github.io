@@ -7275,7 +7275,7 @@ snDockTrainingFilter.de = 1;
 snDockTrainingFilter.linked = [];
 snDockTrainingFilter.related = [ 278 ];
 snDockTrainingFilter.shortDescription = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.";
-snDockTrainingFilter.description = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.</p><p>Here is some sample code from scripter64 to set sn-dock-training-filter to the best possible state:</p><p>(defrule\r\n\t(true)\r\n=>\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n\t(set-goal gl-dock-attack-training 0)\r\n)\r\n\r\n(defrule\r\n\t(up-train-site-ready c: galley)\r\n=>\r\n\t(chat-to-all \"A dock is available to train warships.\")\r\n\t(set-strategic-number sn-dock-training-filter 2)\r\n\t(set-goal gl-dock-attack-training 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with recent sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with any sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n)\r\n\r\n;sn-dock-training-filter is now set to the best possible state";
+snDockTrainingFilter.description = "Set to 1 or 2 to enable the intelligent dock training filter. This will prevent docks from training ships that would likely be useless in their body of water. If set to 1, docks will continue to train in seas that no longer contain recently sighted targets, while 2 will block training. If set to 0, docks will train units without additional consideration.</p><p>Here is some sample code from scripter64 to set sn-dock-training-filter to the best possible state:</p><p><div class=\"example\"><pre><code>(defrule\r\n\t(true)\r\n=>\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n\t(set-goal gl-dock-attack-training 0)\r\n)\r\n\r\n(defrule\r\n\t(up-train-site-ready c: galley)\r\n=>\r\n\t(chat-to-all \"A dock is available to train warships.\")\r\n\t(set-strategic-number sn-dock-training-filter 2)\r\n\t(set-goal gl-dock-attack-training 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with recent sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 1)\r\n)\r\n\r\n(defrule\r\n\t(goal gl-dock-attack-training 1)\r\n\t(not(up-train-site-ready c: galley))\r\n=>\r\n\t(chat-to-all \"A dock is not available to train warships with any sighting data.\")\r\n\t(set-strategic-number sn-dock-training-filter 0)\r\n)\r\n\r\n;sn-dock-training-filter is now set to the best possible state</code></pre></div>";
 
 snFreeSiegeTargeting.id = 282;
 snFreeSiegeTargeting.snName = "sn-free-siege-targeting";
@@ -19218,7 +19218,7 @@ cUpResearchStatus.commandParameters = [ {
 	name: "ResearchState",
 	type: "Op",
 	dir: "in",
-	range: "research-unavailable, research-available, research-pending, research-complete, research-queued, research-disabled",
+	range: "research-disabled, research-unavailable, research-available, research-pending, research-complete, research-queued",
 	note: "The research status to compare with."
 } ];
 cUpResearchStatus.example = [ {
@@ -24194,7 +24194,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-progress-type",
 	id: 60,
-	description: "The type of progress the object has (training or researching). Objects that cannot train or research return -2. An object that can train or research but is doing neither will return 0. If the object is training or researching, a value from the " + pProgressType.getLink() + " list will be returned."
+	description: "The type of progress the object has (training or researching). Objects that cannot train or research return -2. An object that can train or research but is doing neither will return 0. If the object is training or researching, a value from the " + pProgressType.getLink() + " list will be returned: progress-type-train (a value of 102) or progress-type-research (a value of 103)."
 }, {
 	name: "object-data-progress-value",
 	id: 61,
@@ -24925,15 +24925,15 @@ pResearchState.valueList = [ {
 }, {
 	name: "research-unavailable",
 	id: 0,
-	description: "The research is not available, either because the age or technology prerequisites haven't been met or the research is not available in the civ's tech tree."
+	description: "The research is not available, either because the age or technology prerequisites haven't been met, the research is not available in the civ's tech tree, or building requirements haven't been met (for age techs only)."
 }, {
 	name: "research-available",
 	id: 1,
-	description: "The age, technology, and civilization requirements for the research have been met, but the player hasn't started researching the research yet."
+	description: "The age, technology, building (for age techs), and civilization requirements for the research have been met, but the player hasn't started researching the research yet. Techs can still be considered research-available even if the AI doesn't have a building that can research them."
 }, {
 	name: "research-pending",
 	id: 2,
-	description: "The research is currently being researched."
+	description: "The research is currently being researched. Doesn't count queued techs."
 }, {
 	name: "research-complete",
 	id: 3,
@@ -47904,6 +47904,25 @@ objectsGaiaArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Forage Bush (Gurjaras)",
+	aiName: "",
+	line: "",
+	id: 1549,
+	class: "foarge-class (907)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Gurjaras",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Free forage bushes at start for Gurjaras"
 }, {	
 	name: "Chicken A",
 	aiName: "",
