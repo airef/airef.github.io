@@ -27011,6 +27011,16 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "AI attacks know where enemy town locations are on nomad starts",
+	date: "Feb 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
+	description: "AI attacks automatically seem to know where the enemy TC is on nomad starts, and when they send soldiers to attack they will always march toward that location, even if it's in the fog of war. A side effect is that position-enemy also knows enemy town locations that are in the fog of war. This might be linked to the bug where enemy TCs built during treaty mode being counted as coustillier, and the enemy TCs are added to the AIs explored objects list."
+}, {
+	name: "Exploring villagers often go idle",
+	date: "Feb 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
+	description: "AI villagers sent to explore with sn-cap-civilian-explorers often go idle at some point. "
+}, {
 	name: "Town Center not firing arrows",
 	date: "Jan 8, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458910178903855256\">Link</a>",
@@ -27371,11 +27381,11 @@ bugsArray = [ {
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/986884993886322708\">Link</a>",
 //     description: "Don't know if this bug is tracked, but when I want to play that scenario in skirmish and change the color of a player it will spawn that players TC on a apparently random place of the map! Created this scenario with aoc/up and saved it with DE again. Didn't make a difference to me, both bugged. Alian713 gave a good hint: If the scenario is a 2p map and you change to a colour thats not 1 or 2 you're adding another player to it which wasn't on the map itself the colour actually changes which player you become in the scenario its not just colour itself pt2 of me asking for colour picker to be separated in the lobby from the 1-8 player numbers. So in this case its rather about the PlayerNr, than about the color. However, like I mentioned later, I wonder why you can only choose a set player in AoC/UP, but can choose a PlayerNr in DE which isn't even defined in the scenario."
 // }, {
-//     name: "Villagers hunting far unexplored boar",
-//     date: "Mar 30, 2022",
-//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
-//     description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
-// }, {
+    name: "Villagers hunting far unexplored boar",
+    date: "Mar 30, 2022",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
+    description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
+}, {
 //     name: "Crash when setting promotional picture for a mod",
 //     date: "Mar 20, 2022",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/955046436750372904\">Link</a>",
