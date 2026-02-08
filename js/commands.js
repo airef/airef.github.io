@@ -27011,6 +27011,21 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "up-players-in-game doesn't work with enemy-treaty",
+	date: "Feb 8, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1470068387148464182\">Link</a>",
+	description: "up-players-in-game says there are -1 enemy-treaty players in the game during treaty mode starts. Instead every enemy-treaty stance player is counted as an enemy."
+}, {
+	name: "Boar lurers can be retasked to explore by sn-cap-civilian-explorers",
+	date: "Feb 8, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1469960619213197549\">Link</a>",
+	description: "Boar lurers can be retasked to explore if sn-cap-civilian-explorers is > 0."
+}, {
+	name: "The Hunnic Horse is sent to attack by attack-now or attack groups and idles",
+	date: "Feb 7, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1469713531363528715\">Link</a>",
+	description: "The hunnic horse seems to join (and is effectively idled by) an attack-now or attack groups. It may perhaps also damage villagers, but not significantly. Just enough to have them hit back and kill it, if at all."
+}, {
 	name: "AI attacks know where enemy town locations are on nomad starts",
 	date: "Feb 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
