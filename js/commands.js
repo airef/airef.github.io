@@ -7795,7 +7795,7 @@ snPreferredStoragePitPlacement.id = 311;
 snPreferredStoragePitPlacement.snName = "sn-preferred-storage-pit-placement";
 snPreferredStoragePitPlacement.snNameAoE1 = "";
 snPreferredStoragePitPlacement.default = -1;
-snPreferredStoragePitPlacement.category = "Economy";
+snPreferredStoragePitPlacement.category = "Buildings";
 snPreferredStoragePitPlacement.min = "Min";
 snPreferredStoragePitPlacement.max = "Max";
 snPreferredStoragePitPlacement.rmin = -1;
@@ -7864,7 +7864,7 @@ snPreferredSettlementPlacement.id = 314;
 snPreferredSettlementPlacement.snName = "sn-preferred-settlement-placement";
 snPreferredSettlementPlacement.snNameAoE1 = "";
 snPreferredSettlementPlacement.default = -1;
-snPreferredSettlementPlacement.category = "Attack";
+snPreferredSettlementPlacement.category = "Buildings";
 snPreferredSettlementPlacement.min = "Min";
 snPreferredSettlementPlacement.max = "Max";
 snPreferredSettlementPlacement.rmin = -1;
@@ -28228,6 +28228,19 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Champi Runner",
+	aiName: "",
+	weirdName: 0,
+	id: 1402,
+	building: "Barracks",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Long Swordsman",
 	aiName: "ri-long-swordsman",
 	weirdName: 0,
@@ -28263,6 +28276,19 @@ barracksTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Champi Warrior",
+	aiName: "",
+	weirdName: 0,
+	id: 1351,
+	building: "Barracks",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "",
 	notes: ""
@@ -28332,25 +28358,12 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
-	name: "Champi Runner",
+	name: "Elite Fire Lancer",
 	aiName: "",
 	weirdName: 0,
-	id: 1402,
+	id: 982,
 	building: "Barracks",
-	age: 2,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Champi Warrior",
-	aiName: "",
-	weirdName: 0,
-	id: 1351,
-	building: "Barracks",
-	age: 3,
+	age: 4,
 	aok: 0,
 	tc: 0,
 	wk: 0,
@@ -28362,19 +28375,6 @@ barracksTechsArray = [ {
 	aiName: "",
 	weirdName: 0,
 	id: 1352,
-	building: "Barracks",
-	age: 4,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Elite Fire Lancer",
-	aiName: "",
-	weirdName: 0,
-	id: 982,
 	building: "Barracks",
 	age: 4,
 	aok: 0,
@@ -31578,9 +31578,9 @@ fortTechsArrayChr = [ {
 } ];	
 	
 dockTechsArray = [ {	
-	name: "War Galley",
+	name: "Medium Warships",
 	aiName: "ri-war-galley",
-	weirdName: 0,
+	weirdName: 1,
 	id: 34,
 	building: "Dock",
 	age: 3,
@@ -31589,11 +31589,11 @@ dockTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
-	notes: ""
+	notes: "In DE, upgrades Galleys, Fire Galleys, and Hulks"
 }, {	
-	name: "Galleon",
+	name: "Heavy Warships",
 	aiName: "ri-galleon",
-	weirdName: 0,
+	weirdName: 1,
 	id: 35,
 	building: "Dock",
 	age: 4,
@@ -31602,7 +31602,7 @@ dockTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "",
-	notes: ""
+	notes: "In DE, upgrades War Galleys, Fire Ships, and War Hulks"
 }, {	
 	name: "Fast Fire Ship",
 	aiName: "ri-fast-fire-ship",
@@ -31613,7 +31613,7 @@ dockTechsArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "",
 	notes: ""
 }, {	
@@ -31626,8 +31626,21 @@ dockTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
+	de: 0,
 	civ: "Chinese",
+	notes: "Now is upgraded with Heavy Warships"
+}, {	
+	name: " Demolition Ship",
+	aiName: "",
+	weirdName: 0,
+	id: 905,
+	building: "Dock",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
 	notes: ""
 }, {	
 	name: "Heavy Demolition Ship",
@@ -31708,6 +31721,19 @@ dockTechsArray = [ {
 	civ: "Koreans",
 	notes: ""
 }, {	
+	name: "Fishing Lines",
+	aiName: "",
+	weirdName: 0,
+	id: 906,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Gillnets",
 	aiName: "ri-gillnets",
 	weirdName: 2,
@@ -31716,45 +31742,6 @@ dockTechsArray = [ {
 	age: 3,
 	aok: 0,
 	tc: 0,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Careening",
-	aiName: "ri-careening",
-	weirdName: 0,
-	id: 374,
-	building: "Dock",
-	age: 3,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Dry Dock",
-	aiName: "ri-dry-dock",
-	weirdName: 0,
-	id: 375,
-	building: "Dock",
-	age: 4,
-	aok: 1,
-	tc: 1,
-	wk: 1,
-	de: 1,
-	civ: "",
-	notes: ""
-}, {	
-	name: "Shipwright",
-	aiName: "ri-shipwright",
-	weirdName: 0,
-	id: 373,
-	building: "Dock",
-	age: 4,
-	aok: 1,
-	tc: 1,
 	wk: 1,
 	de: 1,
 	civ: "",
@@ -33464,6 +33451,97 @@ universityTechsArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Careening",
+	aiName: "ri-careening",
+	weirdName: 0,
+	id: 374,
+	building: "University",
+	age: 3,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Moved to the University in DE"
+}, {	
+	name: "Dry Dock",
+	aiName: "ri-dry-dock",
+	weirdName: 0,
+	id: 375,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Moved to the University in DE"
+}, {	
+	name: "Shipwright",
+	aiName: "ri-shipwright",
+	weirdName: 0,
+	id: 373,
+	building: "University",
+	age: 4,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	civ: "",
+	notes: "Moved to the University in DE"
+}, {	
+	name: "Clinker Construction",
+	aiName: "",
+	weirdName: 0,
+	id: 908,
+	building: "University",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Carvel Hull",
+	aiName: "",
+	weirdName: 0,
+	id: 907,
+	building: "University",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Siphons",
+	aiName: "",
+	weirdName: 0,
+	id: 909,
+	building: "University",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Incendiaries",
+	aiName: "",
+	weirdName: 0,
+	id: 910,
+	building: "University",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "",
 	notes: ""
