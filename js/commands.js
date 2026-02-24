@@ -7835,6 +7835,51 @@ snKeystates.description = "This allows the AI to input ctrl and shift inputs whe
 
 //Unit Lines Array
 unitLinesArray = [ {
+	name: "war-dog-line",
+	id: "NA",
+	deId: -309,
+	description: "Includes War Dog and Elite War Dog."
+}, {
+	name: "hulk-line",
+	id: "NA",
+	deId: -308,
+	description: "Includes Hulk, War Hulk, and Carrack."
+}, {
+	name: "blackwood-archer-line",
+	id: "NA",
+	deId: -307,
+	description: "Includes Blackwood Archer and Elite Blackwood Archer."
+}, {
+	name: "kona-line",
+	id: "NA",
+	deId: -306,
+	description: "Includes Kona and Elite Kona."
+}, {
+	name: "guecha-warrior-line",
+	id: "NA",
+	deId: -305,
+	description: "Includes Guecha Warrior and Elite Guecha Warrior."
+}, {
+	name: "ibirapema-warrior-line",
+	id: "NA",
+	deId: -304,
+	description: "Includes Ibirapema Warrior and Elite Ibirapema Warrior."
+}, {
+	name: "temple-guard-line",
+	id: "NA",
+	deId: -303,
+	description: "Includes Temple Guard and Elite Temple Guard."
+}, {
+	name: "bolas-rider-line",
+	id: "NA",
+	deId: -302,
+	description: "Includes Bolas Rider and elite Bolas Rider."
+}, {
+	name: "champi-line",
+	id: "NA",
+	deId: -301,
+	description: "Includes Champi Scout, Champi Runner, Champi Warrior, and Elite Champi Warrior."
+}, {
 	name: "archer-line",
 	id: -299,
 	deId: -299,
@@ -8985,12 +9030,20 @@ aoe2CivsLoadIfsArray = [ {
 	description: "Malians civ.",
 	type: "AoE2 Civs"
 }, {
+	name: "MAPUCHE-CIV",
+	description: "Mapuche civ.",
+	type: "AoE2 Civs"
+}, {
 	name: "MAYAN-CIV",
 	description: "Mayans civ.",
 	type: "AoE2 Civs"
 }, {
 	name: "MONGOL-CIV",
 	description: "Mongols civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "MUISCA-CIV",
+	description: "Muisca civ.",
 	type: "AoE2 Civs"
 }, {
 	name: "PERSIAN-CIV",
@@ -9035,6 +9088,10 @@ aoe2CivsLoadIfsArray = [ {
 }, {
 	name: "TEUTONIC-CIV",
 	description: "Teutons civ.",
+	type: "AoE2 Civs"
+}, {
+	name: "TUPI-CIV",
+	description: "Tupi civ.",
 	type: "AoE2 Civs"
 }, {
 	name: "TURKISH-CIV",
@@ -22088,6 +22145,18 @@ pCiv.valueList = [ {
 	name: "puru",
 	id: 56,
 	description: "Puru (must define with a defconst first)."
+}, {
+	name: "muisca",
+	id: 57,
+	description: "Muisca (must define with a defconst first)."
+}, {
+	name: "mapuche",
+	id: 58,
+	description: "Mapuche (must define with a defconst first)."
+}, {
+	name: "tupi",
+	id: 59,
+	description: "Tupi (must define with a defconst first)."
 } ];
 
 //ClassId
@@ -22263,6 +22332,10 @@ pClassId.valueList = [ {
 	name: "controlled-animal-class*",
 	id: 961,
 	description: "Controlled animal class."
+}, {
+	name: "gold-fish-class*",
+	id: 963,
+	description: "Gold fish class. Includes oysters and whales."
 } ];
 
 //CmdId
@@ -22481,7 +22554,7 @@ pDUCAction.valueList = [ {
 }, {
 	name: "action-train",
 	id: 10,
-	description: "Buildings in the local list will train units. To train units, use this syntax: (" + cUpTargetPoint.getLink() + " inGoal" + pEscrowGoalId.getLink() + " action-train " + pTypeOp.getLink() + " inOp" + pTypeId.getLink() + "). Example: (up-target-point 0 action-train c: spearman-line). For " + cUpTargetObjects.getLink() + " this is the same as action-none."
+	description: "Buildings in the local list will train units. To train units, use this syntax: (" + cUpTargetPoint.getLink() + " " + pEscrowGoalId.getLink() + " action-train " + pTypeOp.getLink() + " " + pTypeId.getLink() + "). Example: (up-target-point 0 action-train c: spearman-line). For " + cUpTargetObjects.getLink() + " this is the same as action-none."
 }, {
 	name: "action-gather",
 	id: 11,
@@ -22522,6 +22595,10 @@ pDUCAction.valueList = [ {
 	name: "action-transform",
 	id: 20,
 	description: "Must be defined with a defconst. Only available in DE. Rathas in the local list will switch between melee and ranged mode."
+}, {
+	name: "action-research",
+	id: 21,
+	description: "Must be defined with a defconst. Only available in DE. Researches a tech at a building in the local list. Use this syntax: (" + cUpTargetPoint.getLink() + " " + pEscrowGoalId.getLink() + " action-research " + pTypeOp.getLink() + " " + pTypeId.getLink() + "). Example: (up-target-point 0 action-research c: ri-loom). For " + cUpTargetObjects.getLink() + " this is the same as action-none."
 } ];
 
 //EffectId
@@ -27011,6 +27088,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "rocket-cart-line is defined incorrectly",
+	date: "Feb 23, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1475357646243495946\">Link1</a>, <a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link2</a>",
+	description: "In unitlines.json the rocket-cart-line is defined as 1904 and 1906, but rocket cart and heavy rocket cart are 1904 and 1907. This causes rocket-cart-line to not include heavy rocket carts. This also causes rocket cart projectiles to be counted with rocket-cart-line since the rocket cart projectile is 1906."
+}, {
 	name: "UP-ALLY-IN-GAME is defined in Nomad 1v1 games",
 	date: "Feb 13, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1471976323772583946\">Link</a>",
@@ -27091,11 +27173,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435743498451292221\">Link</a>",
 	description: "Trebuchets permanently unpack and repack. Most of the time all trebs worked perfectly fine, then all of them on a single castle at once go idle for the rest of the game."
 }, {
-	name: "action-transform doesn't work",
-	date: "Oct 30, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1433488327507579031\">Link</a>",
-	description: "DUC code to tell rathas to switch between ranged and melee mode with action-transform no longer works. See example code on Discord."
-}, {
+// 	name: "action-transform doesn't work",
+// 	date: "Oct 30, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1433488327507579031\">Link</a>",
+// 	description: "DUC code to tell rathas to switch between ranged and melee mode with action-transform no longer works. See example code on Discord."
+// }, {
 	name: "Mangonels go idle when units are inside their minimum range",
 	date: "Oct 28, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1432923135639814204\">Link</a>",
@@ -27131,11 +27213,6 @@ bugsArray = [ {
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
 	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
 }, {
-	name: "Counting rocket-cart-line and rocket cart unit IDs includes projectiles",
-	date: "Jun 20, 2025",
-	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link</a>",
-	description: "I found a bug... At the moment of the rocket-cart shot - the number of rocket-cart-line units increases by the number of shells 😄 for example, i have 1 rocket-cart... At first unit-type-count rocket-cart = 1, but at the moment of the shot unit-type-count rocket-cart > 1 😄 usually 9, if some shells have already fallen to the ground, then 7...5...)) this bug work with all ID units, and with 1904 and with 1907, and with -206 (rocket-cart-line)"
-}, {
 	name: "AIs can train more than one hero",
 	date: "May 19, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1374171802473070622\">Link</a>",
@@ -27156,11 +27233,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
 	description: "Gates are being included in archer-line unit-type-counts when using up-get-fact-sum."
 }, {
-	name: "AIs can buy and sell resources as long as they have a market foundation placed at some point in the game",
-	date: "Jan 5, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
-	description: "In one of the matches today, a rule with can-sell-commodity fired without a market. All thats required is that you placed a market foundation once."
-}, {
+// 	name: "AIs can buy and sell resources as long as they have a market foundation placed at some point in the game",
+// 	date: "Jan 5, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
+// 	description: "In one of the matches today, a rule with can-sell-commodity fired without a market. All thats required is that you placed a market foundation once."
+// }, {
 	name: "up-delete-objects command left gates at 1 HP",
 	date: "Nov 9, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1304770789559763018\">Link</a>",
@@ -33750,7 +33827,7 @@ objectsRangeArray = [ {
 	deadUnit: "186",
 	projectile: "187",
 	chemProjectile: "",
-	civ: "Incas",
+	civ: "",
 	weirdName: 5,
 	aok: 0,
 	tc: 0,
@@ -33884,6 +33961,44 @@ objectsRangeArray = [ {
 	projectile: "477",
 	chemProjectile: "475",
 	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Bolas Rider",
+	aiName: "",
+	line: "bolas-rider-line",
+	id: 2569,
+	class: "cavalry-archer-class (936)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 3,
+	deadUnit: "2",
+	projectile: "2572",
+	chemProjectile: "",
+	civ: "Mapuche",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Bolas Rider",
+	aiName: "",
+	line: "bolas-rider-line",
+	id: 2571,
+	class: "cavalry-archer-class (936)",
+	cmdId: "cmdid-military",
+	building: "Archery Range",
+	age: 4,
+	deadUnit: "2",
+	projectile: "2573",
+	chemProjectile: "",
+	civ: "Mapuche",
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
@@ -34357,6 +34472,82 @@ objectsBarracksArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Champi Scout",
+	aiName: "",
+	line: "champi-line",
+	id: 2550,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 1,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Champi Runner",
+	aiName: "",
+	line: "champi-line",
+	id: 2588,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 2,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Champi Warrior",
+	aiName: "",
+	line: "champi-line",
+	id: 2552,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Champi Warrior",
+	aiName: "",
+	line: "champi-line",
+	id: 2554,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Fire Lancer",
 	aiName: "",
 	line: "fire-lancer-line",
@@ -34527,6 +34718,120 @@ objectsBarracksArray = [ {
 	wk: 0,
 	de: 1,
 	notes: "Changes to this unit when <= 45 HP"
+}, {	
+	name: "Temple Guard",
+	aiName: "",
+	line: "temple-guard-line",
+	id: 2586,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Muisca",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can also be trained at the monastery"
+}, {	
+	name: "Elite Temple Guard",
+	aiName: "",
+	line: "temple-guard-line",
+	id: 2587,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Muisca",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can also be trained at the monastery"
+}, {	
+	name: "Ibirapema Warrior",
+	aiName: "",
+	line: "ibirapema-warrior-line",
+	id: 2582,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 3,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Tupi",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Ibirapema Warrior",
+	aiName: "",
+	line: "ibirapema-warrior-line",
+	id: 2584,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Tupi",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "War Dog",
+	aiName: "",
+	line: "war-dog-line",
+	id: 2612,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Must be enabled manually by a trigger"
+}, {	
+	name: "Elite War Dog",
+	aiName: "",
+	line: "war-dog-line",
+	id: 2613,
+	class: "infantry-class (906)",
+	cmdId: "cmdid-military",
+	building: "Barracks",
+	age: 4,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Elite upgrade must be enabled manually by a trigger"
 }];	
 	
 objectsBarracksArrayChr = [ {	
@@ -36266,6 +36571,44 @@ objectsCastleArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Kona",
+	aiName: "",
+	line: "kona-line",
+	id: 2566,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Mapuche",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Kona",
+	aiName: "",
+	line: "kona-line",
+	id: 2568,
+	class: "cavalry-class (912)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "2",
+	projectile: "",
+	chemProjectile: "",
+	civ: "Mapuche",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Plumed Archer",
 	aiName: "plumed-archer",
 	line: "plumed-archer-line",
@@ -36339,6 +36682,44 @@ objectsCastleArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Guecha Warrior",
+	aiName: "",
+	line: "guecha-warrior-line",
+	id: 2562,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "2",
+	projectile: "365",
+	chemProjectile: "376",
+	civ: "Muisca",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Elite Guecha Warrior",
+	aiName: "",
+	line: "guecha-warrior-line",
+	id: 2564,
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "2",
+	projectile: "365",
+	chemProjectile: "376",
+	civ: "Muisca",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -36776,6 +37157,44 @@ objectsCastleArray = [ {
 	aok: 1,
 	tc: 1,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {
+	name: "Blackwood Archer",
+	aiName: "",
+	line: "blackwood-archer-line",
+	id: "2579",
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 3,
+	deadUnit: "2",
+	projectile: "2608",
+	chemProjectile: "",
+	civ: "Tupi",
+	weirdName: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {
+	name: "Elite Blackwood Archer",
+	aiName: "",
+	line: "blackwood-archer-line",
+	id: "2581",
+	class: "archery-class (900)",
+	cmdId: "cmdid-military",
+	building: "Castle",
+	age: 4,
+	deadUnit: "2",
+	projectile: "2609",
+	chemProjectile: "",
+	civ: "Tupi",
+	weirdName: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -37323,6 +37742,25 @@ objectsDockArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Whaling Ship",
+	aiName: "",
+	line: "",
+	id: 2630,
+	class: "fishing-ship-class (921)",
+	cmdId: "cmdid-fishing-ship",
+	building: "Dock",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Trade Cog",
 	aiName: "trade-cog",
 	line: "",
@@ -37589,6 +38027,63 @@ objectsDockArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Hulk",
+	aiName: "",
+	line: "hulk-line",
+	id: "2626",
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 2,
+	deadUnit: "",
+	projectile: "2636",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "War Hulk",
+	aiName: "",
+	line: "hulk-line",
+	id: "2627",
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 3,
+	deadUnit: "",
+	projectile: "2636",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Carrack",
+	aiName: "",
+	line: "hulk-line",
+	id: "2628",
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 4,
+	deadUnit: "",
+	projectile: "2636",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Cannon Galleon",
 	aiName: "cannon-galleon",
 	line: "cannon-galleon-line",
@@ -37657,6 +38152,25 @@ objectsDockArray = [ {
 	deadUnit: "",
 	projectile: "1938, 1934",
 	chemProjectile: "1939, 1935",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Catapult Galleon",
+	aiName: "",
+	line: "",
+	id: 2633,
+	class: "warship-class (922)",
+	cmdId: "cmdid-military",
+	building: "Dock",
+	age: 4,
+	deadUnit: "",
+	projectile: "1932",
+	chemProjectile: "1933",
 	civ: "",
 	weirdName: 0,
 	aok: 0,
@@ -37823,6 +38337,25 @@ objectsPortArray = [ {
 	aiName: "",
 	line: "",
 	id: 2171,
+	class: "fishing-ship-class (921)",
+	cmdId: "cmdid-fishing-ship",
+	building: "Port",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Whaling Ship",
+	aiName: "",
+	line: "",
+	id: 2630,
 	class: "fishing-ship-class (921)",
 	cmdId: "cmdid-fishing-ship",
 	building: "Port",
@@ -38664,6 +39197,25 @@ objectsMonasteryArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Missionary with Relic",
+	aiName: "",
+	line: "",
+	id: 2557,
+	class: "monk-with-relic-class (943)",
+	cmdId: "cmdid-relic",
+	building: "Monastery",
+	age: 3,
+	deadUnit: "776",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Missionaries change to this unit ID when carrying relics"
 }, {	
 	name: "Warrior Priest",
 	aiName: "warrior-priest",
@@ -42233,6 +42785,63 @@ objectsBuildingsArray = [ {
 	building: "Buildings",
 	age: 1,
 	deadUnit: "1809",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Settlement (Dark Age)",
+	aiName: "",
+	line: "",
+	id: 2556,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Settlement (Feudal Age)",
+	aiName: "",
+	line: "",
+	id: 2558,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 2,
+	deadUnit: "145",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Settlement (Castle Age)",
+	aiName: "",
+	line: "",
+	id: 2560,
+	class: "building-class (903)",
+	cmdId: "cmdid-civilian-building",
+	building: "Buildings",
+	age: 1,
+	deadUnit: "145",
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
@@ -47949,6 +48558,63 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Free forage bushes at start for Gurjaras"
 }, {	
+	name: "Papaya Tree",
+	aiName: "",
+	line: "",
+	id: 2599,
+	class: "foarge-class (907)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Pineapple Bush",
+	aiName: "",
+	line: "",
+	id: 2650,
+	class: "foarge-class (907)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Capybara",
+	aiName: "",
+	line: "",
+	id: 2590,
+	class: "livestock-class (958)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "595",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Chicken A",
 	aiName: "",
 	line: "",
@@ -48329,6 +48995,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Guanaco",
+	aiName: "",
+	line: "",
+	id: 2591,
+	class: "prey-animal-class (909)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "43",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Hare A",
 	aiName: "",
 	line: "",
@@ -48499,6 +49184,25 @@ objectsGaiaArray = [ {
 	wk: 0,
 	de: 1,
 	notes: "Can be hunted for 35 gold."
+}, {	
+	name: "Rhea",
+	aiName: "",
+	line: "",
+	id: 2597,
+	class: "prey-animal-class (909)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "43",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
 }, {	
 	name: "Wild Bactrian Camel",
 	aiName: "",
@@ -48766,6 +49470,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Tapir",
+	aiName: "",
+	line: "",
+	id: 2589,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "356",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Wild Boar",
 	aiName: "",
 	line: "",
@@ -48823,6 +49546,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Black Panther",
+	aiName: "",
+	line: "",
+	id: 2595,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Brown Bear",
 	aiName: "",
 	line: "",
@@ -48842,6 +49584,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Caiman",
+	aiName: "",
+	line: "",
+	id: 2594,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Crocodile",
 	aiName: "",
 	line: "",
@@ -48857,6 +49618,25 @@ objectsGaiaArray = [ {
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Grey Wolf",
+	aiName: "",
+	line: "",
+	id: 126,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
 	wk: 1,
 	de: 1,
 	notes: ""
@@ -48937,6 +49717,25 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Snake",
+	aiName: "",
+	line: "",
+	id: 2592,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
 	name: "Snow Leopard",
 	aiName: "",
 	line: "",
@@ -48971,25 +49770,6 @@ objectsGaiaArray = [ {
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
-	wk: 1,
-	de: 1,
-	notes: ""
-}, {	
-	name: "Wolf",
-	aiName: "",
-	line: "",
-	id: 126,
-	class: "predator-animal-class (910)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "237",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 1,
-	tc: 1,
 	wk: 1,
 	de: 1,
 	notes: ""
@@ -49202,6 +49982,44 @@ objectsGaiaArray = [ {
 	wk: 1,
 	de: 1,
 	notes: "Marlin leaps from left to right"
+}, {	
+	name: "Oysters",
+	aiName: "",
+	line: "",
+	id: 2710,
+	class: "gold-fish-class (963)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Holds 450 gold"
+}, {	
+	name: "Whale",
+	aiName: "",
+	line: "",
+	id: 2625,
+	class: "gold-fish-class (963)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Holds 1000 gold"
 }, {	
 	name: "Acacia Tree",
 	aiName: "",
@@ -53310,6 +54128,25 @@ objectsOtherArray = [ {
 	wk: 1,
 	de: 1,
 	notes: ""
+}, {	
+	name: "Alpaca",
+	aiName: "",
+	line: "",
+	id: 2614,
+	class: "controlled-animal-class (961)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Other",
+	age: 1,
+	deadUnit: "815",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be controlled."
 }, {	
 	name: "Bactrian Camel",
 	aiName: "",
