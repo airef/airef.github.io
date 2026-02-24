@@ -7838,47 +7838,52 @@ unitLinesArray = [ {
 	name: "war-dog-line",
 	id: "NA",
 	deId: -309,
-	description: "Includes War Dog and Elite War Dog."
+	description: "DE only. Includes War Dog and Elite War Dog."
 }, {
 	name: "hulk-line",
 	id: "NA",
 	deId: -308,
-	description: "Includes Hulk, War Hulk, and Carrack."
+	description: "DE only. Includes Hulk, War Hulk, and Carrack."
 }, {
 	name: "blackwood-archer-line",
 	id: "NA",
 	deId: -307,
-	description: "Includes Blackwood Archer and Elite Blackwood Archer."
+	description: "DE only. Includes Blackwood Archer and Elite Blackwood Archer."
 }, {
 	name: "kona-line",
 	id: "NA",
 	deId: -306,
-	description: "Includes Kona and Elite Kona."
+	description: "DE only. Includes Kona and Elite Kona."
 }, {
 	name: "guecha-warrior-line",
 	id: "NA",
 	deId: -305,
-	description: "Includes Guecha Warrior and Elite Guecha Warrior."
+	description: "DE only. Includes Guecha Warrior and Elite Guecha Warrior."
 }, {
 	name: "ibirapema-warrior-line",
 	id: "NA",
 	deId: -304,
-	description: "Includes Ibirapema Warrior and Elite Ibirapema Warrior."
+	description: "DE only. Includes Ibirapema Warrior and Elite Ibirapema Warrior."
 }, {
 	name: "temple-guard-line",
 	id: "NA",
 	deId: -303,
-	description: "Includes Temple Guard and Elite Temple Guard."
+	description: "DE only. Includes Temple Guard and Elite Temple Guard."
 }, {
 	name: "bolas-rider-line",
 	id: "NA",
 	deId: -302,
-	description: "Includes Bolas Rider and elite Bolas Rider."
+	description: "DE only. Includes Bolas Rider and elite Bolas Rider."
 }, {
 	name: "champi-line",
 	id: "NA",
 	deId: -301,
-	description: "Includes Champi Scout, Champi Runner, Champi Warrior, and Elite Champi Warrior."
+	description: "DE only. Includes Champi Scout, Champi Runner, Champi Warrior, and Elite Champi Warrior."
+}, {
+	name: "sannahya-line",
+	id: "NA",
+	deId: -300,
+	description: "Chronciles only. Includes Sannahya and Elite Sannahya."
 }, {
 	name: "archer-line",
 	id: -299,
@@ -8268,52 +8273,52 @@ unitLinesArray = [ {
 	name: "immortal-line",
 	id: "NA",
 	deId: -222,
-	description: "DE only. Includes immortal and elite-immortal. Does not include ranged immortals."
+	description: "Chronicles only. Includes immortal and elite-immortal. Does not include ranged immortals."
 }, {
 	name: "strategos-line",
 	id: "NA",
 	deId: -221,
-	description: "DE only. Includes strategos and elite-strategos."
+	description: "Chronicles only. Includes strategos and elite-strategos."
 }, {
 	name: "hippeus-line",
 	id: "NA",
 	deId: -220,
-	description: "DE only. Includes hippeus and elite-hippeus."
+	description: "Chronicles only. Includes hippeus and elite-hippeus."
 }, {
 	name: "hoplite-line",
 	id: "NA",
 	deId: -219,
-	description: "DE only. Includes hoplite and elite-hoplite."
+	description: "Chronicles only. Includes hoplite and elite-hoplite."
 }, {
 	name: "war-chariot-line",
 	id: "NA",
 	deId: -218,
-	description: "DE only. Includes war-chariot and elite-war-chariot."
+	description: "Chronicles only. Includes war-chariot and elite-war-chariot."
 }, {
 	name: "lembos-line",
 	id: "NA",
 	deId: -217,
-	description: "DE only. Includes lembos, war-lembos, heavy-lembos, and elite-lembos."
+	description: "Chronicles only. Includes lembos, war-lembos, heavy-lembos, and elite-lembos."
 }, {
 	name: "monoreme-line",
 	id: "NA",
 	deId: -216,
-	description: "DE only. Includes monoreme, bireme, and trireme."
+	description: "Chronicles only. Includes monoreme, bireme, and trireme."
 }, {
 	name: "ancient-galley-line",
 	id: "NA",
 	deId: -215,
-	description: "DE only. Includes galley (antiquity), war-galley (antiquity), and elite-galley."
+	description: "Chronicles only. Includes galley (antiquity), war-galley (antiquity), and elite-galley."
 }, {
 	name: "incendiary-ship-line",
 	id: "NA",
 	deId: -214,
-	description: "DE only. Includes incendiary-raft, incendiary-ship, and heavy-incendiary-ship."
+	description: "Chronicles only. Includes incendiary-raft, incendiary-ship, and heavy-incendiary-ship."
 }, {
 	name: "catapult-ship-line",
 	id: "NA",
 	deId: -213,
-	description: "DE only. Includes catapult-ship and onager-ship."
+	description: "Chronicles only. Includes catapult-ship and onager-ship."
 }, {
 	name: "hei-guang-cavalry-line",
 	id: "NA",
@@ -8358,22 +8363,22 @@ unitLinesArray = [ {
 	name: "companion-cavalry-line",
 	id: "NA",
 	deId: -203,
-	description: "DE only. Includes companion-cavalry and elite-companion-cavalry."
+	description: "Chronicles only. Includes companion-cavalry and elite-companion-cavalry."
 }, {
 	name: "phalangite-line",
 	id: "NA",
 	deId: -202,
-	description: "DE only. Includes phalangite and elite-phalangite."
+	description: "Chronicles only. Includes phalangite and elite-phalangite."
 }, {
 	name: "rhomphaia-warrior-line",
 	id: "NA",
 	deId: -201,
-	description: "DE only. Includes rhomphaia-warrior and elite-rhomphaia-warrior."
+	description: "Chronicles only. Includes rhomphaia-warrior and elite-rhomphaia-warrior."
 }, {
 	name: "paddiyodha-longbowman-line",
 	id: "NA",
 	deId: -200,
-	description: "DE only. Includes paddiyodha-longbowman and elite-paddiyodha-longbowman."
+	description: "Chronicles only. Includes paddiyodha-longbowman and elite-paddiyodha-longbowman."
 } ];
 
 buildingLinesArray = [ {
@@ -8386,6 +8391,11 @@ buildingLinesArray = [ {
 	id: -398,
 	deId: -398,
 	description: "Watch Tower line. Bugged. Won't include Guard Tower or Keep in counting commands. \"watch-tower\" by itself usually works in non-counting commands. In Return of Rome, it includes Watch Tower, Sentry Tower, Guard Tower, but not Ballista Tower."
+}, {
+	name: "outpost-line",
+	id: "NA",
+	deId: -310,
+	description: "Chronicles only. Outpost line. Includes outpost and Fortified Outpost (Chronicles only)."
 } ];
 
 allLinesArray = buildingLinesArray.concat(unitLinesArray);
