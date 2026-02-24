@@ -737,6 +737,7 @@ var snDockTrainingFilter = new StrategicNumber("sn-dock-training-filter");
 var snDropsiteSeparationDistance = new StrategicNumber("sn-dropsite-separation-distance");
 var snEasierReactionPercentage = new StrategicNumber("sn-easier-reaction-percentage");
 var snEasiestReactionPercentage = new StrategicNumber("sn-easiest-reaction-percentage");
+var snEnableFullVision = new StrategicNumber("sn-enable-full-vision");
 var snEnableBoarHunting = new StrategicNumber("sn-enable-boar-hunting");
 var snEnableNewBuildingSystem = new StrategicNumber("sn-enable-new-building-system");
 var snEnableOffensivePriority = new StrategicNumber("sn-enable-offensive-priority");
@@ -745,6 +746,7 @@ var snEnableResearchQueue = new StrategicNumber("sn-enable-research-queue");
 var snEnableTrainingQueue = new StrategicNumber("sn-enable-training-queue");
 var snEnemySightedResponseDistance = new StrategicNumber("sn-enemy-sighted-response-distance");
 var snExploreGroupMakeup = new StrategicNumber("sn-explore-group-makeup");
+var snFishingBoatWhalingPercentage = new StrategicNumber("sn-fishing-boat-whaling-percentage");
 var snFilterUnderAttack = new StrategicNumber("sn-filter-under-attack");
 var snFocusPlayerNumber = new StrategicNumber("sn-focus-player-number");
 var snFoodDropsiteDistance = new StrategicNumber("sn-food-dropsite-distance");
@@ -756,6 +758,7 @@ var snGarrisonRams = new StrategicNumber("sn-garrison-rams");
 var snGateTypeForWall = new StrategicNumber("sn-gate-type-for-wall");
 var snGatherDefenseUnits = new StrategicNumber("sn-gather-defense-units");
 var snGatherIdleSoldiersAtCenter = new StrategicNumber("sn-gather-idle-soldiers-at-center");
+var snGatherIdleSoldiersAtSpawnPoint = new StrategicNumber("sn-gather-idle-soldiers-at-spawn-point");
 var snGoldDefendPriority = new StrategicNumber("sn-gold-defend-priority");
 var snGoldDropsiteDistance = new StrategicNumber("sn-gold-dropsite-distance");
 var snGoldGathererPercentage = new StrategicNumber("sn-gold-gatherer-percentage");
@@ -863,6 +866,7 @@ var snPlacementFailDelta = new StrategicNumber("sn-placement-fail-delta");
 var snPlacementToCenter = new StrategicNumber("sn-placement-to-center");
 var snPlacementZoneSize = new StrategicNumber("sn-placement-zone-size");
 var snPreferredMillPlacement = new StrategicNumber("sn-preferred-mill-placement");
+var snPreferredSettlementPlacement = new StrategicNumber("sn-preferred-settlement-placement");
 var snPreferredStoragePitPlacement = new StrategicNumber("sn-preferred-storage-pit-placement");
 var snPreferredTradeDistance = new StrategicNumber("sn-preferred-trade-distance");
 var snProfilingThreshold = new StrategicNumber("sn-profiling-threshold");
@@ -871,6 +875,7 @@ var snRelicDefendPriority = new StrategicNumber("sn-relic-defend-priority");
 var snRelicReturnDistance = new StrategicNumber("sn-relic-return-distance");
 var snRequiredFirstBuilding = new StrategicNumber("sn-required-first-building");
 var snRequiredForestTiles = new StrategicNumber("sn-required-forest-tiles");
+var snRemoveUnitsFromControlGroups = new StrategicNumber("sn-remove-units-from-control-groups");
 var snRetaskGatherAmount = new StrategicNumber("sn-retask-gather-amount");
 var snRetreatAfterTargetDestroyed = new StrategicNumber("sn-retreat-after-target-destroyed");
 var snRuinsDefendPriority = new StrategicNumber("sn-ruins-defend-priority");
@@ -942,6 +947,7 @@ var snUsePlayerAttacking = new StrategicNumber("sn-use-player-attacking");
 var snVillagerAttackReset = new StrategicNumber("sn-villager-attack-reset");
 var snWallTargetingMode = new StrategicNumber("sn-wall-targeting-mode");
 var snWarshipTargetingMode = new StrategicNumber("sn-warship-targeting-mode");
+var snWhalingMaxDistance = new StrategicNumber("sn-whaling-max-distance");
 var snWildAnimalExploration = new StrategicNumber("sn-wild-animal-exploration");
 var snWoodDropsiteDistance = new StrategicNumber("sn-wood-dropsite-distance");
 var snWoodGathererPercentage = new StrategicNumber("sn-wood-gatherer-percentage");
@@ -968,8 +974,8 @@ var snUnknownSN199 = new StrategicNumber("unknown-sn-199");
 var snUnknownSN200 = new StrategicNumber("unknown-sn-200");
 var snUnknownSN211 = new StrategicNumber("unknown-sn-211");
 
-var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snKeystates, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snMuleCartDropsitePlacement, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredStoragePitPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
-var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits, snMuleCartDropsitePlacement, snPreferredStoragePitPlacement, snKeystates];
+var snArray = [snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snAllowAdjacentDropsites, snAllowCapturingGaiaUnits, snAllowCivilianDefense, snAllowCivilianOffense, snAllowDiplomacyChangeOnAllyAttack, snAllowDiplomacyChangeOnTribute, snAttackCoordination, snAttackDiplomacyImpact, snAllowGatheringSeaFishWithVillagers, snAllowSerjeantBuilding, snAttackGroupGatherSpacing, snAttackGroupMakeup, snAttackGroupSizeRandomness, snAttackIntelligence, snAttackResponseSeparationTime, snAttackSeparationTime, snAttackSeparationTimeRandomness, snAttackWinningPlayer, snAttackWinningPlayerFactor, snAutoBuildDocks, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildFishingBoats, snAutoBuildHouses, snAutoBuildTowers, snAutoBuildTransports, snAutoBuildWarships, snBlotExplorationMap, snBlotSize, snBoarLureDestination, snBuildFrequency, snBuildPlanDivisions, snBuildingTargetingMode, snCampMaxDistance, snCapCivilianBuilders, snCapCivilianExplorers, snCapCivilianGatherers, snChokePointDefendPriority, snConsecutiveIdleUnitLimit, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snCoopShareAttacking, snCoopShareAttackingInterval, snCoopShareInformation, snDefendGroupMakeup, snDefendImportantGroupLeaders, snDefendOverlapDistance, snDefenseDistance, snDeferDropsiteUpdate, snDesiredNumberDocks, snDesiredNumberFishEscorts, snDesiredNumberFishingBoats, snDesiredNumberTradeEscorts, snDesiredNumberTransportEscorts, snDesiredNumberTransports, snDesiredNumberWarships, snDisableAttackGroups, snDisableBuilderAssistance, snDisableDefendGroups, snDisableSightedResponseCap, snDisableTowerPriority, snDisableTradeEvasion, snDisableVillagerGarrison, snDoNotScaleForDifficultyLevel, snDoNotTransportFromSameZone, snDockAvoidanceFactor, snDockDefendPriority, snDockPlacementMode, snDockProximityFactor, snDockTrainingFilter, snDropsiteSeparationDistance, snEasierReactionPercentage, snEasiestReactionPercentage, snEnableBoarHunting, snEnableFullVision, snEnableNewBuildingSystem, snEnableOffensivePriority, snEnablePatrolAttack, snEnableResearchQueue, snEnableTrainingQueue, snEnemySightedResponseDistance, snExploreGroupMakeup, snFilterUnderAttack, snFishingBoatWhalingPercentage, snFocusPlayerNumber, snFoodDropsiteDistance, snFoodGathererPercentage, snFoodModifierPercentage, snForageDefendPriority, snFreeSiegeTargeting, snGarrisonRams, snGateTypeForWall, snGatherDefenseUnits, snGatherIdleSoldiersAtCenter, snGatherIdleSoldiersAtSpawnPoint, snGoldDefendPriority, snGoldDropsiteDistance, snGoldGathererPercentage, snGoldModifierPercentage, snGroupCommanderSelectionMethod, snGroupFillMethod, snGroupFormDistance, snGroupLeaderDefenseDistance, snHitsBeforeAllianceChange, snHomeExplorationTime, snHouseOverage, snIgnoreAttackGroupUnderAttack, snIgnoreTowerElevation, snInitialAttackDelay, snInitialAttackDelayType, snInitialExplorationRequired, snIntelligentGathering, snKeystates, snLivestockDefendPriority, snLivestockToTownCenter, snLocalTargetingMode, snLockAttackAndAttackResponse, snLumberCampMaxDistance, snMaxBuildPlanGathererPercentage, snMaxFarms, snMaxGranaries, snMaxRetaskGatherAmount, snMaxSkipsPerAttempt, snMaxStoragePits, snMaxTowers, snMaximumAttackGroupSize, snMaximumBoatAttackGroupSize, snMaximumBoatDefendGroupSize, snMaximumBoatExploreGroupSize, snMaximumDefendGroupSize, snMaximumExploreGroupSize, snMaximumFishBoatDropDistance, snMaximumFood, snMaximumFoodDropDistance, snMaximumGaiaAttackResponse, snMaximumGarrisonFill, snMaximumGold, snMaximumGoldDropDistance, snMaximumHousesBeforeDropsites, snMaximumHuntDropDistance, snMaximumPatrolDistance, snMaximumStone, snMaximumStoneDropDistance, snMaximumTownSize, snMaximumWood, snMaximumWoodDropDistance, snMillMaxDistance, snMinimumAmountForTrading, snMinimumAttackGroupSize, snMinimumBoarHuntGroupSize, snMinimumBoarLureGroupSize, snMinimumBoatAttackGroupSize, snMinimumBoatDefendGroupSize, snMinimumBoatExploreGroupSize, snMinimumCivilianExplorers, snMinimumDefendGroupSize, snMinimumDropsiteBuffer, snMinimumExploreGroupSize, snMinimumFood, snMinimumGold, snMinimumNumberHunters, snMinimumPeaceLikeLevel, snMinimumStone, snMinimumTownSize, snMinimumWaterBodySizeForDock, snMinimumWood, snMiningCampMaxDistance, snMostNeededResourceLookAhead, snMuleCartDropsitePlacement, snNumberAttackGroups, snNumberBoatAttackGroups, snNumberBoatDefendGroups, snNumberBoatExploreGroups, snNumberBuildAttemptsBeforeSkip, snNumberCivilianMilitia, snNumberDefendGroups, snNumberEnemyObjectsRequired, snNumberExploreGroups, snNumberForwardBuilders, snNumberGarrisonUnits, snNumberMaxSkipCycles, snNumberTaskedUnits, snNumberWallGates, snObjectRepairLevel, snPercentAttackBoats, snPercentAttackSoldiers, snPercentBuildingCancellation, snPercentCivilianBuilders, snPercentCivilianExplorers, snPercentCivilianGatherers, snPercentDeathRetreat, snPercentEnemySightedResponse, snPercentExplorationRequired, snPercentHalfExploration, snPercentHealthRetreat, snPercentUnitHealthRetreat, snPercentVictoryClamp, snPercentageExploreExterminators, snPlacementFailDelta, snPlacementToCenter, snPlacementZoneSize, snPreferredMillPlacement, snPreferredSettlementPlacement, snPreferredStoragePitPlacement, snPreferredTradeDistance, snProfilingThreshold, snRandomPlacementFactor, snRelicDefendPriority, snRelicReturnDistance, snRequiredFirstBuilding, snRequiredForestTiles, snRemoveUnitsFromControlGroups, snRetaskGatherAmount, snRetreatAfterTargetDestroyed, snRuinsDefendPriority, snSafeTownSize, snSaveScenarioInformation, snScaleMaximumAttackGroupSize, snScaleMinimumAttackGroupSize, snScalePercentDeathRetreat, snScalePercentHealthRetreat, snScalePercentUnitHealthRetreat, snScalingFrequency, snSentryDistance, snSentryDistanceVariation, snSizeWallGates, snSkipAges, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecificBuildItemTime, snSpecificBuildItemToBuild, snStoneDefendPriority, snStoneDropsiteDistance, snStoneGathererPercentage, snStoneModifierPercentage, snTacticalUpdateFrequency, snTargetEvaluationAllyProximity, snTargetEvaluationAttackAttempts, snTargetEvaluationBoat, snTargetEvaluationContinent, snTargetEvaluationDamageCapability, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationInProgress, snTargetEvaluationKills, snTargetEvaluationRandomness, snTargetEvaluationRange, snTargetEvaluationRof, snTargetEvaluationSiegeWeapon, snTargetEvaluationTimeKillRatio, snTargetPlayerNumber, snTargetPointAdjustment, snTaskUngroupedSoldiers, snTotalNumberExplorers, snTownCenterPlacement, snTownDefendPriority, snTownWallPattern, snTrackPlayerHistory, snTrainingRebuilds, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeFailureOutcome, snTributePersistence, snTributePlayer, snTributeRevokeOnAttack, snTributeSuccessOutcome, snTributeTimeout, snTtkfactorScalar, snUnexploredConstruction, snUnskippableItemType, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snUpgradeToToolAgeAsap, snUseByTypeMaxGathering, snUsePlayerAttacking, snVillagerAttackReset, snWallTargetingMode, snWarshipTargetingMode, snWhalingMaxDistance, snWildAnimalExploration, snWoodDropsiteDistance, snWoodGathererPercentage, snWoodModifierPercentage, snZeroPriorityDistance, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snUnknownSN017, snUnknownSN021, snUnknownSN027, snUnknownSN033, snUnknownSN153, snUnknownSN154, snUnknownSN189, snUnknownSN199, snUnknownSN200, snUnknownSN211];
+var snArrayById = [snPercentCivilianExplorers, snPercentCivilianBuilders, snPercentCivilianGatherers, snCapCivilianExplorers, snCapCivilianBuilders, snCapCivilianGatherers, snUnknownSN006, snUnknownSN007, snUnknownSN008, snUnknownSN009, snUnknownSN010, snUnknownSN011, snUnknownSN012, snUnknownSN013, snUnknownSN014, snUnknownSN015, snMinimumAttackGroupSize, snUnknownSN017, snTotalNumberExplorers, snPercentEnemySightedResponse, snEnemySightedResponseDistance, snUnknownSN021, snSentryDistance, snRelicReturnDistance, snPercentVictoryClamp, snMinimumDefendGroupSize, snMaximumAttackGroupSize, snUnknownSN027, snMaximumDefendGroupSize, snMinimumPeaceLikeLevel, snPercentHealthRetreat, snPercentDeathRetreat, snPercentExplorationRequired, snUnknownSN033, snZeroPriorityDistance, snMinimumCivilianExplorers, snNumberAttackGroups, snAttackGroupMakeup, snNumberDefendGroups, snDefendGroupMakeup, snGroupFillMethod, snAttackGroupGatherSpacing, snNumberExploreGroups, snMinimumExploreGroupSize, snMaximumExploreGroupSize, snExploreGroupMakeup, snAttackSeparationTime, snAttackCoordination, snAttackResponseSeparationTime, snRetreatAfterTargetDestroyed, snGoldDefendPriority, snStoneDefendPriority, snForageDefendPriority, snChokePointDefendPriority, snRuinsDefendPriority, snRelicDefendPriority, snTownDefendPriority, snDefenseDistance, snNumberBoatAttackGroups, snMinimumBoatAttackGroupSize, snMaximumBoatAttackGroupSize, snNumberBoatExploreGroups, snMinimumBoatExploreGroupSize, snMaximumBoatExploreGroupSize, snDesiredNumberTradeEscorts, snDesiredNumberFishEscorts, snDesiredNumberTransportEscorts, snNumberBoatDefendGroups, snMinimumBoatDefendGroupSize, snMaximumBoatDefendGroupSize, snDockDefendPriority, snLockAttackAndAttackResponse, snSentryDistanceVariation, snMinimumTownSize, snMaximumTownSize, snGroupCommanderSelectionMethod, snConsecutiveIdleUnitLimit, snTargetEvaluationDistance, snTargetEvaluationHitpoints, snTargetEvaluationDamageCapability, snTargetEvaluationKills, snTargetEvaluationAllyProximity, snTargetEvaluationRof, snTargetEvaluationRandomness, snNumberWallGates, snSizeWallGates, snCampMaxDistance, snMillMaxDistance, snTacticalUpdateFrequency, snTargetEvaluationAttackAttempts, snTargetEvaluationRange, snPercentUnitHealthRetreat, snDefendOverlapDistance, snScaleMinimumAttackGroupSize, snScaleMaximumAttackGroupSize, snScalePercentHealthRetreat, snScalePercentDeathRetreat, snScalePercentUnitHealthRetreat, snAttackGroupSizeRandomness, snScalingFrequency, snMaximumGaiaAttackResponse, snBuildFrequency, snAttackSeparationTimeRandomness, snAttackIntelligence, snInitialAttackDelay, snSaveScenarioInformation, snSpecialAttackType1, snSpecialAttackType2, snSpecialAttackType3, snSpecialAttackInfluence1, snSpecialAttackInfluence2, snSpecialAttackInfluence3, snMinimumWaterBodySizeForDock, snSkipAges, snNumberBuildAttemptsBeforeSkip, snMaxSkipsPerAttempt, snTrainingRebuilds, snFoodGathererPercentage, snGoldGathererPercentage, snStoneGathererPercentage, snWoodGathererPercentage, snDefendImportantGroupLeaders, snTargetEvaluationContinent, snTargetEvaluationSiegeWeapon, snTributeAmount, snTributeChatFrequency, snTributeChatRandomness, snTributeTimeout, snTributePlayer, snTributeSuccessOutcome, snTributeFailureOutcome, snGroupLeaderDefenseDistance, snTributePersistence, snTributeRevokeOnAttack, snInitialAttackDelayType, snBlotExplorationMap, snBlotSize, snTownWallPattern, snAddStartingResourceFood, snAddStartingResourceGold, snAddStartingResourceStone, snAddStartingResourceWood, snIntelligentGathering, snTaskUngroupedSoldiers, snTargetEvaluationBoat, snNumberEnemyObjectsRequired, snNumberMaxSkipCycles, snMostNeededResourceLookAhead, snRetaskGatherAmount, snMaxRetaskGatherAmount, snMaxStoragePits, snMaxGranaries, snHouseOverage, snUnknownSN153, snUnknownSN154, snBuildPlanDivisions, snFoodModifierPercentage, snWoodModifierPercentage, snStoneModifierPercentage, snGoldModifierPercentage, snMaxBuildPlanGathererPercentage, snRequiredFirstBuilding, snUsePlayerAttacking, snFoodDropsiteDistance, snWoodDropsiteDistance, snStoneDropsiteDistance, snGoldDropsiteDistance, snInitialExplorationRequired, snRandomPlacementFactor, snRequiredForestTiles, snMinimumFood, snMinimumWood, snMinimumStone, snMinimumGold, snMaximumHousesBeforeDropsites, snSpecificBuildItemToBuild, snSpecificBuildItemTime, snUnskippableItemType, snAttackDiplomacyImpact, snPercentHalfExploration, snAutoBuildHouses, snUpgradeToToolAgeAsap, snUpgradeToBronzeAgeAsap, snUpgradeToIronAgeAsap, snTargetEvaluationTimeKillRatio, snTargetEvaluationInProgress, snCoopDemandTributeInterval, snCoopDemandTributeMaximum, snAttackWinningPlayer, snUnknownSN189, snMaximumFood, snMaximumWood, snMaximumStone, snMaximumGold, snCoopShareInformation, snAttackWinningPlayerFactor, snCoopShareAttacking, snCoopShareAttackingInterval, snPercentageExploreExterminators, snUnknownSN199, snUnknownSN200, snTrackPlayerHistory, snMinimumDropsiteBuffer, snUseByTypeMaxGathering, snMinimumBoarHuntGroupSize, snAutoBuildDropsites, snAutoBuildFarms, snAutoBuildTowers, snAutoBuildDocks, snAutoBuildFishingBoats, snAutoBuildTransports, snUnknownSN211, snDesiredNumberDocks, snDesiredNumberFishingBoats, snDesiredNumberTransports, snAllowDiplomacyChangeOnAllyAttack, snMinimumAmountForTrading, snAllowDiplomacyChangeOnTribute, snEasiestReactionPercentage, snEasierReactionPercentage, snMaxFarms, snHitsBeforeAllianceChange, snMaxTowers, snAutoBuildWarships, snDesiredNumberWarships, snAllowCivilianDefense, snNumberForwardBuilders, snPercentAttackSoldiers, snPercentAttackBoats, snDoNotScaleForDifficultyLevel, snGroupFormDistance, snIgnoreAttackGroupUnderAttack, snGatherDefenseUnits, snMaximumWoodDropDistance, snMaximumFoodDropDistance, snMaximumHuntDropDistance, snMaximumFishBoatDropDistance, snMaximumGoldDropDistance, snMaximumStoneDropDistance, snGatherIdleSoldiersAtCenter, snGarrisonRams, snDoNotTransportFromSameZone, snEnableNewBuildingSystem, snPercentBuildingCancellation, snEnableBoarHunting, snMinimumNumberHunters, snObjectRepairLevel, snEnablePatrolAttack, snDropsiteSeparationDistance, snTargetPlayerNumber, snSafeTownSize, snFocusPlayerNumber, snMinimumBoarLureGroupSize, snPreferredMillPlacement, snEnableOffensivePriority, snBuildingTargetingMode, snHomeExplorationTime, snNumberCivilianMilitia, snAllowCivilianOffense, snPreferredTradeDistance, snLumberCampMaxDistance, snMiningCampMaxDistance, snWallTargetingMode, snLivestockToTownCenter, snEnableTrainingQueue, snIgnoreTowerElevation, snTownCenterPlacement, snDisableTowerPriority, snPlacementZoneSize, snPlacementFailDelta, snPlacementToCenter, snDisableAttackGroups, snAllowAdjacentDropsites, snDeferDropsiteUpdate, snMaximumGarrisonFill, snNumberGarrisonUnits, snFilterUnderAttack, snDisableDefendGroups, snDockPlacementMode, snDockProximityFactor, snDockAvoidanceFactor, snDockTrainingFilter, snFreeSiegeTargeting, snWarshipTargetingMode, snDisableSightedResponseCap, snDisableBuilderAssistance, snLocalTargetingMode, snLivestockDefendPriority, snNumberTaskedUnits, snDisableVillagerGarrison, snTargetPointAdjustment, snUnexploredConstruction, snDisableTradeEvasion, snBoarLureDestination, snWildAnimalExploration, snTtkfactorScalar, snMaximumPatrolDistance, snVillagerAttackReset, snGateTypeForWall, snProfilingThreshold, snEnableResearchQueue, snAllowSerjeantBuilding, snAllowGatheringSeaFishWithVillagers, snAllowCapturingGaiaUnits, snMuleCartDropsitePlacement, snPreferredStoragePitPlacement, snKeystates, snRemoveUnitsFromControlGroups, snPreferredSettlementPlacement, snEnableFullVision, snFishingBoatWhalingPercentage, snWhalingMaxDistance, snGatherIdleSoldiersAtSpawnPoint];
 
 //Difficulty Parameters
 var dpAbilityToMaintainDistance = new DifficultyParameter("ability-to-maintain-distance");
@@ -978,15 +984,13 @@ var dpAbilityToDodgeMissiles = new DifficultyParameter("ability-to-dodge-missile
 //Defined Constants
 var dcProgressType = new DefinedConstant("ProgressType");
 
-
-
 snPercentCivilianExplorers.id = 0;
 snPercentCivilianExplorers.snName = "sn-percent-civilian-explorers";
 snPercentCivilianExplorers.snNameAoE1 = "SNPercentCivilianExplorers";
 snPercentCivilianExplorers.category = "Exploring";
 snPercentCivilianExplorers.default = 34;
-snPercentCivilianExplorers.min = -32768;
-snPercentCivilianExplorers.max = 32767;
+snPercentCivilianExplorers.min = "Min";
+snPercentCivilianExplorers.max = "Max";
 snPercentCivilianExplorers.rmin = 0;
 snPercentCivilianExplorers.rmax = 100;
 snPercentCivilianExplorers.network = 0;
@@ -1008,8 +1012,8 @@ snPercentCivilianBuilders.snName = "sn-percent-civilian-builders";
 snPercentCivilianBuilders.snNameAoE1 = "SNPercentCivilianBuilders";
 snPercentCivilianBuilders.category = "Buildings";
 snPercentCivilianBuilders.default = 0;
-snPercentCivilianBuilders.min = -32768;
-snPercentCivilianBuilders.max = 32767;
+snPercentCivilianBuilders.min = "Min";
+snPercentCivilianBuilders.max = "Max";
 snPercentCivilianBuilders.rmin = 0;
 snPercentCivilianBuilders.rmax = 100;
 snPercentCivilianBuilders.network = 0;
@@ -1031,8 +1035,8 @@ snPercentCivilianGatherers.snName = "sn-percent-civilian-gatherers";
 snPercentCivilianGatherers.snNameAoE1 = "SNPercentCivilianGatherers";
 snPercentCivilianGatherers.category = "Economy";
 snPercentCivilianGatherers.default = 66;
-snPercentCivilianGatherers.min = -32768;
-snPercentCivilianGatherers.max = 32767;
+snPercentCivilianGatherers.min = "Min";
+snPercentCivilianGatherers.max = "Max";
 snPercentCivilianGatherers.rmin = 0;
 snPercentCivilianGatherers.rmax = 100;
 snPercentCivilianGatherers.network = 0;
@@ -1054,10 +1058,10 @@ snCapCivilianExplorers.snName = "sn-cap-civilian-explorers";
 snCapCivilianExplorers.snNameAoE1 = "SNCapCivilianExplorers";
 snCapCivilianExplorers.category = "Exploring";
 snCapCivilianExplorers.default = 2;
-snCapCivilianExplorers.min = -32768;
-snCapCivilianExplorers.max = 32767;
+snCapCivilianExplorers.min = "Min";
+snCapCivilianExplorers.max = "Max";
 snCapCivilianExplorers.rmin = -1;
-snCapCivilianExplorers.rmax = 32767;
+snCapCivilianExplorers.rmax = "Max";
 snCapCivilianExplorers.network = 0;
 snCapCivilianExplorers.defined = 1;
 snCapCivilianExplorers.available = 0;
@@ -1077,10 +1081,10 @@ snCapCivilianBuilders.snName = "sn-cap-civilian-builders";
 snCapCivilianBuilders.snNameAoE1 = "SNCapCivilianBuilders";
 snCapCivilianBuilders.category = "Buildings";
 snCapCivilianBuilders.default = 2;
-snCapCivilianBuilders.min = -32768;
-snCapCivilianBuilders.max = 32767;
+snCapCivilianBuilders.min = "Min";
+snCapCivilianBuilders.max = "Max";
 snCapCivilianBuilders.rmin = -1;
-snCapCivilianBuilders.rmax = 32767;
+snCapCivilianBuilders.rmax = "Max";
 snCapCivilianBuilders.network = 0;
 snCapCivilianBuilders.defined = 1;
 snCapCivilianBuilders.available = "available, however it must be at least 6-7 at all times, 10 if you will build walls, and 40-50 for wonder construction (100+ is recommended)";
@@ -1100,10 +1104,10 @@ snCapCivilianGatherers.snName = "sn-cap-civilian-gatherers";
 snCapCivilianGatherers.snNameAoE1 = "SNCapCivilianGatherers";
 snCapCivilianGatherers.category = "Economy";
 snCapCivilianGatherers.default = -1;
-snCapCivilianGatherers.min = -32768;
-snCapCivilianGatherers.max = 32767;
+snCapCivilianGatherers.min = "Min";
+snCapCivilianGatherers.max = "Max";
 snCapCivilianGatherers.rmin = -1;
-snCapCivilianGatherers.rmax = 32767;
+snCapCivilianGatherers.rmax = "Max";
 snCapCivilianGatherers.network = 0;
 snCapCivilianGatherers.defined = 1;
 snCapCivilianGatherers.available = 0;
@@ -1123,10 +1127,10 @@ snUnknownSN006.snName = "sn-percent-soldier-explorers";
 snUnknownSN006.snNameAoE1 = "SNPercentSoldierExplorers";
 snUnknownSN006.category = "None";
 snUnknownSN006.default = -1;
-snUnknownSN006.min = -32768;
-snUnknownSN006.max = 32767;
-snUnknownSN006.rmin = -32768;
-snUnknownSN006.rmax = 32767;
+snUnknownSN006.min = "Min";
+snUnknownSN006.max = "Max";
+snUnknownSN006.rmin = "Min";
+snUnknownSN006.rmax = "Max";
 snUnknownSN006.network = 0;
 snUnknownSN006.defined = 0;
 snUnknownSN006.available = 0;
@@ -1146,10 +1150,10 @@ snUnknownSN007.snName = "sn-percent-soldier-defenders";
 snUnknownSN007.snNameAoE1 = "SNPercentSoldierDefenders";
 snUnknownSN007.category = "None";
 snUnknownSN007.default = -1;
-snUnknownSN007.min = -32768;
-snUnknownSN007.max = 32767;
-snUnknownSN007.rmin = -32768;
-snUnknownSN007.rmax = 32767;
+snUnknownSN007.min = "Min";
+snUnknownSN007.max = "Max";
+snUnknownSN007.rmin = "Min";
+snUnknownSN007.rmax = "Max";
 snUnknownSN007.network = 0;
 snUnknownSN007.defined = 0;
 snUnknownSN007.available = 0;
@@ -1169,10 +1173,10 @@ snUnknownSN008.snName = "sn-percent-soldier-attackers";
 snUnknownSN008.snNameAoE1 = "SNPercentSoldierAttackers";
 snUnknownSN008.category = "None";
 snUnknownSN008.default = -1;
-snUnknownSN008.min = -32768;
-snUnknownSN008.max = 32767;
-snUnknownSN008.rmin = -32768;
-snUnknownSN008.rmax = 32767;
+snUnknownSN008.min = "Min";
+snUnknownSN008.max = "Max";
+snUnknownSN008.rmin = "Min";
+snUnknownSN008.rmax = "Max";
 snUnknownSN008.network = 0;
 snUnknownSN008.defined = 0;
 snUnknownSN008.available = 0;
@@ -1192,10 +1196,10 @@ snUnknownSN009.snName = "sn-cap-soldier-explorers";
 snUnknownSN009.snNameAoE1 = "SNCapSoldierExplorers";
 snUnknownSN009.category = "None";
 snUnknownSN009.default = -1;
-snUnknownSN009.min = -32768;
-snUnknownSN009.max = 32767;
-snUnknownSN009.rmin = -32768;
-snUnknownSN009.rmax = 32767;
+snUnknownSN009.min = "Min";
+snUnknownSN009.max = "Max";
+snUnknownSN009.rmin = "Min";
+snUnknownSN009.rmax = "Max";
 snUnknownSN009.network = 0;
 snUnknownSN009.defined = 0;
 snUnknownSN009.available = 0;
@@ -1215,10 +1219,10 @@ snUnknownSN010.snName = "sn-cap-soldier-defenders";
 snUnknownSN010.snNameAoE1 = "SNCapSoldierDefenders";
 snUnknownSN010.category = "None";
 snUnknownSN010.default = -1;
-snUnknownSN010.min = -32768;
-snUnknownSN010.max = 32767;
-snUnknownSN010.rmin = -32768;
-snUnknownSN010.rmax = 32767;
+snUnknownSN010.min = "Min";
+snUnknownSN010.max = "Max";
+snUnknownSN010.rmin = "Min";
+snUnknownSN010.rmax = "Max";
 snUnknownSN010.network = 0;
 snUnknownSN010.defined = 0;
 snUnknownSN010.available = 0;
@@ -1238,10 +1242,10 @@ snUnknownSN011.snName = "sn-cap-soldier-attackers";
 snUnknownSN011.snNameAoE1 = "SNCapSoldierAttackers";
 snUnknownSN011.default = -1;
 snUnknownSN011.category = "None";
-snUnknownSN011.min = -32768;
-snUnknownSN011.max = 32767;
-snUnknownSN011.rmin = -32768;
-snUnknownSN011.rmax = 32767;
+snUnknownSN011.min = "Min";
+snUnknownSN011.max = "Max";
+snUnknownSN011.rmin = "Min";
+snUnknownSN011.rmax = "Max";
 snUnknownSN011.network = 0;
 snUnknownSN011.defined = 0;
 snUnknownSN011.available = 0;
@@ -1261,10 +1265,10 @@ snUnknownSN012.snName = "sn-percent-boat-explorers";
 snUnknownSN012.snNameAoE1 = "SNPercentBoatExplorers";
 snUnknownSN012.default = -1;
 snUnknownSN012.category = "None";
-snUnknownSN012.min = -32768;
-snUnknownSN012.max = 32767;
-snUnknownSN012.rmin = -32768;
-snUnknownSN012.rmax = 32767;
+snUnknownSN012.min = "Min";
+snUnknownSN012.max = "Max";
+snUnknownSN012.rmin = "Min";
+snUnknownSN012.rmax = "Max";
 snUnknownSN012.network = 0;
 snUnknownSN012.defined = 0;
 snUnknownSN012.available = 0;
@@ -1284,10 +1288,10 @@ snUnknownSN013.snName = "sn-percent-boat-normal";
 snUnknownSN013.snNameAoE1 = "SNPercentBoatNormal";
 snUnknownSN013.default = -1;
 snUnknownSN013.category = "None";
-snUnknownSN013.min = -32768;
-snUnknownSN013.max = 32767;
-snUnknownSN013.rmin = -32768;
-snUnknownSN013.rmax = 32767;
+snUnknownSN013.min = "Min";
+snUnknownSN013.max = "Max";
+snUnknownSN013.rmin = "Min";
+snUnknownSN013.rmax = "Max";
 snUnknownSN013.network = 0;
 snUnknownSN013.defined = 0;
 snUnknownSN013.available = 0;
@@ -1307,10 +1311,10 @@ snUnknownSN014.snName = "sn-cap-boat-explorers";
 snUnknownSN014.snNameAoE1 = "SNCapBoatExplorers";
 snUnknownSN014.default = -1;
 snUnknownSN014.category = "None";
-snUnknownSN014.min = -32768;
-snUnknownSN014.max = 32767;
-snUnknownSN014.rmin = -32768;
-snUnknownSN014.rmax = 32767;
+snUnknownSN014.min = "Min";
+snUnknownSN014.max = "Max";
+snUnknownSN014.rmin = "Min";
+snUnknownSN014.rmax = "Max";
 snUnknownSN014.network = 0;
 snUnknownSN014.defined = 0;
 snUnknownSN014.available = 0;
@@ -1330,10 +1334,10 @@ snUnknownSN015.snName = "sn-cap-boat-normal";
 snUnknownSN015.snNameAoE1 = "SNCapBoatNormal";
 snUnknownSN015.default = -1;
 snUnknownSN015.category = "None";
-snUnknownSN015.min = -32768;
-snUnknownSN015.max = 32767;
-snUnknownSN015.rmin = -32768;
-snUnknownSN015.rmax = 32767;
+snUnknownSN015.min = "Min";
+snUnknownSN015.max = "Max";
+snUnknownSN015.rmin = "Min";
+snUnknownSN015.rmax = "Max";
 snUnknownSN015.network = 0;
 snUnknownSN015.defined = 0;
 snUnknownSN015.available = 0;
@@ -1353,10 +1357,10 @@ snMinimumAttackGroupSize.snName = "sn-minimum-attack-group-size";
 snMinimumAttackGroupSize.snNameAoE1 = "SNMinimumAttackGroupSize";
 snMinimumAttackGroupSize.default = 4;
 snMinimumAttackGroupSize.category = "Attack";
-snMinimumAttackGroupSize.min = -32768;
-snMinimumAttackGroupSize.max = 32767;
+snMinimumAttackGroupSize.min = "Min";
+snMinimumAttackGroupSize.max = "Max";
 snMinimumAttackGroupSize.rmin = 0;
-snMinimumAttackGroupSize.rmax = 32767;
+snMinimumAttackGroupSize.rmax = "Max";
 snMinimumAttackGroupSize.network = 0;
 snMinimumAttackGroupSize.defined = 1;
 snMinimumAttackGroupSize.available = 0;
@@ -1375,10 +1379,10 @@ snUnknownSN017.snName = "sn-defense-buffer-violation-size";
 snUnknownSN017.snNameAoE1 = "SNDefenseBufferViolationSize";
 snUnknownSN017.default = -1;
 snUnknownSN017.category = "None";
-snUnknownSN017.min = -32768;
-snUnknownSN017.max = 32767;
-snUnknownSN017.rmin = -32768;
-snUnknownSN017.rmax = 32767;
+snUnknownSN017.min = "Min";
+snUnknownSN017.max = "Max";
+snUnknownSN017.rmin = "Min";
+snUnknownSN017.rmax = "Max";
 snUnknownSN017.network = 0;
 snUnknownSN017.defined = 0;
 snUnknownSN017.available = 0;
@@ -1398,10 +1402,10 @@ snTotalNumberExplorers.snName = "sn-total-number-explorers";
 snTotalNumberExplorers.snNameAoE1 = "SNTotalNumberExplorers";
 snTotalNumberExplorers.default = 4;
 snTotalNumberExplorers.category = "Exploring";
-snTotalNumberExplorers.min = -32768;
-snTotalNumberExplorers.max = 32767;
+snTotalNumberExplorers.min = "Min";
+snTotalNumberExplorers.max = "Max";
 snTotalNumberExplorers.rmin = -1;
-snTotalNumberExplorers.rmax = 32767;
+snTotalNumberExplorers.rmax = "Max";
 snTotalNumberExplorers.network = 0;
 snTotalNumberExplorers.defined = 1;
 snTotalNumberExplorers.available = 0;
@@ -1421,8 +1425,8 @@ snPercentEnemySightedResponse.snName = "sn-percent-enemy-sighted-response";
 snPercentEnemySightedResponse.snNameAoE1 = "SNPercentEnemySightedResponse";
 snPercentEnemySightedResponse.default = 50;
 snPercentEnemySightedResponse.category = "Defense";
-snPercentEnemySightedResponse.min = -32768;
-snPercentEnemySightedResponse.max = 32767;
+snPercentEnemySightedResponse.min = "Min";
+snPercentEnemySightedResponse.max = "Max";
 snPercentEnemySightedResponse.rmin = 0;
 snPercentEnemySightedResponse.rmax = 100;
 snPercentEnemySightedResponse.network = 0;
@@ -1443,7 +1447,7 @@ snEnemySightedResponseDistance.snName = "sn-enemy-sighted-response-distance";
 snEnemySightedResponseDistance.snNameAoE1 = "SNEnemySightedResponseDistance";
 snEnemySightedResponseDistance.default = 25;
 snEnemySightedResponseDistance.category = "Attack";
-snEnemySightedResponseDistance.min = -32768;
+snEnemySightedResponseDistance.min = "Min";
 snEnemySightedResponseDistance.max = 50;
 snEnemySightedResponseDistance.rmin = 0;
 snEnemySightedResponseDistance.rmax = 50;
@@ -1466,10 +1470,10 @@ snUnknownSN021.snName = "sn-minimum-sentry-party-size";
 snUnknownSN021.snNameAoE1 = "SNMinimumSentryPartySize";
 snUnknownSN021.default = -1;
 snUnknownSN021.category = "None";
-snUnknownSN021.min = -32768;
-snUnknownSN021.max = 32767;
-snUnknownSN021.rmin = -32768;
-snUnknownSN021.rmax = 32767;
+snUnknownSN021.min = "Min";
+snUnknownSN021.max = "Max";
+snUnknownSN021.rmin = "Min";
+snUnknownSN021.rmax = "Max";
 snUnknownSN021.network = 0;
 snUnknownSN021.defined = 0;
 snUnknownSN021.available = 0;
@@ -1489,8 +1493,8 @@ snSentryDistance.snName = "sn-sentry-distance";
 snSentryDistance.snNameAoE1 = "SNSentryDistance";
 snSentryDistance.default = 12;
 snSentryDistance.category = "Defense";
-snSentryDistance.min = -32768;
-snSentryDistance.max = 32767;
+snSentryDistance.min = "Min";
+snSentryDistance.max = "Max";
 snSentryDistance.rmin = 0;
 snSentryDistance.rmax = 255;
 snSentryDistance.network = 0;
@@ -1512,8 +1516,8 @@ snRelicReturnDistance.snName = "sn-relic-return-distance";
 snRelicReturnDistance.snNameAoE1 = "SNArtifactReturnDistance";
 snRelicReturnDistance.default = 10;
 snRelicReturnDistance.category = "Economy";
-snRelicReturnDistance.min = -32768;
-snRelicReturnDistance.max = 32767;
+snRelicReturnDistance.min = "Min";
+snRelicReturnDistance.max = "Max";
 snRelicReturnDistance.rmin = 0;
 snRelicReturnDistance.rmax = 255;
 snRelicReturnDistance.network = 0;
@@ -1535,8 +1539,8 @@ snPercentVictoryClamp.snName = "sn-percent-victory-clamp";
 snPercentVictoryClamp.snNameAoE1 = "SNPercentVictoryClamp";
 snPercentVictoryClamp.default = 75;
 snPercentVictoryClamp.category = "Other";
-snPercentVictoryClamp.min = -32768;
-snPercentVictoryClamp.max = 32767;
+snPercentVictoryClamp.min = "Min";
+snPercentVictoryClamp.max = "Max";
 snPercentVictoryClamp.rmin = 0;
 snPercentVictoryClamp.rmax = 100;
 snPercentVictoryClamp.network = 0;
@@ -1558,10 +1562,10 @@ snMinimumDefendGroupSize.snName = "sn-minimum-defend-group-size";
 snMinimumDefendGroupSize.snNameAoE1 = "SNMinimumDefendGroupSize";
 snMinimumDefendGroupSize.default = 1;
 snMinimumDefendGroupSize.category = "Defense";
-snMinimumDefendGroupSize.min = -32768;
-snMinimumDefendGroupSize.max = 32767;
+snMinimumDefendGroupSize.min = "Min";
+snMinimumDefendGroupSize.max = "Max";
 snMinimumDefendGroupSize.rmin = 0;
-snMinimumDefendGroupSize.rmax = 32767;
+snMinimumDefendGroupSize.rmax = "Max";
 snMinimumDefendGroupSize.network = 0;
 snMinimumDefendGroupSize.defined = 1;
 snMinimumDefendGroupSize.available = 0;
@@ -1580,10 +1584,10 @@ snMaximumAttackGroupSize.snName = "sn-maximum-attack-group-size";
 snMaximumAttackGroupSize.snNameAoE1 = "SNMaximumAttackGroupSize";
 snMaximumAttackGroupSize.default = 10;
 snMaximumAttackGroupSize.category = "Attack";
-snMaximumAttackGroupSize.min = -32768;
-snMaximumAttackGroupSize.max = 32767;
+snMaximumAttackGroupSize.min = "Min";
+snMaximumAttackGroupSize.max = "Max";
 snMaximumAttackGroupSize.rmin = 0;
-snMaximumAttackGroupSize.rmax = 32767;
+snMaximumAttackGroupSize.rmax = "Max";
 snMaximumAttackGroupSize.network = 0;
 snMaximumAttackGroupSize.defined = 1;
 snMaximumAttackGroupSize.available = 0;
@@ -1603,10 +1607,10 @@ snUnknownSN027.snName = "sn-maximum-sentry-party-size";
 snUnknownSN027.snNameAoE1 = "SNMaximumSentryPartySize";
 snUnknownSN027.default = -1;
 snUnknownSN027.category = "None";
-snUnknownSN027.min = -32768;
-snUnknownSN027.max = 32767;
-snUnknownSN027.rmin = -32768;
-snUnknownSN027.rmax = 32767;
+snUnknownSN027.min = "Min";
+snUnknownSN027.max = "Max";
+snUnknownSN027.rmin = "Min";
+snUnknownSN027.rmax = "Max";
 snUnknownSN027.network = 0;
 snUnknownSN027.defined = 0;
 snUnknownSN027.available = 0;
@@ -1626,10 +1630,10 @@ snMaximumDefendGroupSize.snName = "sn-maximum-defend-group-size";
 snMaximumDefendGroupSize.snNameAoE1 = "";
 snMaximumDefendGroupSize.default = 4;
 snMaximumDefendGroupSize.category = "Defense";
-snMaximumDefendGroupSize.min = -32768;
-snMaximumDefendGroupSize.max = 32767;
+snMaximumDefendGroupSize.min = "Min";
+snMaximumDefendGroupSize.max = "Max";
 snMaximumDefendGroupSize.rmin = 0;
-snMaximumDefendGroupSize.rmax = 32767;
+snMaximumDefendGroupSize.rmax = "Max";
 snMaximumDefendGroupSize.network = 0;
 snMaximumDefendGroupSize.defined = 1;
 snMaximumDefendGroupSize.available = 0;
@@ -1648,8 +1652,8 @@ snMinimumPeaceLikeLevel.snName = "sn-minimum-peace-like-level";
 snMinimumPeaceLikeLevel.snNameAoE1 = "SNMinimumPeaceLikeLevel";
 snMinimumPeaceLikeLevel.default = 85;
 snMinimumPeaceLikeLevel.category = "Defense";
-snMinimumPeaceLikeLevel.min = -32768;
-snMinimumPeaceLikeLevel.max = 32767;
+snMinimumPeaceLikeLevel.min = "Min";
+snMinimumPeaceLikeLevel.max = "Max";
 snMinimumPeaceLikeLevel.rmin = 0;
 snMinimumPeaceLikeLevel.rmax = 100;
 snMinimumPeaceLikeLevel.network = 0;
@@ -1670,8 +1674,8 @@ snPercentHealthRetreat.snName = "sn-percent-health-retreat";
 snPercentHealthRetreat.snNameAoE1 = "SNPercentHealthRetreat";
 snPercentHealthRetreat.default = -1;
 snPercentHealthRetreat.category = "Attack";
-snPercentHealthRetreat.min = -32768;
-snPercentHealthRetreat.max = 32767;
+snPercentHealthRetreat.min = "Min";
+snPercentHealthRetreat.max = "Max";
 snPercentHealthRetreat.rmin = 0;
 snPercentHealthRetreat.rmax = 100;
 snPercentHealthRetreat.network = 0;
@@ -1693,8 +1697,8 @@ snPercentDeathRetreat.snName = "sn-percent-death-retreat";
 snPercentDeathRetreat.snNameAoE1 = "SNPercentDeathRetreat";
 snPercentDeathRetreat.default = -1;
 snPercentDeathRetreat.category = "Attack";
-snPercentDeathRetreat.min = -32768;
-snPercentDeathRetreat.max = 32767;
+snPercentDeathRetreat.min = "Min";
+snPercentDeathRetreat.max = "Max";
 snPercentDeathRetreat.rmin = 0;
 snPercentDeathRetreat.rmax = 100;
 snPercentDeathRetreat.network = 0;
@@ -1716,8 +1720,8 @@ snPercentExplorationRequired.snName = "sn-percent-exploration-required";
 snPercentExplorationRequired.snNameAoE1 = "SNPercentExplorationRequired";
 snPercentExplorationRequired.default = 100;
 snPercentExplorationRequired.category = "Exploring";
-snPercentExplorationRequired.min = -32768;
-snPercentExplorationRequired.max = 32767;
+snPercentExplorationRequired.min = "Min";
+snPercentExplorationRequired.max = "Max";
 snPercentExplorationRequired.rmin = 0;
 snPercentExplorationRequired.rmax = 100;
 snPercentExplorationRequired.network = 0;
@@ -1738,10 +1742,10 @@ snUnknownSN033.snName = "sn-minimum-soldier-explorers";
 snUnknownSN033.snNameAoE1 = "SNMinimumSoldierExplorers";
 snUnknownSN033.default = -1;
 snUnknownSN033.category = "None";
-snUnknownSN033.min = -32768;
-snUnknownSN033.max = 32767;
-snUnknownSN033.rmin = -32768;
-snUnknownSN033.rmax = 32767;
+snUnknownSN033.min = "Min";
+snUnknownSN033.max = "Max";
+snUnknownSN033.rmin = "Min";
+snUnknownSN033.rmax = "Max";
 snUnknownSN033.network = 0;
 snUnknownSN033.defined = 0;
 snUnknownSN033.available = 0;
@@ -1761,8 +1765,8 @@ snZeroPriorityDistance.snName = "sn-zero-priority-distance";
 snZeroPriorityDistance.snNameAoE1 = "SNZeroPriorityDistance";
 snZeroPriorityDistance.default = 50;
 snZeroPriorityDistance.category = "Other";
-snZeroPriorityDistance.min = -32768;
-snZeroPriorityDistance.max = 32767;
+snZeroPriorityDistance.min = "Min";
+snZeroPriorityDistance.max = "Max";
 snZeroPriorityDistance.rmin = 0;
 snZeroPriorityDistance.rmax = 255;
 snZeroPriorityDistance.network = 0;
@@ -1784,10 +1788,10 @@ snMinimumCivilianExplorers.snName = "sn-minimum-civilian-explorers";
 snMinimumCivilianExplorers.snNameAoE1 = "SNMinimumCivilianExplorers";
 snMinimumCivilianExplorers.default = 0;
 snMinimumCivilianExplorers.category = "Exploring";
-snMinimumCivilianExplorers.min = -32768;
-snMinimumCivilianExplorers.max = 32767;
+snMinimumCivilianExplorers.min = "Min";
+snMinimumCivilianExplorers.max = "Max";
 snMinimumCivilianExplorers.rmin = 0;
-snMinimumCivilianExplorers.rmax = 32767;
+snMinimumCivilianExplorers.rmax = "Max";
 snMinimumCivilianExplorers.network = 0;
 snMinimumCivilianExplorers.defined = 1;
 snMinimumCivilianExplorers.available = 0;
@@ -1806,10 +1810,10 @@ snNumberAttackGroups.snName = "sn-number-attack-groups";
 snNumberAttackGroups.snNameAoE1 = "SNNumberAttackGroups";
 snNumberAttackGroups.default = 0;
 snNumberAttackGroups.category = "Attack";
-snNumberAttackGroups.min = -32768;
-snNumberAttackGroups.max = 32767;
+snNumberAttackGroups.min = "Min";
+snNumberAttackGroups.max = "Max";
 snNumberAttackGroups.rmin = 0;
-snNumberAttackGroups.rmax = 32767;
+snNumberAttackGroups.rmax = "Max";
 snNumberAttackGroups.network = 0;
 snNumberAttackGroups.defined = 1;
 snNumberAttackGroups.available = 0;
@@ -1828,10 +1832,10 @@ snAttackGroupMakeup.snName = "sn-attack-group-makeup";
 snAttackGroupMakeup.snNameAoE1 = "SNAttackGroupMakeup";
 snAttackGroupMakeup.default = 0;
 snAttackGroupMakeup.category = "Attack";
-snAttackGroupMakeup.min = -32768;
-snAttackGroupMakeup.max = 32767;
-snAttackGroupMakeup.rmin = -32768;
-snAttackGroupMakeup.rmax = 32767;
+snAttackGroupMakeup.min = "Min";
+snAttackGroupMakeup.max = "Max";
+snAttackGroupMakeup.rmin = "Min";
+snAttackGroupMakeup.rmax = "Max";
 snAttackGroupMakeup.network = 0;
 snAttackGroupMakeup.defined = 0;
 snAttackGroupMakeup.available = "seems available";
@@ -1851,10 +1855,10 @@ snNumberDefendGroups.snName = "sn-number-defend-groups";
 snNumberDefendGroups.snNameAoE1 = "SNNumberDefendGroups";
 snNumberDefendGroups.default = 0;
 snNumberDefendGroups.category = "Defense";
-snNumberDefendGroups.min = -32768;
-snNumberDefendGroups.max = 32767;
+snNumberDefendGroups.min = "Min";
+snNumberDefendGroups.max = "Max";
 snNumberDefendGroups.rmin = 0;
-snNumberDefendGroups.rmax = 32767;
+snNumberDefendGroups.rmax = "Max";
 snNumberDefendGroups.network = 0;
 snNumberDefendGroups.defined = 1;
 snNumberDefendGroups.available = 0;
@@ -1873,10 +1877,10 @@ snDefendGroupMakeup.snName = "sn-defend-group-makeup";
 snDefendGroupMakeup.snNameAoE1 = "SNDefendGroupMakeup";
 snDefendGroupMakeup.default = 0;
 snDefendGroupMakeup.category = "Defense";
-snDefendGroupMakeup.min = -32768;
-snDefendGroupMakeup.max = 32767;
-snDefendGroupMakeup.rmin = -32768;
-snDefendGroupMakeup.rmax = 32767;
+snDefendGroupMakeup.min = "Min";
+snDefendGroupMakeup.max = "Max";
+snDefendGroupMakeup.rmin = "Min";
+snDefendGroupMakeup.rmax = "Max";
 snDefendGroupMakeup.network = 0;
 snDefendGroupMakeup.defined = 0;
 snDefendGroupMakeup.available = 1;
@@ -1896,8 +1900,8 @@ snGroupFillMethod.snName = "sn-group-fill-method";
 snGroupFillMethod.snNameAoE1 = "SNGroupFillMethod";
 snGroupFillMethod.default = -1;
 snGroupFillMethod.category = "Attack";
-snGroupFillMethod.min = -32768;
-snGroupFillMethod.max = 32767;
+snGroupFillMethod.min = "Min";
+snGroupFillMethod.max = "Max";
 snGroupFillMethod.rmin = 0;
 snGroupFillMethod.rmax = 1;
 snGroupFillMethod.network = 0;
@@ -1919,8 +1923,8 @@ snAttackGroupGatherSpacing.snName = "sn-attack-group-gather-spacing";
 snAttackGroupGatherSpacing.snNameAoE1 = "SNAttackGroupGatherSpacing";
 snAttackGroupGatherSpacing.default = 4;
 snAttackGroupGatherSpacing.category = "Attack";
-snAttackGroupGatherSpacing.min = -32768;
-snAttackGroupGatherSpacing.max = 32767;
+snAttackGroupGatherSpacing.min = "Min";
+snAttackGroupGatherSpacing.max = "Max";
 snAttackGroupGatherSpacing.rmin = 1;
 snAttackGroupGatherSpacing.rmax = 255;
 snAttackGroupGatherSpacing.network = 0;
@@ -1941,10 +1945,10 @@ snNumberExploreGroups.snName = "sn-number-explore-groups";
 snNumberExploreGroups.snNameAoE1 = "SNNumberExploreGroups";
 snNumberExploreGroups.default = 0;
 snNumberExploreGroups.category = "Exploring";
-snNumberExploreGroups.min = -32768;
-snNumberExploreGroups.max = 32767;
+snNumberExploreGroups.min = "Min";
+snNumberExploreGroups.max = "Max";
 snNumberExploreGroups.rmin = 0;
-snNumberExploreGroups.rmax = 32767;
+snNumberExploreGroups.rmax = "Max";
 snNumberExploreGroups.network = 0;
 snNumberExploreGroups.defined = 1;
 snNumberExploreGroups.available = 0;
@@ -1964,7 +1968,7 @@ snMinimumExploreGroupSize.snName = "sn-minimum-explore-group-size";
 snMinimumExploreGroupSize.snNameAoE1 = "SNMinimumExploreGroupSize";
 snMinimumExploreGroupSize.default = 1;
 snMinimumExploreGroupSize.category = "Exploring";
-snMinimumExploreGroupSize.min = -32768;
+snMinimumExploreGroupSize.min = "Min";
 snMinimumExploreGroupSize.max = 1;
 snMinimumExploreGroupSize.rmin = 0;
 snMinimumExploreGroupSize.rmax = 1;
@@ -1987,7 +1991,7 @@ snMaximumExploreGroupSize.snName = "sn-maximum-explore-group-size";
 snMaximumExploreGroupSize.snNameAoE1 = "SNMaximumExploreGroupSize";
 snMaximumExploreGroupSize.default = 1;
 snMaximumExploreGroupSize.category = "Exploring";
-snMaximumExploreGroupSize.min = -32768;
+snMaximumExploreGroupSize.min = "Min";
 snMaximumExploreGroupSize.max = 1;
 snMaximumExploreGroupSize.rmin = 0;
 snMaximumExploreGroupSize.rmax = 1;
@@ -2010,10 +2014,10 @@ snExploreGroupMakeup.snName = "sn-explore-group-makeup";
 snExploreGroupMakeup.snNameAoE1 = "SNExploreGroupMakeup";
 snExploreGroupMakeup.default = 0;
 snExploreGroupMakeup.category = "Exploring";
-snExploreGroupMakeup.min = -32768;
-snExploreGroupMakeup.max = 32767;
-snExploreGroupMakeup.rmin = -32768;
-snExploreGroupMakeup.rmax = 32767;
+snExploreGroupMakeup.min = "Min";
+snExploreGroupMakeup.max = "Max";
+snExploreGroupMakeup.rmin = "Min";
+snExploreGroupMakeup.rmax = "Max";
 snExploreGroupMakeup.network = 0;
 snExploreGroupMakeup.defined = 0;
 snExploreGroupMakeup.available = 1;
@@ -2033,10 +2037,10 @@ snAttackSeparationTime.snName = "sn-attack-separation-time";
 snAttackSeparationTime.snNameAoE1 = "SNAttackSeparationTime";
 snAttackSeparationTime.default = -1;
 snAttackSeparationTime.category = "Attack";
-snAttackSeparationTime.min = -32768;
-snAttackSeparationTime.max = 32767;
+snAttackSeparationTime.min = "Min";
+snAttackSeparationTime.max = "Max";
 snAttackSeparationTime.rmin = 0;
-snAttackSeparationTime.rmax = 32767;
+snAttackSeparationTime.rmax = "Max";
 snAttackSeparationTime.network = 0;
 snAttackSeparationTime.defined = 0;
 snAttackSeparationTime.available = "seems available, but leave it for later";
@@ -2055,8 +2059,8 @@ snAttackCoordination.snName = "sn-attack-coordination";
 snAttackCoordination.snNameAoE1 = "SNAttackCoordination";
 snAttackCoordination.default = -1;
 snAttackCoordination.category = "Attack";
-snAttackCoordination.min = -32768;
-snAttackCoordination.max = 32767;
+snAttackCoordination.min = "Min";
+snAttackCoordination.max = "Max";
 snAttackCoordination.rmin = 0;
 snAttackCoordination.rmax = 2;
 snAttackCoordination.network = 0;
@@ -2077,10 +2081,10 @@ snAttackResponseSeparationTime.snName = "sn-attack-response-separation-time";
 snAttackResponseSeparationTime.snNameAoE1 = "SNAttackResponseSeparationTime";
 snAttackResponseSeparationTime.default = -1;
 snAttackResponseSeparationTime.category = "Attack";
-snAttackResponseSeparationTime.min = -32768;
-snAttackResponseSeparationTime.max = 32767;
+snAttackResponseSeparationTime.min = "Min";
+snAttackResponseSeparationTime.max = "Max";
 snAttackResponseSeparationTime.rmin = 0;
-snAttackResponseSeparationTime.rmax = 32767;
+snAttackResponseSeparationTime.rmax = "Max";
 snAttackResponseSeparationTime.network = 0;
 snAttackResponseSeparationTime.defined = 0;
 snAttackResponseSeparationTime.available = "seems available, but leave it for later";
@@ -2099,8 +2103,8 @@ snRetreatAfterTargetDestroyed.snName = "sn-retreat-after-target-destroyed";
 snRetreatAfterTargetDestroyed.snNameAoE1 = "SNRetreatAfterTargetDestroyed";
 snRetreatAfterTargetDestroyed.default = -1;
 snRetreatAfterTargetDestroyed.category = "Attack";
-snRetreatAfterTargetDestroyed.min = -32768;
-snRetreatAfterTargetDestroyed.max = 32767;
+snRetreatAfterTargetDestroyed.min = "Min";
+snRetreatAfterTargetDestroyed.max = "Max";
 snRetreatAfterTargetDestroyed.rmin = 0;
 snRetreatAfterTargetDestroyed.rmax = 3;
 snRetreatAfterTargetDestroyed.network = 0;
@@ -2121,8 +2125,8 @@ snGoldDefendPriority.snName = "sn-gold-defend-priority";
 snGoldDefendPriority.snNameAoE1 = "SNGoldDefendPriority";
 snGoldDefendPriority.default = 0;
 snGoldDefendPriority.category = "Defense";
-snGoldDefendPriority.min = -32768;
-snGoldDefendPriority.max = 32767;
+snGoldDefendPriority.min = "Min";
+snGoldDefendPriority.max = "Max";
 snGoldDefendPriority.rmin = 0;
 snGoldDefendPriority.rmax = 1;
 snGoldDefendPriority.network = 0;
@@ -2144,8 +2148,8 @@ snStoneDefendPriority.snName = "sn-stone-defend-priority";
 snStoneDefendPriority.snNameAoE1 = "SNStoneDefendPriority";
 snStoneDefendPriority.default = 0;
 snStoneDefendPriority.category = "Defense";
-snStoneDefendPriority.min = -32768;
-snStoneDefendPriority.max = 32767;
+snStoneDefendPriority.min = "Min";
+snStoneDefendPriority.max = "Max";
 snStoneDefendPriority.rmin = 0;
 snStoneDefendPriority.rmax = 1;
 snStoneDefendPriority.network = 0;
@@ -2167,8 +2171,8 @@ snForageDefendPriority.snName = "sn-forage-defend-priority";
 snForageDefendPriority.snNameAoE1 = "SNForageDefendPriority";
 snForageDefendPriority.default = 0;
 snForageDefendPriority.category = "Defense";
-snForageDefendPriority.min = -32768;
-snForageDefendPriority.max = 32767;
+snForageDefendPriority.min = "Min";
+snForageDefendPriority.max = "Max";
 snForageDefendPriority.rmin = 0;
 snForageDefendPriority.rmax = 1;
 snForageDefendPriority.network = 0;
@@ -2190,8 +2194,8 @@ snChokePointDefendPriority.snName = "sn-choke-point-defend-priority";
 snChokePointDefendPriority.snNameAoE1 = "SNChokePointDefendPriority";
 snChokePointDefendPriority.default = 0;
 snChokePointDefendPriority.category = "Defense";
-snChokePointDefendPriority.min = -32768;
-snChokePointDefendPriority.max = 32767;
+snChokePointDefendPriority.min = "Min";
+snChokePointDefendPriority.max = "Max";
 snChokePointDefendPriority.rmin = 0;
 snChokePointDefendPriority.rmax = 1;
 snChokePointDefendPriority.network = 0;
@@ -2212,8 +2216,8 @@ snRuinsDefendPriority.snName = "sn-ruins-defend-priority";
 snRuinsDefendPriority.snNameAoE1 = "SNRuinsDefendPriority";
 snRuinsDefendPriority.default = 0;
 snRuinsDefendPriority.category = "Defense";
-snRuinsDefendPriority.min = -32768;
-snRuinsDefendPriority.max = 32767;
+snRuinsDefendPriority.min = "Min";
+snRuinsDefendPriority.max = "Max";
 snRuinsDefendPriority.rmin = 0;
 snRuinsDefendPriority.rmax = 7;
 snRuinsDefendPriority.network = 0;
@@ -2234,8 +2238,8 @@ snRelicDefendPriority.snName = "sn-relic-defend-priority";
 snRelicDefendPriority.snNameAoE1 = "SNArtifactDefendPriority";
 snRelicDefendPriority.default = 0;
 snRelicDefendPriority.category = "Defense";
-snRelicDefendPriority.min = -32768;
-snRelicDefendPriority.max = 32767;
+snRelicDefendPriority.min = "Min";
+snRelicDefendPriority.max = "Max";
 snRelicDefendPriority.rmin = 0;
 snRelicDefendPriority.rmax = 7;
 snRelicDefendPriority.network = 0;
@@ -2257,8 +2261,8 @@ snTownDefendPriority.snName = "sn-town-defend-priority";
 snTownDefendPriority.snNameAoE1 = "SNTownDefendPriority";
 snTownDefendPriority.default = 7;
 snTownDefendPriority.category = "Defense";
-snTownDefendPriority.min = -32768;
-snTownDefendPriority.max = 32767;
+snTownDefendPriority.min = "Min";
+snTownDefendPriority.max = "Max";
 snTownDefendPriority.rmin = 0;
 snTownDefendPriority.rmax = 7;
 snTownDefendPriority.network = 0;
@@ -2280,8 +2284,8 @@ snDefenseDistance.snName = "sn-defense-distance";
 snDefenseDistance.snNameAoE1 = "SNDefenseDistance";
 snDefenseDistance.default = 3;
 snDefenseDistance.category = "Defense";
-snDefenseDistance.min = -32768;
-snDefenseDistance.max = 32767;
+snDefenseDistance.min = "Min";
+snDefenseDistance.max = "Max";
 snDefenseDistance.rmin = 0;
 snDefenseDistance.rmax = 255;
 snDefenseDistance.network = 0;
@@ -2302,10 +2306,10 @@ snNumberBoatAttackGroups.snName = "sn-number-boat-attack-groups";
 snNumberBoatAttackGroups.snNameAoE1 = "SNNumberBoatAttackGroups";
 snNumberBoatAttackGroups.default = 0;
 snNumberBoatAttackGroups.category = "Water";
-snNumberBoatAttackGroups.min = -32768;
-snNumberBoatAttackGroups.max = 32767;
+snNumberBoatAttackGroups.min = "Min";
+snNumberBoatAttackGroups.max = "Max";
 snNumberBoatAttackGroups.rmin = 0;
-snNumberBoatAttackGroups.rmax = 32767;
+snNumberBoatAttackGroups.rmax = "Max";
 snNumberBoatAttackGroups.network = 0;
 snNumberBoatAttackGroups.defined = 1;
 snNumberBoatAttackGroups.available = "available, except for water maps";
@@ -2324,10 +2328,10 @@ snMinimumBoatAttackGroupSize.snName = "sn-minimum-boat-attack-group-size";
 snMinimumBoatAttackGroupSize.snNameAoE1 = "SNMinimumBoatAttackGroupSize";
 snMinimumBoatAttackGroupSize.default = 1;
 snMinimumBoatAttackGroupSize.category = "Water";
-snMinimumBoatAttackGroupSize.min = -32768;
-snMinimumBoatAttackGroupSize.max = 32767;
+snMinimumBoatAttackGroupSize.min = "Min";
+snMinimumBoatAttackGroupSize.max = "Max";
 snMinimumBoatAttackGroupSize.rmin = 0;
-snMinimumBoatAttackGroupSize.rmax = 32767;
+snMinimumBoatAttackGroupSize.rmax = "Max";
 snMinimumBoatAttackGroupSize.network = 0;
 snMinimumBoatAttackGroupSize.defined = 1;
 snMinimumBoatAttackGroupSize.available = "available, except for water maps";
@@ -2346,10 +2350,10 @@ snMaximumBoatAttackGroupSize.snName = "sn-maximum-boat-attack-group-size";
 snMaximumBoatAttackGroupSize.snNameAoE1 = "SNMaximumBoatAttackGroupSize";
 snMaximumBoatAttackGroupSize.default = 5;
 snMaximumBoatAttackGroupSize.category = "Water";
-snMaximumBoatAttackGroupSize.min = -32768;
-snMaximumBoatAttackGroupSize.max = 32767;
+snMaximumBoatAttackGroupSize.min = "Min";
+snMaximumBoatAttackGroupSize.max = "Max";
 snMaximumBoatAttackGroupSize.rmin = 0;
-snMaximumBoatAttackGroupSize.rmax = 32767;
+snMaximumBoatAttackGroupSize.rmax = "Max";
 snMaximumBoatAttackGroupSize.network = 0;
 snMaximumBoatAttackGroupSize.defined = 1;
 snMaximumBoatAttackGroupSize.available = "available, except for water maps";
@@ -2368,10 +2372,10 @@ snNumberBoatExploreGroups.snName = "sn-number-boat-explore-groups";
 snNumberBoatExploreGroups.snNameAoE1 = "SNNumberBoatExploreGroups";
 snNumberBoatExploreGroups.default = 0;
 snNumberBoatExploreGroups.category = "Water";
-snNumberBoatExploreGroups.min = -32768;
-snNumberBoatExploreGroups.max = 32767;
+snNumberBoatExploreGroups.min = "Min";
+snNumberBoatExploreGroups.max = "Max";
 snNumberBoatExploreGroups.rmin = 0;
-snNumberBoatExploreGroups.rmax = 32767;
+snNumberBoatExploreGroups.rmax = "Max";
 snNumberBoatExploreGroups.network = 0;
 snNumberBoatExploreGroups.defined = 1;
 snNumberBoatExploreGroups.available = "available, except for water maps";
@@ -2390,10 +2394,10 @@ snMinimumBoatExploreGroupSize.snName = "sn-minimum-boat-explore-group-size";
 snMinimumBoatExploreGroupSize.snNameAoE1 = "SNMinimumBoatExploreGroupSize";
 snMinimumBoatExploreGroupSize.default = 1;
 snMinimumBoatExploreGroupSize.category = "Water";
-snMinimumBoatExploreGroupSize.min = -32768;
-snMinimumBoatExploreGroupSize.max = 32767;
+snMinimumBoatExploreGroupSize.min = "Min";
+snMinimumBoatExploreGroupSize.max = "Max";
 snMinimumBoatExploreGroupSize.rmin = 0;
-snMinimumBoatExploreGroupSize.rmax = 32767;
+snMinimumBoatExploreGroupSize.rmax = "Max";
 snMinimumBoatExploreGroupSize.network = 0;
 snMinimumBoatExploreGroupSize.defined = 1;
 snMinimumBoatExploreGroupSize.available = "available, except for water maps";
@@ -2413,10 +2417,10 @@ snMaximumBoatExploreGroupSize.snName = "sn-maximum-boat-explore-group-size";
 snMaximumBoatExploreGroupSize.snNameAoE1 = "SNMaximumBoatExploreGroupSize";
 snMaximumBoatExploreGroupSize.default = 2;
 snMaximumBoatExploreGroupSize.category = "Water";
-snMaximumBoatExploreGroupSize.min = -32768;
-snMaximumBoatExploreGroupSize.max = 32767;
+snMaximumBoatExploreGroupSize.min = "Min";
+snMaximumBoatExploreGroupSize.max = "Max";
 snMaximumBoatExploreGroupSize.rmin = 0;
-snMaximumBoatExploreGroupSize.rmax = 32767;
+snMaximumBoatExploreGroupSize.rmax = "Max";
 snMaximumBoatExploreGroupSize.network = 0;
 snMaximumBoatExploreGroupSize.defined = 1;
 snMaximumBoatExploreGroupSize.available = "available, except for water maps";
@@ -2436,10 +2440,10 @@ snDesiredNumberTradeEscorts.snName = "sn-desired-number-trade-escorts";
 snDesiredNumberTradeEscorts.snNameAoE1 = "SNDesiredNumberTradeEscorts";
 snDesiredNumberTradeEscorts.default = -1;
 snDesiredNumberTradeEscorts.category = "Water";
-snDesiredNumberTradeEscorts.min = -32768;
-snDesiredNumberTradeEscorts.max = 32767;
+snDesiredNumberTradeEscorts.min = "Min";
+snDesiredNumberTradeEscorts.max = "Max";
 snDesiredNumberTradeEscorts.rmin = 0;
-snDesiredNumberTradeEscorts.rmax = 32767;
+snDesiredNumberTradeEscorts.rmax = "Max";
 snDesiredNumberTradeEscorts.network = 0;
 snDesiredNumberTradeEscorts.defined = 0;
 snDesiredNumberTradeEscorts.available = 1;
@@ -2458,10 +2462,10 @@ snDesiredNumberFishEscorts.snName = "sn-desired-number-fish-escorts";
 snDesiredNumberFishEscorts.snNameAoE1 = "SNDesiredNumberFishEscorts";
 snDesiredNumberFishEscorts.default = -1;
 snDesiredNumberFishEscorts.category = "Water";
-snDesiredNumberFishEscorts.min = -32768;
-snDesiredNumberFishEscorts.max = 32767;
+snDesiredNumberFishEscorts.min = "Min";
+snDesiredNumberFishEscorts.max = "Max";
 snDesiredNumberFishEscorts.rmin = 0;
-snDesiredNumberFishEscorts.rmax = 32767;
+snDesiredNumberFishEscorts.rmax = "Max";
 snDesiredNumberFishEscorts.network = 0;
 snDesiredNumberFishEscorts.defined = 0;
 snDesiredNumberFishEscorts.available = 1;
@@ -2480,10 +2484,10 @@ snDesiredNumberTransportEscorts.snName = "sn-desired-number-transport-escorts";
 snDesiredNumberTransportEscorts.snNameAoE1 = "SNDesiredNumberTransportEscorts";
 snDesiredNumberTransportEscorts.default = 0;
 snDesiredNumberTransportEscorts.category = "Water";
-snDesiredNumberTransportEscorts.min = -32768;
-snDesiredNumberTransportEscorts.max = 32767;
+snDesiredNumberTransportEscorts.min = "Min";
+snDesiredNumberTransportEscorts.max = "Max";
 snDesiredNumberTransportEscorts.rmin = 0;
-snDesiredNumberTransportEscorts.rmax = 32767;
+snDesiredNumberTransportEscorts.rmax = "Max";
 snDesiredNumberTransportEscorts.network = 0;
 snDesiredNumberTransportEscorts.defined = 0;
 snDesiredNumberTransportEscorts.available = 1;
@@ -2502,10 +2506,10 @@ snNumberBoatDefendGroups.snName = "sn-number-boat-defend-groups";
 snNumberBoatDefendGroups.snNameAoE1 = "SNNumberBoatDefendGroups";
 snNumberBoatDefendGroups.default = 0;
 snNumberBoatDefendGroups.category = "Water";
-snNumberBoatDefendGroups.min = -32768;
-snNumberBoatDefendGroups.max = 32767;
+snNumberBoatDefendGroups.min = "Min";
+snNumberBoatDefendGroups.max = "Max";
 snNumberBoatDefendGroups.rmin = 0;
-snNumberBoatDefendGroups.rmax = 32767;
+snNumberBoatDefendGroups.rmax = "Max";
 snNumberBoatDefendGroups.network = 0;
 snNumberBoatDefendGroups.defined = 1;
 snNumberBoatDefendGroups.available = "available, except for water maps";
@@ -2524,10 +2528,10 @@ snMinimumBoatDefendGroupSize.snName = "sn-minimum-boat-defend-group-size";
 snMinimumBoatDefendGroupSize.snNameAoE1 = "SNMinimumBoatDefendGroupSize";
 snMinimumBoatDefendGroupSize.default = 0;
 snMinimumBoatDefendGroupSize.category = "Water";
-snMinimumBoatDefendGroupSize.min = -32768;
-snMinimumBoatDefendGroupSize.max = 32767;
+snMinimumBoatDefendGroupSize.min = "Min";
+snMinimumBoatDefendGroupSize.max = "Max";
 snMinimumBoatDefendGroupSize.rmin = 0;
-snMinimumBoatDefendGroupSize.rmax = 32767;
+snMinimumBoatDefendGroupSize.rmax = "Max";
 snMinimumBoatDefendGroupSize.network = 0;
 snMinimumBoatDefendGroupSize.defined = 1;
 snMinimumBoatDefendGroupSize.available = "available, except for water maps";
@@ -2546,10 +2550,10 @@ snMaximumBoatDefendGroupSize.snName = "sn-maximum-boat-defend-group-size";
 snMaximumBoatDefendGroupSize.snNameAoE1 = "SNMaximumBoatDefendGroupSize";
 snMaximumBoatDefendGroupSize.default = 0;
 snMaximumBoatDefendGroupSize.category = "Water";
-snMaximumBoatDefendGroupSize.min = -32768;
-snMaximumBoatDefendGroupSize.max = 32767;
+snMaximumBoatDefendGroupSize.min = "Min";
+snMaximumBoatDefendGroupSize.max = "Max";
 snMaximumBoatDefendGroupSize.rmin = 0;
-snMaximumBoatDefendGroupSize.rmax = 32767;
+snMaximumBoatDefendGroupSize.rmax = "Max";
 snMaximumBoatDefendGroupSize.network = 0;
 snMaximumBoatDefendGroupSize.defined = 1;
 snMaximumBoatDefendGroupSize.available = "available, except for water maps";
@@ -2568,8 +2572,8 @@ snDockDefendPriority.snName = "sn-dock-defend-priority";
 snDockDefendPriority.snNameAoE1 = "SNDockDefendPriority";
 snDockDefendPriority.default = 0;
 snDockDefendPriority.category = "Defense";
-snDockDefendPriority.min = -32768;
-snDockDefendPriority.max = 32767;
+snDockDefendPriority.min = "Min";
+snDockDefendPriority.max = "Max";
 snDockDefendPriority.rmin = 0;
 snDockDefendPriority.rmax = 1;
 snDockDefendPriority.network = 0;
@@ -2591,8 +2595,8 @@ snLockAttackAndAttackResponse.snName = "sn-lock-attack-and-attack-response";
 snLockAttackAndAttackResponse.snNameAoE1 = "SNLockAttackAndAttackResponse";
 snLockAttackAndAttackResponse.default = -1;
 snLockAttackAndAttackResponse.category = "Attack";
-snLockAttackAndAttackResponse.min = -32768;
-snLockAttackAndAttackResponse.max = 32767;
+snLockAttackAndAttackResponse.min = "Min";
+snLockAttackAndAttackResponse.max = "Max";
 snLockAttackAndAttackResponse.rmin = 0;
 snLockAttackAndAttackResponse.rmax = 1;
 snLockAttackAndAttackResponse.network = 0;
@@ -2613,10 +2617,10 @@ snSentryDistanceVariation.snName = "sn-sentry-distance-variation";
 snSentryDistanceVariation.snNameAoE1 = "SNSentryDistanceVariation";
 snSentryDistanceVariation.default = 2;
 snSentryDistanceVariation.category = "Defense";
-snSentryDistanceVariation.min = -32768;
-snSentryDistanceVariation.max = 32767;
+snSentryDistanceVariation.min = "Min";
+snSentryDistanceVariation.max = "Max";
 snSentryDistanceVariation.rmin = 0;
-snSentryDistanceVariation.rmax = 32767;
+snSentryDistanceVariation.rmax = "Max";
 snSentryDistanceVariation.network = 0;
 snSentryDistanceVariation.defined = 1;
 snSentryDistanceVariation.available = 0;
@@ -2636,8 +2640,8 @@ snMinimumTownSize.snName = "sn-minimum-town-size";
 snMinimumTownSize.snNameAoE1 = "SNMinimumTownSize";
 snMinimumTownSize.default = 12;
 snMinimumTownSize.category = "Buildings";
-snMinimumTownSize.min = -32768;
-snMinimumTownSize.max = 32767;
+snMinimumTownSize.min = "Min";
+snMinimumTownSize.max = "Max";
 snMinimumTownSize.rmin = 0;
 snMinimumTownSize.rmax = 255;
 snMinimumTownSize.network = 0;
@@ -2658,8 +2662,8 @@ snMaximumTownSize.snName = "sn-maximum-town-size";
 snMaximumTownSize.snNameAoE1 = "SNMaximumTownSize";
 snMaximumTownSize.default = 20;
 snMaximumTownSize.category = "Buildings";
-snMaximumTownSize.min = -32768;
-snMaximumTownSize.max = 32767;
+snMaximumTownSize.min = "Min";
+snMaximumTownSize.max = "Max";
 snMaximumTownSize.rmin = 0;
 snMaximumTownSize.rmax = 255;
 snMaximumTownSize.network = 0;
@@ -2680,8 +2684,8 @@ snGroupCommanderSelectionMethod.snName = "sn-group-commander-selection-method";
 snGroupCommanderSelectionMethod.snNameAoE1 = "SNGroupCommanderSelectionMethod";
 snGroupCommanderSelectionMethod.default = 3;
 snGroupCommanderSelectionMethod.category = "Attack";
-snGroupCommanderSelectionMethod.min = -32768;
-snGroupCommanderSelectionMethod.max = 32767;
+snGroupCommanderSelectionMethod.min = "Min";
+snGroupCommanderSelectionMethod.max = "Max";
 snGroupCommanderSelectionMethod.rmin = 0;
 snGroupCommanderSelectionMethod.rmax = 3;
 snGroupCommanderSelectionMethod.network = 0;
@@ -2702,10 +2706,10 @@ snConsecutiveIdleUnitLimit.snName = "sn-consecutive-idle-unit-limit";
 snConsecutiveIdleUnitLimit.snNameAoE1 = "SNConsecutiveIdleUnitLimit";
 snConsecutiveIdleUnitLimit.default = 15;
 snConsecutiveIdleUnitLimit.category = "Attack";
-snConsecutiveIdleUnitLimit.min = -32768;
-snConsecutiveIdleUnitLimit.max = 32767;
+snConsecutiveIdleUnitLimit.min = "Min";
+snConsecutiveIdleUnitLimit.max = "Max";
 snConsecutiveIdleUnitLimit.rmin = 0;
-snConsecutiveIdleUnitLimit.rmax = 32767;
+snConsecutiveIdleUnitLimit.rmax = "Max";
 snConsecutiveIdleUnitLimit.network = 0;
 snConsecutiveIdleUnitLimit.defined = 1;
 snConsecutiveIdleUnitLimit.available = "available, but only before militarization";
@@ -2725,10 +2729,10 @@ snTargetEvaluationDistance.snName = "sn-target-evaluation-distance";
 snTargetEvaluationDistance.snNameAoE1 = "SNTargetEvaluationdistance";
 snTargetEvaluationDistance.default = 50;
 snTargetEvaluationDistance.category = "Attack";
-snTargetEvaluationDistance.min = -32768;
-snTargetEvaluationDistance.max = 32767;
-snTargetEvaluationDistance.rmin = -32768;
-snTargetEvaluationDistance.rmax = 32767;
+snTargetEvaluationDistance.min = "Min";
+snTargetEvaluationDistance.max = "Max";
+snTargetEvaluationDistance.rmin = "Min";
+snTargetEvaluationDistance.rmax = "Max";
 snTargetEvaluationDistance.network = 0;
 snTargetEvaluationDistance.defined = 1;
 snTargetEvaluationDistance.available = 0;
@@ -2747,10 +2751,10 @@ snTargetEvaluationHitpoints.snName = "sn-target-evaluation-hitpoints";
 snTargetEvaluationHitpoints.snNameAoE1 = "SNTargetEvaluationHitpoints";
 snTargetEvaluationHitpoints.default = 0;
 snTargetEvaluationHitpoints.category = "Attack";
-snTargetEvaluationHitpoints.min = -32768;
-snTargetEvaluationHitpoints.max = 32767;
-snTargetEvaluationHitpoints.rmin = -32768;
-snTargetEvaluationHitpoints.rmax = 32767;
+snTargetEvaluationHitpoints.min = "Min";
+snTargetEvaluationHitpoints.max = "Max";
+snTargetEvaluationHitpoints.rmin = "Min";
+snTargetEvaluationHitpoints.rmax = "Max";
 snTargetEvaluationHitpoints.network = 0;
 snTargetEvaluationHitpoints.defined = 1;
 snTargetEvaluationHitpoints.available = 0;
@@ -2769,10 +2773,10 @@ snTargetEvaluationDamageCapability.snName = "sn-target-evaluation-damage-capabil
 snTargetEvaluationDamageCapability.snNameAoE1 = "SNTargetEvaluationDamageCapability";
 snTargetEvaluationDamageCapability.default = 0;
 snTargetEvaluationDamageCapability.category = "Attack";
-snTargetEvaluationDamageCapability.min = -32768;
-snTargetEvaluationDamageCapability.max = 32767;
-snTargetEvaluationDamageCapability.rmin = -32768;
-snTargetEvaluationDamageCapability.rmax = 32767;
+snTargetEvaluationDamageCapability.min = "Min";
+snTargetEvaluationDamageCapability.max = "Max";
+snTargetEvaluationDamageCapability.rmin = "Min";
+snTargetEvaluationDamageCapability.rmax = "Max";
 snTargetEvaluationDamageCapability.network = 0;
 snTargetEvaluationDamageCapability.defined = 1;
 snTargetEvaluationDamageCapability.available = 0;
@@ -2791,10 +2795,10 @@ snTargetEvaluationKills.snName = "sn-target-evaluation-kills";
 snTargetEvaluationKills.snNameAoE1 = "SNTargetEvaluationKills";
 snTargetEvaluationKills.default = 0;
 snTargetEvaluationKills.category = "Attack";
-snTargetEvaluationKills.min = -32768;
-snTargetEvaluationKills.max = 32767;
-snTargetEvaluationKills.rmin = -32768;
-snTargetEvaluationKills.rmax = 32767;
+snTargetEvaluationKills.min = "Min";
+snTargetEvaluationKills.max = "Max";
+snTargetEvaluationKills.rmin = "Min";
+snTargetEvaluationKills.rmax = "Max";
 snTargetEvaluationKills.network = 0;
 snTargetEvaluationKills.defined = 1;
 snTargetEvaluationKills.available = 0;
@@ -2813,10 +2817,10 @@ snTargetEvaluationAllyProximity.snName = "sn-target-evaluation-ally-proximity";
 snTargetEvaluationAllyProximity.snNameAoE1 = "SNTargetEvaluationAllyProximity";
 snTargetEvaluationAllyProximity.default = 0;
 snTargetEvaluationAllyProximity.category = "Attack";
-snTargetEvaluationAllyProximity.min = -32768;
-snTargetEvaluationAllyProximity.max = 32767;
-snTargetEvaluationAllyProximity.rmin = -32768;
-snTargetEvaluationAllyProximity.rmax = 32767;
+snTargetEvaluationAllyProximity.min = "Min";
+snTargetEvaluationAllyProximity.max = "Max";
+snTargetEvaluationAllyProximity.rmin = "Min";
+snTargetEvaluationAllyProximity.rmax = "Max";
 snTargetEvaluationAllyProximity.network = 0;
 snTargetEvaluationAllyProximity.defined = 1;
 snTargetEvaluationAllyProximity.available = 0;
@@ -2835,10 +2839,10 @@ snTargetEvaluationRof.snName = "sn-target-evaluation-rof";
 snTargetEvaluationRof.snNameAoE1 = "SNTargetEvaluationROF";
 snTargetEvaluationRof.default = 0;
 snTargetEvaluationRof.category = "Attack";
-snTargetEvaluationRof.min = -32768;
-snTargetEvaluationRof.max = 32767;
-snTargetEvaluationRof.rmin = -32768;
-snTargetEvaluationRof.rmax = 32767;
+snTargetEvaluationRof.min = "Min";
+snTargetEvaluationRof.max = "Max";
+snTargetEvaluationRof.rmin = "Min";
+snTargetEvaluationRof.rmax = "Max";
 snTargetEvaluationRof.network = 0;
 snTargetEvaluationRof.defined = 1;
 snTargetEvaluationRof.available = 0;
@@ -2857,10 +2861,10 @@ snTargetEvaluationRandomness.snName = "sn-target-evaluation-randomness";
 snTargetEvaluationRandomness.snNameAoE1 = "SNTargetEvaluationRandomness";
 snTargetEvaluationRandomness.default = 0;
 snTargetEvaluationRandomness.category = "Attack";
-snTargetEvaluationRandomness.min = -32768;
-snTargetEvaluationRandomness.max = 32767;
-snTargetEvaluationRandomness.rmin = -32768;
-snTargetEvaluationRandomness.rmax = 32767;
+snTargetEvaluationRandomness.min = "Min";
+snTargetEvaluationRandomness.max = "Max";
+snTargetEvaluationRandomness.rmin = "Min";
+snTargetEvaluationRandomness.rmax = "Max";
 snTargetEvaluationRandomness.network = 0;
 snTargetEvaluationRandomness.defined = 1;
 snTargetEvaluationRandomness.available = 0;
@@ -2879,10 +2883,10 @@ snNumberWallGates.snName = "sn-number-wall-gates";
 snNumberWallGates.snNameAoE1 = "SNNumberWallGates";
 snNumberWallGates.default = -1;
 snNumberWallGates.category = "Defense";
-snNumberWallGates.min = -32768;
-snNumberWallGates.max = 32767;
+snNumberWallGates.min = "Min";
+snNumberWallGates.max = "Max";
 snNumberWallGates.rmin = 0;
-snNumberWallGates.rmax = 32767;
+snNumberWallGates.rmax = "Max";
 snNumberWallGates.network = 0;
 snNumberWallGates.defined = 0;
 snNumberWallGates.available = "seems available, if you will not build walls";
@@ -2901,10 +2905,10 @@ snSizeWallGates.snName = "sn-size-wall-gates";
 snSizeWallGates.snNameAoE1 = "SNSizeWallGates";
 snSizeWallGates.default = -1;
 snSizeWallGates.category = "Defense";
-snSizeWallGates.min = -32768;
-snSizeWallGates.max = 32767;
+snSizeWallGates.min = "Min";
+snSizeWallGates.max = "Max";
 snSizeWallGates.rmin = 0;
-snSizeWallGates.rmax = 32767;
+snSizeWallGates.rmax = "Max";
 snSizeWallGates.network = 0;
 snSizeWallGates.defined = 0;
 snSizeWallGates.available = 1;
@@ -2923,8 +2927,8 @@ snCampMaxDistance.snName = "sn-camp-max-distance";
 snCampMaxDistance.snNameAoE1 = "SNStoragePitMaxDistance";
 snCampMaxDistance.default = 25;
 snCampMaxDistance.category = "Buildings";
-snCampMaxDistance.min = -32768;
-snCampMaxDistance.max = 32767;
+snCampMaxDistance.min = "Min";
+snCampMaxDistance.max = "Max";
 snCampMaxDistance.rmin = 7;
 snCampMaxDistance.rmax = 255;
 snCampMaxDistance.network = 0;
@@ -2945,8 +2949,8 @@ snMillMaxDistance.snName = "sn-mill-max-distance";
 snMillMaxDistance.snNameAoE1 = "SNGranaryMaxDistance";
 snMillMaxDistance.default = 100;
 snMillMaxDistance.category = "Buildings";
-snMillMaxDistance.min = -32768;
-snMillMaxDistance.max = 32767;
+snMillMaxDistance.min = "Min";
+snMillMaxDistance.max = "Max";
 snMillMaxDistance.rmin = 4;
 snMillMaxDistance.rmax = 255;
 snMillMaxDistance.network = 0;
@@ -2967,10 +2971,10 @@ snTacticalUpdateFrequency.snName = "sn-tactical-update-frequency";
 snTacticalUpdateFrequency.snNameAoE1 = "SNTacticalUpdateFrequency";
 snTacticalUpdateFrequency.default = -1;
 snTacticalUpdateFrequency.category = "Other";
-snTacticalUpdateFrequency.min = -32768;
-snTacticalUpdateFrequency.max = 32767;
+snTacticalUpdateFrequency.min = "Min";
+snTacticalUpdateFrequency.max = "Max";
 snTacticalUpdateFrequency.rmin = 0;
-snTacticalUpdateFrequency.rmax = 32767;
+snTacticalUpdateFrequency.rmax = "Max";
 snTacticalUpdateFrequency.network = 0;
 snTacticalUpdateFrequency.defined = 0;
 snTacticalUpdateFrequency.available = 0;
@@ -2989,10 +2993,10 @@ snTargetEvaluationAttackAttempts.snName = "sn-target-evaluation-attack-attempts"
 snTargetEvaluationAttackAttempts.snNameAoE1 = "SNTargetEvaluationAttackAttempts";
 snTargetEvaluationAttackAttempts.default = -25;
 snTargetEvaluationAttackAttempts.category = "Attack";
-snTargetEvaluationAttackAttempts.min = -32768;
-snTargetEvaluationAttackAttempts.max = 32767;
-snTargetEvaluationAttackAttempts.rmin = -32768;
-snTargetEvaluationAttackAttempts.rmax = 32767;
+snTargetEvaluationAttackAttempts.min = "Min";
+snTargetEvaluationAttackAttempts.max = "Max";
+snTargetEvaluationAttackAttempts.rmin = "Min";
+snTargetEvaluationAttackAttempts.rmax = "Max";
 snTargetEvaluationAttackAttempts.network = 0;
 snTargetEvaluationAttackAttempts.defined = 1;
 snTargetEvaluationAttackAttempts.available = 0;
@@ -3011,10 +3015,10 @@ snTargetEvaluationRange.snName = "sn-target-evaluation-range";
 snTargetEvaluationRange.snNameAoE1 = "SNTargetEvaluationRange";
 snTargetEvaluationRange.default = 0;
 snTargetEvaluationRange.category = "Attack";
-snTargetEvaluationRange.min = -32768;
-snTargetEvaluationRange.max = 32767;
-snTargetEvaluationRange.rmin = -32768;
-snTargetEvaluationRange.rmax = 32767;
+snTargetEvaluationRange.min = "Min";
+snTargetEvaluationRange.max = "Max";
+snTargetEvaluationRange.rmin = "Min";
+snTargetEvaluationRange.rmax = "Max";
 snTargetEvaluationRange.network = 0;
 snTargetEvaluationRange.defined = 1;
 snTargetEvaluationRange.available = 0;
@@ -3033,8 +3037,8 @@ snPercentUnitHealthRetreat.snName = "sn-percent-unit-health-retreat";
 snPercentUnitHealthRetreat.snNameAoE1 = "SNPercentUnitHealthRetreat";
 snPercentUnitHealthRetreat.default = -1;
 snPercentUnitHealthRetreat.category = "Attack";
-snPercentUnitHealthRetreat.min = -32768;
-snPercentUnitHealthRetreat.max = 32767;
+snPercentUnitHealthRetreat.min = "Min";
+snPercentUnitHealthRetreat.max = "Max";
 snPercentUnitHealthRetreat.rmin = 0;
 snPercentUnitHealthRetreat.rmax = 100;
 snPercentUnitHealthRetreat.network = 0;
@@ -3055,8 +3059,8 @@ snDefendOverlapDistance.snName = "sn-defend-overlap-distance";
 snDefendOverlapDistance.snNameAoE1 = "SNDefendOverlapDistance";
 snDefendOverlapDistance.default = 5;
 snDefendOverlapDistance.category = "Defense";
-snDefendOverlapDistance.min = -32768;
-snDefendOverlapDistance.max = 32767;
+snDefendOverlapDistance.min = "Min";
+snDefendOverlapDistance.max = "Max";
 snDefendOverlapDistance.rmin = 0;
 snDefendOverlapDistance.rmax = 255;
 snDefendOverlapDistance.network = 0;
@@ -3077,10 +3081,10 @@ snScaleMinimumAttackGroupSize.snName = "sn-scale-minimum-attack-group-size";
 snScaleMinimumAttackGroupSize.snNameAoE1 = "SNScaleMinimumAttackGroupSize";
 snScaleMinimumAttackGroupSize.default = 1;
 snScaleMinimumAttackGroupSize.category = "Attack";
-snScaleMinimumAttackGroupSize.min = -32768;
-snScaleMinimumAttackGroupSize.max = 32767;
+snScaleMinimumAttackGroupSize.min = "Min";
+snScaleMinimumAttackGroupSize.max = "Max";
 snScaleMinimumAttackGroupSize.rmin = 0;
-snScaleMinimumAttackGroupSize.rmax = 32767;
+snScaleMinimumAttackGroupSize.rmax = "Max";
 snScaleMinimumAttackGroupSize.network = 0;
 snScaleMinimumAttackGroupSize.defined = 1;
 snScaleMinimumAttackGroupSize.available = 0;
@@ -3100,10 +3104,10 @@ snScaleMaximumAttackGroupSize.snName = "sn-scale-maximum-attack-group-size";
 snScaleMaximumAttackGroupSize.snNameAoE1 = "SNScaleMaximumAttackGroupSize";
 snScaleMaximumAttackGroupSize.default = 0;
 snScaleMaximumAttackGroupSize.category = "Attack";
-snScaleMaximumAttackGroupSize.min = -32768;
-snScaleMaximumAttackGroupSize.max = 32767;
+snScaleMaximumAttackGroupSize.min = "Min";
+snScaleMaximumAttackGroupSize.max = "Max";
 snScaleMaximumAttackGroupSize.rmin = 0;
-snScaleMaximumAttackGroupSize.rmax = 32767;
+snScaleMaximumAttackGroupSize.rmax = "Max";
 snScaleMaximumAttackGroupSize.network = 0;
 snScaleMaximumAttackGroupSize.defined = 1;
 snScaleMaximumAttackGroupSize.available = 0;
@@ -3122,10 +3126,10 @@ snScalePercentHealthRetreat.snName = "sn-scale-percent-health-retreat";
 snScalePercentHealthRetreat.snNameAoE1 = "SNScalePercentHealthRetreat";
 snScalePercentHealthRetreat.default = -1;
 snScalePercentHealthRetreat.category = "Attack";
-snScalePercentHealthRetreat.min = -32768;
-snScalePercentHealthRetreat.max = 32767;
+snScalePercentHealthRetreat.min = "Min";
+snScalePercentHealthRetreat.max = "Max";
 snScalePercentHealthRetreat.rmin = 0;
-snScalePercentHealthRetreat.rmax = 32767;
+snScalePercentHealthRetreat.rmax = "Max";
 snScalePercentHealthRetreat.network = 0;
 snScalePercentHealthRetreat.defined = 0;
 snScalePercentHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-health-retreat (30)";
@@ -3144,10 +3148,10 @@ snScalePercentDeathRetreat.snName = "sn-scale-percent-death-retreat";
 snScalePercentDeathRetreat.snNameAoE1 = "SNScalePercentDeathRetreat";
 snScalePercentDeathRetreat.default = -1;
 snScalePercentDeathRetreat.category = "Attack";
-snScalePercentDeathRetreat.min = -32768;
-snScalePercentDeathRetreat.max = 32767;
+snScalePercentDeathRetreat.min = "Min";
+snScalePercentDeathRetreat.max = "Max";
 snScalePercentDeathRetreat.rmin = 0;
-snScalePercentDeathRetreat.rmax = 32767;
+snScalePercentDeathRetreat.rmax = "Max";
 snScalePercentDeathRetreat.network = 0;
 snScalePercentDeathRetreat.defined = 0;
 snScalePercentDeathRetreat.available = "available, but avoid using it in conjunction with sn-percent-death-retreat (31)";
@@ -3166,10 +3170,10 @@ snScalePercentUnitHealthRetreat.snName = "sn-scale-percent-unit-health-retreat";
 snScalePercentUnitHealthRetreat.snNameAoE1 = "SNScalePercentUnitHealthRetreat";
 snScalePercentUnitHealthRetreat.default = -1;
 snScalePercentUnitHealthRetreat.category = "Attack";
-snScalePercentUnitHealthRetreat.min = -32768;
-snScalePercentUnitHealthRetreat.max = 32767;
+snScalePercentUnitHealthRetreat.min = "Min";
+snScalePercentUnitHealthRetreat.max = "Max";
 snScalePercentUnitHealthRetreat.rmin = 0;
-snScalePercentUnitHealthRetreat.rmax = 32767;
+snScalePercentUnitHealthRetreat.rmax = "Max";
 snScalePercentUnitHealthRetreat.network = 0;
 snScalePercentUnitHealthRetreat.defined = 0;
 snScalePercentUnitHealthRetreat.available = "available, but avoid using it in conjunction with sn-percent-unit-health-retreat (91)";
@@ -3188,10 +3192,10 @@ snAttackGroupSizeRandomness.snName = "sn-attack-group-size-randomness";
 snAttackGroupSizeRandomness.snNameAoE1 = "SNAttackGroupSizeRandomness";
 snAttackGroupSizeRandomness.default = 1;
 snAttackGroupSizeRandomness.category = "Attack";
-snAttackGroupSizeRandomness.min = -32768;
-snAttackGroupSizeRandomness.max = 32767;
+snAttackGroupSizeRandomness.min = "Min";
+snAttackGroupSizeRandomness.max = "Max";
 snAttackGroupSizeRandomness.rmin = 0;
-snAttackGroupSizeRandomness.rmax = 32767;
+snAttackGroupSizeRandomness.rmax = "Max";
 snAttackGroupSizeRandomness.network = 0;
 snAttackGroupSizeRandomness.defined = 1;
 snAttackGroupSizeRandomness.available = 0;
@@ -3210,10 +3214,10 @@ snScalingFrequency.snName = "sn-scaling-frequency";
 snScalingFrequency.snNameAoE1 = "SNScalingFrequency";
 snScalingFrequency.default = 10;
 snScalingFrequency.category = "Attack";
-snScalingFrequency.min = -32768;
-snScalingFrequency.max = 32767;
+snScalingFrequency.min = "Min";
+snScalingFrequency.max = "Max";
 snScalingFrequency.rmin = 0;
-snScalingFrequency.rmax = 32767;
+snScalingFrequency.rmax = "Max";
 snScalingFrequency.network = 0;
 snScalingFrequency.defined = 1;
 snScalingFrequency.available = 0;
@@ -3233,10 +3237,10 @@ snMaximumGaiaAttackResponse.snName = "sn-maximum-gaia-attack-response";
 snMaximumGaiaAttackResponse.snNameAoE1 = "SNMaximumGaiaAttackResponse";
 snMaximumGaiaAttackResponse.default = 3;
 snMaximumGaiaAttackResponse.category = "Defense";
-snMaximumGaiaAttackResponse.min = -32768;
-snMaximumGaiaAttackResponse.max = 32767;
+snMaximumGaiaAttackResponse.min = "Min";
+snMaximumGaiaAttackResponse.max = "Max";
 snMaximumGaiaAttackResponse.rmin = 0;
-snMaximumGaiaAttackResponse.rmax = 32767;
+snMaximumGaiaAttackResponse.rmax = "Max";
 snMaximumGaiaAttackResponse.network = 0;
 snMaximumGaiaAttackResponse.defined = 1;
 snMaximumGaiaAttackResponse.available = 0;
@@ -3255,10 +3259,10 @@ snBuildFrequency.snName = "sn-build-frequency";
 snBuildFrequency.snNameAoE1 = "SNBuildFrequency";
 snBuildFrequency.default = 1;
 snBuildFrequency.category = "Other";
-snBuildFrequency.min = -32768;
-snBuildFrequency.max = 32767;
+snBuildFrequency.min = "Min";
+snBuildFrequency.max = "Max";
 snBuildFrequency.rmin = 0;
-snBuildFrequency.rmax = 32767;
+snBuildFrequency.rmax = "Max";
 snBuildFrequency.network = 0;
 snBuildFrequency.defined = 1;
 snBuildFrequency.available = 0;
@@ -3277,10 +3281,10 @@ snAttackSeparationTimeRandomness.snName = "sn-attack-separation-time-randomness"
 snAttackSeparationTimeRandomness.snNameAoE1 = "SNAttackSeparationTimeRandomness";
 snAttackSeparationTimeRandomness.default = 15;
 snAttackSeparationTimeRandomness.category = "Attack";
-snAttackSeparationTimeRandomness.min = -32768;
-snAttackSeparationTimeRandomness.max = 32767;
+snAttackSeparationTimeRandomness.min = "Min";
+snAttackSeparationTimeRandomness.max = "Max";
 snAttackSeparationTimeRandomness.rmin = 0;
-snAttackSeparationTimeRandomness.rmax = 32767;
+snAttackSeparationTimeRandomness.rmax = "Max";
 snAttackSeparationTimeRandomness.network = 0;
 snAttackSeparationTimeRandomness.defined = 1;
 snAttackSeparationTimeRandomness.available = "seems available, but it would be best to avoid it";
@@ -3299,8 +3303,8 @@ snAttackIntelligence.snName = "sn-attack-intelligence";
 snAttackIntelligence.snNameAoE1 = "SNAttackIntelligence";
 snAttackIntelligence.default = 0;
 snAttackIntelligence.category = "Attack";
-snAttackIntelligence.min = -32768;
-snAttackIntelligence.max = 32767;
+snAttackIntelligence.min = "Min";
+snAttackIntelligence.max = "Max";
 snAttackIntelligence.rmin = 0;
 snAttackIntelligence.rmax = 1;
 snAttackIntelligence.network = 0;
@@ -3321,10 +3325,10 @@ snInitialAttackDelay.snName = "sn-initial-attack-delay";
 snInitialAttackDelay.snNameAoE1 = "SNAttackDelay";
 snInitialAttackDelay.default = 0;
 snInitialAttackDelay.category = "Attack";
-snInitialAttackDelay.min = -32768;
-snInitialAttackDelay.max = 32767;
+snInitialAttackDelay.min = "Min";
+snInitialAttackDelay.max = "Max";
 snInitialAttackDelay.rmin = 0;
-snInitialAttackDelay.rmax = 32767;
+snInitialAttackDelay.rmax = "Max";
 snInitialAttackDelay.network = 0;
 snInitialAttackDelay.defined = 1;
 snInitialAttackDelay.available = 0;
@@ -3343,8 +3347,8 @@ snSaveScenarioInformation.snName = "sn-save-scenario-information";
 snSaveScenarioInformation.snNameAoE1 = "SNSaveScenarioInformation";
 snSaveScenarioInformation.default = 0;
 snSaveScenarioInformation.category = "Other";
-snSaveScenarioInformation.min = -32768;
-snSaveScenarioInformation.max = 32767;
+snSaveScenarioInformation.min = "Min";
+snSaveScenarioInformation.max = "Max";
 snSaveScenarioInformation.rmin = 0;
 snSaveScenarioInformation.rmax = 1;
 snSaveScenarioInformation.network = 0;
@@ -3365,8 +3369,8 @@ snSpecialAttackType1.snName = "sn-special-attack-type1";
 snSpecialAttackType1.snNameAoE1 = "SNSpecialAttackType1";
 snSpecialAttackType1.default = -1;
 snSpecialAttackType1.category = "Attack";
-snSpecialAttackType1.min = -32768;
-snSpecialAttackType1.max = 32767;
+snSpecialAttackType1.min = "Min";
+snSpecialAttackType1.max = "Max";
 snSpecialAttackType1.rmin = -1;
 snSpecialAttackType1.rmax = 1;
 snSpecialAttackType1.network = 0;
@@ -3387,10 +3391,10 @@ snSpecialAttackType2.snName = "sn-special-attack-type2";
 snSpecialAttackType2.snNameAoE1 = "SNSpecialAttackType2";
 snSpecialAttackType2.default = -1;
 snSpecialAttackType2.category = "Attack";
-snSpecialAttackType2.min = -32768;
-snSpecialAttackType2.max = 32767;
+snSpecialAttackType2.min = "Min";
+snSpecialAttackType2.max = "Max";
 snSpecialAttackType2.rmin = -1;
-snSpecialAttackType2.rmax = 32767;
+snSpecialAttackType2.rmax = "Max";
 snSpecialAttackType2.network = 0;
 snSpecialAttackType2.defined = 1;
 snSpecialAttackType2.available = 0;
@@ -3410,8 +3414,8 @@ snSpecialAttackType3.snName = "sn-special-attack-type3";
 snSpecialAttackType3.snNameAoE1 = "SNSpecialAttackType3";
 snSpecialAttackType3.default = -1;
 snSpecialAttackType3.category = "Attack";
-snSpecialAttackType3.min = -32768;
-snSpecialAttackType3.max = 32767;
+snSpecialAttackType3.min = "Min";
+snSpecialAttackType3.max = "Max";
 snSpecialAttackType3.rmin = -1;
 snSpecialAttackType3.rmax = 1;
 snSpecialAttackType3.network = 0;
@@ -3433,10 +3437,10 @@ snSpecialAttackInfluence1.snName = "sn-special-attack-influence1";
 snSpecialAttackInfluence1.snNameAoE1 = "SNSpecialAttackInfluence1";
 snSpecialAttackInfluence1.default = 0;
 snSpecialAttackInfluence1.category = "Attack";
-snSpecialAttackInfluence1.min = -32768;
-snSpecialAttackInfluence1.max = 32767;
-snSpecialAttackInfluence1.rmin = -32768;
-snSpecialAttackInfluence1.rmax = 32767;
+snSpecialAttackInfluence1.min = "Min";
+snSpecialAttackInfluence1.max = "Max";
+snSpecialAttackInfluence1.rmin = "Min";
+snSpecialAttackInfluence1.rmax = "Max";
 snSpecialAttackInfluence1.network = 0;
 snSpecialAttackInfluence1.defined = 1;
 snSpecialAttackInfluence1.available = 0;
@@ -3455,10 +3459,10 @@ snSpecialAttackInfluence2.snName = "sn-special-attack-influence2";
 snSpecialAttackInfluence2.snNameAoE1 = "SNSpecialAttackInfluence2";
 snSpecialAttackInfluence2.default = 0;
 snSpecialAttackInfluence2.category = "Attack";
-snSpecialAttackInfluence2.min = -32768;
-snSpecialAttackInfluence2.max = 32767;
-snSpecialAttackInfluence2.rmin = -32768;
-snSpecialAttackInfluence2.rmax = 32767;
+snSpecialAttackInfluence2.min = "Min";
+snSpecialAttackInfluence2.max = "Max";
+snSpecialAttackInfluence2.rmin = "Min";
+snSpecialAttackInfluence2.rmax = "Max";
 snSpecialAttackInfluence2.network = 0;
 snSpecialAttackInfluence2.defined = 0;
 snSpecialAttackInfluence2.available = 0;
@@ -3477,10 +3481,10 @@ snSpecialAttackInfluence3.snName = "sn-special-attack-influence3";
 snSpecialAttackInfluence3.snNameAoE1 = "SNSpecialAttackInfluence3";
 snSpecialAttackInfluence3.default = 0;
 snSpecialAttackInfluence3.category = "Attack";
-snSpecialAttackInfluence3.min = -32768;
-snSpecialAttackInfluence3.max = 32767;
-snSpecialAttackInfluence3.rmin = -32768;
-snSpecialAttackInfluence3.rmax = 32767;
+snSpecialAttackInfluence3.min = "Min";
+snSpecialAttackInfluence3.max = "Max";
+snSpecialAttackInfluence3.rmin = "Min";
+snSpecialAttackInfluence3.rmax = "Max";
 snSpecialAttackInfluence3.network = 0;
 snSpecialAttackInfluence3.defined = 0;
 snSpecialAttackInfluence3.available = "seems available, except under standard victory conditions";
@@ -3499,10 +3503,10 @@ snMinimumWaterBodySizeForDock.snName = "sn-minimum-water-body-size-for-dock";
 snMinimumWaterBodySizeForDock.snNameAoE1 = "SNMinimumWaterBodySizeForDock";
 snMinimumWaterBodySizeForDock.default = 300;
 snMinimumWaterBodySizeForDock.category = "Water";
-snMinimumWaterBodySizeForDock.min = -32768;
-snMinimumWaterBodySizeForDock.max = 32767;
+snMinimumWaterBodySizeForDock.min = "Min";
+snMinimumWaterBodySizeForDock.max = "Max";
 snMinimumWaterBodySizeForDock.rmin = 10;
-snMinimumWaterBodySizeForDock.rmax = 32767;
+snMinimumWaterBodySizeForDock.rmax = "Max";
 snMinimumWaterBodySizeForDock.network = 0;
 snMinimumWaterBodySizeForDock.defined = 1;
 snMinimumWaterBodySizeForDock.available = "available, as long as the value will always be &gt;= 300";
@@ -3521,10 +3525,10 @@ snSkipAges.snName = "sn-skip-ages";
 snSkipAges.snNameAoE1 = "SNSkipAges";
 snSkipAges.default = -1;
 snSkipAges.category = "Build Plan";
-snSkipAges.min = -32768;
-snSkipAges.max = 32767;
-snSkipAges.rmin = -32768;
-snSkipAges.rmax = 32767;
+snSkipAges.min = "Min";
+snSkipAges.max = "Max";
+snSkipAges.rmin = "Min";
+snSkipAges.rmax = "Max";
 snSkipAges.network = 0;
 snSkipAges.defined = 0;
 snSkipAges.available = 0;
@@ -3543,10 +3547,10 @@ snNumberBuildAttemptsBeforeSkip.snName = "sn-number-build-attempts-before-skip";
 snNumberBuildAttemptsBeforeSkip.snNameAoE1 = "SNNumberBuildAttemptsBeforeSkip";
 snNumberBuildAttemptsBeforeSkip.default = 25;
 snNumberBuildAttemptsBeforeSkip.category = "Build Plan";
-snNumberBuildAttemptsBeforeSkip.min = -32768;
-snNumberBuildAttemptsBeforeSkip.max = 32767;
+snNumberBuildAttemptsBeforeSkip.min = "Min";
+snNumberBuildAttemptsBeforeSkip.max = "Max";
 snNumberBuildAttemptsBeforeSkip.rmin = 1;
-snNumberBuildAttemptsBeforeSkip.rmax = 32767;
+snNumberBuildAttemptsBeforeSkip.rmax = "Max";
 snNumberBuildAttemptsBeforeSkip.network = 0;
 snNumberBuildAttemptsBeforeSkip.defined = 1;
 snNumberBuildAttemptsBeforeSkip.available = 0;
@@ -3565,10 +3569,10 @@ snMaxSkipsPerAttempt.snName = "sn-max-skips-per-attempt";
 snMaxSkipsPerAttempt.snNameAoE1 = "SNMaxSkipsPerAttempt";
 snMaxSkipsPerAttempt.default = 10;
 snMaxSkipsPerAttempt.category = "Build Plan";
-snMaxSkipsPerAttempt.min = -32768;
-snMaxSkipsPerAttempt.max = 32767;
+snMaxSkipsPerAttempt.min = "Min";
+snMaxSkipsPerAttempt.max = "Max";
 snMaxSkipsPerAttempt.rmin = 1;
-snMaxSkipsPerAttempt.rmax = 32767;
+snMaxSkipsPerAttempt.rmax = "Max";
 snMaxSkipsPerAttempt.network = 0;
 snMaxSkipsPerAttempt.defined = 1;
 snMaxSkipsPerAttempt.available = 0;
@@ -3587,10 +3591,10 @@ snTrainingRebuilds.snName = "sn-training-rebuilds";
 snTrainingRebuilds.snNameAoE1 = "SNTrainingRebuilds";
 snTrainingRebuilds.default = 10;
 snTrainingRebuilds.category = "Build Plan";
-snTrainingRebuilds.min = -32768;
-snTrainingRebuilds.max = 32767;
-snTrainingRebuilds.rmin = -32768;
-snTrainingRebuilds.rmax = 32767;
+snTrainingRebuilds.min = "Min";
+snTrainingRebuilds.max = "Max";
+snTrainingRebuilds.rmin = "Min";
+snTrainingRebuilds.rmax = "Max";
 snTrainingRebuilds.network = 0;
 snTrainingRebuilds.defined = 0;
 snTrainingRebuilds.available = 0;
@@ -3697,8 +3701,8 @@ snDefendImportantGroupLeaders.snName = "sn-defend-important-group-leaders";
 snDefendImportantGroupLeaders.snNameAoE1 = "SNDefendImportantGroupLeaders";
 snDefendImportantGroupLeaders.default = -1;
 snDefendImportantGroupLeaders.category = "Attack";
-snDefendImportantGroupLeaders.min = -32768;
-snDefendImportantGroupLeaders.max = 32767;
+snDefendImportantGroupLeaders.min = "Min";
+snDefendImportantGroupLeaders.max = "Max";
 snDefendImportantGroupLeaders.rmin = 0;
 snDefendImportantGroupLeaders.rmax = 1;
 snDefendImportantGroupLeaders.network = 0;
@@ -3719,10 +3723,10 @@ snTargetEvaluationContinent.snName = "sn-target-evaluation-continent";
 snTargetEvaluationContinent.snNameAoE1 = "SNTargetEvaluationContinent";
 snTargetEvaluationContinent.default = 100;
 snTargetEvaluationContinent.category = "Attack";
-snTargetEvaluationContinent.min = -32768;
-snTargetEvaluationContinent.max = 32767;
-snTargetEvaluationContinent.rmin = -32768;
-snTargetEvaluationContinent.rmax = 32767;
+snTargetEvaluationContinent.min = "Min";
+snTargetEvaluationContinent.max = "Max";
+snTargetEvaluationContinent.rmin = "Min";
+snTargetEvaluationContinent.rmax = "Max";
 snTargetEvaluationContinent.network = 0;
 snTargetEvaluationContinent.defined = 1;
 snTargetEvaluationContinent.available = 0;
@@ -3741,10 +3745,10 @@ snTargetEvaluationSiegeWeapon.snName = "sn-target-evaluation-siege-weapon";
 snTargetEvaluationSiegeWeapon.snNameAoE1 = "SNTargetEvaluationSiegeWeapon";
 snTargetEvaluationSiegeWeapon.default = 0;
 snTargetEvaluationSiegeWeapon.category = "Attack";
-snTargetEvaluationSiegeWeapon.min = -32768;
-snTargetEvaluationSiegeWeapon.max = 32767;
-snTargetEvaluationSiegeWeapon.rmin = -32768;
-snTargetEvaluationSiegeWeapon.rmax = 32767;
+snTargetEvaluationSiegeWeapon.min = "Min";
+snTargetEvaluationSiegeWeapon.max = "Max";
+snTargetEvaluationSiegeWeapon.rmin = "Min";
+snTargetEvaluationSiegeWeapon.rmax = "Max";
 snTargetEvaluationSiegeWeapon.network = 0;
 snTargetEvaluationSiegeWeapon.defined = 1;
 snTargetEvaluationSiegeWeapon.available = 0;
@@ -3763,10 +3767,10 @@ snTributeAmount.snName = "sn-tribute-amount";
 snTributeAmount.snNameAoE1 = "SNTributeAmount";
 snTributeAmount.default = 0;
 snTributeAmount.category = "Diplomacy";
-snTributeAmount.min = -32768;
-snTributeAmount.max = 32767;
+snTributeAmount.min = "Min";
+snTributeAmount.max = "Max";
 snTributeAmount.rmin = 0;
-snTributeAmount.rmax = 32767;
+snTributeAmount.rmax = "Max";
 snTributeAmount.network = 0;
 snTributeAmount.defined = 0;
 snTributeAmount.available = 1;
@@ -3785,10 +3789,10 @@ snTributeChatFrequency.snName = "sn-tribute-chat-frequency";
 snTributeChatFrequency.snNameAoE1 = "SNTributeChatFrequency";
 snTributeChatFrequency.default = 0;
 snTributeChatFrequency.category = "Diplomacy";
-snTributeChatFrequency.min = -32768;
-snTributeChatFrequency.max = 32767;
+snTributeChatFrequency.min = "Min";
+snTributeChatFrequency.max = "Max";
 snTributeChatFrequency.rmin = 0;
-snTributeChatFrequency.rmax = 32767;
+snTributeChatFrequency.rmax = "Max";
 snTributeChatFrequency.network = 0;
 snTributeChatFrequency.defined = 0;
 snTributeChatFrequency.available = 1;
@@ -3807,10 +3811,10 @@ snTributeChatRandomness.snName = "sn-tribute-chat-randomness";
 snTributeChatRandomness.snNameAoE1 = "SNTributeChatRandomness";
 snTributeChatRandomness.default = 0;
 snTributeChatRandomness.category = "Diplomacy";
-snTributeChatRandomness.min = -32768;
-snTributeChatRandomness.max = 32767;
+snTributeChatRandomness.min = "Min";
+snTributeChatRandomness.max = "Max";
 snTributeChatRandomness.rmin = 0;
-snTributeChatRandomness.rmax = 32767;
+snTributeChatRandomness.rmax = "Max";
 snTributeChatRandomness.network = 0;
 snTributeChatRandomness.defined = 0;
 snTributeChatRandomness.available = 1;
@@ -3829,10 +3833,10 @@ snTributeTimeout.snName = "sn-tribute-timeout";
 snTributeTimeout.snNameAoE1 = "SNTributeTimeout";
 snTributeTimeout.default = 0;
 snTributeTimeout.category = "Diplomacy";
-snTributeTimeout.min = -32768;
-snTributeTimeout.max = 32767;
+snTributeTimeout.min = "Min";
+snTributeTimeout.max = "Max";
 snTributeTimeout.rmin = 0;
-snTributeTimeout.rmax = 32767;
+snTributeTimeout.rmax = "Max";
 snTributeTimeout.network = 0;
 snTributeTimeout.defined = 0;
 snTributeTimeout.available = 1;
@@ -3851,8 +3855,8 @@ snTributePlayer.snName = "sn-tribute-player";
 snTributePlayer.snNameAoE1 = "SNTributePlayer";
 snTributePlayer.default = -1;
 snTributePlayer.category = "Diplomacy";
-snTributePlayer.min = -32768;
-snTributePlayer.max = 32767;
+snTributePlayer.min = "Min";
+snTributePlayer.max = "Max";
 snTributePlayer.rmin = 0;
 snTributePlayer.rmax = 8;
 snTributePlayer.network = 0;
@@ -3873,8 +3877,8 @@ snTributeSuccessOutcome.snName = "sn-tribute-success-outcome";
 snTributeSuccessOutcome.snNameAoE1 = "SNTributeSuccessOutcome";
 snTributeSuccessOutcome.default = 0;
 snTributeSuccessOutcome.category = "Diplomacy";
-snTributeSuccessOutcome.min = -32768;
-snTributeSuccessOutcome.max = 32767;
+snTributeSuccessOutcome.min = "Min";
+snTributeSuccessOutcome.max = "Max";
 snTributeSuccessOutcome.rmin = 0;
 snTributeSuccessOutcome.rmax = 1;
 snTributeSuccessOutcome.network = 0;
@@ -3895,8 +3899,8 @@ snTributeFailureOutcome.snName = "sn-tribute-failure-outcome";
 snTributeFailureOutcome.snNameAoE1 = "SNTributeFailureOutcome";
 snTributeFailureOutcome.default = 0;
 snTributeFailureOutcome.category = "Diplomacy";
-snTributeFailureOutcome.min = -32768;
-snTributeFailureOutcome.max = 32767;
+snTributeFailureOutcome.min = "Min";
+snTributeFailureOutcome.max = "Max";
 snTributeFailureOutcome.rmin = 0;
 snTributeFailureOutcome.rmax = 1;
 snTributeFailureOutcome.network = 0;
@@ -3917,8 +3921,8 @@ snGroupLeaderDefenseDistance.snName = "sn-group-leader-defense-distance";
 snGroupLeaderDefenseDistance.snNameAoE1 = "SNGroupLeaderDefenseDistance";
 snGroupLeaderDefenseDistance.default = 3;
 snGroupLeaderDefenseDistance.category = "Attack";
-snGroupLeaderDefenseDistance.min = -32768;
-snGroupLeaderDefenseDistance.max = 32767;
+snGroupLeaderDefenseDistance.min = "Min";
+snGroupLeaderDefenseDistance.max = "Max";
 snGroupLeaderDefenseDistance.rmin = 1;
 snGroupLeaderDefenseDistance.rmax = 255;
 snGroupLeaderDefenseDistance.network = 0;
@@ -3939,8 +3943,8 @@ snTributePersistence.snName = "sn-tribute-persistence";
 snTributePersistence.snNameAoE1 = "SNTributePersistence";
 snTributePersistence.default = 0;
 snTributePersistence.category = "Diplomacy";
-snTributePersistence.min = -32768;
-snTributePersistence.max = 32767;
+snTributePersistence.min = "Min";
+snTributePersistence.max = "Max";
 snTributePersistence.rmin = 0;
 snTributePersistence.rmax = 1;
 snTributePersistence.network = 0;
@@ -3961,8 +3965,8 @@ snTributeRevokeOnAttack.snName = "sn-tribute-revoke-on-attack";
 snTributeRevokeOnAttack.snNameAoE1 = "SNTributeRevokeOnAttack";
 snTributeRevokeOnAttack.default = 0;
 snTributeRevokeOnAttack.category = "Diplomacy";
-snTributeRevokeOnAttack.min = -32768;
-snTributeRevokeOnAttack.max = 32767;
+snTributeRevokeOnAttack.min = "Min";
+snTributeRevokeOnAttack.max = "Max";
 snTributeRevokeOnAttack.rmin = 0;
 snTributeRevokeOnAttack.rmax = 1;
 snTributeRevokeOnAttack.network = 0;
@@ -3983,8 +3987,8 @@ snInitialAttackDelayType.snName = "sn-initial-attack-delay-type";
 snInitialAttackDelayType.snNameAoE1 = "SNInitialAttackDelayType";
 snInitialAttackDelayType.default = 0;
 snInitialAttackDelayType.category = "Attack";
-snInitialAttackDelayType.min = -32768;
-snInitialAttackDelayType.max = 32767;
+snInitialAttackDelayType.min = "Min";
+snInitialAttackDelayType.max = "Max";
 snInitialAttackDelayType.rmin = 0;
 snInitialAttackDelayType.rmax = 3;
 snInitialAttackDelayType.network = 0;
@@ -4005,8 +4009,8 @@ snBlotExplorationMap.snName = "sn-blot-exploration-map";
 snBlotExplorationMap.snNameAoE1 = "SNBlotExplorationMap";
 snBlotExplorationMap.default = 1;
 snBlotExplorationMap.category = "Exploring";
-snBlotExplorationMap.min = -32768;
-snBlotExplorationMap.max = 32767;
+snBlotExplorationMap.min = "Min";
+snBlotExplorationMap.max = "Max";
 snBlotExplorationMap.rmin = 0;
 snBlotExplorationMap.rmax = 1;
 snBlotExplorationMap.network = 0;
@@ -4027,8 +4031,8 @@ snBlotSize.snName = "sn-blot-size";
 snBlotSize.snNameAoE1 = "SNBlotSize";
 snBlotSize.default = 15;
 snBlotSize.category = "Exploring";
-snBlotSize.min = -32768;
-snBlotSize.max = 32767;
+snBlotSize.min = "Min";
+snBlotSize.max = "Max";
 snBlotSize.rmin = 1;
 snBlotSize.rmax = 255;
 snBlotSize.network = 0;
@@ -4049,10 +4053,10 @@ snTownWallPattern.snName = "sn-town-wall-pattern";
 snTownWallPattern.snNameAoE1 = "SNTownWallPattern";
 snTownWallPattern.default = -1;
 snTownWallPattern.category = "Defense";
-snTownWallPattern.min = -32768;
-snTownWallPattern.max = 32767;
-snTownWallPattern.rmin = -32768;
-snTownWallPattern.rmax = 32767;
+snTownWallPattern.min = "Min";
+snTownWallPattern.max = "Max";
+snTownWallPattern.rmin = "Min";
+snTownWallPattern.rmax = "Max";
 snTownWallPattern.network = 0;
 snTownWallPattern.defined = 0;
 snTownWallPattern.available = 0;
@@ -4071,10 +4075,10 @@ snAddStartingResourceFood.snName = "sn-add-starting-resource-food";
 snAddStartingResourceFood.snNameAoE1 = "SNInitialFood";
 snAddStartingResourceFood.default = 0;
 snAddStartingResourceFood.category = "Economy";
-snAddStartingResourceFood.min = -32768;
-snAddStartingResourceFood.max = 32767;
-snAddStartingResourceFood.rmin = -32768;
-snAddStartingResourceFood.rmax = 32767;
+snAddStartingResourceFood.min = "Min";
+snAddStartingResourceFood.max = "Max";
+snAddStartingResourceFood.rmin = "Min";
+snAddStartingResourceFood.rmax = "Max";
 snAddStartingResourceFood.network = 0;
 snAddStartingResourceFood.defined = 0;
 snAddStartingResourceFood.available = 0;
@@ -4094,10 +4098,10 @@ snAddStartingResourceGold.snName = "sn-add-starting-resource-gold";
 snAddStartingResourceGold.snNameAoE1 = "SNInitialGold";
 snAddStartingResourceGold.default = 0;
 snAddStartingResourceGold.category = "Economy";
-snAddStartingResourceGold.min = -32768;
-snAddStartingResourceGold.max = 32767;
-snAddStartingResourceGold.rmin = -32768;
-snAddStartingResourceGold.rmax = 32767;
+snAddStartingResourceGold.min = "Min";
+snAddStartingResourceGold.max = "Max";
+snAddStartingResourceGold.rmin = "Min";
+snAddStartingResourceGold.rmax = "Max";
 snAddStartingResourceGold.network = 0;
 snAddStartingResourceGold.defined = 0;
 snAddStartingResourceGold.available = 0;
@@ -4116,10 +4120,10 @@ snAddStartingResourceStone.snName = "sn-add-starting-resource-stone";
 snAddStartingResourceStone.snNameAoE1 = "SNInitialStone";
 snAddStartingResourceStone.default = 0;
 snAddStartingResourceStone.category = "Economy";
-snAddStartingResourceStone.min = -32768;
-snAddStartingResourceStone.max = 32767;
-snAddStartingResourceStone.rmin = -32768;
-snAddStartingResourceStone.rmax = 32767;
+snAddStartingResourceStone.min = "Min";
+snAddStartingResourceStone.max = "Max";
+snAddStartingResourceStone.rmin = "Min";
+snAddStartingResourceStone.rmax = "Max";
 snAddStartingResourceStone.network = 0;
 snAddStartingResourceStone.defined = 0;
 snAddStartingResourceStone.available = 0;
@@ -4138,10 +4142,10 @@ snAddStartingResourceWood.snName = "sn-add-starting-resource-wood";
 snAddStartingResourceWood.snNameAoE1 = "SNInitialWood";
 snAddStartingResourceWood.default = 0;
 snAddStartingResourceWood.category = "Economy";
-snAddStartingResourceWood.min = -32768;
-snAddStartingResourceWood.max = 32767;
-snAddStartingResourceWood.rmin = -32768;
-snAddStartingResourceWood.rmax = 32767;
+snAddStartingResourceWood.min = "Min";
+snAddStartingResourceWood.max = "Max";
+snAddStartingResourceWood.rmin = "Min";
+snAddStartingResourceWood.rmax = "Max";
 snAddStartingResourceWood.network = 0;
 snAddStartingResourceWood.defined = 0;
 snAddStartingResourceWood.available = 0;
@@ -4160,8 +4164,8 @@ snIntelligentGathering.snName = "sn-intelligent-gathering";
 snIntelligentGathering.snNameAoE1 = "SNIntelligentGathering";
 snIntelligentGathering.default = 0;
 snIntelligentGathering.category = "Economy";
-snIntelligentGathering.min = -32768;
-snIntelligentGathering.max = 32767;
+snIntelligentGathering.min = "Min";
+snIntelligentGathering.max = "Max";
 snIntelligentGathering.rmin = 0;
 snIntelligentGathering.rmax = 1;
 snIntelligentGathering.network = 0;
@@ -4206,10 +4210,10 @@ snTargetEvaluationBoat.snName = "sn-target-evaluation-boat";
 snTargetEvaluationBoat.snNameAoE1 = "SNTargetEvaluationBoat";
 snTargetEvaluationBoat.default = 0;
 snTargetEvaluationBoat.category = "Attack";
-snTargetEvaluationBoat.min = -32768;
-snTargetEvaluationBoat.max = 32767;
-snTargetEvaluationBoat.rmin = -32768;
-snTargetEvaluationBoat.rmax = 32767;
+snTargetEvaluationBoat.min = "Min";
+snTargetEvaluationBoat.max = "Max";
+snTargetEvaluationBoat.rmin = "Min";
+snTargetEvaluationBoat.rmax = "Max";
 snTargetEvaluationBoat.network = 0;
 snTargetEvaluationBoat.defined = 1;
 snTargetEvaluationBoat.available = 0;
@@ -4228,10 +4232,10 @@ snNumberEnemyObjectsRequired.snName = "sn-number-enemy-objects-required";
 snNumberEnemyObjectsRequired.snNameAoE1 = "SNNumberEnemyObjectsRequired";
 snNumberEnemyObjectsRequired.default = 10;
 snNumberEnemyObjectsRequired.category = "Exploring";
-snNumberEnemyObjectsRequired.min = -32768;
-snNumberEnemyObjectsRequired.max = 32767;
+snNumberEnemyObjectsRequired.min = "Min";
+snNumberEnemyObjectsRequired.max = "Max";
 snNumberEnemyObjectsRequired.rmin = 0;
-snNumberEnemyObjectsRequired.rmax = 32767;
+snNumberEnemyObjectsRequired.rmax = "Max";
 snNumberEnemyObjectsRequired.network = 0;
 snNumberEnemyObjectsRequired.defined = 1;
 snNumberEnemyObjectsRequired.available = 0;
@@ -4250,10 +4254,10 @@ snNumberMaxSkipCycles.snName = "sn-number-max-skip-cycles";
 snNumberMaxSkipCycles.snNameAoE1 = "SNNumbermaxSkipCycles";
 snNumberMaxSkipCycles.default = 50;
 snNumberMaxSkipCycles.category = "Build Plan";
-snNumberMaxSkipCycles.min = -32768;
-snNumberMaxSkipCycles.max = 32767;
+snNumberMaxSkipCycles.min = "Min";
+snNumberMaxSkipCycles.max = "Max";
 snNumberMaxSkipCycles.rmin = 1;
-snNumberMaxSkipCycles.rmax = 32767;
+snNumberMaxSkipCycles.rmax = "Max";
 snNumberMaxSkipCycles.network = 0;
 snNumberMaxSkipCycles.defined = 1;
 snNumberMaxSkipCycles.available = 0;
@@ -4272,10 +4276,10 @@ snMostNeededResourceLookAhead.snName = "sn-most-needed-resource-look-ahead";
 snMostNeededResourceLookAhead.snNameAoE1 = "SNMostNeededResourceLookAhead";
 snMostNeededResourceLookAhead.default = 10;
 snMostNeededResourceLookAhead.category = "Build Plan";
-snMostNeededResourceLookAhead.min = -32768;
-snMostNeededResourceLookAhead.max = 32767;
+snMostNeededResourceLookAhead.min = "Min";
+snMostNeededResourceLookAhead.max = "Max";
 snMostNeededResourceLookAhead.rmin = 0;
-snMostNeededResourceLookAhead.rmax = 32767;
+snMostNeededResourceLookAhead.rmax = "Max";
 snMostNeededResourceLookAhead.network = 0;
 snMostNeededResourceLookAhead.defined = 0;
 snMostNeededResourceLookAhead.available = 1;
@@ -4294,10 +4298,10 @@ snRetaskGatherAmount.snName = "sn-retask-gather-amount";
 snRetaskGatherAmount.snNameAoE1 = "SNRetaskGatherAmount";
 snRetaskGatherAmount.default = 20;
 snRetaskGatherAmount.category = "Economy";
-snRetaskGatherAmount.min = -32768;
-snRetaskGatherAmount.max = 32767;
+snRetaskGatherAmount.min = "Min";
+snRetaskGatherAmount.max = "Max";
 snRetaskGatherAmount.rmin = 0;
-snRetaskGatherAmount.rmax = 32767;
+snRetaskGatherAmount.rmax = "Max";
 snRetaskGatherAmount.network = 0;
 snRetaskGatherAmount.defined = 1;
 snRetaskGatherAmount.available = 0;
@@ -4316,10 +4320,10 @@ snMaxRetaskGatherAmount.snName = "sn-max-retask-gather-amount";
 snMaxRetaskGatherAmount.snNameAoE1 = "SNMaxRetaskGatherAmount";
 snMaxRetaskGatherAmount.default = 40;
 snMaxRetaskGatherAmount.category = "Economy";
-snMaxRetaskGatherAmount.min = -32768;
-snMaxRetaskGatherAmount.max = 32767;
+snMaxRetaskGatherAmount.min = "Min";
+snMaxRetaskGatherAmount.max = "Max";
 snMaxRetaskGatherAmount.rmin = 0;
-snMaxRetaskGatherAmount.rmax = 32767;
+snMaxRetaskGatherAmount.rmax = "Max";
 snMaxRetaskGatherAmount.network = 0;
 snMaxRetaskGatherAmount.defined = 1;
 snMaxRetaskGatherAmount.available = 0;
@@ -4339,10 +4343,10 @@ snMaxStoragePits.snName = "sn-max-storage-pits";
 snMaxStoragePits.snNameAoE1 = "SNMaxStoragePits";
 snMaxStoragePits.default = -1;
 snMaxStoragePits.category = "Buildings";
-snMaxStoragePits.min = -32768;
-snMaxStoragePits.max = 32767;
+snMaxStoragePits.min = "Min";
+snMaxStoragePits.max = "Max";
 snMaxStoragePits.rmin = 0;
-snMaxStoragePits.rmax = 32767;
+snMaxStoragePits.rmax = "Max";
 snMaxStoragePits.network = 0;
 snMaxStoragePits.defined = 0;
 snMaxStoragePits.available = 1;
@@ -4361,10 +4365,10 @@ snMaxGranaries.snName = "sn-max-granaries";
 snMaxGranaries.snNameAoE1 = "SNMaxGranaries";
 snMaxGranaries.default = -1;
 snMaxGranaries.category = "Buildings";
-snMaxGranaries.min = -32768;
-snMaxGranaries.max = 32767;
+snMaxGranaries.min = "Min";
+snMaxGranaries.max = "Max";
 snMaxGranaries.rmin = 0;
-snMaxGranaries.rmax = 32767;
+snMaxGranaries.rmax = "Max";
 snMaxGranaries.network = 0;
 snMaxGranaries.defined = 0;
 snMaxGranaries.available = 1;
@@ -4383,10 +4387,10 @@ snHouseOverage.snName = "sn-house-overage";
 snHouseOverage.snNameAoE1 = "SNHouseOverage";
 snHouseOverage.default = -1;
 snHouseOverage.category = "Buildings";
-snHouseOverage.min = -32768;
-snHouseOverage.max = 32767;
+snHouseOverage.min = "Min";
+snHouseOverage.max = "Max";
 snHouseOverage.rmin = 0;
-snHouseOverage.rmax = 32767;
+snHouseOverage.rmax = "Max";
 snHouseOverage.network = 0;
 snHouseOverage.defined = 0;
 snHouseOverage.available = 1;
@@ -4405,10 +4409,10 @@ snUnknownSN153.snName = "unknown-sn-153";
 snUnknownSN153.snNameAoE1 = "";
 snUnknownSN153.default = -1;
 snUnknownSN153.category = "None";
-snUnknownSN153.min = -32768;
-snUnknownSN153.max = 32767;
-snUnknownSN153.rmin = -32768;
-snUnknownSN153.rmax = 32767;
+snUnknownSN153.min = "Min";
+snUnknownSN153.max = "Max";
+snUnknownSN153.rmin = "Min";
+snUnknownSN153.rmax = "Max";
 snUnknownSN153.network = 0;
 snUnknownSN153.defined = 0;
 snUnknownSN153.available = 0;
@@ -4427,10 +4431,10 @@ snUnknownSN154.snName = "unknown-sn-154";
 snUnknownSN154.snNameAoE1 = "";
 snUnknownSN154.default = -1;
 snUnknownSN154.category = "None";
-snUnknownSN154.min = -32768;
-snUnknownSN154.max = 32767;
-snUnknownSN154.rmin = -32768;
-snUnknownSN154.rmax = 32767;
+snUnknownSN154.min = "Min";
+snUnknownSN154.max = "Max";
+snUnknownSN154.rmin = "Min";
+snUnknownSN154.rmax = "Max";
 snUnknownSN154.network = 0;
 snUnknownSN154.defined = 0;
 snUnknownSN154.available = 0;
@@ -4449,10 +4453,10 @@ snBuildPlanDivisions.snName = "sn-build-plan-divisions";
 snBuildPlanDivisions.snNameAoE1 = "SNBuildPlanDivisions";
 snBuildPlanDivisions.default = 10;
 snBuildPlanDivisions.category = "Buildings";
-snBuildPlanDivisions.min = -32768;
-snBuildPlanDivisions.max = 32767;
+snBuildPlanDivisions.min = "Min";
+snBuildPlanDivisions.max = "Max";
 snBuildPlanDivisions.rmin = 1;
-snBuildPlanDivisions.rmax = 32767;
+snBuildPlanDivisions.rmax = "Max";
 snBuildPlanDivisions.network = 0;
 snBuildPlanDivisions.defined = 0;
 snBuildPlanDivisions.available = "seems available";
@@ -4471,8 +4475,8 @@ snFoodModifierPercentage.snName = "sn-food-modifier-percentage";
 snFoodModifierPercentage.snNameAoE1 = "SNBuildPlanFoodGathererPercentage";
 snFoodModifierPercentage.default = 0;
 snFoodModifierPercentage.category = "Economy";
-snFoodModifierPercentage.min = -32768;
-snFoodModifierPercentage.max = 32767;
+snFoodModifierPercentage.min = "Min";
+snFoodModifierPercentage.max = "Max";
 snFoodModifierPercentage.rmin = -100;
 snFoodModifierPercentage.rmax = 100;
 snFoodModifierPercentage.network = 0;
@@ -4493,8 +4497,8 @@ snWoodModifierPercentage.snName = "sn-wood-modifier-percentage";
 snWoodModifierPercentage.snNameAoE1 = "SNBuildPlanWoodGathererPercentage";
 snWoodModifierPercentage.default = 0;
 snWoodModifierPercentage.category = "Economy";
-snWoodModifierPercentage.min = -32768;
-snWoodModifierPercentage.max = 32767;
+snWoodModifierPercentage.min = "Min";
+snWoodModifierPercentage.max = "Max";
 snWoodModifierPercentage.rmin = -100;
 snWoodModifierPercentage.rmax = 100;
 snWoodModifierPercentage.network = 0;
@@ -4515,8 +4519,8 @@ snStoneModifierPercentage.snName = "sn-stone-modifier-percentage";
 snStoneModifierPercentage.snNameAoE1 = "SNBuildPlanStoneGathererPercentage";
 snStoneModifierPercentage.default = 0;
 snStoneModifierPercentage.category = "Economy";
-snStoneModifierPercentage.min = -32768;
-snStoneModifierPercentage.max = 32767;
+snStoneModifierPercentage.min = "Min";
+snStoneModifierPercentage.max = "Max";
 snStoneModifierPercentage.rmin = -100;
 snStoneModifierPercentage.rmax = 100;
 snStoneModifierPercentage.network = 0;
@@ -4537,8 +4541,8 @@ snGoldModifierPercentage.snName = "sn-gold-modifier-percentage";
 snGoldModifierPercentage.snNameAoE1 = "SNBuildPlanGoldGathererPercentage";
 snGoldModifierPercentage.default = 0;
 snGoldModifierPercentage.category = "Economy";
-snGoldModifierPercentage.min = -32768;
-snGoldModifierPercentage.max = 32767;
+snGoldModifierPercentage.min = "Min";
+snGoldModifierPercentage.max = "Max";
 snGoldModifierPercentage.rmin = -100;
 snGoldModifierPercentage.rmax = 100;
 snGoldModifierPercentage.network = 0;
@@ -4559,8 +4563,8 @@ snMaxBuildPlanGathererPercentage.snName = "sn-max-build-plan-gatherer-percentage
 snMaxBuildPlanGathererPercentage.snNameAoE1 = "SNMaxBuildPlanGathererPercentage";
 snMaxBuildPlanGathererPercentage.default = 50;
 snMaxBuildPlanGathererPercentage.category = "Build Plan";
-snMaxBuildPlanGathererPercentage.min = -32768;
-snMaxBuildPlanGathererPercentage.max = 32767;
+snMaxBuildPlanGathererPercentage.min = "Min";
+snMaxBuildPlanGathererPercentage.max = "Max";
 snMaxBuildPlanGathererPercentage.rmin = 0;
 snMaxBuildPlanGathererPercentage.rmax = 100;
 snMaxBuildPlanGathererPercentage.network = 0;
@@ -4582,8 +4586,8 @@ snRequiredFirstBuilding.snName = "sn-required-first-building";
 snRequiredFirstBuilding.snNameAoE1 = "SNRequiredFirstBuilding";
 snRequiredFirstBuilding.default = -1;
 snRequiredFirstBuilding.category = "Buildings";
-snRequiredFirstBuilding.min = -32768;
-snRequiredFirstBuilding.max = 32767;
+snRequiredFirstBuilding.min = "Min";
+snRequiredFirstBuilding.max = "Max";
 snRequiredFirstBuilding.rmin = 0;
 snRequiredFirstBuilding.rmax = 4;
 snRequiredFirstBuilding.network = 0;
@@ -4604,10 +4608,10 @@ snUsePlayerAttacking.snName = "sn-use-player-attacking";
 snUsePlayerAttacking.snNameAoE1 = "SNUsePlayAttacking";
 snUsePlayerAttacking.default = -1;
 snUsePlayerAttacking.category = "Attack";
-snUsePlayerAttacking.min = -32768;
-snUsePlayerAttacking.max = 32767;
-snUsePlayerAttacking.rmin = -32768;
-snUsePlayerAttacking.rmax = 32767;
+snUsePlayerAttacking.min = "Min";
+snUsePlayerAttacking.max = "Max";
+snUsePlayerAttacking.rmin = "Min";
+snUsePlayerAttacking.rmax = "Max";
 snUsePlayerAttacking.network = 0;
 snUsePlayerAttacking.defined = 0;
 snUsePlayerAttacking.available = 0;
@@ -4626,8 +4630,8 @@ snFoodDropsiteDistance.snName = "sn-food-dropsite-distance";
 snFoodDropsiteDistance.snNameAoE1 = "SNFoodDropsiteDistance";
 snFoodDropsiteDistance.default = 3;
 snFoodDropsiteDistance.category = "Economy";
-snFoodDropsiteDistance.min = -32768;
-snFoodDropsiteDistance.max = 32767;
+snFoodDropsiteDistance.min = "Min";
+snFoodDropsiteDistance.max = "Max";
 snFoodDropsiteDistance.rmin = 3;
 snFoodDropsiteDistance.rmax = 255;
 snFoodDropsiteDistance.network = 0;
@@ -4648,8 +4652,8 @@ snWoodDropsiteDistance.snName = "sn-wood-dropsite-distance";
 snWoodDropsiteDistance.snNameAoE1 = "SNWoodDropsiteDistance";
 snWoodDropsiteDistance.default = 3;
 snWoodDropsiteDistance.category = "Economy";
-snWoodDropsiteDistance.min = -32768;
-snWoodDropsiteDistance.max = 32767;
+snWoodDropsiteDistance.min = "Min";
+snWoodDropsiteDistance.max = "Max";
 snWoodDropsiteDistance.rmin = 3;
 snWoodDropsiteDistance.rmax = 255;
 snWoodDropsiteDistance.network = 0;
@@ -4670,8 +4674,8 @@ snStoneDropsiteDistance.snName = "sn-stone-dropsite-distance";
 snStoneDropsiteDistance.snNameAoE1 = "SNStoneDropsiteDistance";
 snStoneDropsiteDistance.default = 3;
 snStoneDropsiteDistance.category = "Economy";
-snStoneDropsiteDistance.min = -32768;
-snStoneDropsiteDistance.max = 32767;
+snStoneDropsiteDistance.min = "Min";
+snStoneDropsiteDistance.max = "Max";
 snStoneDropsiteDistance.rmin = 3;
 snStoneDropsiteDistance.rmax = 255;
 snStoneDropsiteDistance.network = 0;
@@ -4692,8 +4696,8 @@ snGoldDropsiteDistance.snName = "sn-gold-dropsite-distance";
 snGoldDropsiteDistance.snNameAoE1 = "SNGoldDropsiteDistance";
 snGoldDropsiteDistance.default = 3;
 snGoldDropsiteDistance.category = "Economy";
-snGoldDropsiteDistance.min = -32768;
-snGoldDropsiteDistance.max = 32767;
+snGoldDropsiteDistance.min = "Min";
+snGoldDropsiteDistance.max = "Max";
 snGoldDropsiteDistance.rmin = 3;
 snGoldDropsiteDistance.rmax = 255;
 snGoldDropsiteDistance.network = 0;
@@ -4714,8 +4718,8 @@ snInitialExplorationRequired.snName = "sn-initial-exploration-required";
 snInitialExplorationRequired.snNameAoE1 = "SNinitialExplorationRequired";
 snInitialExplorationRequired.default = 2;
 snInitialExplorationRequired.category = "Buildings";
-snInitialExplorationRequired.min = -32768;
-snInitialExplorationRequired.max = 32767;
+snInitialExplorationRequired.min = "Min";
+snInitialExplorationRequired.max = "Max";
 snInitialExplorationRequired.rmin = 0;
 snInitialExplorationRequired.rmax = 100;
 snInitialExplorationRequired.network = 0;
@@ -4737,10 +4741,10 @@ snRandomPlacementFactor.snName = "sn-random-placement-factor";
 snRandomPlacementFactor.snNameAoE1 = "SNRandomPlacementFactor";
 snRandomPlacementFactor.default = 50;
 snRandomPlacementFactor.category = "Buildings";
-snRandomPlacementFactor.min = -32768;
-snRandomPlacementFactor.max = 32767;
+snRandomPlacementFactor.min = "Min";
+snRandomPlacementFactor.max = "Max";
 snRandomPlacementFactor.rmin = 0;
-snRandomPlacementFactor.rmax = 32767;
+snRandomPlacementFactor.rmax = "Max";
 snRandomPlacementFactor.network = 0;
 snRandomPlacementFactor.defined = 1;
 snRandomPlacementFactor.available = 0;
@@ -4759,10 +4763,10 @@ snRequiredForestTiles.snName = "sn-required-forest-tiles";
 snRequiredForestTiles.snNameAoE1 = "SNRequiredForestTiles";
 snRequiredForestTiles.default = 10;
 snRequiredForestTiles.category = "Buildings";
-snRequiredForestTiles.min = -32768;
-snRequiredForestTiles.max = 32767;
+snRequiredForestTiles.min = "Min";
+snRequiredForestTiles.max = "Max";
 snRequiredForestTiles.rmin = 0;
-snRequiredForestTiles.rmax = 32767;
+snRequiredForestTiles.rmax = "Max";
 snRequiredForestTiles.network = 0;
 snRequiredForestTiles.defined = 1;
 snRequiredForestTiles.available = 0;
@@ -4781,10 +4785,10 @@ snMinimumFood.snName = "sn-minimum-food";
 snMinimumFood.snNameAoE1 = "SNMinimumFood";
 snMinimumFood.default = 200;
 snMinimumFood.category = "Economy";
-snMinimumFood.min = -32768;
-snMinimumFood.max = 32767;
+snMinimumFood.min = "Min";
+snMinimumFood.max = "Max";
 snMinimumFood.rmin = 0;
-snMinimumFood.rmax = 32767;
+snMinimumFood.rmax = "Max";
 snMinimumFood.network = 0;
 snMinimumFood.defined = 0;
 snMinimumFood.available = 1;
@@ -4803,10 +4807,10 @@ snMinimumWood.snName = "sn-minimum-wood";
 snMinimumWood.snNameAoE1 = "SNMinimumWood";
 snMinimumWood.default = 250;
 snMinimumWood.category = "Economy";
-snMinimumWood.min = -32768;
-snMinimumWood.max = 32767;
+snMinimumWood.min = "Min";
+snMinimumWood.max = "Max";
 snMinimumWood.rmin = 0;
-snMinimumWood.rmax = 32767;
+snMinimumWood.rmax = "Max";
 snMinimumWood.network = 0;
 snMinimumWood.defined = 0;
 snMinimumWood.available = 1;
@@ -4825,10 +4829,10 @@ snMinimumStone.snName = "sn-minimum-stone";
 snMinimumStone.snNameAoE1 = "SNMinimumStone";
 snMinimumStone.default = 150;
 snMinimumStone.category = "Economy";
-snMinimumStone.min = -32768;
-snMinimumStone.max = 32767;
+snMinimumStone.min = "Min";
+snMinimumStone.max = "Max";
 snMinimumStone.rmin = 0;
-snMinimumStone.rmax = 32767;
+snMinimumStone.rmax = "Max";
 snMinimumStone.network = 0;
 snMinimumStone.defined = 0;
 snMinimumStone.available = 1;
@@ -4847,10 +4851,10 @@ snMinimumGold.snName = "sn-minimum-gold";
 snMinimumGold.snNameAoE1 = "SNMinimumGold";
 snMinimumGold.default = 200;
 snMinimumGold.category = "Economy";
-snMinimumGold.min = -32768;
-snMinimumGold.max = 32767;
+snMinimumGold.min = "Min";
+snMinimumGold.max = "Max";
 snMinimumGold.rmin = 0;
-snMinimumGold.rmax = 32767;
+snMinimumGold.rmax = "Max";
 snMinimumGold.network = 0;
 snMinimumGold.defined = 0;
 snMinimumGold.available = 1;
@@ -4869,10 +4873,10 @@ snMaximumHousesBeforeDropsites.snName = "sn-maximum-houses-before-dropsites";
 snMaximumHousesBeforeDropsites.snNameAoE1 = "SNMaximumHousesBeforeDropsites";
 snMaximumHousesBeforeDropsites.default = -1;
 snMaximumHousesBeforeDropsites.category = "Buildings";
-snMaximumHousesBeforeDropsites.min = -32768;
-snMaximumHousesBeforeDropsites.max = 32767;
+snMaximumHousesBeforeDropsites.min = "Min";
+snMaximumHousesBeforeDropsites.max = "Max";
 snMaximumHousesBeforeDropsites.rmin = 0;
-snMaximumHousesBeforeDropsites.rmax = 32767;
+snMaximumHousesBeforeDropsites.rmax = "Max";
 snMaximumHousesBeforeDropsites.network = 0;
 snMaximumHousesBeforeDropsites.defined = 0;
 snMaximumHousesBeforeDropsites.available = 1;
@@ -4891,10 +4895,10 @@ snSpecificBuildItemToBuild.snName = "sn-specific-build-item-to-build";
 snSpecificBuildItemToBuild.snNameAoE1 = "SNSpecificBuildItemToBuild";
 snSpecificBuildItemToBuild.default = -1;
 snSpecificBuildItemToBuild.category = "Build Plan";
-snSpecificBuildItemToBuild.min = -32768;
-snSpecificBuildItemToBuild.max = 32767;
+snSpecificBuildItemToBuild.min = "Min";
+snSpecificBuildItemToBuild.max = "Max";
 snSpecificBuildItemToBuild.rmin = 0;
-snSpecificBuildItemToBuild.rmax = 32767;
+snSpecificBuildItemToBuild.rmax = "Max";
 snSpecificBuildItemToBuild.network = 0;
 snSpecificBuildItemToBuild.defined = 0;
 snSpecificBuildItemToBuild.available = "seems available";
@@ -4913,10 +4917,10 @@ snSpecificBuildItemTime.snName = "sn-specific-build-item-time";
 snSpecificBuildItemTime.snNameAoE1 = "SNSpecificBuildItemTime";
 snSpecificBuildItemTime.default = -1;
 snSpecificBuildItemTime.category = "Build Plan";
-snSpecificBuildItemTime.min = -32768;
-snSpecificBuildItemTime.max = 32767;
+snSpecificBuildItemTime.min = "Min";
+snSpecificBuildItemTime.max = "Max";
 snSpecificBuildItemTime.rmin = 0;
-snSpecificBuildItemTime.rmax = 32767;
+snSpecificBuildItemTime.rmax = "Max";
 snSpecificBuildItemTime.network = 0;
 snSpecificBuildItemTime.defined = 0;
 snSpecificBuildItemTime.available = "seems available";
@@ -4935,10 +4939,10 @@ snUnskippableItemType.snName = "sn-unskippable-item-type";
 snUnskippableItemType.snNameAoE1 = "SNUnskippableItemType";
 snUnskippableItemType.default = -1;
 snUnskippableItemType.category = "Build Plan";
-snUnskippableItemType.min = -32768;
-snUnskippableItemType.max = 32767;
+snUnskippableItemType.min = "Min";
+snUnskippableItemType.max = "Max";
 snUnskippableItemType.rmin = 0;
-snUnskippableItemType.rmax = 32767;
+snUnskippableItemType.rmax = "Max";
 snUnskippableItemType.network = 0;
 snUnskippableItemType.defined = 0;
 snUnskippableItemType.available = "seems available";
@@ -4957,8 +4961,8 @@ snAttackDiplomacyImpact.snName = "sn-attack-diplomacy-impact";
 snAttackDiplomacyImpact.snNameAoE1 = "SNAttackDiplomacyImpact";
 snAttackDiplomacyImpact.default = 10;
 snAttackDiplomacyImpact.category = "Defense";
-snAttackDiplomacyImpact.min = -32768;
-snAttackDiplomacyImpact.max = 32767;
+snAttackDiplomacyImpact.min = "Min";
+snAttackDiplomacyImpact.max = "Max";
 snAttackDiplomacyImpact.rmin = 0;
 snAttackDiplomacyImpact.rmax = 100;
 snAttackDiplomacyImpact.network = 0;
@@ -4979,8 +4983,8 @@ snPercentHalfExploration.snName = "sn-percent-half-exploration";
 snPercentHalfExploration.snNameAoE1 = "SNPercentHalfExploration";
 snPercentHalfExploration.default = 30;
 snPercentHalfExploration.category = "Exploring";
-snPercentHalfExploration.min = -32768;
-snPercentHalfExploration.max = 32767;
+snPercentHalfExploration.min = "Min";
+snPercentHalfExploration.max = "Max";
 snPercentHalfExploration.rmin = 0;
 snPercentHalfExploration.rmax = 100;
 snPercentHalfExploration.network = 0;
@@ -5001,8 +5005,8 @@ snAutoBuildHouses.snName = "sn-auto-build-houses";
 snAutoBuildHouses.snNameAoE1 = "SNAutoBuildHouses";
 snAutoBuildHouses.default = -1;
 snAutoBuildHouses.category = "Buildings";
-snAutoBuildHouses.min = -32768;
-snAutoBuildHouses.max = 32767;
+snAutoBuildHouses.min = "Min";
+snAutoBuildHouses.max = "Max";
 snAutoBuildHouses.rmin = 0;
 snAutoBuildHouses.rmax = 1;
 snAutoBuildHouses.network = 0;
@@ -5023,8 +5027,8 @@ snUpgradeToToolAgeAsap.snName = "sn-upgrade-to-tool-age-asap";
 snUpgradeToToolAgeAsap.snNameAoE1 = "SNUpgradeToToolAgeASAP";
 snUpgradeToToolAgeAsap.default = -1;
 snUpgradeToToolAgeAsap.category = "Build Plan";
-snUpgradeToToolAgeAsap.min = -32768;
-snUpgradeToToolAgeAsap.max = 32767;
+snUpgradeToToolAgeAsap.min = "Min";
+snUpgradeToToolAgeAsap.max = "Max";
 snUpgradeToToolAgeAsap.rmin = 0;
 snUpgradeToToolAgeAsap.rmax = 1;
 snUpgradeToToolAgeAsap.network = 0;
@@ -5045,8 +5049,8 @@ snUpgradeToBronzeAgeAsap.snName = "sn-upgrade-to-bronze-age-asap";
 snUpgradeToBronzeAgeAsap.snNameAoE1 = "SNUpgradeToBronzeAgeASAP";
 snUpgradeToBronzeAgeAsap.default = -1;
 snUpgradeToBronzeAgeAsap.category = "Build Plan";
-snUpgradeToBronzeAgeAsap.min = -32768;
-snUpgradeToBronzeAgeAsap.max = 32767;
+snUpgradeToBronzeAgeAsap.min = "Min";
+snUpgradeToBronzeAgeAsap.max = "Max";
 snUpgradeToBronzeAgeAsap.rmin = 0;
 snUpgradeToBronzeAgeAsap.rmax = 1;
 snUpgradeToBronzeAgeAsap.network = 0;
@@ -5067,8 +5071,8 @@ snUpgradeToIronAgeAsap.snName = "sn-upgrade-to-iron-age-asap";
 snUpgradeToIronAgeAsap.snNameAoE1 = "SNUpgradeToIronAgeASAP";
 snUpgradeToIronAgeAsap.default = -1;
 snUpgradeToIronAgeAsap.category = "Build Plan";
-snUpgradeToIronAgeAsap.min = -32768;
-snUpgradeToIronAgeAsap.max = 32767;
+snUpgradeToIronAgeAsap.min = "Min";
+snUpgradeToIronAgeAsap.max = "Max";
 snUpgradeToIronAgeAsap.rmin = 0;
 snUpgradeToIronAgeAsap.rmax = 1;
 snUpgradeToIronAgeAsap.network = 0;
@@ -5089,10 +5093,10 @@ snTargetEvaluationTimeKillRatio.snName = "sn-target-evaluation-time-kill-ratio";
 snTargetEvaluationTimeKillRatio.snNameAoE1 = "SNTargetEvaluationTimeKillRatio";
 snTargetEvaluationTimeKillRatio.default = 20;
 snTargetEvaluationTimeKillRatio.category = "Attack";
-snTargetEvaluationTimeKillRatio.min = -32768;
-snTargetEvaluationTimeKillRatio.max = 32767;
-snTargetEvaluationTimeKillRatio.rmin = -32768;
-snTargetEvaluationTimeKillRatio.rmax = 32767;
+snTargetEvaluationTimeKillRatio.min = "Min";
+snTargetEvaluationTimeKillRatio.max = "Max";
+snTargetEvaluationTimeKillRatio.rmin = "Min";
+snTargetEvaluationTimeKillRatio.rmax = "Max";
 snTargetEvaluationTimeKillRatio.network = 0;
 snTargetEvaluationTimeKillRatio.defined = 1;
 snTargetEvaluationTimeKillRatio.available = 0;
@@ -5111,10 +5115,10 @@ snTargetEvaluationInProgress.snName = "sn-target-evaluation-in-progress";
 snTargetEvaluationInProgress.snNameAoE1 = "SNTargetEvaluationInProgress";
 snTargetEvaluationInProgress.default = 50;
 snTargetEvaluationInProgress.category = "Attack";
-snTargetEvaluationInProgress.min = -32768;
-snTargetEvaluationInProgress.max = 32767;
-snTargetEvaluationInProgress.rmin = -32768;
-snTargetEvaluationInProgress.rmax = 32767;
+snTargetEvaluationInProgress.min = "Min";
+snTargetEvaluationInProgress.max = "Max";
+snTargetEvaluationInProgress.rmin = "Min";
+snTargetEvaluationInProgress.rmax = "Max";
 snTargetEvaluationInProgress.network = 0;
 snTargetEvaluationInProgress.defined = 1;
 snTargetEvaluationInProgress.available = 0;
@@ -5133,10 +5137,10 @@ snCoopDemandTributeInterval.snName = "sn-coop-demand-tribute-interval";
 snCoopDemandTributeInterval.snNameAoE1 = "SNCoopDemandTributeInterval";
 snCoopDemandTributeInterval.default = 0;
 snCoopDemandTributeInterval.category = "Diplomacy";
-snCoopDemandTributeInterval.min = -32768;
-snCoopDemandTributeInterval.max = 32767;
+snCoopDemandTributeInterval.min = "Min";
+snCoopDemandTributeInterval.max = "Max";
 snCoopDemandTributeInterval.rmin = 0;
-snCoopDemandTributeInterval.rmax = 32767;
+snCoopDemandTributeInterval.rmax = "Max";
 snCoopDemandTributeInterval.network = 0;
 snCoopDemandTributeInterval.defined = 0;
 snCoopDemandTributeInterval.available = 1;
@@ -5155,10 +5159,10 @@ snCoopDemandTributeMaximum.snName = "sn-coop-demand-tribute-maximum";
 snCoopDemandTributeMaximum.snNameAoE1 = "SNCoopDemandTributeMaximum";
 snCoopDemandTributeMaximum.default = 0;
 snCoopDemandTributeMaximum.category = "Diplomacy";
-snCoopDemandTributeMaximum.min = -32768;
-snCoopDemandTributeMaximum.max = 32767;
+snCoopDemandTributeMaximum.min = "Min";
+snCoopDemandTributeMaximum.max = "Max";
 snCoopDemandTributeMaximum.rmin = 1;
-snCoopDemandTributeMaximum.rmax = 32767;
+snCoopDemandTributeMaximum.rmax = "Max";
 snCoopDemandTributeMaximum.network = 0;
 snCoopDemandTributeMaximum.defined = 0;
 snCoopDemandTributeMaximum.available = 1;
@@ -5177,8 +5181,8 @@ snAttackWinningPlayer.snName = "sn-attack-winning-player";
 snAttackWinningPlayer.snNameAoE1 = "SNAttackWinningPlayer";
 snAttackWinningPlayer.default = 1;
 snAttackWinningPlayer.category = "Attack";
-snAttackWinningPlayer.min = -32768;
-snAttackWinningPlayer.max = 32767;
+snAttackWinningPlayer.min = "Min";
+snAttackWinningPlayer.max = "Max";
 snAttackWinningPlayer.rmin = 0;
 snAttackWinningPlayer.rmax = 1;
 snAttackWinningPlayer.network = 0;
@@ -5199,10 +5203,10 @@ snUnknownSN189.snName = "sn-aggressiveness";
 snUnknownSN189.snNameAoE1 = "SNAggressiveness";
 snUnknownSN189.default = 50;
 snUnknownSN189.category = "None";
-snUnknownSN189.min = -32768;
-snUnknownSN189.max = 32767;
-snUnknownSN189.rmin = -32768;
-snUnknownSN189.rmax = 32767;
+snUnknownSN189.min = "Min";
+snUnknownSN189.max = "Max";
+snUnknownSN189.rmin = "Min";
+snUnknownSN189.rmax = "Max";
 snUnknownSN189.network = 0;
 snUnknownSN189.defined = 0;
 snUnknownSN189.available = 0;
@@ -5222,10 +5226,10 @@ snMaximumFood.snName = "sn-maximum-food";
 snMaximumFood.snNameAoE1 = "SNMaximumFood";
 snMaximumFood.default = 3000;
 snMaximumFood.category = "Economy";
-snMaximumFood.min = -32768;
-snMaximumFood.max = 32767;
+snMaximumFood.min = "Min";
+snMaximumFood.max = "Max";
 snMaximumFood.rmin = 0;
-snMaximumFood.rmax = 32767;
+snMaximumFood.rmax = "Max";
 snMaximumFood.network = 0;
 snMaximumFood.defined = 0;
 snMaximumFood.available = 1;
@@ -5244,10 +5248,10 @@ snMaximumWood.snName = "sn-maximum-wood";
 snMaximumWood.snNameAoE1 = "SNMaximumWood";
 snMaximumWood.default = 2000;
 snMaximumWood.category = "Economy";
-snMaximumWood.min = -32768;
-snMaximumWood.max = 32767;
+snMaximumWood.min = "Min";
+snMaximumWood.max = "Max";
 snMaximumWood.rmin = 0;
-snMaximumWood.rmax = 32767;
+snMaximumWood.rmax = "Max";
 snMaximumWood.network = 0;
 snMaximumWood.defined = 0;
 snMaximumWood.available = 1;
@@ -5266,10 +5270,10 @@ snMaximumStone.snName = "sn-maximum-stone";
 snMaximumStone.snNameAoE1 = "SNMaximumStone";
 snMaximumStone.default = 1500;
 snMaximumStone.category = "Economy";
-snMaximumStone.min = -32768;
-snMaximumStone.max = 32767;
+snMaximumStone.min = "Min";
+snMaximumStone.max = "Max";
 snMaximumStone.rmin = 0;
-snMaximumStone.rmax = 32767;
+snMaximumStone.rmax = "Max";
 snMaximumStone.network = 0;
 snMaximumStone.defined = 0;
 snMaximumStone.available = 1;
@@ -5288,10 +5292,10 @@ snMaximumGold.snName = "sn-maximum-gold";
 snMaximumGold.snNameAoE1 = "SNMaximumGold";
 snMaximumGold.default = 3000;
 snMaximumGold.category = "Economy";
-snMaximumGold.min = -32768;
-snMaximumGold.max = 32767;
+snMaximumGold.min = "Min";
+snMaximumGold.max = "Max";
 snMaximumGold.rmin = 0;
-snMaximumGold.rmax = 32767;
+snMaximumGold.rmax = "Max";
 snMaximumGold.network = 0;
 snMaximumGold.defined = 0;
 snMaximumGold.available = 1;
@@ -5310,8 +5314,8 @@ snCoopShareInformation.snName = "sn-coop-share-information";
 snCoopShareInformation.snNameAoE1 = "SNCoopShareInformation";
 snCoopShareInformation.default = 1;
 snCoopShareInformation.category = "Diplomacy";
-snCoopShareInformation.min = -32768;
-snCoopShareInformation.max = 32767;
+snCoopShareInformation.min = "Min";
+snCoopShareInformation.max = "Max";
 snCoopShareInformation.rmin = 0;
 snCoopShareInformation.rmax = 1;
 snCoopShareInformation.network = 0;
@@ -5332,10 +5336,10 @@ snAttackWinningPlayerFactor.snName = "sn-attack-winning-player-factor";
 snAttackWinningPlayerFactor.snNameAoE1 = "SNAttackWinningPlayerFactor";
 snAttackWinningPlayerFactor.default = 25;
 snAttackWinningPlayerFactor.category = "Attack";
-snAttackWinningPlayerFactor.min = -32768;
-snAttackWinningPlayerFactor.max = 32767;
-snAttackWinningPlayerFactor.rmin = -32768;
-snAttackWinningPlayerFactor.rmax = 32767;
+snAttackWinningPlayerFactor.min = "Min";
+snAttackWinningPlayerFactor.max = "Max";
+snAttackWinningPlayerFactor.rmin = "Min";
+snAttackWinningPlayerFactor.rmax = "Max";
 snAttackWinningPlayerFactor.network = 0;
 snAttackWinningPlayerFactor.defined = 1;
 snAttackWinningPlayerFactor.available = "available, but only for 1v1 and Wonder Race games";
@@ -5354,8 +5358,8 @@ snCoopShareAttacking.snName = "sn-coop-share-attacking";
 snCoopShareAttacking.snNameAoE1 = "SNCoopShareAttacking";
 snCoopShareAttacking.default = 1;
 snCoopShareAttacking.category = "Attack";
-snCoopShareAttacking.min = -32768;
-snCoopShareAttacking.max = 32767;
+snCoopShareAttacking.min = "Min";
+snCoopShareAttacking.max = "Max";
 snCoopShareAttacking.rmin = 0;
 snCoopShareAttacking.rmax = 1;
 snCoopShareAttacking.network = 0;
@@ -5377,10 +5381,10 @@ snCoopShareAttackingInterval.snName = "sn-coop-share-attacking-interval";
 snCoopShareAttackingInterval.snNameAoE1 = "SNCoopShareAttackingInterval";
 snCoopShareAttackingInterval.default = 120;
 snCoopShareAttackingInterval.category = "Attack";
-snCoopShareAttackingInterval.min = -32768;
-snCoopShareAttackingInterval.max = 32767;
+snCoopShareAttackingInterval.min = "Min";
+snCoopShareAttackingInterval.max = "Max";
 snCoopShareAttackingInterval.rmin = 0;
-snCoopShareAttackingInterval.rmax = 32767;
+snCoopShareAttackingInterval.rmax = "Max";
 snCoopShareAttackingInterval.network = 0;
 snCoopShareAttackingInterval.defined = 1;
 snCoopShareAttackingInterval.available = "seems available, but only for 1v1 and Wonder Race games";
@@ -5399,8 +5403,8 @@ snPercentageExploreExterminators.snName = "sn-percentage-explore-exterminators";
 snPercentageExploreExterminators.snNameAoE1 = "SNPercentageExploreExterminators";
 snPercentageExploreExterminators.default = 50;
 snPercentageExploreExterminators.category = "Exploring";
-snPercentageExploreExterminators.min = -32768;
-snPercentageExploreExterminators.max = 32767;
+snPercentageExploreExterminators.min = "Min";
+snPercentageExploreExterminators.max = "Max";
 snPercentageExploreExterminators.rmin = 0;
 snPercentageExploreExterminators.rmax = 100;
 snPercentageExploreExterminators.network = 0;
@@ -5421,10 +5425,10 @@ snUnknownSN199.snName = "sn-annoyingness";
 snUnknownSN199.snNameAoE1 = "SNAnnoyingness";
 snUnknownSN199.default = 25;
 snUnknownSN199.category = "None";
-snUnknownSN199.min = -32768;
-snUnknownSN199.max = 32767;
-snUnknownSN199.rmin = -32768;
-snUnknownSN199.rmax = 32767;
+snUnknownSN199.min = "Min";
+snUnknownSN199.max = "Max";
+snUnknownSN199.rmin = "Min";
+snUnknownSN199.rmax = "Max";
 snUnknownSN199.network = 0;
 snUnknownSN199.defined = 0;
 snUnknownSN199.available = 0;
@@ -5444,10 +5448,10 @@ snUnknownSN200.snName = "sn-deception";
 snUnknownSN200.snNameAoE1 = "SNDeception";
 snUnknownSN200.default = 50;
 snUnknownSN200.category = "None";
-snUnknownSN200.min = -32768;
-snUnknownSN200.max = 32767;
-snUnknownSN200.rmin = -32768;
-snUnknownSN200.rmax = 32767;
+snUnknownSN200.min = "Min";
+snUnknownSN200.max = "Max";
+snUnknownSN200.rmin = "Min";
+snUnknownSN200.rmax = "Max";
 snUnknownSN200.network = 0;
 snUnknownSN200.defined = 0;
 snUnknownSN200.available = 0;
@@ -5467,8 +5471,8 @@ snTrackPlayerHistory.snName = "sn-track-player-history";
 snTrackPlayerHistory.snNameAoE1 = "SNTrackPlayerHistory";
 snTrackPlayerHistory.default = 0;
 snTrackPlayerHistory.category = "Other";
-snTrackPlayerHistory.min = -32768;
-snTrackPlayerHistory.max = 32767;
+snTrackPlayerHistory.min = "Min";
+snTrackPlayerHistory.max = "Max";
 snTrackPlayerHistory.rmin = 0;
 snTrackPlayerHistory.rmax = 1;
 snTrackPlayerHistory.network = 0;
@@ -5490,8 +5494,8 @@ snMinimumDropsiteBuffer.snName = "sn-minimum-dropsite-buffer";
 snMinimumDropsiteBuffer.snNameAoE1 = "SNMinimumDropsiteBuffer";
 snMinimumDropsiteBuffer.default = 25;
 snMinimumDropsiteBuffer.category = "Buildings";
-snMinimumDropsiteBuffer.min = -32768;
-snMinimumDropsiteBuffer.max = 32767;
+snMinimumDropsiteBuffer.min = "Min";
+snMinimumDropsiteBuffer.max = "Max";
 snMinimumDropsiteBuffer.rmin = 0;
 snMinimumDropsiteBuffer.rmax = 255;
 snMinimumDropsiteBuffer.network = 0;
@@ -5512,8 +5516,8 @@ snUseByTypeMaxGathering.snName = "sn-use-by-type-max-gathering";
 snUseByTypeMaxGathering.snNameAoE1 = "SNUseByTypeMaxGathering";
 snUseByTypeMaxGathering.default = 0;
 snUseByTypeMaxGathering.category = "Economy";
-snUseByTypeMaxGathering.min = -32768;
-snUseByTypeMaxGathering.max = 32767;
+snUseByTypeMaxGathering.min = "Min";
+snUseByTypeMaxGathering.max = "Max";
 snUseByTypeMaxGathering.rmin = 0;
 snUseByTypeMaxGathering.rmax = 1;
 snUseByTypeMaxGathering.network = 0;
@@ -5534,7 +5538,7 @@ snMinimumBoarHuntGroupSize.snName = "sn-minimum-boar-hunt-group-size";
 snMinimumBoarHuntGroupSize.snNameAoE1 = "SNMinimumElephantHuntGroupSize";
 snMinimumBoarHuntGroupSize.default = 5;
 snMinimumBoarHuntGroupSize.category = "Economy";
-snMinimumBoarHuntGroupSize.min = -32768;
+snMinimumBoarHuntGroupSize.min = "Min";
 snMinimumBoarHuntGroupSize.max = 8;
 snMinimumBoarHuntGroupSize.rmin = 0;
 snMinimumBoarHuntGroupSize.rmax = 8;
@@ -5556,8 +5560,8 @@ snAutoBuildDropsites.snName = "sn-auto-build-dropsites";
 snAutoBuildDropsites.snNameAoE1 = "SNAutoBuildDropsites";
 snAutoBuildDropsites.default = -1;
 snAutoBuildDropsites.category = "Buildings";
-snAutoBuildDropsites.min = -32768;
-snAutoBuildDropsites.max = 32767;
+snAutoBuildDropsites.min = "Min";
+snAutoBuildDropsites.max = "Max";
 snAutoBuildDropsites.rmin = 0;
 snAutoBuildDropsites.rmax = 1;
 snAutoBuildDropsites.network = 0;
@@ -5578,8 +5582,8 @@ snAutoBuildFarms.snName = "sn-auto-build-farms";
 snAutoBuildFarms.snNameAoE1 = "SNAutoBuildFarms";
 snAutoBuildFarms.default = -1;
 snAutoBuildFarms.category = "Buildings";
-snAutoBuildFarms.min = -32768;
-snAutoBuildFarms.max = 32767;
+snAutoBuildFarms.min = "Min";
+snAutoBuildFarms.max = "Max";
 snAutoBuildFarms.rmin = 0;
 snAutoBuildFarms.rmax = 1;
 snAutoBuildFarms.network = 0;
@@ -5600,8 +5604,8 @@ snAutoBuildTowers.snName = "sn-auto-build-towers";
 snAutoBuildTowers.snNameAoE1 = "SNAutoBuildTowers";
 snAutoBuildTowers.default = -1;
 snAutoBuildTowers.category = "Defense";
-snAutoBuildTowers.min = -32768;
-snAutoBuildTowers.max = 32767;
+snAutoBuildTowers.min = "Min";
+snAutoBuildTowers.max = "Max";
 snAutoBuildTowers.rmin = 0;
 snAutoBuildTowers.rmax = 1;
 snAutoBuildTowers.network = 0;
@@ -5622,8 +5626,8 @@ snAutoBuildDocks.snName = "sn-auto-build-docks";
 snAutoBuildDocks.snNameAoE1 = "SNAutoBuildDocks";
 snAutoBuildDocks.default = -1;
 snAutoBuildDocks.category = "Water";
-snAutoBuildDocks.min = -32768;
-snAutoBuildDocks.max = 32767;
+snAutoBuildDocks.min = "Min";
+snAutoBuildDocks.max = "Max";
 snAutoBuildDocks.rmin = 0;
 snAutoBuildDocks.rmax = 1;
 snAutoBuildDocks.network = 0;
@@ -5644,8 +5648,8 @@ snAutoBuildFishingBoats.snName = "sn-auto-build-fishing-boats";
 snAutoBuildFishingBoats.snNameAoE1 = "SNAutoBuildFishingBoats";
 snAutoBuildFishingBoats.default = -1;
 snAutoBuildFishingBoats.category = "Water";
-snAutoBuildFishingBoats.min = -32768;
-snAutoBuildFishingBoats.max = 32767;
+snAutoBuildFishingBoats.min = "Min";
+snAutoBuildFishingBoats.max = "Max";
 snAutoBuildFishingBoats.rmin = 0;
 snAutoBuildFishingBoats.rmax = 1;
 snAutoBuildFishingBoats.network = 0;
@@ -5666,8 +5670,8 @@ snAutoBuildTransports.snName = "sn-auto-build-transports";
 snAutoBuildTransports.snNameAoE1 = "SNAutoBuildTransports";
 snAutoBuildTransports.default = -1;
 snAutoBuildTransports.category = "Water";
-snAutoBuildTransports.min = -32768;
-snAutoBuildTransports.max = 32767;
+snAutoBuildTransports.min = "Min";
+snAutoBuildTransports.max = "Max";
 snAutoBuildTransports.rmin = 0;
 snAutoBuildTransports.rmax = 1;
 snAutoBuildTransports.network = 0;
@@ -5688,10 +5692,10 @@ snUnknownSN211.snName = "sn-auto-build-siege-weapons";
 snUnknownSN211.snNameAoE1 = "SNAutoBuildSiegeWeapons";
 snUnknownSN211.default = -1;
 snUnknownSN211.category = "None";
-snUnknownSN211.min = -32768;
-snUnknownSN211.max = 32767;
-snUnknownSN211.rmin = -32768;
-snUnknownSN211.rmax = 32767;
+snUnknownSN211.min = "Min";
+snUnknownSN211.max = "Max";
+snUnknownSN211.rmin = "Min";
+snUnknownSN211.rmax = "Max";
 snUnknownSN211.network = 0;
 snUnknownSN211.defined = 0;
 snUnknownSN211.available = 0;
@@ -5711,10 +5715,10 @@ snDesiredNumberDocks.snName = "sn-desired-number-docks";
 snDesiredNumberDocks.snNameAoE1 = "SNDesiredNumberDocks";
 snDesiredNumberDocks.default = 0;
 snDesiredNumberDocks.category = "Water";
-snDesiredNumberDocks.min = -32768;
-snDesiredNumberDocks.max = 32767;
+snDesiredNumberDocks.min = "Min";
+snDesiredNumberDocks.max = "Max";
 snDesiredNumberDocks.rmin = 0;
-snDesiredNumberDocks.rmax = 32767;
+snDesiredNumberDocks.rmax = "Max";
 snDesiredNumberDocks.network = 0;
 snDesiredNumberDocks.defined = 0;
 snDesiredNumberDocks.available = 1;
@@ -5733,10 +5737,10 @@ snDesiredNumberFishingBoats.snName = "sn-desired-number-fishing-boats";
 snDesiredNumberFishingBoats.snNameAoE1 = "SNDesiredNumberFishingBoats";
 snDesiredNumberFishingBoats.default = 0;
 snDesiredNumberFishingBoats.category = "Water";
-snDesiredNumberFishingBoats.min = -32768;
-snDesiredNumberFishingBoats.max = 32767;
+snDesiredNumberFishingBoats.min = "Min";
+snDesiredNumberFishingBoats.max = "Max";
 snDesiredNumberFishingBoats.rmin = 0;
-snDesiredNumberFishingBoats.rmax = 32767;
+snDesiredNumberFishingBoats.rmax = "Max";
 snDesiredNumberFishingBoats.network = 0;
 snDesiredNumberFishingBoats.defined = 0;
 snDesiredNumberFishingBoats.available = 1;
@@ -5755,10 +5759,10 @@ snDesiredNumberTransports.snName = "sn-desired-number-transports";
 snDesiredNumberTransports.snNameAoE1 = "SNDesiredNumberTransports";
 snDesiredNumberTransports.default = 0;
 snDesiredNumberTransports.category = "Water";
-snDesiredNumberTransports.min = -32768;
-snDesiredNumberTransports.max = 32767;
+snDesiredNumberTransports.min = "Min";
+snDesiredNumberTransports.max = "Max";
 snDesiredNumberTransports.rmin = 0;
-snDesiredNumberTransports.rmax = 32767;
+snDesiredNumberTransports.rmax = "Max";
 snDesiredNumberTransports.network = 0;
 snDesiredNumberTransports.defined = 0;
 snDesiredNumberTransports.available = 1;
@@ -5777,8 +5781,8 @@ snAllowDiplomacyChangeOnAllyAttack.snName = "sn-allow-diplomacy-change-on-ally-a
 snAllowDiplomacyChangeOnAllyAttack.snNameAoE1 = "SNAllowDiplomacyChangeOnAllyAttack";
 snAllowDiplomacyChangeOnAllyAttack.default = 1;
 snAllowDiplomacyChangeOnAllyAttack.category = "Diplomacy";
-snAllowDiplomacyChangeOnAllyAttack.min = -32768;
-snAllowDiplomacyChangeOnAllyAttack.max = 32767;
+snAllowDiplomacyChangeOnAllyAttack.min = "Min";
+snAllowDiplomacyChangeOnAllyAttack.max = "Max";
 snAllowDiplomacyChangeOnAllyAttack.rmin = 0;
 snAllowDiplomacyChangeOnAllyAttack.rmax = 1;
 snAllowDiplomacyChangeOnAllyAttack.network = 0;
@@ -5799,10 +5803,10 @@ snMinimumAmountForTrading.snName = "sn-minimum-amount-for-trading";
 snMinimumAmountForTrading.snNameAoE1 = "SNMinimumAmountForTrading";
 snMinimumAmountForTrading.default = 50;
 snMinimumAmountForTrading.category = "Economy";
-snMinimumAmountForTrading.min = -32768;
-snMinimumAmountForTrading.max = 32767;
+snMinimumAmountForTrading.min = "Min";
+snMinimumAmountForTrading.max = "Max";
 snMinimumAmountForTrading.rmin = 0;
-snMinimumAmountForTrading.rmax = 32767;
+snMinimumAmountForTrading.rmax = "Max";
 snMinimumAmountForTrading.network = 0;
 snMinimumAmountForTrading.defined = 1;
 snMinimumAmountForTrading.available = 0;
@@ -5821,8 +5825,8 @@ snAllowDiplomacyChangeOnTribute.snName = "sn-allow-diplomacy-change-on-tribute";
 snAllowDiplomacyChangeOnTribute.snNameAoE1 = "SNAllowDiplomacyChangeOnTribute";
 snAllowDiplomacyChangeOnTribute.default = 0;
 snAllowDiplomacyChangeOnTribute.category = "Diplomacy";
-snAllowDiplomacyChangeOnTribute.min = -32768;
-snAllowDiplomacyChangeOnTribute.max = 32767;
+snAllowDiplomacyChangeOnTribute.min = "Min";
+snAllowDiplomacyChangeOnTribute.max = "Max";
 snAllowDiplomacyChangeOnTribute.rmin = 0;
 snAllowDiplomacyChangeOnTribute.rmax = 1;
 snAllowDiplomacyChangeOnTribute.network = 0;
@@ -5887,10 +5891,10 @@ snMaxFarms.snName = "sn-max-farms";
 snMaxFarms.snNameAoE1 = "SNMaxFarms";
 snMaxFarms.default = -1;
 snMaxFarms.category = "Buildings";
-snMaxFarms.min = -32768;
-snMaxFarms.max = 32767;
+snMaxFarms.min = "Min";
+snMaxFarms.max = "Max";
 snMaxFarms.rmin = 0;
-snMaxFarms.rmax = 32767;
+snMaxFarms.rmax = "Max";
 snMaxFarms.network = 0;
 snMaxFarms.defined = 0;
 snMaxFarms.available = 1;
@@ -5909,10 +5913,10 @@ snHitsBeforeAllianceChange.snName = "sn-hits-before-alliance-change";
 snHitsBeforeAllianceChange.snNameAoE1 = "SNHitsBeforeAllianceChange";
 snHitsBeforeAllianceChange.default = 3;
 snHitsBeforeAllianceChange.category = "Diplomacy";
-snHitsBeforeAllianceChange.min = -32768;
-snHitsBeforeAllianceChange.max = 32767;
+snHitsBeforeAllianceChange.min = "Min";
+snHitsBeforeAllianceChange.max = "Max";
 snHitsBeforeAllianceChange.rmin = 0;
-snHitsBeforeAllianceChange.rmax = 32767;
+snHitsBeforeAllianceChange.rmax = "Max";
 snHitsBeforeAllianceChange.network = 0;
 snHitsBeforeAllianceChange.defined = 1;
 snHitsBeforeAllianceChange.available = "available, except for when teams-locked is disabled";
@@ -5931,10 +5935,10 @@ snMaxTowers.snName = "sn-max-towers";
 snMaxTowers.snNameAoE1 = "SNMaxTowers";
 snMaxTowers.default = 10;
 snMaxTowers.category = "Defense";
-snMaxTowers.min = -32768;
-snMaxTowers.max = 32767;
+snMaxTowers.min = "Min";
+snMaxTowers.max = "Max";
 snMaxTowers.rmin = 0;
-snMaxTowers.rmax = 32767;
+snMaxTowers.rmax = "Max";
 snMaxTowers.network = 0;
 snMaxTowers.defined = 0;
 snMaxTowers.available = "seems available";
@@ -5953,8 +5957,8 @@ snAutoBuildWarships.snName = "sn-auto-build-warships";
 snAutoBuildWarships.snNameAoE1 = "SNAutoBuildWarships";
 snAutoBuildWarships.default = -1;
 snAutoBuildWarships.category = "Water";
-snAutoBuildWarships.min = -32768;
-snAutoBuildWarships.max = 32767;
+snAutoBuildWarships.min = "Min";
+snAutoBuildWarships.max = "Max";
 snAutoBuildWarships.rmin = 0;
 snAutoBuildWarships.rmax = 1;
 snAutoBuildWarships.network = 0;
@@ -5975,10 +5979,10 @@ snDesiredNumberWarships.snName = "sn-desired-number-warships";
 snDesiredNumberWarships.snNameAoE1 = "SNDesiredNumberWarships";
 snDesiredNumberWarships.default = 0;
 snDesiredNumberWarships.category = "Water";
-snDesiredNumberWarships.min = -32768;
-snDesiredNumberWarships.max = 32767;
+snDesiredNumberWarships.min = "Min";
+snDesiredNumberWarships.max = "Max";
 snDesiredNumberWarships.rmin = 0;
-snDesiredNumberWarships.rmax = 32767;
+snDesiredNumberWarships.rmax = "Max";
 snDesiredNumberWarships.network = 0;
 snDesiredNumberWarships.defined = 0;
 snDesiredNumberWarships.available = 1;
@@ -5997,8 +6001,8 @@ snAllowCivilianDefense.snName = "sn-allow-civilian-defense";
 snAllowCivilianDefense.snNameAoE1 = "SNAllowCivilianDefense";
 snAllowCivilianDefense.default = 1;
 snAllowCivilianDefense.category = "Defense";
-snAllowCivilianDefense.min = -32768;
-snAllowCivilianDefense.max = 32767;
+snAllowCivilianDefense.min = "Min";
+snAllowCivilianDefense.max = "Max";
 snAllowCivilianDefense.rmin = 0;
 snAllowCivilianDefense.rmax = 3;
 snAllowCivilianDefense.network = 0;
@@ -6020,10 +6024,10 @@ snNumberForwardBuilders.snName = "sn-number-forward-builders";
 snNumberForwardBuilders.snNameAoE1 = "";
 snNumberForwardBuilders.default = 0;
 snNumberForwardBuilders.category = "Attack";
-snNumberForwardBuilders.min = -32768;
-snNumberForwardBuilders.max = 32767;
+snNumberForwardBuilders.min = "Min";
+snNumberForwardBuilders.max = "Max";
 snNumberForwardBuilders.rmin = 0;
-snNumberForwardBuilders.rmax = 32767;
+snNumberForwardBuilders.rmax = "Max";
 snNumberForwardBuilders.network = 0;
 snNumberForwardBuilders.defined = 1;
 snNumberForwardBuilders.available = 0;
@@ -6042,8 +6046,8 @@ snPercentAttackSoldiers.snName = "sn-percent-attack-soldiers";
 snPercentAttackSoldiers.snNameAoE1 = "";
 snPercentAttackSoldiers.default = 75;
 snPercentAttackSoldiers.category = "Attack";
-snPercentAttackSoldiers.min = -32768;
-snPercentAttackSoldiers.max = 32767;
+snPercentAttackSoldiers.min = "Min";
+snPercentAttackSoldiers.max = "Max";
 snPercentAttackSoldiers.rmin = 0;
 snPercentAttackSoldiers.rmax = 100;
 snPercentAttackSoldiers.network = 0;
@@ -6064,8 +6068,8 @@ snPercentAttackBoats.snName = "sn-percent-attack-boats";
 snPercentAttackBoats.snNameAoE1 = "";
 snPercentAttackBoats.default = 75;
 snPercentAttackBoats.category = "Water";
-snPercentAttackBoats.min = -32768;
-snPercentAttackBoats.max = 32767;
+snPercentAttackBoats.min = "Min";
+snPercentAttackBoats.max = "Max";
 snPercentAttackBoats.rmin = 0;
 snPercentAttackBoats.rmax = 100;
 snPercentAttackBoats.network = 0;
@@ -6086,8 +6090,8 @@ snDoNotScaleForDifficultyLevel.snName = "sn-do-not-scale-for-difficulty-level";
 snDoNotScaleForDifficultyLevel.snNameAoE1 = "";
 snDoNotScaleForDifficultyLevel.default = 0;
 snDoNotScaleForDifficultyLevel.category = "Other";
-snDoNotScaleForDifficultyLevel.min = -32768;
-snDoNotScaleForDifficultyLevel.max = 32767;
+snDoNotScaleForDifficultyLevel.min = "Min";
+snDoNotScaleForDifficultyLevel.max = "Max";
 snDoNotScaleForDifficultyLevel.rmin = 0;
 snDoNotScaleForDifficultyLevel.rmax = 1;
 snDoNotScaleForDifficultyLevel.network = 0;
@@ -6109,7 +6113,7 @@ snGroupFormDistance.snName = "sn-group-form-distance";
 snGroupFormDistance.snNameAoE1 = "";
 snGroupFormDistance.default = 20;
 snGroupFormDistance.category = "Attack";
-snGroupFormDistance.min = -32768;
+snGroupFormDistance.min = "Min";
 snGroupFormDistance.max = 30;
 snGroupFormDistance.rmin = 0;
 snGroupFormDistance.rmax = 30;
@@ -6131,8 +6135,8 @@ snIgnoreAttackGroupUnderAttack.snName = "sn-ignore-attack-group-under-attack";
 snIgnoreAttackGroupUnderAttack.snNameAoE1 = "";
 snIgnoreAttackGroupUnderAttack.default = 0;
 snIgnoreAttackGroupUnderAttack.category = "Attack";
-snIgnoreAttackGroupUnderAttack.min = -32768;
-snIgnoreAttackGroupUnderAttack.max = 32767;
+snIgnoreAttackGroupUnderAttack.min = "Min";
+snIgnoreAttackGroupUnderAttack.max = "Max";
 snIgnoreAttackGroupUnderAttack.rmin = 0;
 snIgnoreAttackGroupUnderAttack.rmax = 1;
 snIgnoreAttackGroupUnderAttack.network = 0;
@@ -6154,8 +6158,8 @@ snGatherDefenseUnits.snName = "sn-gather-defense-units";
 snGatherDefenseUnits.snNameAoE1 = "";
 snGatherDefenseUnits.default = 0;
 snGatherDefenseUnits.category = "Defense";
-snGatherDefenseUnits.min = -32768;
-snGatherDefenseUnits.max = 32767;
+snGatherDefenseUnits.min = "Min";
+snGatherDefenseUnits.max = "Max";
 snGatherDefenseUnits.rmin = 0;
 snGatherDefenseUnits.rmax = 1;
 snGatherDefenseUnits.network = 0;
@@ -6168,7 +6172,7 @@ snGatherDefenseUnits.aoc = 1;
 snGatherDefenseUnits.up = 1;
 snGatherDefenseUnits.de = 1;
 snGatherDefenseUnits.linked = [];
-snGatherDefenseUnits.related = [ 239, 143 ];
+snGatherDefenseUnits.related = [ 239, 143, 318 ];
 snGatherDefenseUnits.shortDescription = "Set to 1 to send units to gather untasked defense units more or less around the town center.";
 snGatherDefenseUnits.description = "Set to 1 to send units to gather untasked defense units more or less around the town center if " + snGatherIdleSoldiersAtCenter.getLink() + " isn't also set to 1. The original documentation says you can set this to 1 to send units to defend buildings under construction, so there might be times where this also works.";
 
@@ -6177,8 +6181,8 @@ snMaximumWoodDropDistance.snName = "sn-maximum-wood-drop-distance";
 snMaximumWoodDropDistance.snNameAoE1 = "";
 snMaximumWoodDropDistance.default = -1;
 snMaximumWoodDropDistance.category = "Economy";
-snMaximumWoodDropDistance.min = -32768;
-snMaximumWoodDropDistance.max = 32767;
+snMaximumWoodDropDistance.min = "Min";
+snMaximumWoodDropDistance.max = "Max";
 snMaximumWoodDropDistance.rmin = -2;
 snMaximumWoodDropDistance.rmax = 255;
 snMaximumWoodDropDistance.network = 0;
@@ -6200,8 +6204,8 @@ snMaximumFoodDropDistance.snName = "sn-maximum-food-drop-distance";
 snMaximumFoodDropDistance.snNameAoE1 = "";
 snMaximumFoodDropDistance.default = -1;
 snMaximumFoodDropDistance.category = "Economy";
-snMaximumFoodDropDistance.min = -32768;
-snMaximumFoodDropDistance.max = 32767;
+snMaximumFoodDropDistance.min = "Min";
+snMaximumFoodDropDistance.max = "Max";
 snMaximumFoodDropDistance.rmin = -2;
 snMaximumFoodDropDistance.rmax = 255;
 snMaximumFoodDropDistance.network = 0;
@@ -6214,7 +6218,7 @@ snMaximumFoodDropDistance.aoc = 1;
 snMaximumFoodDropDistance.up = 1;
 snMaximumFoodDropDistance.de = 1;
 snMaximumFoodDropDistance.linked = [ 163, 235, 236 ];
-snMaximumFoodDropDistance.related = [ 233, 237, 238 ];
+snMaximumFoodDropDistance.related = [ 233, 237, 238, 317 ];
 snMaximumFoodDropDistance.shortDescription = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it.";
 snMaximumFoodDropDistance.description = "The parameters control how far from a dropsite a given resource type can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables all food gathering, except for hunting.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow the AI's villagers to go all the across the map to gather food if the AI ran out of that resource at home. To fix this, set a reasonable maximum distance at the beginning of the game, such as 20, and increase it throughout the game, perhaps per age. You'll probably want to set these SNs back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time, to prevent your AI from ignoring certain resources.";
 
@@ -6223,8 +6227,8 @@ snMaximumHuntDropDistance.snName = "sn-maximum-hunt-drop-distance";
 snMaximumHuntDropDistance.snNameAoE1 = "";
 snMaximumHuntDropDistance.default = -1;
 snMaximumHuntDropDistance.category = "Economy";
-snMaximumHuntDropDistance.min = -32768;
-snMaximumHuntDropDistance.max = 32767;
+snMaximumHuntDropDistance.min = "Min";
+snMaximumHuntDropDistance.max = "Max";
 snMaximumHuntDropDistance.rmin = -2;
 snMaximumHuntDropDistance.rmax = 255;
 snMaximumHuntDropDistance.network = 0;
@@ -6246,8 +6250,8 @@ snMaximumFishBoatDropDistance.snName = "sn-maximum-fish-boat-drop-distance";
 snMaximumFishBoatDropDistance.snNameAoE1 = "";
 snMaximumFishBoatDropDistance.default = -1;
 snMaximumFishBoatDropDistance.category = "Water";
-snMaximumFishBoatDropDistance.min = -32768;
-snMaximumFishBoatDropDistance.max = 32767;
+snMaximumFishBoatDropDistance.min = "Min";
+snMaximumFishBoatDropDistance.max = "Max";
 snMaximumFishBoatDropDistance.rmin = -2;
 snMaximumFishBoatDropDistance.rmax = 255;
 snMaximumFishBoatDropDistance.network = 0;
@@ -6269,8 +6273,8 @@ snMaximumGoldDropDistance.snName = "sn-maximum-gold-drop-distance";
 snMaximumGoldDropDistance.snNameAoE1 = "";
 snMaximumGoldDropDistance.default = -1;
 snMaximumGoldDropDistance.category = "Economy";
-snMaximumGoldDropDistance.min = -32768;
-snMaximumGoldDropDistance.max = 32767;
+snMaximumGoldDropDistance.min = "Min";
+snMaximumGoldDropDistance.max = "Max";
 snMaximumGoldDropDistance.rmin = -2;
 snMaximumGoldDropDistance.rmax = 255;
 snMaximumGoldDropDistance.network = 0;
@@ -6292,8 +6296,8 @@ snMaximumStoneDropDistance.snName = "sn-maximum-stone-drop-distance";
 snMaximumStoneDropDistance.snNameAoE1 = "";
 snMaximumStoneDropDistance.default = -1;
 snMaximumStoneDropDistance.category = "Economy";
-snMaximumStoneDropDistance.min = -32768;
-snMaximumStoneDropDistance.max = 32767;
+snMaximumStoneDropDistance.min = "Min";
+snMaximumStoneDropDistance.max = "Max";
 snMaximumStoneDropDistance.rmin = -2;
 snMaximumStoneDropDistance.rmax = 255;
 snMaximumStoneDropDistance.network = 0;
@@ -6315,8 +6319,8 @@ snGatherIdleSoldiersAtCenter.snName = "sn-gather-idle-soldiers-at-center";
 snGatherIdleSoldiersAtCenter.snNameAoE1 = "";
 snGatherIdleSoldiersAtCenter.default = -1;
 snGatherIdleSoldiersAtCenter.category = "Defense";
-snGatherIdleSoldiersAtCenter.min = -32768;
-snGatherIdleSoldiersAtCenter.max = 32767;
+snGatherIdleSoldiersAtCenter.min = "Min";
+snGatherIdleSoldiersAtCenter.max = "Max";
 snGatherIdleSoldiersAtCenter.rmin = 0;
 snGatherIdleSoldiersAtCenter.rmax = 1;
 snGatherIdleSoldiersAtCenter.network = 0;
@@ -6329,7 +6333,7 @@ snGatherIdleSoldiersAtCenter.aoc = 1;
 snGatherIdleSoldiersAtCenter.up = 1;
 snGatherIdleSoldiersAtCenter.de = 1;
 snGatherIdleSoldiersAtCenter.linked = [];
-snGatherIdleSoldiersAtCenter.related = [ 232 ];
+snGatherIdleSoldiersAtCenter.related = [ 232, 318 ];
 snGatherIdleSoldiersAtCenter.shortDescription = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.";
 snGatherIdleSoldiersAtCenter.description = "When set to 1, it will &quot;move&quot; the town defense gather point to the &quot;center&quot; (randomized +-6 tiles) of the map. No provision is made if the center is in an unreachable spot. When it's set, all idle and retreating units will try to go to the center. Useful for King of the Hill and similar variants to get the CP to group near the middle.</p><p>This SN was added in the Conquerors expansion, so it is not available in the original Age of Kings version.";
 
@@ -6338,8 +6342,8 @@ snGarrisonRams.snName = "sn-garrison-rams";
 snGarrisonRams.snNameAoE1 = "";
 snGarrisonRams.default = 1;
 snGarrisonRams.category = "Attack";
-snGarrisonRams.min = -32768;
-snGarrisonRams.max = 32767;
+snGarrisonRams.min = "Min";
+snGarrisonRams.max = "Max";
 snGarrisonRams.rmin = 0;
 snGarrisonRams.rmax = 1;
 snGarrisonRams.network = 0;
@@ -6361,8 +6365,8 @@ snDoNotTransportFromSameZone.snName = "sn-do-not-transport-from-same-zone";
 snDoNotTransportFromSameZone.snNameAoE1 = "";
 snDoNotTransportFromSameZone.default = 0;
 snDoNotTransportFromSameZone.category = "Water";
-snDoNotTransportFromSameZone.min = -32768;
-snDoNotTransportFromSameZone.max = 32767;
+snDoNotTransportFromSameZone.min = "Min";
+snDoNotTransportFromSameZone.max = "Max";
 snDoNotTransportFromSameZone.rmin = 0;
 snDoNotTransportFromSameZone.rmax = 1;
 snDoNotTransportFromSameZone.network = 0;
@@ -6384,8 +6388,8 @@ snEnableNewBuildingSystem.snName = "sn-enable-new-building-system";
 snEnableNewBuildingSystem.snNameAoE1 = "";
 snEnableNewBuildingSystem.default = 0;
 snEnableNewBuildingSystem.category = "Buildings";
-snEnableNewBuildingSystem.min = -32768;
-snEnableNewBuildingSystem.max = 32767;
+snEnableNewBuildingSystem.min = "Min";
+snEnableNewBuildingSystem.max = "Max";
 snEnableNewBuildingSystem.rmin = 0;
 snEnableNewBuildingSystem.rmax = 1;
 snEnableNewBuildingSystem.network = 0;
@@ -6407,8 +6411,8 @@ snPercentBuildingCancellation.snName = "sn-percent-building-cancellation";
 snPercentBuildingCancellation.snNameAoE1 = "";
 snPercentBuildingCancellation.default = 100;
 snPercentBuildingCancellation.category = "Buildings";
-snPercentBuildingCancellation.min = -32768;
-snPercentBuildingCancellation.max = 32767;
+snPercentBuildingCancellation.min = "Min";
+snPercentBuildingCancellation.max = "Max";
 snPercentBuildingCancellation.rmin = 1;
 snPercentBuildingCancellation.rmax = 100;
 snPercentBuildingCancellation.network = 0;
@@ -6429,8 +6433,8 @@ snEnableBoarHunting.snName = "sn-enable-boar-hunting";
 snEnableBoarHunting.snNameAoE1 = "";
 snEnableBoarHunting.default = 0;
 snEnableBoarHunting.category = "Economy";
-snEnableBoarHunting.min = -32768;
-snEnableBoarHunting.max = 32767;
+snEnableBoarHunting.min = "Min";
+snEnableBoarHunting.max = "Max";
 snEnableBoarHunting.rmin = 0;
 snEnableBoarHunting.rmax = 2;
 snEnableBoarHunting.network = 0;
@@ -6452,10 +6456,10 @@ snMinimumNumberHunters.snName = "sn-minimum-number-hunters";
 snMinimumNumberHunters.snNameAoE1 = "";
 snMinimumNumberHunters.default = 0;
 snMinimumNumberHunters.category = "Economy";
-snMinimumNumberHunters.min = -32768;
-snMinimumNumberHunters.max = 32767;
+snMinimumNumberHunters.min = "Min";
+snMinimumNumberHunters.max = "Max";
 snMinimumNumberHunters.rmin = 0;
-snMinimumNumberHunters.rmax = 32767;
+snMinimumNumberHunters.rmax = "Max";
 snMinimumNumberHunters.network = 0;
 snMinimumNumberHunters.defined = 1;
 snMinimumNumberHunters.available = 0;
@@ -6474,10 +6478,10 @@ snObjectRepairLevel.snName = "sn-object-repair-level";
 snObjectRepairLevel.snNameAoE1 = "";
 snObjectRepairLevel.default = 16387;
 snObjectRepairLevel.category = "Defense";
-snObjectRepairLevel.min = -32768;
-snObjectRepairLevel.max = 32767;
+snObjectRepairLevel.min = "Min";
+snObjectRepairLevel.max = "Max";
 snObjectRepairLevel.rmin = 0;
-snObjectRepairLevel.rmax = 32767;
+snObjectRepairLevel.rmax = "Max";
 snObjectRepairLevel.network = 0;
 snObjectRepairLevel.defined = 1;
 snObjectRepairLevel.available = 0;
@@ -6497,8 +6501,8 @@ snEnablePatrolAttack.snName = "sn-enable-patrol-attack";
 snEnablePatrolAttack.snNameAoE1 = "";
 snEnablePatrolAttack.default = 0;
 snEnablePatrolAttack.category = "Attack";
-snEnablePatrolAttack.min = -32768;
-snEnablePatrolAttack.max = 32767;
+snEnablePatrolAttack.min = "Min";
+snEnablePatrolAttack.max = "Max";
 snEnablePatrolAttack.rmin = 0;
 snEnablePatrolAttack.rmax = 1;
 snEnablePatrolAttack.network = 1;
@@ -6520,8 +6524,8 @@ snDropsiteSeparationDistance.snName = "sn-dropsite-separation-distance";
 snDropsiteSeparationDistance.snNameAoE1 = "";
 snDropsiteSeparationDistance.default = 10;
 snDropsiteSeparationDistance.category = "Buildings";
-snDropsiteSeparationDistance.min = -32768;
-snDropsiteSeparationDistance.max = 32767;
+snDropsiteSeparationDistance.min = "Min";
+snDropsiteSeparationDistance.max = "Max";
 snDropsiteSeparationDistance.rmin = 1;
 snDropsiteSeparationDistance.rmax = 255;
 snDropsiteSeparationDistance.network = 0;
@@ -6543,8 +6547,8 @@ snTargetPlayerNumber.snName = "sn-target-player-number";
 snTargetPlayerNumber.snNameAoE1 = "";
 snTargetPlayerNumber.default = 0;
 snTargetPlayerNumber.category = "Attack";
-snTargetPlayerNumber.min = -32768;
-snTargetPlayerNumber.max = 32767;
+snTargetPlayerNumber.min = "Min";
+snTargetPlayerNumber.max = "Max";
 snTargetPlayerNumber.rmin = -1;
 snTargetPlayerNumber.rmax = 8;
 snTargetPlayerNumber.network = 0;
@@ -6565,8 +6569,8 @@ snSafeTownSize.snName = "sn-safe-town-size";
 snSafeTownSize.snNameAoE1 = "";
 snSafeTownSize.default = 255;
 snSafeTownSize.category = "Defense";
-snSafeTownSize.min = -32768;
-snSafeTownSize.max = 32767;
+snSafeTownSize.min = "Min";
+snSafeTownSize.max = "Max";
 snSafeTownSize.rmin = 1;
 snSafeTownSize.rmax = 255;
 snSafeTownSize.network = 0;
@@ -6587,8 +6591,8 @@ snFocusPlayerNumber.snName = "sn-focus-player-number";
 snFocusPlayerNumber.snNameAoE1 = "";
 snFocusPlayerNumber.default = 0;
 snFocusPlayerNumber.category = "Attack";
-snFocusPlayerNumber.min = -32768;
-snFocusPlayerNumber.max = 32767;
+snFocusPlayerNumber.min = "Min";
+snFocusPlayerNumber.max = "Max";
 snFocusPlayerNumber.rmin = 0;
 snFocusPlayerNumber.rmax = 8;
 snFocusPlayerNumber.network = 0;
@@ -6609,8 +6613,8 @@ snMinimumBoarLureGroupSize.snName = "sn-minimum-boar-lure-group-size";
 snMinimumBoarLureGroupSize.snNameAoE1 = "";
 snMinimumBoarLureGroupSize.default = 0;
 snMinimumBoarLureGroupSize.category = "Economy";
-snMinimumBoarLureGroupSize.min = -32768;
-snMinimumBoarLureGroupSize.max = 32767;
+snMinimumBoarLureGroupSize.min = "Min";
+snMinimumBoarLureGroupSize.max = "Max";
 snMinimumBoarLureGroupSize.rmin = 0;
 snMinimumBoarLureGroupSize.rmax = 8;
 snMinimumBoarLureGroupSize.network = 0;
@@ -6632,8 +6636,8 @@ snPreferredMillPlacement.snName = "sn-preferred-mill-placement";
 snPreferredMillPlacement.snNameAoE1 = "";
 snPreferredMillPlacement.default = 0;
 snPreferredMillPlacement.category = "Buildings";
-snPreferredMillPlacement.min = -32768;
-snPreferredMillPlacement.max = 32767;
+snPreferredMillPlacement.min = "Min";
+snPreferredMillPlacement.max = "Max";
 snPreferredMillPlacement.rmin = 0;
 snPreferredMillPlacement.rmax = 2;
 snPreferredMillPlacement.network = 0;
@@ -6654,8 +6658,8 @@ snEnableOffensivePriority.snName = "sn-enable-offensive-priority";
 snEnableOffensivePriority.snNameAoE1 = "";
 snEnableOffensivePriority.default = 0;
 snEnableOffensivePriority.category = "Attack";
-snEnableOffensivePriority.min = -32768;
-snEnableOffensivePriority.max = 32767;
+snEnableOffensivePriority.min = "Min";
+snEnableOffensivePriority.max = "Max";
 snEnableOffensivePriority.rmin = 0;
 snEnableOffensivePriority.rmax = 1;
 snEnableOffensivePriority.network = 0;
@@ -6677,8 +6681,8 @@ snBuildingTargetingMode.snName = "sn-building-targeting-mode";
 snBuildingTargetingMode.snNameAoE1 = "";
 snBuildingTargetingMode.default = 0;
 snBuildingTargetingMode.category = "Attack";
-snBuildingTargetingMode.min = -32768;
-snBuildingTargetingMode.max = 32767;
+snBuildingTargetingMode.min = "Min";
+snBuildingTargetingMode.max = "Max";
 snBuildingTargetingMode.rmin = 0;
 snBuildingTargetingMode.rmax = 2;
 snBuildingTargetingMode.network = 0;
@@ -6699,10 +6703,10 @@ snHomeExplorationTime.snName = "sn-home-exploration-time";
 snHomeExplorationTime.snNameAoE1 = "";
 snHomeExplorationTime.default = 300;
 snHomeExplorationTime.category = "Exploring";
-snHomeExplorationTime.min = -32768;
-snHomeExplorationTime.max = 32767;
+snHomeExplorationTime.min = "Min";
+snHomeExplorationTime.max = "Max";
 snHomeExplorationTime.rmin = 0;
-snHomeExplorationTime.rmax = 32767;
+snHomeExplorationTime.rmax = "Max";
 snHomeExplorationTime.network = 0;
 snHomeExplorationTime.defined = 1;
 snHomeExplorationTime.available = 0;
@@ -6721,8 +6725,8 @@ snNumberCivilianMilitia.snName = "sn-number-civilian-militia";
 snNumberCivilianMilitia.snNameAoE1 = "";
 snNumberCivilianMilitia.default = 10;
 snNumberCivilianMilitia.category = "Attack";
-snNumberCivilianMilitia.min = -32768;
-snNumberCivilianMilitia.max = 32767;
+snNumberCivilianMilitia.min = "Min";
+snNumberCivilianMilitia.max = "Max";
 snNumberCivilianMilitia.rmin = 0;
 snNumberCivilianMilitia.rmax = 200;
 snNumberCivilianMilitia.network = 0;
@@ -6743,8 +6747,8 @@ snAllowCivilianOffense.snName = "sn-allow-civilian-offense";
 snAllowCivilianOffense.snNameAoE1 = "";
 snAllowCivilianOffense.default = 0;
 snAllowCivilianOffense.category = "Attack";
-snAllowCivilianOffense.min = -32768;
-snAllowCivilianOffense.max = 32767;
+snAllowCivilianOffense.min = "Min";
+snAllowCivilianOffense.max = "Max";
 snAllowCivilianOffense.rmin = 0;
 snAllowCivilianOffense.rmax = 2;
 snAllowCivilianOffense.network = 0;
@@ -6766,8 +6770,8 @@ snPreferredTradeDistance.snName = "sn-preferred-trade-distance";
 snPreferredTradeDistance.snNameAoE1 = "";
 snPreferredTradeDistance.default = 100;
 snPreferredTradeDistance.category = "Economy";
-snPreferredTradeDistance.min = -32768;
-snPreferredTradeDistance.max = 32767;
+snPreferredTradeDistance.min = "Min";
+snPreferredTradeDistance.max = "Max";
 snPreferredTradeDistance.rmin = 0;
 snPreferredTradeDistance.rmax = 255;
 snPreferredTradeDistance.network = 1;
@@ -6789,8 +6793,8 @@ snLumberCampMaxDistance.snName = "sn-lumber-camp-max-distance";
 snLumberCampMaxDistance.snNameAoE1 = "";
 snLumberCampMaxDistance.default = 0;
 snLumberCampMaxDistance.category = "Buildings";
-snLumberCampMaxDistance.min = -32768;
-snLumberCampMaxDistance.max = 32767;
+snLumberCampMaxDistance.min = "Min";
+snLumberCampMaxDistance.max = "Max";
 snLumberCampMaxDistance.rmin = 0;
 snLumberCampMaxDistance.rmax = 255;
 snLumberCampMaxDistance.network = 0;
@@ -6811,8 +6815,8 @@ snMiningCampMaxDistance.snName = "sn-mining-camp-max-distance";
 snMiningCampMaxDistance.snNameAoE1 = "";
 snMiningCampMaxDistance.default = 0;
 snMiningCampMaxDistance.category = "Buildings";
-snMiningCampMaxDistance.min = -32768;
-snMiningCampMaxDistance.max = 32767;
+snMiningCampMaxDistance.min = "Min";
+snMiningCampMaxDistance.max = "Max";
 snMiningCampMaxDistance.rmin = 0;
 snMiningCampMaxDistance.rmax = 255;
 snMiningCampMaxDistance.network = 0;
@@ -6833,8 +6837,8 @@ snWallTargetingMode.snName = "sn-wall-targeting-mode";
 snWallTargetingMode.snNameAoE1 = "";
 snWallTargetingMode.default = 0;
 snWallTargetingMode.category = "Attack";
-snWallTargetingMode.min = -32768;
-snWallTargetingMode.max = 32767;
+snWallTargetingMode.min = "Min";
+snWallTargetingMode.max = "Max";
 snWallTargetingMode.rmin = 0;
 snWallTargetingMode.rmax = 1;
 snWallTargetingMode.network = 1;
@@ -6856,8 +6860,8 @@ snLivestockToTownCenter.snName = "sn-livestock-to-town-center";
 snLivestockToTownCenter.snNameAoE1 = "";
 snLivestockToTownCenter.default = 0;
 snLivestockToTownCenter.category = "Economy";
-snLivestockToTownCenter.min = -32768;
-snLivestockToTownCenter.max = 32767;
+snLivestockToTownCenter.min = "Min";
+snLivestockToTownCenter.max = "Max";
 snLivestockToTownCenter.rmin = 0;
 snLivestockToTownCenter.rmax = 1;
 snLivestockToTownCenter.network = 1;
@@ -6878,8 +6882,8 @@ snEnableTrainingQueue.snName = "sn-enable-training-queue";
 snEnableTrainingQueue.snNameAoE1 = "";
 snEnableTrainingQueue.default = 0;
 snEnableTrainingQueue.category = "Economy";
-snEnableTrainingQueue.min = -32768;
-snEnableTrainingQueue.max = 32767;
+snEnableTrainingQueue.min = "Min";
+snEnableTrainingQueue.max = "Max";
 snEnableTrainingQueue.rmin = 0;
 snEnableTrainingQueue.rmax = 15;
 snEnableTrainingQueue.network = 0;
@@ -6901,8 +6905,8 @@ snIgnoreTowerElevation.snName = "sn-ignore-tower-elevation";
 snIgnoreTowerElevation.snNameAoE1 = "";
 snIgnoreTowerElevation.default = 0;
 snIgnoreTowerElevation.category = "Defense";
-snIgnoreTowerElevation.min = -32768;
-snIgnoreTowerElevation.max = 32767;
+snIgnoreTowerElevation.min = "Min";
+snIgnoreTowerElevation.max = "Max";
 snIgnoreTowerElevation.rmin = 0;
 snIgnoreTowerElevation.rmax = 1;
 snIgnoreTowerElevation.network = 0;
@@ -6923,8 +6927,8 @@ snTownCenterPlacement.snName = "sn-town-center-placement";
 snTownCenterPlacement.snNameAoE1 = "";
 snTownCenterPlacement.default = 0;
 snTownCenterPlacement.category = "Buildings";
-snTownCenterPlacement.min = -32768;
-snTownCenterPlacement.max = 32767;
+snTownCenterPlacement.min = "Min";
+snTownCenterPlacement.max = "Max";
 snTownCenterPlacement.rmin = 0;
 snTownCenterPlacement.rmax = 899;
 snTownCenterPlacement.network = 0;
@@ -6946,8 +6950,8 @@ snDisableTowerPriority.snName = "sn-disable-tower-priority";
 snDisableTowerPriority.snNameAoE1 = "";
 snDisableTowerPriority.default = 0;
 snDisableTowerPriority.category = "Attack";
-snDisableTowerPriority.min = -32768;
-snDisableTowerPriority.max = 32767;
+snDisableTowerPriority.min = "Min";
+snDisableTowerPriority.max = "Max";
 snDisableTowerPriority.rmin = 0;
 snDisableTowerPriority.rmax = 1;
 snDisableTowerPriority.network = 1;
@@ -6969,8 +6973,8 @@ snPlacementZoneSize.snName = "sn-placement-zone-size";
 snPlacementZoneSize.snNameAoE1 = "";
 snPlacementZoneSize.default = 20;
 snPlacementZoneSize.category = "Buildings";
-snPlacementZoneSize.min = -32768;
-snPlacementZoneSize.max = 32767;
+snPlacementZoneSize.min = "Min";
+snPlacementZoneSize.max = "Max";
 snPlacementZoneSize.rmin = 0;
 snPlacementZoneSize.rmax = 255;
 snPlacementZoneSize.network = 0;
@@ -6992,8 +6996,8 @@ snPlacementFailDelta.snName = "sn-placement-fail-delta";
 snPlacementFailDelta.snNameAoE1 = "";
 snPlacementFailDelta.default = 0;
 snPlacementFailDelta.category = "Buildings";
-snPlacementFailDelta.min = -32768;
-snPlacementFailDelta.max = 32767;
+snPlacementFailDelta.min = "Min";
+snPlacementFailDelta.max = "Max";
 snPlacementFailDelta.rmin = -10;
 snPlacementFailDelta.rmax = 10;
 snPlacementFailDelta.network = 0;
@@ -7015,8 +7019,8 @@ snPlacementToCenter.snName = "sn-placement-to-center";
 snPlacementToCenter.snNameAoE1 = "";
 snPlacementToCenter.default = 0;
 snPlacementToCenter.category = "Buildings";
-snPlacementToCenter.min = -32768;
-snPlacementToCenter.max = 32767;
+snPlacementToCenter.min = "Min";
+snPlacementToCenter.max = "Max";
 snPlacementToCenter.rmin = 0;
 snPlacementToCenter.rmax = 1;
 snPlacementToCenter.network = 0;
@@ -7037,8 +7041,8 @@ snDisableAttackGroups.snName = "sn-disable-attack-groups";
 snDisableAttackGroups.snNameAoE1 = "";
 snDisableAttackGroups.default = 0;
 snDisableAttackGroups.category = "Attack";
-snDisableAttackGroups.min = -32768;
-snDisableAttackGroups.max = 32767;
+snDisableAttackGroups.min = "Min";
+snDisableAttackGroups.max = "Max";
 snDisableAttackGroups.rmin = 0;
 snDisableAttackGroups.rmax = 1;
 snDisableAttackGroups.network = 0;
@@ -7059,8 +7063,8 @@ snAllowAdjacentDropsites.snName = "sn-allow-adjacent-dropsites";
 snAllowAdjacentDropsites.snNameAoE1 = "";
 snAllowAdjacentDropsites.default = 0;
 snAllowAdjacentDropsites.category = "Buildings";
-snAllowAdjacentDropsites.min = -32768;
-snAllowAdjacentDropsites.max = 32767;
+snAllowAdjacentDropsites.min = "Min";
+snAllowAdjacentDropsites.max = "Max";
 snAllowAdjacentDropsites.rmin = 0;
 snAllowAdjacentDropsites.rmax = 1;
 snAllowAdjacentDropsites.network = 0;
@@ -7081,8 +7085,8 @@ snDeferDropsiteUpdate.snName = "sn-defer-dropsite-update";
 snDeferDropsiteUpdate.snNameAoE1 = "";
 snDeferDropsiteUpdate.default = 0;
 snDeferDropsiteUpdate.category = "Economy";
-snDeferDropsiteUpdate.min = -32768;
-snDeferDropsiteUpdate.max = 32767;
+snDeferDropsiteUpdate.min = "Min";
+snDeferDropsiteUpdate.max = "Max";
 snDeferDropsiteUpdate.rmin = 0;
 snDeferDropsiteUpdate.rmax = 1;
 snDeferDropsiteUpdate.network = 0;
@@ -7103,8 +7107,8 @@ snMaximumGarrisonFill.snName = "sn-maximum-garrison-fill";
 snMaximumGarrisonFill.snNameAoE1 = "";
 snMaximumGarrisonFill.default = 0;
 snMaximumGarrisonFill.category = "Defense";
-snMaximumGarrisonFill.min = -32768;
-snMaximumGarrisonFill.max = 32767;
+snMaximumGarrisonFill.min = "Min";
+snMaximumGarrisonFill.max = "Max";
 snMaximumGarrisonFill.rmin = 0;
 snMaximumGarrisonFill.rmax = 20;
 snMaximumGarrisonFill.network = 0;
@@ -7125,8 +7129,8 @@ snNumberGarrisonUnits.snName = "sn-number-garrison-units";
 snNumberGarrisonUnits.snNameAoE1 = "";
 snNumberGarrisonUnits.default = 0;
 snNumberGarrisonUnits.category = "Defense";
-snNumberGarrisonUnits.min = -32768;
-snNumberGarrisonUnits.max = 32767;
+snNumberGarrisonUnits.min = "Min";
+snNumberGarrisonUnits.max = "Max";
 snNumberGarrisonUnits.rmin = 0;
 snNumberGarrisonUnits.rmax = 40;
 snNumberGarrisonUnits.network = 0;
@@ -7147,8 +7151,8 @@ snFilterUnderAttack.snName = "sn-filter-under-attack";
 snFilterUnderAttack.snNameAoE1 = "";
 snFilterUnderAttack.default = 0;
 snFilterUnderAttack.category = "Attack";
-snFilterUnderAttack.min = -32768;
-snFilterUnderAttack.max = 32767;
+snFilterUnderAttack.min = "Min";
+snFilterUnderAttack.max = "Max";
 snFilterUnderAttack.rmin = 0;
 snFilterUnderAttack.rmax = 2;
 snFilterUnderAttack.network = 0;
@@ -7170,8 +7174,8 @@ snDisableDefendGroups.snName = "sn-disable-defend-groups";
 snDisableDefendGroups.snNameAoE1 = "";
 snDisableDefendGroups.default = 0;
 snDisableDefendGroups.category = "Defense";
-snDisableDefendGroups.min = -32768;
-snDisableDefendGroups.max = 32767;
+snDisableDefendGroups.min = "Min";
+snDisableDefendGroups.max = "Max";
 snDisableDefendGroups.rmin = 0;
 snDisableDefendGroups.rmax = 15;
 snDisableDefendGroups.network = 0;
@@ -7192,8 +7196,8 @@ snDockPlacementMode.snName = "sn-dock-placement-mode";
 snDockPlacementMode.snNameAoE1 = "";
 snDockPlacementMode.default = 0;
 snDockPlacementMode.category = "Water";
-snDockPlacementMode.min = -32768;
-snDockPlacementMode.max = 32767;
+snDockPlacementMode.min = "Min";
+snDockPlacementMode.max = "Max";
 snDockPlacementMode.rmin = -1;
 snDockPlacementMode.rmax = 1;
 snDockPlacementMode.network = 0;
@@ -7215,8 +7219,8 @@ snDockProximityFactor.snName = "sn-dock-proximity-factor";
 snDockProximityFactor.snNameAoE1 = "";
 snDockProximityFactor.default = 10000;
 snDockProximityFactor.category = "Water";
-snDockProximityFactor.min = -32768;
-snDockProximityFactor.max = 32767;
+snDockProximityFactor.min = "Min";
+snDockProximityFactor.max = "Max";
 snDockProximityFactor.rmin = -10000;
 snDockProximityFactor.rmax = 10000;
 snDockProximityFactor.network = 0;
@@ -7237,8 +7241,8 @@ snDockAvoidanceFactor.snName = "sn-dock-avoidance-factor";
 snDockAvoidanceFactor.snNameAoE1 = "";
 snDockAvoidanceFactor.default = 1000;
 snDockAvoidanceFactor.category = "Water";
-snDockAvoidanceFactor.min = -32768;
-snDockAvoidanceFactor.max = 32767;
+snDockAvoidanceFactor.min = "Min";
+snDockAvoidanceFactor.max = "Max";
 snDockAvoidanceFactor.rmin = -10000;
 snDockAvoidanceFactor.rmax = 10000;
 snDockAvoidanceFactor.network = 0;
@@ -7259,8 +7263,8 @@ snDockTrainingFilter.snName = "sn-dock-training-filter";
 snDockTrainingFilter.snNameAoE1 = "";
 snDockTrainingFilter.default = 0;
 snDockTrainingFilter.category = "Water";
-snDockTrainingFilter.min = -32768;
-snDockTrainingFilter.max = 32767;
+snDockTrainingFilter.min = "Min";
+snDockTrainingFilter.max = "Max";
 snDockTrainingFilter.rmin = 0;
 snDockTrainingFilter.rmax = 2;
 snDockTrainingFilter.network = 0;
@@ -7282,8 +7286,8 @@ snFreeSiegeTargeting.snName = "sn-free-siege-targeting";
 snFreeSiegeTargeting.snNameAoE1 = "";
 snFreeSiegeTargeting.default = 0;
 snFreeSiegeTargeting.category = "Attack";
-snFreeSiegeTargeting.min = -32768;
-snFreeSiegeTargeting.max = 32767;
+snFreeSiegeTargeting.min = "Min";
+snFreeSiegeTargeting.max = "Max";
 snFreeSiegeTargeting.rmin = 0;
 snFreeSiegeTargeting.rmax = 3;
 snFreeSiegeTargeting.network = 0;
@@ -7304,8 +7308,8 @@ snWarshipTargetingMode.snName = "sn-warship-targeting-mode";
 snWarshipTargetingMode.snNameAoE1 = "";
 snWarshipTargetingMode.default = 0;
 snWarshipTargetingMode.category = "Water";
-snWarshipTargetingMode.min = -32768;
-snWarshipTargetingMode.max = 32767;
+snWarshipTargetingMode.min = "Min";
+snWarshipTargetingMode.max = "Max";
 snWarshipTargetingMode.rmin = 0;
 snWarshipTargetingMode.rmax = 2;
 snWarshipTargetingMode.network = 0;
@@ -7326,8 +7330,8 @@ snDisableSightedResponseCap.snName = "sn-disable-sighted-response-cap";
 snDisableSightedResponseCap.snNameAoE1 = "";
 snDisableSightedResponseCap.default = 0;
 snDisableSightedResponseCap.category = "Attack";
-snDisableSightedResponseCap.min = -32768;
-snDisableSightedResponseCap.max = 32767;
+snDisableSightedResponseCap.min = "Min";
+snDisableSightedResponseCap.max = "Max";
 snDisableSightedResponseCap.rmin = 0;
 snDisableSightedResponseCap.rmax = 1;
 snDisableSightedResponseCap.network = 0;
@@ -7348,8 +7352,8 @@ snDisableBuilderAssistance.snName = "sn-disable-builder-assistance";
 snDisableBuilderAssistance.snNameAoE1 = "";
 snDisableBuilderAssistance.default = 0;
 snDisableBuilderAssistance.category = "Buildings";
-snDisableBuilderAssistance.min = -32768;
-snDisableBuilderAssistance.max = 32767;
+snDisableBuilderAssistance.min = "Min";
+snDisableBuilderAssistance.max = "Max";
 snDisableBuilderAssistance.rmin = 0;
 snDisableBuilderAssistance.rmax = 1;
 snDisableBuilderAssistance.network = 1;
@@ -7370,8 +7374,8 @@ snLocalTargetingMode.snName = "sn-local-targeting-mode";
 snLocalTargetingMode.snNameAoE1 = "";
 snLocalTargetingMode.default = 0;
 snLocalTargetingMode.category = "Attack";
-snLocalTargetingMode.min = -32768;
-snLocalTargetingMode.max = 32767;
+snLocalTargetingMode.min = "Min";
+snLocalTargetingMode.max = "Max";
 snLocalTargetingMode.rmin = 0;
 snLocalTargetingMode.rmax = 2;
 snLocalTargetingMode.network = 1;
@@ -7393,8 +7397,8 @@ snLivestockDefendPriority.snName = "sn-livestock-defend-priority";
 snLivestockDefendPriority.snNameAoE1 = "";
 snLivestockDefendPriority.default = 0;
 snLivestockDefendPriority.category = "Defense";
-snLivestockDefendPriority.min = -32768;
-snLivestockDefendPriority.max = 32767;
+snLivestockDefendPriority.min = "Min";
+snLivestockDefendPriority.max = "Max";
 snLivestockDefendPriority.rmin = 0;
 snLivestockDefendPriority.rmax = 1;
 snLivestockDefendPriority.network = 0;
@@ -7416,8 +7420,8 @@ snNumberTaskedUnits.snName = "sn-number-tasked-units";
 snNumberTaskedUnits.snNameAoE1 = "";
 snNumberTaskedUnits.default = 0;
 snNumberTaskedUnits.category = "Other";
-snNumberTaskedUnits.min = -32768;
-snNumberTaskedUnits.max = 32767;
+snNumberTaskedUnits.min = "Min";
+snNumberTaskedUnits.max = "Max";
 snNumberTaskedUnits.rmin = 0;
 snNumberTaskedUnits.rmax = 40;
 snNumberTaskedUnits.network = 0;
@@ -7438,8 +7442,8 @@ snDisableVillagerGarrison.snName = "sn-disable-villager-garrison";
 snDisableVillagerGarrison.snNameAoE1 = "";
 snDisableVillagerGarrison.default = 0;
 snDisableVillagerGarrison.category = "Defense";
-snDisableVillagerGarrison.min = -32768;
-snDisableVillagerGarrison.max = 32767;
+snDisableVillagerGarrison.min = "Min";
+snDisableVillagerGarrison.max = "Max";
 snDisableVillagerGarrison.rmin = 0;
 snDisableVillagerGarrison.rmax = 3;
 snDisableVillagerGarrison.network = 0;
@@ -7460,8 +7464,8 @@ snTargetPointAdjustment.snName = "sn-target-point-adjustment";
 snTargetPointAdjustment.snNameAoE1 = "";
 snTargetPointAdjustment.default = 0;
 snTargetPointAdjustment.category = "Other";
-snTargetPointAdjustment.min = -32768;
-snTargetPointAdjustment.max = 32767;
+snTargetPointAdjustment.min = "Min";
+snTargetPointAdjustment.max = "Max";
 snTargetPointAdjustment.rmin = 0;
 snTargetPointAdjustment.rmax = 6;
 snTargetPointAdjustment.network = 0;
@@ -7483,8 +7487,8 @@ snUnexploredConstruction.snName = "sn-unexplored-construction";
 snUnexploredConstruction.snNameAoE1 = "";
 snUnexploredConstruction.default = 0;
 snUnexploredConstruction.category = "Buildings";
-snUnexploredConstruction.min = -32768;
-snUnexploredConstruction.max = 32767;
+snUnexploredConstruction.min = "Min";
+snUnexploredConstruction.max = "Max";
 snUnexploredConstruction.rmin = 0;
 snUnexploredConstruction.rmax = 1;
 snUnexploredConstruction.network = 1;
@@ -7505,8 +7509,8 @@ snDisableTradeEvasion.snName = "sn-disable-trade-evasion";
 snDisableTradeEvasion.snNameAoE1 = "";
 snDisableTradeEvasion.default = 0;
 snDisableTradeEvasion.category = "Defense";
-snDisableTradeEvasion.min = -32768;
-snDisableTradeEvasion.max = 32767;
+snDisableTradeEvasion.min = "Min";
+snDisableTradeEvasion.max = "Max";
 snDisableTradeEvasion.rmin = 0;
 snDisableTradeEvasion.rmax = 1;
 snDisableTradeEvasion.network = 1;
@@ -7527,8 +7531,8 @@ snBoarLureDestination.snName = "sn-boar-lure-destination";
 snBoarLureDestination.snNameAoE1 = "";
 snBoarLureDestination.default = 0;
 snBoarLureDestination.category = "Economy";
-snBoarLureDestination.min = -32768;
-snBoarLureDestination.max = 32767;
+snBoarLureDestination.min = "Min";
+snBoarLureDestination.max = "Max";
 snBoarLureDestination.rmin = 0;
 snBoarLureDestination.rmax = 23;
 snBoarLureDestination.network = 1;
@@ -7549,8 +7553,8 @@ snWildAnimalExploration.snName = "sn-wild-animal-exploration";
 snWildAnimalExploration.snNameAoE1 = "";
 snWildAnimalExploration.default = 0;
 snWildAnimalExploration.category = "Exploring";
-snWildAnimalExploration.min = -32768;
-snWildAnimalExploration.max = 32767;
+snWildAnimalExploration.min = "Min";
+snWildAnimalExploration.max = "Max";
 snWildAnimalExploration.rmin = 0;
 snWildAnimalExploration.rmax = 1;
 snWildAnimalExploration.network = 0;
@@ -7571,10 +7575,10 @@ snTtkfactorScalar.snName = "sn-ttkfactor-scalar";
 snTtkfactorScalar.snNameAoE1 = "";
 snTtkfactorScalar.default = 100;
 snTtkfactorScalar.category = "Attack";
-snTtkfactorScalar.min = -32768;
-snTtkfactorScalar.max = 32767;
-snTtkfactorScalar.rmin = -32768;
-snTtkfactorScalar.rmax = 32767;
+snTtkfactorScalar.min = "Min";
+snTtkfactorScalar.max = "Max";
+snTtkfactorScalar.rmin = "Min";
+snTtkfactorScalar.rmax = "Max";
 snTtkfactorScalar.network = 0;
 snTtkfactorScalar.defined = 1;
 snTtkfactorScalar.available = 0;
@@ -7593,10 +7597,10 @@ snMaximumPatrolDistance.snName = "sn-maximum-patrol-distance";
 snMaximumPatrolDistance.snNameAoE1 = "";
 snMaximumPatrolDistance.default = 0;
 snMaximumPatrolDistance.category = "Attack";
-snMaximumPatrolDistance.min = -32768;
-snMaximumPatrolDistance.max = 32767;
+snMaximumPatrolDistance.min = "Min";
+snMaximumPatrolDistance.max = "Max";
 snMaximumPatrolDistance.rmin = -1;
-snMaximumPatrolDistance.rmax = 32767;
+snMaximumPatrolDistance.rmax = "Max";
 snMaximumPatrolDistance.network = 0;
 snMaximumPatrolDistance.defined = 1;
 snMaximumPatrolDistance.available = 0;
@@ -7615,8 +7619,8 @@ snVillagerAttackReset.snName = "sn-villager-attack-reset";
 snVillagerAttackReset.snNameAoE1 = "";
 snVillagerAttackReset.default = 1;
 snVillagerAttackReset.category = "Attack";
-snVillagerAttackReset.min = -32768;
-snVillagerAttackReset.max = 32767;
+snVillagerAttackReset.min = "Min";
+snVillagerAttackReset.max = "Max";
 snVillagerAttackReset.rmin = 0;
 snVillagerAttackReset.rmax = 1;
 snVillagerAttackReset.network = 0;
@@ -7637,8 +7641,8 @@ snGateTypeForWall.snName = "sn-gate-type-for-wall";
 snGateTypeForWall.snNameAoE1 = "";
 snGateTypeForWall.default = 0;
 snGateTypeForWall.category = "Defense";
-snGateTypeForWall.min = -32768;
-snGateTypeForWall.max = 32767;
+snGateTypeForWall.min = "Min";
+snGateTypeForWall.max = "Max";
 snGateTypeForWall.rmin = 0;
 snGateTypeForWall.rmax = 1;
 snGateTypeForWall.network = 0;
@@ -7659,10 +7663,10 @@ snProfilingThreshold.snName = "sn-profiling-threshold";
 snProfilingThreshold.snNameAoE1 = "";
 snProfilingThreshold.default = -1;
 snProfilingThreshold.category = "Other";
-snProfilingThreshold.min = -32768;
-snProfilingThreshold.max = 32767;
-snProfilingThreshold.rmin = -32768;
-snProfilingThreshold.rmax = 32767;
+snProfilingThreshold.min = "Min";
+snProfilingThreshold.max = "Max";
+snProfilingThreshold.rmin = "Min";
+snProfilingThreshold.rmax = "Max";
 snProfilingThreshold.network = 0;
 snProfilingThreshold.defined = 1;
 snProfilingThreshold.available = 0;
@@ -7681,8 +7685,8 @@ snEnableResearchQueue.snName = "sn-enable-research-queue";
 snEnableResearchQueue.snNameAoE1 = "";
 snEnableResearchQueue.default = 0;
 snEnableResearchQueue.category = "Economy";
-snEnableResearchQueue.min = -32768;
-snEnableResearchQueue.max = 32767;
+snEnableResearchQueue.min = "Min";
+snEnableResearchQueue.max = "Max";
 snEnableResearchQueue.rmin = 0;
 snEnableResearchQueue.rmax = 1;
 snEnableResearchQueue.network = 0;
@@ -7703,8 +7707,8 @@ snAllowSerjeantBuilding.snName = "sn-allow-serjeant-building";
 snAllowSerjeantBuilding.snNameAoE1 = "";
 snAllowSerjeantBuilding.default = 0;
 snAllowSerjeantBuilding.category = "Buildings";
-snAllowSerjeantBuilding.min = -32768;
-snAllowSerjeantBuilding.max = 32767;
+snAllowSerjeantBuilding.min = "Min";
+snAllowSerjeantBuilding.max = "Max";
 snAllowSerjeantBuilding.rmin = 0;
 snAllowSerjeantBuilding.rmax = 1;
 snAllowSerjeantBuilding.network = 0;
@@ -7725,8 +7729,8 @@ snAllowGatheringSeaFishWithVillagers.snName = "sn-allow-gathering-sea-fish-with-
 snAllowGatheringSeaFishWithVillagers.snNameAoE1 = "";
 snAllowGatheringSeaFishWithVillagers.default = 0;
 snAllowGatheringSeaFishWithVillagers.category = "Economy";
-snAllowGatheringSeaFishWithVillagers.min = -32768;
-snAllowGatheringSeaFishWithVillagers.max = 32767;
+snAllowGatheringSeaFishWithVillagers.min = "Min";
+snAllowGatheringSeaFishWithVillagers.max = "Max";
 snAllowGatheringSeaFishWithVillagers.rmin = 0;
 snAllowGatheringSeaFishWithVillagers.rmax = 1;
 snAllowGatheringSeaFishWithVillagers.network = 0;
@@ -7747,10 +7751,10 @@ snAllowCapturingGaiaUnits.snName = "sn-allow-capturing-gaia-units";
 snAllowCapturingGaiaUnits.snNameAoE1 = "";
 snAllowCapturingGaiaUnits.default = 0;
 snAllowCapturingGaiaUnits.category = "Other";
-snAllowCapturingGaiaUnits.min = -32768;
-snAllowCapturingGaiaUnits.max = 32767;
+snAllowCapturingGaiaUnits.min = "Min";
+snAllowCapturingGaiaUnits.max = "Max";
 snAllowCapturingGaiaUnits.rmin = 0;
-snAllowCapturingGaiaUnits.rmax = 32767;
+snAllowCapturingGaiaUnits.rmax = "Max";
 snAllowCapturingGaiaUnits.network = 0;
 snAllowCapturingGaiaUnits.defined = 1;
 snAllowCapturingGaiaUnits.available = 0;
@@ -7769,10 +7773,10 @@ snMuleCartDropsitePlacement.snName = "sn-mule-cart-dropsite-placement";
 snMuleCartDropsitePlacement.snNameAoE1 = "";
 snMuleCartDropsitePlacement.default = 0;
 snMuleCartDropsitePlacement.category = "Economy";
-snMuleCartDropsitePlacement.min = -32768;
-snMuleCartDropsitePlacement.max = 32767;
+snMuleCartDropsitePlacement.min = "Min";
+snMuleCartDropsitePlacement.max = "Max";
 snMuleCartDropsitePlacement.rmin = 0;
-snMuleCartDropsitePlacement.rmax = 32767;
+snMuleCartDropsitePlacement.rmax = "Max";
 snMuleCartDropsitePlacement.network = 0;
 snMuleCartDropsitePlacement.defined = 1;
 snMuleCartDropsitePlacement.available = 0;
@@ -7792,8 +7796,8 @@ snPreferredStoragePitPlacement.snName = "sn-preferred-storage-pit-placement";
 snPreferredStoragePitPlacement.snNameAoE1 = "";
 snPreferredStoragePitPlacement.default = -1;
 snPreferredStoragePitPlacement.category = "Economy";
-snPreferredStoragePitPlacement.min = -32768;
-snPreferredStoragePitPlacement.max = 32767;
+snPreferredStoragePitPlacement.min = "Min";
+snPreferredStoragePitPlacement.max = "Max";
 snPreferredStoragePitPlacement.rmin = -1;
 snPreferredStoragePitPlacement.rmax = 5;
 snPreferredStoragePitPlacement.network = 0;
@@ -7806,7 +7810,7 @@ snPreferredStoragePitPlacement.aoc = 0;
 snPreferredStoragePitPlacement.up = 0;
 snPreferredStoragePitPlacement.de = 1;
 snPreferredStoragePitPlacement.linked = [];
-snPreferredStoragePitPlacement.related = [];
+snPreferredStoragePitPlacement.related = [ 314 ];
 snPreferredStoragePitPlacement.shortDescription = "Controls the preferred resource the AI will place its storage pits nearby. Return of Rome DLC only.";
 snPreferredStoragePitPlacement.description = "Controls the preferred resource the AI will place its storage pits nearby. Return of Rome DLC only.</p><p>Currently this SN seems bugged, but the following values are what is supposed to work. Setting the SN to -1 seems to currently work for placing storage pits near wood.</p><pre><code><table class=\"example\"><tr><td>(defconst storage-pit-default -1)</td></tr><tr><td>(defconst storage-pit-forage 0)</td></tr><tr><td>(defconst storage-pit-hunting 1)</td></tr><tr><td>(defconst storage-pit-fishing 2)</td></tr><tr><td>(defconst storage-pit-wood 3)</td></tr><tr><td>(defconst storage-pit-gold 4)</td></tr><tr><td>(defconst storage-pit-stone 5)</td></tr></table></code></pre></div>"
 
@@ -7815,8 +7819,8 @@ snKeystates.snName = "sn-keystates";
 snKeystates.snNameAoE1 = "";
 snKeystates.default = 0;
 snKeystates.category = "Other";
-snKeystates.min = -32768;
-snKeystates.max = 32767;
+snKeystates.min = "Min";
+snKeystates.max = "Max";
 snKeystates.rmin = 0;
 snKeystates.rmax = 3;
 snKeystates.network = 0;
@@ -7832,6 +7836,144 @@ snKeystates.linked = [];
 snKeystates.related = [];
 snKeystates.shortDescription = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both.";
 snKeystates.description = "This allows the AI to input ctrl and shift inputs when issuing commands. Setting to 1 corresponds to shift, setting to 2 corresponds to ctrl and setting to 3 corresponds to both. sn-keystates affects the behavior of " + cUpTargetObjects.getLink() + " and " + cUpTargetPoint.getLink() + ", and it affects them at the moment those commands are used, so set this strategic number before using them. sn-keystates can safely be set back to another value immediately after those commands are used.</p><p>Using the Shift option allows AI scripters to set movement waypoints or queue commands for units, like using Shift in a normal game. Using the Ctrl option allows AI scripters to force units to target an object more directly than normal, making the units less likely to retarget to another object."
+
+snRemoveUnitsFromControlGroups.id = 313;
+snRemoveUnitsFromControlGroups.snName = "sn-remove-units-from-control-groups";
+snRemoveUnitsFromControlGroups.snNameAoE1 = "";
+snRemoveUnitsFromControlGroups.default = -1;
+snRemoveUnitsFromControlGroups.category = "Economy";
+snRemoveUnitsFromControlGroups.min = "Min";
+snRemoveUnitsFromControlGroups.max = "Max";
+snRemoveUnitsFromControlGroups.rmin = "Min";
+snRemoveUnitsFromControlGroups.rmax = "Max";
+snRemoveUnitsFromControlGroups.network = 0;
+snRemoveUnitsFromControlGroups.defined = 1;
+snRemoveUnitsFromControlGroups.available = 0;
+snRemoveUnitsFromControlGroups.effective = 0;
+snRemoveUnitsFromControlGroups.version = "DE";
+snRemoveUnitsFromControlGroups.aoe = 0;
+snRemoveUnitsFromControlGroups.aoc = 0;
+snRemoveUnitsFromControlGroups.up = 0;
+snRemoveUnitsFromControlGroups.de = 1;
+snRemoveUnitsFromControlGroups.linked = [];
+snRemoveUnitsFromControlGroups.related = [];
+snRemoveUnitsFromControlGroups.shortDescription = "Unknown. This SN is undocumented.";
+snRemoveUnitsFromControlGroups.description = "Unknown. This SN is undocumented. It doesn't appear to affect manually created control groups with Ctrl+#, and it doesn't appear to change groups created with " + cUpCreateGroup.getLink() + " or " + cUpModifyGroupFlag.getLink() + ".";
+
+snPreferredSettlementPlacement.id = 314;
+snPreferredSettlementPlacement.snName = "sn-preferred-settlement-placement";
+snPreferredSettlementPlacement.snNameAoE1 = "";
+snPreferredSettlementPlacement.default = -1;
+snPreferredSettlementPlacement.category = "Attack";
+snPreferredSettlementPlacement.min = "Min";
+snPreferredSettlementPlacement.max = "Max";
+snPreferredSettlementPlacement.rmin = -1;
+snPreferredSettlementPlacement.rmax = 6;
+snPreferredSettlementPlacement.network = 0;
+snPreferredSettlementPlacement.defined = 1;
+snPreferredSettlementPlacement.available = 0;
+snPreferredSettlementPlacement.effective = 1;
+snPreferredSettlementPlacement.version = "DE";
+snPreferredSettlementPlacement.aoe = 0;
+snPreferredSettlementPlacement.aoc = 0;
+snPreferredSettlementPlacement.up = 0;
+snPreferredSettlementPlacement.de = 1;
+snPreferredSettlementPlacement.linked = [];
+snPreferredSettlementPlacement.related = [ 311 ];
+snPreferredSettlementPlacement.shortDescription = "Controls the resource that settlements are placed nearby.";
+snPreferredSettlementPlacement.description = "Controls the resource that settlements are placed nearby. Here are the effective values:</p><ul><li>-1: seems to prioritize wood</li><li>0: unknown</li><li>1: deer and prey huntable animals</li><li>2: Shore Fish</li><li>3: Wood</li><li>4: Gold</li><li>5: Stone</li><li>6: Forage</li></ul>";
+
+snEnableFullVision.id = 315;
+snEnableFullVision.snName = "sn-enable-full-vision";
+snEnableFullVision.snNameAoE1 = "";
+snEnableFullVision.default = -1;
+snEnableFullVision.category = "Exploring";
+snEnableFullVision.min = "Min";
+snEnableFullVision.max = "Max";
+snEnableFullVision.rmin = "Min";
+snEnableFullVision.rmax = "Max";
+snEnableFullVision.network = 0;
+snEnableFullVision.defined = 1;
+snEnableFullVision.available = 0;
+snEnableFullVision.effective = 0;
+snEnableFullVision.version = "DE";
+snEnableFullVision.aoe = 0;
+snEnableFullVision.aoc = 0;
+snEnableFullVision.up = 0;
+snEnableFullVision.de = 1;
+snEnableFullVision.linked = [];
+snEnableFullVision.related = [];
+snEnableFullVision.shortDescription = "Unknown. This SN is undocumented.";
+snEnableFullVision.description = "Unknown. This SN is undocumented. It doesn't appear to affect player count commands, DUC searches, or point commands.";
+
+snFishingBoatWhalingPercentage.id = 316;
+snFishingBoatWhalingPercentage.snName = "sn-fishing-boat-whaling-percentage";
+snFishingBoatWhalingPercentage.snNameAoE1 = "";
+snFishingBoatWhalingPercentage.default = -1;
+snFishingBoatWhalingPercentage.category = "Water";
+snFishingBoatWhalingPercentage.min = 0;
+snFishingBoatWhalingPercentage.max = 100;
+snFishingBoatWhalingPercentage.rmin = 0;
+snFishingBoatWhalingPercentage.rmax = 100;
+snFishingBoatWhalingPercentage.network = 0;
+snFishingBoatWhalingPercentage.defined = 1;
+snFishingBoatWhalingPercentage.available = 0;
+snFishingBoatWhalingPercentage.effective = 1;
+snFishingBoatWhalingPercentage.version = "DE";
+snFishingBoatWhalingPercentage.aoe = 0;
+snFishingBoatWhalingPercentage.aoc = 0;
+snFishingBoatWhalingPercentage.up = 0;
+snFishingBoatWhalingPercentage.de = 1;
+snFishingBoatWhalingPercentage.linked = [ 317 ];
+snFishingBoatWhalingPercentage.related = [];
+snFishingBoatWhalingPercentage.shortDescription = "The percentage of fishing ships which will gather from whales.";
+snFishingBoatWhalingPercentage.description = "The percentage of fishing ships which will gather from whales. All other ships will gather from food fish.";
+
+snWhalingMaxDistance.id = 317;
+snWhalingMaxDistance.snName = "sn-whaling-max-distance";
+snWhalingMaxDistance.snNameAoE1 = "";
+snWhalingMaxDistance.default = -1;
+snWhalingMaxDistance.category = "Water";
+snWhalingMaxDistance.min = "Min";
+snWhalingMaxDistance.max = "Max";
+snWhalingMaxDistance.rmin = -2;
+snWhalingMaxDistance.rmax = 255;
+snWhalingMaxDistance.network = 0;
+snWhalingMaxDistance.defined = 1;
+snWhalingMaxDistance.available = 0;
+snWhalingMaxDistance.effective = 1;
+snWhalingMaxDistance.version = "DE";
+snWhalingMaxDistance.aoe = 0;
+snWhalingMaxDistance.aoc = 0;
+snWhalingMaxDistance.up = 0;
+snWhalingMaxDistance.de = 1;
+snWhalingMaxDistance.linked = [ 316 ];
+snWhalingMaxDistance.related = [ 233, 234, 235, 236, 237, 238 ];
+snWhalingMaxDistance.shortDescription = "Controls how far from a dropsite a whale can be before the CP ignores it.";
+snWhalingMaxDistance.description = "Controls how far from a dropsite a whale can be before the CP ignores it. -1 indicates a &quot;don't care&quot; -- i.e. it can be any distance (as it used to be). -2 disables all whale gathering.</p><p>The default of this SN is -1, meaning the SN is ignored by default. This can allow whaling ships to go all the across the map to gather from whales, which might not be what you want early in the game. You'll probably want to set it back to -1 later on in the game, perhaps in the Imperial Age or after an hour of game time.";
+
+snGatherIdleSoldiersAtSpawnPoint.id = 318;
+snGatherIdleSoldiersAtSpawnPoint.snName = "sn-gather-idle-soldiers-at-spawn-point";
+snGatherIdleSoldiersAtSpawnPoint.snNameAoE1 = "";
+snGatherIdleSoldiersAtSpawnPoint.default = -1;
+snGatherIdleSoldiersAtSpawnPoint.category = "Defense";
+snGatherIdleSoldiersAtSpawnPoint.min = "Min";
+snGatherIdleSoldiersAtSpawnPoint.max = "Max";
+snGatherIdleSoldiersAtSpawnPoint.rmin = 0;
+snGatherIdleSoldiersAtSpawnPoint.rmax = 1;
+snGatherIdleSoldiersAtSpawnPoint.network = 0;
+snGatherIdleSoldiersAtSpawnPoint.defined = 1;
+snGatherIdleSoldiersAtSpawnPoint.available = 0;
+snGatherIdleSoldiersAtSpawnPoint.effective = 1;
+snGatherIdleSoldiersAtSpawnPoint.version = "DE";
+snGatherIdleSoldiersAtSpawnPoint.aoe = 0;
+snGatherIdleSoldiersAtSpawnPoint.aoc = 0;
+snGatherIdleSoldiersAtSpawnPoint.up = 0;
+snGatherIdleSoldiersAtSpawnPoint.de = 1;
+snGatherIdleSoldiersAtSpawnPoint.linked = [];
+snGatherIdleSoldiersAtSpawnPoint.related = [ 232, 239 ];
+snGatherIdleSoldiersAtSpawnPoint.shortDescription = "Controls whether idle military units will walk back to the building they were trained out of.";
+snGatherIdleSoldiersAtSpawnPoint.description = "Controls whether military units will walk back to the building they were trained out of after they are idle for a certain period of time. Mainly intended for campaign designers.";
 
 //Unit Lines Array
 unitLinesArray = [ {
@@ -9247,6 +9389,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Amazon Tunnel map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "AQUARENA-MAP",
+	description: "Aquarena map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "ARABIA-MAP",
 	description: "Arabia map.",
 	type: "AoE2 Maps"
@@ -9279,12 +9425,20 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Bogland map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "BORDER-DISPUTE-MAP",
+	description: "Border Dispute map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "BUDAPEST-MAP",
 	description: "Budapest map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "CENOTES-MAP",
 	description: "Cenotes map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "CHAOS-PIT-MAP",
+	description: "Chaos Pit map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "CITYOFLAKES-MAP",
@@ -9319,8 +9473,16 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Crossroads map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "CROWNWOOD-MAP",
+	description: "Crownwood map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "DUNESPRINGS-MAP",
 	description: "Dunesprings map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "DOROTHEA-QUARRY-MAP",
+	description: "Dorothea Quarry map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "ENCLOSED-MAP",
@@ -9351,6 +9513,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Ghost Lake map.",
 	type: "AoE2 Maps"
 }, {
+	name: "GLACIS-MAP",
+	description: "Glacis map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "GLADE-MAP",
 	description: "Glade map. Defined only in DE.",
 	type: "AoE2 Maps"
@@ -9371,6 +9537,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Golden Swamp map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "GRAUPEL-MAP",
+	description: "Graupel map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "GREENLAND-MAP",
 	description: "Greenland map. Defined only in DE.",
 	type: "AoE2 Maps"
@@ -9381,6 +9551,10 @@ aoe2MapsLoadIfsArray = [ {
 }, {
 	name: "HAMBURGER-MAP",
 	description: "Hamburger map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "HENGEHOLD-MAP",
+	description: "Hengehold map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "HIDEOUT-MAP",
@@ -9427,6 +9601,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Land Nomad map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "LOCH-NESS-MAP",
+	description: "Loch Ness map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "LOMBARDIA-MAP",
 	description: "Lombardia map. Defined only in DE.",
 	type: "AoE2 Maps"
@@ -9463,6 +9641,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Migration map.",
 	type: "AoE2 Maps"
 }, {
+	name: "MIRED-MAP",
+	description: "Mired map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "MONGOLIA-MAP",
 	description: "Mongolia map.",
 	type: "AoE2 Maps"
@@ -9487,6 +9669,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Mountain Ridge map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "MURKWOOD-MAP",
+	description: "Murkwood map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "NILE-DELTA-MAP",
 	description: "Nile Delta map. Defined only in DE.",
 	type: "AoE2 Maps"
@@ -9509,6 +9695,10 @@ aoe2MapsLoadIfsArray = [ {
 }, {
 	name: "PASSAGE-MAP",
 	description: "Passage map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "RAMPART-MAP",
+	description: "Rampart map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "RAVINES-MAP",
@@ -9547,6 +9737,10 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Sandrift map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "SARDIS-MAP",
+	description: "Sardis map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "SCANDANAVIA-MAP",
 	description: "Scandinavia map. Notice the spelling!",
 	type: "AoE2 Maps"
@@ -9575,6 +9769,14 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Steppe map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "STONEFRONT-MAP",
+	description: "Stonefront map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "STRANDED-MAP",
+	description: "Stranded map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "TEAM-ISLANDS-MAP",
 	description: "Team Islands map.",
 	type: "AoE2 Maps"
@@ -9583,12 +9785,20 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Team Moats map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
+	name: "THAMES-MAP",
+	description: "Thames map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
 	name: "VALLEY-MAP",
 	description: "Valley map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "VOLCANIC-ISLAND-MAP",
 	description: "Volcanic Island map. Defined only in DE.",
+	type: "AoE2 Maps"
+}, {
+	name: "VULPINE-MAP",
+	description: "Vulpine map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
 	name: "WADE-MAP",
@@ -9868,6 +10078,10 @@ aoe2MapsLoadIfsArray = [ {
 }, {
 	name: "FAR-OUT-SPECIAL-MAP",
 	description: "Far Out special map.",
+	type: "AoE2 Maps"
+}, {
+	name: "FOREST-BREACH-SPECIAL-MAP",
+	description: "Forest Breach special map.",
 	type: "AoE2 Maps"
 }, {
 	name: "FRONT-LINE-SPECIAL-MAP",
@@ -23534,49 +23748,105 @@ pMapType.valueList = [ {
 	id: 33,
 	description: "Nomad map."
 }, {
-	name: "real-world-spain",
+	name: "canals",
 	id: 34,
-	description: "Iberia real world map."
+	description: "Canals map. Must be defined with a defconst."
+}, {
+	name: "capricious",
+	id: 35,
+	description: "Capricious map. Must be defined with a defconst."
+}, {
+	name: "dingos",
+	id: 36,
+	description: "Dingos map. Must be defined with a defconst."
+}, {
+	name: "graveyards",
+	id: 37,
+	description: "Graveyards map. Must be defined with a defconst."
+}, {
+	name: "metropolis",
+	id: 38,
+	description: "Metropolis map. Must be defined with a defconst."
+}, {
+	name: "moats",
+	id: 39,
+	description: "Moats map. Must be defined with a defconst."
+}, {
+	name: "paradise-island",
+	id: 40,
+	description: "Paradise Island map. Must be defined with a defconst."
+}, {
+	name: "pilgrims",
+	id: 41,
+	description: "Pilgrims map. Must be defined with a defconst."
+}, {
+	name: "prairie",
+	id: 42,
+	description: "Prairie map. Must be defined with a defconst."
+}, {
+	name: "seasons",
+	id: 43,
+	description: "Seasons map. Must be defined with a defconst."
+}, {
+	name: "sherwood-forest",
+	id: 44,
+	description: "Sherwood Forest map. Must be defined with a defconst."
+}, {
+	name: "shipwreck",
+	id: 46,
+	description: "Shipwreck map. Must be defined with a defconst."
+}, {
+	name: "team-glaciers",
+	id: 47,
+	description: "Team Glaciers map. Must be defined with a defconst."
+}, {
+	name: "real-world-spain",
+	id: 49,
+	description: "Australia map. Must be defined with a defconst."
+}, {
+	name: "real-world-spain",
+	id: 49,
+	description: "Iberia real world map. Defined as 34 before DE."
 }, {
 	name: "real-world-england",
-	id: 35,
-	description: "Britain real world map."
+	id: 50,
+	description: "Britain real world map. Defined as 35 before DE."
 }, {
 	name: "real-world-midEast",
-	id: 36,
-	description: "Mideast real world map. Notice the uppercase 'E'."
+	id: 51,
+	description: "Mideast real world map. Notice the uppercase 'E'. Defined as 36 before DE."
 }, {
 	name: "real-world-texas",
-	id: 37,
-	description: "Texas real world map."
+	id: 52,
+	description: "Texas real world map. Defined as 37 before DE."
 }, {
 	name: "real-world-italy",
-	id: 38,
-	description: "Italy real world map."
+	id: 53,
+	description: "Italy real world map. Defined as 38 before DE."
 }, {
 	name: "real-world-caribbean",
-	id: 39,
-	description: "Central America real world map."
+	id: 54,
+	description: "Central America real world map. Defined as 39 before DE."
 }, {
 	name: "real-world-france",
-	id: 40,
-	description: "France real world map."
+	id: 55,
+	description: "France real world map. Defined as 40 before DE."
 }, {
 	name: "real-world-jutland",
-	id: 41,
-	description: "Norse Lands real world map."
+	id: 56,
+	description: "Norse Lands real world map. Defined as 41 before DE."
 }, {
 	name: "real-world-nippon",
-	id: 42,
-	description: "Sea of Japan (East Sea) real world map."
+	id: 57,
+	description: "Sea of Japan (East Sea) real world map. Defined as 42 before DE."
 }, {
 	name: "real-world-byzantium",
-	id: 43,
-	description: "Byzantium real world map."
+	id: 58,
+	description: "Byzantium real world map. Defined as 43 before DE."
 }, {
 	name: "custom_map",
-	id: 44,
-	description: "A custom random map. Notice the underscore."
+	id: 59,
+	description: "A custom random map. Notice the underscore. Defined as 44 before DE."
 }, {
 	name: "acropolis",
 	id: 67,
@@ -23670,6 +23940,10 @@ pMapType.valueList = [ {
 	id: 89,
 	description: "China real world map."
 }, {
+	name: "real-world-horn-of-africa",
+	id: 90,
+	description: "Horn of Africa real world map."
+}, {
 	name: "real-world-india",
 	id: 91,
 	description: "India real world map."
@@ -23734,6 +24008,26 @@ pMapType.valueList = [ {
 	id: 106,
 	description: "The Eye special map."
 }, {
+	name: "real-world-australia",
+	id: 107,
+	description: "Australia real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-indochina",
+	id: 108,
+	description: "Indochina real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-indonesia",
+	id: 109,
+	description: "Indonesia real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-malacca",
+	id: 110,
+	description: "Malacca real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-philippines",
+	id: 111,
+	description: "Philippines real world map. Must be defined with a defconst."
+}, {
 	name: "bog-islands",
 	id: 112,
 	description: "Bog Islands map."
@@ -23773,6 +24067,66 @@ pMapType.valueList = [ {
 	name: "special-map-jungle-lanes",
 	id: 121,
 	description: "Jungle Lanes special map."
+}, {
+	name: "alpine-lakes",
+	id: 122,
+	description: "Alpine Lakes map. Must be defined with a defconst."
+}, {
+	name: "bogland",
+	id: 123,
+	description: "Bogland map. Must be defined with a defconst."
+}, {
+	name: "mountain-ridge",
+	id: 124,
+	description: "Mountain Ridge map. Must be defined with a defconst."
+}, {
+	name: "ravines",
+	id: 125,
+	description: "Ravines map. Must be defined with a defconst."
+}, {
+	name: "wolf-hill",
+	id: 126,
+	description: "Wolf Hill map. Must be defined with a defconst."
+}, {
+	name: "special-map-swirling-river",
+	id: 127,
+	description: "Swirling River special map. Must be defined with a defconst."
+}, {
+	name: "special-map-twin-forests",
+	id: 128,
+	description: "Twin Forests special map. Must be defined with a defconst."
+}, {
+	name: "special-map-journey-south",
+	id: 129,
+	description: "Journey South special map. Must be defined with a defconst."
+}, {
+	name: "special-map-snake-forest",
+	id: 130,
+	description: " special map. Must be defined with a defconst."
+}, {
+	name: "special-map-sprawling-streams",
+	id: 131,
+	description: "Sprawling Streams special map. Must be defined with a defconst."
+}, {
+	name: "real-world-antarctica",
+	id: 132,
+	description: "Antarctica real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-aral-sea",
+	id: 133,
+	description: "Aral Sea real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-black-sea",
+	id: 134,
+	description: "Black Sea real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-caucasus",
+	id: 135,
+	description: "Caucasus real world map. Must be defined with a defconst."
+}, {
+	name: "real-world-siberia",
+	id: 136,
+	description: "Siberia real world map. Must be defined with a defconst."
 }, {
 	name: "golden-swamp",
 	id: 139,
@@ -23997,6 +24351,82 @@ pMapType.valueList = [ {
 	name: "qp-black-forest",
 	id: 196,
 	description: "Quick Play Black Forest map."
+}, {
+	name: "real-world-manchuria",
+	id: 197,
+	description: "Manchuria real world map. Must be defined with a defconst."
+}, {
+	name: "border-dispute",
+	id: 198,
+	description: "Border Dispute map."
+}, {
+	name: "graupel",
+	id: 199,
+	description: "Graupel map."
+}, {
+	name: "stranded",
+	id: 200,
+	description: "Stranded map."
+}, {
+	name: "sardis",
+	id: 201,
+	description: "Sardis map."
+}, {
+	name: "Aquarena",
+	id: 202,
+	description: "Aquarena map. Notice the capitalized A."
+}, {
+	name: "special-map-forest-breach",
+	id: 203,
+	description: "Forest Breach special map."
+}, {
+	name: "chaos-pit",
+	id: 204,
+	description: "Chaos Pit map. Must be defined with a defconst."
+}, {
+	name: "Mired",
+	id: 205,
+	description: "Mired map. Notice the capitalized M."
+}, {
+	name: "Murkwood",
+	id: 206,
+	description: "Murkwood map. Notice the capitalized M."
+}, {
+	name: "crownwood",
+	id: 207,
+	description: "Crownwood map."
+}, {
+	name: "dorothea-quarry",
+	id: 208,
+	description: "Dorothea Quarry map. Must be defined with a defconst."
+}, {
+	name: "glacis",
+	id: 209,
+	description: "Glacis map."
+}, {
+	name: "hengehold",
+	id: 210,
+	description: "Hengehold map."
+}, {
+	name: "loch-ness",
+	id: 211,
+	description: "Loch Ness map. Must be defined with a defconst."
+}, {
+	name: "rampart",
+	id: 212,
+	description: "Rampart map."
+}, {
+	name: "stonefront",
+	id: 213,
+	description: "Stonefront map."
+}, {
+	name: "thames",
+	id: 214,
+	description: "Thames map."
+}, {
+	name: "vulpine",
+	id: 215,
+	description: "Vulpine map."
 } ];
 
 //MaxDistance
@@ -27661,6 +28091,19 @@ rangeTechsArray = [ {
 	civ: "",
 	notes: "DE only, same tech ID is used for unique unit upgrade for Indians civ in HD/WK"
 }, {	
+	name: "Elite Bolas Rider",
+	aiName: "",
+	weirdName: 0,
+	id: 1378,
+	building: "Archery Range",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Mapuche",
+	notes: ""
+}, {	
 	name: "Thumb Ring",
 	aiName: "ri-thumb-ring",
 	weirdName: 0,
@@ -27889,6 +28332,45 @@ barracksTechsArray = [ {
 	civ: "",
 	notes: ""
 }, {	
+	name: "Champi Runner",
+	aiName: "",
+	weirdName: 0,
+	id: 1402,
+	building: "Barracks",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Champi Warrior",
+	aiName: "",
+	weirdName: 0,
+	id: 1351,
+	building: "Barracks",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
+	name: "Elite Champi Warrior",
+	aiName: "",
+	weirdName: 0,
+	id: 1352,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: ""
+}, {	
 	name: "Elite Fire Lancer",
 	aiName: "",
 	weirdName: 0,
@@ -27901,6 +28383,45 @@ barracksTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+}, {	
+	name: "Elite Ibirapema Warrior",
+	aiName: "",
+	weirdName: 0,
+	id: 1391,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tupi",
+	notes: ""
+}, {	
+	name: "Elite Temple Guard",
+	aiName: "",
+	weirdName: 0,
+	id: 1401,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Muisca",
+	notes: ""
+}, {	
+	name: "Elite War Dog",
+	aiName: "",
+	weirdName: 0,
+	id: 1387,
+	building: "Barracks",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "Must be enabled by scenarios to be researched"
 }, {	
 	name: "Supplies",
 	aiName: "ri-supplies",
@@ -29830,6 +30351,45 @@ castleTechsArray = [ {
 	civ: "Malians",
 	notes: "can use my-unique-research"
 }, {	
+	name: "Elite Kona",
+	aiName: "",
+	weirdName: 0,
+	id: 1376,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Mapuche",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Malon",
+	aiName: "",
+	weirdName: 0,
+	id: 1379,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Mapuche",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Butalmapu",
+	aiName: "",
+	weirdName: 0,
+	id: 1380,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Mapuche",
+	notes: "can use my-unique-research"
+}, {	
 	name: "Elite Plumed Archer",
 	aiName: "ri-elite-plumed-archer",
 	weirdName: 0,
@@ -29919,6 +30479,45 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Mongols",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Guecha Warrior",
+	aiName: "",
+	weirdName: 0,
+	id: 1364,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Muisca",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Herbalism",
+	aiName: "",
+	weirdName: 0,
+	id: 1365,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Muisca",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Huaracas",
+	aiName: "",
+	weirdName: 0,
+	id: 1366,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Muisca",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite War Elephant",
@@ -30034,9 +30633,22 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
+	de: 0,
+	civ: "Portuguese",
+	notes: "Removed in DE"
+}, {	
+	name: "Circumnavigation",
+	aiName: "",
+	weirdName: 0,
+	id: 1404,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "Portuguese",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: "can use my-second-unique-research"
 }, {	
 	name: "Arquebus",
 	aiName: "ri-arquebus",
@@ -30400,6 +31012,45 @@ castleTechsArray = [ {
 	wk: 1,
 	de: 1,
 	civ: "Teutons",
+	notes: "can use my-unique-research"
+}, {	
+	name: "Elite Blackwood Archer",
+	aiName: "",
+	weirdName: 0,
+	id: 1389,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tupi",
+	notes: "can use my-unique-unit-upgrade"
+}, {	
+	name: "Caciques",
+	aiName: "",
+	weirdName: 0,
+	id: 1392,
+	building: "Castle",
+	age: 3,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tupi",
+	notes: "can use my-second-unique-research (DE only)"
+}, {	
+	name: "Curare",
+	aiName: "",
+	weirdName: 0,
+	id: 1393,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "Tupi",
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Janissary",
@@ -31108,6 +31759,71 @@ dockTechsArray = [ {
 	de: 1,
 	civ: "",
 	notes: ""
+}, {	
+	name: "0% wood, 100% gold",
+	aiName: "",
+	weirdName: 0,
+	id: 1359,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "Researched by trade cogs, changes wood/gold ratio that Trade Cogs drop off at the Dock"
+}, {	
+	name: "25% wood, 75% gold",
+	aiName: "",
+	weirdName: 0,
+	id: 1263,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: "No longer available"
+}, {	
+	name: "50% wood, 50% gold",
+	aiName: "",
+	weirdName: 0,
+	id: 1264,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "Researched by trade cogs, changes wood/gold ratio that Trade Cogs drop off at the Dock"
+}, {	
+	name: "75% wood, 25% gold",
+	aiName: "",
+	weirdName: 0,
+	id: 1265,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 0,
+	civ: "",
+	notes: "No longer available"
+}, {	
+	name: "100% wood, 0% gold",
+	aiName: "",
+	weirdName: 0,
+	id: 1373,
+	building: "Dock",
+	age: 2,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	civ: "",
+	notes: "Researched by trade cogs, changes wood/gold ratio that Trade Cogs drop off at the Dock"
 } ];				
 	
 outpostTechsArrayChr = [ {	
@@ -31149,7 +31865,7 @@ portTechsArrayChr = [ {
 	civ: "",
 	notes: ""
 }, {	
-	name: "25% wood",
+	name: "0% wood, 100% gold",
 	aiName: "",
 	weirdName: 2,
 	id: 1255,
@@ -31158,7 +31874,16 @@ portTechsArrayChr = [ {
 	civ: "",
 	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
 }, {	
-	name: "50% wood",
+	name: "25% wood, 75% wood",
+	aiName: "",
+	weirdName: 2,
+	id: 1255,
+	building: "Port",
+	age: 2,
+	civ: "",
+	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
+}, {	
+	name: "50% wood, 50% gold",
 	aiName: "",
 	weirdName: 2,
 	id: 1256,
@@ -31167,7 +31892,7 @@ portTechsArrayChr = [ {
 	civ: "",
 	notes: "Changes wood/gold ratio that Merchant Ships drop off at the Port"
 }, {	
-	name: "75% wood",
+	name: "75% wood, 25% gold",
 	aiName: "",
 	weirdName: 2,
 	id: 1257,
