@@ -27528,6 +27528,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "up-object-type-count-total double counts pending villagers",
+	date: "Mar 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1478563579639890004\">Link</a>",
+	description: "up-object-type-count-total double counts pending villagers. With a 3 villager start and one villager pending at the start, (up-object-type-count-total c: villager == 5) is true, and with 2 villagers pending (up-object-type-count-total c: villager == 7) is true."
+}, {
 	name: "rocket-cart-line is defined incorrectly",
 	date: "Feb 23, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1475357646243495946\">Link1</a>, <a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link2</a>",
