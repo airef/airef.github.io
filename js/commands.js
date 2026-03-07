@@ -27778,7 +27778,7 @@ bugsArray = [ {
     name: "(can-build town-center) doesn't check if the AI has enough stone",
     date: "Sep 9, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150040321963601930\">Link</a>",
-    description: "Seems like can-build town-center returns true even if there is not enough stone for a town-center."
+    description: "Seems like can-build town-center returns true even if there is not enough stone for a town-center, while UP does check for stone. Only can-build town-center-foundation currently checks if there is enough stone."
 }, {
 //     name: "Villager combat SNs don't have the same effect in DE as they do in UP. They aren't as aggressive.",
 //     date: "Jun 30, 2023",
@@ -27790,26 +27790,26 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121464519437328445\">Link</a>",
     description: "Another major DE bug: on land nomad, can-build returns false for all buildings except town-center until the tc is built. Immortal needs to check if other buildings can be built. Immortal uses other buildings as pathing checks. Also Immortal likes to place houses before the tc is built"
 }, {
-    name: "Issues with boar hunting",
-    date: "Jun 21, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121046712505610342\">Link</a>",
-    description: "Villagers somtimes keep retasking to live boars during an active duc boar lure. All sn's should be set to 'turned off' values regarding boar luring and while I can't completely rule out that the new patch has unlocked a DUC bug it would be weird that this bug has not occured on UP and seems to also occour in other ai's like immortal. Then there is a very weird bug where the boar villager keeps attacking the boar unless given a new command like a stop command. I have been unable to figure out what in the new patch is responsable for this bug but my best gues would be that it is related to the unintended retasking of villagers to boars like in the prior issue."
-}, {
+//     name: "Issues with boar hunting",
+//     date: "Jun 21, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121046712505610342\">Link</a>",
+//     description: "Villagers somtimes keep retasking to live boars during an active duc boar lure. All sn's should be set to 'turned off' values regarding boar luring and while I can't completely rule out that the new patch has unlocked a DUC bug it would be weird that this bug has not occured on UP and seems to also occour in other ai's like immortal. Then there is a very weird bug where the boar villager keeps attacking the boar unless given a new command like a stop command. I have been unable to figure out what in the new patch is responsable for this bug but my best gues would be that it is related to the unintended retasking of villagers to boars like in the prior issue."
+// }, {
     name: "The four resource modifier SNs don't allow negative values like UP",
     date: "Jun 5, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1115250747865579520\">Link</a>",
-    description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot."
+    description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot. The SNs need to be updated so that their hardcoded minimum is -100, not 0."
 }, {
 //     name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
 //     date: "May 20, 2023",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link</a>",
 //     description: "sn-attack-intelligence - not work too... In the up version work and attack units try avoid castles/towers... In the de - not"
 // }, {
-    name: "up-get-fact with player-in-game and player-valid doesn't work",
-    date: "May 4, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1103760288597147780\">Link</a>",
-    description: "up-get-focus-fact player-in-game 0 always returns 0 on DE even if the player is in game and playing, hence why it thinks it doesn't have an enemy, so it doesn't \"see\" any enemy units, so it doesn't do anything (like an empty ai file)."
-}, {
+//     name: "up-get-fact with player-in-game and player-valid doesn't work",
+//     date: "May 4, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1103760288597147780\">Link</a>",
+//     description: "up-get-focus-fact player-in-game 0 always returns 0 on DE even if the player is in game and playing, hence why it thinks it doesn't have an enemy, so it doesn't \"see\" any enemy units, so it doesn't do anything (like an empty ai file)."
+// }, {
     name: "up-set-placement-data can't be used with target-player or focus-player",
     date: "Apr 30, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1102379431781224592\">Link</a>",
@@ -27829,11 +27829,11 @@ bugsArray = [ {
 //     date: "Mar 16, 2023",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1085851467979702332\">Link</a>",
 //     description: "AI get stuck in land corner near water , try to go to shorter distance path to reach enemy town. It is new bug. it doesn't happen before. I think is from game engine not from AI script. Before if units get stucks they immediatly react go to another way. Now they react but more slowly they get stuck more time in corner. Hope this can be fixed."
-}, {
-    name: "Foot konniks and flemish militia aren't counted correctly",
-    date: "Mar 6, 2023",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1082236935411609651\">Link</a>",
-    description: "Counting foot-konnik-line for enemy players doesnt work (it returns -2). Counting flemish-militia-male and flemish-militia-female for enemy players doesnt work (both return -1). Counting individual foot-konnik and elite-foot-konnik units doesn't work either. But counting flemish-militia-trained works. Update: This has changed in DE since this report, but not fixed. Trained flemish militia are now counted as both town-center-flemish-pikeman and flemish-pikeman-female. Dismounted konniks are now double-counted."
+// }, {
+//     name: "Foot konniks and flemish militia aren't counted correctly",
+//     date: "Mar 6, 2023",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1082236935411609651\">Link</a>",
+//     description: "Counting foot-konnik-line for enemy players doesnt work (it returns -2). Counting flemish-militia-male and flemish-militia-female for enemy players doesnt work (both return -1). Counting individual foot-konnik and elite-foot-konnik units doesn't work either. But counting flemish-militia-trained works. Update: This has changed in DE since this report, but not fixed. Trained flemish militia are now counted as both town-center-flemish-pikeman and flemish-pikeman-female. Dismounted konniks are now double-counted."
 }, {
     name: "up-get-player-fact building-count bug",
     date: "Mar 2, 2023",
