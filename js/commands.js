@@ -27863,7 +27863,7 @@ bugsArray = [ {
     name: "Resetting Offense Priorities can cause a crash",
     date: "Oct 11, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1029456095325990944\">Link</a>",
-    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, than the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only way to prevent a crash with up-set-offense-priority is to only modify class priorities with up-set-offense-priority."
+    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, then the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only way to prevent a crash with up-set-offense-priority is to only modify class priorities with up-set-offense-priority."
 }, {
     name: "position-flank is always very close to the enemy's starting location",
     date: "Oct 2, 2022",
@@ -27878,7 +27878,7 @@ bugsArray = [ {
     name: "Villager Gathering/Exploring/Building SNs bugged in DE",
     date: "Sep 18, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1021167578472783884\">Link</a>",
-    description: "There seems to be an issue with the villager exploring or gathering SNs in DE. It's possible for villagers to be sent to gather resources even when sn-cap-civilian-gatherers is set to 0. This code tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
+    description: "There seems to be an issue with the villager exploring or gathering SNs in DE. It's possible for villagers to be sent to gather resources even when sn-cap-civilian-gatherers is set to 0. The code in the Discord link tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
 }, {
 //     name: "Classes don't work for up-set-offensive-priority",
 //     date: "Sep 10, 2022",
@@ -27913,7 +27913,7 @@ bugsArray = [ {
     name: "Switching point of view with Ctrl-Shift-F1-8 doesn't update typing to other players perspective",
     date: "Jun 26, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990673033452736532\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018158049640329306\">Link 2</a>",
-    description: "Report 1: In UP, if you switch perspective to p2 with Ctrl+Shift+F2, up-chat-data-to-self correctly only shows messages sent by the p2 AI script. However, in DE any up-chat-data-to-self messages sent by the p1 AI are always displayed, even if you switch perspective to p2 with Ctrl+Shift+F2. (up-chat-data-to-player my-player-number) Is also bugged. Even (chat-to-player my-player-number) is bugged, so it seems like there's an issue with my-player-number not being updated with the player perspective switch. Report 2: Switching point of view with Ctrl-Shift-F1-8 doesnt update typing to other players perspective. It stays at Player 1. I can't type as another AI player to Player 1 for example."
+    description: "Report 1: In UP, if you switch perspective to p2 with Ctrl+Shift+F2, up-chat-data-to-self correctly only shows messages sent by the p2 AI script. However, in DE any up-chat-data-to-self messages sent by the p1 AI are always displayed, even if you switch perspective to p2 with Ctrl+Shift+F2. chat-local-to-self works properly though. Only the non-local messages seem to be bugged to always show player 1's perspective. Report 2: Switching point of view with Ctrl-Shift-F1-8 doesnt update typing to other players perspective. It stays at Player 1. I can't type as another AI player to Player 1 for example."
 }, {
 //     name: "up-chat-data-to-player inconsistencies with formatting",
 //     date: "Jun 17, 2022",
@@ -27970,20 +27970,20 @@ bugsArray = [ {
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934512291456618527\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1014628241354526791\">Link 2</a>",
     description: "Report 1: place-control works differently on DE than UP, sometimes buildings desired built in front of the town are placed in the back. Report 2: I have the suspicion, that up-build is also bugged in regard of negative sn-placement-fail-delta. 1st screenshot is a test-arabia-scenario with UP where all is as expected. 2nd screenshot is the same scenario with DE, where it build the blacksmith next to LC, but not the market, which I eventually build myself. After reaching castle age it build the castle somewhat to the front (as intended) and the other buildings near TC (as intended), but the barracks, which has also a negative sn-placement-fail-delta, got build 10 sec after reaching castle way out to the front, despite it should be build to the back in my understanding! See Discord links for screenshots. Leif update: the issue seems to be with sn-placement-fail-delta. Positive values seem to have no effect, while negative values seem to prevent placement altogether."
 }, {
-    name: "sn-ignore-tower-elevation 0 doesn't work",
+    name: "sn-ignore-tower-elevation settings are reversed from UP",
     date: "Jan 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
     description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation. Leif update: The SN settings are reversed. Setting the SN to 1 prefers elevation, not 0."
 }, {
-    name: "up-create-group excludes garrisoned units",
+    name: "up-get-group-size and up-group-size ignore garrisoned units",
     date: "Jan 14, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931625553700745318\">Link</a>",
     description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be storing them fine -- just not including them in the count. Leif editor note: The only actual bug here is that up-get-group-size and up-group-size exclude garrisoned and dead units when calculating the group size in DE, while UP includes them. If this difference is intended, then this isn't a bug."
-}, {
-    name: "Issue with object-data-target-id",
-    date: "Dec 28, 2021",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/925532891583229992\">Link</a>",
-    description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object. Leif editor note: It's possible that patrol and attack move soldiers never switch out of being in formation when they attack, unlike in UP. In UP, there is an obvious split second where you can see the units pause before switching from the patrol formation into attacking nearby units, while this isn't present in DE. If this can be confirmed, I'll remove this from the bug reports as simply being a game engine difference."
+// }, {
+    // name: "Issue with object-data-target-id",
+    // date: "Dec 28, 2021",
+    // link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/925532891583229992\">Link</a>",
+    // description: "object-data-target-id only return -1 when units in formation with action-patrol or action-attack-move even when they are attacking enemy's object. Leif editor note: It's possible that patrol and attack move soldiers never switch out of being in formation when they attack, unlike in UP. In UP, there is an obvious split second where you can see the units pause before switching from the patrol formation into attacking nearby units, while this isn't present in DE. If this can be confirmed, I'll remove this from the bug reports as simply being a game engine difference."
 } ];
 
 
