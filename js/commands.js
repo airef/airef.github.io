@@ -27365,11 +27365,18 @@ pTerrain.valueList = [ {
 	id: 127,
 	description: "DE only. Must be defined with a defconst. Soft Ice terrain."
 }, {
+	name: "terrain-forest-dry-south-american*",
+	id: 128,
+	description: "DE only. Must be defined with a defconst. Dry South American Forest terrain."
+}, {
 	name: "terrain-black-walkable*",
 	id: 129,
 	description: "DE only. Must be defined with a defconst. Walkable Black terrain."
-}
-];
+}, {
+	name: "terrain-water-weeds*",
+	id: 130,
+	description: "DE only. Must be defined with a defconst. Water Weeds terrain."
+}];
 
 //ThreatPlayer
 pThreatPlayer.shortDescription = "Stores the enemy player who triggered the most recent attack threat event.";
