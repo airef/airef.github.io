@@ -27535,6 +27535,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "Issues with fire-lancer-line being > 0 with no fire lancers on the map",
+	date: "Mar 19, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1484227547251343503\">Link</a>",
+	description: "There are situations where fire-lancer-line can be > 0 when counting enemy Khitan objects even though no fire lancers have been seen. Also happens when counting fire-lancer and elite-fire-lancer."
+}, {
 	name: "up-object-type-count-total double counts pending villagers",
 	date: "Mar 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1478563579639890004\">Link</a>",
