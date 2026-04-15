@@ -27535,6 +27535,16 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "object-data-attacker-count and object-data-under-attack doesn't work for building foundations",
+	date: "Apr 13, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1493372417827934278\">Link</a>",
+	description: "Apparently, object-data-attacker-count and object-data-under-attack NEVER return a positive value for foundations. I'm hitting it, illu just cant detect it. It also doesnt trigger (town-under-attack), only does if I hit something thats finished."
+}, {
+	name: "sn-dock-training-filter considers ally ships in the recently sighted targets check when it should only consider enemy ships",
+	date: "Apr 1, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1488849922110394522\">Link</a>",
+	description: "With sn-dock-training-filter set to 2, the AI will train warships in a lake that only contains ally ships."
+}, {
 	name: "Issues with fire-lancer-line being > 0 with no fire lancers on the map",
 	date: "Mar 19, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1484227547251343503\">Link</a>",
@@ -43414,7 +43424,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks"
+	notes: "Use 'mill' to build and count folwarks"
 }, {	
 	name: "Folwark (Feudal Age)",
 	aiName: "",
@@ -43433,7 +43443,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks"
+	notes: "Use 'mill' to build and count folwarks"
 }, {	
 	name: "Folwark (Castle Age)",
 	aiName: "",
@@ -43452,7 +43462,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Can use 'mill' to build and count folwarks"
+	notes: "Use 'mill' to build and count folwarks"
 }, {	
 	name: "Mining Camp (Dark Age)",
 	aiName: "mining-camp",
@@ -44155,7 +44165,7 @@ objectsBuildingsArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: ""
+	notes: "Use 'monastery' to build and count fortified churches"
 }, {	
 	name: "Caravanserai",
 	aiName: "caravanserai",
