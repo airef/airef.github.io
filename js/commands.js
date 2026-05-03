@@ -6989,7 +6989,7 @@ snPlacementZoneSize.de = 1;
 snPlacementZoneSize.linked = [ 269, 270 ];
 snPlacementZoneSize.related = [ 73, 74 ];
 snPlacementZoneSize.shortDescription = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point.";
-snPlacementZoneSize.description = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the up-set-placement-data information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point. The placement region set by sn-placement-zone-size expands by 1 tile per building every 7 \"internal\" passes. These internal passes usually happen ~10 times for each AI script pass. The default for this sn is 20. A small zone size (0) will provide more precise positioning. A large value allows you to surround the enemy when forward building. sn-placement-zone-size is stored with the placement data, so this SN can be changed once the building has been added to the building placement queue.";
+snPlacementZoneSize.description = "Set to the size of the tile zone used for forward and controlled building placement. All build commands store this value and the " + cUpSetPlacementData.getLink() + " information with each successful call. For every pass that a building cannot be placed, its zone size will be increased from this starting point. The placement region set by sn-placement-zone-size expands by 1 tile per building every 7 \"internal\" passes. These internal passes usually happen ~10 times for each AI script pass. The default for this sn is 20. A small zone size (0) will provide more precise positioning. A large value allows you to surround the enemy when forward building. sn-placement-zone-size is stored with the placement data, so this SN can be changed once the building has been added to the building placement queue.";
 
 snPlacementFailDelta.id = 269;
 snPlacementFailDelta.snName = "sn-placement-fail-delta";
@@ -7012,7 +7012,7 @@ snPlacementFailDelta.de = 1;
 snPlacementFailDelta.linked = [ 268, 270 ];
 snPlacementFailDelta.related = [ 73, 74 ];
 snPlacementFailDelta.shortDescription = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed.";
-snPlacementFailDelta.description = "Set to the value that will be added to the placement distance set by up-set-placement-data for every pass that a building cannot be placed. This sn does not affect forward building. It should be a low value (-2 to 2). The default is 0, which means that only the per-building zone-size is increased for each placement failure. This zone size expands by 1 per building every 7 \"internal\" passes. These internal passes usually happen ~10 times for each AI script pass. Unlike sn-placement-zone-size, sn-placement-fail-delta is not stored with the placement data.";
+snPlacementFailDelta.description = "Set to the value that will be added to the placement distance set by " + cUpSetPlacementData.getLink() + " for every pass that a building cannot be placed. This sn does not affect forward building. It should be a low value (-2 to 2). The default is 0, which means that only the per-building zone-size is increased for each placement failure. This zone size expands by 1 per building every 7 \"internal\" passes. These internal passes usually happen ~10 times for each AI script pass. Unlike sn-placement-zone-size, sn-placement-fail-delta is not stored with the placement data.";
 
 snPlacementToCenter.id = 270;
 snPlacementToCenter.snName = "sn-placement-to-center";
@@ -7035,6 +7035,7 @@ snPlacementToCenter.de = 1;
 snPlacementToCenter.linked = [ 268, 269 ];
 snPlacementToCenter.related = [ 73, 74, 249, 188 ];
 snPlacementToCenter.shortDescription = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with up-set-placement-data. If set to 0, the active target player's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
+snPlacementToCenter.description = "Set to 1 to force place-control to use the map center as the second point of reference for placement. The first point of reference is set with " + cUpSetPlacementData.getLink() + ". If set to 0, the active target player's nearest building will become the second point of reference instead, once discovered. If sn-target-player-number is 0, the target enemy will be determined by sn-attack-winning-player.";
 
 snDisableAttackGroups.id = 271;
 snDisableAttackGroups.snName = "sn-disable-attack-groups";
@@ -7167,7 +7168,7 @@ snFilterUnderAttack.de = 1;
 snFilterUnderAttack.linked = [];
 snFilterUnderAttack.related = [];
 snFilterUnderAttack.shortDescription = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units will also be retreated, which may be computationally expensive. If set to 0, the filter is disabled.";
-snFilterUnderAttack.description = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units (within 6 tiles) will also be retreated, not just units that are under attack, which may be computationally expensive. The nearby units that will be retreated do not consider the filter type provided to up-retreat-to, and will be all military units except monks. The 1 and 2 states will also reject high base pierce armor units >= 20, so rams are left despite being attacked. If set to 0, the filter is disabled.";
+snFilterUnderAttack.description = "Set to 1 or 2 to filter retreat commands to only those units that are under attack. When this is 2, units near threatened units (within 6 tiles) will also be retreated, not just units that are under attack, which may be computationally expensive. The nearby units that will be retreated do not consider the filter type provided to " + cUpRetreatTo.getLink() + ", and will be all military units except monks. The 1 and 2 states will also reject high base pierce armor units >= 20, so rams are left despite being attacked. If set to 0, the filter is disabled.";
 
 snDisableDefendGroups.id = 277;
 snDisableDefendGroups.snName = "sn-disable-defend-groups";
@@ -7436,6 +7437,7 @@ snNumberTaskedUnits.de = 1;
 snNumberTaskedUnits.linked = [];
 snNumberTaskedUnits.related = [];
 snNumberTaskedUnits.shortDescription = "Set to the number of units to require per group tasked by up-target-objects or up-target-point. The last group sent by a command may not reach the minimum required number. It's possible that no units will be sent to some of the last remote targets. If set to 0, units will be spread in order to ensure balanced group sizes to all remote targets.";
+snNumberTaskedUnits.description = "Set to the number of units to require per group tasked by " + cUpTargetObjects.getLink() + " or " + cUpTargetPoint.getLink() + ". The last group sent by a command may not reach the minimum required number. It's possible that no units will be sent to some of the last remote targets. If set to 0, units will be spread in order to ensure balanced group sizes to all remote targets.";
 
 snDisableVillagerGarrison.id = 291;
 snDisableVillagerGarrison.snName = "sn-disable-villager-garrison";
@@ -7480,7 +7482,7 @@ snTargetPointAdjustment.de = 1;
 snTargetPointAdjustment.linked = [];
 snTargetPointAdjustment.related = [];
 snTargetPointAdjustment.shortDescription = "Set to adjust the tile positioning of up-target-point toward 1:left, 2:top, 3:right, 4:bottom, 5:middle, 6:precise. If set to 0, actions will be directed to the absolute left-most point of a tile. If set to precise, you must directly pass a valid precise point goal pair (point x100 for precision) to up-target-point.";
-snTargetPointAdjustment.description = "Set to adjust the tile positioning of up-target-point toward 1:left, 2:top, 3:right, 4:bottom, 5:middle, 6:precise. If set to 0, actions will be directed to the absolute left-most point of a tile. If set to precise, you must directly pass a valid precise point goal pair (point x100 for precision) to up-target-point.</p><p><strong>Note:</strong> when set to 6 (precise), all " + cUpTargetPoint.getLink() + " actions will assume the point has precise coordinates when sending the units to that point, i.e. it will assume the coordinates are multiplied by 100. So, ensure that you set this strategic number back to a value from 0 to 5 before using a point with normal coordinates in a up-target-point command. Otherwise, using up-target-point with this strategic number will send units to the left corner of the map. For example, if the point has the normal coordinates (48, 187), up-target-point would send the units to point (0.48, 1.87) when this strategic number is set to 6.";
+snTargetPointAdjustment.description = "Set to adjust the tile positioning of " + cUpTargetPoint.getLink() + " toward 1:left, 2:top, 3:right, 4:bottom, 5:middle, 6:precise. If set to 0, actions will be directed to the absolute left-most point of a tile. If set to precise, you must directly pass a valid precise point goal pair (point x100 for precision) to up-target-point.</p><p><strong>Note:</strong> when set to 6 (precise), all up-target-point actions will assume the point has precise coordinates when sending the units to that point, i.e. it will assume the coordinates are multiplied by 100. So, ensure that you set this strategic number back to a value from 0 to 5 before using a point with normal coordinates in a up-target-point command. Otherwise, using up-target-point with this strategic number will send units to the left corner of the map. For example, if the point has the normal coordinates (48, 187), up-target-point would send the units to point (0.48, 1.87) when this strategic number is set to 6.";
 
 snUnexploredConstruction.id = 293;
 snUnexploredConstruction.snName = "sn-unexplored-construction";
@@ -12382,7 +12384,7 @@ cGenerateRandomNumber.commandParameters = [ {
 	note: "The range of values to randomly generate a number from."
 } ];
 cGenerateRandomNumber.example = [ {
-	title: "Generate a random number between 1 and 100 and store the value in a goal. This random number can be checked later with the random-number command or by using up-compare-goal to compare gl-random-number with something else, such as (up-compare-goal gl-random-number > 50).",
+	title: "Generate a random number between 1 and 100 and store the value in a goal. This random number can be checked later with the random-number command or by using " + cUpCompareGoal.getLink() + " to compare gl-random-number with something else, such as (up-compare-goal gl-random-number > 50).",
 	data: "(defconst gl-random-number 101)\r\n(defrule\r\n\t(true)\r\n=>\r\n\t(generate-random-number 100)\r\n\t(up-get-fact random-number 0 gl-random-number)\r\n)"
 } ];
 cGenerateRandomNumber.commandCategory = ["Other"];
@@ -14896,7 +14898,7 @@ cUpAddObjectCost.complexity = "High";
 
 //up-add-point
 cUpAddPoint.shortDescription = "Add or subtract two point goal pairs together.";
-cUpAddPoint.description = "Add or subtract two point goal pairs together and store the result in Point1. The Value parameter indicates how many instances of Point2 to add to Point1. A negative Value will result in subtracting this number of instances of Point2 from Point1. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpAddPoint.description = "Add or subtract two point goal pairs together and store the result in Point1. The Value parameter indicates how many instances of Point2 to add to Point1. A negative Value will result in subtracting this number of instances of Point2 from Point1. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpAddPoint.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -15571,7 +15573,7 @@ cUpCanSearch.commandParameters = [ {
 	note: "The search source to check."
 } ];
 cUpCanSearch.example = [ {
-	title: "Check if up-reset-search must be executed before up-find-local.",
+	title: "Check if " + cUpResetSearch.getLink() + " must be executed before " + cUpFindLocal.getLink() + ".",
 	data: "(defrule\r\n\t(not(up-can-search search-local))\r\n=&gt;\r\n\t(up-reset-search 1 1 0 0)\r\n)"
 } ];
 cUpCanSearch.relatedCommands = [];
@@ -16083,7 +16085,7 @@ cUpCreateGroup.complexity = "Very High";
 
 //up-cross-tiles
 cUpCrossTiles.shortDescription = "Get a point perpendicular to two point goal pairs.";
-cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. The Value parameter specifies how many tiles away the new point will be from Point1, perpendicularly away in reference to Point2. A negative Value will result in the new point being located perpendicularly away in opposite direction. Set Point2 to 0 to use the point that is stored by up-set-target-point. The new point will be stored in Point1.";
+cUpCrossTiles.description = "Get a point perpendicular to two point goal pairs. The Value parameter specifies how many tiles away the new point will be from Point1, perpendicularly away in reference to Point2. A negative Value will result in the new point being located perpendicularly away in opposite direction. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". The new point will be stored in Point1.";
 cUpCrossTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -16576,8 +16578,8 @@ c.relatedSNs = [];*/
 cUpFilterRange.complexity = "Very High";
 
 //up-filter-status
-cUpFilterStatus.shortDescription = "Set the object status value for use with up-find-status.";
-cUpFilterStatus.description = "Set the object status value for use with up-find-status. The default (after up-reset-filters) is 2, which should match most active objects. Buildings that are incomplete have a status of 0, while certain resources have a status of 3. For remote search, up-find-remote can find objects with object status values 0 to 3 (status-pending, status-ready, and status-resource) if you search by object type id instead of class id.";
+cUpFilterStatus.shortDescription = "Set the object status value for use with up-find-status-local, up-find-status-remote, or up-find-resource.";
+cUpFilterStatus.description = "Set the object status value for use with " + cUpFindStatusLocal.getLink() + ", " + cUpFindStatusRemote.getLink() + ", or " + cUpFindResource.getLink() + ". The default (after " + cUpResetFilters.getLink() + ") is 2 (status-ready), which should match most active objects. Buildings that are incomplete have a status of 0, while certain resources have a status of 3. For remote search, " + cUpFindRemote.getLink() + " can find objects with object status values 0 to 3 (status-pending, status-ready, and status-resource) if you search by object type id instead of class id.";
 cUpFilterStatus.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16618,7 +16620,7 @@ cUpFilterStatus.complexity = "Very High";
 
 //up-find-flare
 cUpFindFlare.shortDescription = "Read the (x,y) position of an allied flare into an extended goal pair.";
-cUpFindFlare.description = "Read the (x,y) position of an allied flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 15998. If it fails to get a valid position, it will return (-1,-1). This command is equivalent to up-find-player-flare with any-ally.";
+cUpFindFlare.description = "Read the (x,y) position of an allied flare into an extended goal pair. This command writes to 2 consecutive goals and requires an extended goal pair between 41 and 15998. If it fails to get a valid position, it will return (-1,-1). This command is equivalent to " + cUpFindPlayerFlare.getLink() + " with any-ally.";
 cUpFindFlare.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -16819,7 +16821,7 @@ cUpFindRemote.complexity = "Very High";
 
 //up-find-resource
 cUpFindResource.shortDescription = "Find gatherable resource objects for direct targeting.";
-cUpFindResource.description = "Find gatherable resource objects for direct targeting. This command stores data in the remote list and it will consider the status value set by up-filter-status. To find stone, gold, fallen trees, and other directly gatherable resources, status-resource is required. For standing trees and living objects, status-ready is required. Please ensure the proper status is set before searching. The remote index will reset automatically when switching between this command and other remote search commands like up-find-remote. If Resource changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>When searching with boar-class (class 910), this command will not include wolves in the search.";
+cUpFindResource.description = "Find gatherable resource objects for direct targeting. This command stores data in the remote list and it will consider the status value set by " + cUpFilterStatus.getLink() + ". To find stone, gold, fallen trees, and other directly gatherable resources, status-resource is required. For standing trees and living objects, status-ready is required. Please ensure the proper status is set before searching. The remote index will reset automatically when switching between this command and other remote search commands like " + cUpFindRemote.getLink() + ". If Resource changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>When searching with boar-class (class 910), this command will not include wolves in the search.";
 cUpFindResource.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16860,7 +16862,7 @@ cUpFindResource.complexity = "Very High";
 
 //up-find-status-local
 cUpFindStatusLocal.shortDescription = "Find objects owned by the local player filtered by status.";
-cUpFindStatusLocal.description = "Find objects owned by the local player filtered by status. This is identical to up-find-local, except it will consider the status value set by up-filter-status. If UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
+cUpFindStatusLocal.description = "Find objects owned by the local player filtered by status. This is identical to " + cUpFindLocal.getLink() + ", except it will consider the status value set by " + cUpFilterStatus.getLink() + ". If UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
 cUpFindStatusLocal.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16901,7 +16903,7 @@ cUpFindStatusLocal.complexity = "Very High";
 
 //up-find-status-remote
 cUpFindStatusRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
-cUpFindStatusRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. This is identical to up-find-remote, except it will consider the status value set by up-filter-status. If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
+cUpFindStatusRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. This is identical to " + cUpFindRemote.getLink() + ", except it will consider the status value set by " + cUpFilterStatus.getLink() + ". If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
 cUpFindStatusRemote.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16942,7 +16944,7 @@ cUpFindStatusRemote.complexity = "Very High";
 
 //up-full-reset-search
 cUpFullResetSearch.shortDescription = "Reset all search and filter states for direct unit targeting.";
-cUpFullResetSearch.description = "Reset all search and filter states for direct unit targeting. This command simply combines (up-reset-search 1 1 1 1) and (up-reset-filters) for rule size optimization.";
+cUpFullResetSearch.description = "Reset all search and filter states for direct unit targeting. This command simply combines ("+ cUpResetSearch.getLink() + " 1 1 1 1) and (" + cUpResetFilters.getLink() + ") for rule size optimization.";
 cUpFullResetSearch.commandParameters = [];
 cUpFullResetSearch.example = [ {
 	title: "Clear all search and filter states.",
@@ -16999,7 +17001,7 @@ cUpGaiaTypeCount.complexity = "Medium";
 
 //up-gaia-type-count-total
 cUpGaiaTypeCountTotal.shortDescription = "Check the total sighted resource count from gaia.";
-cUpGaiaTypeCountTotal.description = "Check the total sighted resource count from gaia. When checking food, wood, stone, or gold, this command operates very quickly. However, the required data does not exist for specific food types, including deer and sheep. As a fallback, it will redirect to the slower up-gaia-type-count, and the result will only reflect resources that still exist.</p><p>This command does not work with relics.";
+cUpGaiaTypeCountTotal.description = "Check the total sighted resource count from gaia. When checking food, wood, stone, or gold, this command operates very quickly. However, the required data does not exist for specific food types, including deer and sheep. As a fallback, it will redirect to the slower " + cUpGaiaTypeCount.getLink() + ", and the result will only reflect resources that still exist.</p><p>This command does not work with relics.";
 cUpGaiaTypeCountTotal.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -17423,7 +17425,7 @@ cUpGetGroupSize.complexity = "Very High";
 
 //up-get-guard-state
 cUpGetGuardState.shortDescription = "Get the guard state into 4 consecutive extended goals.";
-cUpGetGuardState.description = "Get the guard state into 4 consecutive extended goals. The guard state is defined in custom random maps using the guard_state command, which enables a resource trickle and/or a defeat condition depending on whether a certain unit type is killed. The goals will be filled with data in the following order: TypeId, ResourceType, ResourceDelta, GuardFlags. Please use up-compare-flag to check the guard flags (see " + pGuardFlag.getLink() + " for a list of guard flags). If guard-flag-resource is set in GuardFlags, then ResourceDelta/100 will slowly be added to ResourceType as long as TypeId objects remain. If both guard-flag-resource and guard-flag-inverse are set, then the resources will be added only when there are no TypeId objects left. If the guard-flag-victory condition is set, the AI will be defeated if no TypeId objects remain.";
+cUpGetGuardState.description = "Get the guard state into 4 consecutive extended goals. The guard state is defined in custom random maps using the guard_state command, which enables a resource trickle and/or a defeat condition depending on whether a certain unit type is killed. The goals will be filled with data in the following order: TypeId, ResourceType, ResourceDelta, GuardFlags. Please use " + cUpCompareFlag.getLink() + " to check the guard flags (see " + pGuardFlag.getLink() + " for a list of guard flags). If guard-flag-resource is set in GuardFlags, then ResourceDelta/100 will slowly be added to ResourceType as long as TypeId objects remain. If both guard-flag-resource and guard-flag-inverse are set, then the resources will be added only when there are no TypeId objects left. If the guard-flag-victory condition is set, the AI will be defeated if no TypeId objects remain.";
 cUpGetGuardState.commandParameters = [ {
 	nameLink: pOutputGoalId.getLink(),
 	name: "OutputGoalId",
@@ -17635,7 +17637,7 @@ cUpGetPlayerColor.complexity = "High";
 
 //up-get-player-fact
 cUpGetPlayerFact.shortDescription = "Read a fact for a specific player into a goal.";
-cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact series whenever possible. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1).";
+cUpGetPlayerFact.description = "Read a fact for a specific player into a goal. This command can be used as either a fact or an action. For better performance, please use one of the more direct commands from the up-get-fact-* series whenever possible. The action only allows for exact player numbers, \"my-player-number\", or \"this-any\" rule variables for " + pPlayerNumber.getLink() + ", such as this-any-ally or this-any-enemy. It does not allow \"any\"/\"every\" wildcard parameters for " + pPlayerNumber.getLink() + ". It also allows for scenario-player-# and lobby-player-#, where # is between 1 and 8. scenario-player-# refers to the player color (where red = scenario-player-2), and lobby-player-# refers to the player slot (where the lobby host or human player playing a single player campaign is always lobby-player-1).";
 cUpGetPlayerFact.commandParameters = [ {
 	nameLink: pPlayerNumber.getLink(),
 	name: "PlayerNumber",
@@ -17739,7 +17741,7 @@ cUpGetPoint.complexity = "High";
 
 //up-get-point-contains
 cUpGetPointContains.shortDescription = "Get the id if an object exists at a point goal pair position.";
-cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
+cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
 cUpGetPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -17780,7 +17782,7 @@ cUpGetPointContains.complexity = "High";
 
 //up-get-point-distance
 cUpGetPointDistance.shortDescription = "Get the distance between two point goal pairs.";
-cUpGetPointDistance.description = "Get the distance between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>This command does not bound the points to the map, meaning you can use it for more general calculations. It simply calculates the distance formula. When calculating the distance between two precise points, it will calculate a precise distance, where the distance is 100 times larger than the actual distance.";
+cUpGetPointDistance.description = "Get the distance between two point goal pairs. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".</p><p>This command does not bound the points to the map, meaning you can use it for more general calculations. It simply calculates the distance formula. When calculating the distance between two precise points, it will calculate a precise distance, where the distance is 100 times larger than the actual distance.";
 cUpGetPointDistance.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -17840,7 +17842,7 @@ cUpGetPointElevation.complexity = "High";
 
 //up-get-point-terrain
 cUpGetPointTerrain.shortDescription = "Get the terrain id at a specific point goal pair position.";
-cUpGetPointTerrain.description = "Get the terrain id at a specific point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point.";
+cUpGetPointTerrain.description = "Get the terrain id at a specific point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpGetPointTerrain.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -17920,7 +17922,7 @@ cUpGetProjectilePlayer.complexity = "Medium";
 
 //up-get-rule-id
 cUpGetRuleId.shortDescription = "Get the zero-based id for the current rule within the rule set.";
-cUpGetRuleId.description = "Get the zero-based id for the current rule within the rule set. This id can be used with up-jump-direct to precisely control jump destinations.";
+cUpGetRuleId.description = "Get the zero-based id for the current rule within the rule set. This id can be used with " + cUpJumpDirect.getLink() + " to precisely control jump destinations.";
 cUpGetRuleId.commandParameters = [ {
 	nameLink: pGoalId.getLink(),
 	name: "GoalId",
@@ -18354,7 +18356,7 @@ cUpIdleUnitCount.complexity = "Medium";
 
 //up-jump-direct
 cUpJumpDirect.shortDescription = "Jump directly within the current rule set.";
-cUpJumpDirect.description = "Jump directly within the current rule set. Please ensure that the rule you are jumping to actually exists. You can use up-get-rule-id to get a valid rule id to jump to. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
+cUpJumpDirect.description = "Jump directly within the current rule set. Please ensure that the rule you are jumping to actually exists. You can use " + cUpGetRuleId.getLink() + " to get a valid rule id to jump to. With this action, you can either decrease rules per pass with intelligent skips, or greatly increase it with loops. Please consider game performance.";
 cUpJumpDirect.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -18431,7 +18433,7 @@ cUpJumpRule.complexity = "High";
 
 //up-lerp-percent
 cUpLerpPercent.shortDescription = "Interpolate a point by percentage between two point goal pairs.";
-cUpLerpPercent.description = "Interpolate a point by percentage between two point goal pairs and store the new point in Point1. The Percent parameter specifies the percentage of the distance between the two points that the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpLerpPercent.description = "Interpolate a point by percentage between two point goal pairs and store the new point in Point1. The Percent parameter specifies the percentage of the distance between the two points that the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpLerpPercent.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -18472,7 +18474,7 @@ cUpLerpPercent.complexity = "High";
 
 //up-lerp-tiles
 cUpLerpTiles.shortDescription = "Interpolate a point by tiles between two point goal pairs.";
-cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs and store the new point in Point1. The Value parameter specifies how many tiles the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by up-set-target-point.</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
+cUpLerpTiles.description = "Interpolate a point by tiles between two point goal pairs and store the new point in Point1. The Value parameter specifies how many tiles the new point will move toward or away from Point1 to Point2. If Value is positive, the new point will move closer to Point2. If Value is negative, the new point will move further away from Point2. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".</p><p>Note: It is possible for the new point to be outside the bounds of the map which can cause several issues. Therefore, it is wise to use " + cUpBoundPoint.getLink() + " afterward to ensure that you always have a valid point location.";
 cUpLerpTiles.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -19056,7 +19058,7 @@ cUpPlayersInGame.complexity = "Medium";
 
 //up-point-contains
 cUpPointContains.shortDescription = "Check if an object exists at a point goal pair position.";
-cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point. Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
+cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
 cUpPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -19090,7 +19092,7 @@ cUpPointContains.complexity = "High";
 
 //up-point-distance
 cUpPointDistance.shortDescription = "Perform a distance check between two point goal pairs.";
-cUpPointDistance.description = "Perform a distance check between two point goal pairs. Set Point2 to 0 to use the point that is stored by up-set-target-point.";
+cUpPointDistance.description = "Perform a distance check between two point goal pairs. Set Point2 to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpPointDistance.commandParameters = [ {
 	nameLink: pPoint.getLink("Point1"),
 	name: "Point",
@@ -19164,7 +19166,7 @@ cUpPointElevation.complexity = "High";
 
 //up-point-explored
 cUpPointExplored.shortDescription = "Check if a point on the map has been explored.";
-cUpPointExplored.description = "Check if a point on the map has been explored. Set Point to 0 to use the point that is stored by up-set-target-point.";
+cUpPointExplored.description = "Check if a point on the map has been explored. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpPointExplored.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -19198,7 +19200,7 @@ cUpPointExplored.complexity = "High";
 
 //up-point-terrain
 cUpPointTerrain.shortDescription = "Perform a terrain id check at a point goal pair position.";
-cUpPointTerrain.description = "Perform a terrain id at a point goal pair position. Set Point to 0 to use the point that is stored by up-set-target-point.";
+cUpPointTerrain.description = "Perform a terrain id at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ".";
 cUpPointTerrain.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -19578,7 +19580,7 @@ cUpResetCostData.complexity = "High";
 
 //up-reset-filters
 cUpResetFilters.shortDescription = "Reset search indices and filter states for direct unit targeting.";
-cUpResetFilters.description = "Reset search indices and filter states for direct unit targeting. All filter states will be set to -1. Use up-reset-search to clear search results.";
+cUpResetFilters.description = "Reset search indices and filter states for direct unit targeting. All filter states will be set to -1. Use " + cUpResetSearch.getLink() + " to clear search results.";
 cUpResetFilters.commandParameters = [];
 cUpResetFilters.example = [ {
 	title: "Clear search indices and filter states.",
@@ -20303,7 +20305,7 @@ cUpSetPlacementData.complexity = "High";
 
 //up-set-precise-target-point
 cUpSetPreciseTargetPoint.shortDescription = "Set the target point with an unchecked extended goal pair.";
-cUpSetPreciseTargetPoint.description = "Set the target point with an unchecked extended goal pair. This command is identical to up-set-target-point, except it will not bound the point inside the map. Please ensure the point is valid with up-bound-precise-point. A precise point is expected to be a normal point x100 for 2 places of decimal precision.";
+cUpSetPreciseTargetPoint.description = "Set the target point with an unchecked extended goal pair. This command is identical to " + cUpSetTargetPoint.getLink() + ", except it will not bound the point inside the map. Please ensure the point is valid with " + cUpBoundPrecisePoint.getLink() + ". A precise point is expected to be a normal point x100 for 2 places of decimal precision.";
 cUpSetPreciseTargetPoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -20404,7 +20406,7 @@ cUpSetSignal.complexity = "Medium";
 
 //up-set-target-by-id
 cUpSetTargetById.shortDescription = "Set the target object for other commands by id.";
-cUpSetTargetById.description = "Set the target object for other commands by id. Reference it with up-get-point and position-object. If the Id is invalid, the current target object will remain unchanged. This command can be used as either a Fact or an Action.";
+cUpSetTargetById.description = "Set the target object for other commands by id. To get an object's Id, set the object as the target object with " + cUpSetTargetObject.getLink() + " and store its object-data-id " + cUpGetObjectData.getLink() + ". If the Id is invalid, the current target object will remain unchanged. This command can be used as either a Fact or an Action.";
 cUpSetTargetById.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -20421,7 +20423,7 @@ cUpSetTargetById.commandParameters = [ {
 	note: "The zero-based id of the object to set."
 } ];
 cUpSetTargetById.example = [ {
-	title: "Set the target object by a specific id obtained from up-get-object-data.",
+	title: "Set the target object by a specific id obtained from " + cUpGetObjectData.getLink() + ".",
 	data: "(defconst gl-stored-id 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-object-data object-data-id gl-stored-id)\r\n\t(up-set-target-by-id g: gl-stored-id)\r\n)"
 } ];
 cUpSetTargetById.relatedCommands = [];
@@ -20431,7 +20433,7 @@ cUpSetTargetById.complexity = "Very High";
 
 //up-set-target-object
 cUpSetTargetObject.shortDescription = "Set the target object for other commands from your search.";
-cUpSetTargetObject.description = "Set the target object for other commands from your search. Reference it with up-get-point and position-object. If the Index is invalid, the current target object will remain unchanged. This command can be used as either a Fact or an Action.";
+cUpSetTargetObject.description = "Set the target object for other commands from your search. If the Index is invalid, the current target object will remain unchanged. This command can be used as either a Fact or an Action.";
 cUpSetTargetObject.commandParameters = [ {
 	nameLink: pSearchSource.getLink(),
 	name: "SearchSource",
@@ -20707,7 +20709,7 @@ cUpStoreTypeName.complexity = "High";
 
 //up-target-objects
 cUpTargetObjects.shortDescription = "Direct local search results against remote search results.";
-cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none. The other " + pDUCAction.getLink() + " options available for " + cUpTargetPoint.getLink() + " will not work. Set the Option parameter to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s).</p><p>Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
+cUpTargetObjects.description = "Direct local search results against remote search results. The action-default command is equivalent to a right-click. This command can only perform the following actions: action-default, action-move, action-patrol, action-guard, action-follow, action-stop, action-ground, action-garrison, action-delete, action-gather, and action-none. The other " + pDUCAction.getLink() + " options available for " + cUpTargetPoint.getLink() + " will not work. Set the Option parameter to 1 to target only the object set by " + cUpSetTargetObject.getLink() + ". If set to 0, the objects in the local list will evenly target all objects in the remote list.</p><p>This command will aim to separate the units selected with " + cUpFindLocal.getLink() + " into groups of 20 units or less before sending them against the remote target(s).</p><p>Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetObjects.commandParameters = [ {
 	nameLink: pOption.getLink(),
 	name: "Option",
@@ -20738,7 +20740,7 @@ cUpTargetObjects.commandParameters = [ {
 	note: "The stance to set or -1 to do nothing."
 } ];
 cUpTargetObjects.example = [ {
-	title: "Patrol selected units from up-find-local against those from up-find-remote.",
+	title: "Patrol selected units from the local search list against those from the remote search list.",
 	data: "(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-target-objects 0 action-patrol -1 -1)\r\n)"
 } ];
 cUpTargetObjects.relatedCommands = [];
@@ -20748,7 +20750,7 @@ cUpTargetObjects.complexity = "Very High";
 
 //up-target-point
 cUpTargetPoint.shortDescription = "Direct local search results to a specific point on the map.";
-cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the DUCAction list. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to the point (-1,-1) first to reset distance.</p><p>This command will aim to separate the units selected with up-find-local into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
+cUpTargetPoint.description = "Direct local search results to a specific point on the map. This command can perform all actions from the DUCAction list. However, action-default, action-guard, action-follow, and action-garrison will perform as action-move. If you wish to action-move back into formation nearby after attacking, please action-move to the point (-1,-1) first to reset distance.</p><p>This command will aim to separate the units in the local search list into groups of 20 units or less before sending them against the remote target(s). Do not use the action-default or action-move commands if the defensive targeting system (TSA) is locked on a target, or units will become \"confused\" and not respond for a few moments. Either bring the town size so that " + cEnemyBuildingsInTown.getLink() + " is no longer true or set " + snDisableDefendGroups.getLink() + " on. The action-patrol command seems to work regardless.";
 cUpTargetPoint.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -20779,7 +20781,7 @@ cUpTargetPoint.commandParameters = [ {
 	note: "The stance to set or -1 to do nothing."
 } ];
 cUpTargetPoint.example = [ {
-	title: "Send selected units from up-find-local to the map center.",
+	title: "Send selected units from the local search list to the map center.",
 	data: "(defconst gl-point-x 100)\r\n(defconst gl-point-y 101)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-point position-center gl-point-x)\r\n\t(up-target-point gl-point-x action-default -1 -1)\r\n)"
 }, {
 	title: "Train a spearman with action-train: (up-target-point EscrowGoalId action-train typeOp TypeId). Note: A goal ID is expected for EscrowGoalId to specify whether escrow should be used. However, if you never want this command to use escrow, you can put 0 instead.",
@@ -21089,7 +21091,7 @@ cFeBreakPoint.example = [ {
 	title: "Pause the game and start the debugger when taunt 255 is sent. The break point is always issued because 1 is always equal to 1 and the OptionGoalId parameter is set to -1.",
 	data: "(defrule\r\n\t(taunt-detected any-computer 255)\r\n=&gt;\r\n\t(fe-break-point 1 == 1 -1)\r\n\t(acknowledge-taunt this-any-computer 255)\r\n)"
 }, {
-	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The up-modify-goal command should simply silently fail to do the division.",
+	title: "Divide gl-temp by gl-divisor. If gl-divisor is equal to zero and gl-break-state is >= 1, catch a divide by zero error by starting the debugger. As a side note, the game will not crash if you divide by zero. The " + cUpModifyGoal.getLink() + " command should simply silently fail to do the division.",
 	data: "(defconst gl-temp 101)\r\n(defconst gl-divisor 102)\r\n(defconst gl-break-state 103)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(set-goal gl-temp 100)\r\n\t(set-goal gl-divisor 0)\r\n\t(set-goal gl-break-state 1)\r\n\t(disable-self)\r\n)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(fe-break-point 0 g:== gl-divisor gl-break-state)\r\n\t(up-modify-goal gl-temp g:/ gl-divisor)\r\n)"
 }];
 cFeBreakPoint.relatedCommands = [];
@@ -23289,7 +23291,7 @@ pFactId.valueList = [ {
 } ];
 
 //FactParameter
-pFactParameter.description = "A parameter for the fact to be used in up-get-fact-* commands. This often matches the first parameter in a fact command, but if the " + pFactId.getLink() + "can be used with any player number, then this is usually a valid " + pFactParameter.getLink() + " instead. If no extra parameter is needed, this is usually 0. See the FactId page to determine what should be used for the FactParameter.";
+pFactParameter.description = "A parameter for the fact to be used in up-get-fact-* command series. This often matches the first parameter in a fact command, but if the " + pFactId.getLink() + "can be used with any player number, then this is usually a valid " + pFactParameter.getLink() + " instead. If no extra parameter is needed, this is usually 0. See the FactId page to determine what should be used for the FactParameter.";
 pFactParameter.shortDescription = "A parameter for the fact.";
 pFactParameter.range = "An appropriate parameter for the fact, or 0 if not required.";
 pFactParameter.relatedParams = [pFactId];
@@ -24895,7 +24897,7 @@ pOnMainland.range = " -1, 0, or 1.";
 pOnMainland.relatedParams = [pMapType];
 
 //Option
-pOption.description = "A value that determines different ways the command will work. Here is a list:</p><ul><li>" + cUpBoundPrecisePoint.getLink() + ": If set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.</li><li>" + cUpGatherInside.getLink() + ": If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0 all units will be released as usual.</li><li>" + cUpGetPathDistance.getLink() + " and " + cUpPathDistance.getLink() + ": Set to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.</li><li>" + cUpGetPreciseTime.getLink() + ": Determines whether a system timestamp or elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp.</li><li>" + cUpGetUpgradeId.getLink() + ": Set to 1 to get the current type id for counting, otherwise 0.</li><li>" + cUpLogData.getLink() + ": Set to 1 in order to write plain text to the log.</li><li>" + cUpModifyGroupFlag.getLink() + ": Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.</li><li>" + cUpResetBuilding.getLink() + ": If set to 1, buildings performing research will not be affected when the building is reset.</li><li>" + cUpResetTargetPriorities.getLink() + ": The reset method. Restore default priorities with 0. For defensive priorities, setting Option to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</li><li>" + cUpSetupCostData.getLink() + ": If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.</li><li>" + cUpStoreMapName.getLink() + ": If set to 1, the map name will be stored with the file extension in the name. If set to 0, the map name will be stored without the file extension in the name.</li><li>" + cUpTargetObjects.getLink() + ": Set to 1 to target only the object set by up-set-target-object. If set to 0, the objects in the local list will evenly target all objects in the remote list.</li></ul>";
+pOption.description = "A value that determines different ways the command will work. Here is a list:</p><ul><li>" + cUpBoundPrecisePoint.getLink() + ": If set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.</li><li>" + cUpGatherInside.getLink() + ": If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0 all units will be released as usual.</li><li>" + cUpGetPathDistance.getLink() + " and " + cUpPathDistance.getLink() + ": Set to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.</li><li>" + cUpGetPreciseTime.getLink() + ": Determines whether a system timestamp or elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp.</li><li>" + cUpGetUpgradeId.getLink() + ": Set to 1 to get the current type id for counting, otherwise 0.</li><li>" + cUpLogData.getLink() + ": Set to 1 in order to write plain text to the log.</li><li>" + cUpModifyGroupFlag.getLink() + ": Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.</li><li>" + cUpResetBuilding.getLink() + ": If set to 1, buildings performing research will not be affected when the building is reset.</li><li>" + cUpResetTargetPriorities.getLink() + ": The reset method. Restore default priorities with 0. For defensive priorities, setting Option to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</li><li>" + cUpSetupCostData.getLink() + ": If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.</li><li>" + cUpStoreMapName.getLink() + ": If set to 1, the map name will be stored with the file extension in the name. If set to 0, the map name will be stored without the file extension in the name.</li><li>" + cUpTargetObjects.getLink() + ": Set to 1 to target only the object set by " + cUpSetTargetObject.getLink() + ". If set to 0, the objects in the local list will evenly target all objects in the remote list.</li></ul>";
 pOption.shortDescription = "A value that determines different ways the command will work.";
 pOption.range = "varies";
 pOption.relatedParams = [pOptionGoalId];
