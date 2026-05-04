@@ -30022,19 +30022,32 @@ castleTechsArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
-	de: 1,
+	de: 0,
 	civ: "Italians",
-	notes: "can use my-second-unique-research (DE only)"
+	notes: ""
 }, {	
 	name: "Silk Road",
 	aiName: "ri-silk-road",
 	weirdName: 2,
 	id: 499,
 	building: "Castle",
-	age: 4,
+	age: 3,
 	aok: 0,
 	tc: 0,
 	wk: 1,
+	de: 1,
+	civ: "Italians",
+	notes: "can use my-second-unique-research (DE only), available in imperial age in HD/WK"
+}, {	
+	name: "Pirotechnia",
+	aiName: "",
+	weirdName: 2,
+	id: 902,
+	building: "Castle",
+	age: 4,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	civ: "Italians",
 	notes: "can use my-unique-research"

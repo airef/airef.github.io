@@ -18,6 +18,7 @@
 		<h2>Technologies</h2>
 		<p><strong>Legend:</strong> Renamed technologies from the base game are marked in <span class="weird-tech-name">yellow</span>. New technologies are marked in <span class="de-tech-name">green</span>.</p>
 		<p>This table lists all technologies in the Chronicles: Battle for Greece DLC. For AoE2 technologies see the <a href="./techs.html">AoE2 Techs Table</a>. For a list of technologies in the Return of Rome DLC, see the <a href="./techs-ror.html">Return of Rome Techs Table</a>.</p>
+		<p><strong>New Feature:</strong> You can filter by the civilization column by typing the civilization's name in the search bar.</p>
 		<p>
 			<label for="techsInputChr" class="techs-input-label-chr">Search</label><label for="techs-building" class="dropdown-label">Building</label><label for="techs-age" class="dropdown-label">Age</label>
 			<input type="text" id="techsInputChr" onkeyup="techsFilter()" placeholder="Search by tech name or ID..." autocomplete="off" autofocus="autofocus"><select id="techs-building" class="drop-filter" onchange="techsFilter()" autocomplete="off" title="Building">
@@ -100,7 +101,7 @@
 	<script>
 		function techsFilter() {
 			// Declare variables
-			var input, building, age, version, filter, table, tr, tdName, tdId, tdAiName, tdBuilding, tdAge, i, h, num, bldgNum, header;
+			var input, building, age, version, filter, table, tr, tdName, tdId, tdAiName, tdBuilding, tdAge, tdCiv, i, h, num, bldgNum, header;
 			input = document.getElementById("techsInputChr");
 			building = document.getElementById("techs-building");
 			building = building.value;
@@ -136,10 +137,11 @@
 					tdAiName = techsArrayChr[h][i].aiName;
 					tdBuilding = techsArrayChr[h][i].building;
 					tdAge = techsArrayChr[h][i].age;
+					tdCiv = techsArrayChr[h][i].civ;
 
 					if (tdName != "" && tdId.toString().length > 0) {
 						tdName = tdName.replace(/-/g,"");
-						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
+						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1 || tdCiv.toUpperCase().indexOf(filter) > -1) {
 							if(building == "All" || tdBuilding == building) {
 								if(age == "All" || tdAge == age) {
 									tr[i + 1].style.display = "";

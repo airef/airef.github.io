@@ -116,7 +116,7 @@
 				if (parametersArray[i].valueList.length > 0)
 				{
 					info += "<p><h3>Defined Values</h3></p>";
-					info += "<p><input type=\"text\" id=\"valueListInput\" onkeyup=\"valueListFilter()\" placeholder=\"Search for values...\"></p>";
+					info += "<p><input type=\"text\" id=\"valueListInput\" onkeyup=\"valueListFilter()\" placeholder=\"Search for values...\" autofocus=\"autofocus\"></p>";
 					info += '<table id="value-list-table"><tr><th>ID</th><th id="name-col">Name</th><th>Description</th>';
 					if (parametersArray[i].upParamName == "FactId") {
 						info += "<th id=\"parameter-col\">Parameter</th>";
