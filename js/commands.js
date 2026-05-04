@@ -14315,7 +14315,7 @@ cVictoryCondition.complexity = "Low";
 
 //wall-completed-percentage
 cWallCompletedPercentage.shortDescription = "Checks the completion percentage for a given wall perimeter.";
-cWallCompletedPercentage.description = "Checks the completion percentage for a given wall perimeter. Trees and other destructible natural barriers are included and count as completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.</p><p><strong>Note: </strong>There are multiple cases where wall-completed-percentage equals 100 when you wouldn't expect:<ol><li>Maps with starting walls like Arena, Fortress, or Hideout.</li><li>On island maps if there is an entirely water based barrier between the AI and any enemies.</li><li>If a treaty is active.</li></ol>";
+cWallCompletedPercentage.description = "Checks the completion percentage for a given wall perimeter. Trees and other destructible natural barriers are included and count as completed.</p><p>The given perimeter must have been enabled with " + cEnableWallPlacement.getLink() + ", and you should not check the completed percentage until the pass after the given wall perimeter has been enabled.</p><p>Allowed perimeter values are 1 and 2, with 1 being closer to the Town Center than 2. Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center.</p><p><strong>Note: </strong>There are multiple cases where wall-completed-percentage equals 100 when you wouldn't expect:<ol><li>Maps with starting walls like Arena, Fortress, or Hideout.</li><li>On island maps if there is an entirely water based barrier between the AI and any enemies.</li><li>If a treaty is active.</li><li>If playing a Wonder Race game where you're allied with everyone</li></ol>";
 cWallCompletedPercentage.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -18147,7 +18147,7 @@ cUpGetTreatyData.commandParameters = [ {
 } ];
 cUpGetTreatyData.example = [ {
 	title: "Store the remaining treaty time in gl-treaty-time-left.",
-	data: "(defconst gl-treaty-time-left 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-treaty-time gl-gl-treaty-time-left)\r\n)"
+	data: "(defconst gl-treaty-time-left 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-treaty-data gl-treaty-time-left)\r\n)"
 } ];
 cUpGetTreatyData.relatedCommands = [];
 cUpGetTreatyData.commandCategory = ["Diplomacy", "Game Info"];
@@ -21753,7 +21753,7 @@ pActionId.valueList = [ {
 }, {
 	name: "actionid-build",
 	id: 602,
-	description: "The villager or fishing ship is building."
+	description: "The villager or fishing ship is building, including farmers reseeding farms."
 }, {
 	name: "actionid-heal",
 	id: 603,
@@ -21781,7 +21781,7 @@ pActionId.valueList = [ {
 }, {
 	name: "actionid-gather",
 	id: 609,
-	description: "Likely a building setting a gather point."
+	description: "Foragers, farmers, fishermen, gold miners, or stone miners gathering resources. Doesn't include lumberjacks or shepherds."
 }, {
 	name: "actionid-move",
 	id: 610,
@@ -21797,7 +21797,7 @@ pActionId.valueList = [ {
 }, {
 	name: "actionid-hunt",
 	id: 613,
-	description: "A villager that is hunting. Untested if this also includes attacking wolves."
+	description: "A villager that is hunting animals, attacking wolves, herding livestock, or villagers gathering wood."
 }, {
 	name: "actionid-transport",
 	id: 614,
@@ -27537,6 +27537,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "Bugs with sn-enable-research-queue",
+	date: "Apr 25, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1497592259804397680\">Link</a>",
+	description: "iIt looks like sn-enable-research-queue only works if you have sn-enable-training-queue set > 0 and have units queued. You cannot queue techs if a unit isn't training at that building."
+}, {
 	name: "object-data-attacker-count and object-data-under-attack doesn't work for building foundations",
 	date: "Apr 13, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1493372417827934278\">Link</a>",
@@ -27791,6 +27796,11 @@ bugsArray = [ {
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
 	description: "Several bugs: (1) all ally unit counts are currently bugged since they count the entire unit line, rather than just the unit given to the command. (2) all enemy unit counts are currently bugged as they, including all the different upgrades, just count the base unit and not the specific given upgrade. The unit lines still work for enemies. (3) elite-huskarl-barracks/elite-stable-tarkan cannot be	counted for ally & enemy players. Both give 0 and there is no unit-line as an alternative. (4) elite-gbeto cannot be counted for ally & enemy players. Only the non-elite gbeto is counted. (5) dismounted-konniks/elite-dismounted-konniks are not counted for enemy players and give -1. dismounted-konnik-line gives -2, presumably because it is counting	both of these. (5) flemish-militia-male and flemish-militia-female are not counted for enemy players and give -1. Instead, for	enemy players, they get included in flemish-militia-trained. I assume this is intended behavior. But something for people to be aware of."
+}, {
+	name: "wall-invisible-percentage and wall-completed-percentage only go up to 50%",
+	date: "Nov 19, 2023",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1175990960728059926\">Link</a>",
+	description: "It appears wall-invisible-percentage/wall-completed-percentage are bugged in DE. For some reason when building walls at perimeter 2, wall-completed-percentage only went up to 50% when the full outer wall was complete."
 }, {
     name: "(can-build town-center) doesn't check if the AI has enough stone",
     date: "Sep 9, 2023",
