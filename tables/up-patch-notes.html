@@ -169,6 +169,7 @@
 			for(i = 0; i < releaseNotes.length; i++) {
 				notes = releaseNotes[i].notes.toString();
 				notes = notes.toUpperCase();
+				notes = notes.replace(/-/g,"");
 				if((releaseNotes[i].version == version.value || version.value == "All") && (releaseNotes[i].year == year.value || year.value == "All") && (releaseNotes[i].month == month.value || month.value == "All") && notes.indexOf(filter) > -1 && (releaseNotes[i].scriptingType == type.value || type.value == "All")) {
 					tr[i].style.display = "";
 					num++;
@@ -202,6 +203,7 @@
 			for(i = 0; i < releaseNotes.length; i++) {
 				notes = releaseNotes[i].notes.toString();
 				notes = notes.toUpperCase();
+				notes = notes.replace(/-/g,"");
 				if((releaseNotes[i].version == version.value || version.value == "All") && (releaseNotes[i].year == year.value || year.value == "All") && (releaseNotes[i].month == month.value || month.value == "All") && notes.indexOf(filter) > -1 && (releaseNotes[i].scriptingType == type.value || type.value == "All")) {
 					for(j = 0; j < versionHeader.length; j++) {
 						for(k = 0; k < releaseVersions.length; k++) {

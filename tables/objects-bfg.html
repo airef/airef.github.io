@@ -19,6 +19,7 @@
 		<p>This list of objects in the Chronicles: Battle for Greece DLC doesn't include any Gaia objects because they are almost exactly the same as in AoE2 DE. The only difference is the new Mouflon huntable animal unit (ID 2340).</p>
 		<p>For more info on what dead units, projectiles, <a href="https://airef.github.io/parameters/parameters-details.html#LineId">lines</a>, <a href="https://airef.github.io/parameters/parameters-details.html#SetId">sets</a>, and <a href="https://airef.github.io/parameters/parameters-details.html#ClassId">classes</a> are, click <a href="#info">here</a>.</p>
 		<p>For a list of objects in AoE2, see the <a href="./objects.html">AoE2 Objects Table</a>. For a list of objects in the Return of Rome DLC, see the <a href="./objects-ror.html">Return of Rome Objects Table</a>.</p>
+		<p><strong>New Feature:</strong> You can filter by the civilization column by typing the civilization's name in the search bar.</p>
 		<p>
 			<label for="objectsInputChr" class="objects-chr-input-label">Search</label><label for="objects-class" class="dropdown-label">Class</label><label for="objects-cmdId" class="dropdown-label">Command ID</label><label for="objects-building" class="dropdown-label">Bldg/Category</label><label for="objects-age" class="dropdown-label">Age</label><!--<label for="objects-versions" class="dropdown-label">Version</label>-->
 			<input type="text" id="objectsInputChr" onkeyup="objectsFilter()" placeholder="Search by object name or ID..." autocomplete="off" autofocus="autofocus"><select id="objects-class" class="drop-filter" onchange="objectsFilter()" autocomplete="off" title="Class">
@@ -143,7 +144,7 @@
 	<script>
 		function objectsFilter() {
 			// Declare variables
-			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdCmdId, tdBuilding, tdAge, i, h, num, bldgNum, header;
+			var input, building, age, objectClass, version, filter, table, tr, tdName, tdId, tdAiName, tdClass, tdCmdId, tdBuilding, tdAge, tdCiv, i, h, num, bldgNum, header;
 			input = document.getElementById("objectsInputChr");
 			building = document.getElementById("objects-building");
 			building = building.value;
@@ -306,10 +307,12 @@
 					tdCmdId = objectsArrayChr[h][i].cmdId;
 					tdBuilding = objectsArrayChr[h][i].building;
 					tdAge = objectsArrayChr[h][i].age;
+					tdCiv = objectsArrayChr[h][i].civ;
 
 					if (tdName != "" && tdId.toString().length > 0) {
 						tdName = tdName.replace(/-/g,"");
-						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1) {
+						tdAiName = tdAiName.replace(/-/g,"");
+						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1 || tdCiv.toUpperCase().indexOf(filter) > -1) {
 							if(objectClass == "All" || tdClass == objectClass) {
 								if(objectCmdId == "All" || tdCmdId == objectCmdId) {
 									if(building == "All" || tdBuilding == building) {

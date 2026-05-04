@@ -141,6 +141,7 @@
 
 					if (tdName != "" && tdId.toString().length > 0) {
 						tdName = tdName.replace(/-/g,"");
+						tdAiName = tdAiName.replace(/-/g,"");
 						if (tdId.toString().toUpperCase().indexOf(filter) > -1 || tdName.toUpperCase().indexOf(filter) > -1 || tdAiName.toUpperCase().indexOf(filter) > -1 || tdCiv.toUpperCase().indexOf(filter) > -1) {
 							if(building == "All" || tdBuilding == building) {
 								if(age == "All" || tdAge == age) {

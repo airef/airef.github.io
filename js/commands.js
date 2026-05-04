@@ -30092,7 +30092,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Iron Pagoda",
-	aiName: "ri-elite-iron-pagoda",
+	aiName: "",
 	weirdName: 0,
 	id: 991,
 	building: "Castle",
@@ -30105,7 +30105,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Fortified Bastions",
-	aiName: "ri-fortified-bastions",
+	aiName: "",
 	weirdName: 0,
 	id: 996,
 	building: "Castle",
@@ -30118,7 +30118,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research"
 }, {	
 	name: "Thunderclap Bombs",
-	aiName: "ri-thunderclap-bombs",
+	aiName: "",
 	weirdName: 0,
 	id: 997,
 	building: "Castle",
@@ -30131,7 +30131,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Liao Dao",
-	aiName: "ri-elite-liao-dao",
+	aiName: "",
 	weirdName: 0,
 	id: 1002,
 	building: "Castle",
@@ -30144,7 +30144,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Lamellar Armor",
-	aiName: "ri-lamellar-armor",
+	aiName: "",
 	weirdName: 0,
 	id: 1006,
 	building: "Castle",
@@ -30157,7 +30157,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research"
 }, {	
 	name: "Ordo Cavalry",
-	aiName: "ri-ordo-cavalry",
+	aiName: "",
 	weirdName: 0,
 	id: 1007,
 	building: "Castle",
@@ -30820,7 +30820,7 @@ castleTechsArray = [ {
 	notes: "removed in DE, my-unique-research in UP/WK"
 }, {	
 	name: "Elite White Feather Guard",
-	aiName: "ri-elite-white-feather-guard",
+	aiName: "",
 	weirdName: 0,
 	id: 1064,
 	building: "Castle",
@@ -30833,7 +30833,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Bolt Magazine",
-	aiName: "ri-bolt-magazine",
+	aiName: "",
 	weirdName: 0,
 	id: 1069,
 	building: "Castle",
@@ -30846,7 +30846,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research"
 }, {	
 	name: "Coiled Serpent Array",
-	aiName: "ri-coiled-serpent-array",
+	aiName: "",
 	weirdName: 0,
 	id: 1070,
 	building: "Castle",
@@ -31223,7 +31223,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-research, previously called Berserkergang"
 }, {	
 	name: "Elite Tiger Cavalry",
-	aiName: "ri-elite-berserk",
+	aiName: "",
 	weirdName: 0,
 	id: 1036,
 	building: "Castle",
@@ -31236,7 +31236,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Tuntian",
-	aiName: "ri-tuntian",
+	aiName: "",
 	weirdName: 0,
 	id: 1061,
 	building: "Castle",
@@ -31249,7 +31249,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research"
 }, {	
 	name: "Ming Guang Armor",
-	aiName: "ri-ming-guang-armor",
+	aiName: "",
 	weirdName: 0,
 	id: 1062,
 	building: "Castle",
@@ -31262,7 +31262,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-research"
 }, {	
 	name: "Elite Fire Archer",
-	aiName: "ri-elite-fire-archer",
+	aiName: "",
 	weirdName: 0,
 	id: 1074,
 	building: "Castle",
@@ -31275,7 +31275,7 @@ castleTechsArray = [ {
 	notes: "can use my-unique-unit-upgrade"
 }, {	
 	name: "Red Cliffs Tactics",
-	aiName: "ri-red-cliffs-tactics",
+	aiName: "",
 	weirdName: 0,
 	id: 1080,
 	building: "Castle",
@@ -31288,7 +31288,7 @@ castleTechsArray = [ {
 	notes: "can use my-second-unique-research"
 }, {	
 	name: "Sitting Tiger",
-	aiName: "ri-sitting-tiger",
+	aiName: "",
 	weirdName: 0,
 	id: 1081,
 	building: "Castle",
@@ -37798,7 +37798,7 @@ objectsCastleArray = [ {
 	notes: ""
 }, {	
 	name: "Elite White Feather Guard",
-	aiName: "elite-white-feather-guard",
+	aiName: "",
 	line: "white-feather-guard-line",
 	id: 1961,
 	class: "infantry-class (906)",
