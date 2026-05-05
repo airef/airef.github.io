@@ -8297,7 +8297,7 @@ unitLinesArray = [ {
 	name: "krepost-konnik-line",
 	id: "NA",
 	deId: -246,
-	description: "No longer used. Technically includes krepost-konnik and elite-krepost-konnik, but these unit IDs are no longer used by the game. Does not include konniks trained at the castle or dismounted konniks."
+	description: "No longer used. Technically includes krepost-konnik and elite-krepost-konnik, but these unit IDs are only used to tell the AI to train konniks from the krepost. Standard konniks, not krepost konniks will actually be trained. Does not include konniks trained at the castle or dismounted konniks."
 }, {
 	name: "foot-konnik-line",
 	id: "NA",
@@ -8337,7 +8337,7 @@ unitLinesArray = [ {
 	name: "donjon-serjeant-line",
 	id: "NA",
 	deId: -238,
-	description: "No longer used. Technically includes donjon-serjeant and elite-donjon-serjeant, but these unit IDs are no longer used by the game."
+	description: "No longer used. Technically includes donjon-serjeant and elite-donjon-serjeant, but these unit IDs are only used to tell the AI to train serjeants from the donjon. Standard serjeants, not donjon serjeants will actually be trained."
 }, {
 	name: "obuch-line",
 	id: "NA",
@@ -8392,7 +8392,7 @@ unitLinesArray = [ {
 	name: "donjon-spearman-line",
 	id: "NA",
 	deId: -227,
-	description: "No longer used. Technically includes donjon-spearman, donjon-pikeman, and donjon-halberdier, but these unit IDs are no longer used by the game."
+	description: "No longer used. Technically includes donjon-spearman, donjon-pikeman, and donjon-halberdier, but these unit IDs are only used to tell the AI to train spearmen from the donjon. Standard spearmen, not donjon spearmen will actually be trained."
 }, {
 	name: "centurion-line",
 	id: "NA",
@@ -27537,6 +27537,11 @@ bugsArray = [ {
 // 	link: "<a href=\"\">Link</a>",
 // 	description: ""
 // }, {
+	name: "sn-fishing-boat-whaling-percentage > 0 causes most fishing boats to be sent to explore if whales haven't been found",
+	date: "May 5, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1501218979534868600\">Link</a>",
+	description: "I am having a weird issue where only about three fishing ships are fishing, and the rest are roaming around like the first one, possibly exploring. I suspected my fish trap code, but found that it does not spam commands at all. But now I found the culprit: I recently increased sn-fishing-boat-whaling-percentage from the default of 0 to 20 and sn-whaling-max-distance to 40, in order to catch any whales and possibly oysters(?) available. This leads to a vast majority of the fishing ships searching far and wide for whales, apparently. A test script is included on Discord. It's possible that fishing ships sent to explore for whales aren't included as fishing ships assigned to whales, meaning that the AI engine will keep on assigning new fishing ships to explore for whales in a fruitless attempt to reach the desired number of whaling ships set by sn-fishing-boat-whaling-percentage."
+}, {
 	name: "Bugs with sn-enable-research-queue",
 	date: "Apr 25, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1497592259804397680\">Link</a>",
@@ -35506,7 +35511,7 @@ objectsBarracksArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 0,
-	notes: "Can be counted with huskarl-set. No longer used in DE, use my-unique-unit-line or huskarl-line."
+	notes: "Can be counted with huskarl-set. Only used to train the huskarl line from the barracks."
 }, {	
 	name: "Elite Huskarl (Barracks)",
 	aiName: "",
@@ -35525,7 +35530,7 @@ objectsBarracksArray = [ {
 	tc: 1,
 	wk: 1,
 	de: 0,
-	notes: "Can be counted with huskarl-set. No longer used in DE, use my-unique-unit-line or huskarl-line."
+	notes: "Can be counted with huskarl-set. Use ID 759 to train the huskarl line from the barracks."
 }, {
 	name: "Flemish Militia (Train)",
 	aiName: "town-center-flemish-pikeman",
@@ -39812,7 +39817,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use my-unique-unit-line or serjeant-line."
+	notes: "Only used to train serjeants from the donjon."
 }, {
 	name: "Elite Serjeant (Donjon)",
 	aiName: "elite-donjon-serjeant",
@@ -39831,7 +39836,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use my-unique-unit-line or serjeant-line."
+	notes: "Do not use. Use donjon-serjeant to train the serjeant line from the donjon."
 }, {	
 	name: "Spearman (Donjon)",
 	aiName: "",
@@ -39850,7 +39855,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use spearman-line."
+	notes: "Only used to train spearmen from the donjon"
 }, {	
 	name: "Pikeman (Donjon)",
 	aiName: "",
@@ -39869,7 +39874,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use spearman-line."
+	notes: "Do not use. Use donjon-spearman to train the spearman line from the donjon."
 }, {	
 	name: "Halberdier (Donjon)",
 	aiName: "",
@@ -39888,7 +39893,7 @@ objectsDonjonArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use spearman-line."
+	notes: "Do not use. Use donjon-spearman to train the spearman line from the donjon."
 }];
 	
 objectsKrepostArray = [ {	
@@ -39909,7 +39914,7 @@ objectsKrepostArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use my-unique-unit-line or konnik-line."
+	notes: "Only used to train kreposts from the krepost"
 }, {	
 	name: "Elite Konnik (Krepost)",
 	aiName: "elite-krepost-konnik",
@@ -39928,7 +39933,7 @@ objectsKrepostArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 0,
-	notes: "Do not use. Use my-unique-unit-line or konnik-line."
+	notes: "Do not use. Use krepost-konnik to train the konnik line from the krepost."
 }];	
 	
 objectsMarketArray = [ {	
@@ -41190,7 +41195,7 @@ objectsStableArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 0,
-	notes: "Can be counted with tarkan-set. In DE, use my-unique-unit-line or tarkan-line instead."
+	notes: "Can be counted with tarkan-set. In DE, only used to train tarkans from stables."
 }, {	
 	name: "Elite Tarkan (Stable)",
 	aiName: "stable-elite-tarkan",
@@ -41209,7 +41214,7 @@ objectsStableArray = [ {
 	tc: 0,
 	wk: 1,
 	de: 0,
-	notes: "Can be counted with tarkan-set. In DE, use my-unique-unit-line or tarkan-line instead."
+	notes: "Can be counted with tarkan-set. In DE, use stable-tarkan to train the tarkan line from stables."
 }, {	
 	name: "Xolotl Warrior",
 	aiName: "",
