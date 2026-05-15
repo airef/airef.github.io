@@ -61,6 +61,7 @@
 			var input, filter, entry, name, description;
 			input = document.getElementById("bugsInput");
 			filter = input.value.toUpperCase();
+			filter = filter.replace(/-/g,"");
 			entry = document.getElementsByClassName("bug-entry");
 			
 			//Remove releases that don't match search
@@ -68,8 +69,10 @@
 			for(i = 0; i < bugsArray.length; i++) {
 				name = bugsArray[i].name.toString();
 				name = name.toUpperCase();
+				name = name.replace(/-/g,"");
 				description = bugsArray[i].description.toString();
 				description = description.toUpperCase();
+				description = description.replace(/-/g,"");
 				if(name.indexOf(filter) > -1 || description.indexOf(filter) > -1) {
 					entry[i].style.display = "";
 					num++;
