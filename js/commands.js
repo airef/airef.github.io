@@ -27600,26 +27600,26 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
 	description: "AI attacks automatically seem to know where the enemy TC is on nomad starts, and when they send soldiers to attack they will always march toward that location, even if it's in the fog of war. A side effect is that position-enemy also knows enemy town locations that are in the fog of war. This might be linked to the bug where enemy TCs built during treaty mode being counted as coustillier, and the enemy TCs are added to the AIs explored objects list."
 }, {
-	name: "Exploring villagers often go idle",
-	date: "Feb 3, 2026",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
-	description: "AI villagers sent to explore with sn-cap-civilian-explorers often go idle at some point. "
-}, {
-	name: "Town Center not firing arrows",
-	date: "Jan 8, 2026",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458910178903855256\">Link</a>",
-	description: "Not sure if that's DE on Nomad but even with lots of villagers in TC and Castle Age research done, TC doesn't fire. Towers also seem to fail to fire occasionally."
-}, {
+// 	name: "Exploring villagers often go idle",
+// 	date: "Feb 3, 2026",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
+// 	description: "AI villagers sent to explore with sn-cap-civilian-explorers often go idle at some point. "
+// }, {
+// 	name: "Town Center not firing arrows",
+// 	date: "Jan 8, 2026",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458910178903855256\">Link</a>",
+// 	description: "Not sure if that's DE on Nomad but even with lots of villagers in TC and Castle Age research done, TC doesn't fire. Towers also seem to fail to fire occasionally."
+// }, {
 	name: "housing-headroom is uncapped by the pop cap, causing population-headroom to go negative",
 	date: "Jan 6, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458065584083177677\">Link</a>",
 	description: "housing-headroom is uncapped by the pop cap, and it will include headroom above the pop cap that it can't use. population-headroom is calculated by population-capacity - housing-capacity, so when housing capacity goes above the pop cap, population-headroom will go negative. There is some debate whether this should be changed or not. Follow the link to see the discussion."
 }, {
-	name: "enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends",
-	date: "Jan 3, 2026",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1457008448750489632\">Link</a>",
-	description: "Enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends. Found cause: The TC object 1649 was using the wrong unit counting index, it shouldn't be counted at all but was using the closest index to it which happens to be coustillier 1655."
-}, {
+// 	name: "enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends",
+// 	date: "Jan 3, 2026",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1457008448750489632\">Link</a>",
+// 	description: "Enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends. Found cause: The TC object 1649 was using the wrong unit counting index, it shouldn't be counted at all but was using the closest index to it which happens to be coustillier 1655."
+// }, {
 	name: "building-type-count and building-type-count-total count cancelled building foundations",
 	date: "Dec 30, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1455571914721591411\">Link</a>",
@@ -27715,11 +27715,11 @@ bugsArray = [ {
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1337413622246408286\">Link</a>",
 	description: "position-enemy counts walls when calculating the target player's closest building, but walls should be excluded."
 }, {
-	name: "Gates are included in enemy archer-line counts",
-	date: "Jan 18, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
-	description: "Gates are being included in archer-line unit-type-counts when using up-get-fact-sum."
-}, {
+// 	name: "Gates are included in enemy archer-line counts",
+// 	date: "Jan 18, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1330307518001446993\">Link</a>",
+// 	description: "Gates are being included in archer-line unit-type-counts when using up-get-fact-sum."
+// }, {
 // 	name: "AIs can buy and sell resources as long as they have a market foundation placed at some point in the game",
 // 	date: "Jan 5, 2025",
 // 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1325558515795890258\">Link</a>",
@@ -27795,21 +27795,21 @@ bugsArray = [ {
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1197973709693124648\">Link</a>",
 	description: "Is sn-object-repair-level working for anyone at the moment? It doesn't matter what value I set it to, villagers won't repair anything anymore. I've confirmed using up-chat-data-to player the SN is set to the correct values for repairing specific objects."
 }, {
-	name: "dropsite-min-distance doesn't update with mule carts",
-	date: "Jan 15, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
-	description: "dropsite-min-distance wood/gold/stone doesn't work with mule carts. Does not change when mule carts move or die."
-}, {
+// 	name: "dropsite-min-distance doesn't update with mule carts",
+// 	date: "Jan 15, 2024",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
+// 	description: "dropsite-min-distance wood/gold/stone doesn't work with mule carts. Does not change when mule carts move or die."
+// }, {
 	name: "Dividing negative numbers by positive numbers gives incorrect result",
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
 	description: "It turns out that dividing negative numbers by positive numbers doesn't work. It tends to give one larger than expected."
 }, {
-	name: "action-ungarrison doesn't work",
-	date: "Jan 2, 2024",
-	link: "[Reported by TheMaximalBeing privately]",
-	description: "action-ungarrison doesn't work at all. Setting sn-keystates to 2 doesn't fix it."
-}, {
+// 	name: "action-ungarrison doesn't work",
+// 	date: "Jan 2, 2024",
+// 	link: "[Reported by TheMaximalBeing privately]",
+// 	description: "action-ungarrison doesn't work at all. Setting sn-keystates to 2 doesn't fix it."
+// }, {
 	name: "up-get-player-fact unit counting bugs",
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
