@@ -9891,7 +9891,7 @@ aoe2MapsLoadIfsArray = [ {
 	description: "Quick Play Black Forest map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-FORTIFIED-CLEARING MAP",
+	name: "QUICKPLAY-FORTIFIED-CLEARING-MAP",
 	description: "Quick Play Fortified Clearing map. Defined only in DE.",
 	type: "AoE2 Maps"
 }, {
@@ -23812,10 +23812,6 @@ pMapType.valueList = [ {
 }, {
 	name: "real-world-spain",
 	id: 49,
-	description: "Australia map. Must be defined with a defconst."
-}, {
-	name: "real-world-spain",
-	id: 49,
 	description: "Iberia real world map. Defined as 34 before DE."
 }, {
 	name: "real-world-england",
@@ -24197,6 +24193,10 @@ pMapType.valueList = [ {
 	name: "crossroads",
 	id: 153,
 	description: "Crossroads map."
+}, {
+	name: "michi",
+	id: 154,
+	description: "Michi map."
 }, {
 	name: "volcanic-island",
 	id: 156,
@@ -27465,7 +27465,7 @@ pUnitId.wildcardParam = unitLinesArray;
 //Value
 pValue.description = "An integer value. Used for many different purposes.";
 pValue.shortDescription = "An integer value. Used for many different purposes.";
-pValue.range = "A 32-bit signed integer (-2,147,483,648 to 2,147,483,647), in most cases. In UP, usually a 16-bit signed integer (-32768 to 32767) except for goals.";
+pValue.range = "A 32-bit signed integer (-2,147,483,648 to 2,147,483,647), in most cases. In UP, it may be limited to a 16-bit signed integer (-32768 to 32767).";
 pValue.relatedParams = [pPercent];
 
 //VictoryCondition
