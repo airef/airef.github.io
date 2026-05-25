@@ -7975,7 +7975,7 @@ snGatherIdleSoldiersAtSpawnPoint.de = 1;
 snGatherIdleSoldiersAtSpawnPoint.linked = [];
 snGatherIdleSoldiersAtSpawnPoint.related = [ 232, 239 ];
 snGatherIdleSoldiersAtSpawnPoint.shortDescription = "Controls whether idle military units will walk back to the building they were trained out of.";
-snGatherIdleSoldiersAtSpawnPoint.description = "Controls whether military units will walk back to the building they were trained out of after they are idle for a certain period of time. Mainly intended for campaign designers.";
+snGatherIdleSoldiersAtSpawnPoint.description = "Controls whether military units will walk back to the building they were trained out of after they are idle for a certain period of time. Mainly intended for campaign designers. Requires " + snGatherDefenseUnits.getLink() + " to be set to 1 to work.";
 
 //Unit Lines Array
 unitLinesArray = [ {
@@ -16640,7 +16640,7 @@ cUpFindFlare.complexity = "High";
 
 //up-find-local
 cUpFindLocal.shortDescription = "Find objects owned by the local player for direct targeting.";
-cUpFindLocal.description = "Find objects owned by the local player for direct targeting. If UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.";
+cUpFindLocal.description = "Find objects owned by the local player for direct targeting. If UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p><strong>Note:</strong> this command ignores the object status filter set by " + cUpFilterStatus.getLink() + ". up-find-local only finds objects with a status-ready status. To find objects of other statuses according to the status filtered by up-filter-status, use " + cUpFindStatusLocal.getLink() + ".";
 cUpFindLocal.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -16780,7 +16780,7 @@ cUpFindPlayerFlare.complexity = "High";
 
 //up-find-remote
 cUpFindRemote.shortDescription = "Find objects owned by the focus player for direct targeting.";
-cUpFindRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>Normally, up-find-remote will only find status-ready objects, but up-find-remote can also find objects with object status values 0 to 3 (status-pending, status-ready, and status-resource) if you search by object type id instead of class id.</p><p>For self/ally objects, it can find them directly at all times. For non-ally objects, if the object has been sighted and is either a building or has been seen/reseen within the past 5 seconds, it can be found. This should allow the AI to target units that are clearly visible without cheating, and target sighted enemy buildings in the fog.</p><p>One other note: although the new targeting and find commands aren't as heavy as attack-now, like any command that directly manipulates units like retreat-now, guard-unit, etc., please try not to flood them.";
+cUpFindRemote.description = "Find objects owned by the focus player for direct targeting. Set sn-focus-player-number before using this command. If the focus or UnitId changes, the search index offset will be reset. Otherwise, it will continue from where it left off. This command can be used as either a Fact or an Action.</p><p>Normally, up-find-remote will only find status-ready objects, but up-find-remote can also find objects with object status values 0 to 3 (status-pending, status-ready, and status-resource) if you search by object type id instead of class id.</p><p>The status filter set by " + cUpFilterStatus.getLink() + " is ignored by up-find-remote. To find objects of other statuses according to the status filtered by up-filter-status, use " + cUpFindStatusRemote.getLink() + ".</p><p>For self/ally objects, it can find them directly at all times. For non-ally objects, if the object has been sighted and is either a building or has been seen/reseen within the past 5 seconds, it can be found. This should allow the AI to target units that are clearly visible without cheating, and target sighted enemy buildings in the fog.</p><p>One other note: although the new targeting and find commands aren't as heavy as attack-now, like any command that directly manipulates units like retreat-now, guard-unit, etc., please try not to flood them.";
 cUpFindRemote.commandParameters = [ {
 	nameLink: pTypeOp.getLink(),
 	name: "typeOp",
@@ -21934,7 +21934,7 @@ pAttackStance.valueList = [ {
 //AttrId
 pAttrId.description = "The id of an attribute to modify, such as attribute-hp. Since the " + cFeCcEffectAmount.getLink() + " and " + cFeCcEffectPercent.getLink() + " are similar to researching a custom technology for free, you can think of the AttrId as specifying what the technology will change or modify.</p><p>Please note that all of the attribute descriptions below are my (Leif Ericson's) educated guess, and I have done no testing on these attributes (yet).";
 pAttrId.shortDescription = "The id of an attribute to modify, such as attribute-hp.";
-pAttrId.range = "0 to 109."
+pAttrId.range = "a valid attribute from the list below."
 pAttrId.relatedParams = [pEffectId];
 pAttrId.valueList = [ {
 	name: "attribute-hp",
@@ -22142,7 +22142,7 @@ pBuildingId.wildcardParam = [ {
 //Civ
 pCiv.description = "The player's civilization. You may need to define some civilizations with a defconst. \"my-civ\" is also an option, which will detect the civilization that the AI is playing as.";
 pCiv.shortDescription = "The player's civilization.";
-pCiv.range = "0 to the number of civs for the particular game version.";
+pCiv.range = "a valid civ ID from the list below.";
 pCiv.valueList = [ {
 	name: "gaia",
 	id: 0,
@@ -22393,7 +22393,7 @@ pClassId.relatedParams = [pBuildingId, pCmdId, pLineId, pObjectId, pSetId, pThre
 pClassId.valueList = [ {
 	name: "all-units-class",
 	id: -1,
-	description: "All Units class. Counts all objects, including buildings."
+	description: "All objects (i.e. any class). Counts all objects, including buildings."
 }, {
 	name: "archery-class",
 	id: 900,
@@ -22722,7 +22722,7 @@ pDifficulty.valueList = [ {
 //DiffParameterId
 pDiffParameterId.description = "A Difficulty Parameter ID.";
 pDiffParameterId.shortDescription = "A Difficulty Parameter ID.";
-pDiffParameterId.range = "0 to 1.";
+pDiffParameterId.range = "0 or 1.";
 pDiffParameterId.relatedParams = [pDifficulty, pSnId];
 pDiffParameterId.valueList = [ {
 	name: "ability-to-maintain-distance",
@@ -22743,7 +22743,7 @@ pDiffParameterId.valueList = [ {
 //DUCAction
 pDUCAction.description = "The action to perform with the selected units. Some DUC Actions cannot be taken with " + cUpTargetObjects.getLink() + ".";
 pDUCAction.shortDescription = "The action to perform with the selected units."
-pDUCAction.range = "0 to 18.";
+pDUCAction.range = "a valid DUCAction from the list below.";
 pDUCAction.relatedParams = [pActionId, pOrderId];
 pDUCAction.valueList = [ {
 	name: "action-default",
@@ -22838,7 +22838,7 @@ pDUCAction.valueList = [ {
 //EffectId
 pEffectId.description = "The id of an Effect such as effect_set_attribute. This parameter determines how the " + pAttrId.getLink() + " should be affected. Since the " + cFeCcEffectAmount.getLink() + " and " + cFeCcEffectPercent.getLink() + " are similar to researching a custom technology for free, you can think of the EffectId as specifying the type of technology the command will execute, such as upgrading a new unit or adding hit points to a building. The available EffectIds are very similar to the Command Types dropdown on the Effects tab of the Advanced Genie Editor when a tech effect is selected.</p><p>Please note that I (Leif Ericson) have not tested the effects below, and they are just educated guesses at the moment.";
 pEffectId.shortDescription = "The id of an Effect such as effect_set_attribute.";
-pEffectId.range = "0 to 9.";
+pEffectId.range = "a valid EffectId from the list below.";
 pEffectId.relatedParams = [pAttrId];
 pEffectId.valueList = [ {
 	name: "effect-set-attribute",
@@ -22952,7 +22952,7 @@ pExploredState.valueList = [ {
 //FactId
 pFactId.description = "Selects the fact type to be checked and stored in a goal. Each FactId corresponds to a normal Fact except for cc-gaia-type-count.</p><p>Several FactIds can only be used with " + cUpGetFact.getLink() + " or with my-player-number as the player number in commands like " + cUpGetPlayerFact.getLink() + ". See the values list below for information.</p><p>Also, all commands that use FactId also include " + pFactParameter.getLink() + ". See the values list below for the expected type of parameter.";
 pFactId.shortDescription = "Selects the fact type to be checked and stored in a goal.";
-pFactId.range = "0 to 54.";
+pFactId.range = "a valid FactId from the list below.";
 pFactId.relatedParams = [pFindPlayerMethod, pObjectData, pFactParameter, pResourceType, pVictoryType];
 pFactId.valueList = [ {
 	name: "game-time",
@@ -23330,7 +23330,7 @@ pFindPlayerMethod.valueList = [ {
 //Flag
 pFlag.description = "A flag that belongs to the given goal. A flag has two states: appended or removed. See the list of commands that use this parameter for more info.";
 pFlag.shortDescription = "A flag that belongs to the given goal.";
-pFlag.range = "A valid flag.";
+pFlag.range = "-2,147,483,648 to 2,147,483,647";
 pFlag.relatedParams = [pGoalId];
 
 //Formation
@@ -23369,7 +23369,7 @@ pFormation.valueList = [ {
 //GameType
 pGameType.description = "The type of game being played. Each of the values in the value list must be defined with a defconst. Note that custom will be from 0 to 8 depending on what the source of the map / game was.";
 pGameType.shortDescription = "The type of game being played.";
-pGameType.range = "0 to 3, 5 to 8."
+pGameType.range = "a valid GameType from the list below."
 pGameType.relatedParams = [pMapType, pSubGameType, pVictoryCondition, pVictoryType];
 pGameType.valueList = [ {
 	name: "random-map",
@@ -23655,7 +23655,7 @@ pMapSize.valueList = [ {
 //MapType
 pMapType.description = "The map the game is being played on.";
 pMapType.shortDescription = "The map the game is being played on.";
-pMapType.range = "-1, 9 to 23, or 25 to 44.";
+pMapType.range = "a valid MapType from the list below.";
 pMapType.relatedParams = [pGameType, pMapSize, pOnMainland, pTerrain];
 pMapType.valueList = [ {
 	name: "scenario-map",
@@ -24907,7 +24907,7 @@ pOnMainland.relatedParams = [pMapType];
 //Option
 pOption.description = "A value that determines different ways the command will work. Here is a list:</p><ul><li>" + cUpBoundPrecisePoint.getLink() + ": If set to 1, the command will treat the point goal pair as precise point and multiply the map size by 100 before bounding to account for the precise point coordinates, so the Value parameter should be adjusted accordingly by multiplying by 100.</li><li>" + cUpGatherInside.getLink() + ": If set to 1, both trained and garrisoned units will be held inside the building. If set to -1, only garrisoned units will be held inside. Otherwise, if set to 0 all units will be released as usual.</li><li>" + cUpGetPathDistance.getLink() + " and " + cUpPathDistance.getLink() + ": Set to 1 to require an open destination tile to find the path distance toward or 0 to allow for a few tiles of separation to find a reachable open tile.</li><li>" + cUpGetPreciseTime.getLink() + ": Determines whether a system timestamp or elapsed time since a previous system timestamp is retrieved. To get a system timestamp, use 0. To get the elapsed time since a timestamp, use a " + pGoalId.getLink() + " that is currently storing a system timestamp.</li><li>" + cUpGetUpgradeId.getLink() + ": Set to 1 to get the current type id for counting, otherwise 0.</li><li>" + cUpLogData.getLink() + ": Set to 1 in order to write plain text to the log.</li><li>" + cUpModifyGroupFlag.getLink() + ": Controls whether the flag is set. Set to 1 to append the flag or 0 to remove the flag.</li><li>" + cUpResetBuilding.getLink() + ": If set to 1, buildings performing research will not be affected when the building is reset.</li><li>" + cUpResetTargetPriorities.getLink() + ": The reset method. Restore default priorities with 0. For defensive priorities, setting Option to 1 will reset all to -1. For offensive priorities, unit types will be reset to 0, while classes will be -1.</li><li>" + cUpSetupCostData.getLink() + ": If set to 1, the values of the provided set of four cost goals will be reset to 0. Otherwise, the values will be kept to be added onto later.</li><li>" + cUpStoreMapName.getLink() + ": If set to 1, the map name will be stored with the file extension in the name. If set to 0, the map name will be stored without the file extension in the name.</li><li>" + cUpTargetObjects.getLink() + ": Set to 1 to target only the object set by " + cUpSetTargetObject.getLink() + ". If set to 0, the objects in the local list will evenly target all objects in the remote list.</li></ul>";
 pOption.shortDescription = "A value that determines different ways the command will work.";
-pOption.range = "varies";
+pOption.range = "varies by command";
 pOption.relatedParams = [pOptionGoalId];
 
 //OptionGoalId
@@ -25255,7 +25255,7 @@ pPlayerNumber.ruleVariables = [ {
 //PlayerStance
 pPlayerStance.description = "A diplomatic stance, including ally, neutral, and enemy. Some UP commands also allow you to specify \"any\" stance instead of one of the three particular stances.";
 pPlayerStance.shortDescription = "A player's diplomatic stance.";
-pPlayerStance.range = "0 to 3.";
+pPlayerStance.range = "0 to 4.";
 pPlayerStance.relatedParams = [pPlayerStance];
 pPlayerStance.valueList = [ {
 	name: "ally",
@@ -25282,7 +25282,7 @@ pPlayerStance.valueList = [ {
 //Point
 pPoint.description = "The first of 2 consecutive goals to store the x and y coordinates of the point. These goals must be extended goals (goal IDs 41-15998), which have a signed 32-bit range (-2,147,483,648 to 2,147,483,647).";
 pPoint.shortDescription = "The first of 2 consecutive goals to store the x and y coordinates of the point.";
-pPoint.range = "41 to 15998.";
+pPoint.range = "a GoalId from 41 to 15998.";
 pPoint.relatedParams = [pPositionType, pScoutMethod];
 
 //PositionType
@@ -25517,9 +25517,9 @@ pResource.valueList = [ {
 
 
 //ResourceType
-pResourceType.description = "A resource type. Includes over 200 more resource types beyond the four basic ones. Some resource types check the resource amount of a specified player number instead of the current player. Note: most of these are not thoroughly tested (by Leif Ericson). Please report your findings. Resources 205 through 210 are used by the post-Conquerors expansions, so they can be used with this parameter, but they aren't defined with UserPatch.";
-pResourceType.shortDescription = "A resource type. Includes over 200 more resource types beyond the four basic ones.";
-pResourceType.range = "0 to 224 (with some gaps for unused resources).";
+pResourceType.description = "A resource type. Includes hundreds more resource types beyond the four basic ones. Some resource types check the resource amount of a specified player number instead of the current player. Note: most of these are not thoroughly tested (by Leif Ericson). Please report your findings.";
+pResourceType.shortDescription = "A resource type. Includes hundreds more resource types beyond the four basic ones.";
+pResourceType.range = "A valid ResourceType from the list below.";
 pResourceType.relatedParams = [pCommodity, pFactId, pResource, pStartingResources];
 pResourceType.valueList = [ {
 	name: "amount-food",
@@ -26614,13 +26614,13 @@ pResourceType.valueList = [ {
 //RuleDelta
 pRuleDelta.description = "The number of rules to jump. Positive values will jump forward, while negative values will jump backward.";
 pRuleDelta.shortDescription = "The number of rules to jump.";
-pRuleDelta.range = "The number of rules to jump, theoretically will likely have a range of -32768 to 32767.";
+pRuleDelta.range = "-10000 to 10000";
 pRuleDelta.relatedParams = [pRuleId];
 
 //RuleId
 pRuleId.description = "The rule number id to jump to. Please do not attempt to jump to a negative rule id.";
 pRuleId.shortDescription = "The rule number id to jump to.";
-pRuleId.range = "A valid zero-based rule id, theoretically has a range of 0 to 32767.";
+pRuleId.range = "A valid zero-based rule id, from 0 to 9999.";
 pRuleId.relatedParams = [pRuleDelta];
 
 //ScoutMethod
@@ -26920,7 +26920,7 @@ pTechId.relatedParams = [pResearchState];
 //Terrain
 pTerrain.description = "The name of a terrain or the ID number assigned to that terrain. Notes about terrain changes apply primarily to the WololoKingdoms version of the game. Terrain changes might be different in AoE2:DE and the HD expansions on Steam.";
 pTerrain.shortDescription = "The name of a terrain or the ID number assigned to that terrain.";
-pTerrain.range = "0 to 41.";
+pTerrain.range = "a valid Terrain from the list below.";
 pTerrain.relatedParams = [pMapType];
 pTerrain.valueList = [ {
 	name: "terrain-grass",
@@ -27465,7 +27465,7 @@ pUnitId.wildcardParam = unitLinesArray;
 //Value
 pValue.description = "An integer value. Used for many different purposes.";
 pValue.shortDescription = "An integer value. Used for many different purposes.";
-pValue.range = "A 16-bit signed integer (-32768 to 32767). Values for goals and extended strategic numbers (SNs 242-511) have a 32-bit signed integer range instead (-2,147,483,648 to 2,147,483,647).";
+pValue.range = "A 32-bit signed integer (-2,147,483,648 to 2,147,483,647), in most cases. In UP, usually a 16-bit signed integer (-32768 to 32767) except for goals.";
 pValue.relatedParams = [pPercent];
 
 //VictoryCondition
