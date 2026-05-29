@@ -43,7 +43,7 @@
 			var input, filter, num, text;
 			var nameUpper, descriptionUpper, valueNameUpper, valueDescUpper, commandNum, parameterNum, paramValueNum, snNum, objectsNum, techsNum;
 			input = document.getElementById("searchInput");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			// console.log(filter);
 			num = 0;

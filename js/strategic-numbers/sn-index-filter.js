@@ -61,7 +61,7 @@ function snFilter() {
     else if (version.value == "DE") {
         version = "DE";
     }*/
-    filter = input.value.toUpperCase();
+    filter = input.value.toUpperCase().trim();
     table = document.getElementById("index-table");
     tr = table.getElementsByTagName("tr");
     num = 0;

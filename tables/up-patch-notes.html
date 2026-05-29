@@ -152,7 +152,7 @@
 			// Declare variables
 			var input, version, year, month, type, filter, table, tr, versionHeader, yearHeader, monthHeader, yearHr, colHeader, tempText, i, j, k, m, n;
 			input = document.getElementById("patchNotesInput");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			version = document.getElementById("patchNotesVersion");
 			year = document.getElementById("patchNotesYear");

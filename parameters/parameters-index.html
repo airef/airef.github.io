@@ -59,7 +59,7 @@
 			var input, version, filter, table, tr, tdName, tdVersion, i, txtValue, num;
 			input = document.getElementById("parametersInput");
 			version = document.getElementById("parameter-version");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			table = document.getElementById("index-table");
 			tr = table.getElementsByTagName("tr");

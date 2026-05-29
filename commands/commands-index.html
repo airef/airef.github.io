@@ -175,7 +175,7 @@
 			}
 			type = document.getElementById("command-type");
 			version = document.getElementById("command-version");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			table = document.getElementById("index-table");
 			tr = table.getElementsByTagName("tr");

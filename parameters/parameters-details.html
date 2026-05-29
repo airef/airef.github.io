@@ -176,7 +176,7 @@
 			// Declare variables
 			var input, filter, table, tr, tdCol1, tdCol2, i, txtValue;
 			input = document.getElementById("valueListInput");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			table = document.getElementById("value-list-table");
 			tr = table.getElementsByTagName("tr");
@@ -203,7 +203,7 @@
 			// Declare variables
 			var input, filter, table, tr, tdCol1, tdCol2, tdCol3, i, txtValue;
 			input = document.getElementById("wildcardParamInput");
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			table = document.getElementById("wildcard-param-table");
 			tr = table.getElementsByTagName("tr");

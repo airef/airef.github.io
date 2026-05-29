@@ -290,7 +290,7 @@
 			else if (age.value == "Imperial") {
 				age = 4;
 			}
-			filter = input.value.toUpperCase();
+			filter = input.value.toUpperCase().trim();
 			filter = filter.replace(/-/g,"");
 			num = 0;
 			for (h = 0; h < objectsArrayChr.length; h++) {
