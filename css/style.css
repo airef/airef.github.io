@@ -708,6 +708,14 @@ th {
 	width: 100%
 }
 
+/* .command-bug-entry {
+	margin-left: 20px;
+} */
+
+#current-bugs {
+	margin-bottom: 20px;
+}
+
 .weird-tech-name, .weird-object-name {
 	background-color: #fe9;
 }

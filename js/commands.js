@@ -27539,65 +27539,101 @@ pWallId.wildcardParam = [ {
 
 
 
-bugsArray = [ {
+var bugsArray = [ {
 // 	name: "",
 // 	date: "",
 // 	link: "<a href=\"\">Link</a>",
+//	commands: [],
+//	parameters: [],
+//	sns: [],
 // 	description: ""
 // }, {
 	name: "sn-fishing-boat-whaling-percentage > 0 causes most fishing boats to be sent to explore if whales haven't been found",
 	date: "May 5, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1501218979534868600\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snFishingBoatWhalingPercentage],
 	description: "I am having a weird issue where only about three fishing ships are fishing, and the rest are roaming around like the first one, possibly exploring. I suspected my fish trap code, but found that it does not spam commands at all. But now I found the culprit: I recently increased sn-fishing-boat-whaling-percentage from the default of 0 to 20 and sn-whaling-max-distance to 40, in order to catch any whales and possibly oysters(?) available. This leads to a vast majority of the fishing ships searching far and wide for whales, apparently. A test script is included on Discord. It's possible that fishing ships sent to explore for whales aren't included as fishing ships assigned to whales, meaning that the AI engine will keep on assigning new fishing ships to explore for whales in a fruitless attempt to reach the desired number of whaling ships set by sn-fishing-boat-whaling-percentage."
 }, {
 	name: "Bugs with sn-enable-research-queue",
 	date: "Apr 25, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1497592259804397680\">Link</a>",
-	description: "iIt looks like sn-enable-research-queue only works if you have sn-enable-training-queue set > 0 and have units queued. You cannot queue techs if a unit isn't training at that building."
+	commands: [cCanResearch, cCanResearchWithEscrow, cUpCanResearch, cUpResearch],
+	parameters: [],
+	sns: [snEnableResearchQueue, snEnableTrainingQueue],
+	description: "It looks like sn-enable-research-queue only works if you have sn-enable-training-queue set > 0 and have units queued. You cannot queue techs if a unit isn't training at that building."
 }, {
 	name: "object-data-attacker-count and object-data-under-attack doesn't work for building foundations",
 	date: "Apr 13, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1493372417827934278\">Link</a>",
+	commands: [cTownUnderAttack, cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
 	description: "Apparently, object-data-attacker-count and object-data-under-attack NEVER return a positive value for foundations. I'm hitting it, illu just cant detect it. It also doesnt trigger (town-under-attack), only does if I hit something thats finished."
 }, {
 	name: "sn-dock-training-filter considers ally ships in the recently sighted targets check when it should only consider enemy ships",
 	date: "Apr 1, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1488849922110394522\">Link</a>",
+	commands: [cCanTrain, cCanTrainWithEscrow, cTrain, cUpCanTrain, cUpTrain, cUpTrainSiteReady],
+	parameters: [],
+	sns: [snDockTrainingFilter],
 	description: "With sn-dock-training-filter set to 2, the AI will train warships in a lake that only contains ally ships."
 }, {
 	name: "Issues with fire-lancer-line being > 0 with no fire lancers on the map",
 	date: "Mar 19, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1484227547251343503\">Link</a>",
+	commands: [cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindRemote, cUpFindStatusRemote],
+	parameters: [],
+	sns: [],
 	description: "There are situations where fire-lancer-line can be > 0 when counting enemy Khitan objects even though no fire lancers have been seen. Also happens when counting fire-lancer and elite-fire-lancer."
 }, {
 	name: "up-object-type-count-total double counts pending villagers",
 	date: "Mar 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1478563579639890004\">Link</a>",
+	commands: [cUpObjectTypeCountTotal],
+	parameters: [],
+	sns: [],
 	description: "up-object-type-count-total double counts pending villagers. With a 3 villager start and one villager pending at the start, (up-object-type-count-total c: villager == 5) is true, and with 2 villagers pending (up-object-type-count-total c: villager == 7) is true."
 }, {
 	name: "rocket-cart-line is defined incorrectly",
 	date: "Feb 23, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1475357646243495946\">Link1</a>, <a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link2</a>",
+	commands: [cPlayersUnitTypeCount, cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindRemote, cUpFindStatusRemote],
+	parameters: [pLineId],
+	sns: [],
 	description: "In unitlines.json the rocket-cart-line is defined as 1904 and 1906, but rocket cart and heavy rocket cart are 1904 and 1907. This causes rocket-cart-line to not include heavy rocket carts. This also causes rocket cart projectiles to be counted with rocket-cart-line since the rocket cart projectile is 1906."
 }, {
 	name: "UP-ALLY-IN-GAME is defined in Nomad 1v1 games",
 	date: "Feb 13, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1471976323772583946\">Link</a>",
+	commands: [cLoadIfDefined, cLoadIfNotDefined],
+	parameters: [],
+	sns: [],
 	description: "#load-if-defined UP-ALLY-IN-GAME is true for Nomad 1v1 games because of treaty starts."
 }, {
 	name: "up-players-in-game doesn't work with enemy-treaty",
 	date: "Feb 8, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1470068387148464182\">Link</a>",
+	commands: [cUpPlayersInGame, cUpGetFact],
+	parameters: [pFactId, pPlayerStance],
+	sns: [],
 	description: "up-players-in-game says there are -1 enemy-treaty players in the game during treaty mode starts. Instead every enemy-treaty stance player is counted as an enemy."
 }, {
 	name: "Boar lurers can be retasked to explore by sn-cap-civilian-explorers",
 	date: "Feb 8, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1469960619213197549\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snCapCivilianExplorers],
 	description: "Boar lurers can be retasked to explore if sn-cap-civilian-explorers is > 0."
 }, {
 	name: "AI attacks know where enemy town locations are on nomad starts",
 	date: "Feb 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485591138556706817/1468219382290452622\">Link</a>",
+	commands: [cUpGetPoint, cUpSendScout],
+	parameters: [pPositionType, pScoutMethod],
+	sns: [],
 	description: "AI attacks automatically seem to know where the enemy TC is on nomad starts, and when they send soldiers to attack they will always march toward that location, even if it's in the fog of war. A side effect is that position-enemy also knows enemy town locations that are in the fog of war. This might be linked to the bug where enemy TCs built during treaty mode being counted as coustillier, and the enemy TCs are added to the AIs explored objects list."
 }, {
 // 	name: "Exploring villagers often go idle",
@@ -27613,6 +27649,9 @@ bugsArray = [ {
 	name: "housing-headroom is uncapped by the pop cap, causing population-headroom to go negative",
 	date: "Jan 6, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1458065584083177677\">Link</a>",
+	commands: [cHousingHeadroom, cPopulationHeadroom, cUpGetFact],
+	parameters: [pFactId],
+	sns: [],
 	description: "housing-headroom is uncapped by the pop cap, and it will include headroom above the pop cap that it can't use. population-headroom is calculated by population-capacity - housing-capacity, so when housing capacity goes above the pop cap, population-headroom will go negative. There is some debate whether this should be changed or not. Follow the link to see the discussion."
 }, {
 // 	name: "enemy tcs built during treaty mode are counted as coustillier-line after the treaty ends",
@@ -27623,26 +27662,38 @@ bugsArray = [ {
 	name: "building-type-count and building-type-count-total count cancelled building foundations",
 	date: "Dec 30, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1455571914721591411\">Link</a>",
+	commands: [cBuildingTypeCount, cBuildingTypeCountTotal, cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal],
+	parameters: [],
+	sns: [],
 	description: "building-type-count and building-type-count-total count cancelled building foundations while the foundation is in its dying animation (status-down). Once the building's collapse animation ends, these commands no longer count the cancelled building. This is a legacy bug, and it also occurs in UP. The Discord link includes a test AI script to replicate it. Likewise, unit-type-count and unit-type-count-total count dying (status-down) units, when they should be excluded."
 }, {
 	name: "Italians my-unique-research and my-second-unique-research are incorrect",
 	date: "Dec 10, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1448453527297855630\">Link</a>",
+	commands: [cCanResearch, cCanResearchWithEscrow, cUpCanResearch, cUpResearch],
+	parameters: [pTechId],
+	sns: [],
 	description: "Current Pavise is still my-second-unique-research and Silk Road is still my-unique-research. my-second-unique-research should be Silk Road, and my-unique-research should be Pirotechnia."
-}, {
-	name: "position-enemy allows you to see the enemy position through the fog of war on treaty starts",
-	date: "Dec 2, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1445471610390708384\">Link</a>",
-	description: "position-enemy sees through the fog of war on LN and leads you right to the target player. 3 Bs, 3 different target players and all 3 found in the fog of war. It's possible that sn-coop-share-information allows AIs to share object lists with enemy players while treaty mode is active."
+// }, {
+// 	name: "position-enemy allows you to see the enemy position through the fog of war on treaty starts",
+// 	date: "Dec 2, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1445471610390708384\">Link</a>",
+// 	description: "position-enemy sees through the fog of war on LN and leads you right to the target player. 3 Bs, 3 different target players and all 3 found in the fog of war. It's possible that sn-coop-share-information allows AIs to share object lists with enemy players while treaty mode is active."
 }, {
 	name: "up-find-player and up-find-next-player don't work properly",
 	date: "Feb 23, 2023",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1078215378855022643\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1444764691036504269\">Link2</a>",
+	commands: [cUpFindPlayer, cUpFindNextPlayer],
+	parameters: [],
+	sns: [],
 	description: "up-find-player and up-find-next-player are a mess. This has been reported on various occasions. I am doing some (slightly unstructured) testing now. My preliminary findings: find-closest works, but returns -1 after the farthest player, and does not cycle back to the first. find-ordered does not work at all, just returns -1. find-attacker works, but I think it only returns the most recent attacker (potentially Gaia) or else -1? find-random may not be very useful, since it will (according to the docs) only hold out the most recently found player. Also, I suspect that player 0, i.e. Gaia, occasionally comes up with find-closest. My tests have been run with the recommended pattern of first finding a player with up-find-player and then using up-find-next-player with the same settings and the same I/O goal. There are many more possible tests to run. Also, find-closest finds or estimates the positions of unexplored enemies, but also seems to respond to explored buildings."
 }, {
 	name: "object-data-carry doesn't work for trade carts",
 	date: "Nov 24, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1442546497706135685\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
 	description: "Trade carts report an object-data-carry of 0 at all times. object-data-carry works properly in UP."
 // }, {
 // 	name: "AI monks can be ordered to convert non-convertable buildings with a right click command.",
@@ -27653,11 +27704,17 @@ bugsArray = [ {
 	name: "Units can go idle when targeting buildings at their max range, sometimes causing bugs with interrupting their attack animation.",
 	date: "Nov 5, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435748618991829073\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData, cUpTargetObjects, cUpTargetPoint],
+	parameters: [pObjectData],
+	sns: [],
 	description: "Units can go idle when targeting buildings at their max range, sometimes causing bugs with interrupting their attack animation."
 }, {
 	name: "Trebuchets continually unpack and repack or go idle",
 	date: "Nov 5, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1435743498451292221\">Link</a>",
+	commands: [cAttackNow],
+	parameters: [],
+	sns: [snNumberAttackGroups, snMaximumTownSize],
 	description: "Trebuchets permanently unpack and repack. Most of the time all trebs worked perfectly fine, then all of them on a single castle at once go idle for the rest of the game."
 }, {
 // 	name: "action-transform doesn't work",
@@ -27668,6 +27725,9 @@ bugsArray = [ {
 	name: "Mangonels go idle when units are inside their minimum range",
 	date: "Oct 28, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1432923135639814204\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData, cUpTargetObjects, cUpTargetPoint],
+	parameters: [pObjectData],
+	sns: [],
 	description: "Mangonels just sperg out and freeze in a command spam whenever anything is within their minimum range."
 }, {
 // 	name: "The multiple training location feature seems to crash the game for Goths",
@@ -27675,44 +27735,65 @@ bugsArray = [ {
 // 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429074897333780550\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1429087701356777562\">Link 2</a>",
 // 	description: "Report 1: I tried to shift-delete two castles on behalf of my AI (after anarchy, in order to force it to make huskarls in the barracks instead of the castles), and now my game is hanging. Report 2: Clicking huskarl in the barracks with an AI playing seems to break the game I think. Had the same in my tests from the other week."
 // }, {
-	name: "Training commands don't work for units with multiple training locations.",
-	date: "Oct 7, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1425112865064488980\">Link</a>",
-	description: "If a unit has more than one train location (serjeants, konniks, huskarls, and tarkans), the train and can-train commands only work for the first train location (usually the castle). This bug is caused by the introduction of a feature that allows units to have multiple training locations, and the various AI training commands (can-train, can-train-with-escrow, train, up-can-train, and up-train) don't appear to have been updated yet to work with this new feature. Using the DUC action-train option with up-target-point seems to work."
-}, {
+// 	name: "Training commands don't work for units with multiple training locations.",
+// 	date: "Oct 7, 2025",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1425112865064488980\">Link</a>",
+// 	description: "If a unit has more than one train location (serjeants, konniks, huskarls, and tarkans), the train and can-train commands only work for the first train location (usually the castle). This bug is caused by the introduction of a feature that allows units to have multiple training locations, and the various AI training commands (can-train, can-train-with-escrow, train, up-can-train, and up-train) don't appear to have been updated yet to work with this new feature. Using the DUC action-train option with up-target-point seems to work."
+// }, {
 	name: "fe-break-point does not allow the AI script that triggered the break point to continue playing.",
 	date: "Aug 24, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1409094206647177239\">Link</a>",
+	commands: [cFeBreakPoint],
+	parameters: [],
+	sns: [],
 	description: "\"Continue\" from a break point does not continue the script that triggered the break point, only the game. Other scripts seem to be unaffected."
 }, {
 	name: "scout-mirror calculates the same location as scout-opposite",
 	date: "Aug 15, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1405774563379511297\">Link</a>",
+	commands: [cUpGetPoint, cUpSendScout],
+	parameters: [pPositionType, pScoutMethod],
+	sns: [],
 	description: "Why does scout-mirror scout the opposite position instead of the mirror position?"
 }, {
 	name: "up-guard-unit can crash the game",
 	date: "Aug 8, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1403468905481240626\">Link</a>",
-	description: "up-guard-unit basically crashes DE at the moment. Highly recommend not using this command. Most of the crashes seem to come with rules that execute the command every pass. Rules with disable-self or a long timer seem to crash the game less."
+	commands: [cUpGuardUnit],
+	parameters: [pLineId],
+	sns: [],
+	description: "up-guard-unit basically crashes DE at the moment. Highly recommend not using this command. Most of the crashes seem to come with rules that execute the command every pass. Rules with disable-self or a long timer seem to crash the game less. Update: it looks like unit lines might be the source of crashes with up-guard-unit."
 }, {
 	name: "object-data-to-precise measures from left corner of target point",
 	date: "Jul 3, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
+	commands: [cUpObjectData, cUpGetObjectData],
+	parameters: [pObjectData],
+	sns: [],
 	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
 }, {
 	name: "AIs can train more than one hero",
 	date: "May 19, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1374171802473070622\">Link</a>",
+	commands: [cCanTrain, cCanTrainWithEscrow, cTrain, cUpCanTrain, cUpTrain],
+	parameters: [],
+	sns: [],
 	description: "AIs can train more than one hero for the Three Kingdoms DLC civs. Currently AI scripters must check unit counts to ensure the AI doesn't have a hero before training."
 }, {
 	name: "The EscrowGoalId parameter for up-can-build-line doesn't work properly",
 	date: "Feb 28, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1345041379260108820\">Link</a>",
+	commands: [cUpCanBuildLine],
+	parameters: [pEscrowGoalId],
+	sns: [],
 	description: "up-build-line does not respect escrow, which is OK to me. But up-can-build-line does not work as documented either. In my limited testing, setting the EscrowGoalID parameter to 0 allows freely using escrowed resources, setting it to a goal that has with-escrow (0) denies the escrowed resources, setting it to a goal that has without-escrow (1) allows using the resources, setting it to a goal that has any other value denies the escrowed resources. Essentially, it currently only accepts the literal values of 0 (with-escrow) or 1 (without-escrow) instead of a Goal Id."
 }, {
 	name: "position-enemy counts walls when calculating the target player's closest building",
 	date: "Feb 7, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1337413622246408286\">Link</a>",
+	commands: [cUpGetPoint, cUpPlayerDistance, cUpSendScout],
+	parameters: [pPositionType, pScoutMethod],
+	sns: [],
 	description: "position-enemy counts walls when calculating the target player's closest building, but walls should be excluded."
 }, {
 // 	name: "Gates are included in enemy archer-line counts",
@@ -27728,56 +27809,86 @@ bugsArray = [ {
 	name: "up-delete-objects command left gates at 1 HP",
 	date: "Nov 9, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1304770789559763018\">Link</a>",
+	commands: [cUpDeleteObjects],
+	parameters: [],
+	sns: [],
 	description: "weird bug here, red deleted all its walls but the gates remained at 1 hp."
 }, {
 	name: "live-boar dropsite distance bugged",
 	date: "Nov 6, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1303903748988469321\">Link</a>",
+	commands: [cDropsiteMinDistance, cUpGetFact],
+	parameters: [pFactId, pResource],
+	sns: [],
 	description: "(dropsite-min-distance live-boar ... ...) is still super inconsistent. Either this or boars (not sure about deer) seem to be bugged. The same boar is spotted at different locations/times. Pictures show first rule trigger. Looks like I might need to use precise distance instead of dropsite-min-distance here. I remember having issues with finding boars and deer with remote search like a year ago, from that time I use ID loops to find boars and deer"
 }, {
 	name: "Sometimes AIs will stop building farms for no reason",
 	date: "Nov 1, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1301908835492958260\">Link</a>",
+	commands: [cBuild, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpCanBuild],
+	parameters: [],
+	sns: [],
 	description: "For some reason the farms will not continue to be built. Only after all farms are deleted, will farms start to be built again.  In addition to what ER says, I think it starts to happen with farms being placed farther out."
 }, {
 	name: "Wolves not always found properly with up-find-remote",
 	date: "Sep 8, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1282264202852962386\">Link</a>",
+	commands: [cUpFindRemote, cUpFindStatusRemote],
+	parameters: [],
+	sns: [],
 	description: "Doing a up-find-remote or up-find-status-remote search for predator-class with gaia as the focus player doesn't find wolves. "
 }, {
 	name: "up-can-search crash",
 	date: "Sep 1, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1279797387136733257\">Link</a>",
+	commands: [cUpCanSearch],
+	parameters: [],
+	sns: [],
 	description: "up-can-search causes a crash, regardless of map type and regardless of using (up-can-search search-local) or (up-can-search search-remote)"
 }, {
 	name: "object-data-player doesn't update for human-controlled units after an AI monk converts them",
 	date: "May 23, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243318310398070864\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
 	description: "I've been wondering why Bright Spark's military have been clumping in the home base during team games vs humans but I've never been able to recreate it with AI games. Turns out, if you are a human player and your unit gets converted - DUC remote searches still think the unit belongs to the human player. Play the same scenario with an AI and the DUC search picks up the unit switching side. In Bright Spark's example, every case the units were clumped up it was because it had converted an enemy human's unit and my DUC was getting the army to all action-default to that unit, even though it wasn't an enemy anymore."
 }, {
 	name: "sn-allow-gathering-sea-fish-with-villagers doesn't work when set to 1",
 	date: "Mar 18, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1219212583211503637\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1504516943305244752\">Link2</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1504872622880591902\">Link3</a>",
+	commands: [],
+	parameters: [],
+	sns: [snAllowGatheringSeaFishWithVillagers],
 	description: "Setting sn-allow-gathering-sea-fish-with-villagers to 1 doesn't allow villagers to gather sea fish. On Alpine Lakes, sea fish were 18 tiles away, and even though sn-maximum-food-drop-distance was 32 villagers go to chop wood instead after all other food sources are exhausted. If shore fish are added to the map, villagers start gathering the shore fish."
 }, {
 	name: "up-create-group doesn't work with goals as parameters",
 	date: "Mar 2, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1213516805600186419\">Link</a>",
+	commands: [cUpCreateGroup],
+	parameters: [],
+	sns: [],
 	description: "I can't get up-create-group to work with goals for index and count, it only seems to work if I pass 0 to both parameters."
 }, {
-	name: "Unable to receive AI from host in multiplayer lobby",
-	date: "Feb 27, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211911683023441930\">Link</a>",
-	description: "After someone subscribes to my mod, he creates a multiplayer game. After the participant waits in the room for a period of time, he or she will be kicked out of the room and a \"Failed to receive the file from the host\" message will appear. Note from Leif: this AI mod includes .xs files, which perhaps might be the cause of the failure."
-}, {
+// 	name: "Unable to receive AI from host in multiplayer lobby",
+// 	date: "Feb 27, 2024",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211911683023441930\">Link</a>",
+// 	description: "After someone subscribes to my mod, he creates a multiplayer game. After the participant waits in the room for a period of time, he or she will be kicked out of the room and a \"Failed to receive the file from the host\" message will appear. Note from Leif: this AI mod includes .xs files, which perhaps might be the cause of the failure."
+// }, {
 	name: "Relative filepaths to xs files in an include command don't work for AI mods",
 	date: "Feb 26, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1211546829523656744\">Link</a>",
+	commands: [cInclude],
+	parameters: [],
+	sns: [],
 	description: "In the Mod, the xs files must be placed in the xs folder before it can be loaded in the Mod. You can't use statements like (include \"..\\ai\\MyAIFolder\\filename.xs\") to load .xs files from a folder in a different location."
 }, {
 	name: "Load commands can prevent include commands to fail",
 	date: "Feb 15, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1207690744492720138\">Link</a>",
+	commands: [cInclude, cLoad, cLoadRandom],
+	parameters: [],
+	sns: [],
 	description: "In my testing, if there are any \"include\" commands to load a .xs file that appear before any \"load\" commands to load a .per file, then these .xs files are not loaded. Any .xs files that you want to include must appear after all .per \"load\" commands."
 }, {
 // 	name: "Moving the cursor with the left or right arrow keys when saving a scenario makes the game unresponsive",
@@ -27788,11 +27899,17 @@ bugsArray = [ {
 	name: "Some Userpatch constants not properly defined",
 	date: "Jan 26, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1200456724323250206\">Link</a>",
+	commands: [],
+	parameters: [pActionId, pExploredState, pObjectList, pObjectStatus, pSearchOrder, pObjectData, pOrderId],
+	sns: [],
 	description: "Did some quick testing with removing the UserPatchConst.per file from my AI. Looks like the ExploredState, ObjectList, ObjectStatus, SearchOrder, and ObjectData constants aren't defined properly in DE. Also, actionid-relic and orderid-relic are missing but the rest of the actions and orders are defined."
 }, {
 	name: "sn-object-repair-level doesn't work",
 	date: "Jan 19, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1197973709693124648\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snObjectRepairLevel],
 	description: "Is sn-object-repair-level working for anyone at the moment? It doesn't matter what value I set it to, villagers won't repair anything anymore. I've confirmed using up-chat-data-to player the SN is set to the correct values for repairing specific objects."
 }, {
 // 	name: "dropsite-min-distance doesn't update with mule carts",
@@ -27803,6 +27920,9 @@ bugsArray = [ {
 	name: "Dividing negative numbers by positive numbers gives incorrect result",
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
+	commands: [cUpModifyEscrow, cUpModifyGoal, cUpModifySn],
+	parameters: [],
+	sns: [],
 	description: "It turns out that dividing negative numbers by positive numbers doesn't work. It tends to give one larger than expected."
 }, {
 // 	name: "action-ungarrison doesn't work",
@@ -27813,16 +27933,25 @@ bugsArray = [ {
 	name: "up-get-player-fact unit counting bugs",
 	date: "Jan 2, 2024",
 	link: "[Reported by TheMaximalBeing privately]",
+	commands: [cPlayersUnitTypeCount, cUpGetPlayerFact],
+	parameters: [pFactId, pLineId, pUnitId],
+	sns: [],
 	description: "Several bugs: (1) all ally unit counts are currently bugged since they count the entire unit line, rather than just the unit given to the command. (2) all enemy unit counts are currently bugged as they, including all the different upgrades, just count the base unit and not the specific given upgrade. The unit lines still work for enemies. (3) elite-huskarl-barracks/elite-stable-tarkan cannot be	counted for ally & enemy players. Both give 0 and there is no unit-line as an alternative. (4) elite-gbeto cannot be counted for ally & enemy players. Only the non-elite gbeto is counted. (5) dismounted-konniks/elite-dismounted-konniks are not counted for enemy players and give -1. dismounted-konnik-line gives -2, presumably because it is counting	both of these. (5) flemish-militia-male and flemish-militia-female are not counted for enemy players and give -1. Instead, for	enemy players, they get included in flemish-militia-trained. I assume this is intended behavior. But something for people to be aware of."
 }, {
 	name: "wall-invisible-percentage and wall-completed-percentage only go up to 50%",
 	date: "Nov 19, 2023",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1175990960728059926\">Link</a>",
+	commands: [cWallCompletedPercentage, cWallInvisiblePercentage],
+	parameters: [],
+	sns: [],
 	description: "It appears wall-invisible-percentage/wall-completed-percentage are bugged in DE. For some reason when building walls at perimeter 2, wall-completed-percentage only went up to 50% when the full outer wall was complete."
 }, {
     name: "(can-build town-center) doesn't check if the AI has enough stone",
     date: "Sep 9, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1150040321963601930\">Link</a>",
+	commands: [cCanBuild, cCanBuildWithEscrow, cUpCanBuild],
+	parameters: [],
+	sns: [],
     description: "Seems like can-build town-center returns true even if there is not enough stone for a town-center, while UP does check for stone. Only can-build town-center-foundation currently checks if there is enough stone."
 }, {
 //     name: "Villager combat SNs don't have the same effect in DE as they do in UP. They aren't as aggressive.",
@@ -27833,6 +27962,9 @@ bugsArray = [ {
     name: "can-build returns false on Nomad before the TC is built",
     date: "Jun 22, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1121464519437328445\">Link</a>",
+	commands: [cCanBuild, cCanBuildWithEscrow, cUpCanBuild],
+	parameters: [],
+	sns: [],
     description: "Another major DE bug: on land nomad, can-build returns false for all buildings except town-center until the tc is built. Immortal needs to check if other buildings can be built. Immortal uses other buildings as pathing checks. Also Immortal likes to place houses before the tc is built"
 }, {
 //     name: "Issues with boar hunting",
@@ -27843,6 +27975,9 @@ bugsArray = [ {
     name: "The four resource modifier SNs don't allow negative values like UP",
     date: "Jun 5, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1115250747865579520\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snFoodModifierPercentage, snGoldModifierPercentage, snStoneModifierPercentage, snWoodModifierPercentage],
     description: "The four resource modifier SNs (sn-food-modifier-percentage, etc) don't allow negative values like UP, just positive values. See Discord link for screenshot. The SNs need to be updated so that their hardcoded minimum is -100, not 0."
 }, {
 //     name: "sn-attack-intelligence doesn't avoid castles and towers like in UP",
@@ -27858,16 +27993,25 @@ bugsArray = [ {
     name: "up-set-placement-data can't be used with target-player or focus-player",
     date: "Apr 30, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1102379431781224592\">Link</a>",
+	commands: [cUpBuild, cUpSetPlacementData],
+	parameters: [],
+	sns: [snFocusPlayerNumber, snTargetPlayerNumber],
     description: "From what i see in up-set-placement-data for UP 1.5, it accepts target-player and focus-player. In DE it does not, it only accepts constants 101 - 111. Confirmed, code is present in UP 1.5 allowing target-player and focus-player to be used for up-set-placement-data while there is no such code present in DE (latest build 82587)"
 }, {
     name: "SN 511 isn't usable",
     date: "Apr 25, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1100559877522329621\">Link</a>",
+	commands: [cStrategicNumber, cSetStrategicNumber, cUpCompareSn, cUpModifySn],
+	parameters: [],
+	sns: [],
     description: "Only SNs 0-510 are usable in DE. 0-511 are usable in UP."
 }, {
     name: "sn-boar-lure-destination doesn't send villagers to the correct location",
     date: "Mar 25, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1089316493243723796\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snBoarLureDestination],
     description: "Ok, I finished my tests with sn-boar-lure-destination. \"Broken\" is when villager stops attacking/moving after initial shots. Many values end up leading to the middle of TC. Some places aren't possible to be reached. See the Discord link for screenshots."
 // }, {
 //     name: "AI pathfinding issue when attacking with attack-now on a land map with water",
@@ -27883,16 +28027,25 @@ bugsArray = [ {
     name: "up-get-player-fact building-count bug",
     date: "Mar 2, 2023",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1080832859457196062\">Link</a>",
+	commands: [cUpGetPlayerFact],
+	parameters: [pFactId],
+	sns: [],
     description: "up-get-player-fact for building-count does not work for enemy players on DE. It just returns -1. This command does however work when used as a normal fact: (players-building-count etc.). Update: up-get-player-fact for building-count only returns 0 now."
 }, {
     name: "ai_info_map_type doesn't work",
     date: "Dec 21, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
+	commands: [cLoadIfDefined, cLoadIfNotDefined],
+	parameters: [],
+	sns: [],
     description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
 }, {
     name: "Path distance calculation issues",
     date: "Nov 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1449416353801961562\">Link2</a>",
+	commands: [cUpGetPathDistance, cUpPathDistance],
+	parameters: [],
+	sns: [],
     description: "There are cases where the path distance calculation is wrong (path distances on arena f.e. not always showing that objects inside the enemy's walled town were inaccessible). See discussion at Discord link. Update: it looks like path distances correctly know that closed diagonal gates cannot be pathed through, but there are still issues with horizontal and vertical gates being considered pathable even when they're closed."
 }, {
 //     name: "up-gather-inside: You can not properly set the gather point since it seems to just get reset each loop.",
@@ -27903,26 +28056,41 @@ bugsArray = [ {
     name: "idle-farm-count yields negative values for Rice Farms",
     date: "Oct 31, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1036563141347246101\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1109703443519635596\">Link 2</a>",
+	commands: [cIdleFarmCount, cUpGetFact],
+	parameters: [pFactId],
+	sns: [],
     description: "Report 1: I found a bug with work (idle-farm-count == xx). On the map water nomad - (idle-farm-count == xx) - not work. Only on the map water nomad - idle-farm-count starts to take negative values if one farm is occupied, then idle-farm will be == -1. If 2 farms is occupied - idle-farm will be == -2. Because of this, my AI builds an infinite number of farms on this map. Report 2: And bug with idle-farms-count on the water nomad map... More precisely, on any map where there is water and farms can be built on it. Leif Edit: I believe this bug is caused by idle-farm-count not counting rice farms. idle-farm-count will equal the number of rice farmers * -1."
 }, {
     name: "Resetting Offense Priorities can cause a crash",
     date: "Oct 11, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1029456095325990944\">Link</a>",
+	commands: [cUpSetOffensePriority, cUpResetTargetPriorities],
+	parameters: [],
+	sns: [],
     description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, then the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only way to prevent a crash with up-set-offense-priority is to only modify class priorities with up-set-offense-priority."
 }, {
     name: "position-flank is always very close to the enemy's starting location",
     date: "Oct 2, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
+	commands: [cUpGetPoint, cUpSendScout],
+	parameters: [pPositionType, pScoutMethod],
+	sns: [],
     description: "Position flank works differently on DE. It allways gives the correct y-coordinate and then it gives an x coordinate 0-12 numbers higher than the correct one. This basicly means position-flank will always give the position of the enemy flank tc within 6 tiles on DE if you just subtract 6 from the x coordinate. This allows the AI to easily find the enemy even without scouting. On UP it seems to just use the mirrored flank position to predict where the enemy should be."
 }, {
     name: "position-mirror gives position-opposite effect instead of position-mirror",
     date: "Oct 2, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
+	commands: [cUpGetPoint, cUpSendScout],
+	parameters: [pPositionType, pScoutMethod],
+	sns: [],
     description: "Position-mirror does not work on DE. Instead it just gives the same value as position-opposite."
 }, {
     name: "Villager Gathering/Exploring/Building SNs bugged in DE",
     date: "Sep 18, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1021167578472783884\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snCapCivilianGatherers],
     description: "There seems to be an issue with the villager exploring or gathering SNs in DE. It's possible for villagers to be sent to gather resources even when sn-cap-civilian-gatherers is set to 0. The code in the Discord link tells 2 villagers to explore and 1 villager to build houses. But when the villager finishes building the two houses it goes and gathers sheep despite the fact that gatherers are capped at 0. In UP, the builder correctly starts exploring after finishing the houses. See Discord link for test script."
 }, {
 //     name: "Classes don't work for up-set-offensive-priority",
@@ -27933,6 +28101,9 @@ bugsArray = [ {
     name: "dropsite-min-distance deer-hunting returning 255 instead of -1",
     date: "Sep 4, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1016047774673928192\">Link</a>",
+	commands: [cDropsiteMinDistance],
+	parameters: [pResource],
+	sns: [],
     description: "dropsite-min-distance deer-hunting starts out 255 in first loop and then goes to -1 and stays at -1 until deer have been found. Same with other hunting drop distances. In UP, these hunting drop distances are 255 when they haven't been found."
 }, {
 //     name: "One villager remaining forced to explore",
@@ -27943,6 +28114,9 @@ bugsArray = [ {
     name: "sn-number-boat-explore-groups bug",
     date: "Aug 28, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013526417411154030\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snNumberBoatExploreGroups],
     description: "Setting sn-number-boat-explore-groups to 0 doesnt stop the first trained ship from exploring"
 }, {
 //     name: "Taunts 15 and 18 are incorrect sounds",
@@ -27953,11 +28127,17 @@ bugsArray = [ {
     name: "load-random with '+' load feature doesnt work",
     date: "Aug 6, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1005481892298104832\">Link</a>",
+	commands: [cLoadRandom],
+	parameters: [],
+	sns: [],
     description: "The UP load-random command doesn't seem to work on DE. Maybe the \"+\" loading feature isn't recognized or load-random doesn't work with a defconst yet. Meleon has this code. The #load-if works fine, but I confirmed that the Meleon\\core.per is not loaded for whatever reason. See Discord link for test script."
 }, {
     name: "Switching point of view with Ctrl-Shift-F1-8 doesn't update typing to other players perspective",
     date: "Jun 26, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/990673033452736532\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1018158049640329306\">Link 2</a>",
+	commands: [cChatLocal, cChatLocalToSelf, cChatLocalUsingId, cChatLocalUsingRange, cUpChatDataToSelf],
+	parameters: [],
+	sns: [],
     description: "Report 1: In UP, if you switch perspective to p2 with Ctrl+Shift+F2, up-chat-data-to-self correctly only shows messages sent by the p2 AI script. However, in DE any up-chat-data-to-self messages sent by the p1 AI are always displayed, even if you switch perspective to p2 with Ctrl+Shift+F2. chat-local-to-self works properly though. Only the non-local messages seem to be bugged to always show player 1's perspective. Report 2: Switching point of view with Ctrl-Shift-F1-8 doesnt update typing to other players perspective. It stays at Player 1. I can't type as another AI player to Player 1 for example."
 }, {
 //     name: "up-chat-data-to-player inconsistencies with formatting",
@@ -27973,6 +28153,9 @@ bugsArray = [ {
     name: "Villagers hunting far unexplored boar",
     date: "Mar 30, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/958750646096515213\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snMaximumHuntDropDistance],
     description: "Here is that time again where my villagers start hunting a boar well beyond their revealed line of sight and in black fog of war, at the enemy's base. See Discord link for recorded games."
 }, {
 //     name: "Crash when setting promotional picture for a mod",
@@ -28013,16 +28196,25 @@ bugsArray = [ {
     name: "up-build not as reliable in DE? - negative sn-placement-fail-delta causing incorrect placement and build delay",
     date: "Jan 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934512291456618527\">Link 1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1014628241354526791\">Link 2</a>",
+	commands: [cUpBuild],
+	parameters: [],
+	sns: [snPlacementFailDelta],
     description: "Report 1: place-control works differently on DE than UP, sometimes buildings desired built in front of the town are placed in the back. Report 2: I have the suspicion, that up-build is also bugged in regard of negative sn-placement-fail-delta. 1st screenshot is a test-arabia-scenario with UP where all is as expected. 2nd screenshot is the same scenario with DE, where it build the blacksmith next to LC, but not the market, which I eventually build myself. After reaching castle age it build the castle somewhat to the front (as intended) and the other buildings near TC (as intended), but the barracks, which has also a negative sn-placement-fail-delta, got build 10 sec after reaching castle way out to the front, despite it should be build to the back in my understanding! See Discord links for screenshots. Leif update: the issue seems to be with sn-placement-fail-delta. Positive values seem to have no effect, while negative values seem to prevent placement altogether."
 }, {
     name: "sn-ignore-tower-elevation settings are reversed from UP",
     date: "Jan 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/934458658736189451\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snIgnoreTowerElevation],
     description: "(set-strategic-number sn-ignore-tower-elevation 0) It seems AI still not prefer high-elevation. Leif update: The SN settings are reversed. Setting the SN to 1 prefers elevation, not 0."
 }, {
     name: "up-get-group-size and up-group-size ignore garrisoned units",
     date: "Jan 14, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/931625553700745318\">Link</a>",
+	commands: [cUpGetGroupSize, cUpGroupSize],
+	parameters: [],
+	sns: [],
     description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be storing them fine -- just not including them in the count. Leif editor note: The only actual bug here is that up-get-group-size and up-group-size exclude garrisoned and dead units when calculating the group size in DE, while UP includes them. If this difference is intended, then this isn't a bug."
 // }, {
     // name: "Issue with object-data-target-id",

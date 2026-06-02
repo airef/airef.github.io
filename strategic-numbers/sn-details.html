@@ -41,6 +41,7 @@
 		var info = "";
 		var i = 0;
 		var linkedId, relatedId;
+		var bugged = false;
 		while ( i < snArray.length) {
 			if ( snArray[i].snName == item) {
 				if(snArray[i].description != "") {
@@ -49,7 +50,21 @@
 				else {
 					info += "<h3>Description</h3></p><p>" + snArray[i].shortDescription + "</p>";
 				}
-				info += "<p><h3>Info</h3></p>";
+				info += "<p><div id=\"current-bugs\"><h3 id=\"bug-header\">Current Bugs Affecting This Strategic Number</h3></p>";
+				for (var z = 0; z < bugsArray.length; z++) {
+					if (bugsArray[z].sns.length > 0) {
+						// console.log(z);
+						for (var y = 0; y < bugsArray[z].sns.length; y++) {
+							console.log(z+": "+y+"("+bugsArray[z].sns[y].snName +")");
+							if (bugsArray[z].sns[y].snName == snArray[i].snName) {
+								bugged = true;
+								info += "<div class=\"command-bug-entry\"><h4>" + bugsArray[z].name + "</h4>";
+								info += "<p><strong>Reported:</strong> " + bugsArray[z].date + "<br><strong>Discord Link:</strong> " + bugsArray[z].link + "<br><strong>Description:</strong> " + bugsArray[z].description + "</p></div>";
+							}
+						}
+					}
+				}
+				info += "</div><p><h3>Info</h3></p>";
 				info += "<p><table><tr><td>ID</td><td>" + snArray[i].id + "</td></tr>";
 				info += "<tr><td>Default Value</td><td>" + snArray[i].default + "</td></tr>";
 				info += "<tr><td>Required/Usable Range</td><td>" + snArray[i].rmin + " to " + snArray[i].rmax + "</td></tr>";
@@ -129,6 +144,10 @@
 			i++;
 		}
 		document.getElementById("item-details").innerHTML = info;
+		if (bugged == false) {
+			var bugHeader = document.getElementById("current-bugs");
+			bugHeader.style.display = "none";
+		}
 	</script>
 
 </body>

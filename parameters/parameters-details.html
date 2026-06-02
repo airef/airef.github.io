@@ -40,6 +40,7 @@
 		
 		var info = "";
 		var i = 0;
+		var bugged = false;
 		while ( i < parametersArray.length) {
 			if ( parametersArray[i].upParamName == item) {
 				info += "<h3>Description</h3></p><p>" + parametersArray[i].description + "</p>";
@@ -59,7 +60,22 @@
 				}
 				info += "</p><p><h3>Used In These Commands</h3>" + parametersArray[i].getCommands() + "</p>";
 				//info += "<strong>ES-Style Name(s):</strong> " + parametersArray[i].esParamName[0] + "</p>";*/
-				info += "<p><h3>Info</h3></p>";
+				
+				info += "<p><div id=\"current-bugs\"><h3>Current Bugs Affecting This Parameter</h3></p>";
+				for (var z = 0; z < bugsArray.length; z++) {
+					if (bugsArray[z].parameters.length > 0) {
+						// console.log(z);
+						for (var y = 0; y < bugsArray[z].parameters.length; y++) {
+							console.log(z+": "+y+"("+bugsArray[z].parameters[y].upParamName +")");
+							if (bugsArray[z].parameters[y].upParamName == parametersArray[i].upParamName) {
+								bugged = true;
+								info += "<div class=\"command-bug-entry\"><h4>" + bugsArray[z].name + "</h4>";
+								info += "<p><strong>Reported:</strong> " + bugsArray[z].date + "<br><strong>Discord Link:</strong> " + bugsArray[z].link + "<br><strong>Description:</strong> " + bugsArray[z].description + "</p></div>";
+							}
+						}
+					}
+				}
+				info += "</div><p><h3>Info</h3></p>";
 				info += "<p><table><tr><td>Range</td><td>" + parametersArray[i].range + "</td></tr>";
 				info += "<tr><td>Version Introduced</td><td>" + parametersArray[i].paramVersion; + "</td></tr>";
 				if (parametersArray[i].esParamName != "" && parametersArray[i].esParamName != undefined) {
@@ -170,6 +186,10 @@
 		}
 		info += "</tr></table>";
 		document.getElementById("item-details").innerHTML = info;
+		if (bugged == false) {
+			var bugHeader = document.getElementById("current-bugs");
+			bugHeader.style.display = "none";
+		}
 	</script>
 	<script>
 		function valueListFilter() {
