@@ -27548,6 +27548,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "up-clean-search doesn't work with search-order-none",
+	date: "Jun 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1511620981716811827\">Link</a>",
+	commands: [cUpCleanSearch],
+	parameters: [pSearchOrder],
+	sns: [],
+	description: "up-clean-search for duplicate removal (value -1) does not work for search-order-none, it just does nothing in this case."
+}, {
 	name: "sn-fishing-boat-whaling-percentage > 0 causes most fishing boats to be sent to explore if whales haven't been found",
 	date: "May 5, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1501218979534868600\">Link</a>",
@@ -27747,14 +27755,6 @@ var bugsArray = [ {
 	parameters: [],
 	sns: [],
 	description: "\"Continue\" from a break point does not continue the script that triggered the break point, only the game. Other scripts seem to be unaffected."
-}, {
-	name: "scout-mirror calculates the same location as scout-opposite",
-	date: "Aug 15, 2025",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1405774563379511297\">Link</a>",
-	commands: [cUpGetPoint, cUpSendScout],
-	parameters: [pPositionType, pScoutMethod],
-	sns: [],
-	description: "Why does scout-mirror scout the opposite position instead of the mirror position?"
 }, {
 	name: "up-guard-unit can crash the game",
 	date: "Aug 8, 2025",
@@ -28079,11 +28079,11 @@ var bugsArray = [ {
 }, {
     name: "position-mirror gives position-opposite effect instead of position-mirror",
     date: "Oct 2, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link</a>",
+    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1026117370168750150\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1405774563379511297\">Link2</a>",
 	commands: [cUpGetPoint, cUpSendScout],
 	parameters: [pPositionType, pScoutMethod],
 	sns: [],
-    description: "Position-mirror does not work on DE. Instead it just gives the same value as position-opposite."
+    description: "Position-mirror does not work on DE. Instead it just gives the same value as position-opposite. scout-mirror with up-send-scout is also affected."
 }, {
     name: "Villager Gathering/Exploring/Building SNs bugged in DE",
     date: "Sep 18, 2022",
