@@ -87,9 +87,7 @@
 				info += "<p><div id=\"current-bugs\"><h3>Current Bugs Affecting This Command</h3></p>";
 				for (var z = 0; z < bugsArray.length; z++) {
 					if (bugsArray[z].commands.length > 0) {
-						// console.log(z);
 						for (var y = 0; y < bugsArray[z].commands.length; y++) {
-							console.log(z+": "+y+"("+bugsArray[z].commands[y].commandName +")");
 							if (bugsArray[z].commands[y].commandName == commandsArray[i].commandName) {
 								bugged = true;
 								info += "<div class=\"command-bug-entry\"><h4>" + bugsArray[z].name + "</h4>";

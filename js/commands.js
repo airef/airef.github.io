@@ -27548,6 +27548,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "The move position of groups of units in transport ships is bugged when the transport ship stops moving",
+	date: "Jun 12, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1514968574735941792\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
+	description: "Here's a weird bug involving transport ships. If you decide to garrison a group into a transport ship their move pos will be constantly set to the transport ship location (as expected). If you unload the group somewhere their move pos will be set to the location they unboarded (as expected). If you move the group around as a group the move position will continue to update as expected. But the moment the group stops, the move postion gets reset to the position where they originally boarded the ship. I suspect this happens whenever they break formation. Probably it doesn't properly update the move position of the individual units in this scenario. Usually when a group stops, the move position gets reset to -1."
+}, {
 	name: "up-clean-search doesn't work with search-order-none",
 	date: "Jun 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1511620981716811827\">Link</a>",
