@@ -7913,8 +7913,8 @@ snFishingBoatWhalingPercentage.snName = "sn-fishing-boat-whaling-percentage";
 snFishingBoatWhalingPercentage.snNameAoE1 = "";
 snFishingBoatWhalingPercentage.default = -1;
 snFishingBoatWhalingPercentage.category = "Water";
-snFishingBoatWhalingPercentage.min = 0;
-snFishingBoatWhalingPercentage.max = 100;
+snFishingBoatWhalingPercentage.min = "Min";
+snFishingBoatWhalingPercentage.max = "Max";
 snFishingBoatWhalingPercentage.rmin = 0;
 snFishingBoatWhalingPercentage.rmax = 100;
 snFishingBoatWhalingPercentage.network = 0;
@@ -8232,7 +8232,7 @@ unitLinesArray = [ {
 	name: "magyar-huszar-line",
 	id: "NA",
 	deId: -259,
-	description: "DE only. Includes magyar-huszar and elite-maygar-huszar."
+	description: "DE only. Includes magyar-huszar and elite-magyar-huszar."
 }, {
 	name: "kamayuk-line",
 	id: "NA",
@@ -12066,7 +12066,7 @@ cDoNothing.complexity = "Low";
 
 //dropsite-min-distance
 cDropsiteMinDistance.shortDescription = "Checks computer player's minimum dropsite walking distance for a given resource type.";
-cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is the tile distance between the tile the resource is on and the center tile of the nearest dropsite. For example, if the dropsite is adjacent to the given resource, then dropsite-min-distance will be 1. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.</p>If no resources of the given type have been found, then dropsite-min-distance will be -1 for that resource. If resources of the given type have been found but are unaccessible because they are on a different island, then dropsite-min-distance will be 255 for that resource. However, hunting, boar-hunting, deer-hunting, and live-boar drop distances are 255 instead when those hunting resources haven't been found, at least on UP.</p><p>There are eight different types of resource dropsite distances you can check for:</p><p><ul><li>food: all food sources, including farms, except boar and fish for fishing ships. Some specially generated objects, like the Incan starting llama, aren't counted.</li><li>wood: all trees.</li><li>stone: all stone mines.</li><li>gold: all gold mines.</li><li>Hunting: all boar and deer (and their geographical variants), both live and dead.</li><li>boar-hunting: all boar (and their geographical variants), both live and dead, excludes all types of deer.</li><li>deer-hunting: all deer (and their geographical variants), both live and dead, excludes all types of boar.</li><li>live-boar: all boar (and their geographical variants) that have not yet been killed.</li></ul>";
+cDropsiteMinDistance.description = "Checks computer player's minimum dropsite walking distance for a given resource type. The distance is the tile distance between the tile the resource is on and the center tile of the nearest dropsite. For example, if the dropsite is adjacent to the given resource, then dropsite-min-distance will be 1. Long walking distances indicate a need for a new dropsite. It is not recommended to use this fact for building of first dropsites necessary for age advancement. If, at the beginning, the resources happen to be close enough to the Town Center, building of the first dropsites will be delayed, resulting in slower age progression.</p>If no resources of the given type have been found, then dropsite-min-distance will be -1 for that resource. If resources of the given type have been found but are unaccessible because they are on a different island, then dropsite-min-distance will be 255 for that resource. However, hunting, boar-hunting, deer-hunting, and live-boar drop distances are 255 instead when those hunting resources haven't been found, at least on UP.</p><p>There are eight different types of resource dropsite distances you can check for:</p><p><ul><li>food: all food sources, including farms, except boar and fish for fishing ships. Some specially generated objects, like the Incan starting llama, aren't counted.</li><li>wood: all trees.</li><li>stone: all stone mines.</li><li>gold: all gold mines.</li><li>hunting: all boar and deer (and their geographical variants), both live and dead.</li><li>boar-hunting: all boar (and their geographical variants), both live and dead, excludes all types of deer.</li><li>deer-hunting: all deer (and their geographical variants), both live and dead, excludes all types of boar.</li><li>live-boar: all boar (and their geographical variants) that have not yet been killed.</li></ul>";
 cDropsiteMinDistance.commandParameters = [ {
 	nameLink: pResource.getLink(),
 	name: "Resource",
@@ -24729,7 +24729,7 @@ pObjectData.valueList = [ {
 }, {
 	name: "object-data-min-range",
 	id: 62,
-	description: "The minium range of the object. This includes researched technologies and civ bonuses."
+	description: "The minimum range of the object. This includes researched technologies and civ bonuses."
 }, {
 	name: "object-data-target-time",
 	id: 63,
@@ -27548,6 +27548,22 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "action-train and action-research escrow bugs",
+	date: "Aug 18, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1539131107956625508\">Link</a>",
+	commands: [cUpTargetPoint],
+	parameters: [pDUCAction, pEscrowGoalId],
+	sns: [],
+	description: "action-train and action-research have issues bypassing escrow with up-target-point. For action-train, you have to use 1 rather than a GoalId to bypass escrow, e.g. (up-target-point 1 action-train c: knight-line). action-research cannot bypass escrow at all. For the first parameter, I tried 0, 1, a goal set to with-escrow, and a goal set to without-escrow, and nothing allowed action-research to bypass escrow."
+}, {
+	name: "object-data-carry bugged for pastures",
+	date: "Jun 24, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1519513889874772110\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
+	description: "object-data-carry for pastures is -2 unless a particular one of the three pasture animals on it has been killed, and then object-data-carry works properly."
+}, {
 	name: "The move position of groups of units in transport ships is bugged when the transport ship stops moving",
 	date: "Jun 12, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1514968574735941792\">Link</a>",
@@ -41147,12 +41163,12 @@ objectsStableArray = [ {
 	name: "Savar",
 	aiName: "savar",
 	line: "knight-line",
-	id: 1814,
+	id: 1813,
 	class: "cavalry-class (912)",
 	cmdId: "cmdid-military",
 	building: "Stable",
 	age: 4,
-	deadUnit: "1812",
+	deadUnit: "1814",
 	projectile: "",
 	chemProjectile: "",
 	civ: "Persians",
