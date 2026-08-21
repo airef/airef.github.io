@@ -27556,6 +27556,22 @@ var bugsArray = [ {
 	sns: [],
 	description: "action-train and action-research have issues bypassing escrow with up-target-point. For action-train, you have to use 1 rather than a GoalId to bypass escrow, e.g. (up-target-point 1 action-train c: knight-line). action-research cannot bypass escrow at all. For the first parameter, I tried 0, 1, a goal set to with-escrow, and a goal set to without-escrow, and nothing allowed action-research to bypass escrow."
 }, {
+	name: "Laggy villager assignment on water maps",
+	date: "Aug 10, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1536379020990611548\">Link</a>",
+	commands: [cUpIdleUnitCount],
+	parameters: [],
+	sns: [],
+	description: "On Four Lakes (and perhaps on other water maps), the villager assignment system seems to be increasingly laggy as the game goes on. Past the 35 minute mark in an all-DE-AI 4v4, the DE AI's newly created villagers had around 5-10 seconds of idle time before given a task, and this idle time increased as the game progressed, sometimes to more than 25 seconds. The temporarily idling also happened for villagers that finished a task. This idle time did not exist when I ran a 4v4 all-DE-AI on Arabia. Proseon noticed this behavior happening with his AI also. However, it doesn't happen with my AI, which doesn't make fishing ships. I suspect having fishing ships might be the cause of this idle villager behavior."
+}, {
+	name: "Several unit sets or unit IDs aren't counted correctly for enemy players",
+	date: "Aug 1, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1533265272222384359\">Link</a>",
+	commands: [cPlayersUnitTypeCount, cUpGetPlayerFact, cUpGetFocusFact, cUpGetTargetFact, cUpGetFactSum, cUpGetFactMax, cUpGetFactMin],
+	parameters: [pFactId],
+	sns: [],
+	description: "Counting enemy units, e.g. up-get-target-fact unit-type-count or up-get-fact-sum any-enemy unit-type-count returns -1 or -2 values for the following unit-lines/sets: flemish-pikeman-set, foot-konnik-line, rocket-cart-line, monk-set, flemish-pikeman, flemish-pikeman-female, monk-with-relic, warrior-priest-with-relic, and missionary-with-relic. Self and allied units are counted correctly."
+}, {
 	name: "object-data-carry bugged for pastures",
 	date: "Jun 24, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1519513889874772110\">Link</a>",
