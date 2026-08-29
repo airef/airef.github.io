@@ -27548,6 +27548,22 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "AI tick rates much higher in multiplayer games",
+	date: "Aug 28, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1542830379369631774\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [],
+	description: "MP tick rates for ai's have been bugged for a long time now. Currently averaging between 1000 ms (with one ai player and a human) and 2500 ms (with 7 ai players and a human) between ticks for empty ai files containing only a rare chat message about tick rate and the calculations thereoff. This is very far from the expected 666ms on 2.0 speed. The game also is choppy which is not the case without ai players. The choppiness is not affected by the number of ai players nor their code as it's the same with 1 empty ai as with 1 DE ai or even 7 Rehoboams. When I did the same tests a few months ago the issues were that the tick rates were actually to fast which doesn't seem the case anymore. A few years ago we didn't seem to have any of these issues. Apart from the choppiness obviously being less than ideal, it also would nerf the timing based ai's, including the DE ai alot to play with a tick rate of 2500ms. My pc has a benchmark score of 1300 and never lags in single player or online human games."
+}, {
+	name: "Gather point bugs during ungarrison",
+	date: "Aug 26, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1542182968980807701\">Link</a>",
+	commands: [cUpUngarrison, cUpTargetObjects, cUpTargetPoint],
+	parameters: [pDUCAction],
+	sns: [],
+	description: "Just tested gather points on DE again. Here's the current status. For gather points it's not necessary to set it in the previous loop - instead you can just set it right before ungarrisoning a unit. The gather point still doesn't work for object targets - the units will always move to the point of the gather point but not target the object. This applies for all military and resource targets. Even if a human sets the gather point to a target, or does the ungarrison for an AI player it still wont work. Military units will always go to the point that you target. Villagers sometimes do that but sometimes will instantly reassign to their preferred resource and never go to the target. It seems to random. Either way, the villagers wont actually collect resources from the target you set. Also, the units always ungarrison at the bottom corner of the building, rather than the closest point to the gather point, like they would for humans."
+}, {
 	name: "action-train and action-research escrow bugs",
 	date: "Aug 18, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1539131107956625508\">Link</a>",
@@ -28255,7 +28271,7 @@ var bugsArray = [ {
 	commands: [cUpGetGroupSize, cUpGroupSize],
 	parameters: [],
 	sns: [],
-    description: "Another DE bug: using up-create-group when the local list includes garrisoned units does not work correctly. Any garrisoned units will be excluded from the group. See the Discord link for a test script. When testing the script, just garrison the AIs villagers and you will see that the sizes don't match. Update from TheMaximalBeing: It seems like garrisoned units added before they were garrisoned stay in the group. They can be returned to the local-list but aren't counted using the group count command. Tested by adding a list of garrisoned villagers. It seems to be storing them fine -- just not including them in the count. Leif editor note: The only actual bug here is that up-get-group-size and up-group-size exclude garrisoned and dead units when calculating the group size in DE, while UP includes them. If this difference is intended, then this isn't a bug."
+    description: "up-get-group-size and up-group-size exclude garrisoned and dead units when calculating the group size in DE, while UP includes them. If this difference is intended, then this isn't a bug."
 // }, {
     // name: "Issue with object-data-target-id",
     // date: "Dec 28, 2021",
