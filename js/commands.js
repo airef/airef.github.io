@@ -55,6 +55,10 @@ class Parameter {
 				}
 				j++;
 			}
+			if (commandsArray[i] == cUpTargetPoint) {
+				usedCommands += cUpTargetPoint.getLink();
+				usedCommands += ", &nbsp;";
+			}
 		}
 
 		if (usedCommands.length > 0) {
@@ -12473,8 +12477,8 @@ cHoldRelics.relatedSNs = [];
 cHoldRelics.complexity = "Low";
 
 //housing-headroom
-cHousingHeadroom.shortDescription = "Checks computer player's housing headroom, the difference between current housing capacity and trained unit capacity.";
-cHousingHeadroom.description = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and trained unit capacity. For example, a computer player has a Town Center (capacity 5), a House (capacity 5) and 6 villagers. In this case, housing headroom is 4.";
+cHousingHeadroom.shortDescription = "Checks computer player's housing headroom, the difference between current housing capacity and the current population.";
+cHousingHeadroom.description = "Checks computer player's housing headroom. Housing headroom is the difference between current housing capacity and the current population. For example, a computer player has a Town Center (capacity 5), a House (capacity 5) and 6 villagers. In this case, housing headroom is 4.";
 cHousingHeadroom.commandParameters = [ {
 	nameLink: pCompareOp.getLink(),
 	name: "compareOp",
@@ -22957,13 +22961,13 @@ pFactId.relatedParams = [pFindPlayerMethod, pObjectData, pFactParameter, pResour
 pFactId.valueList = [ {
 	name: "game-time",
 	id: 0,
-	description: "The elapsed game time in seconds. The corresponding fact command is " + cGameTime.getLink() + ".",
+	description: "The elapsed game time in seconds. The corresponding fact command is " + cGameTime.getLink() + ". This is a global fact, meaning that it is not player-specific.",
 	parameter: "0",
-	players: "self"
+	players: "global"
 }, {
 	name: "population-cap",
 	id: 1,
-	description: "The population cap setting. The corresponding fact command is " + cPopulationCap.getLink() + ".",
+	description: "The player's population cap. The corresponding fact command is " + cPopulationCap.getLink() + ".",
 	parameter: "0",
 	players: "self"
 }, {
@@ -23163,7 +23167,7 @@ pFactId.valueList = [ {
 	id: 34,
 	description: "The current stockpile amount of the given resource. The corresponding fact commands are " + cUpResourceAmount.getLink() + " and " + cUpAlliedResourceAmount.getLink() + ".",
 	parameter: pResourceType.getLink(),
-	players: "any"
+	players: "any-ally"
 }, {
 	name: "player-distance",
 	id: 35,
@@ -23281,9 +23285,9 @@ pFactId.valueList = [ {
 }, {
 	name: "treaty-time",
 	id: 54,
-	description: "DE only. The amount of treaty time left, in seconds. There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ".",
+	description: "DE only. The amount of treaty time left, in seconds. There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ". This is a global fact, meaning that it is not player-specific.",
 	parameter: "0",
-	players: "any"
+	players: "global"
 }, {
 	name: "battle-royale-time",
 	id: 55,
@@ -27548,6 +27552,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "up-can-research and up-research allow escrow to be used when using 0 as the EscrowGoalId",
+	date: "Sep 5, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1545802172766228570\">Link</a>",
+	commands: [cUpCanResearch, cUpResearch],
+	parameters: [pEscrowGoalId],
+	sns: [],
+	description: "Using 0 for the EscrowGoalId with up-can-research and up-research incorrectly allows escrowed resources to be used. With gold escrow set to 100 at the start, (up-can-research g-escrow c: ri-loom) correctly returns false if g-escrow is set to 1, i.e. without-escrow, but it returns true in all other cases at the start of the game, including if 0 is used instead of g-escrow. can-research/can-research-with-escrow/up-can-train/up-can-build all work as expected."
+}, {
 	name: "AI tick rates much higher in multiplayer games",
 	date: "Aug 28, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1542830379369631774\">Link</a>",
@@ -27555,6 +27567,14 @@ var bugsArray = [ {
 	parameters: [],
 	sns: [],
 	description: "MP tick rates for ai's have been bugged for a long time now. Currently averaging between 1000 ms (with one ai player and a human) and 2500 ms (with 7 ai players and a human) between ticks for empty ai files containing only a rare chat message about tick rate and the calculations thereoff. This is very far from the expected 666ms on 2.0 speed. The game also is choppy which is not the case without ai players. The choppiness is not affected by the number of ai players nor their code as it's the same with 1 empty ai as with 1 DE ai or even 7 Rehoboams. When I did the same tests a few months ago the issues were that the tick rates were actually to fast which doesn't seem the case anymore. A few years ago we didn't seem to have any of these issues. Apart from the choppiness obviously being less than ideal, it also would nerf the timing based ai's, including the DE ai alot to play with a tick rate of 2500ms. My pc has a benchmark score of 1300 and never lags in single player or online human games."
+}, {
+	name: "up-get-player-fact crashes when used with an invalid player",
+	date: "Aug 27, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1543588106337525820\">Link</a>",
+	commands: [cUpGetPlayerFact],
+	parameters: [pFactId, pFactParameter],
+	sns: [],
+	description: "Apparently if you use (up-get-player-fact military-population) on a player that isn't in the game, it'll crash. Had it happen several times already (works fine in 8-player games afaik since there is all players available). Update from Leif: This crash only occurs when the player used is between 3 and 8, and it is equal to the number of players in the game, +1. So, in a 2 player game, player 3 causes a crash. In a 4 player game, player 5 causes a crash. But, in a 4v4, player 9 doesn't cause a crash. Using focus-player or target-player for the player number doesn't crash, nor does any other command that uses Fact Ids."
 }, {
 	name: "Gather point bugs during ungarrison",
 	date: "Aug 26, 2026",
@@ -49746,7 +49766,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Chicken A",
+	name: "Chicken A (Brown)",
 	aiName: "",
 	line: "",
 	id: 2083,
@@ -49765,7 +49785,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Chicken B",
+	name: "Chicken B (White)",
 	aiName: "",
 	line: "",
 	id: 2085,
@@ -49784,7 +49804,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Chicken C",
+	name: "Chicken C (Black)",
 	aiName: "",
 	line: "",
 	id: 2087,
@@ -49917,7 +49937,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Llama",
+	name: "Llama A (Brown)",
 	aiName: "",
 	line: "",
 	id: 305,
@@ -49933,6 +49953,25 @@ objectsGaiaArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Llama B (White)",
+	aiName: "",
+	line: "",
+	id: 1963,
+	class: "livestock-class (958)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "780",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
 	de: 1,
 	notes: ""
 }, {	
@@ -50012,44 +50051,6 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Arctic Fox",
-	aiName: "",
-	line: "",
-	id: 1958,
-	class: "fox-class (965)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "43",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "Can be hunted for 35 gold."
-}, {	
-	name: "Arctic Hare",
-	aiName: "",
-	line: "",
-	id: 2100,
-	class: "prey-animal-class (909)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "43",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
-}, {	
 	name: "Argali",
 	aiName: "",
 	line: "",
@@ -50107,6 +50108,44 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
+	name: "Fox (Arctic)",
+	aiName: "",
+	line: "",
+	id: 1958,
+	class: "fox-class (965)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "43",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be hunted for 35 gold."
+}, {	
+	name: "Fox (Red)",
+	aiName: "",
+	line: "",
+	id: 1955,
+	class: "fox-class (965)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "43",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Can be hunted for 35 gold."
+}, {	
 	name: "Gazelle",
 	aiName: "",
 	line: "",
@@ -50145,7 +50184,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Hare A",
+	name: "Hare A (Brown)",
 	aiName: "",
 	line: "",
 	id: 2098,
@@ -50162,9 +50201,9 @@ objectsGaiaArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
+	notes: "Cannot be pushed. Carries 75 food."
 }, {	
-	name: "Hare B",
+	name: "Hare B (Gray)",
 	aiName: "",
 	line: "",
 	id: 2099,
@@ -50181,7 +50220,26 @@ objectsGaiaArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
+	notes: "Cannot be pushed. Carries 75 food."
+}, {	
+	name: "Hare C (Arctic)",
+	aiName: "",
+	line: "",
+	id: 2100,
+	class: "prey-animal-class (909)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "43",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: "Cannot be pushed. Carries 75 food."
 }, {	
 	name: "Ibex",
 	aiName: "",
@@ -50297,25 +50355,6 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Red Fox",
-	aiName: "",
-	line: "",
-	id: 1955,
-	class: "fox-class (965)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "43",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: "Can be hunted for 35 gold."
-}, {	
 	name: "Rhea",
 	aiName: "",
 	line: "",
@@ -50373,7 +50412,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Wild Chicken A",
+	name: "Wild Chicken A (Brown)",
 	aiName: "",
 	line: "",
 	id: 2084,
@@ -50390,9 +50429,9 @@ objectsGaiaArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
+	notes: "Cannot be pushed. Carries 75 food."
 }, {	
-	name: "Wild Chicken B",
+	name: "Wild Chicken B (White)",
 	aiName: "",
 	line: "",
 	id: 2086,
@@ -50409,9 +50448,9 @@ objectsGaiaArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
+	notes: "Cannot be pushed. Carries 75 food."
 }, {	
-	name: "Wild Chicken C",
+	name: "Wild Chicken C (Black)",
 	aiName: "",
 	line: "",
 	id: 2088,
@@ -50428,9 +50467,9 @@ objectsGaiaArray = [ {
 	tc: 0,
 	wk: 0,
 	de: 1,
-	notes: "Cannot be pushed. Carries 65 food."
+	notes: "Cannot be pushed. Carries 75 food."
 }, {	
-	name: "Wild Horse A",
+	name: "Wild Horse A (Bay Dun)",
 	aiName: "",
 	line: "",
 	id: 835,
@@ -50449,7 +50488,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Wild Horse B",
+	name: "Wild Horse B (Draft)",
 	aiName: "",
 	line: "",
 	id: 2092,
@@ -50468,7 +50507,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Wild Horse C",
+	name: "Wild Horse C (Dapple)",
 	aiName: "",
 	line: "",
 	id: 2093,
@@ -50487,7 +50526,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Wild Horse D",
+	name: "Wild Horse D (Andalusian)",
 	aiName: "",
 	line: "",
 	id: 2094,
@@ -50506,7 +50545,7 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: "Cannot be hunted."
 }, {	
-	name: "Wild Horse E",
+	name: "Wild Horse E (Skewbald)",
 	aiName: "",
 	line: "",
 	id: 2095,
@@ -50639,15 +50678,15 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Arabian Wolf",
+	name: "Bear (Black)",
 	aiName: "",
 	line: "",
-	id: 2091,
+	id: 2089,
 	class: "predator-animal-class (910)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
 	age: 1,
-	deadUnit: "237",
+	deadUnit: "489",
 	projectile: "",
 	chemProjectile: "",
 	civ: "",
@@ -50658,10 +50697,29 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Black Bear",
+	name: "Bear (Brown)",
 	aiName: "",
 	line: "",
-	id: 2089,
+	id: 486,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "489",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Bear (Polar)",
+	aiName: "",
+	line: "",
+	id: 2090,
 	class: "predator-animal-class (910)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
@@ -50693,25 +50751,6 @@ objectsGaiaArray = [ {
 	aok: 0,
 	tc: 0,
 	wk: 0,
-	de: 1,
-	notes: ""
-}, {	
-	name: "Brown Bear",
-	aiName: "",
-	line: "",
-	id: 486,
-	class: "predator-animal-class (910)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "489",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 1,
 	de: 1,
 	notes: ""
 }, {	
@@ -50749,25 +50788,6 @@ objectsGaiaArray = [ {
 	weirdName: 0,
 	aok: 0,
 	tc: 0,
-	wk: 1,
-	de: 1,
-	notes: ""
-}, {	
-	name: "Grey Wolf",
-	aiName: "",
-	line: "",
-	id: 126,
-	class: "predator-animal-class (910)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "237",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 1,
-	tc: 1,
 	wk: 1,
 	de: 1,
 	notes: ""
@@ -50829,25 +50849,6 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Polar Bear",
-	aiName: "",
-	line: "",
-	id: 2090,
-	class: "predator-animal-class (910)",
-	cmdId: "cmdid-livestock-gaia",
-	building: "Gaia",
-	age: 1,
-	deadUnit: "489",
-	projectile: "",
-	chemProjectile: "",
-	civ: "",
-	weirdName: 0,
-	aok: 0,
-	tc: 0,
-	wk: 0,
-	de: 1,
-	notes: ""
-}, {	
 	name: "Snake",
 	aiName: "",
 	line: "",
@@ -50905,10 +50906,29 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Rabid Wolf",
+	name: "Wolf (Arabian)",
 	aiName: "",
 	line: "",
-	id: 202,
+	id: 2091,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 0,
+	tc: 0,
+	wk: 0,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Wolf (Dire)",
+	aiName: "",
+	line: "",
+	id: 89,
 	class: "predator-animal-class (910)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
@@ -50924,10 +50944,29 @@ objectsGaiaArray = [ {
 	de: 1,
 	notes: ""
 }, {	
-	name: "Dire Wolf",
+	name: "Wolf (Grey)",
 	aiName: "",
 	line: "",
-	id: 89,
+	id: 126,
+	class: "predator-animal-class (910)",
+	cmdId: "cmdid-livestock-gaia",
+	building: "Gaia",
+	age: 1,
+	deadUnit: "237",
+	projectile: "",
+	chemProjectile: "",
+	civ: "",
+	weirdName: 0,
+	aok: 1,
+	tc: 1,
+	wk: 1,
+	de: 1,
+	notes: ""
+}, {	
+	name: "Wolf (Rabid)",
+	aiName: "",
+	line: "",
+	id: 202,
 	class: "predator-animal-class (910)",
 	cmdId: "cmdid-livestock-gaia",
 	building: "Gaia",
