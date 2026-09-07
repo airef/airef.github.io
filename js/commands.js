@@ -9883,48 +9883,48 @@ aoe2MapsLoadIfsArray = [ {
 	description: "The Unknown ES map.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-ARABIA-MAP",
-	description: "Quick Play Arabia map. Defined only in DE.",
+	name: "QUICKPLAY_ARABIA-MAP",
+	description: "Quick Play Arabia map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-ARENA-MAP",
-	description: "Quick Play Arena map. Defined only in DE.",
+	name: "QUICKPLAY_ARENA-MAP",
+	description: "Quick Play Arena map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-BLACK-FOREST-MAP",
-	description: "Quick Play Black Forest map. Defined only in DE.",
+	name: "QUICKPLAY_BLACK-FOREST-MAP",
+	description: "Quick Play Black Forest map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-FORTIFIED-CLEARING-MAP",
-	description: "Quick Play Fortified Clearing map. Defined only in DE.",
+	name: "QUICKPLAY_FORTIFIED-CLEARING-MAP",
+	description: "Quick Play Fortified Clearing map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-GLADE-MAP",
-	description: "Quick Play Glade map. Defined only in DE.",
+	name: "QUICKPLAY_GLADE-MAP",
+	description: "Quick Play Glade map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-NOMAD-MAP",
-	description: "Quick Play Nomad map. Defined only in DE.",
+	name: "QUICKPLAY_NOMAD-MAP",
+	description: "Quick Play Nomad map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
-	name: "QUICKPLAY-RUNESTONES-MAP",
-	description: "Quick Play Runestones map. Defined only in DE.",
+	name: "QUICKPLAY_RUNESTONES-MAP",
+	description: "Quick Play Runestones map. Defined only in DE. Notice the underscore after QUICKPLAY.",
 	type: "AoE2 Maps"
 }, {
 	name: "CTR_RANDOM-MAP",
-	description: "Capture the Relic random map.",
+	description: "Capture the Relic random map. Notice the underscore after CTR.",
 	type: "AoE2 Maps"
 }, {
 	name: "CTR_MONSOON-MAP",
-	description: "Capture the Relic Monsoon map.",
+	description: "Capture the Relic Monsoon map. Notice the underscore after CTR.",
 	type: "AoE2 Maps"
 }, {
 	name: "CTR_PYRAMID-DESCENT-MAP",
-	description: "Capture the Relic Pyramid Descent map.",
+	description: "Capture the Relic Pyramid Descent map. Notice the underscore after CTR.",
 	type: "AoE2 Maps"
 }, {
 	name: "CTR_SPIRAL-MAP",
-	description: "Capture the Relic Spiral map.",
+	description: "Capture the Relic Spiral map. Notice the underscore after CTR.",
 	type: "AoE2 Maps"
 }, {
 	name: "BATTLE-ON-THE-ICE-MAP",
@@ -10643,7 +10643,7 @@ cBuyCommodity.complexity = "Low";
 
 //can-afford-building
 cCanAffordBuilding.shortDescription = "Checks whether the computer player has enough resources to build the given building.";
-cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-afford-building watch-tower) will work regardless of tower upgrades. You cannot use building classes with this command.";
+cCanAffordBuilding.description = "Checks whether the computer player has enough resources to build the given building. It does not take into account resources in the escrow stockpiles, so it checks if the computer player can afford the building only with non-escrowed resources. It does not check that the tech tree prerequisites are met or if the building is allowed for the civ. It allows the use of building line wildcard parameters for " + pBuildingId.getLink() + ". The only wildcard parameter available is watch-tower-line. However, it is better to use watch-tower instead of watch-tower-line, even after Guard Tower or Keep upgrades due to some bugs with watch-tower-line. Simply using (can-afford-building watch-tower) will work regardless of tower upgrades. You cannot use building classes with this command.";
 cCanAffordBuilding.commandParameters = [ {
 	nameLink: pBuildingId.getLink(),
 	name: "BuildingId",
@@ -10653,7 +10653,7 @@ cCanAffordBuilding.commandParameters = [ {
 	note: "The building to check affordability for."
 } ];
 cCanAffordBuilding.example = [ {
-	title: "Checks if the AI can afford a wonder.",
+	title: "Checks if the AI can afford a wonder without escrow.",
 	data: "(defrule\r\n\t(can-afford-building wonder)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCanAffordBuilding.commandCategory = ["Buildings", "Can Do"];
@@ -10663,7 +10663,7 @@ cCanAffordBuilding.complexity = "Low";
 
 //can-afford-complete-wall
 cCanAffordCompleteWall.shortDescription = "Checks whether the computer player has enough resources to finish the wall at the given perimeter.";
-cCanAffordCompleteWall.description = "Checks whether the computer player has enough resources to finish the given wall type at the " + pPerimeter.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued. In particular, can-afford-complete-wall checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>The tech tree prerequisites are met.</li><li>Required resources are available.</li></ul><p>It does not take into account escrowed resources. It does not check if wall area is explored or if " + cEnableWallPlacement.getLink() + " has been used. " + pPerimeter.getLink() + " is either: '1' for a 10-20 tile radius aroung home TC or '2' for an 18-30 tile radius.";
+cCanAffordCompleteWall.description = "Checks whether the computer player has enough resources to finish the given wall type at the " + pPerimeter.getLink() + ". Perimeter 1 is usually between 10 and 20 tiles from the starting Town Center. Perimeter 2 is usually between 18 and 30 tiles from the starting Town Center. If wall placement is enabled at a particular perimeter with enable-wall-placement, the AI engine will attempt to plan a roughly circular wall pattern within the given perimeter distances and construct the wall according to this pattern when the " + cBuildWall.getLink() + " command is issued. In particular, can-afford-complete-wall checks:</p><ul><li>The wall type is available to the computer player's civ.</li><li>The tech tree prerequisites are met.</li><li>Required resources are available.</li></ul><p>It does not take into account escrowed resources, so it checks if the computer player can afford the wall only with non-escrowed resources. It does not check if wall area is explored or if " + cEnableWallPlacement.getLink() + " has been used. " + pPerimeter.getLink() + " is either: '1' for a 10-20 tile radius aroung home TC or '2' for an 18-30 tile radius.";
 cCanAffordCompleteWall.commandParameters = [ {
 	nameLink: pPerimeter.getLink(),
 	name: "Perimeter",
@@ -10680,7 +10680,7 @@ cCanAffordCompleteWall.commandParameters = [ {
 	note: "The type of wall to construct. Can use WallId wildcard parameters."
 } ];
 cCanAffordCompleteWall.example = [ {
-	title: "Checks if the AI can afford a stone wall at perimeter 2.",
+	title: "Checks if the AI can afford a stone wall at perimeter 2 without escrow.",
 	data: "(defrule\r\n\t(can-afford-complete-wall 2 stone-wall-line)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCanAffordCompleteWall.commandCategory = ["Walls & Gates", "Can Do"];
@@ -10690,7 +10690,7 @@ cCanAffordCompleteWall.complexity = "Low";
 
 //can-afford-research
 cCanAffordResearch.shortDescription = "Checks whether the computer player has enough resources to perform the given research.";
-cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. Also checks that the research is available for the civ, that its not already researched and that the computer player has reached the required age. Does not check if the required building is built. The fact does not take into account escrowed resources. You can also use my-unique-research, which will usually check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will usually check the castle age unique tech for the civilization. The excepts are the Britons, Franks, Goths, and Saracens, whose my-unique-research and my-second-unique-research are switched.";
+cCanAffordResearch.description = "Checks whether the computer player has enough resources to perform the given research. The fact does not take into account escrowed resources, so it checks if the computer player can afford the unit only with non-escrowed resources.</p><p>In addition to checking if the computer player can afford the research, it also checks that the research is available for the civ, that it's not already researched, and that the computer player has reached the required age. Does not check if the required building is built.</p><p>You can also use my-unique-research, which will check the imperial age unique tech for the civilization, and you can also use my-second-unique-research, which will check the castle age unique tech for the civilization.";
 cCanAffordResearch.commandParameters = [ {
 	nameLink: pTechId.getLink(),
 	name: "TechId",
@@ -10700,7 +10700,7 @@ cCanAffordResearch.commandParameters = [ {
 	note: "The technology to be researched."
 } ];
 cCanAffordResearch.example = [ {
-	title: "Checks if the AI can afford the Paladin upgrade. If the player hasn't yet researched Cavalier, the civ doesn't have the Paladin upgrade available, or the player has already resarched Paladin, this will also return false.",
+	title: "Checks if the AI can afford the Paladin upgrade without escrow. If the player hasn't yet researched Cavalier, the civ doesn't have the Paladin upgrade available, or the player has already resarched Paladin, this will also return false, regardless of the player's stockpile.",
 	data: "(defrule\r\n\t(can-afford-research ri-paladin)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCanAffordResearch.commandCategory = ["Techs", "Can Do"];
@@ -10710,7 +10710,7 @@ cCanAffordResearch.complexity = "Low";
 
 //can-afford-unit
 cCanAffordUnit.shortDescription = "Checks whether the computer player has enough resources to train the given unit.";
-cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources.</p><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". These wildcard parameters allow you to specify a unit line rather than an individual unit in the unit line. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
+cCanAffordUnit.description = "Checks whether the computer player has enough resources to train the given unit. Does not check anything else. The fact does not take into account escrowed resources, so it checks if the computer player can afford the unit only with non-escrowed resources.</p><p>The fact allows the use of unit line wildcard parameters for " + pUnitId.getLink() + ". These wildcard parameters allow you to specify a unit line rather than an individual unit in the unit line. You cannot use unit classes with this command. my-unique-unit, my-elite-unique-unit, and my-unique-unit-line can also be used, which will automatically get the UnitId of the unique unit, elite unique unit, or unique unit line that the AI's civ can train from the castle.";
 cCanAffordUnit.commandParameters = [ {
 	nameLink: pUnitId.getLink(),
 	name: "UnitId",
@@ -10720,7 +10720,7 @@ cCanAffordUnit.commandParameters = [ {
 	note: "The unit to check affordability for."
 } ];
 cCanAffordUnit.example = [ {
-	title: "Checks if the AI can afford a battering ram.",
+	title: "Checks if the AI can afford a battering ram without escrow.",
 	data: "(defrule\r\n\t(can-afford-unit battering-ram)\r\n=>\r\n\t(do-nothing)\r\n)"
 } ];
 cCanAffordUnit.commandCategory = ["Units", "Can Do"];
@@ -22961,7 +22961,7 @@ pFactId.relatedParams = [pFindPlayerMethod, pObjectData, pFactParameter, pResour
 pFactId.valueList = [ {
 	name: "game-time",
 	id: 0,
-	description: "The elapsed game time in seconds. The corresponding fact command is " + cGameTime.getLink() + ". This is a global fact, meaning that it is not player-specific.",
+	description: "The elapsed game time in seconds. The corresponding fact command is " + cGameTime.getLink() + ". This is a global fact, meaning that it is not player-specific, and any provided " + pPlayerNumber.getLink() + " will be ignored.",
 	parameter: "0",
 	players: "global"
 }, {
@@ -23285,7 +23285,7 @@ pFactId.valueList = [ {
 }, {
 	name: "treaty-time",
 	id: 54,
-	description: "DE only. The amount of treaty time left, in seconds. There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ". This is a global fact, meaning that it is not player-specific.",
+	description: "DE only. The amount of treaty time left, in seconds. There isn't a corresponding fact command, but you can also store the remaining treaty time with " + cUpGetTreatyData.getLink() + ". This is a global fact, meaning that it is not player-specific, and any provided " + pPlayerNumber.getLink() + " will be ignored.",
 	parameter: "0",
 	players: "global"
 }, {
@@ -27552,6 +27552,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "The can-afford commands don't take into account resources spent on buildings during the current script pass",
+	date: "Sep 5, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1545860910671732838\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1546318732660576346\">Link2</a>",
+	commands: [cCanAffordBuilding, cCanAffordCompleteWall, cCanAffordResearch, cCanAffordUnit],
+	parameters: [],
+	sns: [],
+	description: "The can-afford commands don't take into account resources spent on buildings during the current script pass. They do account for resources spent on units and techs though. The same bug happens in UserPatch."
+}, {
 	name: "up-can-research and up-research allow escrow to be used when using 0 as the EscrowGoalId",
 	date: "Sep 5, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1545802172766228570\">Link</a>",
@@ -28143,7 +28151,7 @@ var bugsArray = [ {
 	commands: [cUpSetOffensePriority, cUpResetTargetPriorities],
 	parameters: [],
 	sns: [],
-    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, then the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only way to prevent a crash with up-set-offense-priority is to only modify class priorities with up-set-offense-priority."
+    description: "A reliable way to crash your DE-game is to reset offense-priorities like this each rule-pass: (up-reset-target-priorities priority-offense 1). If you up-set-offense-priority for a building (not for a class) and up-reset-target-priorities priority-offense 1 after that, then the game crashes. If you up-reset-target-priorities priority-offense 1 before up-set-offense-priority, than the game doesn't crash. If you up-set-offense-priority for a class and up-reset-target-priorities priority-offense 1 after that, than the game doesn't crash. This crash occurred in an AI using attack-now and later in the game TSA. If I use an empty ai-file with the code above it crashes my game. Leif edit: Confirmed that if you use up-set-offense-priority to set the priority of any building or unit ID at any time, then using (up-reset-target-priorities priority-offense 1) will cause a crash. The only ways to prevent a crash with up-set-offense-priority are to either only modify class priorities with up-set-offense-priority or never use up-reset-target-priorities."
 }, {
     name: "position-flank is always very close to the enemy's starting location",
     date: "Oct 2, 2022",
