@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+	<title>XS Scripting for AI Tournaments</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="../../jqueryui/jquery-ui.theme.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<html>
+<body>
+
+	<div class="container">
+		<div id="nav-placeholder"></div>
+		<div class="article">
+			<h2>XS Scripting for AI Tournaments</h2>
+			<p><em>Updated September 8, 2026</em></p>
+			<p>XS scripting functionality was extended to AI scripting in AoE2:DE, with many different features. These are documented in the community-based <a href="https://ugc.aoe2.rocks/general/xs/functions/functions/">UGC XS Scripting Reference</a>, and this article is designed to be used alongside that guide. For learning how to use the various XS functions, use the UGC website. This article will focus on which XS functions can be safely used in AI scripting without cheating so that tournament hosts can be confident about allowing AI scripts to enter that use XS code. A list provided without commentary is included at the top, and the rest of the article will explain the commands in more detail. Click on the links in the cheating list to jump to commentary for each function category.</p>
+			<h3 id="top">Cheating List</h3>
+			<p>These XS functions should not be used in AI scripts:</p>
+			<p><table>
+				<tr><td><a href="#non">Non-Functions</a></td><td>XS rules shouldn't be used</td></tr>
+				<tr><td>All <a href="#rules">Rules Functions</a></td><td>xsDisableRule, xsDisableSelf, xsEnableRule, xsIsRuleEnabled, xsSetRulePriority, xsSetRulePrioritySelf, sSetRuleMinInterval, xsSetRuleMinIntervalSelf, xsSetRuleMaxInterval, xsSetRuleMaxIntervalSelf, xsEnableRuleGroup, xsDisableRuleGroup, xsIsRuleGroupEnabled</td></tr>
+				<tr><td><a href="#techs">Techs Functions</a></td><td>xsResearchTechnology</td></tr>
+				<tr><td><a href="#player">Player Functions</a></td><td>xsEffectAmount, xsSetPlayerAttribute, xsDeclareVictory</td></tr>
+				<tr><td><a href="#tasks">Tasks Functions</a></td><td>xsTaskAmount, xsResetTaskAmount, xsModifyObjectTasks, xsModifyUnitTasks, xsTask, xsRemoveTask</td></tr>
+				<tr><td><a href="#units">Units & Objects Functions</a></td><td>xsCreateUnit, xsRemoveUnit, xsGetUnitOwner, xsSetUnitPosition, xsSetUnitHitpoints, xsSetUnitBuildPoints, xsSetUnitAttributeHeld, xsSetUnitCharge</td></tr>
+				<tr><td><a href="#map">Map Functions</a></td><td>xsSetColorMood</td></tr>
+				<tr><td><a href="#ui">UI Functions </a></td><td>xsPlaySound, xsDisplayInstructions, xsClearInstructions, xsDisplayTimer, xsClearTimer, xsGetTimerRemaining</td></tr>
+			</table></p>
+			<h3>Cheating List if Used for Other Players</h3>
+			<p>Many XS functions have full access to info about every single player. Such functions are obviously cheating if used on enemy players, and may also be considered cheating by some tournament hosts if used on ally players. Unfortunately, XS doesn't have a way to automatically get the playerId of the current AI player, like my-player-number, so you can't dynamically reference the AI's player number by default. A workaround is to store my-player-number in a goal, then call an XS function with xs-script-call which uses xsGetGoal to read this goal value and set a global XS myPlayerNumber variable to that value. Then, you can use myPlayerNumber as the playerId parameter for each of these functions to prevent cheating.</p><p>Global variables (variables outside of XS functions, like those in /xs/Constants.xs) are separately created for each player that loads the .xs file that creates them, so you don't have to worry about other AI players overwriting this variable with their own XS code.</p>
+			<p><table>
+				<tr><td><a href="#techs">Techs Functions</a></td><td>xsGetTechState, xsGetTechAttribute</td></tr>
+				<tr><td><a href="#player">Player Functions</a></td><td>xsGetPlayerUnitIds, xsPlayerAttribute</td></tr>
+				<tr><td><a href="#tasks">Tasks Functions</a></td><td>xsGetObjectTaskCount, xsObjectTaskCount, xsGetUnitTaskCount, xsUnitTaskAmount</td></tr>
+				<tr><td><a href="#units">Units & Objects Functions</a></td><td>xsGetObjectAttribute, xsGetUnitAttribute, xsDoesUnitExist, xsGetUnitPosition, xsGetUnitName, xsGetObjectName, xsGetUnitTargetUnitId, xsGetUnitMoveTarget, xsGetUnitGroupId, xsGetGroupMoveTarget, xsIsObjectAvailable, xsGetUnitHitpoints, xsGetUnitBuildPoints, xsGetUnitObjectId, xsGetUnitCopyId, xsGetObjectCopyId, xsGetUnitClass, xsGetObjectClass, xsGetUnitType, xsGetUnitAttributeTypesHeld, xsGetUnitAttributeHeld, xsGetUnitCharge, xsGetGarrisonedInUnitId, xsGetGarrisonedUnitIds, xsGetObjectCount, xsGetObjectCountTotal, xsObjectHasAction, xsIsObjectValid, xsGetPlayerNumberOfObjects</td></tr>
+			</table></p>
+			<h3>Use With Care</h3>
+			<p>These functions are allowed to be used, but should be used carefully.</p>
+			<p><table>
+				<tr><td><a href="#array">Array Functions</a></td><td>(can use excessive memory if not managed properly) xsArrayCreateInt, xsArrayCreateFloat, xsArrayCreateBool, xsArrayCreateString, xsArrayCreateVector, xsArrayResizeInt, xsArrayResizeFloat, xsArrayResizeBool, xsArrayResizeString, xsArrayResizeVector</td></tr>
+				<tr><td><a href="#map">Map Functions</a></td><td>(these functions only work in custom scenarios) xsTriggerVariable, xsSetTriggerVariable</td></tr>
+				<tr><td><a href="#ui">UI Functions</a></td><td>xsGetLocale, xsGetString, xsGetPlayerAttributeName, xsGetDamageClassName, xsGetLocalPlayerId, and xsSendChat can cause a desync in some situations because of language localization differences. Best to avoid them in AI scripts.</td></tr>
+				<tr><td><a href="#misc">Miscellaneous Functions</a></td><td>(these apparently do nothing or are of little use to anyone besides devs) xsDumpArrays, xsGetFunctionId, xsBreakPoint, xsAddRuntimeEvent</td></tr>
+			</table></p>
+			<h3>Permitted Functions</h3>
+			<p>Here is a list of functions which can be used without cheating concerns.</p>
+			<p><table>
+				<tr><td>All <a href="#vector">Vector Functions</a></td><td>xsVectorGetX, xsVectorGetY, xsVectorGetZ, xsVectorSetX, xsVectorSetY, xsVectorSetZ, xsVectorSet, xsVectorLength, xsVectorNormalize</td></tr>
+				<tr><td>All <a href="#array">Array Functions</a></td><td>xsArrayCreateInt, xsArrayCreateFloat, xsArrayCreateBool, xsArrayCreateString, xsArrayCreateVector, xsArraySetInt, xsArraySetFloat, xsArraySetBool, xsArraySetString, xsArraySetVector, xsArrayGetInt, xsArrayGetFloat, xsArrayGetBool, xsArrayGetString, xsArrayGetVector, xsArrayResizeInt, xsArrayResizeFloat, xsArrayResizeBool, xsArrayResizeString, xsArrayResizeVector, xsArrayGetSize</td></tr>
+				<tr><td>All <a href="#maths">Maths Functions</a></td><td>abs, sqrt, pow, sin, cos, tan, asin, acos, atan, atan2, atan2v, exp, ceil, floor, bitCastToFloat, bitCastToInt, xsCeilToInt, ln, log2, log10, round, radians, degrees, dist, bitAnd, bitOr, bitXor, bitNot</td></tr>
+				<tr><td>All <a href="#randomization">Randomization Functions</a></td><td>xsGetRandomNumber, xsGetRandomNumberLH, xsGetRandomNumberMax</td></tr>
+				<tr><td><a href="#techs">Techs Functions</a></td><td>xsGetTechName</td></tr>
+				<tr><td><a href="#player">Player Functions</a></td><td>xsGetHandicapMultiplier, xsGetWorldPlayerId, xsGetPlayerCivilization, xsGetPlayerInGame, xsGetPlayerNumberOfTechs, xsGetPlayerName, xsGetPlayerType, xsGetDiplomacy, xsSetDiplomacy, xsGetDifficulty</td></tr>
+				<tr><td><a href="#tasks">Tasks Functions</a></td><td>xsGetTaskAmount</td></tr>
+				<tr><td><a href="#map">Map Functions</a></td><td>xsGetMapName, xsGetMapId, xsGetMapHeight, xsGetMapWidth, xsGetColorMood, xsGetMapSeed, </td></tr>
+				<tr><td><a href="#game">Game Info Functions</a></td><td>xsGetNumPlayers, xsGetTime, xsGetGameTime, xsGetTurn, xsGetVictoryType, xsGetVictoryPlayer, xsGetVictoryPlayerForSecondaryGameMode, xsGetVictoryTime, xsGetVictoryTimeForSecondaryGameMode, xsGetVictoryCondition, xsGetVictoryConditionForSecondaryGameMode</td></tr>
+				<tr><td><a href="#ui">UI Functions</a></td><td>xsChatData, xsGetPlayerColorTag</td></tr>
+				<tr><td>All <a href="#file">File I/O Functions</a></td><td>xsOpenFile, xsWriteString, xsWriteInt, xsWriteFloat, xsWriteVector, xsReadString, xsReadInt, xsReadFloat, xsReadVector, xsOffsetFilePosition, xsCloseFile, xsGetFilePosition, xsGetDataTypeSize, xsGetFileSize</td></tr>
+				<tr><td>All <a href="#ai">AI Scripting Functions</a></td><td>xsGetGoal, xsGetStrategicNumber, xsSetGoal, xsSetStrategicNumber</td></tr>
+				<tr><td><a href="#misc">Miscellaneous Functions </a></td><td>xsGetContextPlayer, xsSetContextPlayer</td></tr>
+			</table></p>
+			<h3 id="commentary">Commentary</h3>
+			<p>Here are explanations why these XS functions should or should not be allowed in AI tournaments. This section covers every function category, according to how functions are categorized on the UGC XS Scripting Reference.</p>
+			<h4 id="non">Non-Functions</h4>
+			<p>XS rules shouldn't be used because they do not operate independently for each AI player. Instead, XS rules seem to function globally, independent of AI players, which can easily throw off any player-specific code the rules contain, such as xsGetGoal. The only code that exists outside of XS function calls should be code that creates variables. XS variables, thankfully, are created and managed separately for each AI player.</p>
+			<h4 id="rules">Rules Functions</h4>
+			<p>See the section above about how XS rules shouldn't be used. Since rules shouldn't be used for AIs, XS functions that affect rules shouldn't be used either.</p>
+			<h4 id="vector">Vector Functions</h4>
+			<p>None of these functions are cheating. All they do is modify or get information about existing vector variables, which store 3-dimensional points.</p>
+			<h4 id="array">Array Functions</h4>
+			<p>Arrays are purely ways to store data, and therefore they don't cheat. Arrays are perhaps the most useful tool that XS scripts provide for AI scripters. However, be careful about when creating new arrays or increasing their size to make sure that your script doesn't repeatedly create new arrays or increase their size over and over again, causing massive memory usage. If XS code repeatedly creates new arrays throughout the game, the game can eventually crash after using up all of the computer's memory. Instead, make sure that you only create your arrays once. To be able to reference your created arrays outside of a called function, you can create a global XS variable at the start of the game which stores the array ID when it's created so that it can be referenced later.</p>
+			<h4 id="maths">Maths Functions</h4>
+			<p>All math functions are available to be used. The sqrt and trig functions can be especially useful to AI scripters since these calculations are difficult to replicate in AI .per code.</p>
+			<h4 id="randomization">Randomization Functions</h4>
+			<p>Non cheating. These functions just generate a random number.</p>
+			<h4 id="techs">Techs Functions</h4>
+			<p>xsResearchTechnology researches the tech immediately, so it is a cheating command. xsGetTechState and xsGetTechAttribute allow you to get tech info about other players, even enemies. Some tournament hosts may allow getting tech info about allies, but it's probably best to only use these functions for the AI player itself. xsGetTechAttribute can be particularly effective to get the research time or location of certain techs, because there are no .per equivalents.</p>
+			<h4 id="player">Player Functions</h4>
+			<p>xsEffectAmount is basically the same as fe-cc-effect-amount, which is almost always cheating. For simplicity, please use fe-cc-effect-amount instead to implement any permitted non-cheating cosmetic changes. xsGetPlayerUnitIds is essentially a DUC search, but it works on all players. xsPlayerAttribute is basically a resource-amount check on any player. xsSetPlayerAttribute modifies a player's given resource-amount, which is obviously cheating. xsDeclareVictory force declares victory for a player and is obviously cheating. All other player functions are permitted since they get information about players that every player has access to.</p>
+			<h4 id="tasks">Tasks Functions</h4>
+			<p>Tasks in this case refers to the particular tasks or actions that can be given to particular units, such as converting, garrisoning, guarding, combat, etc. These commands don't check a unit's current action, but check which actions an object can potentially do. Most Tasks functions allow you to change the default tasks of a unit, which is obviously cheating, but some merely check what tasks a unit type currently has, which is permitted if used on objects the AI owns.</p>
+			<h4 id="units">Units & Objects Functions</h4>
+			<p>These functions are basically XS' version of checking object data. The xsCreateUnit function immediately places a unit on the map at a given location, which is obviously cheating. xsRemoveUnit and the various function that set/change unit attributes are obviously cheating. The rest of the commands can be used as long as the units are owned by the AI itself, but the .per commands are probably easier to use. However, of particular interest are the xsGetGroupMoveTarget, xsGetGarrisonedInUnitId, and xsGetGarrisonedUnitIds functions, which don't have .per equivalents. They might be useful to AI scripters.</p>
+			<h4 id="map">Map Functions</h4>
+			<p>AIs shouldn't use xsSetColorMood since it affects all players, but it's just a cosmetic change. All other functions are permissible, but xsTriggerVariable and xsSetTriggerVariable only work in custom scenarios.</p>
+			<h4 id="game">Game Info Functions</h4>
+			<p>All game info functions get global information about the game, so all of these functions are permitted.</p>
+			<h4 id="ui">UI Functions</h4>
+			<p>Many of these functions can cause desync issues if different players use different languages, such as in a multiplayer game. Really, the only function that should be used in this category is xsChatData, which is essentially up-chat-data-to-self.</p>
+			<h4 id="file">File I/O Functions</h4>
+			<p>These functions are all permitted because each file is unique for each player. However, these are hex files and require more data manipulation to write and read data at the correct position. They are also overwritten each game, and you can't specify a file name or save location. up-log-data is much easier to use, and it's likely a better alternative to these functions.</p>
+			<h4 id="ai">AI Scripting Functions</h4>
+			<p>These functions are all permitted. If used from a function called by xs-script-call, they will only get and set values for the current AI player.</p>
+			<h4 id="misc">Miscellaneous Functions</h4>
+			<p>The only functions here that are useful are xsGetContextPlayer and xsSetContextPlayer. xsSetContextPlayer must be used before using any of the File I/O functions. The context player also affects xsEffectAmount. It's possible that xsBreakPoint might be useful, but it probably has the same effect as fe-break-point.</p>
+
+		</div>
+		<div id="footer-placeholder"></div>
+	</div>
+	
+	<script>
+		var urlPrefix = "../.."; //this adds a prefix to all reference links so the link knows the path to the home directory
+		var currPage = "resources";
+	</script>
+	<script src="../../js/nav.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<script src="../../jqueryui/jquery-ui.min.js"></script>
+
+</body>
+</html>
