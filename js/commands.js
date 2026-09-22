@@ -17786,7 +17786,7 @@ cUpGetPoint.complexity = "High";
 
 //up-get-point-contains
 cUpGetPointContains.shortDescription = "Get the id if an object exists at a point goal pair position.";
-cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
+cUpGetPointContains.description = "Get the id if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc. This command can be used as either a Fact or an Action.</p><p>Also, this action will work whether the point has been explored or not. Using up-get-point-contains on unexplored tiles is permitted for the purpose of map detection and can be a useful way to determine the layout of various maps, but for other purposes you must make sure that a tile has been explored before you can use up-get-point-contains on it. You can use " + cUpPointExplored.getLink() + " to check if a point has been explored.";
 cUpGetPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
@@ -19103,7 +19103,7 @@ cUpPlayersInGame.complexity = "Medium";
 
 //up-point-contains
 cUpPointContains.shortDescription = "Check if an object exists at a point goal pair position.";
-cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.</p><p>Also, this action will work whether the point has been explored or not. Therefore, in AI tournaments " + cUpPointExplored.getLink() + " must be used as a condition in every rule where this command is used.";
+cUpPointContains.description = "Check if an object exists at a point goal pair position. Set Point to 0 to use the point that is stored by " + cUpSetTargetPoint.getLink() + ". Please note that when used with all-units-class (-1), this may capture unexpected objects like birds flying over a tile, terrain plants, etc.</p><p>Also, this action will work whether the point has been explored or not. Using up-point-contains on unexplored tiles is permitted for the purpose of map detection and can be a useful way to determine the layout of various maps, but for other purposes you must make sure that a tile has been explored before you can use up-point-contains on it. You can use " + cUpPointExplored.getLink() + " to check if a point has been explored.";
 cUpPointContains.commandParameters = [ {
 	nameLink: pPoint.getLink(),
 	name: "Point",
