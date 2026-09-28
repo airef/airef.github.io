@@ -22849,7 +22849,7 @@ pDUCAction.valueList = [ {
 }, {
 	name: "action-gather",
 	id: 11,
-	description: "Buildings in the local list will set their gather point at the target point or at the location of the target object(s)."
+	description: "Buildings in the local list will set their gather point at the given point or at the location of the object(s) in the remote list or the target object. Some buildings, like towers, cannot set gather points onto units or gaia animals, and using action-gather with " + cUpTargetObjects.getLink() + " will simply set the gather point to the location of those objects."
 }, {
 	name: "action-lock",
 	id: 12,
@@ -27459,14 +27459,6 @@ pTerrain.valueList = [ {
 	name: "terrain-forest-oak-green*",
 	id: 133,
 	description: "DE only. Must be defined with a defconst. Green Oak Forest terrain."
-}, {
-	name: "terrain-water-weeds*",
-	id: 130,
-	description: "DE only. Must be defined with a defconst. Water Weeds terrain."
-}, {
-	name: "terrain-water-weeds*",
-	id: 130,
-	description: "DE only. Must be defined with a defconst. Water Weeds terrain."
 }];
 
 //ThreatPlayer
@@ -27629,6 +27621,78 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "object-data-faith does not work anymore on DE",
+	date: "Sep 28, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554122315489480725\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
+	description: "object-data-faith does not work anymore on DE."
+}, {
+	name: "up-get-object-type-data doesn't work with object-data-attack-delay",
+	date: "Sep 28, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554025124423008299\">Link</a>",
+	commands: [cUpGetObjectTypeData],
+	parameters: [pObjectData],
+	sns: [],
+	description: "up-get-object-type-data doesn't work with attack-delay. Just gives -2. Might also be worth checking if any other DE object-datas are bugged with this command."
+}, {
+	name: "(up-jump-rule 10000) can cause crashes",
+	date: "Sep 27, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1553877681425223721\">Link</a>",
+	commands: [cUpJumpRule, cUpJumpDynamic],
+	parameters: [],
+	sns: [],
+	description: "Discovered another bug, which might be the cause of Bambi's crashes, since Bambi has several (up-jump-rule 10000) lines. An AI with just this code (defrule (true) => (up-jump-rule 10000)) causes the game to crash or fails to render the game about 10-20% of the time on any map. Sometimes it takes me 5-12 restarts of the same game to cause the crash/failed game start, but I can always reproduce it eventually."
+}, {
+	name: "4x4 building placement is bugged",
+	date: "Sep 24, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1552712460912558124\">Link</a>",
+	commands: [cBuild, cBuildForward, cCanBuild, cCanBuildWithEscrow, cUpBuild, cUpCanBuild, cUpPendingPlacement],
+	parameters: [],
+	sns: [],
+	description: "4x4 building placement bug isnt fixed. Just had a game where half the players were completely unable to build a market for an hour. Then suddenly were after i manually placed one."
+}, {
+	name: "up-create-group doesn't work with group 20",
+	date: "Sep 18, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1550490014872240179\">Link</a>",
+	commands: [cUpCreateGroup, cUpSetGroup, cUpModifyGroupFlag],
+	parameters: [pGroupId, pObjectData],
+	sns: [],
+	description: "up-create-group doesn't work with group 20 despite the game including up to group 20 in DE. Group 19 still works, including with up-modify-group-flag, so you can see groups 1 to 19 in game. Note that up-create-group/up-modify-group-flag work perfectly with group 0 despite not being visible in game. Ungrouped units have a group-flag of -2. In userpatch, groups 0 to 9 all work perfectly."
+}, {
+	name: "Pasture counts work differently than expected for the different types of pastures",
+	date: "Sep 9, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1547454463441379429\">Link</a>",
+	commands: [cBuildingTypeCount, cBuildingTypeCountTotal, cPlayersBuildingTypeCount, cCcPlayersBuildingTypeCount, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpGetFact, cUpGetPlayerFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpFindLocal, cUpFindStatusLocal, cUpFindRemote, cUpFindStatusRemote],
+	parameters: [pBuildingId],
+	sns: [],
+	description: "Count pasture-land/pasture-mangrove only count land/mangrove. Count pasture gives 0. This is different for farms where farm counts both land and mangrove, while farm-mangrove only counts mangrove. All pending pastures are included in pasture-land, and never pasture/pasture-mangrove. Again it's different for farms, where farm counts land and mangrove, and count pending farm-mangrove only counts mangrove."
+}, {
+	name: "Pasture animals are farm class",
+	date: "Sep 9, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1547454382218678282\">Link</a>",
+	commands: [cUnitTypeCount, cUnitTypeCountTotal, cPlayersUnitTypeCount, cCcPlayersUnitTypeCount, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpGetFact, cUpGetPlayerFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum, cUpFindLocal, cUpFindStatusLocal, cUpFindRemote, cUpFindStatusRemote],
+	parameters: [pClassId, pFactId],
+	sns: [],
+	description: "Pasture animals are farm-class, so counting farm-class or using duc on farm-class doesnt work properly. This should be changed."
+}, {
+	name: "villager-herder set is missing",
+	date: "Sep 9, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1547139274917285888\">Link</a>",
+	commands: [cUnitTypeCount, cUnitTypeCountTotal, cPlayersUnitTypeCount, cCcPlayersUnitTypeCount, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpGetFact, cUpGetPlayerFact, cUpGetFactMax, cUpGetFactMin, cUpGetFactSum],
+	parameters: [pSetId, pUnitId, pFactId],
+	sns: [],
+	description: "Missing set for villager-herder. They are still included in villager-food, however."
+}, {
+	name: "Units with secondary units for training at separate buildings have the wrong training location or don't have a duplicate unit altogether",
+	date: "Sep 8, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1546839228271562823\">Link</a>",
+	commands: [cCanTrain, cCanTrainWithEscrow, cTrain, cUpCanTrain, cUpTrain, cUpTrainSiteReady, cUpGetObjectData, cUpObjectData, cUpTargetPoint],
+	parameters: [pObjectData],
+	sns: [],
+	description: "I cant remember if i reported this before but the train-site for barracks-huskarl is castle instead of barracks. Same for the tarkan. Also, units with multiple train locations that have been introduced since the Last Chieftains DLC (e.g. settlement spearmen/skirms or monastery temple guards) do not have a separate training ID to train them from their secondary building, and only using action-train with up-target-point can currently train them from their secondary building."
+}, {
 	name: "The can-afford commands don't take into account resources spent on buildings during the current script pass",
 	date: "Sep 5, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1545860910671732838\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1546318732660576346\">Link2</a>",
@@ -28065,14 +28129,14 @@ var bugsArray = [ {
 	sns: [],
 	description: "Did some quick testing with removing the UserPatchConst.per file from my AI. Looks like the ExploredState, ObjectList, ObjectStatus, SearchOrder, and ObjectData constants aren't defined properly in DE. Also, actionid-relic and orderid-relic are missing but the rest of the actions and orders are defined."
 }, {
-	name: "sn-object-repair-level doesn't work",
-	date: "Jan 19, 2024",
-	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1197973709693124648\">Link</a>",
-	commands: [],
-	parameters: [],
-	sns: [snObjectRepairLevel],
-	description: "Is sn-object-repair-level working for anyone at the moment? It doesn't matter what value I set it to, villagers won't repair anything anymore. I've confirmed using up-chat-data-to player the SN is set to the correct values for repairing specific objects."
-}, {
+// 	name: "sn-object-repair-level doesn't work",
+// 	date: "Jan 19, 2024",
+// 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1197973709693124648\">Link</a>",
+// 	commands: [],
+// 	parameters: [],
+// 	sns: [snObjectRepairLevel],
+// 	description: "Is sn-object-repair-level working for anyone at the moment? It doesn't matter what value I set it to, villagers won't repair anything anymore. I've confirmed using up-chat-data-to player the SN is set to the correct values for repairing specific objects."
+// }, {
 // 	name: "dropsite-min-distance doesn't update with mule carts",
 // 	date: "Jan 15, 2024",
 // 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1196436741251420221\">Link</a>",
@@ -28193,14 +28257,14 @@ var bugsArray = [ {
 	sns: [],
     description: "up-get-player-fact for building-count does not work for enemy players on DE. It just returns -1. This command does however work when used as a normal fact: (players-building-count etc.). Update: up-get-player-fact for building-count only returns 0 now."
 }, {
-    name: "ai_info_map_type doesn't work",
-    date: "Dec 21, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
-	commands: [cLoadIfDefined, cLoadIfNotDefined],
-	parameters: [],
-	sns: [],
-    description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
-}, {
+//     name: "ai_info_map_type doesn't work",
+//     date: "Dec 21, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/485587455257346062/1055262362816499722\">Link</a>",
+// 	commands: [cLoadIfDefined, cLoadIfNotDefined],
+// 	parameters: [],
+// 	sns: [],
+//     description: "ai_info_map_type doesn't seem to work in DE. See the Discord link for test random map scripts and screenshots."
+// }, {
     name: "Path distance calculation issues",
     date: "Nov 22, 2022",
     link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1044618526050230392\">Link1</a>, <a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1449416353801961562\">Link2</a>",
@@ -28272,14 +28336,14 @@ var bugsArray = [ {
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013569003475701841\">Link</a>",
 //     description: "I've also seen when one villager remains, it is forced to explore. I recall it happening in UP as well."
 // }, {
-    name: "sn-number-boat-explore-groups bug",
-    date: "Aug 28, 2022",
-    link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013526417411154030\">Link</a>",
-	commands: [],
-	parameters: [],
-	sns: [snNumberBoatExploreGroups],
-    description: "Setting sn-number-boat-explore-groups to 0 doesnt stop the first trained ship from exploring"
-}, {
+//     name: "sn-number-boat-explore-groups bug",
+//     date: "Aug 28, 2022",
+//     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1013526417411154030\">Link</a>",
+// 	commands: [],
+// 	parameters: [],
+// 	sns: [snNumberBoatExploreGroups],
+//     description: "Setting sn-number-boat-explore-groups to 0 doesnt stop the first trained ship from exploring"
+// }, {
 //     name: "Taunts 15 and 18 are incorrect sounds",
 //     date: "Aug 13, 2022",
 //     link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1008165425042968606\">Link</a>",
