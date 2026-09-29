@@ -7684,7 +7684,7 @@ snProfilingThreshold.up = 0;
 snProfilingThreshold.de = 1;
 snProfilingThreshold.linked = [];
 snProfilingThreshold.related = [];
-snProfilingThreshold.shortDescription = "The maximum number of milliseconds between script passes before the game will be stopped and the debug screen will appear. Ignored if set to -1 (the default).</p><p>For this SN to work, you must also add the Steam launch parameters AIDEBUGGING and AISCRIPTPROFILING. To set launch parameters, open Steam => Right click the game in the Library view => click Properties => and type the launch parameters, separated by spaces (not commas).</p><p>According to offwo, the DE devs give a rough guideline that this shouldn't trigger at 1000 and under 600 was ideal, but offwo suggests that setting this SN to 1500-2000 is fine for a custom AI. Setting this SN to a higher value like 10000 can help find jump freezes too without having to wait a long time.";
+snProfilingThreshold.shortDescription = "Sets a performance threshold that if exceeded will cause the game will be stopped and the debug screen will appear. Ignored if set to -1 (the default). It's unknown which performance metric this SN is using.</p><p>For this SN to work, you must also add the Steam launch parameters AIDEBUGGING and AISCRIPTPROFILING. To set launch parameters, open Steam => Right click the game in the Library view => click Properties => and type the launch parameters, separated by spaces (not commas).</p><p>According to offwo, the DE devs give a rough guideline that this shouldn't trigger at 1000 and under 600 was ideal, but offwo suggests that setting this SN to 1500-2000 is fine for a custom AI. Setting this SN to a higher value like 10000 can help find jump freezes too without having to wait a long time.</p><p>Further guidance from Aleph: One benefit is that the AISCRIPTPROFILING debug screen in conjunction with saving the player number in a goal makes it very easy to identify the offending player in the case of a freeze. This is a great improvement over the old AoC tournaments. In contrast, unlike freezes, identifying the cause of a crash is still virtually impossible except by the devs.</p><p>The downside to sn-profiling-threshold is that we're not clear on how the engine determines when the threshold is met, or what exactly the number is supposed to represent.</p><p>As far as I can tell, it is decided within the script pass itself and triggers on a specific rule (which is displayed), but beyond that I have no idea. According to a guideline given by the devs, the AI should never trigger the profiling threshold on a setting of 1000. However, I've sometimes seen it trigger on settings as high as 3000 without the AI exceeding optimal performance (333ms between ticks), including a case of DEfault repeatedly triggering it in dark age, and Illuminati triggering it just by sending 12 debug chat messages. It is possible that the system is simply flawed, and runs a risk of intering with the smooth running of tournament games if left enabled.";
 
 snEnableResearchQueue.id = 306;
 snEnableResearchQueue.snName = "sn-enable-research-queue";
@@ -27621,6 +27621,22 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "AISCRIPTPROFILING launch parameter degrades performance",
+	date: "Sep 29, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554467621284352111\">Link</a>",
+	commands: [],
+	parameters: [],
+	sns: [snProfilingThreshold],
+	description: "Be advised that the AISCRIPTPROFILING launch option massively degrades AI performance (by about 4 times, at first glance)."
+}, {
+	name: "object-data-ballistics doesn't work for town centers",
+	date: "Sep 29, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554387200714739854\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData],
+	parameters: [pObjectData],
+	sns: [],
+	description: "object-data-ballistics doesn't work for town-center. Just gives -2."
+}, {
 	name: "object-data-faith does not work anymore on DE",
 	date: "Sep 28, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554122315489480725\">Link</a>",
