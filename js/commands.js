@@ -27621,6 +27621,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "actionid-research, orderid-research, and object-data-researching don't detect when a building is researching",
+	date: "Oct 3, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1556019050818183289\">Link</a>",
+	commands: [cUpGetObjectData, cUpObjectData, cUpFilterInclude, cUpFilterExclude, cUpRemoveObjects],
+	parameters: [pActionId, pOrderId, pObjectData],
+	sns: [],
+	description: "actionid-research and orderid-research don't seem to work at all, neither with up-filter-exclude nor with up-remove-objects. Nor does object-data-researching. When a blacksmith is researching scale mail armor, actionid-research and orderid-research are -1, and object-data-researching is 0. For now, object-data-progress-type might be the only way to check if a building is researching something."
+}, {
 	name: "AISCRIPTPROFILING launch parameter degrades performance",
 	date: "Sep 29, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554467621284352111\">Link</a>",
@@ -27632,7 +27640,7 @@ var bugsArray = [ {
 	name: "object-data-ballistics doesn't work for town centers",
 	date: "Sep 29, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554387200714739854\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpRemoveObjects],
 	parameters: [pObjectData],
 	sns: [],
 	description: "object-data-ballistics doesn't work for town-center. Just gives -2."
@@ -27640,7 +27648,7 @@ var bugsArray = [ {
 	name: "object-data-faith does not work anymore on DE",
 	date: "Sep 28, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1554122315489480725\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpRemoveObjects],
 	parameters: [pObjectData],
 	sns: [],
 	description: "object-data-faith does not work anymore on DE."
@@ -27776,7 +27784,7 @@ var bugsArray = [ {
 	name: "object-data-carry bugged for pastures",
 	date: "Jun 24, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1519513889874772110\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpRemoveObjects, cUpCleanSearch],
 	parameters: [pObjectData],
 	sns: [],
 	description: "object-data-carry for pastures is -2 unless a particular one of the three pasture animals on it has been killed, and then object-data-carry works properly."
@@ -27784,7 +27792,7 @@ var bugsArray = [ {
 	name: "The move position of groups of units in transport ships is bugged when the transport ship stops moving",
 	date: "Jun 12, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1514968574735941792\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpRemoveObjects],
 	parameters: [pObjectData],
 	sns: [],
 	description: "Here's a weird bug involving transport ships. If you decide to garrison a group into a transport ship their move pos will be constantly set to the transport ship location (as expected). If you unload the group somewhere their move pos will be set to the location they unboarded (as expected). If you move the group around as a group the move position will continue to update as expected. But the moment the group stops, the move postion gets reset to the position where they originally boarded the ship. I suspect this happens whenever they break formation. Probably it doesn't properly update the move position of the individual units in this scenario. Usually when a group stops, the move position gets reset to -1."
@@ -27816,7 +27824,7 @@ var bugsArray = [ {
 	name: "object-data-attacker-count and object-data-under-attack doesn't work for building foundations",
 	date: "Apr 13, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1493372417827934278\">Link</a>",
-	commands: [cTownUnderAttack, cUpGetObjectData, cUpObjectData],
+	commands: [cTownUnderAttack, cUpGetObjectData, cUpObjectData, cUpRemoveObjects],
 	parameters: [pObjectData],
 	sns: [],
 	description: "Apparently, object-data-attacker-count and object-data-under-attack NEVER return a positive value for foundations. I'm hitting it, illu just cant detect it. It also doesnt trigger (town-under-attack), only does if I hit something thats finished."
@@ -27832,7 +27840,7 @@ var bugsArray = [ {
 	name: "Issues with fire-lancer-line being > 0 with no fire lancers on the map",
 	date: "Mar 19, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/485566694912163861/1484227547251343503\">Link</a>",
-	commands: [cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindRemote, cUpFindStatusRemote],
+	commands: [cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindLocal, cUpFindStatusLocal, cUpFindRemote, cUpFindStatusRemote],
 	parameters: [],
 	sns: [],
 	description: "There are situations where fire-lancer-line can be > 0 when counting enemy Khitan objects even though no fire lancers have been seen. Also happens when counting fire-lancer and elite-fire-lancer."
@@ -27848,7 +27856,7 @@ var bugsArray = [ {
 	name: "rocket-cart-line is defined incorrectly",
 	date: "Feb 23, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1475357646243495946\">Link1</a>, <a href=\"https://discordapp.com/channels/485565215161843714/925409493792202813/1385493391751516301\">Link2</a>",
-	commands: [cPlayersUnitTypeCount, cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindRemote, cUpFindStatusRemote],
+	commands: [cPlayersUnitTypeCount, cUnitTypeCount, cUnitTypeCountTotal, cUpObjectTypeCount, cUpObjectTypeCountTotal, cUpFindLocal, cUpFindStatusLocal, cUpFindRemote, cUpFindStatusRemote],
 	parameters: [pLineId],
 	sns: [],
 	description: "In unitlines.json the rocket-cart-line is defined as 1904 and 1906, but rocket cart and heavy rocket cart are 1904 and 1907. This causes rocket-cart-line to not include heavy rocket carts. This also causes rocket cart projectiles to be counted with rocket-cart-line since the rocket cart projectile is 1906."
@@ -27940,7 +27948,7 @@ var bugsArray = [ {
 	name: "object-data-carry doesn't work for trade carts",
 	date: "Nov 24, 2025",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1442546497706135685\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpRemoveObjects, cUpCleanSearch],
 	parameters: [pObjectData],
 	sns: [],
 	description: "Trade carts report an object-data-carry of 0 at all times. object-data-carry works properly in UP."
@@ -28008,7 +28016,7 @@ var bugsArray = [ {
 	name: "object-data-to-precise measures from left corner of target point",
 	date: "Jul 3, 2025",
 	link: "<a href=\"https://discordapp.com/channels/485565215161843714/485566694912163861/1390355449290817729\">Link</a>",
-	commands: [cUpObjectData, cUpGetObjectData],
+	commands: [cUpObjectData, cUpGetObjectData, cUpRemoveObjects, cUpCleanSearch],
 	parameters: [pObjectData],
 	sns: [],
 	description: "So, my test seems to confirm that object-data-to-precise measures from the left corner of the precise target point. It does measure from the precise location of the target object though. UP correctly calculates from the precise point exactly, not its left corner. Until this bug is fixed, use up-get-object-data to store the target object's object-data-precise-x and object-data-precise-y, and then use up-get-point-distance to calculate the precise distance from the target point."
@@ -28090,7 +28098,7 @@ var bugsArray = [ {
 	name: "object-data-player doesn't update for human-controlled units after an AI monk converts them",
 	date: "May 23, 2024",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1243318310398070864\">Link</a>",
-	commands: [cUpGetObjectData, cUpObjectData],
+	commands: [cUpGetObjectData, cUpObjectData, cUpFindLocal, cUpFindRemote, cUpFindStatusLocal, cUpFindStatusRemote, cUpRemoveObjects],
 	parameters: [pObjectData],
 	sns: [],
 	description: "I've been wondering why Bright Spark's military have been clumping in the home base during team games vs humans but I've never been able to recreate it with AI games. Turns out, if you are a human player and your unit gets converted - DUC remote searches still think the unit belongs to the human player. Play the same scenario with an AI and the DUC search picks up the unit switching side. In Bright Spark's example, every case the units were clumped up it was because it had converted an enemy human's unit and my DUC was getting the army to all action-default to that unit, even though it wasn't an enemy anymore."
