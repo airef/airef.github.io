@@ -21,20 +21,20 @@
 			<p>Tangentially related, but if you are interested in performance limitations of various commands, check out this thread in the AI Scripter's forums (account required) where TheMaximalBeing posts the results from lag tests: <a href="https://forums.aiscripters.com/viewtopic.php?f=3&t=3992">Link</a></p>
 			<h3>Data Limits Summary</h3>
 			<ul>
-				<li>Rules: 10,000 rules, numbered from 0 to 9,999</li>
+				<li>Rules: 10,000 rules, numbered from 0 to 9,999 (1000 rules in 1.0c)</li>
 				<li>Elements per rule: 16 in UP, 32 in DE</li>
 				<li>Goals: 1 to 16,000</li>
 				<li>Strategic Numbers: 0 to 511</li>
-				<li>Timers: 1 to 50</li>
+				<li>Timers: 1 to 100 (1 to 50 in UP and 1 to 10 in 1.0c)</li>
 				<li>Defconst values: -32768 to 32767 or a text string</li>
-				<li>Goal and SN values: -2,147,483,648 to 2,147,483,647</li>
+				<li>Goal and SN values: -2,147,483,648 to 2,147,483,647 (-32768 to 32767 in 1.0c)</li>
 				<li>Flag values: powers of 2 from 1 to 2,147,483,648</li>
 				<li>DUC Local Search list length: 240</li>
 				<li>DUC Remote Search list length: 40</li>
 				<li>Taunts: 255</li>
 				<li>Characters per line: 255</li>
 				<li>Nested File Load Commands: 10 files deep</li>
-				<li>Nested #load-if Commands: 50 (might be lower, somewhere in the 30s)</li>
+				<li>Nested #load-if Commands: official documentation says 50, some reports say it might be lower, somewhere in the 30s</li>
 				<li>Doctrine: 1</li>
 			</ul>
 			<h3>Rules</h3>
@@ -46,7 +46,7 @@
 			<h3>Strategic Numbers</h3>
 			<p>Strategic numbers modify various built-in behaviors and settings that can modify the automatic behaviors of your AI. See the <a href="../../strategic-numbers/sn-index.html">SN Index</a> for details on what each strategic number does. Each SN is given an ID between 0 and 511. Currently, the SNs in the 313-511 range don't appear in the SN index and don't modify the behavior of your AI, but they are available for your AI to use. So, you can modify these SNs however you like, similar to goals, without changing the behavior of your AI. However, if you want to use a strategic number in this way like an extra custom goal, always check the SN index to make sure that the SN ID you are using is actually currently unused. A good practice is to start with using SN 511 and work your way backwards toward SNs in the 300 range.</p>
 			<h3>Timers</h3>
-			<p>There are 50 different timers an AI script can use at any time, numbered from 1 to 50.</p>
+			<p>There are 100 different timers an AI script can use at any time, numbered from 1 to 100. There were only 10 timers in 1.0c and only 50 timers in UP.</p>
 			<h3>Defconst Values</h3>
 			<p>Defconsts allow you to train your AI to treat a word or phrase in place of an integer value. See this article series that explains what defconsts do: <a href="../../resources/articles/defconsts-goals-sns-1.html">Link</a>. The value you can use with a defconst can range from -32,768 to 32,767 (a 16-bit signed integer). You can also defconst a text string such as (defconst chat-gg "gg").</p>
 			<h3>Goal and SN Values</h3>

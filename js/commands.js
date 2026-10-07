@@ -12056,7 +12056,7 @@ cDisableSelf.complexity = "Low";
 
 //disable-timer
 cDisableTimer.shortDescription = "Disables the given timer.";
-cDisableTimer.description = "Disables the given timer. The given timer can be any valid timer number, which can range from 1 to 50. You can also substitute a defconst that is defined with a value between 1 and 50 if you want to give the timer a name.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. disable-timer or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. " + cEnableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
+cDisableTimer.description = "Disables the given timer. The given timer can be any valid timer number, which can range from 1 to 100 (1-50 in UP and 1-10 in 1.0c). You can also substitute a defconst that is defined with a value between 1 and 100 if you want to give the timer a name.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. disable-timer or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. " + cEnableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
 cDisableTimer.commandParameters = [ {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -12160,7 +12160,7 @@ cEnableRule.complexity = "Don't Use";
 
 //enable-timer
 cEnableTimer.shortDescription = "Enables the given timer and sets it to the given time interval.";
-cEnableTimer.description = "Enables the given timer and sets it to the given time interval. The given timer can be any valid timer number, which can range from 1 to 50. You can also substitute a defconst that is defined with a value between 1 and 50 if you want to give the timer a name.</p><p></p><p>Time intervals are measured in game time seconds, so enabling a timer for 240 seconds would start a 4 minute timer. If played on 2.0 speed (Fast speed), this 4 minute timer would last 2 minutes in real time.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. " + cDisableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. enable-timer or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
+cEnableTimer.description = "Enables the given timer and sets it to the given time interval. The given timer can be any valid timer number, which can range from 1 to 100 (1-50 in UP and 1-10 in 1.0c). You can also substitute a defconst that is defined with a value between 1 and 100 if you want to give the timer a name.</p><p></p><p>Time intervals are measured in game time seconds, so enabling a timer for 240 seconds would start a 4 minute timer. If played on 2.0 speed (Fast speed), this 4 minute timer would last 2 minutes in real time.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. " + cDisableTimer.getLink() + " or " + cUpSetTimer.getLink() + " with a -1 timer length puts the timer in the timer-disabled state. enable-timer or " + cUpSetTimer.getLink() + " with a timer length > 0 puts the timer in the timer-running state. disable-timer doesn't have to be used before using an enable-timer command.";
 cEnableTimer.commandParameters = [ {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -14078,7 +14078,7 @@ cTauntUsingRange.complexity = "Low";
 
 //timer-triggered
 cTimerTriggered.shortDescription = "Checks whether a given timer has triggered (the time on the timer has run out).";
-cTimerTriggered.description = "Checks whether a given timer has triggered (the time on the timer has run out). For disabled or running timers this fact is always false. The check can be performed any number of times until the timer is explicitly disabled or enabled again (restarted).</p><p>The given timer ID can be any valid timer ID, which can range from 1 to 50. You can also substitute a defconst that is defined with a value between 1 and 50 if you want to give the timer a name.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. All 50 timers start in the timer-disabled state, and timer-triggered command is only true when the timer is in the timer-triggered state. To disable a timer, use " + cDisableTimer.getLink() + " or use " + cUpSetTimer.getLink() + " with a -1 timer length. To enable a timer, use " + cEnableTimer.getLink() + " or use " + cUpSetTimer.getLink() + " with a timer length > 0.";
+cTimerTriggered.description = "Checks whether a given timer has triggered (the time on the timer has run out). For disabled or running timers this fact is always false. The check can be performed any number of times until the timer is explicitly disabled or enabled again (restarted).</p><p>The given timer ID can be any valid timer ID, which can range from 1 to 100 (1-50 in UP and 1-10 in 1.0c). You can also substitute a defconst that is defined with a value between 1 and 100 if you want to give the timer a name.</p><p>Timers have three possible states, and they cannot have multiple states at once: timer-running, timer-triggered, and timer-disabled. All 50 timers start in the timer-disabled state, and timer-triggered command is only true when the timer is in the timer-triggered state. To disable a timer, use " + cDisableTimer.getLink() + " or use " + cUpSetTimer.getLink() + " with a -1 timer length. To enable a timer, use " + cEnableTimer.getLink() + " or use " + cUpSetTimer.getLink() + " with a timer length > 0.";
 cTimerTriggered.commandParameters = [ {
 	nameLink: pTimerId.getLink(),
 	name: "TimerId",
@@ -18160,7 +18160,7 @@ cUpGetTimer.commandParameters = [ {
 	name: "TimerId",
 	type: "Op",
 	dir: "in",
-	range: "1 to 50",
+	range: "1 to 100",
 	note: "The timer to get."
 }, {
 	nameLink: pOutputGoalId.getLink(),
@@ -20545,7 +20545,7 @@ cUpSetTimer.commandParameters = [ {
 	name: "TimerId",
 	type: "Op",
 	dir: "in",
-	range: "1 to 50",
+	range: "1 to 100",
 	note: "The timer to set."
 }, {
 	nameLink: pTypeOp.getLink(),
@@ -27494,7 +27494,7 @@ pThreatTime.relatedParams = [pThreatPlayer, pThreatSource, pThreatTarget];
 //TimerId
 pTimerId.description = "The ID of a timer or a defconst representing a timer.";
 pTimerId.shortDescription = "The ID of a timer or a defconst representing a timer.";
-pTimerId.range = "1 to 50.";
+pTimerId.range = "1 to 100 (1-50 in UP and 1-10 in 1.0c).";
 pTimerId.relatedParams = [pTimerState];
 
 //TimerState
