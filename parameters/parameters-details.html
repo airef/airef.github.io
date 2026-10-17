@@ -91,7 +91,12 @@
 					info = info.slice(0, pos);
 					info += "</td></tr>";
 				}
-				info += "<tr><td>Used In These Commands</td><td>" + parametersArray[i].getCommands() + "</td></tr></table></p>";
+				info += "<tr><td>Used In These Commands</td><td>" + parametersArray[i].getCommands();
+				if(parametersArray[i].upParamName == pEscrowGoalId.upParamName)
+				{
+					info += ", " + cUpTargetPoint.getLink();
+				}
+				info += "</td></tr></table></p>";
 				if (parametersArray[i].prefixTypes.length > 0)
 				{
 					info += "<p><h3>Prefix Types</h3></p>";

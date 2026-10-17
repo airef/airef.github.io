@@ -55,10 +55,10 @@ class Parameter {
 				}
 				j++;
 			}
-			if (commandsArray[i] == cUpTargetPoint) {
-				usedCommands += cUpTargetPoint.getLink();
-				usedCommands += ", &nbsp;";
-			}
+			// if (commandsArray[i] == cUpTargetPoint) {
+			// 	usedCommands += cUpTargetPoint.getLink();
+			// 	usedCommands += ", &nbsp;";
+			// }
 		}
 
 		if (usedCommands.length > 0) {
@@ -22849,7 +22849,7 @@ pDUCAction.valueList = [ {
 }, {
 	name: "action-gather",
 	id: 11,
-	description: "Buildings in the local list will set their gather point at the given point or at the location of the object(s) in the remote list or the target object. Some buildings, like towers, cannot set gather points onto units or gaia animals, and using action-gather with " + cUpTargetObjects.getLink() + " will simply set the gather point to the location of those objects."
+	description: "Buildings in the local list will set their gather point at the given point or at the location of the object(s) in the remote list or the target object. Some buildings, like towers, cannot set gather points onto units or gaia animals, and using action-gather with " + cUpTargetObjects.getLink() + " will simply set the gather point to the location of those objects. To reset a gather point, use (up-target-point g-point-x action-gather -1 -1), where the coordinates of g-point-x are (-1, -1). " + snTargetPointAdjustment.getLink() + " must be set to 0 to reset the gather point."
 }, {
 	name: "action-lock",
 	id: 12,
@@ -27621,6 +27621,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "up-assign-builders functionality has changed",
+	date: "Oct 6, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1556930564412538883\">Link</a>",
+	commands: [cUpAssignBuilders],
+	parameters: [],
+	sns: [],
+	description: "Elias: There is a new issue with assigning the first villagers to the first houses, on the newest patch. I think someone else reported it a while ago too. Both houses get only one builder each, even though there previously were two builders on one of the houses, with the same code. @fireball37's first two houses snippet is a reference implementation. My code is based on that. It uses (up-assign-builders c: house c: 2), not villager DUC, and this used to assign two villagers to the first house and assign the third villager to the second house. Update from interlepus: Yes, I have had issues with the first house too. had to review this completely, it was taking one vill from the 2 assigned to the first house to build de 2nd, while before the patch 2 went to house 1 and 1 went to house 2. So somehow I'm guessing the up assign builders command doesnt prevent villagers who have just been assigned to another building to be assigned as the builder to a new foundation."
+}, {
 	name: "actionid-research, orderid-research, and object-data-researching don't detect when a building is researching",
 	date: "Oct 3, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1556019050818183289\">Link</a>",
