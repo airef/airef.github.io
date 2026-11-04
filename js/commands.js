@@ -23835,9 +23835,9 @@ pMapType.valueList = [ {
 	id: 38,
 	description: "Metropolis map. Must be defined with a defconst."
 }, {
-	name: "moats",
+	name: "standard-moats",
 	id: 39,
-	description: "Moats map. Must be defined with a defconst."
+	description: "Moats map. Must be defined with a defconst. Note that the similar Team Moats is currently (as of November 2026) defined as \"moats\", so you must define the standard moats map as something else, like standard-moats."
 }, {
 	name: "paradise-island",
 	id: 40,
@@ -27625,6 +27625,14 @@ var bugsArray = [ {
 //	sns: [],
 // 	description: ""
 // }, {
+	name: "MapType constants incorrectly defined for AIs",
+	date: "Nov 4, 2026",
+	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1567605015030530160\">Link</a>",
+	commands: [cMapType],
+	parameters: [pMapType],
+	sns: [],
+	description: "Minor bugs, but internal AI constants in the maps.json are defined in a confusing (and likely incorrect) way for the Moats and Teams Moats maps. The Moats map has no internal constant, and Team Moats is confusingly defined as moats. Also, there are also several constants in maps.json which contain a space, which the AI engine cannot handle, requiring AI scripters to manually defconst them. Currently Chaos Pit, Dorothea Quarry, Loch Ness, and Arabian Desert all contain spaces in their const_name definitions. A few dozen maps lack a const_name variable altogether, forcing AI scripters to defconst them."
+}, {
 	name: "up-assign-builders functionality has changed",
 	date: "Oct 6, 2026",
 	link: "<a href=\"https://discord.com/channels/485565215161843714/925409493792202813/1556930564412538883\">Link</a>",
