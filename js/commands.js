@@ -18022,16 +18022,16 @@ cUpGetSharedGoal.commandParameters = [ {
 	range: "1 to 256",
 	note: "The shared goal to get."
 }, {
-	nameLink: pValue.getLink(),
-	name: "Value",
+	nameLink: pOutputGoalId.getLink(),
+	name: "OutputGoalId",
 	type: "Goal",
 	dir: "out",
 	range: "a valid GoalId",
 	note: "Stores the shared goal value."
 } ];
 cUpGetSharedGoal.example = [ {
-	title: "Get the value of shared goal id 0.",
-	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-shared-goal c: 0 gl-value)\r\n)"
+	title: "Get the value of shared goal id 31.",
+	data: "(defconst gl-value 100)\r\n(defrule\r\n\t(true)\r\n=&gt;\r\n\t(up-get-shared-goal c: 31 gl-value)\r\n)"
 } ];
 cUpGetSharedGoal.relatedCommands = [];
 cUpGetSharedGoal.commandCategory = ["Goals", "Other Player Info"];/*
@@ -24254,6 +24254,10 @@ pMapType.valueList = [ {
 	name: "michi",
 	id: 154,
 	description: "Michi map."
+}, {
+	name: "moats",
+	id: 155,
+	description: "Team Moats map. Notice the short name."
 }, {
 	name: "volcanic-island",
 	id: 156,
